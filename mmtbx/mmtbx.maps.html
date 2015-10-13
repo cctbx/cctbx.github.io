@@ -1,0 +1,1121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mmtbx.maps package &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="mmtbx - macromolecular crystallography" href="mmtbx.html" />
+    <link rel="prev" title="mmtbx.kinemage package" href="mmtbx.kinemage.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.kinemage.html" title="mmtbx.kinemage package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mmtbx-maps-package">
+<h1>mmtbx.maps package<a class="headerlink" href="#mmtbx-maps-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-mmtbx.maps.composite_omit_map">
+<span id="mmtbx-maps-composite-omit-map-module"></span><h2>mmtbx.maps.composite_omit_map module<a class="headerlink" href="#module-mmtbx.maps.composite_omit_map" title="Permalink to this headline">¶</a></h2>
+<p>Methods and utilities for generating composite omit maps.  The actual
+end-user application, phenix.composite_omit_map, is part of the phenix
+sources.</p>
+<dl class="function">
+<dt id="mmtbx.maps.composite_omit_map.combine_maps">
+<tt class="descclassname">mmtbx.maps.composite_omit_map.</tt><tt class="descname">combine_maps</tt><big>(</big><em>map_arrays</em>, <em>omit_groups</em>, <em>background_map_coeffs</em>, <em>resolution_factor</em>, <em>flatten_background=False</em>, <em>sigma_scaling=False</em>, <em>control_map=False</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.combine_maps" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each box, FFT the corresponding omit map coefficients, extract the
+omit regions, and copy them to the combined map, using Marat&#8217;s asymmetric
+map class to handle symmetry expansion internally.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.composite_omit_map.create_omit_regions">
+<tt class="descclassname">mmtbx.maps.composite_omit_map.</tt><tt class="descname">create_omit_regions</tt><big>(</big><em>xray_structure</em>, <em>selection=None</em>, <em>fraction_omit=0.05</em>, <em>optimize_binning=True</em>, <em>box_cushion_radius=2.5</em>, <em>even_boxing=False</em>, <em>asu_buffer_thickness=1e-05</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.create_omit_regions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Divide the asymmetric unit into boxes of atoms to omit.  This will include
+a cushion around the actual omit region.  Although the step size is uniform,
+by default boxes will be grouped as needed to make the distribution roughly
+even and keep the total number of omit regions to a minimum.
+If a region does not contain any atoms, it will be skipped and filled in
+with the background map.</p>
+<p>Returns a list of omit_regions objects, which specify the selection of atoms
+to omit along with the boxes of interest (in fractional coordinates).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.composite_omit_map.grid_max">
+<tt class="descclassname">mmtbx.maps.composite_omit_map.</tt><tt class="descname">grid_max</tt><big>(</big><em>grid_coords</em>, <em>n_real</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.grid_max" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.composite_omit_map.join_selections">
+<tt class="descclassname">mmtbx.maps.composite_omit_map.</tt><tt class="descname">join_selections</tt><big>(</big><em>sel1</em>, <em>sel2</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.join_selections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.composite_omit_map.omit_box">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.composite_omit_map.</tt><tt class="descname">omit_box</tt><big>(</big><em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate_default_initializer" title="libtbx.slots_getstate_setstate_default_initializer"><tt class="xref py py-class docutils literal"><span class="pre">libtbx.slots_getstate_setstate_default_initializer</span></tt></a></p>
+<p>Defines a region in fractional coordinates containing a selection of atoms
+to be omitted.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_box.n_atoms" title="mmtbx.maps.composite_omit_map.omit_box.n_atoms"><tt class="xref py py-obj docutils literal"><span class="pre">n_atoms</span></tt></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_box.show" title="mmtbx.maps.composite_omit_map.omit_box.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_box.frac_max">
+<tt class="descname">frac_max</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_box.frac_max" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_box.frac_min">
+<tt class="descname">frac_min</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_box.frac_min" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_box.n_atoms">
+<tt class="descname">n_atoms</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_box.n_atoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_box.selection">
+<tt class="descname">selection</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_box.selection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_box.serial">
+<tt class="descname">serial</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_box.serial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.omit_box.show">
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_box.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.composite_omit_map.omit_region_results">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.composite_omit_map.</tt><tt class="descname">omit_region_results</tt><big>(</big><em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_region_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate_default_initializer" title="libtbx.slots_getstate_setstate_default_initializer"><tt class="xref py py-class docutils literal"><span class="pre">libtbx.slots_getstate_setstate_default_initializer</span></tt></a></p>
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_region_results.map_coeffs_list">
+<tt class="descname">map_coeffs_list</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_region_results.map_coeffs_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_region_results.r_free">
+<tt class="descname">r_free</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_region_results.r_free" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_region_results.r_work">
+<tt class="descname">r_work</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_region_results.r_work" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_region_results.serial">
+<tt class="descname">serial</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_region_results.serial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.composite_omit_map.omit_regions">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.composite_omit_map.</tt><tt class="descname">omit_regions</tt><big>(</big><em>serial</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_regions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate" title="libtbx.slots_getstate_setstate"><tt class="xref py py-class docutils literal"><span class="pre">libtbx.slots_getstate_setstate</span></tt></a></p>
+<p>Groups together multiple omit_box objects (without any implicit spatial
+relationship); this is used to reduce the total number of bins of omitted
+atoms and to make the fraction omitted per bin approximately similar.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.n_atoms" title="mmtbx.maps.composite_omit_map.omit_regions.n_atoms"><tt class="xref py py-obj docutils literal"><span class="pre">n_atoms</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.n_boxes" title="mmtbx.maps.composite_omit_map.omit_regions.n_boxes"><tt class="xref py py-obj docutils literal"><span class="pre">n_boxes</span></tt></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.add_box" title="mmtbx.maps.composite_omit_map.omit_regions.add_box"><tt class="xref py py-obj docutils literal"><span class="pre">add_box</span></tt></a>(box)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.combine_with" title="mmtbx.maps.composite_omit_map.omit_regions.combine_with"><tt class="xref py py-obj docutils literal"><span class="pre">combine_with</span></tt></a>(other)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.show" title="mmtbx.maps.composite_omit_map.omit_regions.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.omit_regions.add_box">
+<tt class="descname">add_box</tt><big>(</big><em>box</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_regions.add_box" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_regions.boxes">
+<tt class="descname">boxes</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_regions.boxes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.omit_regions.combine_with">
+<tt class="descname">combine_with</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_regions.combine_with" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_regions.n_atoms">
+<tt class="descname">n_atoms</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_regions.n_atoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_regions.n_boxes">
+<tt class="descname">n_boxes</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_regions.n_boxes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_regions.selection">
+<tt class="descname">selection</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_regions.selection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.maps.composite_omit_map.omit_regions.serial">
+<tt class="descname">serial</tt><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_regions.serial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.omit_regions.show">
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.omit_regions.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.composite_omit_map.run">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.composite_omit_map.</tt><tt class="descname">run</tt><big>(</big><em>fmodel</em>, <em>crystal_gridding</em>, <em>box_size_as_fraction=0.1</em>, <em>max_boxes=2000</em>, <em>neutral_volume_box_cushion_width=2</em>, <em>full_resolution_map=True</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<dl class="docutils">
+<dt>Composite residual OMIT map. Details:</dt>
+<dd>Afonine et al. (2014). FEM: Feature Enhanced Map</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.as_p1_map" title="mmtbx.maps.composite_omit_map.run.as_p1_map"><tt class="xref py py-obj docutils literal"><span class="pre">as_p1_map</span></tt></a>([map_asu])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.asu_map_from_fmodel" title="mmtbx.maps.composite_omit_map.run.asu_map_from_fmodel"><tt class="xref py py-obj docutils literal"><span class="pre">asu_map_from_fmodel</span></tt></a>(fmodel,&nbsp;map_type)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.box_iterator" title="mmtbx.maps.composite_omit_map.run.box_iterator"><tt class="xref py py-obj docutils literal"><span class="pre">box_iterator</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.get_p1_map_unscaled" title="mmtbx.maps.composite_omit_map.run.get_p1_map_unscaled"><tt class="xref py py-obj docutils literal"><span class="pre">get_p1_map_unscaled</span></tt></a>(fmodel,&nbsp;map_type)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.map_coefficients" title="mmtbx.maps.composite_omit_map.run.map_coefficients"><tt class="xref py py-obj docutils literal"><span class="pre">map_coefficients</span></tt></a>([filter_noise])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.noise_filtered_map_coefficients" title="mmtbx.maps.composite_omit_map.run.noise_filtered_map_coefficients"><tt class="xref py py-obj docutils literal"><span class="pre">noise_filtered_map_coefficients</span></tt></a>(map_coefficients)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.omit_box" title="mmtbx.maps.composite_omit_map.run.omit_box"><tt class="xref py py-obj docutils literal"><span class="pre">omit_box</span></tt></a>(start,&nbsp;end)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.result_as_sf" title="mmtbx.maps.composite_omit_map.run.result_as_sf"><tt class="xref py py-obj docutils literal"><span class="pre">result_as_sf</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.to_asu_map" title="mmtbx.maps.composite_omit_map.run.to_asu_map"><tt class="xref py py-obj docutils literal"><span class="pre">to_asu_map</span></tt></a>(map_data)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.run.as_p1_map">
+<tt class="descname">as_p1_map</tt><big>(</big><em>map_asu=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.run.as_p1_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.run.asu_map_from_fmodel">
+<tt class="descname">asu_map_from_fmodel</tt><big>(</big><em>fmodel</em>, <em>map_type</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.run.asu_map_from_fmodel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.run.box_iterator">
+<tt class="descname">box_iterator</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.run.box_iterator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.run.get_p1_map_unscaled">
+<tt class="descname">get_p1_map_unscaled</tt><big>(</big><em>fmodel</em>, <em>map_type</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.run.get_p1_map_unscaled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.run.map_coefficients">
+<tt class="descname">map_coefficients</tt><big>(</big><em>filter_noise=True</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.run.map_coefficients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.run.noise_filtered_map_coefficients">
+<tt class="descname">noise_filtered_map_coefficients</tt><big>(</big><em>map_coefficients</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.run.noise_filtered_map_coefficients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.run.omit_box">
+<tt class="descname">omit_box</tt><big>(</big><em>start</em>, <em>end</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.run.omit_box" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.run.result_as_sf">
+<tt class="descname">result_as_sf</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.run.result_as_sf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.composite_omit_map.run.to_asu_map">
+<tt class="descname">to_asu_map</tt><big>(</big><em>map_data</em><big>)</big><a class="headerlink" href="#mmtbx.maps.composite_omit_map.run.to_asu_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.maps.fem">
+<span id="mmtbx-maps-fem-module"></span><h2>mmtbx.maps.fem module<a class="headerlink" href="#module-mmtbx.maps.fem" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mmtbx.maps.fem.ccp4_map">
+<tt class="descclassname">mmtbx.maps.fem.</tt><tt class="descname">ccp4_map</tt><big>(</big><em>cg</em>, <em>file_name</em>, <em>mc=None</em>, <em>map_data=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.ccp4_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.fem.counter">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.fem.</tt><tt class="descname">counter</tt><big>(</big><em>n1</em>, <em>n2</em>, <em>log</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.counter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.fem.counter.show" title="mmtbx.maps.fem.counter.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.fem.counter.show">
+<tt class="descname">show</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.counter.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.fem.get_map">
+<tt class="descclassname">mmtbx.maps.fem.</tt><tt class="descname">get_map</tt><big>(</big><em>mc</em>, <em>cg</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.get_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.fem.good_atoms_selection">
+<tt class="descclassname">mmtbx.maps.fem.</tt><tt class="descname">good_atoms_selection</tt><big>(</big><em>crystal_gridding</em>, <em>map_coeffs</em>, <em>xray_structure</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.good_atoms_selection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.fem.inner_loop">
+<tt class="descclassname">mmtbx.maps.fem.</tt><tt class="descname">inner_loop</tt><big>(</big><em>fmodel</em>, <em>wam</em>, <em>missing</em>, <em>crystal_gridding</em>, <em>n</em>, <em>progress_counter</em>, <em>use_max_map</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.inner_loop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.fem.low_volume_density_elimination">
+<tt class="descclassname">mmtbx.maps.fem.</tt><tt class="descname">low_volume_density_elimination</tt><big>(</big><em>m</em>, <em>fmodel</em>, <em>selection</em>, <em>end=11</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.low_volume_density_elimination" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.fem.run">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.fem.</tt><tt class="descname">run</tt><big>(</big><em>f_obs</em>, <em>r_free_flags</em>, <em>xray_structure</em>, <em>use_resolve</em>, <em>use_omit</em>, <em>use_max_map</em>, <em>sharp</em>, <em>use_unsharp_masking</em>, <em>resolution_factor</em>, <em>n_inner_loop=10</em>, <em>n_outer_loop=10</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.fem.run.compute_original_map" title="mmtbx.maps.fem.run.compute_original_map"><tt class="xref py py-obj docutils literal"><span class="pre">compute_original_map</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.fem.run.create_fmodel" title="mmtbx.maps.fem.run.create_fmodel"><tt class="xref py py-obj docutils literal"><span class="pre">create_fmodel</span></tt></a>([update_f_part1,&nbsp;show])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.fem.run.outer_loop" title="mmtbx.maps.fem.run.outer_loop"><tt class="xref py py-obj docutils literal"><span class="pre">outer_loop</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.fem.run.prepare_f_obs_and_flags" title="mmtbx.maps.fem.run.prepare_f_obs_and_flags"><tt class="xref py py-obj docutils literal"><span class="pre">prepare_f_obs_and_flags</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.fem.run.remove_common_isotropic_adp" title="mmtbx.maps.fem.run.remove_common_isotropic_adp"><tt class="xref py py-obj docutils literal"><span class="pre">remove_common_isotropic_adp</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.fem.run.resolve_filter_map" title="mmtbx.maps.fem.run.resolve_filter_map"><tt class="xref py py-obj docutils literal"><span class="pre">resolve_filter_map</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.fem.run.write_output_files" title="mmtbx.maps.fem.run.write_output_files"><tt class="xref py py-obj docutils literal"><span class="pre">write_output_files</span></tt></a>(mtz_file_name,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.fem.run.zero_below_threshold" title="mmtbx.maps.fem.run.zero_below_threshold"><tt class="xref py py-obj docutils literal"><span class="pre">zero_below_threshold</span></tt></a>(m)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.fem.run.compute_original_map">
+<tt class="descname">compute_original_map</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.run.compute_original_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.fem.run.create_fmodel">
+<tt class="descname">create_fmodel</tt><big>(</big><em>update_f_part1=True</em>, <em>show=False</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.run.create_fmodel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.fem.run.outer_loop">
+<tt class="descname">outer_loop</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.run.outer_loop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.fem.run.prepare_f_obs_and_flags">
+<tt class="descname">prepare_f_obs_and_flags</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.run.prepare_f_obs_and_flags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.fem.run.remove_common_isotropic_adp">
+<tt class="descname">remove_common_isotropic_adp</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.run.remove_common_isotropic_adp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.fem.run.resolve_filter_map">
+<tt class="descname">resolve_filter_map</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.run.resolve_filter_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.fem.run.write_output_files">
+<tt class="descname">write_output_files</tt><big>(</big><em>mtz_file_name</em>, <em>ccp4_map_file_name</em>, <em>fem_label</em>, <em>orig_label</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.run.write_output_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.fem.run.zero_below_threshold">
+<tt class="descname">zero_below_threshold</tt><big>(</big><em>m</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.run.zero_below_threshold" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.fem.truncate_with_roots">
+<tt class="descclassname">mmtbx.maps.fem.</tt><tt class="descname">truncate_with_roots</tt><big>(</big><em>m</em>, <em>fmodel</em>, <em>c1</em>, <em>c2</em>, <em>cutoff</em>, <em>scale</em>, <em>zero_all_interblob_region=True</em>, <em>as_int=False</em>, <em>average_peak_volume=None</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fem.truncate_with_roots" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.maps.fobs_minus_fobs_map">
+<span id="mmtbx-maps-fobs-minus-fobs-map-module"></span><h2>mmtbx.maps.fobs_minus_fobs_map module<a class="headerlink" href="#module-mmtbx.maps.fobs_minus_fobs_map" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.maps.fobs_minus_fobs_map.compute_fo_minus_fo_map">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.fobs_minus_fobs_map.</tt><tt class="descname">compute_fo_minus_fo_map</tt><big>(</big><em>data_arrays</em>, <em>xray_structure</em>, <em>log=None</em>, <em>silent=False</em>, <em>output_file=None</em>, <em>peak_search=False</em>, <em>map_cutoff=None</em>, <em>peak_search_params=None</em>, <em>r_free_arrays=None</em>, <em>write_map=True</em>, <em>multiscale=False</em>, <em>anomalous=False</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fobs_minus_fobs_map.compute_fo_minus_fo_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.fobs_minus_fobs_map.compute_fo_minus_fo_map.write_map_file" title="mmtbx.maps.fobs_minus_fobs_map.compute_fo_minus_fo_map.write_map_file"><tt class="xref py py-obj docutils literal"><span class="pre">write_map_file</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.fobs_minus_fobs_map.compute_fo_minus_fo_map.write_map_file">
+<tt class="descname">write_map_file</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.fobs_minus_fobs_map.compute_fo_minus_fo_map.write_map_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.fobs_minus_fobs_map.finish_job">
+<tt class="descclassname">mmtbx.maps.fobs_minus_fobs_map.</tt><tt class="descname">finish_job</tt><big>(</big><em>result</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fobs_minus_fobs_map.finish_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.fobs_minus_fobs_map.fo_minus_fo_master_params">
+<tt class="descclassname">mmtbx.maps.fobs_minus_fobs_map.</tt><tt class="descname">fo_minus_fo_master_params</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.fobs_minus_fobs_map.fo_minus_fo_master_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.fobs_minus_fobs_map.launcher">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.fobs_minus_fobs_map.</tt><tt class="descname">launcher</tt><big>(</big><em>args</em>, <em>file_name</em>, <em>output_dir=None</em>, <em>log_file=None</em>, <em>job_title=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fobs_minus_fobs_map.launcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">libtbx.runtime_utils.target_with_save_result</span></tt></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">__call__</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.fobs_minus_fobs_map.launcher.run" title="mmtbx.maps.fobs_minus_fobs_map.launcher.run"><tt class="xref py py-obj docutils literal"><span class="pre">run</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.fobs_minus_fobs_map.launcher.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.fobs_minus_fobs_map.launcher.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.fobs_minus_fobs_map.run">
+<tt class="descclassname">mmtbx.maps.fobs_minus_fobs_map.</tt><tt class="descname">run</tt><big>(</big><em>args</em>, <em>command_name='phenix.fobs_minus_fobs_map'</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fobs_minus_fobs_map.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.fobs_minus_fobs_map.validate_params">
+<tt class="descclassname">mmtbx.maps.fobs_minus_fobs_map.</tt><tt class="descname">validate_params</tt><big>(</big><em>params</em>, <em>callback=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.fobs_minus_fobs_map.validate_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.maps.kick">
+<span id="mmtbx-maps-kick-module"></span><h2>mmtbx.maps.kick module<a class="headerlink" href="#module-mmtbx.maps.kick" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mmtbx.maps.kick.compute_map_and_combine">
+<tt class="descclassname">mmtbx.maps.kick.</tt><tt class="descname">compute_map_and_combine</tt><big>(</big><em>map_coeffs, crystal_gridding, map_data, thresholds=[0, 0.1, 0.2, 0.3, 0.4, 0.5]</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.compute_map_and_combine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.kick.get_map">
+<tt class="descclassname">mmtbx.maps.kick.</tt><tt class="descname">get_map</tt><big>(</big><em>map_coeffs</em>, <em>crystal_gridding</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.get_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.kick.kick_fmodel">
+<tt class="descclassname">mmtbx.maps.kick.</tt><tt class="descname">kick_fmodel</tt><big>(</big><em>fmodel</em>, <em>map_type</em>, <em>crystal_gridding</em>, <em>number_of_kicks</em>, <em>macro_cycles</em>, <em>missing=None</em>, <em>kick_completeness=0.95</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.kick_fmodel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.kick.kick_map_coeffs">
+<tt class="descclassname">mmtbx.maps.kick.</tt><tt class="descname">kick_map_coeffs</tt><big>(</big><em>map_coeffs</em>, <em>crystal_gridding</em>, <em>number_of_kicks</em>, <em>macro_cycles</em>, <em>missing=None</em>, <em>kick_completeness=0.95</em>, <em>phases_only=False</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.kick_map_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.kick.randomize_completeness">
+<tt class="descclassname">mmtbx.maps.kick.</tt><tt class="descname">randomize_completeness</tt><big>(</big><em>map_coeffs, crystal_gridding, n_cycles=10, thresholds=[0, 0.1, 0.2, 0.3, 0.4, 0.5]</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.randomize_completeness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.kick.randomize_completeness2">
+<tt class="descclassname">mmtbx.maps.kick.</tt><tt class="descname">randomize_completeness2</tt><big>(</big><em>map_coeffs</em>, <em>crystal_gridding</em>, <em>n_cycles=10</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.randomize_completeness2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.kick.randomize_struture_factors">
+<tt class="descclassname">mmtbx.maps.kick.</tt><tt class="descname">randomize_struture_factors</tt><big>(</big><em>map_coeffs</em>, <em>number_of_kicks</em>, <em>phases_only=False</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.randomize_struture_factors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.kick.run">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.kick.</tt><tt class="descname">run</tt><big>(</big><em>fmodel</em>, <em>map_type='2mFo-DFc'</em>, <em>mask_data=None</em>, <em>crystal_gridding=None</em>, <em>number_of_kicks=100</em>, <em>macro_cycles=10</em>, <em>kick_completeness=0.95</em>, <em>omit=True</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Note 1: Assume Fmodel has correct scaling already (all f_parts etc).
+Note 2: More macro_cycles can substantially clean map in extremely bad cases.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.kick.run.convert_to_non_anomalous" title="mmtbx.maps.kick.run.convert_to_non_anomalous"><tt class="xref py py-obj docutils literal"><span class="pre">convert_to_non_anomalous</span></tt></a>(fmodel)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.kick.run.map_coeffs_from_map" title="mmtbx.maps.kick.run.map_coeffs_from_map"><tt class="xref py py-obj docutils literal"><span class="pre">map_coeffs_from_map</span></tt></a>(map_data)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.kick.run.write_mc" title="mmtbx.maps.kick.run.write_mc"><tt class="xref py py-obj docutils literal"><span class="pre">write_mc</span></tt></a>([file_name])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.kick.run.convert_to_non_anomalous">
+<tt class="descname">convert_to_non_anomalous</tt><big>(</big><em>fmodel</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.run.convert_to_non_anomalous" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.kick.run.map_coeffs_from_map">
+<tt class="descname">map_coeffs_from_map</tt><big>(</big><em>map_data</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.run.map_coeffs_from_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.kick.run.write_mc">
+<tt class="descname">write_mc</tt><big>(</big><em>file_name='mc.mtz'</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.run.write_mc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.kick.weighted_average">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.kick.</tt><tt class="descname">weighted_average</tt><big>(</big><em>fmodel</em>, <em>map_coefficients</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.weighted_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.kick.weighted_average.random_weight_averaged_map_coefficients" title="mmtbx.maps.kick.weighted_average.random_weight_averaged_map_coefficients"><tt class="xref py py-obj docutils literal"><span class="pre">random_weight_averaged_map_coefficients</span></tt></a>(...)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.kick.weighted_average.random_weight_averaged_map_coefficients">
+<tt class="descname">random_weight_averaged_map_coefficients</tt><big>(</big><em>random_scale</em>, <em>random_seed</em>, <em>n_cycles</em>, <em>fraction_keep</em>, <em>missing=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.kick.weighted_average.random_weight_averaged_map_coefficients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.maps.superpose">
+<span id="mmtbx-maps-superpose-module"></span><h2>mmtbx.maps.superpose module<a class="headerlink" href="#module-mmtbx.maps.superpose" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.maps.superpose.common_frame_of_reference">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.superpose.</tt><tt class="descname">common_frame_of_reference</tt><big>(</big><em>all_sites_cart</em>, <em>lsq_fits</em>, <em>buffer=10.0</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.common_frame_of_reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.superpose.common_frame_of_reference.apply_new_sites_to_hierarchies" title="mmtbx.maps.superpose.common_frame_of_reference.apply_new_sites_to_hierarchies"><tt class="xref py py-obj docutils literal"><span class="pre">apply_new_sites_to_hierarchies</span></tt></a>(pdb_hierarchies)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.superpose.common_frame_of_reference.apply_new_sites_to_xray_structure" title="mmtbx.maps.superpose.common_frame_of_reference.apply_new_sites_to_xray_structure"><tt class="xref py py-obj docutils literal"><span class="pre">apply_new_sites_to_xray_structure</span></tt></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.superpose.common_frame_of_reference.get_inverse_matrix" title="mmtbx.maps.superpose.common_frame_of_reference.get_inverse_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">get_inverse_matrix</span></tt></a>(i)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.superpose.common_frame_of_reference.inverse_transform_hierarchy" title="mmtbx.maps.superpose.common_frame_of_reference.inverse_transform_hierarchy"><tt class="xref py py-obj docutils literal"><span class="pre">inverse_transform_hierarchy</span></tt></a>(i,&nbsp;pdb_hierarchy)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.superpose.common_frame_of_reference.apply_new_sites_to_hierarchies">
+<tt class="descname">apply_new_sites_to_hierarchies</tt><big>(</big><em>pdb_hierarchies</em><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.common_frame_of_reference.apply_new_sites_to_hierarchies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.superpose.common_frame_of_reference.apply_new_sites_to_xray_structure">
+<tt class="descname">apply_new_sites_to_xray_structure</tt><big>(</big><em>xray_structures</em><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.common_frame_of_reference.apply_new_sites_to_xray_structure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.superpose.common_frame_of_reference.get_inverse_matrix">
+<tt class="descname">get_inverse_matrix</tt><big>(</big><em>i</em><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.common_frame_of_reference.get_inverse_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.superpose.common_frame_of_reference.inverse_transform_hierarchy">
+<tt class="descname">inverse_transform_hierarchy</tt><big>(</big><em>i</em>, <em>pdb_hierarchy</em><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.common_frame_of_reference.inverse_transform_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.superpose.exercise">
+<tt class="descclassname">mmtbx.maps.superpose.</tt><tt class="descname">exercise</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.exercise" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.superpose.generate_p1_box">
+<tt class="descclassname">mmtbx.maps.superpose.</tt><tt class="descname">generate_p1_box</tt><big>(</big><em>pdb_hierarchy</em>, <em>buffer=10.0</em><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.generate_p1_box" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.superpose.mask_grid">
+<tt class="descclassname">mmtbx.maps.superpose.</tt><tt class="descname">mask_grid</tt><big>(</big><em>xrs</em>, <em>buffer</em>, <em>map_data</em>, <em>n_real</em><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.mask_grid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.superpose.transform_map_by_lsq_fit">
+<tt class="descclassname">mmtbx.maps.superpose.</tt><tt class="descname">transform_map_by_lsq_fit</tt><big>(</big><em>fft_map</em>, <em>unit_cell</em>, <em>lsq_fit_obj</em>, <em>pdb_hierarchy</em>, <em>d_min</em>, <em>buffer=10.0</em>, <em>resolution_factor=0.25</em>, <em>file_name=None</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em>, <em>mask_map_grid=False</em>, <em>format='xplor'</em><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.transform_map_by_lsq_fit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.superpose.transform_maps">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.superpose.</tt><tt class="descname">transform_maps</tt><big>(</big><em>map_coeffs</em>, <em>map_types</em>, <em>pdb_hierarchy</em>, <em>unit_cell</em>, <em>lsq_fit_obj</em>, <em>output_files</em>, <em>resolution_factor=0.25</em>, <em>buffer=10.0</em>, <em>auto_run=True</em>, <em>format='ccp4'</em><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.transform_maps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.superpose.transform_maps.run" title="mmtbx.maps.superpose.transform_maps.run"><tt class="xref py py-obj docutils literal"><span class="pre">run</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.superpose.transform_maps.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.superpose.transform_maps.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.maps.utils">
+<span id="mmtbx-maps-utils-module"></span><h2>mmtbx.maps.utils module<a class="headerlink" href="#module-mmtbx.maps.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mmtbx.maps.utils.create_map_from_pdb_and_mtz">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">create_map_from_pdb_and_mtz</tt><big>(</big><em>pdb_file</em>, <em>mtz_file</em>, <em>output_file</em>, <em>fill=False</em>, <em>out=None</em>, <em>llg_map=False</em>, <em>remove_unknown_scatterering_type=False</em>, <em>assume_pdb_data=False</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.create_map_from_pdb_and_mtz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience function, used by phenix.fetch_pdb.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>remove_unknown_scatterering_type</strong> &#8211; if True, atoms with unknown
+scattering type will be removed before extracting the X-ray structure
+(which would crash otherwise).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.decode_resolve_map_coeffs">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">decode_resolve_map_coeffs</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.decode_resolve_map_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.extract_map_coeffs">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">extract_map_coeffs</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.extract_map_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.extract_phenix_refine_map_coeffs">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">extract_phenix_refine_map_coeffs</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.extract_phenix_refine_map_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.utils.fast_maps_from_hkl_file">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">fast_maps_from_hkl_file</tt><big>(</big><em>file_name</em>, <em>xray_structure</em>, <em>scattering_table='wk1995'</em>, <em>f_label=None</em>, <em>r_free_label=None</em>, <em>map_out=None</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em>, <em>auto_run=True</em>, <em>quiet=False</em>, <em>anomalous_map=False</em>, <em>fill_maps=True</em>, <em>save_fmodel=False</em>, <em>llg_map=False</em>, <em>assume_pdb_data=False</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.fast_maps_from_hkl_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Automation wrapper for calculating standard 2mFo-DFc, mFo-DFc, and optional
+anomalous difference map coefficients, starting from an X-ray structure and
+an MTZ file name.  This will attempt to guess the correct data array
+automatically (giving preference to anomalous amplitudes).</p>
+<p>The organization of this class is somewhat messy, as it is designed to be
+run in parallel for multiple structures.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.utils.fast_maps_from_hkl_file.get_maps_from_fmodel" title="mmtbx.maps.utils.fast_maps_from_hkl_file.get_maps_from_fmodel"><tt class="xref py py-obj docutils literal"><span class="pre">get_maps_from_fmodel</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.utils.fast_maps_from_hkl_file.run" title="mmtbx.maps.utils.fast_maps_from_hkl_file.run"><tt class="xref py py-obj docutils literal"><span class="pre">run</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.utils.fast_maps_from_hkl_file.get_maps_from_fmodel">
+<tt class="descname">get_maps_from_fmodel</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.fast_maps_from_hkl_file.get_maps_from_fmodel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.utils.fast_maps_from_hkl_file.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.fast_maps_from_hkl_file.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.format_map_coeffs_for_resolve">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">format_map_coeffs_for_resolve</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.format_map_coeffs_for_resolve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.utils.generate_water_omit_map">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">generate_water_omit_map</tt><big>(</big><em>fmodel</em>, <em>pdb_hierarchy</em>, <em>skip_if_no_waters=False</em>, <em>exclude_free_r_reflections=False</em>, <em>fill_missing_f_obs=False</em>, <em>write_f_model=False</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.generate_water_omit_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Calculate standard map coefficients (with R-free flags omitted, and missing
+reflections filled) with water occupancies set to zero.  Used for ligand
+fitting after refinement.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.utils.generate_water_omit_map.write_map_coeffs" title="mmtbx.maps.utils.generate_water_omit_map.write_map_coeffs"><tt class="xref py py-obj docutils literal"><span class="pre">write_map_coeffs</span></tt></a>(file_name)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.utils.generate_water_omit_map.write_pdb_file" title="mmtbx.maps.utils.generate_water_omit_map.write_pdb_file"><tt class="xref py py-obj docutils literal"><span class="pre">write_pdb_file</span></tt></a>(file_name)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.utils.generate_water_omit_map.write_map_coeffs">
+<tt class="descname">write_map_coeffs</tt><big>(</big><em>file_name</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.generate_water_omit_map.write_map_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.utils.generate_water_omit_map.write_pdb_file">
+<tt class="descname">write_pdb_file</tt><big>(</big><em>file_name</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.generate_water_omit_map.write_pdb_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.get_anomalous_map">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">get_anomalous_map</tt><big>(</big><em>fmodel</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.get_anomalous_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.get_default_map_coefficients_phil">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">get_default_map_coefficients_phil</tt><big>(</big><em>show_filled=True</em>, <em>disable_filled=False</em>, <em>exclude_free_r_reflections=False</em>, <em>enclosing_scope=None</em>, <em>as_phil_object=True</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.get_default_map_coefficients_phil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the map coefficients PHIL string for phenix.maps, phenix.refine,
+and related applications, based on several toggles which control the
+handling of missing reflections and R-free flags.  Used by the Phenix GUI.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.get_map_coeff_labels">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">get_map_coeff_labels</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.get_map_coeff_labels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.get_map_coeffs_for_build">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">get_map_coeffs_for_build</tt><big>(</big><em>server</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.get_map_coeffs_for_build" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.get_maps_from_fmodel">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">get_maps_from_fmodel</tt><big>(</big><em>fmodel</em>, <em>fill_missing_f_obs=True</em>, <em>exclude_free_r_reflections=False</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.get_maps_from_fmodel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.map_coeffs_from_mtz_file">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">map_coeffs_from_mtz_file</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.map_coeffs_from_mtz_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.write_map_coeffs">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">write_map_coeffs</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.write_map_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.write_xplor_map">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">write_xplor_map</tt><big>(</big><em>sites_cart</em>, <em>unit_cell</em>, <em>map_data</em>, <em>n_real</em>, <em>file_name</em>, <em>buffer=10</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.write_xplor_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.utils.write_xplor_map_file">
+<tt class="descclassname">mmtbx.maps.utils.</tt><tt class="descname">write_xplor_map_file</tt><big>(</big><em>coeffs</em>, <em>frac_min</em>, <em>frac_max</em>, <em>file_base</em><big>)</big><a class="headerlink" href="#mmtbx.maps.utils.write_xplor_map_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.maps">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mmtbx.maps" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mmtbx.maps.b_factor_sharpening_by_map_kurtosis_maximization">
+<tt class="descclassname">mmtbx.maps.</tt><tt class="descname">b_factor_sharpening_by_map_kurtosis_maximization</tt><big>(</big><em>map_coeffs</em>, <em>show=True</em>, <em>b_sharp_best=None</em>, <em>b_only=False</em><big>)</big><a class="headerlink" href="#mmtbx.maps.b_factor_sharpening_by_map_kurtosis_maximization" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.cast_map_coeff_params">
+<tt class="descclassname">mmtbx.maps.</tt><tt class="descname">cast_map_coeff_params</tt><big>(</big><em>map_type_obj</em><big>)</big><a class="headerlink" href="#mmtbx.maps.cast_map_coeff_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.compute_f_calc">
+<tt class="descclassname">mmtbx.maps.</tt><tt class="descname">compute_f_calc</tt><big>(</big><em>fmodel</em>, <em>params</em><big>)</big><a class="headerlink" href="#mmtbx.maps.compute_f_calc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.compute_map_coefficients">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.</tt><tt class="descname">compute_map_coefficients</tt><big>(</big><em>fmodel</em>, <em>params</em>, <em>mtz_dataset=None</em>, <em>post_processing_callback=None</em>, <em>pdb_hierarchy=None</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.maps.compute_map_coefficients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.compute_map_coefficients.write_mtz_file" title="mmtbx.maps.compute_map_coefficients.write_mtz_file"><tt class="xref py py-obj docutils literal"><span class="pre">write_mtz_file</span></tt></a>(file_name[,&nbsp;...])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.compute_map_coefficients.write_mtz_file">
+<tt class="descname">write_mtz_file</tt><big>(</big><em>file_name</em>, <em>mtz_history_buffer=None</em>, <em>r_free_flags=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.compute_map_coefficients.write_mtz_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.compute_xplor_maps">
+<tt class="descclassname">mmtbx.maps.</tt><tt class="descname">compute_xplor_maps</tt><big>(</big><em>fmodel</em>, <em>params</em>, <em>atom_selection_manager=None</em>, <em>file_name_prefix=None</em>, <em>file_name_base=None</em>, <em>post_processing_callback=None</em>, <em>pdb_hierarchy=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.compute_xplor_maps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.map_and_map_coeff_master_params">
+<tt class="descclassname">mmtbx.maps.</tt><tt class="descname">map_and_map_coeff_master_params</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.map_and_map_coeff_master_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.map_coefficients_from_fmodel">
+<tt class="descclassname">mmtbx.maps.</tt><tt class="descname">map_coefficients_from_fmodel</tt><big>(</big><em>params</em>, <em>fmodel=None</em>, <em>map_calculation_server=None</em>, <em>post_processing_callback=None</em>, <em>pdb_hierarchy=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.map_coefficients_from_fmodel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.map_coeffs_mtz_label_manager">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.</tt><tt class="descname">map_coeffs_mtz_label_manager</tt><big>(</big><em>map_params</em><big>)</big><a class="headerlink" href="#mmtbx.maps.map_coeffs_mtz_label_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.map_coeffs_mtz_label_manager.amplitudes" title="mmtbx.maps.map_coeffs_mtz_label_manager.amplitudes"><tt class="xref py py-obj docutils literal"><span class="pre">amplitudes</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.map_coeffs_mtz_label_manager.phases" title="mmtbx.maps.map_coeffs_mtz_label_manager.phases"><tt class="xref py py-obj docutils literal"><span class="pre">phases</span></tt></a>(root_label[,&nbsp;anomalous_sign])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.map_coeffs_mtz_label_manager.amplitudes">
+<tt class="descname">amplitudes</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.map_coeffs_mtz_label_manager.amplitudes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.map_coeffs_mtz_label_manager.phases">
+<tt class="descname">phases</tt><big>(</big><em>root_label</em>, <em>anomalous_sign=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.map_coeffs_mtz_label_manager.phases" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.maps.maps_including_IO_master_params">
+<tt class="descclassname">mmtbx.maps.</tt><tt class="descname">maps_including_IO_master_params</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.maps_including_IO_master_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.maps.write_xplor_map_file">
+<em class="property">class </em><tt class="descclassname">mmtbx.maps.</tt><tt class="descname">write_xplor_map_file</tt><big>(</big><em>params</em>, <em>coeffs</em>, <em>atom_selection_manager=None</em>, <em>xray_structure=None</em><big>)</big><a class="headerlink" href="#mmtbx.maps.write_xplor_map_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.maps.write_xplor_map_file.atom_iselection" title="mmtbx.maps.write_xplor_map_file.atom_iselection"><tt class="xref py py-obj docutils literal"><span class="pre">atom_iselection</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.maps.write_xplor_map_file.box_around_selection" title="mmtbx.maps.write_xplor_map_file.box_around_selection"><tt class="xref py py-obj docutils literal"><span class="pre">box_around_selection</span></tt></a>(iselection,&nbsp;buffer)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.maps.write_xplor_map_file.atom_iselection">
+<tt class="descname">atom_iselection</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.maps.write_xplor_map_file.atom_iselection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.maps.write_xplor_map_file.box_around_selection">
+<tt class="descname">box_around_selection</tt><big>(</big><em>iselection</em>, <em>buffer</em><big>)</big><a class="headerlink" href="#mmtbx.maps.write_xplor_map_file.box_around_selection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">mmtbx.maps package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-mmtbx.maps.composite_omit_map">mmtbx.maps.composite_omit_map module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps.fem">mmtbx.maps.fem module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps.fobs_minus_fobs_map">mmtbx.maps.fobs_minus_fobs_map module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps.kick">mmtbx.maps.kick module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps.superpose">mmtbx.maps.superpose module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps.utils">mmtbx.maps.utils module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps">Module contents</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mmtbx.kinemage.html"
+                        title="previous chapter">mmtbx.kinemage package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mmtbx/mmtbx.maps.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.kinemage.html" title="mmtbx.kinemage package"
+             >previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,797 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mmtbx.refinement.real_space package &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="mmtbx.refinement package" href="mmtbx.refinement.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li><a href="mmtbx.refinement.html" accesskey="U">mmtbx.refinement package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mmtbx-refinement-real-space-package">
+<h1>mmtbx.refinement.real_space package<a class="headerlink" href="#mmtbx-refinement-real-space-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-mmtbx.refinement.real_space.fit_residue">
+<span id="mmtbx-refinement-real-space-fit-residue-module"></span><h2>mmtbx.refinement.real_space.fit_residue module<a class="headerlink" href="#module-mmtbx.refinement.real_space.fit_residue" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.fit_residue.flatten">
+<tt class="descclassname">mmtbx.refinement.real_space.fit_residue.</tt><tt class="descname">flatten</tt><big>(</big><em>l</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.flatten" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.fit_residue.get_rotamer_iterator">
+<tt class="descclassname">mmtbx.refinement.real_space.fit_residue.</tt><tt class="descname">get_rotamer_iterator</tt><big>(</big><em>mon_lib_srv</em>, <em>residue</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.get_rotamer_iterator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.fit_residue.run">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.fit_residue.</tt><tt class="descname">run</tt><big>(</big><em>residue</em>, <em>mon_lib_srv</em>, <em>rotamer_manager</em>, <em>sin_cos_table</em>, <em>target_map=None</em>, <em>unit_cell=None</em>, <em>backbone_sample=True</em>, <em>accept_only_if_max_shift_is_smaller_than=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run.fit_c_beta" title="mmtbx.refinement.real_space.fit_residue.run.fit_c_beta"><tt class="xref py py-obj docutils literal"><span class="pre">fit_c_beta</span></tt></a>(c_beta_rotation_cluster)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run.fit_side_chain" title="mmtbx.refinement.real_space.fit_residue.run.fit_side_chain"><tt class="xref py py-obj docutils literal"><span class="pre">fit_side_chain</span></tt></a>(clusters)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run.get_target_value" title="mmtbx.refinement.real_space.fit_residue.run.get_target_value"><tt class="xref py py-obj docutils literal"><span class="pre">get_target_value</span></tt></a>(sites_cart[,&nbsp;selection])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residue.run.fit_c_beta">
+<tt class="descname">fit_c_beta</tt><big>(</big><em>c_beta_rotation_cluster</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run.fit_c_beta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residue.run.fit_side_chain">
+<tt class="descname">fit_side_chain</tt><big>(</big><em>clusters</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run.fit_side_chain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residue.run.get_target_value">
+<tt class="descname">get_target_value</tt><big>(</big><em>sites_cart</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run.get_target_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.fit_residue.run_with_minimization">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.fit_residue.</tt><tt class="descname">run_with_minimization</tt><big>(</big><em>target_map</em>, <em>residue</em>, <em>xray_structure</em>, <em>mon_lib_srv</em>, <em>rotamer_manager</em>, <em>geometry_restraints_manager</em>, <em>real_space_gradients_delta</em>, <em>selection_radius=5</em>, <em>rms_bonds_limit=0.03</em>, <em>rms_angles_limit=3.0</em>, <em>backbone_sample_angle=None</em>, <em>allow_modified_residues=False</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_backbone" title="mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_backbone"><tt class="xref py py-obj docutils literal"><span class="pre">fit_backbone</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_rotamers" title="mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_rotamers"><tt class="xref py py-obj docutils literal"><span class="pre">fit_rotamers</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.grid_sample_around_c_n_axis" title="mmtbx.refinement.real_space.fit_residue.run_with_minimization.grid_sample_around_c_n_axis"><tt class="xref py py-obj docutils literal"><span class="pre">grid_sample_around_c_n_axis</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.real_space_refine" title="mmtbx.refinement.real_space.fit_residue.run_with_minimization.real_space_refine"><tt class="xref py py-obj docutils literal"><span class="pre">real_space_refine</span></tt></a>(optimize_weight,&nbsp;...)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_backbone">
+<tt class="descname">fit_backbone</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_backbone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_rotamers">
+<tt class="descname">fit_rotamers</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_rotamers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residue.run_with_minimization.grid_sample_around_c_n_axis">
+<tt class="descname">grid_sample_around_c_n_axis</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.grid_sample_around_c_n_axis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residue.run_with_minimization.real_space_refine">
+<tt class="descname">real_space_refine</tt><big>(</big><em>optimize_weight</em>, <em>start_trial_weight_value</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.real_space_refine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.fit_residue.tune_up">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.fit_residue.</tt><tt class="descname">tune_up</tt><big>(</big><em>target_map</em>, <em>residue</em>, <em>mon_lib_srv</em>, <em>rotamer_manager</em>, <em>unit_cell</em>, <em>torsion_search_start=-20</em>, <em>torsion_search_stop=20</em>, <em>torsion_search_step=2</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.tune_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.refinement.real_space.fit_residues">
+<span id="mmtbx-refinement-real-space-fit-residues-module"></span><h2>mmtbx.refinement.real_space.fit_residues module<a class="headerlink" href="#module-mmtbx.refinement.real_space.fit_residues" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.fit_residues.fix_outliers">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.fit_residues.</tt><tt class="descname">fix_outliers</tt><big>(</big><em>pdb_hierarchy</em>, <em>rotamer_manager</em>, <em>sin_cos_table</em>, <em>mon_lib_srv</em>, <em>f_map=None</em>, <em>fdiff_map=None</em>, <em>unit_cell=None</em>, <em>accept_only_if_max_shift_is_smaller_than=None</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.fix_outliers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.fit_residues.manager">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.fit_residues.</tt><tt class="descname">manager</tt><big>(</big><em>structure_monitor</em>, <em>rotamer_manager</em>, <em>sin_cos_table</em>, <em>mon_lib_srv</em>, <em>backbone_sample=True</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residues.manager.loop_over_residues" title="mmtbx.refinement.real_space.fit_residues.manager.loop_over_residues"><tt class="xref py py-obj docutils literal"><span class="pre">loop_over_residues</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residues.manager.on_special_position" title="mmtbx.refinement.real_space.fit_residues.manager.on_special_position"><tt class="xref py py-obj docutils literal"><span class="pre">on_special_position</span></tt></a>(sm_residue)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residues.manager.prepare_target_map" title="mmtbx.refinement.real_space.fit_residues.manager.prepare_target_map"><tt class="xref py py-obj docutils literal"><span class="pre">prepare_target_map</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residues.manager.loop_over_residues">
+<tt class="descname">loop_over_residues</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.manager.loop_over_residues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residues.manager.on_special_position">
+<tt class="descname">on_special_position</tt><big>(</big><em>sm_residue</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.manager.on_special_position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residues.manager.prepare_target_map">
+<tt class="descname">prepare_target_map</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.manager.prepare_target_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.fit_residues.tune_up">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.fit_residues.</tt><tt class="descname">tune_up</tt><big>(</big><em>pdb_hierarchy</em>, <em>rotamer_manager</em>, <em>target_map</em>, <em>unit_cell</em>, <em>mon_lib_srv</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.tune_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.refinement.real_space.fit_water">
+<span id="mmtbx-refinement-real-space-fit-water-module"></span><h2>mmtbx.refinement.real_space.fit_water module<a class="headerlink" href="#module-mmtbx.refinement.real_space.fit_water" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.fit_water.run">
+<tt class="descclassname">mmtbx.refinement.real_space.fit_water.</tt><tt class="descname">run</tt><big>(</big><em>pdb_hierarchy</em>, <em>target_map</em>, <em>unit_cell</em>, <em>real_space_gradients_delta</em>, <em>max_allowed_shift=1.5</em>, <em>max_iterations=50</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.fit_water.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.refinement.real_space.individual_sites">
+<span id="mmtbx-refinement-real-space-individual-sites-module"></span><h2>mmtbx.refinement.real_space.individual_sites module<a class="headerlink" href="#module-mmtbx.refinement.real_space.individual_sites" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.individual_sites.box_refinement_manager">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.individual_sites.</tt><tt class="descname">box_refinement_manager</tt><big>(</big><em>xray_structure</em>, <em>target_map</em>, <em>geometry_restraints_manager</em>, <em>real_space_gradients_delta=0.25</em>, <em>max_iterations=50</em>, <em>ncs_groups=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager.refine" title="mmtbx.refinement.real_space.individual_sites.box_refinement_manager.refine"><tt class="xref py py-obj docutils literal"><span class="pre">refine</span></tt></a>(selection[,&nbsp;optimize_weight,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager.update_target_map" title="mmtbx.refinement.real_space.individual_sites.box_refinement_manager.update_target_map"><tt class="xref py py-obj docutils literal"><span class="pre">update_target_map</span></tt></a>(new_target_map)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager.update_xray_structure" title="mmtbx.refinement.real_space.individual_sites.box_refinement_manager.update_xray_structure"><tt class="xref py py-obj docutils literal"><span class="pre">update_xray_structure</span></tt></a>(new_xray_structure)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.individual_sites.box_refinement_manager.refine">
+<tt class="descname">refine</tt><big>(</big><em>selection</em>, <em>optimize_weight=True</em>, <em>start_trial_weight_value=50</em>, <em>selection_buffer_radius=5</em>, <em>box_cushion=2</em>, <em>rms_bonds_limit=0.03</em>, <em>rms_angles_limit=3.0</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager.refine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.individual_sites.box_refinement_manager.update_target_map">
+<tt class="descname">update_target_map</tt><big>(</big><em>new_target_map</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager.update_target_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.individual_sites.box_refinement_manager.update_xray_structure">
+<tt class="descname">update_xray_structure</tt><big>(</big><em>new_xray_structure</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager.update_xray_structure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.individual_sites.diff_map">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.individual_sites.</tt><tt class="descname">diff_map</tt><big>(</big><em>miller_array</em>, <em>crystal_gridding</em>, <em>map_target</em>, <em>geometry_restraints_manager</em>, <em>restraints_target_weight=1</em>, <em>max_iterations=500</em>, <em>min_iterations=500</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.diff_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.diff_map.refine" title="mmtbx.refinement.real_space.individual_sites.diff_map.refine"><tt class="xref py py-obj docutils literal"><span class="pre">refine</span></tt></a>(weight[,&nbsp;sites_cart,&nbsp;xray_structure])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.diff_map.sites_cart" title="mmtbx.refinement.real_space.individual_sites.diff_map.sites_cart"><tt class="xref py py-obj docutils literal"><span class="pre">sites_cart</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.individual_sites.diff_map.refine">
+<tt class="descname">refine</tt><big>(</big><em>weight</em>, <em>sites_cart=None</em>, <em>xray_structure=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.diff_map.refine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.individual_sites.diff_map.sites_cart">
+<tt class="descname">sites_cart</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.diff_map.sites_cart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.individual_sites.easy">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.individual_sites.</tt><tt class="descname">easy</tt><big>(</big><em>map_data</em>, <em>xray_structure</em>, <em>pdb_hierarchy</em>, <em>geometry_restraints_manager</em>, <em>selection=None</em>, <em>rms_bonds_limit=0.015</em>, <em>rms_angles_limit=2.0</em>, <em>max_iterations=150</em>, <em>w=None</em>, <em>states_accumulator=None</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.easy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Simplest interface to most automated and fast real-space refinement.
+To keep it simple not all parameters are exposed.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.individual_sites.refinery">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.individual_sites.</tt><tt class="descname">refinery</tt><big>(</big><em>refiner</em>, <em>xray_structure</em>, <em>start_trial_weight_value=50.0</em>, <em>weight_sample_rate=10</em>, <em>rms_bonds_limit=0.03</em>, <em>rms_angles_limit=3.0</em>, <em>optimize_weight=True</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.refinery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.refinery.adjust_weight_sample_rate" title="mmtbx.refinement.real_space.individual_sites.refinery.adjust_weight_sample_rate"><tt class="xref py py-obj docutils literal"><span class="pre">adjust_weight_sample_rate</span></tt></a>(weight)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.refinery.rmsds" title="mmtbx.refinement.real_space.individual_sites.refinery.rmsds"><tt class="xref py py-obj docutils literal"><span class="pre">rmsds</span></tt></a>(sites_cart)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.individual_sites.refinery.adjust_weight_sample_rate">
+<tt class="descname">adjust_weight_sample_rate</tt><big>(</big><em>weight</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.refinery.adjust_weight_sample_rate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.individual_sites.refinery.rmsds">
+<tt class="descname">rmsds</tt><big>(</big><em>sites_cart</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.refinery.rmsds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.individual_sites.simple">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.individual_sites.</tt><tt class="descname">simple</tt><big>(</big><em>target_map</em>, <em>selection</em>, <em>geometry_restraints_manager</em>, <em>real_space_gradients_delta=0.25</em>, <em>selection_real_space=None</em>, <em>max_iterations=150</em>, <em>states_accumulator=None</em>, <em>ncs_groups=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.simple.refine" title="mmtbx.refinement.real_space.individual_sites.simple.refine"><tt class="xref py py-obj docutils literal"><span class="pre">refine</span></tt></a>(weight,&nbsp;xray_structure)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.simple.rmsds" title="mmtbx.refinement.real_space.individual_sites.simple.rmsds"><tt class="xref py py-obj docutils literal"><span class="pre">rmsds</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.simple.sites_cart" title="mmtbx.refinement.real_space.individual_sites.simple.sites_cart"><tt class="xref py py-obj docutils literal"><span class="pre">sites_cart</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.individual_sites.simple.refine">
+<tt class="descname">refine</tt><big>(</big><em>weight</em>, <em>xray_structure</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.simple.refine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.individual_sites.simple.rmsds">
+<tt class="descname">rmsds</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.simple.rmsds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.individual_sites.simple.sites_cart">
+<tt class="descname">sites_cart</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.individual_sites.simple.sites_cart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.refinement.real_space.rigid_body">
+<span id="mmtbx-refinement-real-space-rigid-body-module"></span><h2>mmtbx.refinement.real_space.rigid_body module<a class="headerlink" href="#module-mmtbx.refinement.real_space.rigid_body" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.rigid_body.real_space_rigid_body_gradients_simple">
+<tt class="descclassname">mmtbx.refinement.real_space.rigid_body.</tt><tt class="descname">real_space_rigid_body_gradients_simple</tt><big>(</big><em>unit_cell</em>, <em>density_map</em>, <em>sites_cart_0</em>, <em>center_of_mass</em>, <em>q</em>, <em>unit_quaternion_delta=0.01</em>, <em>translation_delta=0.3</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.rigid_body.real_space_rigid_body_gradients_simple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.rigid_body.refine">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.rigid_body.</tt><tt class="descname">refine</tt><big>(</big><em>residue</em>, <em>density_map</em>, <em>geometry_restraints_manager</em>, <em>real_space_target_weight</em>, <em>real_space_gradients_delta</em>, <em>lbfgs_termination_params</em>, <em>unit_cell</em>, <em>cctbx_geometry_restraints_flags=None</em>, <em>states_collector=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.rigid_body.refine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.rigid_body.refine.compute_functional_and_gradients" title="mmtbx.refinement.real_space.rigid_body.refine.compute_functional_and_gradients"><tt class="xref py py-obj docutils literal"><span class="pre">compute_functional_and_gradients</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.rigid_body.refine.d_e_pot_d_sites" title="mmtbx.refinement.real_space.rigid_body.refine.d_e_pot_d_sites"><tt class="xref py py-obj docutils literal"><span class="pre">d_e_pot_d_sites</span></tt></a>(sites_moved)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.rigid_body.refine.compute_functional_and_gradients">
+<tt class="descname">compute_functional_and_gradients</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.rigid_body.refine.compute_functional_and_gradients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.rigid_body.refine.d_e_pot_d_sites">
+<tt class="descname">d_e_pot_d_sites</tt><big>(</big><em>sites_moved</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.rigid_body.refine.d_e_pot_d_sites" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.rigid_body.refine_groups">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.rigid_body.</tt><tt class="descname">refine_groups</tt><big>(</big><em>map_data</em>, <em>pdb_hierarchy</em>, <em>xray_structure</em>, <em>macro_cycles</em>, <em>d_min</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.rigid_body.refine_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.rigid_body.refine_mz">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.rigid_body.</tt><tt class="descname">refine_mz</tt><big>(</big><em>map_data</em>, <em>pdb_hierarchy</em>, <em>xray_structure</em>, <em>d_min</em>, <em>use_mask=False</em>, <em>masking_atom_radius=5</em>, <em>max_iterations=50</em>, <em>macro_cycles=1</em>, <em>prefix=''</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.rigid_body.refine_mz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Efficient real-space rigid-body refinement. Analog of MZ rigid-body refinement
+in reciprocal space. Whole content of pdb_hierarchy is treated as one rigid
+group.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.refinement.real_space.weight">
+<span id="mmtbx-refinement-real-space-weight-module"></span><h2>mmtbx.refinement.real_space.weight module<a class="headerlink" href="#module-mmtbx.refinement.real_space.weight" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.weight.run">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.weight.</tt><tt class="descname">run</tt><big>(</big><em>map_data</em>, <em>xray_structure</em>, <em>pdb_hierarchy</em>, <em>geometry_restraints_manager</em>, <em>ncs_groups=None</em>, <em>rms_bonds_limit=0.015</em>, <em>rms_angles_limit=2.0</em>, <em>real_space_gradients_delta=0.25</em>, <em>max_iterations=100</em>, <em>range_size=10</em>, <em>n_ranges=10</em>, <em>default_weight=50</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.weight.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.weight.run.show" title="mmtbx.refinement.real_space.weight.run.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>(log[,&nbsp;prefix])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.weight.run.show">
+<tt class="descname">show</tt><big>(</big><em>log</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.weight.run.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.refinement.real_space">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mmtbx.refinement.real_space" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.aa_residue_axes_and_clusters">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">aa_residue_axes_and_clusters</tt><big>(</big><em>residue</em>, <em>mon_lib_srv</em>, <em>backbone_sample</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.aa_residue_axes_and_clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.cluster">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">cluster</tt><big>(</big><em>axis</em>, <em>atoms_to_rotate</em>, <em>atom_names=None</em>, <em>vector=None</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.cluster.get_vector_flat" title="mmtbx.refinement.real_space.cluster.get_vector_flat"><tt class="xref py py-obj docutils literal"><span class="pre">get_vector_flat</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.cluster.show" title="mmtbx.refinement.real_space.cluster.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.cluster.get_vector_flat">
+<tt class="descname">get_vector_flat</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.cluster.get_vector_flat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.cluster.show">
+<tt class="descname">show</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.cluster.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.flatten">
+<tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">flatten</tt><big>(</big><em>l</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.flatten" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.need_sidechain_fit">
+<tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">need_sidechain_fit</tt><big>(</big><em>residue</em>, <em>rotamer_evaluator</em>, <em>mon_lib_srv</em>, <em>unit_cell</em>, <em>f_map</em>, <em>fdiff_map=None</em>, <em>small_f_map=0.9</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.need_sidechain_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Important: maps assumed to be sigma-scaled!</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.negate_map_around_selected_atoms_except_selected_atoms">
+<tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">negate_map_around_selected_atoms_except_selected_atoms</tt><big>(</big><em>xray_structure</em>, <em>map_data</em>, <em>negate_selection</em>, <em>atom_radius</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.negate_map_around_selected_atoms_except_selected_atoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.residue_monitor">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">residue_monitor</tt><big>(</big><em>residue</em>, <em>id_str</em>, <em>selection_all</em>, <em>selection_sidechain=None</em>, <em>selection_backbone=None</em>, <em>selection_c=None</em>, <em>selection_n=None</em>, <em>map_cc_sidechain=None</em>, <em>map_cc_backbone=None</em>, <em>map_cc_all=None</em>, <em>rotamer_status=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.residue_monitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.residue_monitor.format_info_string" title="mmtbx.refinement.real_space.residue_monitor.format_info_string"><tt class="xref py py-obj docutils literal"><span class="pre">format_info_string</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.residue_monitor.format_info_string">
+<tt class="descname">format_info_string</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.residue_monitor.format_info_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.score">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">score</tt><big>(</big><em>unit_cell</em>, <em>target_map</em>, <em>residue</em>, <em>rotamer_eval=None</em>, <em>vector=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.score.compute_target" title="mmtbx.refinement.real_space.score.compute_target"><tt class="xref py py-obj docutils literal"><span class="pre">compute_target</span></tt></a>(sites_cart[,&nbsp;selection])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.score.reset" title="mmtbx.refinement.real_space.score.reset"><tt class="xref py py-obj docutils literal"><span class="pre">reset</span></tt></a>(sites_cart[,&nbsp;selection])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.score.update" title="mmtbx.refinement.real_space.score.update"><tt class="xref py py-obj docutils literal"><span class="pre">update</span></tt></a>(sites_cart[,&nbsp;selection,&nbsp;tmp])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.score.compute_target">
+<tt class="descname">compute_target</tt><big>(</big><em>sites_cart</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.score.compute_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.score.reset">
+<tt class="descname">reset</tt><big>(</big><em>sites_cart</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.score.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.score.update">
+<tt class="descname">update</tt><big>(</big><em>sites_cart</em>, <em>selection=None</em>, <em>tmp=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.score.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.score2">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">score2</tt><big>(</big><em>unit_cell</em>, <em>target_map</em>, <em>residue</em>, <em>vector=None</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.score2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.score2.update" title="mmtbx.refinement.real_space.score2.update"><tt class="xref py py-obj docutils literal"><span class="pre">update</span></tt></a>(sites_cart[,&nbsp;selection])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.score2.update">
+<tt class="descname">update</tt><big>(</big><em>sites_cart</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.score2.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.score3">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">score3</tt><big>(</big><em>unit_cell</em>, <em>target_map</em>, <em>residue</em>, <em>rotamer_eval</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.score3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.score3.compute_target" title="mmtbx.refinement.real_space.score3.compute_target"><tt class="xref py py-obj docutils literal"><span class="pre">compute_target</span></tt></a>(sites_cart[,&nbsp;selection])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.score3.reset" title="mmtbx.refinement.real_space.score3.reset"><tt class="xref py py-obj docutils literal"><span class="pre">reset</span></tt></a>(sites_cart[,&nbsp;selection])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.score3.update" title="mmtbx.refinement.real_space.score3.update"><tt class="xref py py-obj docutils literal"><span class="pre">update</span></tt></a>(sites_cart[,&nbsp;selection])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.score3.compute_target">
+<tt class="descname">compute_target</tt><big>(</big><em>sites_cart</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.score3.compute_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.score3.reset">
+<tt class="descname">reset</tt><big>(</big><em>sites_cart</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.score3.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.score3.update">
+<tt class="descname">update</tt><big>(</big><em>sites_cart</em>, <em>selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.score3.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.selection_around_to_negate">
+<tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">selection_around_to_negate</tt><big>(</big><em>xray_structure</em>, <em>selection_within_radius</em>, <em>iselection</em>, <em>selection_good=None</em>, <em>iselection_backbone=None</em>, <em>iselection_n_external=None</em>, <em>iselection_c_external=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.selection_around_to_negate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.refinement.real_space.structure_monitor">
+<em class="property">class </em><tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">structure_monitor</tt><big>(</big><em>pdb_hierarchy</em>, <em>xray_structure</em>, <em>target_map_object=None</em>, <em>geometry_restraints_manager=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.structure_monitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.assert_pdb_hierarchy_xray_structure_sync" title="mmtbx.refinement.real_space.structure_monitor.assert_pdb_hierarchy_xray_structure_sync"><tt class="xref py py-obj docutils literal"><span class="pre">assert_pdb_hierarchy_xray_structure_sync</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.compute_map" title="mmtbx.refinement.real_space.structure_monitor.compute_map"><tt class="xref py py-obj docutils literal"><span class="pre">compute_map</span></tt></a>(xray_structure)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.initialize" title="mmtbx.refinement.real_space.structure_monitor.initialize"><tt class="xref py py-obj docutils literal"><span class="pre">initialize</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.map_cc" title="mmtbx.refinement.real_space.structure_monitor.map_cc"><tt class="xref py py-obj docutils literal"><span class="pre">map_cc</span></tt></a>(other_map[,&nbsp;sites_cart,&nbsp;atom_radius,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.map_cc_histogram_per_atom" title="mmtbx.refinement.real_space.structure_monitor.map_cc_histogram_per_atom"><tt class="xref py py-obj docutils literal"><span class="pre">map_cc_histogram_per_atom</span></tt></a>([radius,&nbsp;n_slots])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.show" title="mmtbx.refinement.real_space.structure_monitor.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([prefix,&nbsp;log])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.show_residues" title="mmtbx.refinement.real_space.structure_monitor.show_residues"><tt class="xref py py-obj docutils literal"><span class="pre">show_residues</span></tt></a>([map_cc_all,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.update" title="mmtbx.refinement.real_space.structure_monitor.update"><tt class="xref py py-obj docutils literal"><span class="pre">update</span></tt></a>(xray_structure[,&nbsp;accept_as_is])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.structure_monitor.assert_pdb_hierarchy_xray_structure_sync">
+<tt class="descname">assert_pdb_hierarchy_xray_structure_sync</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.structure_monitor.assert_pdb_hierarchy_xray_structure_sync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.structure_monitor.compute_map">
+<tt class="descname">compute_map</tt><big>(</big><em>xray_structure</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.structure_monitor.compute_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.structure_monitor.initialize">
+<tt class="descname">initialize</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.structure_monitor.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.structure_monitor.map_cc">
+<tt class="descname">map_cc</tt><big>(</big><em>other_map</em>, <em>sites_cart=None</em>, <em>atom_radius=2</em>, <em>per_atom=False</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.structure_monitor.map_cc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.structure_monitor.map_cc_histogram_per_atom">
+<tt class="descname">map_cc_histogram_per_atom</tt><big>(</big><em>radius=2</em>, <em>n_slots=10</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.structure_monitor.map_cc_histogram_per_atom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.structure_monitor.show">
+<tt class="descname">show</tt><big>(</big><em>prefix=''</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.structure_monitor.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.structure_monitor.show_residues">
+<tt class="descname">show_residues</tt><big>(</big><em>map_cc_all=0.8</em>, <em>map_cc_sidechain=0.8</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.structure_monitor.show_residues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.structure_monitor.update">
+<tt class="descname">update</tt><big>(</big><em>xray_structure</em>, <em>accept_as_is=True</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.structure_monitor.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.torsion_search">
+<tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">torsion_search</tt><big>(</big><em>clusters</em>, <em>scorer</em>, <em>sites_cart</em>, <em>start</em>, <em>stop</em>, <em>step</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.torsion_search" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.torsion_search_nested">
+<tt class="descclassname">mmtbx.refinement.real_space.</tt><tt class="descname">torsion_search_nested</tt><big>(</big><em>clusters</em>, <em>scorer</em>, <em>sites_cart</em><big>)</big><a class="headerlink" href="#mmtbx.refinement.real_space.torsion_search_nested" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">mmtbx.refinement.real_space package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.fit_residue">mmtbx.refinement.real_space.fit_residue module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.fit_residues">mmtbx.refinement.real_space.fit_residues module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.fit_water">mmtbx.refinement.real_space.fit_water module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.individual_sites">mmtbx.refinement.real_space.individual_sites module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.rigid_body">mmtbx.refinement.real_space.rigid_body module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.weight">mmtbx.refinement.real_space.weight module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space">Module contents</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mmtbx/mmtbx.refinement.real_space.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li><a href="mmtbx.refinement.html" >mmtbx.refinement package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

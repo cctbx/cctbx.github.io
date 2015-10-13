@@ -1,0 +1,665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cctbx.geometry_restraints.manager module &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="cctbx.geometry_restraints package" href="cctbx.geometry_restraints.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &raquo;</li>
+          <li><a href="cctbx.geometry_restraints.html" accesskey="U">cctbx.geometry_restraints package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-cctbx.geometry_restraints.manager">
+<span id="cctbx-geometry-restraints-manager-module"></span><h1>cctbx.geometry_restraints.manager module<a class="headerlink" href="#module-cctbx.geometry_restraints.manager" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="cctbx.geometry_restraints.manager.construct_non_crystallographic_conserving_bonds_and_angles">
+<tt class="descclassname">cctbx.geometry_restraints.manager.</tt><tt class="descname">construct_non_crystallographic_conserving_bonds_and_angles</tt><big>(</big><em>sites_cart</em>, <em>edge_list_bonds</em>, <em>edge_list_angles</em>, <em>bond_weight=100</em>, <em>angle_weight=50</em>, <em>vdw_distance=1.2</em>, <em>non_crystallographic_unit_cell_buffer_layer=5</em>, <em>asu_mappings_buffer_thickness=5</em>, <em>max_reasonable_bond_distance=10</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.construct_non_crystallographic_conserving_bonds_and_angles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cctbx.geometry_restraints.manager.format_distances_for_error_message">
+<tt class="descclassname">cctbx.geometry_restraints.manager.</tt><tt class="descname">format_distances_for_error_message</tt><big>(</big><em>pair_sym_table</em>, <em>larger_than</em>, <em>orthogonalization_matrix</em>, <em>sites_frac</em>, <em>sites_cart</em>, <em>site_labels</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.format_distances_for_error_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="cctbx.geometry_restraints.manager.manager">
+<em class="property">class </em><tt class="descclassname">cctbx.geometry_restraints.manager.</tt><tt class="descname">manager</tt><big>(</big><em>crystal_symmetry=None</em>, <em>model_indices=None</em>, <em>conformer_indices=None</em>, <em>sym_excl_indices=None</em>, <em>site_symmetry_table=None</em>, <em>donor_acceptor_excl_groups=None</em>, <em>bond_params_table=None</em>, <em>shell_sym_tables=None</em>, <em>nonbonded_params=None</em>, <em>nonbonded_types=None</em>, <em>nonbonded_charges=None</em>, <em>nonbonded_function=None</em>, <em>nonbonded_distance_cutoff=None</em>, <em>nonbonded_buffer=1</em>, <em>angle_proxies=None</em>, <em>dihedral_proxies=None</em>, <em>reference_coordinate_proxies=None</em>, <em>reference_dihedral_manager=None</em>, <em>ncs_dihedral_manager=None</em>, <em>den_manager=None</em>, <em>chirality_proxies=None</em>, <em>planarity_proxies=None</em>, <em>parallelity_proxies=None</em>, <em>ramachandran_manager=None</em>, <em>external_energy_function=None</em>, <em>plain_pairs_radius=None</em>, <em>max_reasonable_bond_distance=None</em>, <em>min_cubicle_edge=5</em>, <em>log=&lt;StringIO.StringIO instance at 0x7f3a02107638&gt;</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.add_angles_in_place" title="cctbx.geometry_restraints.manager.manager.add_angles_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">add_angles_in_place</span></tt></a>(additional_angle_proxies)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.add_chi_torsion_restraints_in_place" title="cctbx.geometry_restraints.manager.manager.add_chi_torsion_restraints_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">add_chi_torsion_restraints_in_place</span></tt></a>(...[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.add_dihedrals_in_place" title="cctbx.geometry_restraints.manager.manager.add_dihedrals_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">add_dihedrals_in_place</span></tt></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.add_new_bond_restraints_in_place" title="cctbx.geometry_restraints.manager.manager.add_new_bond_restraints_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">add_new_bond_restraints_in_place</span></tt></a>(proxies,&nbsp;...)</td>
+<td>Add new bond restraints for list of proxies to this geometry restraints manager, _in_place_! Returns nothing.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.add_new_hbond_restraints_in_place" title="cctbx.geometry_restraints.manager.manager.add_new_hbond_restraints_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">add_new_hbond_restraints_in_place</span></tt></a>(proxies,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.add_parallelities_in_place" title="cctbx.geometry_restraints.manager.manager.add_parallelities_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">add_parallelities_in_place</span></tt></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.add_planarities_in_place" title="cctbx.geometry_restraints.manager.manager.add_planarities_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">add_planarities_in_place</span></tt></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.add_reference_coordinate_restraints_in_place" title="cctbx.geometry_restraints.manager.manager.add_reference_coordinate_restraints_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">add_reference_coordinate_restraints_in_place</span></tt></a>([...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.adopt_den_manager" title="cctbx.geometry_restraints.manager.manager.adopt_den_manager"><tt class="xref py py-obj docutils literal"><span class="pre">adopt_den_manager</span></tt></a>(den_manager)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.adopt_reference_coordinate_restraints_in_place" title="cctbx.geometry_restraints.manager.manager.adopt_reference_coordinate_restraints_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">adopt_reference_coordinate_restraints_in_place</span></tt></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.adopt_reference_dihedral_manager" title="cctbx.geometry_restraints.manager.manager.adopt_reference_dihedral_manager"><tt class="xref py py-obj docutils literal"><span class="pre">adopt_reference_dihedral_manager</span></tt></a>(manager)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.append_reference_coordinate_restraints_in_place" title="cctbx.geometry_restraints.manager.manager.append_reference_coordinate_restraints_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">append_reference_coordinate_restraints_in_place</span></tt></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.construct_tardy_tree" title="cctbx.geometry_restraints.manager.manager.construct_tardy_tree"><tt class="xref py py-obj docutils literal"><span class="pre">construct_tardy_tree</span></tt></a>([sites,&nbsp;sites_cart,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.discard_symmetry" title="cctbx.geometry_restraints.manager.manager.discard_symmetry"><tt class="xref py py-obj docutils literal"><span class="pre">discard_symmetry</span></tt></a>(new_unit_cell)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.energies_sites" title="cctbx.geometry_restraints.manager.manager.energies_sites"><tt class="xref py py-obj docutils literal"><span class="pre">energies_sites</span></tt></a>(sites_cart[,&nbsp;flags,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_c_beta_torsion_proxies" title="cctbx.geometry_restraints.manager.manager.get_c_beta_torsion_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_c_beta_torsion_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_chi_torsion_proxies" title="cctbx.geometry_restraints.manager.manager.get_chi_torsion_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_chi_torsion_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_dihedral_proxies" title="cctbx.geometry_restraints.manager.manager.get_dihedral_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_dihedral_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_hbond_proxies_iseqs" title="cctbx.geometry_restraints.manager.manager.get_hbond_proxies_iseqs"><tt class="xref py py-obj docutils literal"><span class="pre">get_hbond_proxies_iseqs</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_angle_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_angle_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_angle_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_bond_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_bond_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_bond_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_chi_torsion_proixes" title="cctbx.geometry_restraints.manager.manager.get_n_chi_torsion_proixes"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_chi_torsion_proixes</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_den_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_den_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_den_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_hangle_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_hangle_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_hangle_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_hbond_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_hbond_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_hbond_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_parallelity_bp_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_parallelity_bp_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_parallelity_bp_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_planarity_bp_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_planarity_bp_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_planarity_bp_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_planarity_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_planarity_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_planarity_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_ramachandran_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_ramachandran_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_ramachandran_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_reference_coordinate_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_reference_coordinate_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_reference_coordinate_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_n_stacking_proxies" title="cctbx.geometry_restraints.manager.manager.get_n_stacking_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_n_stacking_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.get_reference_coordinate_proxies" title="cctbx.geometry_restraints.manager.manager.get_reference_coordinate_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">get_reference_coordinate_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.harmonic_restraints" title="cctbx.geometry_restraints.manager.manager.harmonic_restraints"><tt class="xref py py-obj docutils literal"><span class="pre">harmonic_restraints</span></tt></a>(variables,&nbsp;type_indices,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.is_bonded_atoms" title="cctbx.geometry_restraints.manager.manager.is_bonded_atoms"><tt class="xref py py-obj docutils literal"><span class="pre">is_bonded_atoms</span></tt></a>(i_seq,&nbsp;j_seq)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.nb_overlaps_info" title="cctbx.geometry_restraints.manager.manager.nb_overlaps_info"><tt class="xref py py-obj docutils literal"><span class="pre">nb_overlaps_info</span></tt></a>(sites_cart,&nbsp;hd_sel[,&nbsp;...])</td>
+<td>non-bonded overlaps information</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.new_included_bonded_atoms" title="cctbx.geometry_restraints.manager.manager.new_included_bonded_atoms"><tt class="xref py py-obj docutils literal"><span class="pre">new_included_bonded_atoms</span></tt></a>(proxies,&nbsp;...[,&nbsp;...])</td>
+<td>Produce new geometry_restraints_manager object that will include new atoms each with exactly one bond to the existing atom.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.new_including_isolated_sites" title="cctbx.geometry_restraints.manager.manager.new_including_isolated_sites"><tt class="xref py py-obj docutils literal"><span class="pre">new_including_isolated_sites</span></tt></a>(n_additional_sites)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.nonbonded_model_distances" title="cctbx.geometry_restraints.manager.manager.nonbonded_model_distances"><tt class="xref py py-obj docutils literal"><span class="pre">nonbonded_model_distances</span></tt></a>([sites_cart])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.pair_proxies" title="cctbx.geometry_restraints.manager.manager.pair_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">pair_proxies</span></tt></a>([sites_cart,&nbsp;flags,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.reduce_for_tardy" title="cctbx.geometry_restraints.manager.manager.reduce_for_tardy"><tt class="xref py py-obj docutils literal"><span class="pre">reduce_for_tardy</span></tt></a>(tardy_tree[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_angles_in_place" title="cctbx.geometry_restraints.manager.manager.remove_angles_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_angles_in_place</span></tt></a>(selection)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_c_beta_torsion_restraints_in_place" title="cctbx.geometry_restraints.manager.manager.remove_c_beta_torsion_restraints_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_c_beta_torsion_restraints_in_place</span></tt></a>([...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_chi_torsion_restraints_in_place" title="cctbx.geometry_restraints.manager.manager.remove_chi_torsion_restraints_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_chi_torsion_restraints_in_place</span></tt></a>([...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_chiralities_in_place" title="cctbx.geometry_restraints.manager.manager.remove_chiralities_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_chiralities_in_place</span></tt></a>(selection)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_dihedrals_in_place" title="cctbx.geometry_restraints.manager.manager.remove_dihedrals_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_dihedrals_in_place</span></tt></a>(selection)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_ncs_dihedrals_in_place" title="cctbx.geometry_restraints.manager.manager.remove_ncs_dihedrals_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_ncs_dihedrals_in_place</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_parallelities_in_place" title="cctbx.geometry_restraints.manager.manager.remove_parallelities_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_parallelities_in_place</span></tt></a>(selection)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_planarities_in_place" title="cctbx.geometry_restraints.manager.manager.remove_planarities_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_planarities_in_place</span></tt></a>(selection)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_ramachandran_in_place" title="cctbx.geometry_restraints.manager.manager.remove_ramachandran_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_ramachandran_in_place</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_reference_coordinate_restraints_in_place" title="cctbx.geometry_restraints.manager.manager.remove_reference_coordinate_restraints_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_reference_coordinate_restraints_in_place</span></tt></a>([...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.remove_reference_dihedrals_in_place" title="cctbx.geometry_restraints.manager.manager.remove_reference_dihedrals_in_place"><tt class="xref py py-obj docutils literal"><span class="pre">remove_reference_dihedrals_in_place</span></tt></a>(selection)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.replace_site_symmetry" title="cctbx.geometry_restraints.manager.manager.replace_site_symmetry"><tt class="xref py py-obj docutils literal"><span class="pre">replace_site_symmetry</span></tt></a>(new_site_symmetry_table)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.reset_internals" title="cctbx.geometry_restraints.manager.manager.reset_internals"><tt class="xref py py-obj docutils literal"><span class="pre">reset_internals</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.rigid_clusters_due_to_dihedrals_and_planes" title="cctbx.geometry_restraints.manager.manager.rigid_clusters_due_to_dihedrals_and_planes"><tt class="xref py py-obj docutils literal"><span class="pre">rigid_clusters_due_to_dihedrals_and_planes</span></tt></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.select" title="cctbx.geometry_restraints.manager.manager.select"><tt class="xref py py-obj docutils literal"><span class="pre">select</span></tt></a>([selection,&nbsp;iselection])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.set_external_energy_function" title="cctbx.geometry_restraints.manager.manager.set_external_energy_function"><tt class="xref py py-obj docutils literal"><span class="pre">set_external_energy_function</span></tt></a>(energy_function)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.set_ramachandran_restraints" title="cctbx.geometry_restraints.manager.manager.set_ramachandran_restraints"><tt class="xref py py-obj docutils literal"><span class="pre">set_ramachandran_restraints</span></tt></a>(manager)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.show_sorted" title="cctbx.geometry_restraints.manager.manager.show_sorted"><tt class="xref py py-obj docutils literal"><span class="pre">show_sorted</span></tt></a>([flags,&nbsp;sites_cart,&nbsp;site_labels,&nbsp;f])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.simple_edge_list" title="cctbx.geometry_restraints.manager.manager.simple_edge_list"><tt class="xref py py-obj docutils literal"><span class="pre">simple_edge_list</span></tt></a>([omit_slack_greater_than])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.sites_cart_used_for_pair_proxies" title="cctbx.geometry_restraints.manager.manager.sites_cart_used_for_pair_proxies"><tt class="xref py py-obj docutils literal"><span class="pre">sites_cart_used_for_pair_proxies</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.ta_harmonic_restraints" title="cctbx.geometry_restraints.manager.manager.ta_harmonic_restraints"><tt class="xref py py-obj docutils literal"><span class="pre">ta_harmonic_restraints</span></tt></a>(sites_cart,&nbsp;...[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.update_atom_nonbonded_type" title="cctbx.geometry_restraints.manager.manager.update_atom_nonbonded_type"><tt class="xref py py-obj docutils literal"><span class="pre">update_atom_nonbonded_type</span></tt></a>(i_seq,&nbsp;nonbonded_type)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.update_dihedral_ncs_restraints" title="cctbx.geometry_restraints.manager.manager.update_dihedral_ncs_restraints"><tt class="xref py py-obj docutils literal"><span class="pre">update_dihedral_ncs_restraints</span></tt></a>(sites_cart,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.update_plain_pair_sym_table" title="cctbx.geometry_restraints.manager.manager.update_plain_pair_sym_table"><tt class="xref py py-obj docutils literal"><span class="pre">update_plain_pair_sym_table</span></tt></a>(sites_frac)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.geometry_restraints.manager.manager.write_geo_file" title="cctbx.geometry_restraints.manager.manager.write_geo_file"><tt class="xref py py-obj docutils literal"><span class="pre">write_geo_file</span></tt></a>([sites_cart,&nbsp;site_labels,&nbsp;...])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.add_angles_in_place">
+<tt class="descname">add_angles_in_place</tt><big>(</big><em>additional_angle_proxies</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.add_angles_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.add_chi_torsion_restraints_in_place">
+<tt class="descname">add_chi_torsion_restraints_in_place</tt><big>(</big><em>pdb_hierarchy</em>, <em>sites_cart</em>, <em>selection=None</em>, <em>sigma=2.5</em>, <em>limit=15.0</em>, <em>chi_angles_only=False</em>, <em>top_out_potential=False</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.add_chi_torsion_restraints_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.add_dihedrals_in_place">
+<tt class="descname">add_dihedrals_in_place</tt><big>(</big><em>additional_dihedral_proxies</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.add_dihedrals_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.add_new_bond_restraints_in_place">
+<tt class="descname">add_new_bond_restraints_in_place</tt><big>(</big><em>proxies</em>, <em>sites_cart</em>, <em>max_distance_between_connecting_atoms=5</em>, <em>skip_max_proxy_distance_calculation=False</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.add_new_bond_restraints_in_place" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new bond restraints for list of proxies to this
+geometry restraints manager, _in_place_! Returns nothing.
+proxies - list of bond_proxy objects. The symmetry operation for the
+paired atoms is determined here, therefore the proxy.rt_mx_ji may be
+anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.add_new_hbond_restraints_in_place">
+<tt class="descname">add_new_hbond_restraints_in_place</tt><big>(</big><em>proxies</em>, <em>sites_cart</em>, <em>max_distance_between_connecting_atoms=5</em>, <em>skip_max_proxy_distance_calculation=False</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.add_new_hbond_restraints_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.add_parallelities_in_place">
+<tt class="descname">add_parallelities_in_place</tt><big>(</big><em>additional_parallelity_proxies</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.add_parallelities_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.add_planarities_in_place">
+<tt class="descname">add_planarities_in_place</tt><big>(</big><em>additional_planarity_proxies</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.add_planarities_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.add_reference_coordinate_restraints_in_place">
+<tt class="descname">add_reference_coordinate_restraints_in_place</tt><big>(</big><em>all_chain_proxies=None</em>, <em>pdb_hierarchy=None</em>, <em>selection=None</em>, <em>exclude_outliers=True</em>, <em>sigma=0.2</em>, <em>limit=1.0</em>, <em>top_out=False</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.add_reference_coordinate_restraints_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.adopt_den_manager">
+<tt class="descname">adopt_den_manager</tt><big>(</big><em>den_manager</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.adopt_den_manager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.adopt_reference_coordinate_restraints_in_place">
+<tt class="descname">adopt_reference_coordinate_restraints_in_place</tt><big>(</big><em>reference_coordinate_proxies</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.adopt_reference_coordinate_restraints_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.adopt_reference_dihedral_manager">
+<tt class="descname">adopt_reference_dihedral_manager</tt><big>(</big><em>manager</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.adopt_reference_dihedral_manager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.append_reference_coordinate_restraints_in_place">
+<tt class="descname">append_reference_coordinate_restraints_in_place</tt><big>(</big><em>reference_coordinate_proxies</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.append_reference_coordinate_restraints_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.construct_tardy_tree">
+<tt class="descname">construct_tardy_tree</tt><big>(</big><em>sites=None</em>, <em>sites_cart=None</em>, <em>selection=None</em>, <em>omit_bonds_with_slack_greater_than=0</em>, <em>constrain_dihedrals_with_sigma_less_than=10</em>, <em>near_singular_hinges_angular_tolerance_deg=5</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.construct_tardy_tree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.discard_symmetry">
+<tt class="descname">discard_symmetry</tt><big>(</big><em>new_unit_cell</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.discard_symmetry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.energies_sites">
+<tt class="descname">energies_sites</tt><big>(</big><em>sites_cart</em>, <em>flags=None</em>, <em>custom_nonbonded_function=None</em>, <em>compute_gradients=False</em>, <em>gradients=None</em>, <em>disable_asu_cache=False</em>, <em>normalization=False</em>, <em>external_energy_function=None</em>, <em>extension_objects=</em>, <span class="optional">[</span><span class="optional">]</span><em>site_labels=None</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.energies_sites" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_c_beta_torsion_proxies">
+<tt class="descname">get_c_beta_torsion_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_c_beta_torsion_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_chi_torsion_proxies">
+<tt class="descname">get_chi_torsion_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_chi_torsion_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_dihedral_proxies">
+<tt class="descname">get_dihedral_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_dihedral_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_hbond_proxies_iseqs">
+<tt class="descname">get_hbond_proxies_iseqs</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_hbond_proxies_iseqs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_angle_proxies">
+<tt class="descname">get_n_angle_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_angle_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_bond_proxies">
+<tt class="descname">get_n_bond_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_bond_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_chi_torsion_proixes">
+<tt class="descname">get_n_chi_torsion_proixes</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_chi_torsion_proixes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_den_proxies">
+<tt class="descname">get_n_den_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_den_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_hangle_proxies">
+<tt class="descname">get_n_hangle_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_hangle_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_hbond_proxies">
+<tt class="descname">get_n_hbond_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_hbond_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_parallelity_bp_proxies">
+<tt class="descname">get_n_parallelity_bp_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_parallelity_bp_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_planarity_bp_proxies">
+<tt class="descname">get_n_planarity_bp_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_planarity_bp_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_planarity_proxies">
+<tt class="descname">get_n_planarity_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_planarity_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_ramachandran_proxies">
+<tt class="descname">get_n_ramachandran_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_ramachandran_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_reference_coordinate_proxies">
+<tt class="descname">get_n_reference_coordinate_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_reference_coordinate_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_n_stacking_proxies">
+<tt class="descname">get_n_stacking_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_n_stacking_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.get_reference_coordinate_proxies">
+<tt class="descname">get_reference_coordinate_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_reference_coordinate_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.harmonic_restraints">
+<tt class="descname">harmonic_restraints</tt><big>(</big><em>variables</em>, <em>type_indices</em>, <em>type_weights</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.harmonic_restraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.is_bonded_atoms">
+<tt class="descname">is_bonded_atoms</tt><big>(</big><em>i_seq</em>, <em>j_seq</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.is_bonded_atoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.nb_overlaps_info">
+<tt class="descname">nb_overlaps_info</tt><big>(</big><em>sites_cart</em>, <em>hd_sel</em>, <em>macro_mol_sel=None</em>, <em>site_labels=None</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.nb_overlaps_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>non-bonded overlaps information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.new_included_bonded_atoms">
+<tt class="descname">new_included_bonded_atoms</tt><big>(</big><em>proxies</em>, <em>sites_cart</em>, <em>site_symmetry_table</em>, <em>nonbonded_types</em>, <em>nonbonded_charges</em>, <em>max_distance_between_connecting_atoms=5</em>, <em>skip_max_proxy_distance_calculation=False</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.new_included_bonded_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce new geometry_restraints_manager object that will
+include new atoms each with exactly one bond to the existing atom.
+proxies - list of bond_proxy objects. Symmetry operation will be determined
+automatically, so proxy.rt_mx_ji is ignored.
+Essentially this function wraps self.new_including_isolated_sites() and
+self.add_new_bond_restraints_in_place().
+sites_cart should contain all coordinates, for old and new atoms. new</p>
+<blockquote>
+<div>coordinates should follow old ones and the order should be consistent
+with i_seqs mentioned in proxy objects.</div></blockquote>
+<p>site_symmetry_table - table only for new atoms
+nonbonded_types - only for new atoms
+nonbonded_charges - only for new atoms.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.new_including_isolated_sites">
+<tt class="descname">new_including_isolated_sites</tt><big>(</big><em>n_additional_sites</em>, <em>model_indices=None</em>, <em>conformer_indices=None</em>, <em>sym_excl_indices=None</em>, <em>donor_acceptor_excl_groups=None</em>, <em>site_symmetry_table=None</em>, <em>nonbonded_types=None</em>, <em>nonbonded_charges=None</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.new_including_isolated_sites" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.nonbonded_model_distances">
+<tt class="descname">nonbonded_model_distances</tt><big>(</big><em>sites_cart=None</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.nonbonded_model_distances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.pair_proxies">
+<tt class="descname">pair_proxies</tt><big>(</big><em>sites_cart=None</em>, <em>flags=None</em>, <em>asu_is_inside_epsilon=None</em>, <em>bonded_distance_cutoff_epsilon=None</em>, <em>site_labels=None</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.pair_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.reduce_for_tardy">
+<tt class="descname">reduce_for_tardy</tt><big>(</big><em>tardy_tree</em>, <em>omit_bonds_with_slack_greater_than=0</em>, <em>include_den_restraints=False</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.reduce_for_tardy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_angles_in_place">
+<tt class="descname">remove_angles_in_place</tt><big>(</big><em>selection</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_angles_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_c_beta_torsion_restraints_in_place">
+<tt class="descname">remove_c_beta_torsion_restraints_in_place</tt><big>(</big><em>selection=None</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_c_beta_torsion_restraints_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_chi_torsion_restraints_in_place">
+<tt class="descname">remove_chi_torsion_restraints_in_place</tt><big>(</big><em>selection=None</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_chi_torsion_restraints_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_chiralities_in_place">
+<tt class="descname">remove_chiralities_in_place</tt><big>(</big><em>selection</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_chiralities_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_dihedrals_in_place">
+<tt class="descname">remove_dihedrals_in_place</tt><big>(</big><em>selection</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_dihedrals_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_ncs_dihedrals_in_place">
+<tt class="descname">remove_ncs_dihedrals_in_place</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_ncs_dihedrals_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_parallelities_in_place">
+<tt class="descname">remove_parallelities_in_place</tt><big>(</big><em>selection</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_parallelities_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_planarities_in_place">
+<tt class="descname">remove_planarities_in_place</tt><big>(</big><em>selection</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_planarities_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_ramachandran_in_place">
+<tt class="descname">remove_ramachandran_in_place</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_ramachandran_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_reference_coordinate_restraints_in_place">
+<tt class="descname">remove_reference_coordinate_restraints_in_place</tt><big>(</big><em>selection=None</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_reference_coordinate_restraints_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.remove_reference_dihedrals_in_place">
+<tt class="descname">remove_reference_dihedrals_in_place</tt><big>(</big><em>selection</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.remove_reference_dihedrals_in_place" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.replace_site_symmetry">
+<tt class="descname">replace_site_symmetry</tt><big>(</big><em>new_site_symmetry_table</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.replace_site_symmetry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.reset_internals">
+<tt class="descname">reset_internals</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.reset_internals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.rigid_clusters_due_to_dihedrals_and_planes">
+<tt class="descname">rigid_clusters_due_to_dihedrals_and_planes</tt><big>(</big><em>constrain_dihedrals_with_sigma_less_than</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.rigid_clusters_due_to_dihedrals_and_planes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.select">
+<tt class="descname">select</tt><big>(</big><em>selection=None</em>, <em>iselection=None</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.select" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.set_external_energy_function">
+<tt class="descname">set_external_energy_function</tt><big>(</big><em>energy_function</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.set_external_energy_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.set_ramachandran_restraints">
+<tt class="descname">set_ramachandran_restraints</tt><big>(</big><em>manager</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.set_ramachandran_restraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.show_sorted">
+<tt class="descname">show_sorted</tt><big>(</big><em>flags=None</em>, <em>sites_cart=None</em>, <em>site_labels=None</em>, <em>f=None</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.show_sorted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.simple_edge_list">
+<tt class="descname">simple_edge_list</tt><big>(</big><em>omit_slack_greater_than=0</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.simple_edge_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.sites_cart_used_for_pair_proxies">
+<tt class="descname">sites_cart_used_for_pair_proxies</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.sites_cart_used_for_pair_proxies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.ta_harmonic_restraints">
+<tt class="descname">ta_harmonic_restraints</tt><big>(</big><em>sites_cart</em>, <em>ta_harmonic_restraint_info</em>, <em>weight=0.001</em>, <em>slack=0.5</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.ta_harmonic_restraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.update_atom_nonbonded_type">
+<tt class="descname">update_atom_nonbonded_type</tt><big>(</big><em>i_seq</em>, <em>nonbonded_type</em>, <em>charge=0</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.update_atom_nonbonded_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.update_dihedral_ncs_restraints">
+<tt class="descname">update_dihedral_ncs_restraints</tt><big>(</big><em>sites_cart</em>, <em>pdb_hierarchy</em>, <em>log</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.update_dihedral_ncs_restraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.update_plain_pair_sym_table">
+<tt class="descname">update_plain_pair_sym_table</tt><big>(</big><em>sites_frac</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.update_plain_pair_sym_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.geometry_restraints.manager.manager.write_geo_file">
+<tt class="descname">write_geo_file</tt><big>(</big><em>sites_cart=None</em>, <em>site_labels=None</em>, <em>file_name=None</em>, <em>file_descriptor=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em>, <em>header='# Geometry restraintsn'</em><big>)</big><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.write_geo_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/cctbx/cctbx.geometry_restraints.manager.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &raquo;</li>
+          <li><a href="cctbx.geometry_restraints.html" >cctbx.geometry_restraints package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

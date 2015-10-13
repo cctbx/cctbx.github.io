@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cctbx.eltbx.attenuation_coefficient module &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="cctbx.eltbx package" href="cctbx.eltbx.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &raquo;</li>
+          <li><a href="cctbx.eltbx.html" accesskey="U">cctbx.eltbx package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-cctbx.eltbx.attenuation_coefficient">
+<span id="cctbx-eltbx-attenuation-coefficient-module"></span><h1>cctbx.eltbx.attenuation_coefficient module<a class="headerlink" href="#module-cctbx.eltbx.attenuation_coefficient" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="cctbx.eltbx.attenuation_coefficient.chemlex">
+<tt class="descclassname">cctbx.eltbx.attenuation_coefficient.</tt><tt class="descname">chemlex</tt><big>(</big><em>formula</em><big>)</big><a class="headerlink" href="#cctbx.eltbx.attenuation_coefficient.chemlex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function taking a chemical formula and getting the component
+elements and number.</p>
+<p>Parsing is simply done by regex and no checking for whether the
+symbol corresponds to anything real is done. Proper capitalisation
+must be used.</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>formula A chemical formula string</dd>
+<dt>Returns:</dt>
+<dd>A list of (symbol, number) tuples</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.eltbx.attenuation_coefficient.get_table">
+<tt class="descclassname">cctbx.eltbx.attenuation_coefficient.</tt><tt class="descname">get_table</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#cctbx.eltbx.attenuation_coefficient.get_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the table for a given element or composite</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>index Either an atomic number of symbol</dd>
+<dt>Returns:</dt>
+<dd>The table for the requested element</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="cctbx.eltbx.attenuation_coefficient.nist_elements">
+<em class="property">class </em><tt class="descclassname">cctbx.eltbx.attenuation_coefficient.</tt><tt class="descname">nist_elements</tt><a class="headerlink" href="#cctbx.eltbx.attenuation_coefficient.nist_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>A table of nist elements and composite materials.
+Note that elements are only defined up to uranium.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.eltbx.attenuation_coefficient.nist_elements.atomic_number" title="cctbx.eltbx.attenuation_coefficient.nist_elements.atomic_number"><tt class="xref py py-obj docutils literal"><span class="pre">atomic_number</span></tt></a>(symbol)</td>
+<td>Get the atomic number from the symbol.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.eltbx.attenuation_coefficient.nist_elements.atomic_number_list" title="cctbx.eltbx.attenuation_coefficient.nist_elements.atomic_number_list"><tt class="xref py py-obj docutils literal"><span class="pre">atomic_number_list</span></tt></a>()</td>
+<td>Return a list of atomic numbers.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.eltbx.attenuation_coefficient.nist_elements.symbol" title="cctbx.eltbx.attenuation_coefficient.nist_elements.symbol"><tt class="xref py py-obj docutils literal"><span class="pre">symbol</span></tt></a>(number)</td>
+<td>Get the symbol from the atomic number</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.eltbx.attenuation_coefficient.nist_elements.symbol_list" title="cctbx.eltbx.attenuation_coefficient.nist_elements.symbol_list"><tt class="xref py py-obj docutils literal"><span class="pre">symbol_list</span></tt></a>()</td>
+<td>Return the list of elements.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.eltbx.attenuation_coefficient.nist_elements.atomic_number">
+<tt class="descname">atomic_number</tt><big>(</big><em>symbol</em><big>)</big><a class="headerlink" href="#cctbx.eltbx.attenuation_coefficient.nist_elements.atomic_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the atomic number from the symbol.</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>symbol The element symbol</dd>
+<dt>Return:</dt>
+<dd>The atomic number</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cctbx.eltbx.attenuation_coefficient.nist_elements.atomic_number_list">
+<tt class="descname">atomic_number_list</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.eltbx.attenuation_coefficient.nist_elements.atomic_number_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of atomic numbers.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cctbx.eltbx.attenuation_coefficient.nist_elements.symbol">
+<tt class="descname">symbol</tt><big>(</big><em>number</em><big>)</big><a class="headerlink" href="#cctbx.eltbx.attenuation_coefficient.nist_elements.symbol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the symbol from the atomic number</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>number The atomic number</dd>
+<dt>Return:</dt>
+<dd>The symbol</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cctbx.eltbx.attenuation_coefficient.nist_elements.symbol_list">
+<tt class="descname">symbol_list</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.eltbx.attenuation_coefficient.nist_elements.symbol_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of elements.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/cctbx/cctbx.eltbx.attenuation_coefficient.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &raquo;</li>
+          <li><a href="cctbx.eltbx.html" >cctbx.eltbx package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

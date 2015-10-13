@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mmtbx.ions.geometry module &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="mmtbx.ions package" href="mmtbx.ions.html" />
+    <link rel="next" title="mmtbx.ions.halides module" href="mmtbx.ions.halides.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.ions.halides.html" title="mmtbx.ions.halides module"
+             accesskey="N">next</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li><a href="mmtbx.ions.html" accesskey="U">mmtbx.ions package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-mmtbx.ions.geometry">
+<span id="mmtbx-ions-geometry-module"></span><h1>mmtbx.ions.geometry module<a class="headerlink" href="#module-mmtbx.ions.geometry" title="Permalink to this headline">¶</a></h1>
+<p>This module provides tools for examining a set of vectors and find the geometry
+that best fits from a set of built in shapes.</p>
+<dl class="function">
+<dt id="mmtbx.ions.geometry.find_coordination_geometry">
+<tt class="descclassname">mmtbx.ions.geometry.</tt><tt class="descname">find_coordination_geometry</tt><big>(</big><em>nearby_atoms</em>, <em>minimizer_method=False</em>, <em>cutoff=2.9</em><big>)</big><a class="headerlink" href="#mmtbx.ions.geometry.find_coordination_geometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches through a list of geometries to find those that fit nearby_atom.</p>
+<p>Geometries are recognized by generating a list of all combinations of angles
+between the vectors and comparing them against the angles among the vectors
+of the ideal geometry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nearby_atoms: list of mmtbx.ions.environment.atom_contact</strong></p>
+<blockquote>
+<div><p>A list of atom contacts, indicating the vertices of the shape to be
+recognized.</p>
+</div></blockquote>
+<p><strong>minimizer_method: bool, optional</strong></p>
+<blockquote>
+<div><p>Optional parameter to use the new, more efficient version of geometry
+recognition. The old method will be depreciated in later versions of
+cctbx.</p>
+</div></blockquote>
+<p><strong>cutoff: float, optional</strong></p>
+<blockquote>
+<div><p>A cutoff distance, past which vectors are not included in geometry
+calculations.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of tuples of str, float</p>
+<blockquote class="last">
+<div><p>A list of found geometries. Each tuple contains the name of the geometry
+in string form followed by the deviation from ideal angles.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><tt class="xref py py-obj docutils literal"><span class="pre">mmtbx.ions.geometry.SUPPORTED_GEOMETRY_NAMES</span></tt>, <tt class="xref py py-obj docutils literal"><span class="pre">mmtbx.ions.geometry.SUPPORTED_GEOMETRIES_OLD</span></tt></p>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mmtbx.ions.halides.html"
+                        title="next chapter">mmtbx.ions.halides module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mmtbx/mmtbx.ions.geometry.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.ions.halides.html" title="mmtbx.ions.halides module"
+             >next</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li><a href="mmtbx.ions.html" >mmtbx.ions package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cctbx.crystal.burzlaff_zimmermann_dewolff module &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="cctbx.crystal package" href="cctbx.crystal.html" />
+    <link rel="prev" title="cctbx.crystal package" href="cctbx.crystal.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cctbx.crystal.html" title="cctbx.crystal package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &raquo;</li>
+          <li><a href="cctbx.crystal.html" accesskey="U">cctbx.crystal package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-cctbx.crystal.burzlaff_zimmermann_dewolff">
+<span id="cctbx-crystal-burzlaff-zimmermann-dewolff-module"></span><h1>cctbx.crystal.burzlaff_zimmermann_dewolff module<a class="headerlink" href="#module-cctbx.crystal.burzlaff_zimmermann_dewolff" title="Permalink to this headline">¶</a></h1>
+<p>Reference implementation of BZW lattice characters, from Table 9.3.1 of
+the International Tables.  Use of this method is not recommended.  See
+counterexamples given below.</p>
+<p>Literature:  Crystal lattices. H. Burzlaff, H. Zimmermann and P.M. de Wolff.
+In International Tables for Cyrstallography, Volume A: Space-group symmetry
+ed. Theo Hahn.  Dordrecht: Kluwer Academic Publishers (1996).
+Note correction in the lattice_text table as given by W. Kabsch,
+J. Appl. Cryst. 26: 795-800 (1993).  The 1996 edition of International
+Tables is apparently uncorrected from the 1989 edition.</p>
+<p>Author: N.K. Sauter</p>
+<dl class="class">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter">
+<em class="property">class </em><tt class="descclassname">cctbx.crystal.burzlaff_zimmermann_dewolff.</tt><tt class="descname">LatticeCharacter</tt><big>(</big><em>unit_cell</em>, <em>tolerance=3.0</em><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.all" title="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.all"><tt class="xref py py-obj docutils literal"><span class="pre">all</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.best" title="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.best"><tt class="xref py py-obj docutils literal"><span class="pre">best</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.best_bravais__" title="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.best_bravais__"><tt class="xref py py-obj docutils literal"><span class="pre">best_bravais__</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.show_summary" title="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.show_summary_labelit_format" title="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.show_summary_labelit_format"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary_labelit_format</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.all">
+<tt class="descname">all</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.best">
+<tt class="descname">best</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.best" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.best_bravais__">
+<tt class="descname">best_bravais__</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.best_bravais__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.show_summary">
+<tt class="descname">show_summary</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.show_summary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.show_summary_labelit_format">
+<tt class="descname">show_summary_labelit_format</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.LatticeCharacter.show_summary_labelit_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria">
+<em class="property">class </em><tt class="descclassname">cctbx.crystal.burzlaff_zimmermann_dewolff.</tt><tt class="descname">MetricCriteria</tt><big>(</big><em>unit_cell</em>, <em>int_tol=0.97</em><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.apply_sign_correction" title="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.apply_sign_correction"><tt class="xref py py-obj docutils literal"><span class="pre">apply_sign_correction</span></tt></a>(cell)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.character_tests" title="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.character_tests"><tt class="xref py py-obj docutils literal"><span class="pre">character_tests</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.equal" title="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.equal"><tt class="xref py py-obj docutils literal"><span class="pre">equal</span></tt></a>(A,&nbsp;B)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.equal_penalty" title="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.equal_penalty"><tt class="xref py py-obj docutils literal"><span class="pre">equal_penalty</span></tt></a>(A,&nbsp;B)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.penalty_scores" title="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.penalty_scores"><tt class="xref py py-obj docutils literal"><span class="pre">penalty_scores</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.zero" title="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.zero"><tt class="xref py py-obj docutils literal"><span class="pre">zero</span></tt></a>(Product,&nbsp;B)</td>
+<td>Product == 0 within fractional tolerance referred to by the quantities B.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.zero_penalty" title="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.zero_penalty"><tt class="xref py py-obj docutils literal"><span class="pre">zero_penalty</span></tt></a>(Product,&nbsp;B)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.apply_sign_correction">
+<tt class="descname">apply_sign_correction</tt><big>(</big><em>cell</em><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.apply_sign_correction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.character_tests">
+<tt class="descname">character_tests</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.character_tests" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.equal">
+<tt class="descname">equal</tt><big>(</big><em>A</em>, <em>B</em><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.equal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.equal_penalty">
+<tt class="descname">equal_penalty</tt><big>(</big><em>A</em>, <em>B</em><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.equal_penalty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.penalty_scores">
+<tt class="descname">penalty_scores</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.penalty_scores" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.zero">
+<tt class="descname">zero</tt><big>(</big><em>Product</em>, <em>B</em><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.zero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Product == 0 within fractional tolerance referred to by the quantities B.
+Usage: zero(D,(B,C)) | zero(E,(A,C)) | zero(F,(A,B))
+Only these combinations can be used.  This translates exactly into
+a tolerance on right angle, based on formula D=b.dot(c)=|b||c|cos(theta)
+internal_tolerance=0.97 corresponds to 1.72 degrees.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.zero_penalty">
+<tt class="descname">zero_penalty</tt><big>(</big><em>Product</em>, <em>B</em><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.MetricCriteria.zero_penalty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.counterexamples">
+<tt class="descclassname">cctbx.crystal.burzlaff_zimmermann_dewolff.</tt><tt class="descname">counterexamples</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.counterexamples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cctbx.crystal.burzlaff_zimmermann_dewolff.run">
+<tt class="descclassname">cctbx.crystal.burzlaff_zimmermann_dewolff.</tt><tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.crystal.burzlaff_zimmermann_dewolff.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cctbx.crystal.html"
+                        title="previous chapter">cctbx.crystal package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/cctbx/cctbx.crystal.burzlaff_zimmermann_dewolff.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cctbx.crystal.html" title="cctbx.crystal package"
+             >previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &raquo;</li>
+          <li><a href="cctbx.crystal.html" >cctbx.crystal package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cctbx - core crystallographic objects and functions &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="next" title="cctbx.adptbx module" href="cctbx.adptbx.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cctbx.adptbx.html" title="cctbx.adptbx module"
+             accesskey="N">next</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cctbx-core-crystallographic-objects-and-functions">
+<h1>cctbx - core crystallographic objects and functions<a class="headerlink" href="#cctbx-core-crystallographic-objects-and-functions" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-cctbx" title="cctbx"><tt class="xref py py-mod docutils literal"><span class="pre">cctbx</span></tt></a> module, not to be confused with the overall CCTBX project,
+contains all data types and algorithms for generic crystallographic computing,
+without reference to file formats, molecule types, or use cases.  The most
+important subpackages, whose methods are used throughout the higher-level
+modules of CCTBX, can be summarized as follows:</p>
+<ul class="simple">
+<li><a class="reference internal" href="cctbx.sgtbx.html#module-cctbx.sgtbx" title="cctbx.sgtbx"><tt class="xref py py-mod docutils literal"><span class="pre">cctbx.sgtbx</span></tt></a>: space group symmetry library, including handling of
+both real-space and reciprocal-space asymmetric units</li>
+<li><tt class="xref py py-mod docutils literal"><span class="pre">cctbx.uctbx</span></tt>: unit cell handling, including fractional-to-Cartesian
+coordinate conversions</li>
+<li><a class="reference internal" href="cctbx.crystal.html#module-cctbx.crystal" title="cctbx.crystal"><tt class="xref py py-mod docutils literal"><span class="pre">cctbx.crystal</span></tt></a>: operations using combined space group and unit cell
+information; many other classes are derived from
+<a class="reference internal" href="cctbx.crystal.html#cctbx.crystal.symmetry" title="cctbx.crystal.symmetry"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.crystal.symmetry</span></tt></a></li>
+<li><a class="reference internal" href="cctbx.array_family.html#module-cctbx.array_family" title="cctbx.array_family"><tt class="xref py py-mod docutils literal"><span class="pre">cctbx.array_family</span></tt></a>: extensions to <tt class="xref py py-mod docutils literal"><span class="pre">scitbx.array_family</span></tt>,
+defining several additional array types</li>
+<li><a class="reference internal" href="cctbx.miller.html#module-cctbx.miller" title="cctbx.miller"><tt class="xref py py-mod docutils literal"><span class="pre">cctbx.miller</span></tt></a>: classes for manipulating reflections and associated
+data (stored as flex arrays)</li>
+<li><a class="reference internal" href="cctbx.xray.html#module-cctbx.xray" title="cctbx.xray"><tt class="xref py py-mod docutils literal"><span class="pre">cctbx.xray</span></tt></a>: high-level operations on X-ray scatterers, including
+Fourier transforms between real and reciprocal space (using direct summation
+or FFT), which are at the core of any refinement program</li>
+<li><a class="reference internal" href="cctbx.maptbx.html#module-cctbx.maptbx" title="cctbx.maptbx"><tt class="xref py py-mod docutils literal"><span class="pre">cctbx.maptbx</span></tt></a>: operations on real-space maps</li>
+<li><a class="reference internal" href="cctbx.adptbx.html#module-cctbx.adptbx" title="cctbx.adptbx"><tt class="xref py py-mod docutils literal"><span class="pre">cctbx.adptbx</span></tt></a>: manipulation of atomic displacement parameters (ADPs,
+or equivalent B-factors), including conversion between a variety of
+conventions</li>
+</ul>
+<p>Additional modules cover methods for dealing with restraints on molecular
+geometry and ADPs and a complete set of scattering tables and related chemical
+information.  However, these modules and data types are less likely to be
+directly by high-level code.</p>
+<p>Note that many of the data types involved, especially the
+<a class="reference internal" href="cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.miller.array</span></tt></a> and <a class="reference internal" href="cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></tt></a> objects,
+can either be built programatically or populated from files.  The latter
+subject is covered in the documentation for <tt class="xref py py-mod docutils literal"><span class="pre">iotbx</span></tt>.</p>
+<p>Several dozen examples of practical use of <a class="reference internal" href="#module-cctbx" title="cctbx"><tt class="xref py py-mod docutils literal"><span class="pre">cctbx</span></tt></a> functionality
+can be found in the <tt class="docutils literal"><span class="pre">examples</span></tt> subdirectory of the module.</p>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.adptbx.html">cctbx.adptbx module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.adp_restraints.html">cctbx.adp_restraints package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.adp_restraints.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.adp_restraints.energies.html">cctbx.adp_restraints.energies module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.adp_restraints.flags.html">cctbx.adp_restraints.flags module</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.adp_restraints.html#module-cctbx.adp_restraints">Module contents</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.array_family.html">cctbx.array_family package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.array_family.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.array_family.flex.html">cctbx.array_family.flex module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.array_family.html#module-cctbx.array_family">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.covariance.html">cctbx.covariance package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.covariance.html#module-cctbx.covariance">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.crystal.html">cctbx.crystal package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.crystal.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.crystal.burzlaff_zimmermann_dewolff.html">cctbx.crystal.burzlaff_zimmermann_dewolff module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.crystal.close_packing.html">cctbx.crystal.close_packing module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.crystal.coordination_sequences.html">cctbx.crystal.coordination_sequences module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.crystal.direct_space_asu.html">cctbx.crystal.direct_space_asu module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.crystal.distance_based_connectivity.html">cctbx.crystal.distance_based_connectivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.crystal.find_best_cell.html">cctbx.crystal.find_best_cell module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.crystal.reindex.html">cctbx.crystal.reindex module</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.crystal.html#module-cctbx.crystal">Module contents</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.crystal_orientation.html">cctbx.crystal_orientation module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.dmtbx.html">cctbx.dmtbx module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.eltbx.html">cctbx.eltbx package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.eltbx.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.development.html">cctbx.eltbx.development package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.eltbx.development.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.combine_fits.html">cctbx.eltbx.development.combine_fits module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.create_n_gaussian_raw_cpp.html">cctbx.eltbx.development.create_n_gaussian_raw_cpp module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.e_scattering_plots.html">cctbx.eltbx.development.e_scattering_plots module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.format_gaussian_fits.html">cctbx.eltbx.development.format_gaussian_fits module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.hydrogen_plots.html">cctbx.eltbx.development.hydrogen_plots module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.itvc_approx.html">cctbx.eltbx.development.itvc_approx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.itvc_cross_validation.html">cctbx.eltbx.development.itvc_cross_validation module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.itvc_fits.html">cctbx.eltbx.development.itvc_fits module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.itvc_kissel.html">cctbx.eltbx.development.itvc_kissel module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.itvc_section61_io.html">cctbx.eltbx.development.itvc_section61_io module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.kissel_fits.html">cctbx.eltbx.development.kissel_fits module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.kissel_io.html">cctbx.eltbx.development.kissel_io module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.eltbx.development.rez_rez_grant.html">cctbx.eltbx.development.rez_rez_grant module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.eltbx.development.html#module-cctbx.eltbx.development">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.xray_scattering.html">cctbx.eltbx.xray_scattering package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.eltbx.xray_scattering.html#module-cctbx.eltbx.xray_scattering">Module contents</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.eltbx.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.attenuation_coefficient.html">cctbx.eltbx.attenuation_coefficient module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.chemical_elements.html">cctbx.eltbx.chemical_elements module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.covalent_radii.html">cctbx.eltbx.covalent_radii module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.distance_based_connectivity.html">cctbx.eltbx.distance_based_connectivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.e_scattering.html">cctbx.eltbx.e_scattering module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.formula.html">cctbx.eltbx.formula module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.fp_fdp.html">cctbx.eltbx.fp_fdp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.gaussian_fit.html">cctbx.eltbx.gaussian_fit module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.henke.html">cctbx.eltbx.henke module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.icsd_radii.html">cctbx.eltbx.icsd_radii module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.neutron.html">cctbx.eltbx.neutron module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.sasaki.html">cctbx.eltbx.sasaki module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.tiny_pse.html">cctbx.eltbx.tiny_pse module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.van_der_waals_radii.html">cctbx.eltbx.van_der_waals_radii module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.eltbx.wavelengths.html">cctbx.eltbx.wavelengths module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.eltbx.html#module-cctbx.eltbx">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.euclidean_model_matching.html">cctbx.euclidean_model_matching module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.french_wilson.html">cctbx.french_wilson module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.geometry.html">cctbx.geometry package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.geometry.html#module-cctbx.geometry">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.geometry_restraints.html">cctbx.geometry_restraints package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.geometry_restraints.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.geometry_restraints.distance_least_squares.html">cctbx.geometry_restraints.distance_least_squares module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.geometry_restraints.energies.html">cctbx.geometry_restraints.energies module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.geometry_restraints.flags.html">cctbx.geometry_restraints.flags module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.geometry_restraints.lbfgs.html">cctbx.geometry_restraints.lbfgs module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.geometry_restraints.manager.html">cctbx.geometry_restraints.manager module</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.geometry_restraints.html#module-cctbx.geometry_restraints">Module contents</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.macro_mol.html">cctbx.macro_mol package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.macro_mol.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.macro_mol.rotation_parameters.html">cctbx.macro_mol.rotation_parameters module</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.macro_mol.html#module-cctbx.macro_mol">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.maptbx.html">cctbx.maptbx package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.maptbx.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.maptbx.mem.html">cctbx.maptbx.mem module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.maptbx.real_space_refinement.html">cctbx.maptbx.real_space_refinement module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.maptbx.real_space_refinement_simple.html">cctbx.maptbx.real_space_refinement_simple module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.maptbx.real_space_target_and_gradients.html">cctbx.maptbx.real_space_target_and_gradients module</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.maptbx.html#module-cctbx.maptbx">Module contents</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.masks.html">cctbx.masks package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.masks.html#module-cctbx.masks">Module contents</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.math_module.html">cctbx.math_module module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.merging.html">cctbx.merging package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.merging.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.merging.brehm_diederichs.html">cctbx.merging.brehm_diederichs module</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.merging.html#module-cctbx.merging">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.miller.html">cctbx.miller package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.miller.html#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.miller.html#file-i-o">File I/O</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.miller.html#processing-input-data-practical-aspects">Processing input data - practical aspects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.miller.html#comparing-arrays">Comparing arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.miller.html#working-with-experimental-data">Working with experimental data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.miller.html#from-arrays-to-maps">From arrays to maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.miller.html#the-miller-set">The Miller set</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.miller.html#the-miller-array">The Miller array</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.miller.html#utility-classes">Utility classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.miller.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.miller.display.html">cctbx.miller.display module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.miller.reindexing.html">cctbx.miller.reindexing module</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.multipolar.html">cctbx.multipolar module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.neutron.html">cctbx.neutron package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.neutron.html#module-cctbx.neutron">Module contents</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.r_free_utils.html">cctbx.r_free_utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.sgtbx.html">cctbx.sgtbx package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.sgtbx.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.html">cctbx.sgtbx.direct_space_asu package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.proto.html">cctbx.sgtbx.direct_space_asu.proto package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.proto.html#submodules">Submodules</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.proto.generate_cpp_asu_table.html">cctbx.sgtbx.direct_space_asu.proto.generate_cpp_asu_table module</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.proto.html#module-cctbx.sgtbx.direct_space_asu.proto">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.check_redundancies.html">cctbx.sgtbx.direct_space_asu.check_redundancies module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.cut_plane.html">cctbx.sgtbx.direct_space_asu.cut_plane module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.facet_analysis.html">cctbx.sgtbx.direct_space_asu.facet_analysis module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.plane_group_reference_table.html">cctbx.sgtbx.direct_space_asu.plane_group_reference_table module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.reference_table.html">cctbx.sgtbx.direct_space_asu.reference_table module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.short_cuts.html">cctbx.sgtbx.direct_space_asu.short_cuts module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.sgtbx.direct_space_asu.html#module-cctbx.sgtbx.direct_space_asu">Module contents</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.sgtbx.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.bravais_types.html">cctbx.sgtbx.bravais_types module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.cosets.html">cctbx.sgtbx.cosets module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.harker.html">cctbx.sgtbx.harker module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.lattice_symmetry.html">cctbx.sgtbx.lattice_symmetry module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.literal_description.html">cctbx.sgtbx.literal_description module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.plane_groups.html">cctbx.sgtbx.plane_groups module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.pointgroup_tools.html">cctbx.sgtbx.pointgroup_tools module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.rational_matrices_point_groups.html">cctbx.sgtbx.rational_matrices_point_groups module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.reticular_pg_tools.html">cctbx.sgtbx.reticular_pg_tools module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.reticular_twin_laws.html">cctbx.sgtbx.reticular_twin_laws module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.show_cosets.html">cctbx.sgtbx.show_cosets module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.sub_lattice_tools.html">cctbx.sgtbx.sub_lattice_tools module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.subgroups.html">cctbx.sgtbx.subgroups module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.symbol_confidence.html">cctbx.sgtbx.symbol_confidence module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.sgtbx.sys_abs_equiv.html">cctbx.sgtbx.sys_abs_equiv module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.sgtbx.html#module-cctbx.sgtbx">Module contents</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.statistics.html">cctbx.statistics module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.symmetry_search.html">cctbx.symmetry_search module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.translation_search.html">cctbx.translation_search module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.uctbx.html">cctbx.uctbx package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.uctbx.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.uctbx.determine_unit_cell.html">cctbx.uctbx.determine_unit_cell package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.uctbx.determine_unit_cell.html#module-cctbx.uctbx.determine_unit_cell">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.uctbx.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.uctbx.gruber_1973.html">cctbx.uctbx.gruber_1973 module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.uctbx.gruber_1973_table_1.html">cctbx.uctbx.gruber_1973_table_1 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.uctbx.krivy_gruber_1976.html">cctbx.uctbx.krivy_gruber_1976 module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.uctbx.reduction_base.html">cctbx.uctbx.reduction_base module</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.uctbx.html#the-unit-cell">The unit cell</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.xray.html">cctbx.xray package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.xray.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.xray.observations.html">cctbx.xray.observations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.xray.observations.html#module-cctbx.xray.observations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.xray.structure_factors.html">cctbx.xray.structure_factors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.xray.structure_factors.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.from_scatterers.html">cctbx.xray.structure_factors.from_scatterers module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.from_scatterers_direct.html">cctbx.xray.structure_factors.from_scatterers_direct module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.from_scatterers_direct_parallel.html">cctbx.xray.structure_factors.from_scatterers_direct_parallel module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.from_scatterers_fft.html">cctbx.xray.structure_factors.from_scatterers_fft module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.global_counters.html">cctbx.xray.structure_factors.global_counters module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.gradient_flags.html">cctbx.xray.structure_factors.gradient_flags module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.gradients.html">cctbx.xray.structure_factors.gradients module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.gradients_base.html">cctbx.xray.structure_factors.gradients_base module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.gradients_direct.html">cctbx.xray.structure_factors.gradients_direct module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.gradients_fft.html">cctbx.xray.structure_factors.gradients_fft module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.manager.html">cctbx.xray.structure_factors.manager module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.structure_factors.misc.html">cctbx.xray.structure_factors.misc module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.xray.structure_factors.html#module-cctbx.xray.structure_factors">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.xray.targets.html">cctbx.xray.targets package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.xray.targets.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cctbx.xray.targets.r1.html">cctbx.xray.targets.r1 module</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cctbx.xray.targets.html#module-cctbx.xray.targets">Module contents</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.xray.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.xray.ext.html">cctbx.xray.ext module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.xray.minimization.html">cctbx.xray.minimization module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.xray.observation_types.html">cctbx.xray.observation_types module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.xray.scatterer.html">cctbx.xray.scatterer module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.xray.structure.html">cctbx.xray.structure module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.xray.target_functors.html">cctbx.xray.target_functors module</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cctbx.xray.weighting_schemes.html">cctbx.xray.weighting_schemes module</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cctbx.xray.html#module-cctbx.xray">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-cctbx">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cctbx" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cctbx.hendrickson_lattman">
+<tt class="descclassname">cctbx.</tt><tt class="descname">hendrickson_lattman</tt><big>(</big><em>*args</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#cctbx.hendrickson_lattman" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">cctbx - core crystallographic objects and functions</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-cctbx">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cctbx.adptbx.html"
+                        title="next chapter">cctbx.adptbx module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/cctbx/cctbx.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cctbx.adptbx.html" title="cctbx.adptbx module"
+             >next</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

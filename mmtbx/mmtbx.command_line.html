@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mmtbx.command_line package &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="mmtbx - macromolecular crystallography" href="mmtbx.html" />
+    <link rel="prev" title="mmtbx.chemical_components package" href="mmtbx.chemical_components.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.chemical_components.html" title="mmtbx.chemical_components package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mmtbx-command-line-package">
+<h1>mmtbx.command_line package<a class="headerlink" href="#mmtbx-command-line-package" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">command_line</span></tt> directory contains many common utilities as well as
+several relatively complex applications, including <strong>Xtriage</strong>, the core
+of <strong>MolProbity</strong>, <strong>phenix.maps</strong>, and <strong>phenix.table_one</strong>.  Many of these
+tools have in common the same basic inputs and setup procedures.  These are
+encapsulated in the top-level mmtbx.command_line module, and simplify the
+process of loading models and data to just a few lines of code for each new
+application.</p>
+<div class="section" id="module-mmtbx.command_line">
+<span id="api-documentation"></span><h2>API documentation<a class="headerlink" href="#module-mmtbx.command_line" title="Permalink to this headline">¶</a></h2>
+<p>Generic wrapper for bootstrapping high-level applications which rely on some
+combination of model and data, with special attention to geometry restraints
+interpretation and f_model setup.  All of the bookkeeping required to
+disambiguate crystal symmetry and Miller array conventions is performed
+automatically.  This is superficially similar to the setup for phenix.refine
+(and re-uses many of the methods in mmtbx.utils), but is somewhat simpler
+(single-dataset only) and more general-purpose.</p>
+<dl class="function">
+<dt id="mmtbx.command_line.generate_master_phil_with_inputs">
+<tt class="descclassname">mmtbx.command_line.</tt><tt class="descname">generate_master_phil_with_inputs</tt><big>(</big><em>phil_string</em>, <em>enable_twin_law=True</em>, <em>enable_automatic_twin_detection=False</em>, <em>enable_experimental_phases=False</em>, <em>enable_pdb_interpretation_params=False</em>, <em>enable_stop_for_unknowns=None</em>, <em>enable_full_geometry_params=False</em>, <em>enable_unmerged_data=False</em>, <em>enable_cdl=None</em>, <em>as_phil_string=False</em><big>)</big><a class="headerlink" href="#mmtbx.command_line.generate_master_phil_with_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a complete PHIL parameter block with generic input parameters plus
+user-specified options.  The result is suitable for input for the class
+load_model_and_data.  Depending on the target application, the exact input
+options can be adjusted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>phil_string</strong> &#8211; application-specific parameters</li>
+<li><strong>enable_twin_law</strong> &#8211; allow twinned f_model calculation</li>
+<li><strong>enable_automatic_twin_detection</strong> &#8211; allow automatic detection of twinning
+and setup of the f_model object</li>
+<li><strong>enable_experimental_phases</strong> &#8211; use Hendrickson-Lattman coefficients</li>
+<li><strong>enable_pdb_interpretation_params</strong> &#8211; show options for modifying the
+behavior of mmtbx.monomer_library.pdb_interpretation</li>
+<li><strong>enable_stop_for_unknowns</strong> &#8211; modify behavior of restraint interpretation
+when unknown atoms are encountered.  Default is None; if True, the
+program will not raise an error; if False, the program will raise an
+error which may be suppressed by the user</li>
+<li><strong>enable_full_geometry_params</strong> &#8211; include parameters for specifying custom
+geometry resraints</li>
+<li><strong>enable_unmerged_data</strong> &#8211; accept separate unmerged intensities</li>
+<li><strong>enable_cdl</strong> &#8211; change default setting for conformation-dependent library</li>
+<li><strong>as_phil_string</strong> &#8211; return parameter string instead of PHIL object</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">PHIL object (unless as_phil_string=True)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.command_line.generic_simple_input_phil">
+<tt class="descclassname">mmtbx.command_line.</tt><tt class="descname">generic_simple_input_phil</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.command_line.generic_simple_input_phil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate minimal PHIL input string with no additional parameters.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.command_line.load_and_validate_unmerged_data">
+<tt class="descclassname">mmtbx.command_line.</tt><tt class="descname">load_and_validate_unmerged_data</tt><big>(</big><em>f_obs</em>, <em>file_name</em>, <em>data_labels</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.command_line.load_and_validate_unmerged_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in (and verify) unmerged intensities, e.g. from scalepack or XDS.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.command_line.load_model_and_data">
+<em class="property">class </em><tt class="descclassname">mmtbx.command_line.</tt><tt class="descname">load_model_and_data</tt><big>(</big><em>args</em>, <em>master_phil</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em>, <em>process_pdb_file=True</em>, <em>require_data=True</em>, <em>create_fmodel=True</em>, <em>prefer_anomalous=None</em>, <em>force_non_anomalous=False</em>, <em>set_wavelength_from_model_header=False</em>, <em>set_inelastic_form_factors=None</em>, <em>usage_string=None</em>, <em>create_log_buffer=False</em>, <em>remove_unknown_scatterers=False</em>, <em>generate_input_phil=False</em><big>)</big><a class="headerlink" href="#mmtbx.command_line.load_model_and_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Class for processing command-line input and creating necessary objects.
+The master_phil object should include cmdline_input_phil_str above, plus
+any application-specific parameters.  Programs which use this can be invoked
+using simple file arguments or explicit parameters, e.g.</p>
+<blockquote>
+<div>mmtbx.some_program model.pdb data.mtz</div></blockquote>
+<p>This class performs the following functions (mostly using other wrappers
+elsewhere in mmtbx.utils):</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Process all arguments and extract as Python parameters</li>
+<li>Read in data and R-free flags</li>
+<li>Filter data and flags to be consistent if necessary</li>
+<li>Read in PDB file, either using the iotbx.pdb API, or if process_pdb_file
+is True, mmtbx.monomer_library.pdb_interpretation (using any CIF files
+included in the inputs)</li>
+<li>Extract the pdb_hierarchy and xray_structure objects.</li>
+<li>Create an mmtbx.f_model.manager object using the data, flags, and
+xray_structure.</li>
+</ol>
+</div></blockquote>
+<p>If at any point the inputs are ambiguous, hopefully the program will stop
+and raise an interpretable error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>args: list of command-line arguments</strong></p>
+<p><strong>master_phil: PHIL master (can optionally be an unparsed string)</strong></p>
+<p><strong>out: filehandle-like object</strong></p>
+<p><strong>process_pdb_file: run full restraints generation</strong></p>
+<p><strong>require_data: raise error if no experimental data supplied</strong></p>
+<p><strong>create_fmodel: setup mmtbx.f_model.manager object</strong></p>
+<p><strong>prefer_anomalous: preferentially use anomalous data if present</strong></p>
+<p><strong>force_non_anomalous: merge anomalous data if present</strong></p>
+<p><strong>set_wavelength_from_model_header: interpret PDB or mmCIF header to set     experimental wavelength</strong></p>
+<p><strong>set_inelastic_form_factors: table to use (if any) for setting anomalous     scattering form factors</strong></p>
+<p><strong>usage_string: console output for no arguments or &#8211;help</strong></p>
+<p><strong>create_log_buffer: store log output for later output to file</strong></p>
+<p><strong>remove_unknown_scatterers: delete atoms with scattering type &#8216;X&#8217; (only     used when process_pdb_file=False)</strong></p>
+<p class="last"><strong>generate_input_phil: specifies that the master_phil object is a string     containing onky the app-specific options, and automatically add the     standard input parameters</strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mmtbx.command_line</span> <span class="kn">import</span> <span class="n">load_model_and_data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmdline</span> <span class="o">=</span> <span class="n">load_model_and_data</span><span class="p">(</span>
+<span class="gp">... </span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;model.pdb&quot;</span><span class="p">,</span> <span class="s">&quot;data.mtz&quot;</span><span class="p">],</span>
+<span class="gp">... </span> <span class="n">master_phil</span><span class="o">=</span><span class="n">master_phil</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">prefer_anomalous</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">set_wavelength_from_model_header</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">set_inelastic_form_factors</span><span class="o">=</span><span class="s">&quot;sasaki&quot;</span><span class="p">,</span>
+<span class="gp">... </span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">pdb_hierarchy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">fmodel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">wavelength</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+</pre></div>
+</div>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>args</td>
+<td>(list of str)</td>
+</tr>
+<tr class="row-even"><td>cif_file_names</td>
+<td>(libtbx.phil.scope_extract_list)</td>
+</tr>
+<tr class="row-odd"><td>cif_objects</td>
+<td>(list of ...)</td>
+</tr>
+<tr class="row-even"><td>crystal_symmetry</td>
+<td>(cctbx.crystal.symmetry)</td>
+</tr>
+<tr class="row-odd"><td>f_obs</td>
+<td>(cctbx.miller.array)</td>
+</tr>
+<tr class="row-even"><td>fmodel</td>
+<td>(mmtbx.f_model.manager)</td>
+</tr>
+<tr class="row-odd"><td>geometry</td>
+<td>(cctbx.geometry_restraints.manager.manager)</td>
+</tr>
+<tr class="row-even"><td>hl_coeffs</td>
+<td>(...)</td>
+</tr>
+<tr class="row-odd"><td>intensity_flag</td>
+<td>(bool)</td>
+</tr>
+<tr class="row-even"><td>log</td>
+<td>(file)</td>
+</tr>
+<tr class="row-odd"><td>master_phil</td>
+<td>(libtbx.phil.scope)</td>
+</tr>
+<tr class="row-even"><td>miller_arrays</td>
+<td>(list of cctbx.miller.array)</td>
+</tr>
+<tr class="row-odd"><td>params</td>
+<td>(libtbx.phil.scope_extract)</td>
+</tr>
+<tr class="row-even"><td>pdb_file_names</td>
+<td>(libtbx.phil.scope_extract_list)</td>
+</tr>
+<tr class="row-odd"><td>pdb_hierarchy</td>
+<td>(iotbx.pdb.hierarchy.root)</td>
+</tr>
+<tr class="row-even"><td>pdb_inp</td>
+<td>(iotbx.pdb.input)</td>
+</tr>
+<tr class="row-odd"><td>processed_pdb_file</td>
+<td>(mmtbx.monomer_library.pdb_interpretation.process)</td>
+</tr>
+<tr class="row-even"><td>r_free_flags</td>
+<td>(cctbx.miller.array)</td>
+</tr>
+<tr class="row-odd"><td>raw_data</td>
+<td>(cctbx.miller.array)</td>
+</tr>
+<tr class="row-even"><td>raw_flags</td>
+<td>(cctbx.miller.array)</td>
+</tr>
+<tr class="row-odd"><td>sequence</td>
+<td>(...)</td>
+</tr>
+<tr class="row-even"><td>test_flag_value</td>
+<td>(int)</td>
+</tr>
+<tr class="row-odd"><td>unknown_residues_flag</td>
+<td>(bool)</td>
+</tr>
+<tr class="row-even"><td>unknown_residues_error_message</td>
+<td>(str)</td>
+</tr>
+<tr class="row-odd"><td>unmerged_i_obs</td>
+<td>(...)</td>
+</tr>
+<tr class="row-even"><td>working_phil</td>
+<td>(libtbx.phil.scope)</td>
+</tr>
+<tr class="row-odd"><td>xray_structure</td>
+<td>(cctbx.xray.structure.structure)</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.create_model_manager" title="mmtbx.command_line.load_model_and_data.create_model_manager"><tt class="xref py py-obj docutils literal"><span class="pre">create_model_manager</span></tt></a>([log])</td>
+<td>Instantiate an mmtbx.model.manager object with the current pdb hierarchy, xray structure, and geometry restraints.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.save_data_mtz" title="mmtbx.command_line.load_model_and_data.save_data_mtz"><tt class="xref py py-obj docutils literal"><span class="pre">save_data_mtz</span></tt></a>(file_name)</td>
+<td>Write the processed amplitudes, optional Hendrickson-Lattman coefficients, and R-free flags to the designated MTZ file.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.start_log_file" title="mmtbx.command_line.load_model_and_data.start_log_file"><tt class="xref py py-obj docutils literal"><span class="pre">start_log_file</span></tt></a>(file_name)</td>
+<td>Open a log file and write out the existing output buffer, returning the multi_out pseudo-filehandle.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.command_line.load_model_and_data.create_model_manager">
+<tt class="descname">create_model_manager</tt><big>(</big><em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.create_model_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate an mmtbx.model.manager object with the current pdb hierarchy,
+xray structure, and geometry restraints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.command_line.load_model_and_data.save_data_mtz">
+<tt class="descname">save_data_mtz</tt><big>(</big><em>file_name</em><big>)</big><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.save_data_mtz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the processed amplitudes, optional Hendrickson-Lattman coefficients,
+and R-free flags to the designated MTZ file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.command_line.load_model_and_data.start_log_file">
+<tt class="descname">start_log_file</tt><big>(</big><em>file_name</em><big>)</big><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.start_log_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a log file and write out the existing output buffer, returning the
+multi_out pseudo-filehandle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_name</strong> &#8211; log file to create</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">libtbx.utils.multi_out object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.command_line.show_symmetry_error">
+<tt class="descclassname">mmtbx.command_line.</tt><tt class="descname">show_symmetry_error</tt><big>(</big><em>file1</em>, <em>file2</em>, <em>symm1</em>, <em>symm2</em><big>)</big><a class="headerlink" href="#mmtbx.command_line.show_symmetry_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.command_line.validate_input_params">
+<tt class="descclassname">mmtbx.command_line.</tt><tt class="descname">validate_input_params</tt><big>(</big><em>params</em><big>)</big><a class="headerlink" href="#mmtbx.command_line.validate_input_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for completeness of mandatory input parameters</p>
+</dd></dl>
+
+<p>A more complex example, which identifies suspect ligands based on electron
+density:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">master_phil</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">command_line</span><span class="o">.</span><span class="n">generate_master_phil_with_inputs</span><span class="p">(</span>
+<span class="gp">... </span>  <span class="n">enable_twin_law</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">phil_string</span><span class="o">=</span><span class="s">&quot;&quot;&quot;</span>
+<span class="gp">... </span><span class="s">    hetatms_only = True</span>
+<span class="gp">... </span><span class="s">      .type = bool</span>
+<span class="gp">... </span><span class="s">    skip_single_atoms = True</span>
+<span class="gp">... </span><span class="s">      .type = bool</span>
+<span class="gp">... </span><span class="s">    min_acceptable_cc = 0.8</span>
+<span class="gp">... </span><span class="s">      .type = float&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmdline</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">command_line</span><span class="o">.</span><span class="n">load_model_and_data</span><span class="p">(</span>
+<span class="gp">... </span> <span class="n">args</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+<span class="gp">... </span> <span class="n">master_phil</span><span class="o">=</span><span class="n">master_phil</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">out</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">process_pdb_file</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">create_fmodel</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">prefer_anomalous</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">start_log_file</span><span class="p">(</span><span class="s">&quot;bad_ligands.log&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">params</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bad_ligands</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">real_space_correlation</span><span class="o">.</span><span class="n">find_suspicious_residues</span><span class="p">(</span>
+<span class="gp">... </span>  <span class="n">fmodel</span><span class="o">=</span><span class="n">fmodel</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">pdb_hierarchy</span><span class="o">=</span><span class="n">pdb_hierarchy</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">hetatms_only</span><span class="o">=</span><span class="n">params</span><span class="o">.</span><span class="n">hetatms_only</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">skip_single_atoms</span><span class="o">=</span><span class="n">params</span><span class="o">.</span><span class="n">skip_single_atoms</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">min_acceptable_cc</span><span class="o">=</span><span class="n">params</span><span class="o">.</span><span class="n">min_acceptable_cc</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">)</span>
+<span class="gp">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">mmtbx.command_line package</a><ul>
+<li><a class="reference internal" href="#module-mmtbx.command_line">API documentation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mmtbx.chemical_components.html"
+                        title="previous chapter">mmtbx.chemical_components package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mmtbx/mmtbx.command_line.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.chemical_components.html" title="mmtbx.chemical_components package"
+             >previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mmtbx.ions.svm.utils module &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="mmtbx.ions.svm package" href="mmtbx.ions.svm.html" />
+    <link rel="prev" title="mmtbx.ions.svm.dump_sites module" href="mmtbx.ions.svm.dump_sites.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.ions.svm.dump_sites.html" title="mmtbx.ions.svm.dump_sites module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li><a href="mmtbx.ions.html" >mmtbx.ions package</a> &raquo;</li>
+          <li><a href="mmtbx.ions.svm.html" accesskey="U">mmtbx.ions.svm package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-mmtbx.ions.svm.utils">
+<span id="mmtbx-ions-svm-utils-module"></span><h1>mmtbx.ions.svm.utils module<a class="headerlink" href="#module-mmtbx.ions.svm.utils" title="Permalink to this headline">¶</a></h1>
+<p>Utility functions used within this module.</p>
+<dl class="function">
+<dt id="mmtbx.ions.svm.utils.filter_svm_outputs">
+<tt class="descclassname">mmtbx.ions.svm.utils.</tt><tt class="descname">filter_svm_outputs</tt><big>(</big><em>chem_env</em>, <em>scatter_env</em>, <em>predictions</em><big>)</big><a class="headerlink" href="#mmtbx.ions.svm.utils.filter_svm_outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a simple set of filters to the accepted ions that might match a given
+chemical and scattering environment to help catch corner cases where the SVM
+might fail.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>chem_env</strong> : mmtbx.ions.environment.ChemicalEnvironment</p>
+<p><strong>scatter_env</strong> : mmtbx.ions.environment.ScatteringEnvironment</p>
+<p><strong>elements</strong> : list of str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ions.svm.utils.iterate_sites">
+<tt class="descclassname">mmtbx.ions.svm.utils.</tt><tt class="descname">iterate_sites</tt><big>(</big><em>pdb_hierarchy</em>, <em>split_sites=False</em>, <em>res_filter=None</em><big>)</big><a class="headerlink" href="#mmtbx.ions.svm.utils.iterate_sites" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a generator iterating over all atoms in pdb_hierarchy. Optionally
+skips sites with alternate conformations and can filter by residue name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>pdb_hierarchy: iotbx.pdb.hierarchy.root</strong></p>
+<p><strong>split_sites: bool, optional</strong></p>
+<blockquote>
+<div><p>Indicates whether to iterate over sites with alternate conformations, by
+default they are not included.</p>
+</div></blockquote>
+<p><strong>res_filter: list of str, optional</strong></p>
+<blockquote>
+<div><p>List of residue names to include, by default, all residues are examined.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">generator of iotbx.pdb.hierarchy.atom</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ions.svm.utils.scale_to">
+<tt class="descclassname">mmtbx.ions.svm.utils.</tt><tt class="descname">scale_to</tt><big>(</big><em>matrix</em>, <em>source</em>, <em>target</em><big>)</big><a class="headerlink" href="#mmtbx.ions.svm.utils.scale_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an upper and lower bound for each row of matrix, scales the values to be
+within the range specified by target.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>matrix</strong> : numpy.array of float</p>
+<blockquote>
+<div><p>The matrix to be scaled.</p>
+</div></blockquote>
+<p><strong>source</strong> : tuple of numpy.array of float</p>
+<blockquote>
+<div><p>The upper and lower bound on the values of each row in the original
+matrix.</p>
+</div></blockquote>
+<p><strong>target</strong> : tuple of float</p>
+<blockquote>
+<div><p>The target range to scale to.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>matrix</strong> : numpy.array of float</p>
+<blockquote class="last">
+<div><p>The matrix with scaled values.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mmtbx.ions.svm.utils</span> <span class="kn">import</span> <span class="n">scale_to</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="go">                       [2, 3, 4],</span>
+<span class="go">                       [1, 2, 3]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]),</span>
+<span class="go">              np.array([0, 1, 2]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">target</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scale_to</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+<span class="go">array([[ 1. ,  1. ,  1. ],</span>
+<span class="go">       [ 0. ,  0. ,  0. ],</span>
+<span class="go">       [ 0.5,  0.5,  0.5]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mmtbx.ions.svm.dump_sites.html"
+                        title="previous chapter">mmtbx.ions.svm.dump_sites module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mmtbx/mmtbx.ions.svm.utils.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.ions.svm.dump_sites.html" title="mmtbx.ions.svm.dump_sites module"
+             >previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li><a href="mmtbx.ions.html" >mmtbx.ions package</a> &raquo;</li>
+          <li><a href="mmtbx.ions.svm.html" >mmtbx.ions.svm package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

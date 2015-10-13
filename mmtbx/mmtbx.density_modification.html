@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mmtbx.density_modification package &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="mmtbx - macromolecular crystallography" href="mmtbx.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mmtbx-density-modification-package">
+<h1>mmtbx.density_modification package<a class="headerlink" href="#mmtbx-density-modification-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-mmtbx.density_modification">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mmtbx.density_modification" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.density_modification.density_modification">
+<em class="property">class </em><tt class="descclassname">mmtbx.density_modification.</tt><tt class="descname">density_modification</tt><big>(</big><em>params</em>, <em>f_obs</em>, <em>hl_coeffs_start</em>, <em>ncs_object=None</em>, <em>map_coeffs=None</em>, <em>log=None</em>, <em>as_gui_program=False</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.active_indices" title="mmtbx.density_modification.density_modification.active_indices"><tt class="xref py py-obj docutils literal"><span class="pre">active_indices</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.d_min" title="mmtbx.density_modification.density_modification.d_min"><tt class="xref py py-obj docutils literal"><span class="pre">d_min</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.f_obs_active" title="mmtbx.density_modification.density_modification.f_obs_active"><tt class="xref py py-obj docutils literal"><span class="pre">f_obs_active</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.hl_coeffs_in_original_setting" title="mmtbx.density_modification.density_modification.hl_coeffs_in_original_setting"><tt class="xref py py-obj docutils literal"><span class="pre">hl_coeffs_in_original_setting</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.map_coeffs_in_original_setting" title="mmtbx.density_modification.density_modification.map_coeffs_in_original_setting"><tt class="xref py py-obj docutils literal"><span class="pre">map_coeffs_in_original_setting</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.radius" title="mmtbx.density_modification.density_modification.radius"><tt class="xref py py-obj docutils literal"><span class="pre">radius</span></tt></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.anisotropic_correction" title="mmtbx.density_modification.density_modification.anisotropic_correction"><tt class="xref py py-obj docutils literal"><span class="pre">anisotropic_correction</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.calculate_solvent_mask" title="mmtbx.density_modification.density_modification.calculate_solvent_mask"><tt class="xref py py-obj docutils literal"><span class="pre">calculate_solvent_mask</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.compute_map" title="mmtbx.density_modification.density_modification.compute_map"><tt class="xref py py-obj docutils literal"><span class="pre">compute_map</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.compute_map_coefficients" title="mmtbx.density_modification.density_modification.compute_map_coefficients"><tt class="xref py py-obj docutils literal"><span class="pre">compute_map_coefficients</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.compute_phase_source" title="mmtbx.density_modification.density_modification.compute_phase_source"><tt class="xref py py-obj docutils literal"><span class="pre">compute_phase_source</span></tt></a>(hl_coeffs[,&nbsp;n_steps])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.density_truncation" title="mmtbx.density_modification.density_modification.density_truncation"><tt class="xref py py-obj docutils literal"><span class="pre">density_truncation</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.get_stats" title="mmtbx.density_modification.density_modification.get_stats"><tt class="xref py py-obj docutils literal"><span class="pre">get_stats</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.matthews_analysis" title="mmtbx.density_modification.density_modification.matthews_analysis"><tt class="xref py py-obj docutils literal"><span class="pre">matthews_analysis</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.miller_array_in_original_setting" title="mmtbx.density_modification.density_modification.miller_array_in_original_setting"><tt class="xref py py-obj docutils literal"><span class="pre">miller_array_in_original_setting</span></tt></a>(miller_array)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.ncs_averaging" title="mmtbx.density_modification.density_modification.ncs_averaging"><tt class="xref py py-obj docutils literal"><span class="pre">ncs_averaging</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.next_cycle" title="mmtbx.density_modification.density_modification.next_cycle"><tt class="xref py py-obj docutils literal"><span class="pre">next_cycle</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.show_cycle_summary" title="mmtbx.density_modification.density_modification.show_cycle_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_cycle_summary</span></tt></a>([out])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.solvent_adjust" title="mmtbx.density_modification.density_modification.solvent_adjust"><tt class="xref py py-obj docutils literal"><span class="pre">solvent_adjust</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.solvent_flattening" title="mmtbx.density_modification.density_modification.solvent_flattening"><tt class="xref py py-obj docutils literal"><span class="pre">solvent_flattening</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.solvent_flipping" title="mmtbx.density_modification.density_modification.solvent_flipping"><tt class="xref py py-obj docutils literal"><span class="pre">solvent_flipping</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.density_modification.start_and_end_fom" title="mmtbx.density_modification.density_modification.start_and_end_fom"><tt class="xref py py-obj docutils literal"><span class="pre">start_and_end_fom</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mmtbx.density_modification.density_modification.active_indices">
+<tt class="descname">active_indices</tt><a class="headerlink" href="#mmtbx.density_modification.density_modification.active_indices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.anisotropic_correction">
+<tt class="descname">anisotropic_correction</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.anisotropic_correction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.calculate_solvent_mask">
+<tt class="descname">calculate_solvent_mask</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.calculate_solvent_mask" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.compute_map">
+<tt class="descname">compute_map</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.compute_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.compute_map_coefficients">
+<tt class="descname">compute_map_coefficients</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.compute_map_coefficients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.compute_phase_source">
+<tt class="descname">compute_phase_source</tt><big>(</big><em>hl_coeffs</em>, <em>n_steps=72</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.compute_phase_source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.density_modification.density_modification.d_min">
+<tt class="descname">d_min</tt><a class="headerlink" href="#mmtbx.density_modification.density_modification.d_min" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.density_truncation">
+<tt class="descname">density_truncation</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.density_truncation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.density_modification.density_modification.f_obs_active">
+<tt class="descname">f_obs_active</tt><a class="headerlink" href="#mmtbx.density_modification.density_modification.f_obs_active" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.get_stats">
+<tt class="descname">get_stats</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.get_stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.density_modification.density_modification.hl_coeffs_in_original_setting">
+<tt class="descname">hl_coeffs_in_original_setting</tt><a class="headerlink" href="#mmtbx.density_modification.density_modification.hl_coeffs_in_original_setting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.density_modification.density_modification.map_coeffs_in_original_setting">
+<tt class="descname">map_coeffs_in_original_setting</tt><a class="headerlink" href="#mmtbx.density_modification.density_modification.map_coeffs_in_original_setting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.matthews_analysis">
+<tt class="descname">matthews_analysis</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.matthews_analysis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.miller_array_in_original_setting">
+<tt class="descname">miller_array_in_original_setting</tt><big>(</big><em>miller_array</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.miller_array_in_original_setting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.ncs_averaging">
+<tt class="descname">ncs_averaging</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.ncs_averaging" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.next_cycle">
+<tt class="descname">next_cycle</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.next_cycle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.density_modification.density_modification.radius">
+<tt class="descname">radius</tt><a class="headerlink" href="#mmtbx.density_modification.density_modification.radius" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.show_cycle_summary">
+<tt class="descname">show_cycle_summary</tt><big>(</big><em>out=None</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.show_cycle_summary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.solvent_adjust">
+<tt class="descname">solvent_adjust</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.solvent_adjust" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.solvent_flattening">
+<tt class="descname">solvent_flattening</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.solvent_flattening" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.solvent_flipping">
+<tt class="descname">solvent_flipping</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.solvent_flipping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.density_modification.start_and_end_fom">
+<tt class="descname">start_and_end_fom</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.density_modification.start_and_end_fom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.density_modification.dm_stats">
+<em class="property">class </em><tt class="descclassname">mmtbx.density_modification.</tt><tt class="descname">dm_stats</tt><a class="headerlink" href="#mmtbx.density_modification.dm_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.dm_stats.add_cycle" title="mmtbx.density_modification.dm_stats.add_cycle"><tt class="xref py py-obj docutils literal"><span class="pre">add_cycle</span></tt></a>(**kwds)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.dm_stats.extract_loggraph" title="mmtbx.density_modification.dm_stats.extract_loggraph"><tt class="xref py py-obj docutils literal"><span class="pre">extract_loggraph</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.dm_stats.format_summary" title="mmtbx.density_modification.dm_stats.format_summary"><tt class="xref py py-obj docutils literal"><span class="pre">format_summary</span></tt></a>([i_cycle])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.dm_stats.get_cycle_stats" title="mmtbx.density_modification.dm_stats.get_cycle_stats"><tt class="xref py py-obj docutils literal"><span class="pre">get_cycle_stats</span></tt></a>([i_cycle])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.dm_stats.get_fom_for_plot" title="mmtbx.density_modification.dm_stats.get_fom_for_plot"><tt class="xref py py-obj docutils literal"><span class="pre">get_fom_for_plot</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.density_modification.dm_stats.add_cycle">
+<tt class="descname">add_cycle</tt><big>(</big><em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.dm_stats.add_cycle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.dm_stats.extract_loggraph">
+<tt class="descname">extract_loggraph</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.dm_stats.extract_loggraph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.dm_stats.format_summary">
+<tt class="descname">format_summary</tt><big>(</big><em>i_cycle=-1</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.dm_stats.format_summary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.dm_stats.get_cycle_stats">
+<tt class="descname">get_cycle_stats</tt><big>(</big><em>i_cycle=-1</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.dm_stats.get_cycle_stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.dm_stats.get_fom_for_plot">
+<tt class="descname">get_fom_for_plot</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.density_modification.dm_stats.get_fom_for_plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.density_modification.local_standard_deviation_map">
+<em class="property">class </em><tt class="descclassname">mmtbx.density_modification.</tt><tt class="descname">local_standard_deviation_map</tt><big>(</big><em>map_coeffs</em>, <em>radius</em>, <em>mean_solvent_density=0</em>, <em>method=0</em>, <em>symmetry_flags=None</em>, <em>resolution_factor=0.3333333333333333</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.local_standard_deviation_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.density_modification.local_standard_deviation_map.histogram" title="mmtbx.density_modification.local_standard_deviation_map.histogram"><tt class="xref py py-obj docutils literal"><span class="pre">histogram</span></tt></a>([n_slots])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.density_modification.local_standard_deviation_map.mask" title="mmtbx.density_modification.local_standard_deviation_map.mask"><tt class="xref py py-obj docutils literal"><span class="pre">mask</span></tt></a>(solvent_fraction)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.density_modification.local_standard_deviation_map.histogram">
+<tt class="descname">histogram</tt><big>(</big><em>n_slots=10000</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.local_standard_deviation_map.histogram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.density_modification.local_standard_deviation_map.mask">
+<tt class="descname">mask</tt><big>(</big><em>solvent_fraction</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.local_standard_deviation_map.mask" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.density_modification.rms">
+<tt class="descclassname">mmtbx.density_modification.</tt><tt class="descname">rms</tt><big>(</big><em>flex_double</em><big>)</big><a class="headerlink" href="#mmtbx.density_modification.rms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">mmtbx.density_modification package</a><ul>
+<li><a class="reference internal" href="#module-mmtbx.density_modification">Module contents</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mmtbx/mmtbx.density_modification.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

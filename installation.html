@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation overview &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="index.html" />
+    <link rel="next" title="Tour of the cctbx" href="tour.html" />
+    <link rel="prev" title="Computational Crystallography Toolbox" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tour.html" title="Tour of the cctbx"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Computational Crystallography Toolbox"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CCTBX None documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="contents topic" id="table-of-contents">
+<span id="installation"></span><p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#installation-overview" id="id1">Installation overview</a></li>
+<li><a class="reference internal" href="#manually-building-from-sources-under-unix" id="id2">Manually building from sources under Unix</a></li>
+<li><a class="reference internal" href="#manually-building-from-sources-under-windows-2000-or-higher" id="id3">Manually building from sources under Windows 2000 or higher</a></li>
+<li><a class="reference internal" href="#using-the-cctbx-svn-repository" id="id4">Using the cctbx SVN repository</a></li>
+</ul>
+</div>
+<div class="section" id="installation-overview">
+<h1><a class="toc-backref" href="#id1">Installation overview</a><a class="headerlink" href="#installation-overview" title="Permalink to this headline">¶</a></h1>
+<p>Periodically the most recent cctbx source code including all its
+dependencies is automatically exported from the source code repositories
+(SVN, CVS) and bundled into self-extracting files that are published
+at:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://cci.lbl.gov/cctbx_build/">http://cci.lbl.gov/cctbx_build/</a></li>
+</ul>
+</div></blockquote>
+<p>This web page also provides self-extracting binary distributions for a
+variety of platforms. It is most convenient to use these binary bundles
+if possible. Installation is very simple and fast. The minimal
+instructions are shown at the download page.</p>
+<p>Source code bundles are also available. Under Unix, if Python 2.4
+through 2.7 is pre-installed on the target platform, the smaller
+<tt class="docutils literal"><span class="pre">cctbx_bundle.selfx</span></tt> can be used. However, in general it will be
+best to download the <tt class="docutils literal"><span class="pre">cctbx_python_*_bundle.selfx</span></tt> file because
+the installation script will automatically install a recent Python
+before proceeding with the installation of the cctbx modules.</p>
+<p>The Unix bundles include a file <tt class="docutils literal"><span class="pre">cctbx_install_script.csh</span></tt>.
+This script is known to work with:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Linux: any gcc &gt;= 3.2</li>
+<li>Mac OS 10.4 or higher with Apple&#8217;s compiler</li>
+</ul>
+</div></blockquote>
+<p>Other Unix platforms will most likely require adjustments of the
+build scripts.</p>
+<p>The self-extracting source code bundle for Windows (<tt class="docutils literal"><span class="pre">cctbx_bundle.exe</span></tt>)
+does not include an installation script.</p>
+</div>
+<div class="section" id="manually-building-from-sources-under-unix">
+<h1><a class="toc-backref" href="#id2">Manually building from sources under Unix</a><a class="headerlink" href="#manually-building-from-sources-under-unix" title="Permalink to this headline">¶</a></h1>
+<p>Please note: <strong>The following instructions are for developers!</strong> The
+self-extracting (.selfx) source bundles perform all the steps
+automatically.</p>
+<p>Building from sources requires Python 2.4 through 2.7 and a C++
+compiler. If you like to use the most recent Python, it can be
+installed in the following way:</p>
+<div class="highlight-python"><div class="highlight"><pre>gunzip -c Python-2.7.2.tar.gz | tar xf -
+cd Python-2.7.2
+./configure --prefix=/your/choice
+make
+make install
+</pre></div>
+</div>
+<p>It may be convenient (but is not required) to add the directory
+<tt class="docutils literal"><span class="pre">/your/choice/bin</span></tt> to the command-line search <tt class="docutils literal"><span class="pre">PATH</span></tt>, e.g. using
+<tt class="docutils literal"><span class="pre">csh</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre>set path=(/your/choice/bin $path)
+</pre></div>
+</div>
+<p>Recent self-contained cctbx sources are available in the file
+<a class="reference external" href="http://cci.lbl.gov/cctbx_build/results/last_published/cctbx_bundle.tar.gz">cctbx_bundle.tar.gz</a>
+published at the cctbx build page. To unpack this file in a new,
+empty directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>tar zxf cctbx_bundle.tar.gz
+</pre></div>
+</div>
+<p>This creates a subdirectory <tt class="docutils literal"><span class="pre">cctbx_sources</span></tt>. The installation
+procedure should be executed in another directory, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir cctbx_build
+cd cctbx_build
+/your/choice/bin/python ../cctbx_sources/libtbx/configure.py mmtbx
+</pre></div>
+</div>
+<p>The last command initializes the <tt class="docutils literal"><span class="pre">cctbx_build</span></tt> directory and creates a
+file <tt class="docutils literal"><span class="pre">setpaths.csh</span></tt> (among others). This file must be used to
+initialize a new shell or process with the cctbx settings:</p>
+<div class="highlight-python"><div class="highlight"><pre>source setpaths.csh
+</pre></div>
+</div>
+<p>There is also a <tt class="docutils literal"><span class="pre">setpaths.sh</span></tt> for <tt class="docutils literal"><span class="pre">bash</span></tt> users.</p>
+<p>To compile enter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">make</span>
+</pre></div>
+</div>
+<p>This will actually run the <tt class="docutils literal"><span class="pre">libtbx.scons</span></tt> command using all
+available CPUs. You can also manually specify the number of CPUs to
+use, for example:</p>
+<div class="highlight-python"><div class="highlight"><pre>libtbx.scons -j 4
+</pre></div>
+</div>
+<p>Note that <tt class="docutils literal"><span class="pre">libtbx.scons</span></tt> is just a thin wrapper around <a class="reference external" href="http://www.scons.org/">SCons</a>. The
+<a class="reference external" href="http://www.scons.org/doc/HTML/scons-man.html">SCons documentation</a> applies without modification.</p>
+<p>To run scripts with cctbx imports use the command:</p>
+<div class="highlight-python"><div class="highlight"><pre>libtbx.python your_script.py
+</pre></div>
+</div>
+<p>(You can also use <tt class="docutils literal"><span class="pre">scitbx.python</span></tt>, <tt class="docutils literal"><span class="pre">cctbx.python</span></tt>, <tt class="docutils literal"><span class="pre">iotbx.python</span></tt>, etc.;
+all these commands are equivalent.)</p>
+<p>For example, to run some regression tests after the compilation is
+finished enter:</p>
+<div class="highlight-python"><div class="highlight"><pre>source setpaths_all.csh
+libtbx.python $SCITBX_DIST/run_tests.py
+libtbx.python $CCTBX_DIST/run_tests.py --Quick
+</pre></div>
+</div>
+<p>The output should show many OK. A Python Traceback is an indicator
+for problems.</p>
+</div>
+<div class="section" id="manually-building-from-sources-under-windows-2000-or-higher">
+<h1><a class="toc-backref" href="#id3">Manually building from sources under Windows 2000 or higher</a><a class="headerlink" href="#manually-building-from-sources-under-windows-2000-or-higher" title="Permalink to this headline">¶</a></h1>
+<p>The cctbx installation requires Visual C++ 8.0 (Visual Studio .NET
+2005) or higher.</p>
+<p>To install Python under Windows it is best to use a binary
+installer from the <a class="reference external" href="http://www.python.org/download/">Python download page</a>.
+The default choices presented by the installation wizard are usually fine.</p>
+<p>Recent self-contained cctbx sources are available in the
+self-extracting file
+<a class="reference external" href="http://cci.lbl.gov/cctbx_build/results/last_published/cctbx_bundle.exe">cctbx_bundle.exe</a>
+published at the cctbx build page. To unpack this file in a new, empty
+directory enter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cctbx_bundle</span><span class="o">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+<p>This creates a subdirectory <tt class="docutils literal"><span class="pre">cctbx_sources</span></tt>. The installation
+procedure should be executed in another directory, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir cctbx_build
+cd cctbx_build
+C:\python27\python.exe ..\cctbx_sources\libtbx\configure.py mmtbx
+</pre></div>
+</div>
+<p>The last command initializes the <tt class="docutils literal"><span class="pre">cctbx_build</span></tt> directory and creates
+a file <tt class="docutils literal"><span class="pre">setpaths.bat</span></tt> (among others). This file must be used to
+initialize a new shell or process with the cctbx settings:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">setpaths</span><span class="o">.</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>To compile enter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">libtbx</span><span class="o">.</span><span class="n">scons</span>
+</pre></div>
+</div>
+<p>On a machine with multiple CPUs enter:</p>
+<div class="highlight-python"><div class="highlight"><pre>libtbx.scons -j N
+</pre></div>
+</div>
+<p>where N is the number of CPUs available.</p>
+<p>Note that <tt class="docutils literal"><span class="pre">libtbx.scons</span></tt> is just a thin wrapper around <a class="reference external" href="http://www.scons.org/">SCons</a>. The
+<a class="reference external" href="http://www.scons.org/doc/HTML/scons-man.html">SCons documentation</a> applies without modification.</p>
+<p>To run scripts with cctbx imports use the command:</p>
+<div class="highlight-python"><div class="highlight"><pre>libtbx.python your_script.py
+</pre></div>
+</div>
+<p>(You can also use <tt class="docutils literal"><span class="pre">scitbx.python</span></tt>, <tt class="docutils literal"><span class="pre">cctbx.python</span></tt>, <tt class="docutils literal"><span class="pre">iotbx.python</span></tt>, etc.;
+all these commands are equivalent.)</p>
+<p>For example, to run some regression tests after the compilation is
+finished enter:</p>
+<div class="highlight-python"><div class="highlight"><pre>setpaths_all.bat
+libtbx.python %SCITBX_DIST%\run_tests.py
+libtbx.python %CCTBX_DIST%\run_tests.py --Quick
+</pre></div>
+</div>
+<p>The output should show many OK. A Python Traceback is an indicator
+for problems.</p>
+</div>
+<div class="section" id="using-the-cctbx-svn-repository">
+<h1><a class="toc-backref" href="#id4">Using the cctbx SVN repository</a><a class="headerlink" href="#using-the-cctbx-svn-repository" title="Permalink to this headline">¶</a></h1>
+<p>To participate in the development of the cctbx project, or to
+get easy access to the most recent changes, it may be useful
+to checkout the cctbx project directly from the SVN repository
+maintained at <a class="reference external" href="http://sourceforge.net/">Sourceforge</a>. An easy way to get started is:</p>
+<div class="highlight-python"><div class="highlight"><pre>svn export svn://svn.code.sf.net/p/cctbx/code/trunk/libtbx/development/cctbx_svn_getting_started.csh
+./cctbx_svn_getting_started.csh
+</pre></div>
+</div>
+<p>The script will create a <tt class="docutils literal"><span class="pre">sources</span></tt> directory with a <tt class="docutils literal"><span class="pre">cctbx_project</span></tt>
+svn working copy checked out from SourceForge, and all other
+third-party sources (e.g. boost, scons) taken from the latest nightly
+cctbx build.</p>
+<p>To configure a new build using the <tt class="docutils literal"><span class="pre">sources</span></tt> directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir build
+cd build
+/your/choice/bin/python ../sources/cctbx_project/libtbx/configure.py mmtbx
+source setpaths.csh
+make
+</pre></div>
+</div>
+<p>It is also possible to replace the <tt class="docutils literal"><span class="pre">sources/boost</span></tt> directory with
+a working copy of the <a class="reference external" href="http://svn.boost.org/trac/boost/wiki/BoostSubversion">boost SVN tree</a> . However, in practice
+it sometimes happens that a <tt class="docutils literal"><span class="pre">svn</span> <span class="pre">update</span></tt> of the boost tree
+leads to compilation errors on some platforms. In most cases
+it will be best to use the boost sources obtained with the
+<tt class="docutils literal"><span class="pre">cctbx_svn_getting_started.csh</span></tt> script.</p>
+<p><a class="reference external" href="introduction.html">Back</a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation overview</a></li>
+<li><a class="reference internal" href="#manually-building-from-sources-under-unix">Manually building from sources under Unix</a></li>
+<li><a class="reference internal" href="#manually-building-from-sources-under-windows-2000-or-higher">Manually building from sources under Windows 2000 or higher</a></li>
+<li><a class="reference internal" href="#using-the-cctbx-svn-repository">Using the cctbx SVN repository</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Computational Crystallography Toolbox</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tour.html"
+                        title="next chapter">Tour of the cctbx</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/installation.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tour.html" title="Tour of the cctbx"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Computational Crystallography Toolbox"
+             >previous</a> |</li>
+        <li><a href="index.html">CCTBX None documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

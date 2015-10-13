@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SCons - the backbone of the cctbx build system &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="index.html" />
+    <link rel="next" title="CCTBX development history" href="history.html" />
+    <link rel="prev" title="Tour of the cctbx" href="tour.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="history.html" title="CCTBX development history"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tour.html" title="Tour of the cctbx"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">CCTBX None documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="scons-the-backbone-of-the-cctbx-build-system">
+<span id="build-system"></span><h1>SCons - the backbone of the cctbx build system<a class="headerlink" href="#scons-the-backbone-of-the-cctbx-build-system" title="Permalink to this headline">¶</a></h1>
+<p>Conceptually it is a trivial task to compile and link portable source
+code. However, in real life this is one of the most time-consuming
+nuisances, in particular if multiple, diverse platforms have to be
+supported. In the version 1.0 release of the cctbx we made an attempt
+to address this with the home-made <em>fast track</em> build system.
+Of course home-made is often good enough, but a professional solution
+is almost always better, especially if it comes with no strings
+attached.</p>
+<p>Fortunately such a system is now available:
+<a class="reference external" href="http://www.scons.org/">SCons</a>, short for Software Construction tool. This is a perfect fit for
+the cctbx because the SCons developers have apparently adopted a
+similar &#8220;professional is better than home-made&#8221; philosophy: SCons is
+implemented in pure Python, and SCons configuration files (the
+equivalent of Makefiles) are pure Python scripts. SCons has many
+advantages compared to a traditional make-based build system. To quote
+some points from the SCons documentation:</p>
+<ul class="simple">
+<li>Global view of all dependencies &#8211; no more multiple build passes or
+reordering targets to build everything.</li>
+<li>Reliable detection of build changes using MD5 signatures &#8211; no
+more &#8220;clock skew detected, build may be incomplete&#8221;.</li>
+<li>Built-in support for C, C++, Fortran, Yacc and Lex.</li>
+<li>Improved support for parallel builds &#8211; like make -j but keeps N jobs
+running simultaneously regardless of directory hierarchy.</li>
+<li>Building from central repositories of source code and/or pre-built
+targets.</li>
+<li>Designed from the ground up for cross-platform builds, and known to
+work on Linux, POSIX, Windows NT, Mac OS X, Tru64 Unix, and OS/2.</li>
+</ul>
+<p>When we moved from our home-grown build system to SCons we found all
+these points to be perfectly true. It only took very little effort to
+write a small configure script for setting up a master SConstruct file
+based on the user&#8217;s choice of which cctbx modules to use and which to
+ignore. New modules can easily be tied into this system simply by
+providing a SConstruct file in the module&#8217;s top-level directory. The
+author of the new module has complete control over the build process.
+The existing settings can simply be reused, customized, or totally
+replaced, all within one uniform and 100% platform-independent
+framework, the Python language.</p>
+<p><a class="reference internal" href="index.html#introduction"><em>Back</em></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tour.html"
+                        title="previous chapter">Tour of the cctbx</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="history.html"
+                        title="next chapter">CCTBX development history</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/build_system.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="history.html" title="CCTBX development history"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tour.html" title="Tour of the cctbx"
+             >previous</a> |</li>
+        <li><a href="index.html">CCTBX None documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,2366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mmtbx.ncs &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="mmtbx - macromolecular crystallography" href="mmtbx.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mmtbx-ncs">
+<h1><a class="toc-backref" href="#id1">mmtbx.ncs</a><a class="headerlink" href="#mmtbx-ncs" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#mmtbx-ncs" id="id1">mmtbx.ncs</a><ul>
+<li><a class="reference internal" href="#submodules" id="id2">Submodules</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.ligands" id="id3">mmtbx.ncs.ligands module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.ncs" id="id4">mmtbx.ncs.ncs module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.restraints" id="id5">mmtbx.ncs.restraints module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.ncs_search" id="id6">mmtbx.ncs.ncs_search module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.ncs_utils" id="id7">mmtbx.ncs.ncs_utils module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ncs" id="id8">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="submodules">
+<h2><a class="toc-backref" href="#id2">Submodules</a><a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-mmtbx.ncs.ligands">
+<span id="mmtbx-ncs-ligands-module"></span><h2><a class="toc-backref" href="#id3">mmtbx.ncs.ligands module</a><a class="headerlink" href="#module-mmtbx.ncs.ligands" title="Permalink to this headline">¶</a></h2>
+<p>Post-fitting cleanup of ligand positions to match NCS operations present in
+protein model.  This can be used to recover cases where one copy is placed
+successfully but another misses due to interfering protein atoms, weak density,
+false positive in empty protein density, etc.  It can also accelerate ligand
+placement for large structures if at least one copy is already placed with high
+confidence.  Should only be used when the initial placement (e.g. LigandFit CC)
+is sufficiently good.</p>
+<p>Usually this will be called via the command mmtbx.apply_ncs_to_ligand.</p>
+<dl class="class">
+<dt id="mmtbx.ncs.ligands.apply_ligand_ncs">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ligands.</tt><tt class="descname">apply_ligand_ncs</tt><big>(</big><em>pdb_hierarchy</em>, <em>fmodel</em>, <em>ligand_code</em>, <em>params</em>, <em>atom_selection=None</em>, <em>add_new_ligands_to_pdb=False</em>, <em>only_segid=None</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.apply_ligand_ncs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Wrapper class; this should be the primary entry point for external calling
+routines.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pdb_hierarchy</strong> &#8211; initial model with one or more copies of the target
+ligand</li>
+<li><strong>fmodel</strong> &#8211; mmtbx.f_model.manager object corresponding to the model</li>
+<li><strong>ligand_code</strong> &#8211; three-letter residue name of ligand</li>
+<li><strong>params</strong> &#8211; phil scope_extract object for ncs_ligand_phil</li>
+<li><strong>atom_selection</strong> &#8211; selection for reference ligand (default: search for
+all copies and pick one with the best CC)</li>
+<li><strong>add_new_ligands_to_pdb</strong> &#8211; generate combined PDB hierarchy and fmodel
+with new ligands incorporated</li>
+<li><strong>only_segid</strong> &#8211; </li>
+<li><strong>log</strong> &#8211; filehandle-like object</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.apply_ligand_ncs.n_ligands" title="mmtbx.ncs.ligands.apply_ligand_ncs.n_ligands"><tt class="xref py py-obj docutils literal"><span class="pre">n_ligands</span></tt></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.apply_ligand_ncs.write_maps" title="mmtbx.ncs.ligands.apply_ligand_ncs.write_maps"><tt class="xref py py-obj docutils literal"><span class="pre">write_maps</span></tt></a>(file_name)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ligands.apply_ligand_ncs.write_pdb" title="mmtbx.ncs.ligands.apply_ligand_ncs.write_pdb"><tt class="xref py py-obj docutils literal"><span class="pre">write_pdb</span></tt></a>(file_name)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mmtbx.ncs.ligands.apply_ligand_ncs.n_ligands">
+<tt class="descname">n_ligands</tt><a class="headerlink" href="#mmtbx.ncs.ligands.apply_ligand_ncs.n_ligands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ligands.apply_ligand_ncs.write_maps">
+<tt class="descname">write_maps</tt><big>(</big><em>file_name</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.apply_ligand_ncs.write_maps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ligands.apply_ligand_ncs.write_pdb">
+<tt class="descname">write_pdb</tt><big>(</big><em>file_name</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.apply_ligand_ncs.write_pdb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ligands.combine_ligands_and_hierarchy">
+<tt class="descclassname">mmtbx.ncs.ligands.</tt><tt class="descname">combine_ligands_and_hierarchy</tt><big>(</big><em>pdb_hierarchy</em>, <em>ligands</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.combine_ligands_and_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ligands.extract_ligand_residues">
+<tt class="descclassname">mmtbx.ncs.ligands.</tt><tt class="descname">extract_ligand_residues</tt><big>(</big><em>pdb_hierarchy</em>, <em>ligand_code</em>, <em>atom_selection=None</em>, <em>only_segid=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.extract_ligand_residues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the atom_group object(s) with given 3-character residue name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pdb_hierarchy</strong> &#8211; input model</li>
+<li><strong>ligand_code</strong> &#8211; 3-letter residue ID</li>
+<li><strong>atom_selection</strong> &#8211; optional flex.bool object specifying ligand selection
+to use</li>
+<li><strong>only_segid</strong> &#8211; optional segid which ligand(s) must match</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of atom_group objects</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ligands.find_ncs_operators">
+<tt class="descclassname">mmtbx.ncs.ligands.</tt><tt class="descname">find_ncs_operators</tt><big>(</big><em>pdb_hierarchy</em>, <em>max_rmsd=2.0</em>, <em>try_sieve_fit=True</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.find_ncs_operators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines all possible NCS transformation matrices for the input structure,
+based on sequence alignemnt and simple C-alpha superposition.  There may be
+multiple sets of operators but these will eventually become a flat list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>max_rmsd</strong> &#8211; maximum allowable RMSD between NCS-related chains for use
+in ligand superposition</li>
+<li><strong>try_sieve_fit</strong> &#8211; also perform a sieve fit between chains and use the
+resulting operator if the RMSD is lower than the global fit</li>
+<li><strong>log</strong> &#8211; filehandle-like object</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of lists of group_operators objects</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ligands.get_final_maps_and_cc">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ligands.</tt><tt class="descname">get_final_maps_and_cc</tt><big>(</big><em>fmodel</em>, <em>ligands</em>, <em>params</em>, <em>log</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.get_final_maps_and_cc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.get_final_maps_and_cc.write_maps" title="mmtbx.ncs.ligands.get_final_maps_and_cc.write_maps"><tt class="xref py py-obj docutils literal"><span class="pre">write_maps</span></tt></a>(file_name)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.ncs.ligands.get_final_maps_and_cc.write_maps">
+<tt class="descname">write_maps</tt><big>(</big><em>file_name</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.get_final_maps_and_cc.write_maps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ligands.group_operators">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ligands.</tt><tt class="descname">group_operators</tt><big>(</big><em>selection</em>, <em>sele_str</em>, <em>sites_cart</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.group_operators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Object for storing information about NCS relationships relative to an
+atom selection, i.e. given four identical chains A, B, C, and D, this might
+store information about chain B and the NCS operators for approximate
+superpositioning on chains A, C, and D.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.group_operators.add_operator" title="mmtbx.ncs.ligands.group_operators.add_operator"><tt class="xref py py-obj docutils literal"><span class="pre">add_operator</span></tt></a>(ops,&nbsp;sele_str)</td>
+<td>Save an NCS operator and corresponding atom selection.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ligands.group_operators.distance_from_center" title="mmtbx.ncs.ligands.group_operators.distance_from_center"><tt class="xref py py-obj docutils literal"><span class="pre">distance_from_center</span></tt></a>(sites)</td>
+<td>Compute the distance between centers-of-mass of this selection and the given sites.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.group_operators.show_summary" title="mmtbx.ncs.ligands.group_operators.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<td>Print out selections and NCS operators.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.ncs.ligands.group_operators.add_operator">
+<tt class="descname">add_operator</tt><big>(</big><em>ops</em>, <em>sele_str</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.group_operators.add_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save an NCS operator and corresponding atom selection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ligands.group_operators.distance_from_center">
+<tt class="descname">distance_from_center</tt><big>(</big><em>sites</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.group_operators.distance_from_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the distance between centers-of-mass of this selection and the
+given sites.  Used to determine ligand-protein chain relationships.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ligands.group_operators.show_summary">
+<tt class="descname">show_summary</tt><big>(</big><em>out=None</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.group_operators.show_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print out selections and NCS operators.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ligands.remove_clashing_atoms">
+<tt class="descclassname">mmtbx.ncs.ligands.</tt><tt class="descname">remove_clashing_atoms</tt><big>(</big><em>xray_structure</em>, <em>pdb_hierarchy</em>, <em>ligands</em>, <em>params</em>, <em>log</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.remove_clashing_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Since the transformed ligands will very frequently overlap with existing
+atoms, these need to be deleted if we are confident about the new positions.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ligands.resid_str">
+<tt class="descclassname">mmtbx.ncs.ligands.</tt><tt class="descname">resid_str</tt><big>(</big><em>atom</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.resid_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ligands.sample_operators">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ligands.</tt><tt class="descname">sample_operators</tt><big>(</big><em>pdb_hierarchy</em>, <em>fmodel</em>, <em>ncs_operators</em>, <em>ligands</em>, <em>params</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.sample_operators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Determines an appropriate &#8220;reference&#8221; ligand, and samples the density around
+sites transformed by each operator, applying the best operator to the
+other ligand copies if meeting cutoff criteria.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.sample_operators.get_new_fcalc_map" title="mmtbx.ncs.ligands.sample_operators.get_new_fcalc_map"><tt class="xref py py-obj docutils literal"><span class="pre">get_new_fcalc_map</span></tt></a>(sites_new,&nbsp;i_seqs)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ligands.sample_operators.get_sites_cc" title="mmtbx.ncs.ligands.sample_operators.get_sites_cc"><tt class="xref py py-obj docutils literal"><span class="pre">get_sites_cc</span></tt></a>(atoms[,&nbsp;sites])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.sample_operators.setup_maps" title="mmtbx.ncs.ligands.sample_operators.setup_maps"><tt class="xref py py-obj docutils literal"><span class="pre">setup_maps</span></tt></a>()</td>
+<td>Create 2mFo-DFc, mFo-DFc, and Fc maps.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.ncs.ligands.sample_operators.get_new_fcalc_map">
+<tt class="descname">get_new_fcalc_map</tt><big>(</big><em>sites_new</em>, <em>i_seqs</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.sample_operators.get_new_fcalc_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ligands.sample_operators.get_sites_cc">
+<tt class="descname">get_sites_cc</tt><big>(</big><em>atoms</em>, <em>sites=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.sample_operators.get_sites_cc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ligands.sample_operators.setup_maps">
+<tt class="descname">setup_maps</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.sample_operators.setup_maps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create 2mFo-DFc, mFo-DFc, and Fc maps.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ligands.xyz_distance">
+<tt class="descclassname">mmtbx.ncs.ligands.</tt><tt class="descname">xyz_distance</tt><big>(</big><em>xyz1</em>, <em>xyz2</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ligands.xyz_distance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.ncs.ncs">
+<span id="mmtbx-ncs-ncs-module"></span><h2><a class="toc-backref" href="#id4">mmtbx.ncs.ncs module</a><a class="headerlink" href="#module-mmtbx.ncs.ncs" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mmtbx.ncs.ncs.euler_frac_to_rot_trans">
+<tt class="descclassname">mmtbx.ncs.ncs.</tt><tt class="descname">euler_frac_to_rot_trans</tt><big>(</big><em>euler_values</em>, <em>frac</em>, <em>unit_cell</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.euler_frac_to_rot_trans" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ncs.ncs">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs.</tt><tt class="descname">ncs</tt><big>(</big><em>exclude_h=None</em>, <em>exclude_d=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.add_cc_list" title="mmtbx.ncs.ncs.ncs.add_cc_list"><tt class="xref py py-obj docutils literal"><span class="pre">add_cc_list</span></tt></a>(cc_list)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.add_source_info" title="mmtbx.ncs.ncs.ncs.add_source_info"><tt class="xref py py-obj docutils literal"><span class="pre">add_source_info</span></tt></a>(source_info)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.change_of_basis" title="mmtbx.ncs.ncs.ncs.change_of_basis"><tt class="xref py py-obj docutils literal"><span class="pre">change_of_basis</span></tt></a>([change_of_basis_operator,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.deep_copy" title="mmtbx.ncs.ncs.ncs.deep_copy"><tt class="xref py py-obj docutils literal"><span class="pre">deep_copy</span></tt></a>([change_of_basis_operator,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.display_all" title="mmtbx.ncs.ncs.ncs.display_all"><tt class="xref py py-obj docutils literal"><span class="pre">display_all</span></tt></a>([log])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.format_all_for_group_specification" title="mmtbx.ncs.ncs.ncs.format_all_for_group_specification"><tt class="xref py py-obj docutils literal"><span class="pre">format_all_for_group_specification</span></tt></a>([log,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.format_all_for_phenix_refine" title="mmtbx.ncs.ncs.ncs.format_all_for_phenix_refine"><tt class="xref py py-obj docutils literal"><span class="pre">format_all_for_phenix_refine</span></tt></a>([quiet,&nbsp;out,&nbsp;...])</td>
+<td>This function is an older version of creating phil for phenix refine, it is modified to replicate a new phil parameters that can handle selection to the level of atoms, &#8220;format_phil_for_phenix_refine&#8221;.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.format_all_for_resolve" title="mmtbx.ncs.ncs.ncs.format_all_for_resolve"><tt class="xref py py-obj docutils literal"><span class="pre">format_all_for_resolve</span></tt></a>([log,&nbsp;quiet,&nbsp;out,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.format_phil_for_ncs" title="mmtbx.ncs.ncs.ncs.format_phil_for_ncs"><tt class="xref py py-obj docutils literal"><span class="pre">format_phil_for_ncs</span></tt></a>([log,&nbsp;quiet,&nbsp;out])</td>
+<td>Writes NCS phil selection in NCS format</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.format_phil_for_phenix_refine" title="mmtbx.ncs.ncs.ncs.format_phil_for_phenix_refine"><tt class="xref py py-obj docutils literal"><span class="pre">format_phil_for_phenix_refine</span></tt></a>([log,&nbsp;quiet,&nbsp;out])</td>
+<td>Writes NCS phil selection in phenix_refine format</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.get_1_char_after_key" title="mmtbx.ncs.ncs.ncs.get_1_char_after_key"><tt class="xref py py-obj docutils literal"><span class="pre">get_1_char_after_key</span></tt></a>(line)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.get_1_value_after_key" title="mmtbx.ncs.ncs.ncs.get_1_value_after_key"><tt class="xref py py-obj docutils literal"><span class="pre">get_1_value_after_key</span></tt></a>(line)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.get_3_values_after_key" title="mmtbx.ncs.ncs.ncs.get_3_values_after_key"><tt class="xref py py-obj docutils literal"><span class="pre">get_3_values_after_key</span></tt></a>(line)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.get_res_range_after_key" title="mmtbx.ncs.ncs.ncs.get_res_range_after_key"><tt class="xref py py-obj docutils literal"><span class="pre">get_res_range_after_key</span></tt></a>(line)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.import_ncs_group" title="mmtbx.ncs.ncs.ncs.import_ncs_group"><tt class="xref py py-obj docutils literal"><span class="pre">import_ncs_group</span></tt></a>([ncs_rota_matr,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.init_ncs_group" title="mmtbx.ncs.ncs.ncs.init_ncs_group"><tt class="xref py py-obj docutils literal"><span class="pre">init_ncs_group</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.init_oper" title="mmtbx.ncs.ncs.ncs.init_oper"><tt class="xref py py-obj docutils literal"><span class="pre">init_oper</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.max_operators" title="mmtbx.ncs.ncs.ncs.max_operators"><tt class="xref py py-obj docutils literal"><span class="pre">max_operators</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.ncs_groups" title="mmtbx.ncs.ncs.ncs.ncs_groups"><tt class="xref py py-obj docutils literal"><span class="pre">ncs_groups</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.ncs_oper_in_first_group" title="mmtbx.ncs.ncs.ncs.ncs_oper_in_first_group"><tt class="xref py py-obj docutils literal"><span class="pre">ncs_oper_in_first_group</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.ncs_read" title="mmtbx.ncs.ncs.ncs.ncs_read"><tt class="xref py py-obj docutils literal"><span class="pre">ncs_read</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.overall_cc" title="mmtbx.ncs.ncs.ncs.overall_cc"><tt class="xref py py-obj docutils literal"><span class="pre">overall_cc</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.overall_rmsd" title="mmtbx.ncs.ncs.ncs.overall_rmsd"><tt class="xref py py-obj docutils literal"><span class="pre">overall_rmsd</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.read_ncs" title="mmtbx.ncs.ncs.ncs.read_ncs"><tt class="xref py py-obj docutils literal"><span class="pre">read_ncs</span></tt></a>([file_name,&nbsp;lines,&nbsp;source_info,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.save_existing_group_info" title="mmtbx.ncs.ncs.ncs.save_existing_group_info"><tt class="xref py py-obj docutils literal"><span class="pre">save_existing_group_info</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.save_ncs_group" title="mmtbx.ncs.ncs.ncs.save_ncs_group"><tt class="xref py py-obj docutils literal"><span class="pre">save_ncs_group</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.save_oper" title="mmtbx.ncs.ncs.ncs.save_oper"><tt class="xref py py-obj docutils literal"><span class="pre">save_oper</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.add_cc_list">
+<tt class="descname">add_cc_list</tt><big>(</big><em>cc_list</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.add_cc_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.add_source_info">
+<tt class="descname">add_source_info</tt><big>(</big><em>source_info</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.add_source_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.change_of_basis">
+<tt class="descname">change_of_basis</tt><big>(</big><em>change_of_basis_operator=None</em>, <em>unit_cell=None</em>, <em>new_unit_cell=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.change_of_basis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.deep_copy">
+<tt class="descname">deep_copy</tt><big>(</big><em>change_of_basis_operator=None</em>, <em>unit_cell=None</em>, <em>new_unit_cell=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.deep_copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.display_all">
+<tt class="descname">display_all</tt><big>(</big><em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.display_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.format_all_for_group_specification">
+<tt class="descname">format_all_for_group_specification</tt><big>(</big><em>log=None</em>, <em>quiet=True</em>, <em>out=None</em>, <em>file_name=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.format_all_for_group_specification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.format_all_for_phenix_refine">
+<tt class="descname">format_all_for_phenix_refine</tt><big>(</big><em>quiet=False</em>, <em>out=None</em>, <em>prefix='refinement.pdb_interpretation.ncs_group'</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.format_all_for_phenix_refine" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is an older version of creating phil for phenix refine,
+it is modified to replicate a new phil parameters that can handle
+selection to the level of atoms, &#8220;format_phil_for_phenix_refine&#8221;.</p>
+<p>When it will still can be used in the older form, which allows only
+residue level selection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.format_all_for_resolve">
+<tt class="descname">format_all_for_resolve</tt><big>(</big><em>log=None</em>, <em>quiet=False</em>, <em>out=None</em>, <em>crystal_number=None</em>, <em>skip_identity=False</em>, <em>ncs_domain_pdb=True</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.format_all_for_resolve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.format_phil_for_ncs">
+<tt class="descname">format_phil_for_ncs</tt><big>(</big><em>log=None</em>, <em>quiet=False</em>, <em>out=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.format_phil_for_ncs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes NCS phil selection in NCS format</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.format_phil_for_phenix_refine">
+<tt class="descname">format_phil_for_phenix_refine</tt><big>(</big><em>log=None</em>, <em>quiet=False</em>, <em>out=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.format_phil_for_phenix_refine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes NCS phil selection in phenix_refine format</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.get_1_char_after_key">
+<tt class="descname">get_1_char_after_key</tt><big>(</big><em>line</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.get_1_char_after_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.get_1_value_after_key">
+<tt class="descname">get_1_value_after_key</tt><big>(</big><em>line</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.get_1_value_after_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.get_3_values_after_key">
+<tt class="descname">get_3_values_after_key</tt><big>(</big><em>line</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.get_3_values_after_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.get_res_range_after_key">
+<tt class="descname">get_res_range_after_key</tt><big>(</big><em>line</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.get_res_range_after_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.import_ncs_group">
+<tt class="descname">import_ncs_group</tt><big>(</big><em>ncs_rota_matr=None</em>, <em>center_orth=None</em>, <em>trans_orth=None</em>, <em>chain_residue_id=None</em>, <em>residues_in_common_list=None</em>, <em>rmsd_list=None</em>, <em>ncs_domain_pdb=None</em>, <em>cc=None</em>, <em>source_of_ncs_info=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.import_ncs_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.init_ncs_group">
+<tt class="descname">init_ncs_group</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.init_ncs_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.init_oper">
+<tt class="descname">init_oper</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.init_oper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.max_operators">
+<tt class="descname">max_operators</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.max_operators" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.ncs_groups">
+<tt class="descname">ncs_groups</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.ncs_groups" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.ncs_oper_in_first_group">
+<tt class="descname">ncs_oper_in_first_group</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.ncs_oper_in_first_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.ncs_read">
+<tt class="descname">ncs_read</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.ncs_read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.overall_cc">
+<tt class="descname">overall_cc</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.overall_cc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.overall_rmsd">
+<tt class="descname">overall_rmsd</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.overall_rmsd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.read_ncs">
+<tt class="descname">read_ncs</tt><big>(</big><em>file_name=None</em>, <em>lines=</em>, <span class="optional">[</span><span class="optional">]</span><em>source_info=''</em>, <em>log=None</em>, <em>quiet=False</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.read_ncs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.save_existing_group_info">
+<tt class="descname">save_existing_group_info</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.save_existing_group_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.save_ncs_group">
+<tt class="descname">save_ncs_group</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.save_ncs_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.save_oper">
+<tt class="descname">save_oper</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.save_oper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ncs.ncs_group">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs.</tt><tt class="descname">ncs_group</tt><big>(</big><em>ncs_rota_matr=None</em>, <em>center_orth=None</em>, <em>trans_orth=None</em>, <em>chain_residue_id=None</em>, <em>source_of_ncs_info=None</em>, <em>rmsd_list=None</em>, <em>ncs_domain_pdb=None</em>, <em>residues_in_common_list=None</em>, <em>cc=None</em>, <em>exclude_h=None</em>, <em>exclude_d=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.add_cc" title="mmtbx.ncs.ncs.ncs_group.add_cc"><tt class="xref py py-obj docutils literal"><span class="pre">add_cc</span></tt></a>(cc)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.add_chain_residue_id" title="mmtbx.ncs.ncs.ncs_group.add_chain_residue_id"><tt class="xref py py-obj docutils literal"><span class="pre">add_chain_residue_id</span></tt></a>(chain_residue_id)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.add_residues_in_common_list" title="mmtbx.ncs.ncs.ncs_group.add_residues_in_common_list"><tt class="xref py py-obj docutils literal"><span class="pre">add_residues_in_common_list</span></tt></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.add_rmsd_list" title="mmtbx.ncs.ncs.ncs_group.add_rmsd_list"><tt class="xref py py-obj docutils literal"><span class="pre">add_rmsd_list</span></tt></a>(rmsd_list)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.apply_cob_to_vector" title="mmtbx.ncs.ncs.ncs_group.apply_cob_to_vector"><tt class="xref py py-obj docutils literal"><span class="pre">apply_cob_to_vector</span></tt></a>([vector,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.cc" title="mmtbx.ncs.ncs.ncs_group.cc"><tt class="xref py py-obj docutils literal"><span class="pre">cc</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.centers" title="mmtbx.ncs.ncs.ncs_group.centers"><tt class="xref py py-obj docutils literal"><span class="pre">centers</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.chain_residue_id" title="mmtbx.ncs.ncs.ncs_group.chain_residue_id"><tt class="xref py py-obj docutils literal"><span class="pre">chain_residue_id</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.copy_rot_trans" title="mmtbx.ncs.ncs.ncs_group.copy_rot_trans"><tt class="xref py py-obj docutils literal"><span class="pre">copy_rot_trans</span></tt></a>(list_of_matrices,&nbsp;...[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.copy_vector_list" title="mmtbx.ncs.ncs.ncs_group.copy_vector_list"><tt class="xref py py-obj docutils literal"><span class="pre">copy_vector_list</span></tt></a>(list_of_vectors[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.deep_copy" title="mmtbx.ncs.ncs.ncs_group.deep_copy"><tt class="xref py py-obj docutils literal"><span class="pre">deep_copy</span></tt></a>([change_of_basis_operator,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.display_summary" title="mmtbx.ncs.ncs.ncs_group.display_summary"><tt class="xref py py-obj docutils literal"><span class="pre">display_summary</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_for_phenix_refine" title="mmtbx.ncs.ncs.ncs_group.format_for_phenix_refine"><tt class="xref py py-obj docutils literal"><span class="pre">format_for_phenix_refine</span></tt></a>([prefix])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_for_resolve" title="mmtbx.ncs.ncs.ncs_group.format_for_resolve"><tt class="xref py py-obj docutils literal"><span class="pre">format_for_resolve</span></tt></a>([crystal_number,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_group_specification" title="mmtbx.ncs.ncs.ncs_group.format_group_specification"><tt class="xref py py-obj docutils literal"><span class="pre">format_group_specification</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.n_ncs_oper" title="mmtbx.ncs.ncs.ncs_group.n_ncs_oper"><tt class="xref py py-obj docutils literal"><span class="pre">n_ncs_oper</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.ncs_domain_pdb" title="mmtbx.ncs.ncs.ncs_group.ncs_domain_pdb"><tt class="xref py py-obj docutils literal"><span class="pre">ncs_domain_pdb</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.print_list" title="mmtbx.ncs.ncs.ncs_group.print_list"><tt class="xref py py-obj docutils literal"><span class="pre">print_list</span></tt></a>(list_of_real)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.residues_in_common_list" title="mmtbx.ncs.ncs.ncs_group.residues_in_common_list"><tt class="xref py py-obj docutils literal"><span class="pre">residues_in_common_list</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rmsd_list" title="mmtbx.ncs.ncs.ncs_group.rmsd_list"><tt class="xref py py-obj docutils literal"><span class="pre">rmsd_list</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rota_matrices" title="mmtbx.ncs.ncs.ncs_group.rota_matrices"><tt class="xref py py-obj docutils literal"><span class="pre">rota_matrices</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rotations_translations_forward_euler" title="mmtbx.ncs.ncs.ncs_group.rotations_translations_forward_euler"><tt class="xref py py-obj docutils literal"><span class="pre">rotations_translations_forward_euler</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.round" title="mmtbx.ncs.ncs.ncs_group.round"><tt class="xref py py-obj docutils literal"><span class="pre">round</span></tt></a>(value,&nbsp;n_digit)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.source_of_ncs_info" title="mmtbx.ncs.ncs.ncs_group.source_of_ncs_info"><tt class="xref py py-obj docutils literal"><span class="pre">source_of_ncs_info</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.translations_orth" title="mmtbx.ncs.ncs.ncs_group.translations_orth"><tt class="xref py py-obj docutils literal"><span class="pre">translations_orth</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.add_cc">
+<tt class="descname">add_cc</tt><big>(</big><em>cc</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.add_cc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.add_chain_residue_id">
+<tt class="descname">add_chain_residue_id</tt><big>(</big><em>chain_residue_id</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.add_chain_residue_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.add_residues_in_common_list">
+<tt class="descname">add_residues_in_common_list</tt><big>(</big><em>residues_in_common_list</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.add_residues_in_common_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.add_rmsd_list">
+<tt class="descname">add_rmsd_list</tt><big>(</big><em>rmsd_list</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.add_rmsd_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.apply_cob_to_vector">
+<tt class="descname">apply_cob_to_vector</tt><big>(</big><em>vector=None</em>, <em>change_of_basis_operator=None</em>, <em>unit_cell=None</em>, <em>new_unit_cell=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.apply_cob_to_vector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.cc">
+<tt class="descname">cc</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.cc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.centers">
+<tt class="descname">centers</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.centers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.chain_residue_id">
+<tt class="descname">chain_residue_id</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.chain_residue_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.copy_rot_trans">
+<tt class="descname">copy_rot_trans</tt><big>(</big><em>list_of_matrices</em>, <em>list_of_translations</em>, <em>change_of_basis_operator=None</em>, <em>unit_cell=None</em>, <em>new_unit_cell=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.copy_rot_trans" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.copy_vector_list">
+<tt class="descname">copy_vector_list</tt><big>(</big><em>list_of_vectors</em>, <em>change_of_basis_operator=None</em>, <em>unit_cell=None</em>, <em>new_unit_cell=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.copy_vector_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.deep_copy">
+<tt class="descname">deep_copy</tt><big>(</big><em>change_of_basis_operator=None</em>, <em>unit_cell=None</em>, <em>new_unit_cell=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.deep_copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.display_summary">
+<tt class="descname">display_summary</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.display_summary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.format_for_phenix_refine">
+<tt class="descname">format_for_phenix_refine</tt><big>(</big><em>prefix='pdb_interpretation.ncs_group'</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.format_for_phenix_refine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.format_for_resolve">
+<tt class="descname">format_for_resolve</tt><big>(</big><em>crystal_number=None</em>, <em>skip_identity=False</em>, <em>ncs_domain_pdb=True</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.format_for_resolve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.format_group_specification">
+<tt class="descname">format_group_specification</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.format_group_specification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.n_ncs_oper">
+<tt class="descname">n_ncs_oper</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.n_ncs_oper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.ncs_domain_pdb">
+<tt class="descname">ncs_domain_pdb</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.ncs_domain_pdb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.print_list">
+<tt class="descname">print_list</tt><big>(</big><em>list_of_real</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.print_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.residues_in_common_list">
+<tt class="descname">residues_in_common_list</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.residues_in_common_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.rmsd_list">
+<tt class="descname">rmsd_list</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.rmsd_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.rota_matrices">
+<tt class="descname">rota_matrices</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.rota_matrices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.rotations_translations_forward_euler">
+<tt class="descname">rotations_translations_forward_euler</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.rotations_translations_forward_euler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.round">
+<tt class="descname">round</tt><big>(</big><em>value</em>, <em>n_digit</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.round" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.source_of_ncs_info">
+<tt class="descname">source_of_ncs_info</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.source_of_ncs_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.translations_orth">
+<tt class="descname">translations_orth</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.translations_orth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.ncs.restraints">
+<span id="mmtbx-ncs-restraints-module"></span><h2><a class="toc-backref" href="#id5">mmtbx.ncs.restraints module</a><a class="headerlink" href="#module-mmtbx.ncs.restraints" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mmtbx.ncs.restraints.all_confs_eq">
+<tt class="descclassname">mmtbx.ncs.restraints.</tt><tt class="descname">all_confs_eq</tt><big>(</big><em>resconfids_i</em>, <em>resconfids_j</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.all_confs_eq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.restraints.get_resconfids">
+<tt class="descclassname">mmtbx.ncs.restraints.</tt><tt class="descname">get_resconfids</tt><big>(</big><em>model</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.get_resconfids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.restraints.group">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.restraints.</tt><tt class="descname">group</tt><big>(</big><em>selection_strings</em>, <em>registry</em>, <em>coordinate_sigma</em>, <em>b_factor_weight</em>, <em>u_average_min</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.restraints.group.energies_adp_iso" title="mmtbx.ncs.restraints.group.energies_adp_iso"><tt class="xref py py-obj docutils literal"><span class="pre">energies_adp_iso</span></tt></a>(u_isos,&nbsp;average_power[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.restraints.group.from_atom_selections" title="mmtbx.ncs.restraints.group.from_atom_selections"><tt class="xref py py-obj docutils literal"><span class="pre">from_atom_selections</span></tt></a>(processed_pdb,&nbsp;...[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.restraints.group.operators" title="mmtbx.ncs.restraints.group.operators"><tt class="xref py py-obj docutils literal"><span class="pre">operators</span></tt></a>(sites_cart)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.restraints.group.register_additional_isolated_sites" title="mmtbx.ncs.restraints.group.register_additional_isolated_sites"><tt class="xref py py-obj docutils literal"><span class="pre">register_additional_isolated_sites</span></tt></a>(number)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.restraints.group.select" title="mmtbx.ncs.restraints.group.select"><tt class="xref py py-obj docutils literal"><span class="pre">select</span></tt></a>(iselection)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.group.energies_adp_iso">
+<tt class="descname">energies_adp_iso</tt><big>(</big><em>u_isos</em>, <em>average_power</em>, <em>compute_gradients=True</em>, <em>gradients=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.group.energies_adp_iso" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="mmtbx.ncs.restraints.group.from_atom_selections">
+<em class="property">static </em><tt class="descname">from_atom_selections</tt><big>(</big><em>processed_pdb</em>, <em>reference_selection_string</em>, <em>selection_strings</em>, <em>coordinate_sigma</em>, <em>b_factor_weight</em>, <em>special_position_warnings_only</em>, <em>u_average_min=1e-06</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.group.from_atom_selections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.group.operators">
+<tt class="descname">operators</tt><big>(</big><em>sites_cart</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.group.operators" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.group.register_additional_isolated_sites">
+<tt class="descname">register_additional_isolated_sites</tt><big>(</big><em>number</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.group.register_additional_isolated_sites" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.group.select">
+<tt class="descname">select</tt><big>(</big><em>iselection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.group.select" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.restraints.groups">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.restraints.</tt><tt class="descname">groups</tt><big>(</big><em>members=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.restraints.groups.compute_operators" title="mmtbx.ncs.restraints.groups.compute_operators"><tt class="xref py py-obj docutils literal"><span class="pre">compute_operators</span></tt></a>(sites_cart)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.restraints.groups.energies_adp_iso" title="mmtbx.ncs.restraints.groups.energies_adp_iso"><tt class="xref py py-obj docutils literal"><span class="pre">energies_adp_iso</span></tt></a>(u_isos,&nbsp;average_power[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.restraints.groups.energies_sites" title="mmtbx.ncs.restraints.groups.energies_sites"><tt class="xref py py-obj docutils literal"><span class="pre">energies_sites</span></tt></a>(sites_cart[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.restraints.groups.extract_ncs_groups" title="mmtbx.ncs.restraints.groups.extract_ncs_groups"><tt class="xref py py-obj docutils literal"><span class="pre">extract_ncs_groups</span></tt></a>(sites_cart)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.restraints.groups.register_additional_isolated_sites" title="mmtbx.ncs.restraints.groups.register_additional_isolated_sites"><tt class="xref py py-obj docutils literal"><span class="pre">register_additional_isolated_sites</span></tt></a>(number)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.restraints.groups.select" title="mmtbx.ncs.restraints.groups.select"><tt class="xref py py-obj docutils literal"><span class="pre">select</span></tt></a>(iselection)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.restraints.groups.selection_restrained" title="mmtbx.ncs.restraints.groups.selection_restrained"><tt class="xref py py-obj docutils literal"><span class="pre">selection_restrained</span></tt></a>([n_seq])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.restraints.groups.show_adp_iso_differences_to_average" title="mmtbx.ncs.restraints.groups.show_adp_iso_differences_to_average"><tt class="xref py py-obj docutils literal"><span class="pre">show_adp_iso_differences_to_average</span></tt></a>(u_isos,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.restraints.groups.show_operators" title="mmtbx.ncs.restraints.groups.show_operators"><tt class="xref py py-obj docutils literal"><span class="pre">show_operators</span></tt></a>(sites_cart[,&nbsp;out,&nbsp;prefix])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.restraints.groups.show_sites_distances_to_average" title="mmtbx.ncs.restraints.groups.show_sites_distances_to_average"><tt class="xref py py-obj docutils literal"><span class="pre">show_sites_distances_to_average</span></tt></a>(sites_cart,&nbsp;...)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.groups.compute_operators">
+<tt class="descname">compute_operators</tt><big>(</big><em>sites_cart</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups.compute_operators" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.groups.energies_adp_iso">
+<tt class="descname">energies_adp_iso</tt><big>(</big><em>u_isos</em>, <em>average_power</em>, <em>compute_gradients=True</em>, <em>gradients=None</em>, <em>normalization=False</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups.energies_adp_iso" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.groups.energies_sites">
+<tt class="descname">energies_sites</tt><big>(</big><em>sites_cart</em>, <em>compute_gradients=True</em>, <em>gradients=None</em>, <em>normalization=False</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups.energies_sites" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.groups.extract_ncs_groups">
+<tt class="descname">extract_ncs_groups</tt><big>(</big><em>sites_cart</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups.extract_ncs_groups" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.groups.register_additional_isolated_sites">
+<tt class="descname">register_additional_isolated_sites</tt><big>(</big><em>number</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups.register_additional_isolated_sites" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.groups.select">
+<tt class="descname">select</tt><big>(</big><em>iselection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups.select" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.groups.selection_restrained">
+<tt class="descname">selection_restrained</tt><big>(</big><em>n_seq=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups.selection_restrained" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.groups.show_adp_iso_differences_to_average">
+<tt class="descname">show_adp_iso_differences_to_average</tt><big>(</big><em>u_isos</em>, <em>site_labels</em>, <em>out=None</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups.show_adp_iso_differences_to_average" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.groups.show_operators">
+<tt class="descname">show_operators</tt><big>(</big><em>sites_cart</em>, <em>out=None</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups.show_operators" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.groups.show_sites_distances_to_average">
+<tt class="descname">show_sites_distances_to_average</tt><big>(</big><em>sites_cart</em>, <em>site_labels</em>, <em>excessive_distance_limit=None</em>, <em>out=None</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.groups.show_sites_distances_to_average" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.restraints.match_atoms">
+<tt class="descclassname">mmtbx.ncs.restraints.</tt><tt class="descname">match_atoms</tt><big>(</big><em>special_position_indices</em>, <em>special_position_warnings_only</em>, <em>pdb_atoms</em>, <em>selection_strings</em>, <em>registry</em>, <em>reference_model</em>, <em>j_ncs</em>, <em>other_model</em>, <em>log</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.match_atoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.restraints.match_ordered_chain_members">
+<tt class="descclassname">mmtbx.ncs.restraints.</tt><tt class="descname">match_ordered_chain_members</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.match_ordered_chain_members" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.restraints.pair_lists_generator">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.restraints.</tt><tt class="descname">pair_lists_generator</tt><big>(</big><em>processed_pdb</em>, <em>reference_selection_string</em>, <em>selection_strings</em>, <em>special_position_warnings_only</em>, <em>log</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.pair_lists_generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.restraints.resconfid">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.restraints.</tt><tt class="descname">resconfid</tt><big>(</big><em>residue_group</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.resconfid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.restraints.resconfid.confs_eq" title="mmtbx.ncs.restraints.resconfid.confs_eq"><tt class="xref py py-obj docutils literal"><span class="pre">confs_eq</span></tt></a>(other)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.ncs.restraints.resconfid.confs_eq">
+<tt class="descname">confs_eq</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.resconfid.confs_eq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.restraints.selection_properties">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.restraints.</tt><tt class="descname">selection_properties</tt><big>(</big><em>string</em>, <em>iselection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.restraints.selection_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.ncs.ncs_search">
+<span id="mmtbx-ncs-ncs-search-module"></span><h2><a class="toc-backref" href="#id6">mmtbx.ncs.ncs_search module</a><a class="headerlink" href="#module-mmtbx.ncs.ncs_search" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.ncs.ncs_search.Chains_info">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">Chains_info</tt><a class="headerlink" href="#mmtbx.ncs.ncs_search.Chains_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Container for hierarchy analysis</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ncs_search.NCS_groups_container">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">NCS_groups_container</tt><a class="headerlink" href="#mmtbx.ncs.ncs_search.NCS_groups_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ncs_search.Score_record">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">Score_record</tt><big>(</big><em>score=-10000</em>, <em>origin=(0</em>, <em>0)</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.Score_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ncs_search.Transform">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">Transform</tt><big>(</big><em>rotation=None</em>, <em>translation=None</em>, <em>serial_num=None</em>, <em>coordinates_present=None</em>, <em>ncs_group_id=None</em>, <em>rmsd=0</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.Transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.angle_between_rotations">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">angle_between_rotations</tt><big>(</big><em>v1</em>, <em>v2</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.angle_between_rotations" title="Permalink to this definition">¶</a></dt>
+<dd><p>get angle between two vectors</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.build_group_dict">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">build_group_dict</tt><big>(</big><em>transform_to_group</em>, <em>match_dict</em>, <em>chains_info</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.build_group_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>find all transforms with common masters and organize the chains
+in the same order as the master and build groups transform dictionary</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>transform_to_group (dict):</dt>
+<dd>key: temporary transform number
+values:[masters],[copies],(rotation,translation)]</dd>
+<dt>match_dict(dict):</dt>
+<dd><dl class="first last docutils">
+<dt>key:(chains_id_1,chains_id_2)</dt>
+<dd>chain_ID (str)</dd>
+<dt>val:[selection_a,selection_b,res_list_a,res_list_b,rot,trans,rmsd]</dt>
+<dd>select_1/select_2 (flex.size_t)
+residue_index_list_1/2 (list): matching residues indices
+rot (matrix obj): rotation matrix
+tran (matrix obj): translation vector
+rmsd (float)</dd>
+</dl>
+</dd>
+<dt>chains_info <span class="classifier-delimiter">:</span> <span class="classifier">object containing</span></dt>
+<dd>chains (str): chain IDs OR selections string
+res_name (list of str): list of residues names
+resid (list of str): list of residues sequence number, resid
+atom_names (list of list of str): list of atoms in residues
+atom_selection (list of list of list of int): the location of atoms in ph
+chains_atom_number (list of int): list of number of atoms in each chain</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>group_dict (dict):</dt>
+<dd>keys: tuple of master chain IDs
+values: NCS_groups_container objects</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.clean_chain_matching">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">clean_chain_matching</tt><big>(</big><em>chain_match_list</em>, <em>ph</em>, <em>max_rmsd=10.0</em>, <em>exclude_misaligned_residues=False</em>, <em>match_radius=4.0</em>, <em>similarity_threshold=0.95</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.clean_chain_matching" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all bad matches from chain_match_list</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">ph (object): hierarchy
+chain_match_list (list): list of</p>
+<blockquote>
+<div>[chain_ID_1, chain_ID_2, sel_1, sel_2,res_m/res_c similarity]
+chain_ID (str), sel_1/2 (list of lists)
+res_m/res_c (lists): indices of the aligned components
+similarity (float): similarity between chains</div></blockquote>
+<p>max_rmsd (float): limit of rms difference chains
+exclude_misaligned_residues (bool): check and exclude individual residues</p>
+<blockquote>
+<div>alignment quality</div></blockquote>
+<dl class="docutils">
+<dt>match_radius (float): max allow distance difference between pairs of matching</dt>
+<dd>atoms of two residues</dd>
+</dl>
+<p class="last">similarity_threshold (float): min similarity between matching chains</p>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>match_dict(dict): key:(chains_id_a,chains_id_b)</dt>
+<dd><dl class="first last docutils">
+<dt>val:[selection_a,selection_b,</dt>
+<dd>res_list_a,res_list_b,rot,trans,rmsd]</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.clean_singles">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">clean_singles</tt><big>(</big><em>transform_to_group</em>, <em>chains_in_groups</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.clean_singles" title="Permalink to this definition">¶</a></dt>
+<dd><p>When a NCS copy of a transform contains a single chains, but those chains are
+also a part of a transform with several chains in the NCS group,
+remove the single transform</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>transform_to_group (dict):</dt>
+<dd>keys: tuple of master chain IDs
+values: NCS_groups_container objects</dd>
+</dl>
+<p class="last">chains_in_groups (set): Set of chain IDs that are in some NCS group</p>
+</dd>
+<dt>Returns:</dt>
+<dd>updated transform_to_group</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.collect_info">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">collect_info</tt><big>(</big><em>sorted_masters</em>, <em>copies</em>, <em>match_dict</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.collect_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine iselection of all chains in NCS master and NCS copy to a single
+iselelction</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">sorted_masters (list): list of master chain IDs
+copies (list): list of copies chain IDs
+match_dict(dict):</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>key:(chains_id_1,chains_id_2)</dt>
+<dd>chain_ID (str)</dd>
+<dt>val:[selection_a,selection_b,res_list_a,res_list_b,rot,trans,rmsd]</dt>
+<dd>select_1/select_2(flex.size_t)
+residue_index_list_1/2 (list): matching residues indices
+rot (matrix obj): rotation matrix
+tran (matrix obj): translation vector
+rmsd (float)</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt>
+<dd>m_sel,c_sel (list of flex.size_t): list of selected atoms per chain
+m_res,c_res (list of lists): list of residue number per chain
+worst_rmsd (float): worst rmsd of the matching chains pairs
+r (3x3 matrix): rotation matrix
+t (3x1 matrix): translation vector</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.find_ncs_in_hierarchy">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">find_ncs_in_hierarchy</tt><big>(</big><em>ph</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>use_minimal_master_ncs=True</em>, <em>max_rmsd=5.0</em>, <em>write=False</em>, <em>log=None</em>, <em>check_atom_order=False</em>, <em>allow_different_size_res=True</em>, <em>exclude_misaligned_residues=False</em>, <em>similarity_threshold=0.95</em>, <em>match_radius=4.0</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_ncs_in_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find NCS relation in hierarchy</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">ph (object): hierarchy
+min_contig_length (int): minimum length of matching chain segments
+min_percent (float): Threshold for similarity between chains</p>
+<blockquote>
+<div>similarity define as:
+(number of matching res) / (number of res in longer chain)</div></blockquote>
+<dl class="docutils">
+<dt>use_minimal_master_ncs (bool): use maximal or minimal common chains</dt>
+<dd>in master ncs groups</dd>
+</dl>
+<p>max_rmsd (float): limit of rms difference chains when aligned together
+write (bool): when true, write ncs search messages to log
+check_atom_order (bool): check atom order in matching residues.</p>
+<blockquote>
+<div>When False, matching residues with different number of atoms will be
+excluded from matching set</div></blockquote>
+<dl class="docutils">
+<dt>exclude_misaligned_residues (bool): check and exclude individual residues</dt>
+<dd>alignment quality</dd>
+<dt>match_radius (float): max allow distance difference between pairs of matching</dt>
+<dd>atoms of two residues</dd>
+<dt>allow_different_size_res (bool): keep matching residue with different</dt>
+<dd>number of atoms</dd>
+</dl>
+<p class="last">similarity_threshold (float): min similarity between matching chains
+ignore_chains (set of str): set of chain IDs to exclude</p>
+</dd>
+<dt>Return:</dt>
+<dd><p class="first">groups_list (list of NCS_groups_container objects)
+group_dict (dict):</p>
+<blockquote class="last">
+<div>keys: tuple of master chain IDs
+values: NCS_groups_container objects</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.find_same_transform">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">find_same_transform</tt><big>(</big><em>r</em>, <em>t</em>, <em>transforms</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_same_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the rotation r and translation t exist in the transform dictionary.
+Note that there can be both inverse and regular match. Return the
+non-transpose if exist.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>r (matrix.sqr): rotation
+t (matrix.col): translation
+transforms (dict): dictionary of all transforms</dd>
+<dt>Returns:</dt>
+<dd>tr_num: (str) transform serial number
+is_transpose: (bool) True if the matching transform is transpose</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.gap_score">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">gap_score</tt><big>(</big><em>r</em>, <em>min_matches</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.gap_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the score in case of a gap, taking into account consecutive matches
+and the minimum matches required.
+If we have a short matching section, we need to adjust the match_count,
+so not to count it</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>r (Score_record object)
+min_matches (int): minimum matches required between to sequences</dd>
+<dt>Returns:</dt>
+<dd>s (int): score
+min_matches (int): adjusted match count</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_chains_info">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_chains_info</tt><big>(</big><em>ph</em>, <em>selection_list=None</em>, <em>exclude_water=True</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_chains_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect information about chains or segments of the hierarchy according to
+selection strings
+Exclude water atoms
+When there are alternate conformations, we use the first one</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>ph : protein hierarchy
+selection_list (list of str): specific selection of hierarchy segments
+ignore_chains (set of str): set of chain IDs to exclude</dd>
+<dt>Returns:</dt>
+<dd><dl class="first docutils">
+<dt>chains_info (dict): values are object containing</dt>
+<dd>chains (str): chain IDs OR selections string
+res_name (list of str): list of residues names
+resid (list of str): list of residues sequence number, resid
+atom_names (list of list of str): list of atoms in residues
+atom_selection (list of list of list of int): the location of atoms in ph
+chains_atom_number (list of int): list of number of atoms in each chain</dd>
+</dl>
+<p class="last">exclude_water (bool): exclude water</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_matching_atoms">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_matching_atoms</tt><big>(</big><em>chains_info</em>, <em>a_id</em>, <em>b_id</em>, <em>res_num_a</em>, <em>res_num_b</em>, <em>check_atom_order=False</em>, <em>allow_different_size_res=True</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_matching_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get selection of matching chains, match residues atoms
+We keep only residues with continuous matching atoms</p>
+<p>Residues with alternative locations and of different size are excluded</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>chains_info (object): object containing</dt>
+<dd>chains (str): chain IDs or selections string
+res_name (list of str): list of residues names
+resid (list of str): list of residues sequence number, resid
+atom_names (list of list of str): list of atoms in residues
+atom_selection (list of list of list of int): the location of atoms in ph
+chains_atom_number (list of int): list of number of atoms in each chain</dd>
+</dl>
+<p>a_id,b_id (str): Chain IDs
+res_num_a/b (list of int): indices of matching residues position
+check_atom_order (bool): check atom order in matching residues.</p>
+<blockquote>
+<div>When False, matching residues with different number of atoms will be
+excluded from matching set</div></blockquote>
+<dl class="last docutils">
+<dt>allow_different_size_res (bool): keep matching residue with different</dt>
+<dd>number of atoms</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>sel_a/b (list of lists): matching atoms selection
+res_num_a/b (list of int): updated res_num_a/b
+msg (str): message regarding matching residues with different atom number</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_matching_res_indices">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_matching_res_indices</tt><big>(</big><em>R</em>, <em>row</em>, <em>col</em>, <em>min_percent</em>, <em>min_contig_length</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_matching_res_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trace back best solution and collect the indices of matching pairs</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">R (list of lists of int): the score matrix
+row (int): number of rows
+col (int): number of columns
+min_percent (float): min percent of similarity between hierarchies</p>
+<blockquote>
+<div>similarity define as:
+(number of matching res) / (number of res in longer chain)</div></blockquote>
+<p class="last">min_contig_length (int): domain &lt; min_contig_length rejected</p>
+</dd>
+<dt>Returns:</dt>
+<dd>sel_a (list): matching indices sequence a
+sel_b (list): matching indices sequence b
+similarity (float): actual similarity between hierarchies</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_rmsds">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_rmsds</tt><big>(</big><em>hierarchy</em>, <em>cache</em>, <em>cur_ttg</em>, <em>master</em>, <em>copy</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rmsds" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is for debugging purposes and not called.
+Similar check will be performed later in execution and in case of
+wrong grouping will raise Sorry: bad phil records.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_rotation_vec">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_rotation_vec</tt><big>(</big><em>r</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rotation_vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the eigen vector associated with the eigen value 1</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.initialize_score_matrix">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">initialize_score_matrix</tt><big>(</big><em>row</em>, <em>col</em>, <em>max_score=1000</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.initialize_score_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialize a matrix in a dictionary form
+The matrix values are initialized according the the gap penalties.</p>
+<p>We initializing the zero row and column with descending score and the reset
+of the matrix with -10000 score</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>row (int): number of rows
+col (int): number of columns
+max_score (int): the score assigned for perfect alignment</dd>
+<dt>Returns:</dt>
+<dd>R (dict): the score matrix in a form of a dictionary of Score_record objects</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.inverse_transform">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">inverse_transform</tt><big>(</big><em>r</em>, <em>t</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>inverse rotation and translation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.is_same_transform">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">is_same_transform</tt><big>(</big><em>r1</em>, <em>t1</em>, <em>r2</em>, <em>t2</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.is_same_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if transform is the same by comparing rotations and the result of
+applying rotation and translation on
+a test vector</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>r1, r2: Rotation matrices
+t1, t2: Translation vectors</dd>
+<dt>Returns:</dt>
+<dd>(bool,bool) (is_the_same, is_transpose)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.make_selection_from_lists">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">make_selection_from_lists</tt><big>(</big><em>sel_list</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.make_selection_from_lists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a list of lists to flex.size_t selection array</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.minimal_master_ncs_grouping">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">minimal_master_ncs_grouping</tt><big>(</big><em>match_dict</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.minimal_master_ncs_grouping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for NCS groups with the smallest number of chains in the master copy
+This is not the minimal number of NCS operations</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>match_dict(dict):</dt>
+<dd>key:(chains_id_1,chains_id_2)
+val:[select_1,select_2,res_list_1,res_list_2,rot,trans,rmsd]
+chain_ID (str), selection_1/2 (flex.size_t)
+res_list_1/2 (list): list of matching residues indices
+rot (matrix obj): rotation matrix
+tran (matrix obj): translation vector
+rmsd (float)</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first docutils">
+<dt>transform_to_group (dict):</dt>
+<dd>keys: tuple of master chain IDs
+values: NCS_groups_container objects</dd>
+</dl>
+<p class="last">match_dict (dict): updated match_dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.minimal_ncs_operators_grouping">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">minimal_ncs_operators_grouping</tt><big>(</big><em>match_dict</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.minimal_ncs_operators_grouping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for NCS groups with the smallest number of chains in the master copy
+This is not the minimal number of NCS operations</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>match_dict(dict):</dt>
+<dd>key:(chains_id_1,chains_id_2)
+val:[select_1,select_2,res_list_1,res_list_2,rot,trans,rmsd]
+chain_ID (str), selection_1/2 (flex.size_t)
+res_list_1/2 (list): list of matching residues indices
+rot (matrix obj): rotation matrix
+tran (matrix obj): translation vector
+rmsd (float)</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first docutils">
+<dt>transform_to_group (dict):</dt>
+<dd>keys: tuple of master chain IDs
+values: NCS_groups_container objects</dd>
+</dl>
+<p class="last">match_dict (dict): updated match_dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.remove_far_atoms">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">remove_far_atoms</tt><big>(</big><em>list_a</em>, <em>list_b</em>, <em>res_list_a</em>, <em>res_list_b</em>, <em>ref_sites</em>, <em>other_sites</em>, <em>match_radius=4.0</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.remove_far_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>When comparing lists of matching atoms, remove residues where some atoms are
+are locally misaligned, for example when matching residues are
+perpendicular to each other rather than being close to parallel.</p>
+<p>The criteria used:
+For each matching residues, the difference between distance of farthest
+matching atoms pair and the distance of closest pair mast be &lt; match_radius</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>list_a, list_a (list of list): list of residues atoms
+res_list_a,res_list_b (list): list of residues in chains
+ref_sites,other_sites (flex.vec3): atoms coordinates
+match_radius (float): max allow distance difference</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>Updated arguments:</dt>
+<dd>sel_a,sel_b,
+res_list_a_new,res_list_b_new,
+ref_sites_new,other_sites_new</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.remove_masters_if_appear_in_copies">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">remove_masters_if_appear_in_copies</tt><big>(</big><em>transform_to_group</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.remove_masters_if_appear_in_copies" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove masters if appear in copies of the same transform
+and of another transform</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>transform_to_group (dict):</dt>
+<dd>keys: tuple of master chain IDs
+values: NCS_groups_container objects</dd>
+</dl>
+<p class="last">chain_ids (list): sorted list of chains IDs</p>
+</dd>
+<dt>Returns:</dt>
+<dd>updated transform_to_group</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.remove_overlapping_selection">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">remove_overlapping_selection</tt><big>(</big><em>transform_to_group</em>, <em>chain_ids</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.remove_overlapping_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove overlapping selection and keep largest groups</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>transform_to_group (dict):</dt>
+<dd>keys: tuple of master chain IDs
+values: NCS_groups_container objects</dd>
+</dl>
+<p class="last">chain_ids (list): sorted list of chains IDs</p>
+</dd>
+<dt>Returns:</dt>
+<dd>updated transform_to_group</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.res_alignment">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">res_alignment</tt><big>(</big><em>seq_a</em>, <em>seq_b</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.res_alignment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Align two lists of strings (All lower case characters).</p>
+<p>Penalize misalignment, gaps, when contiguous section is less
+than min_contig_length and when the
+Do not give any points for alignment. (score only change when &#8220;bad&#8221; things
+happens)</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">seq_a, seq_b (lists of str): list of characters to compare
+min_percent (float): min percent of similarity between hierarchies</p>
+<blockquote>
+<div>similarity define as:
+(number of matching res) / (number of res in longer chain)</div></blockquote>
+<p class="last">min_contig_length (int): domain &lt; min_contig_length rejected</p>
+</dd>
+<dt>Returns:</dt>
+<dd>aligned_sel_a (list): the indices of the aligned components of seq_a
+aligned_sel_b (list): the indices of the aligned components of seq_b
+similarity (float): actual similarity between hierarchies</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.search_ncs_relations">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">search_ncs_relations</tt><big>(</big><em>ph=None</em>, <em>chains_info=None</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>write=False</em>, <em>log=None</em>, <em>check_atom_order=False</em>, <em>allow_different_size_res=True</em>, <em>use_minimal_master_ncs=True</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.search_ncs_relations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for NCS relations between chains or parts of chains, in a protein
+hierarchy</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">ph (object): hierarchy
+chains_info (dict): values are object containing</p>
+<blockquote>
+<div>chains (str): chain IDs OR selections string
+res_name (list of str): list of residues names
+resid (list of str): list of residues sequence number, resid
+atom_names (list of list of str): list of atoms in residues
+atom_selection (list of list of list of int): the location of atoms in ph
+chains_atom_number (list of int): list of number of atoms in each chain</div></blockquote>
+<p>min_contig_length (int): segments &lt; min_contig_length rejected
+min_percent (float): Threshold for similarity between chains.</p>
+<blockquote>
+<div>similarity define as:
+(number of matching res) / (number of res in longer chain)</div></blockquote>
+<p>write (bool): when true, write ncs search messages to log
+check_atom_order (bool): check atom order in matching residues.</p>
+<blockquote>
+<div>When False, matching residues with different number of atoms will be
+excluded from matching set</div></blockquote>
+<dl class="docutils">
+<dt>use_minimal_master_ncs (bool): use maximal or minimal common chains</dt>
+<dd>in master ncs groups (when True, search does not need to be done all
+all chains -&gt; can be significantly faster on large structures)</dd>
+<dt>allow_different_size_res (bool): keep matching residue with different</dt>
+<dd>number of atoms</dd>
+</dl>
+<p class="last">ignore_chains (set of str): set of chain IDs to exclude</p>
+</dd>
+<dt>Returns:</dt>
+<dd><p class="first">msg (str): message regarding matching residues with different atom number
+chain_match_list (list): list of</p>
+<blockquote>
+<div>[chain_ID_1,chain_ID_2,sel_1,sel_2,res_sel_m, res_sel_c,similarity]
+chain_ID (str), sel_1/2 (flex.size_t),
+res_sel_m/c (lists of lists): indices of the aligned components
+similarity (float): similarity between chains</div></blockquote>
+<p class="last">We use sel_2 to avoid problems when residues have different number of atoms</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.selection_to_keep">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">selection_to_keep</tt><big>(</big><em>m_sel</em>, <em>remove_selection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.selection_to_keep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the selection of the selection to keep from flex.size_t array</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>m_sel (flex.size_t): the array from which we want to remove items
+remove_selection (flex.size_t): the values of items to remove</dd>
+<dt>Returns:</dt>
+<dd>sel_to_keep (flex.size_t)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.sort_by_dist">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">sort_by_dist</tt><big>(</big><em>chains_info</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.sort_by_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>The process of grouping chains is not exhaustive, meaning that is does not
+consider every possible chains grouping, due to potential computation time
+such a search might take. To improve the the probability of getting
+preferred grouping, instead of searching using the order of the chain
+names, we arrange chains by distance.
+Starting from the first chain look for the closest chain to it, then
+the closest to the second chain, and so one.</p>
+<p>Note that this only improve but does not guarantee optimal grouping</p>
+<p>This function is used only when minimizing number of NCS operators</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>chains_info (obj): Chain_info object</dd>
+<dt>Return:</dt>
+<dd>ch_id_list (lst): ordered list of chain IDs</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.update_chain_ids_search_order">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">update_chain_ids_search_order</tt><big>(</big><em>chains_info</em>, <em>sorted_ch</em>, <em>chains_in_copies</em>, <em>i</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.update_chain_ids_search_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used only when minimizing number of chains in master NCS.
+It design to improve grouping by choosing masters that are near by.</p>
+<p>Replace chain ID i in the list sorted_ch with the closest chain i-1 in
+sorted_ch, ignoring chains that are already in NCS groups</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>chains_info (obj): Chain_info object
+sorted_ch (list): chain IDs list
+chains_in_copies (set): chain already in NCS groups
+i (int): position in the list</dd>
+<dt>Return:</dt>
+<dd>ch_id_list (list): ordered list of chain IDs</dd>
+</dl>
+<p>23/09/2015 Oleg. Disabled because arbitrary tossing chains may cause
+selection problems in future execution. The test exercising it is in:
+cctbx_project/iotbx/regression/ncs/tst_ncs_input.py, exersice_23()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.update_group_dict">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">update_group_dict</tt><big>(</big><em>group_dict</em>, <em>key</em>, <em>adjust_key_lists</em>, <em>m_isel_list</em>, <em>c_isel_list</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.update_group_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates group_dict with the minimal common selection for all NCS copies
+Updates adjust_key_lists, a set that collect all records that where
+adjusted</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>group_dict (dict):</dt>
+<dd>keys: tuple of master chain IDs
+values: NCS_groups_container objects</dd>
+</dl>
+<p>key : a key of group_dict
+adjust_key_lists (set): set of key
+m_isel_list,c_isel_list (list of flex.size_t): list of master and copy</p>
+<blockquote class="last">
+<div>iselections</div></blockquote>
+</dd>
+<dt>Returns:</dt>
+<dd>new_copy (flex.size_t): selection on the new NCS copy</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.update_match_dicts">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">update_match_dicts</tt><big>(</big><em>best_matches</em>, <em>match_dict</em>, <em>ch_a_id</em>, <em>ch_b_id</em>, <em>similarity</em>, <em>similarity_threshold=0.95</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.update_match_dicts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the best_matches dictionaries best_matches,match_dict to keep only
+matches that are at least 95% of best match and</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>best_matches (dict):</dt>
+<dd>key: chain_ID (str)
+Val: [[similarity,(chain_ID,chain_ID2)],[similarity,(chain_ID3,chain_ID)]]</dd>
+<dt>match_dict (dict):</dt>
+<dd>key: (chain_id_a,chain_id_b)
+val: [selection_1,selection_2,res_list_1,res_list_2,rot,trans,rmsd]</dd>
+</dl>
+<p>ch_a_id,ch_b_id (str): chain IDs
+similarity (float): similarity between chains
+similarity_threshold (float): min similarity between matching chains</p>
+<blockquote class="last">
+<div>Note that smaller value cause more chains to be grouped together and
+can lower the number of common residues</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.update_res_list">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">update_res_list</tt><big>(</big><em>group_dict</em>, <em>chains_info</em>, <em>group_key_lists</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.update_res_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove residues from residues list according the the atom selection
+(Atom selection might have changed to reflect the smallest common set of
+NCS related atoms in all NCS copies)</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>group_dict (dict):</dt>
+<dd>keys: tuple of master chain IDs
+values: NCS_groups_container objects</dd>
+<dt>chains_info <span class="classifier-delimiter">:</span> <span class="classifier">object containing</span></dt>
+<dd>chains (str): chain IDs OR selections string
+res_name (list of str): list of residues names
+resid (list of str): list of residues sequence number, resid
+atom_names (list of list of str): list of atoms in residues
+atom_selection (list of list of list of int): the location of atoms in ph
+chains_atom_number (list of int): list of number of atoms in each chain</dd>
+</dl>
+<p class="last">group_key_lists (list): set of group_dict keys to update</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.ncs.ncs_utils">
+<span id="mmtbx-ncs-ncs-utils-module"></span><h2><a class="toc-backref" href="#id7">mmtbx.ncs.ncs_utils module</a><a class="headerlink" href="#module-mmtbx.ncs.ncs_utils" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.ncs.ncs_utils.Phil_NCS">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">Phil_NCS</tt><a class="headerlink" href="#mmtbx.ncs.ncs_utils.Phil_NCS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>ncs Phil strings</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ncs_utils.Phil_constraints">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">Phil_constraints</tt><a class="headerlink" href="#mmtbx.ncs.ncs_utils.Phil_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>constraints Phil strings</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ncs_utils.Phil_pdb_interpretation">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">Phil_pdb_interpretation</tt><a class="headerlink" href="#mmtbx.ncs.ncs_utils.Phil_pdb_interpretation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>pdb_interpretation Phil strings</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ncs.ncs_utils.Phil_restraints">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">Phil_restraints</tt><a class="headerlink" href="#mmtbx.ncs.ncs_utils.Phil_restraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>restraints Phil strings</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.angles_to_rotation">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">angles_to_rotation</tt><big>(</big><em>alpha)*Ry(beta)*Rz(gamma</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.angles_to_rotation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">angles_xyz : (flex.double) (alpha,beta,gamma)
+deg : (bool) When False use radians, when True degrees
+rotation_is_tuple : (bool) when False, return flxe.double object,</p>
+<blockquote class="last">
+<div>when True return tuple</div></blockquote>
+</dd>
+</dl>
+<p>Returns:
+R : (tuple or flex.double) the components of a rotation matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.apply_transforms">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">apply_transforms</tt><big>(</big><em>ncs_coordinates</em>, <em>ncs_restraints_group_list</em>, <em>total_asu_length</em>, <em>extended_ncs_selection</em>, <em>round_coordinates=True</em>, <em>center_of_coordinates=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.apply_transforms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transformation to ncs_coordinates,
+and round the results if round_coordinates is True</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">ncs_coordinates (flex.vec3): master ncs coordinates
+ncs_restraints_group_list: list of ncs_restraint_group objects
+total_asu_length (int): Complete ASU length</p>
+<blockquote>
+<div>extended_ncs_selection (flex.size_t): master ncs and non-ncs related parts</div></blockquote>
+<dl class="last docutils">
+<dt>center_of_coordinates <span class="classifier-delimiter">:</span> <span class="classifier">when not None, contains the center of coordinate of</span></dt>
+<dd>the master for each ncs copy</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>(flex.vec3_double): Asymmetric or biological unit parts that are related via</dt>
+<dd>ncs operations</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.check_ncs_group_list">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">check_ncs_group_list</tt><big>(</big><em>ncs_restraints_group_list</em>, <em>ph</em>, <em>max_delta=10.0</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.check_ncs_group_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that all copies relate correctly to master via the transforms</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>ncs_restraints_group_list : list of ncs restraints group objects
+ph: Hierarchy object
+max_delta (float): maximum allowed rmsd between coordinates copies</dd>
+<dt>Returns:</dt>
+<dd>nrgl_ok (bool): True when ncs_restraints_group_list is OK</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.compute_transform_grad">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">compute_transform_grad</tt><big>(</big><em>the)Ry(psi)Rz(phi</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.compute_transform_grad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">grad_wrt_xyz (flex.double): gradients with respect to xyz.
+ncs_restraints_group_list: list containing ncs_restraint_group objects
+transforms_obj (ncs_group_object): containing information in rotation</p>
+<blockquote>
+<div>matrices and to which chains they apply</div></blockquote>
+<p>xyz_asu (flex.vec3): The coordinates sites cart of the complete ASU
+x (flex double): The angles, in the form</p>
+<blockquote class="last">
+<div>(theta_1,psi_1,phi_1,tx_1,ty_1,tz_1,..
+theta_n,psi_n,phi_n,tx_n/s,ty_n/s,tz_n/s)</div></blockquote>
+</dd>
+<dt>Returns:</dt>
+<dd>g (flex.double): the gradient</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.concatenate_rot_tran">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">concatenate_rot_tran</tt><big>(</big><em>transforms_obj=None</em>, <em>ncs_restraints_group_list=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.concatenate_rot_tran" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenate rotation angles, corresponding to the rotation
+matrices and scaled translation vectors to a single long flex.double object</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>transforms_obj <span class="classifier-delimiter">:</span> <span class="classifier">(mmtbx.refinement.minimization_ncs_constraints</span></dt>
+<dd>ncs_group_object) containing information on Rotation matrices (lists of
+objects matrix.rec) and Translation vectors (lists of objects matrix.rec)</dd>
+</dl>
+<p class="last">ncs_restraints_group_list : a list of ncs_restraint_group objects</p>
+</dd>
+<dt>Returns:</dt>
+<dd>flex.double : [(alpha_1,beta_1,gamma_1,Tx_1,Ty_1,Tz_1)...]</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.convert_phil_format">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">convert_phil_format</tt><big>(</big><em>phil_str</em>, <em>to_type='ncs'</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.convert_phil_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert ncs Phil format according tot the to_type
+between &#8216;ncs&#8217;, &#8216;restraints&#8217;, &#8216;constraints&#8217; and &#8216;pdb_interpretation&#8217;</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.get_extended_ncs_selection">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">get_extended_ncs_selection</tt><big>(</big><em>ncs_restraints_group_list</em>, <em>refine_selection=None</em>, <em>assume_strick_ncs=False</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_extended_ncs_selection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">ncs_restraints_group_list: list of ncs_restraint_group objects
+refine_selection (flex.siz_t): of all ncs related copies and</p>
+<blockquote>
+<div>non ncs related parts to be included in selection (to be refined)</div></blockquote>
+<dl class="last docutils">
+<dt>assume_strick_ncs (bool): assume that all atoms are NCS related</dt>
+<dd>(applicable only if refine selection is not given)</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>(flex.siz_t): selection of all ncs groups master ncs selection and</dt>
+<dd>non ncs related portions that are being refined (exclude NCS copies)</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.get_list_of_best_ncs_copy_map_correlation">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">get_list_of_best_ncs_copy_map_correlation</tt><big>(</big><em>ncs_groups</em>, <em>xray_structure=None</em>, <em>fmodel=None</em>, <em>map_data=None</em>, <em>d_min=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_list_of_best_ncs_copy_map_correlation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the copy with best map correlation in each ncs group</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>best_list (list of int): list of the copy with the best map correlation.</dt>
+<dd>(the master copy is 0)</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.get_ncs_groups_centers">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">get_ncs_groups_centers</tt><big>(</big><em>xray_structure</em>, <em>ncs_restraints_group_list</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_ncs_groups_centers" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the center of coordinate for the master of each ncs copy</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>xray_structure
+ncs_restraints_group_list</dd>
+<dt>Returns:</dt>
+<dd>shifts (list): [mu_1, mu_1, mu_2...] where the mu stands
+for the shift of the master copy to the coordinate center mu is (dx,dy,dz)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.get_ncs_related_selection">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">get_ncs_related_selection</tt><big>(</big><em>ncs_restraints_group_list</em>, <em>asu_size</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_ncs_related_selection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Args:</dt>
+<dd>ncs_restraints_group_list (list): list of ncs_restraint_group objects
+asu_size (int): the total size of the ASU</dd>
+<dt>Returns:</dt>
+<dd>selection (flex.bool): selection of all ncs related atom in the ASU</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.get_ncs_sites_cart">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">get_ncs_sites_cart</tt><big>(</big><em>ncs_obj=None</em>, <em>fmodel=None</em>, <em>xray_structure=None</em>, <em>sites_cart=None</em>, <em>extended_ncs_selection=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_ncs_sites_cart" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Args::</dt>
+<dd><dl class="first last docutils">
+<dt>ncs_obj: an object that contains fmodel, sites_cart or xray_structure</dt>
+<dd>and an atom selection flags for a single NCS copy.</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>(flex.vec3): coordinate sites cart of the single NCS copy</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.get_refine_selection">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">get_refine_selection</tt><big>(</big><em>refine_selection=None</em>, <em>number_of_atoms=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_refine_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>populate refine_selection with all atoms if no selection is given</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.get_restraints_manager">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">get_restraints_manager</tt><big>(</big><em>pdb_file_name=None</em>, <em>pdb_string=None</em>, <em>normalization=True</em>, <em>return_data_num=False</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_restraints_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate restraint manager from a PDB file or a PDB string</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>return_data_num (bool): when True, return the number of restraints</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.get_rotation_translation_as_list">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">get_rotation_translation_as_list</tt><big>(</big><em>transforms_obj=None</em>, <em>ncs_restraints_group_list=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_rotation_translation_as_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get rotations and translations vectors from ncs_restraints_group_list or
+transforms_obj</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>r (list): list of rotation matrices
+t (list): list of translation vectors</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.get_weight">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">get_weight</tt><big>(</big><em>fmodel=None</em>, <em>restraints_manager=None</em>, <em>sites=None</em>, <em>transformations=None</em>, <em>u_iso=None</em>, <em>ncs_restraints_group_list=None</em>, <em>refine_selection=None</em>, <em>minimized_obj=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates weights for refinements by slightly shaking the minimized
+parameters and taking the ratio:
+(restraint manager grad norm / parameters gradient norm)</p>
+<p>When calling this function during refinement macro cycle, the minimized
+object, &#8220;minimized_obj&#8221; , may contains fmodel, restraints_manager,
+refinement type info (sites, transformations, u_iso) and
+ncs_restraints_group_list.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">fmodel : F-model object
+restraints_manager: Restraints manager object
+sites (bool): Refine by sites
+u_iso (bool): Refine using u_iso
+transformations (bool): Refine using transformations</p>
+<blockquote>
+<div>rotations, translations (matrix objects):</div></blockquote>
+<p>ncs_restraints_group_list: list of ncs_restraint_group objects
+refine_selection (flex.size_t): selection of all ncs related copies and</p>
+<blockquote>
+<div>non ncs related parts to be included in selection (to be refined)</div></blockquote>
+<dl class="last docutils">
+<dt>minimized_obj:Minimization object containing all the other</dt>
+<dd>parameters above</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>weight (int):</dd>
+</dl>
+<p>Example:
+&gt;&gt;&gt;get_weight(minimized_obj=minimized_obj)</p>
+<p>or</p>
+<dl class="docutils">
+<dt>&gt;&gt;&gt;get_weight(fmodel=fmodel,</dt>
+<dd>restraints_manager=grm,
+sites=sites,
+transformations=transformations,
+u_iso=u_iso,
+ncs_restraints_group_list=ncs_restraints_group_list,
+refine_selection=refine_selection)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.iselection_asu_to_ncs">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">iselection_asu_to_ncs</tt><big>(</big><em>iselection_asu</em>, <em>ncs_chain_id</em>, <em>hierarchy_asu</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.iselection_asu_to_ncs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert iselection of NCS related atoms in the NCS copy to the ASU iselection</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>ncs_chain_id (str)
+iselection_asu (flex.size_t)
+hierarchy_ncs (hierarchy object)</dd>
+<dt>Returns:</dt>
+<dd>iselection_ncs (flex.size_t)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.iselection_ncs_to_asu">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">iselection_ncs_to_asu</tt><big>(</big><em>iselection_ncs</em>, <em>ncs_chain_id</em>, <em>hierarchy_asu</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.iselection_ncs_to_asu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert iselection of NCS related atoms in the NCS copy to the ASU iselection</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>ncs_len (int)
+ncs_chain_id (str)
+iselection_ncs (flex.size_t)
+hierarchy_asu hierarchy object)</dd>
+<dt>Returns:</dt>
+<dd>iselection_asu (flex.size_t)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.make_unique_chain_names">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">make_unique_chain_names</tt><big>(</big><em>unique_chain_names</em>, <em>number_of_names=1</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.make_unique_chain_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a sorted list of new unique chain names.
+Chain names are strings of one or two characters long.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>unique_chain_names (set): Current names
+number_of_names (int): number of new names</dd>
+<dt>Returns:</dt>
+<dd>new_names_list (list): sorted list on new names</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.ncs_group_iselection">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">ncs_group_iselection</tt><big>(</big><em>ncs_restraints_group_list</em>, <em>group_num</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.ncs_group_iselection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects and returns iselection of all related atoms in NCS group</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>ncs_restraints_group_list : list of ncs restraints group objects
+group_num (int): the group number in the list (first group is 0)</dd>
+<dt>Returns:</dt>
+<dd>isel (flex.size_t): complete NCS group selection</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.ncs_groups_selection">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">ncs_groups_selection</tt><big>(</big><em>ncs_restraints_group_list</em>, <em>selection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.ncs_groups_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies the selections of master and copies according the &#8220;selection&#8221;
+- Keep the order of selected atoms
+- Keep only atoms that appear in master and ALL copies
+Also modify &#8220;selection&#8221; to include ncs related atoms only if selected in
+both master and ALL ncs copies (The modified selection is not returned in
+current version)</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>ncs_restraints_group_list (list): list of ncs_restraints_group objects
+selection (flex.bool or flex.size_t): atom selection</dd>
+<dt>Returns:</dt>
+<dd>new_nrg_list (list): list of modified ncs_restraints_group objects</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.ncs_restraints_group_list_copy">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">ncs_restraints_group_list_copy</tt><big>(</big><em>ncs_restraints_group_list</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.ncs_restraints_group_list_copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deep copy of ncs_restraints_group_list</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>ncs_restraints_group_list: list of ncs_restraint_group</dd>
+<dt>Returns:</dt>
+<dd>new_list: a deep copy of ncs_restraints_group_list</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.recalculate_ncs_transforms">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">recalculate_ncs_transforms</tt><big>(</big><em>ncs_restraints_group_list</em>, <em>asu_site_cart</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.recalculate_ncs_transforms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Re-evaluate the rotation and translation in the ncs groups list, base on
+the ncs groups selection and the atoms location.
+Updates the ncs_restraints_group_list object</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>ncs_restraints_group_list: list of ncs restraints group objects
+asu_site_cart (flex.vec_3): the complete ASU sites cart (coordinates)</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.remove_items_from_selection">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">remove_items_from_selection</tt><big>(</big><em>selection</em>, <em>remove</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.remove_items_from_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a set of atoms from &#8220;selection&#8221;</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>selection (flex.size_t): atom selection
+remove (flex.size_t): atoms to remove from selection</dd>
+<dt>Returns:</dt>
+<dd>(flex.size_t): modified atom selection</dd>
+<dt>Examples::</dt>
+<dd>&gt;&gt;&gt;a = flex.size_t([1,2,5,6,4])
+&gt;&gt;&gt;r = flex.size_t([2,5])
+&gt;&gt;&gt;s = remove_items_from_selection(a,r,10)
+&gt;&gt;&gt;list(s)
+[1,6,4]</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.rotation_to_angles">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">rotation_to_angles</tt><big>(</big><em>rotation</em>, <em>deg=False</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.rotation_to_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rotation angles around the axis x,y,z for rotation r
+Such that r = Rx*Ry*Rz
+Those angles are the Tait-Bryan angles form of Euler angles</p>
+<p>Note that typically there are two solutions, and this function will return
+only one. In the case that cos(beta) == 0 there are infinite number of
+solutions, the function returns the one where gamma = 0</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>r : (flex.double) of the form (Rxx,Rxy,Rxz,Ryx,Ryy,Ryz,Rzx,Rzy,Rzz)
+deg : When False use radians, when True use degrees</dd>
+<dt>Returns:</dt>
+<dd>angles (flex.double): (alpha, beta, gamma) rotation angles around the x,y,z</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.selected_positions">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">selected_positions</tt><big>(</big><em>selection</em>, <em>positions</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.selected_positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns only the selected indices in the positions specified in &#8220;positions&#8221;
+keeping the order</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>selection (flex.size_t): Atoms selection
+positions (set or list): the allowed positions in the selections</dd>
+<dt>Returns:</dt>
+<dd>(flex.size_t, flex.size_t): (selected atoms, atoms, not selected)</dd>
+<dt>Examples::</dt>
+<dd>&gt;&gt;&gt;a = flex.size_t([1,2,5,6,4])
+&gt;&gt;&gt;pos = {0,3,4}
+&gt;&gt;&gt;s,d = selected_positions(a,pos)
+&gt;&gt;&gt;list(s)
+[1,6,4]
+&gt;&gt;&gt;list(d)
+[2,5]</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.shake_transformations">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">shake_transformations</tt><big>(</big><em>x</em>, <em>shake_angles_sigma=0.035</em>, <em>shake_translation_sigma=0.5</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.shake_transformations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shake rotation matrices and translation vectors of a rotation matrices and
+translation vectors from the MTRIX records in a PDB file.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">x (flex.double): [(alpha_1,beta_1,gamma_1,Tx_1/s,Ty_1/s,Tz_1/s)...]
+shake_angles_sigma (float): the sigma (in radians) of the random gaussian</p>
+<blockquote>
+<div>shaking of the rotation angles</div></blockquote>
+<dl class="last docutils">
+<dt>shake_translation_sigma (float): the sigma (in angstrom) of the random</dt>
+<dd>gaussian shaking of the translation</dd>
+</dl>
+</dd>
+<dt>Return:</dt>
+<dd>new_x (flex.double): The shaken x</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.shift_translation_back_to_place">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">shift_translation_back_to_place</tt><big>(</big><em>shifts</em>, <em>ncs_restraints_group_list</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.shift_translation_back_to_place" title="Permalink to this definition">¶</a></dt>
+<dd><p>shifts to the translation component of ncs_restraints_group_list from the
+center of coordinates back to place</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>shifts (list): [mu_1, mu_1, mu_2...] where the mu stands</dt>
+<dd>for the shift of the master copy to the coordinate center mu is (dx,dy,dz)</dd>
+</dl>
+<p class="last">ncs_restraints_group_list: ncs_restraints_group_list</p>
+</dd>
+<dt>Returns:</dt>
+<dd>new_list (list): list of ncs_restraints_group objects</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.shift_translation_to_center">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">shift_translation_to_center</tt><big>(</big><em>shifts</em>, <em>ncs_restraints_group_list</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.shift_translation_to_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add shifts to the translation component of ncs_restraints_group_list
+towards the center of coordinates</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>shifts (list): [mu_1, mu_1, mu_2...] where the mu stands</dt>
+<dd>for the shift of the master copy to the coordinate center mu is (dx,dy,dz)</dd>
+</dl>
+<p class="last">ncs_restraints_group_list (list): ncs_restraints_group_list</p>
+</dd>
+<dt>Returns:</dt>
+<dd>ncs_restraints_group_list (list):</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.update_ncs_restraints_group_list">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">update_ncs_restraints_group_list</tt><big>(</big><em>ncs_restraints_group_list</em>, <em>rm</em>, <em>tv</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.update_ncs_restraints_group_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update ncs_restraints_group_list with the rotation matrices (rm) and
+translation vectors (tv)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.update_rot_tran">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">update_rot_tran</tt><big>(</big><em>x</em>, <em>transforms_obj=None</em>, <em>ncs_restraints_group_list=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.update_rot_tran" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the refinable parameters, rotations angles and
+scaled translations, back to rotation matrices and translation vectors and
+updates the transforms_obj (ncs_restraints_group_list)</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>x <span class="classifier-delimiter">:</span> <span class="classifier">a flex.double of the form (theta_1,psi_1,phi_1,tx_1,ty_1,tz_1,..</span></dt>
+<dd>theta_n,psi_n,phi_n,tx_n/s,ty_n/s,tz_n/s). where n is the number of
+transformations.</dd>
+<dt>transforms_obj <span class="classifier-delimiter">:</span> <span class="classifier">(ncs_group_object) containing information on Rotation</span></dt>
+<dd>matrices, Translation vectors and NCS</dd>
+</dl>
+</dd>
+</dl>
+<p>ncs_restraints_group_list : a list of ncs_restraint_group objects</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>The same type of input object with converted transforms</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_utils.update_transforms">
+<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">update_transforms</tt><big>(</big><em>transforms_obj</em>, <em>rm</em>, <em>tv</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.update_transforms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update transforms_obj with the rotation matrices (rm) and translation
+vectors (tv)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.ncs">
+<span id="module-contents"></span><h2><a class="toc-backref" href="#id8">Module contents</a><a class="headerlink" href="#module-mmtbx.ncs" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.ncs.asu_ncs_converter">
+<em class="property">class </em><tt class="descclassname">mmtbx.ncs.</tt><tt class="descname">asu_ncs_converter</tt><big>(</big><em>pdb_hierarchy</em>, <em>eps=0.01</em>, <em>add_identity=True</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.asu_ncs_converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Simple method of converting multiple NCS copy ASU content into one NCS copy
+and NCS transformations. Limitations:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Assumes each chain to be individual NCS copy.</li>
+<li>Takes first NCS copy as the master copy.</li>
+<li>Assume all copies are identical (number and order of atoms)</li>
+<li>Anisotropic ADP are not handlesd.</li>
+</ul>
+</div></blockquote>
+<p>Further improvements: use atom selections to identify NCS copies.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.asu_ncs_converter.is_ncs_present" title="mmtbx.ncs.asu_ncs_converter.is_ncs_present"><tt class="xref py py-obj docutils literal"><span class="pre">is_ncs_present</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.asu_ncs_converter.update_sites_cart" title="mmtbx.ncs.asu_ncs_converter.update_sites_cart"><tt class="xref py py-obj docutils literal"><span class="pre">update_sites_cart</span></tt></a>(sites_cart_master_ncs_copy)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.asu_ncs_converter.write_pdb_file" title="mmtbx.ncs.asu_ncs_converter.write_pdb_file"><tt class="xref py py-obj docutils literal"><span class="pre">write_pdb_file</span></tt></a>(file_name,&nbsp;crystal_symmetry,&nbsp;mode)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.ncs.asu_ncs_converter.is_ncs_present">
+<tt class="descname">is_ncs_present</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ncs.asu_ncs_converter.is_ncs_present" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.asu_ncs_converter.update_sites_cart">
+<tt class="descname">update_sites_cart</tt><big>(</big><em>sites_cart_master_ncs_copy</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.asu_ncs_converter.update_sites_cart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.asu_ncs_converter.write_pdb_file">
+<tt class="descname">write_pdb_file</tt><big>(</big><em>file_name</em>, <em>crystal_symmetry</em>, <em>mode</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.asu_ncs_converter.write_pdb_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">mmtbx.ncs</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.ligands">mmtbx.ncs.ligands module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.ncs">mmtbx.ncs.ncs module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.restraints">mmtbx.ncs.restraints module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.ncs_search">mmtbx.ncs.ncs_search module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.ncs_utils">mmtbx.ncs.ncs_utils module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ncs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mmtbx/mmtbx.ncs.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

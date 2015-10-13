@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mmtbx.ions.utils module &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="mmtbx.ions package" href="mmtbx.ions.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li><a href="mmtbx.ions.html" accesskey="U">mmtbx.ions package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-mmtbx.ions.utils">
+<span id="mmtbx-ions-utils-module"></span><h1>mmtbx.ions.utils module<a class="headerlink" href="#module-mmtbx.ions.utils" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="mmtbx.ions.utils.anonymize_ions">
+<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">anonymize_ions</tt><big>(</big><em>pdb_hierarchy</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f3a1a35d150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.anonymize_ions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert any elemental ions in the PDB hierarchy to water, resetting the
+occupancy and scaling the B-factor.  The atom segids will be set to the old
+resname.  NOTE: this does not change the corresponding scatterer in the xray
+structure, but a new xray structure can be obtained by calling
+hierarchy.extract_xray_structure(crystal_symmetry).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>pdb_hierarchy</strong> : iotbx.pdb.hierarchy.root</p>
+<p><strong>log</strong> : file, optional</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">iotbx.pdb.hierarchy.root</p>
+<blockquote>
+<div><p>New pdb hierarchy with its ions anonymized</p>
+</div></blockquote>
+<p>int</p>
+<blockquote class="last">
+<div><p>Number of atoms that were anonymized.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ions.utils.collect_ions">
+<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">collect_ions</tt><big>(</big><em>pdb_hierarchy</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.collect_ions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects a list of all ions in pdb_hierarchy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pdb_hierarchy</strong> : iotbx.pdb.hierarchy.root</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of iotbx.pdb.hierarchy.atom</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ions.utils.compare_ions">
+<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">compare_ions</tt><big>(</big><em>hierarchy</em>, <em>reference_hierarchy</em>, <em>reference_xrs</em>, <em>distance_cutoff=2.0</em>, <em>log=None</em>, <em>ignore_elements=()</em>, <em>only_elements=()</em>, <em>sel_str_base='segid ION'</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.compare_ions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares two pdb structures to determine the number of ions that appear in the
+reference structure and are either matched or missing in the other structure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>hierarchy</strong> : iotbx.pdb.hierarchy.root</p>
+<p><strong>reference_hierarchy</strong> : iotbx.pdb.hierarchy.root</p>
+<p><strong>reference_xrs</strong> : ...</p>
+<p><strong>distance_cutoff</strong> : float, optional</p>
+<p><strong>log</strong> : file, optional</p>
+<p><strong>ignore_element</strong> : iterable, optional</p>
+<p><strong>only_elements</strong> : iterable, optional</p>
+<p><strong>sel_str_base</strong> : str, optional</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">int</p>
+<blockquote>
+<div><p>Number of ions in reference_hierarchy that were also found in hierarchy.</p>
+</div></blockquote>
+<p>int</p>
+<blockquote class="last">
+<div><p>Number of ions in reference_hierarchy that were not found in hierarchy.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ions.utils.count_coordinating_residues">
+<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">count_coordinating_residues</tt><big>(</big><em>nearby_atoms</em>, <em>distance_cutoff=3.0</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.count_coordinating_residues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count the number of residues of each type involved in the coordination
+sphere.  This may yield additional clues to the identity of ions, e.g. only
+Zn will have 4 Cys residues.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nearby_atoms</strong> : list of mmtbx.ions.environment.atom_contact</p>
+<p><strong>distance_cutoff</strong> : float, optional</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict of str, int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ions.utils.fit_gaussian">
+<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">fit_gaussian</tt><big>(</big><em>unit_cell</em>, <em>site_cart</em>, <em>real_map</em>, <em>radius=1.6</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.fit_gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit a gaussian function to the map around a site. Samples points in concentric
+spheres up to radius away from the site.</p>
+<p>f(x) = a * exp(-b * x ** 2)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>unit_cell</strong> : uctbx.unit_cell</p>
+<p><strong>site_cart</strong> : tuple of float, float, float</p>
+<blockquote>
+<div><p>The site&#8217;s cartesian coordinates to sample the density around.</p>
+</div></blockquote>
+<p><strong>real_map</strong> : scitbx.array_family.flex</p>
+<blockquote>
+<div><p>Real space map of the electron density in the unit cell.</p>
+</div></blockquote>
+<p><strong>radius</strong> : float, optional</p>
+<blockquote>
+<div><p>The max radius to use for sampling.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">float</p>
+<blockquote>
+<div><p>Height of gaussian curve.</p>
+</div></blockquote>
+<p>float</p>
+<blockquote class="last">
+<div><p>Spread of guassian curve.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><tt class="xref py py-obj docutils literal"><span class="pre">scitbx.math.gaussian_fit_1d_analytical</span></tt></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ions.utils.sort_atoms_permutation">
+<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">sort_atoms_permutation</tt><big>(</big><em>pdb_atoms</em>, <em>xray_structure</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.sort_atoms_permutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a list of atoms in pdb_atoms, sorted first by their atomic number,
+then by occupancy, and finally, by isotropic b-factor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>pdb_atoms</strong> : iotbx.pdb.hierarchy.af_shared_atom</p>
+<p><strong>xray_structure</strong> : cctbx.xray.structure.structure</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">flex.size_t of int</p>
+<blockquote class="last">
+<div><p>i_seqs of sorted atoms</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mmtbx/mmtbx.ions.utils.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li><a href="mmtbx.ions.html" >mmtbx.ions package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

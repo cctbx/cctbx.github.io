@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mmtbx.ions.halides module &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="mmtbx.ions package" href="mmtbx.ions.html" />
+    <link rel="next" title="mmtbx.ions.identify module" href="mmtbx.ions.identify.html" />
+    <link rel="prev" title="mmtbx.ions.geometry module" href="mmtbx.ions.geometry.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.ions.identify.html" title="mmtbx.ions.identify module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.ions.geometry.html" title="mmtbx.ions.geometry module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li><a href="mmtbx.ions.html" accesskey="U">mmtbx.ions package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-mmtbx.ions.halides">
+<span id="mmtbx-ions-halides-module"></span><h1>mmtbx.ions.halides module<a class="headerlink" href="#module-mmtbx.ions.halides" title="Permalink to this headline">¶</a></h1>
+<p>Functions specific to identifying halide ions.  Very preliminary - needs
+much more sophisticated analysis.</p>
+<dl class="function">
+<dt id="mmtbx.ions.halides.is_favorable_halide_environment">
+<tt class="descclassname">mmtbx.ions.halides.</tt><tt class="descname">is_favorable_halide_environment</tt><big>(</big><em>i_seq</em>, <em>contacts</em>, <em>pdb_atoms</em>, <em>sites_frac</em>, <em>connectivity</em>, <em>unit_cell</em>, <em>params</em>, <em>assume_hydrogens_all_missing=&lt;libtbx.AutoType object at 0x7f3a11f9e350&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.ions.halides.is_favorable_halide_environment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detects if an atom&#8217;s site exists in a favorable environment for a halide
+ion. This includes coordinating by a positively charged sidechain or backbone
+as well as an absense of negatively charged coordinating groups.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>i_seq</strong> : int</p>
+<p><strong>contacts</strong> : list of mmtbx.ions.environment.atom_contact</p>
+<p><strong>pdb_atoms</strong> : iotbx.pdb.hierarchy.af_shared_atom</p>
+<p><strong>sites_frac</strong> : tuple of float, float, float</p>
+<p><strong>connectivity</strong> : scitbx.array_family.shared.stl_set_unsigned</p>
+<p><strong>unit_cell</strong> : uctbx.unit_cell</p>
+<p><strong>params</strong> : libtbx.phil.scope_extract</p>
+<p><strong>assume_hydrogens_all_missing</strong> : bool, optional</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ions.halides.is_negatively_charged_oxygen">
+<tt class="descclassname">mmtbx.ions.halides.</tt><tt class="descname">is_negatively_charged_oxygen</tt><big>(</big><em>atom_name</em>, <em>resname</em><big>)</big><a class="headerlink" href="#mmtbx.ions.halides.is_negatively_charged_oxygen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the oxygen atom of interest is either negatively charged
+(usually a carboxyl group or sulfate/phosphate), or has a lone pair (and
+no hydrogen atom) that would similarly repel anions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>atom_name</strong> : str</p>
+<p><strong>resname</strong> : str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mmtbx.ions.geometry.html"
+                        title="previous chapter">mmtbx.ions.geometry module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mmtbx.ions.identify.html"
+                        title="next chapter">mmtbx.ions.identify module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mmtbx/mmtbx.ions.halides.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.ions.identify.html" title="mmtbx.ions.identify module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.ions.geometry.html" title="mmtbx.ions.geometry module"
+             >previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li><a href="mmtbx.ions.html" >mmtbx.ions package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

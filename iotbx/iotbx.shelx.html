@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>iotbx.shelx &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="iotbx - file readers and writers" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">iotbx - file readers and writers</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="iotbx-shelx">
+<h1><a class="toc-backref" href="#id1">iotbx.shelx</a><a class="headerlink" href="#iotbx-shelx" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#iotbx-shelx" id="id1">iotbx.shelx</a><ul>
+<li><a class="reference internal" href="#overview" id="id2">Overview</a></li>
+<li><a class="reference internal" href="#module-iotbx.shelx" id="id3">API documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-iotbx.shelx">
+<span id="api-documentation"></span><h2><a class="toc-backref" href="#id3">API documentation</a><a class="headerlink" href="#module-iotbx.shelx" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="iotbx.shelx.cctbx_xray_structure_from">
+<tt class="descclassname">iotbx.shelx.</tt><tt class="descname">cctbx_xray_structure_from</tt><big>(</big><em>cls</em>, <em>file=None</em>, <em>filename=None</em>, <em>set_grad_flags=True</em>, <em>min_distance_sym_equiv=0.5</em>, <em>strictly_shelxl=True</em><big>)</big><a class="headerlink" href="#iotbx.shelx.cctbx_xray_structure_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="iotbx.shelx.smtbx_refinement_model_from">
+<tt class="descclassname">iotbx.shelx.</tt><tt class="descname">smtbx_refinement_model_from</tt><big>(</big><em>cls</em>, <em>ins_or_res=None</em>, <em>hkl=None</em>, <em>fo_sq=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.smtbx_refinement_model_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-iotbx.shelx.crystal_symmetry_from_ins"></span><dl class="function">
+<dt id="iotbx.shelx.crystal_symmetry_from_ins.extract_from">
+<tt class="descclassname">iotbx.shelx.crystal_symmetry_from_ins.</tt><tt class="descname">extract_from</tt><big>(</big><em>file_name=None</em>, <em>file=None</em>, <em>max_characters=100000</em><big>)</big><a class="headerlink" href="#iotbx.shelx.crystal_symmetry_from_ins.extract_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-iotbx.shelx.hklf"></span><dl class="function">
+<dt id="iotbx.shelx.hklf.miller_array_export_as_shelx_hklf">
+<tt class="descclassname">iotbx.shelx.hklf.</tt><tt class="descname">miller_array_export_as_shelx_hklf</tt><big>(</big><em>miller_array</em>, <em>file_object=None</em>, <em>normalise_if_format_overflow=False</em><big>)</big><a class="headerlink" href="#iotbx.shelx.hklf.miller_array_export_as_shelx_hklf" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the maximum data value does not fit into the f8.2/f8.0 format:
+normalise_if_format_overflow=False: RuntimeError is thrown
+normalise_if_format_overflow=True: data is normalised to the largest
+number to fit f8.2/f8.0 format</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="iotbx.shelx.hklf.reader">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.hklf.</tt><tt class="descname">reader</tt><big>(</big><em>file_object=None</em>, <em>file_name=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.hklf.reader" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.hklf.reader.alphas" title="iotbx.shelx.hklf.reader.alphas"><tt class="xref py py-obj docutils literal"><span class="pre">alphas</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#iotbx.shelx.hklf.reader.as_miller_arrays" title="iotbx.shelx.hklf.reader.as_miller_arrays"><tt class="xref py py-obj docutils literal"><span class="pre">as_miller_arrays</span></tt></a>([crystal_symmetry,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.hklf.reader.batch_numbers" title="iotbx.shelx.hklf.reader.batch_numbers"><tt class="xref py py-obj docutils literal"><span class="pre">batch_numbers</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">data</span></tt>((&nbsp;(hklf_reader)arg1)&nbsp;-&gt;&nbsp;double&nbsp;:)</td>
+<td>C++ signature :</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">indices</span></tt>((&nbsp;(hklf_reader)arg1)&nbsp;-&gt;&nbsp;miller_index&nbsp;:)</td>
+<td>C++ signature :</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">sigmas</span></tt>((&nbsp;(hklf_reader)arg1)&nbsp;-&gt;&nbsp;double&nbsp;:)</td>
+<td>C++ signature :</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.hklf.reader.wavelengths" title="iotbx.shelx.hklf.reader.wavelengths"><tt class="xref py py-obj docutils literal"><span class="pre">wavelengths</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="iotbx.shelx.hklf.reader.alphas">
+<tt class="descname">alphas</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.hklf.reader.alphas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.hklf.reader.as_miller_arrays">
+<tt class="descname">as_miller_arrays</tt><big>(</big><em>crystal_symmetry=None</em>, <em>force_symmetry=False</em>, <em>merge_equivalents=True</em>, <em>base_array_info=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.hklf.reader.as_miller_arrays" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.hklf.reader.batch_numbers">
+<tt class="descname">batch_numbers</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.hklf.reader.batch_numbers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.hklf.reader.wavelengths">
+<tt class="descname">wavelengths</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.hklf.reader.wavelengths" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-iotbx.shelx.tokens"></span><dl class="class">
+<dt id="iotbx.shelx.tokens.atomname_token">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.tokens.</tt><tt class="descname">atomname_token</tt><big>(</big><em>name</em>, <em>symmetry=None</em>, <em>residue_number=None</em>, <em>plus_minus=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.tokens.atomname_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>An atomname token that can be passed to a SHELXL instruction</p>
+<dl class="attribute">
+<dt id="iotbx.shelx.tokens.atomname_token.name">
+<tt class="descname">name</tt><a class="headerlink" href="#iotbx.shelx.tokens.atomname_token.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iotbx.shelx.tokens.atomname_token.plus_minus">
+<tt class="descname">plus_minus</tt><a class="headerlink" href="#iotbx.shelx.tokens.atomname_token.plus_minus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iotbx.shelx.tokens.atomname_token.residue_number">
+<tt class="descname">residue_number</tt><a class="headerlink" href="#iotbx.shelx.tokens.atomname_token.residue_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iotbx.shelx.tokens.atomname_token.symmetry">
+<tt class="descname">symmetry</tt><a class="headerlink" href="#iotbx.shelx.tokens.atomname_token.symmetry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="iotbx.shelx.tokens.element_token">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.tokens.</tt><tt class="descname">element_token</tt><big>(</big><em>element</em>, <em>residue_number=None</em>, <em>plus_minus=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.tokens.element_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>An element name may also be passed to a SHELXL instruction in place of
+an atom name</p>
+<dl class="attribute">
+<dt id="iotbx.shelx.tokens.element_token.element">
+<tt class="descname">element</tt><a class="headerlink" href="#iotbx.shelx.tokens.element_token.element" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iotbx.shelx.tokens.element_token.plus_minus">
+<tt class="descname">plus_minus</tt><a class="headerlink" href="#iotbx.shelx.tokens.element_token.plus_minus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iotbx.shelx.tokens.element_token.residue_number">
+<tt class="descname">residue_number</tt><a class="headerlink" href="#iotbx.shelx.tokens.element_token.residue_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="iotbx.shelx.tokens.residue_token">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.tokens.</tt><tt class="descname">residue_token</tt><big>(</big><em>class_=None</em>, <em>number=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.tokens.residue_token" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="iotbx.shelx.tokens.residue_token.class_">
+<tt class="descname">class_</tt><a class="headerlink" href="#iotbx.shelx.tokens.residue_token.class_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iotbx.shelx.tokens.residue_token.number">
+<tt class="descname">number</tt><a class="headerlink" href="#iotbx.shelx.tokens.residue_token.number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-iotbx.shelx.lexer"></span><p>Parsing of ins/res files</p>
+<dl class="class">
+<dt id="iotbx.shelx.lexer.command_stream">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.lexer.</tt><tt class="descname">command_stream</tt><big>(</big><em>file=None</em>, <em>filename=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.lexer.command_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>An ins/res file parsed as a stream of commands</p>
+<dl class="attribute">
+<dt id="iotbx.shelx.lexer.command_stream.cmd">
+<tt class="descname">cmd</tt><em class="property"> = 'ZERR'</em><a class="headerlink" href="#iotbx.shelx.lexer.command_stream.cmd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iotbx.shelx.lexer.command_stream.commands_allowing_atom_names">
+<tt class="descname">commands_allowing_atom_names</tt><em class="property"> = {'EXYZ': 1, 'CHIV': 1, 'CONF': 1, 'DFIX': 1, 'ANIS': 1, 'CONN': 1, 'HFIX': 1, 'HTAB': 1, 'OMIT': 1, 'MPLA': 1, 'BOND': 1, 'FLAT': 1, 'SIMU': 1, 'SADI': 1, 'FREE': 1, 'ISOR': 1, 'DELU': 1, 'EADP': 1, 'NCSY': 1, 'BIND': 1, 'SAME': 1, 'RTAB': 1, 'BLOC': 1, 'DANG': 1}</em><a class="headerlink" href="#iotbx.shelx.lexer.command_stream.commands_allowing_atom_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iotbx.shelx.lexer.command_stream.shelx_commands">
+<tt class="descname">shelx_commands</tt><em class="property"> = {'DISP': 1, 'FRAG': 1, 'MOLE': 1, 'EXYZ': 1, 'MOVE': 1, 'CHIV': 1, 'AFIX': 1, 'SUMP': 1, 'PART': 1, 'FREE': 1, 'CONF': 1, 'REM': 1, 'DFIX': 1, 'ANIS': 1, 'HKLF': 1, 'CONN': 1, 'MERG': 1, 'FMAP': 1, 'CGLS': 1, 'TEMP': 1, 'TITL': 1, 'DAMP': 1, 'OMIT': 1, 'LAUE': 1, 'CELL': 1, 'SWAT': 1, 'SFAC': 1, 'EADP': 1, 'WPDB': 1, 'WGHT': 1, 'MUST': 1, 'STIR': 1, 'EXTI': 1, 'BOND': 1, 'DEFS': 1, 'FLAT': 1, 'END': 1, 'SIMU': 1, 'LATT': 1, 'BUMP': 1, 'SADI': 1, 'SHEL': 1, 'L.S.': 1, 'SYMM': 1, 'ZERR': 1, 'BASF': 1, 'HTAB': 1, 'TWIN': 1, 'RESI': 1, 'GRID': 1, 'PLAN': 1, 'HFIX': 1, 'UNIT': 1, 'SIZE': 1, 'FEND': 1, 'DELU': 1, 'NCSY': 1, 'RTAB': 1, 'BIND': 1, 'EQIV': 1, 'LIST': 1, 'SAME': 1, 'FVAR': 1, 'ISOR': 1, 'BLOC': 1, 'MPLA': 1, 'TIME': 1, 'DANG': 1, 'ACTA': 1, 'SPEC': 1, 'HOPE': 1, 'MORE': 1}</em><a class="headerlink" href="#iotbx.shelx.lexer.command_stream.shelx_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iotbx.shelx.lexer.command_stream.symm_space">
+<tt class="descname">symm_space</tt><em class="property"> = &lt;_sre.SRE_Pattern object at 0x7f3a081ffc90&gt;</em><a class="headerlink" href="#iotbx.shelx.lexer.command_stream.symm_space" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-iotbx.shelx.parsers"></span><p>Lexing of ins/res files</p>
+<dl class="class">
+<dt id="iotbx.shelx.parsers.afix_parser">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.parsers.</tt><tt class="descname">afix_parser</tt><big>(</big><em>command_stream</em>, <em>builder=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.afix_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>It must be before an atom parser</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.afix_parser.filtered_commands" title="iotbx.shelx.parsers.afix_parser.filtered_commands"><tt class="xref py py-obj docutils literal"><span class="pre">filtered_commands</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">parse</span></tt>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="iotbx.shelx.parsers.afix_parser.constraints">
+<tt class="descname">constraints</tt><em class="property"> = {16: ('terminal_linear_ch_site', -1), 1: ('tertiary_xh_site', -1), 2: ('secondary_xh2_sites', -1), 3: ('staggered_terminal_tetrahedral_xh3_sites', -1), 4: ('secondary_planar_xh_site', -1), 8: ('staggered_terminal_tetrahedral_xh_site', -1), 9: ('terminal_planar_xh2_sites', -1), 13: ('terminal_tetrahedral_xh3_sites', -1), 14: ('terminal_tetrahedral_xh_site', -1), 15: ('polyhedral_bh_site', -1)}</em><a class="headerlink" href="#iotbx.shelx.parsers.afix_parser.constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.afix_parser.filtered_commands">
+<tt class="descname">filtered_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.afix_parser.filtered_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="iotbx.shelx.parsers.atom_parser">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.parsers.</tt><tt class="descname">atom_parser</tt><big>(</big><em>command_stream</em>, <em>builder=None</em>, <em>strictly_shelxl=True</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.atom_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A parser pulling out the scatterer info from a command stream.</p>
+<p>Since the SHELX format intertwine parameter values with some of the
+constrained on them, this parser does also handle those constraints,
+specifically constrained occupancies and u_iso bound to the u_eq of
+another scatterer. The parser tests whether the builder passed at
+construction time handles those constraints, and if it does not so,
+they get ignored.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">decode_one_variable</span></tt>(coded_variable[,&nbsp;u_iso_idx])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">decode_variables</span></tt>(coded_variables[,&nbsp;u_iso_idx])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser.filtered_commands" title="iotbx.shelx.parsers.atom_parser.filtered_commands"><tt class="xref py py-obj docutils literal"><span class="pre">filtered_commands</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser.lex_scatterer" title="iotbx.shelx.parsers.atom_parser.lex_scatterer"><tt class="xref py py-obj docutils literal"><span class="pre">lex_scatterer</span></tt></a>(args,&nbsp;scatterer_index)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">parse</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser.process_occupancies_depending_on_free_variable" title="iotbx.shelx.parsers.atom_parser.process_occupancies_depending_on_free_variable"><tt class="xref py py-obj docutils literal"><span class="pre">process_occupancies_depending_on_free_variable</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser.process_possible_constrained_occupancy" title="iotbx.shelx.parsers.atom_parser.process_possible_constrained_occupancy"><tt class="xref py py-obj docutils literal"><span class="pre">process_possible_constrained_occupancy</span></tt></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser.process_possible_u_iso_constraints" title="iotbx.shelx.parsers.atom_parser.process_possible_u_iso_constraints"><tt class="xref py py-obj docutils literal"><span class="pre">process_possible_u_iso_constraints</span></tt></a>(...)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="iotbx.shelx.parsers.atom_parser.filtered_commands">
+<tt class="descname">filtered_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.atom_parser.filtered_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.atom_parser.lex_scatterer">
+<tt class="descname">lex_scatterer</tt><big>(</big><em>args</em>, <em>scatterer_index</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.atom_parser.lex_scatterer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.atom_parser.process_occupancies_depending_on_free_variable">
+<tt class="descname">process_occupancies_depending_on_free_variable</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.atom_parser.process_occupancies_depending_on_free_variable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.atom_parser.process_possible_constrained_occupancy">
+<tt class="descname">process_possible_constrained_occupancy</tt><big>(</big><em>scatterer_index</em>, <em>scatterer</em>, <em>occupancy_behaviour</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.atom_parser.process_possible_constrained_occupancy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.atom_parser.process_possible_u_iso_constraints">
+<tt class="descname">process_possible_u_iso_constraints</tt><big>(</big><em>u_iso_scatterer_idx</em>, <em>u_iso_behaviour</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.atom_parser.process_possible_u_iso_constraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="iotbx.shelx.parsers.crystal_symmetry_parser">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.parsers.</tt><tt class="descname">crystal_symmetry_parser</tt><big>(</big><em>command_stream</em>, <em>builder=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.crystal_symmetry_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A parser pulling out the crystal symmetry info from a command stream</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.crystal_symmetry_parser.filtered_commands" title="iotbx.shelx.parsers.crystal_symmetry_parser.filtered_commands"><tt class="xref py py-obj docutils literal"><span class="pre">filtered_commands</span></tt></a>()</td>
+<td>Yields those command in self.command_stream that this parser is not concerned with.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#iotbx.shelx.parsers.crystal_symmetry_parser.parse" title="iotbx.shelx.parsers.crystal_symmetry_parser.parse"><tt class="xref py py-obj docutils literal"><span class="pre">parse</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="iotbx.shelx.parsers.crystal_symmetry_parser.filtered_commands">
+<tt class="descname">filtered_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.crystal_symmetry_parser.filtered_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yields those command in self.command_stream
+that this parser is not concerned with. On the contrary,
+LATT, SYMM are swallowed (CELL is yielded because it carries
+the wavelength too).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.crystal_symmetry_parser.parse">
+<tt class="descname">parse</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.crystal_symmetry_parser.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="iotbx.shelx.parsers.decode_variables">
+<tt class="descclassname">iotbx.shelx.parsers.</tt><tt class="descname">decode_variables</tt><big>(</big><em>free_variable</em>, <em>coded_variables</em>, <em>u_iso_idx=None</em>, <em>line=None</em>, <em>strictly_shelxl=True</em>, <em>variable_decoder=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.decode_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="iotbx.shelx.parsers.instruction_parser">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.parsers.</tt><tt class="descname">instruction_parser</tt><big>(</big><em>command_stream</em>, <em>builder=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.instruction_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A parser for extracting from the command stream miscellaneous
+shelxl commands that do not concern other parsers.</p>
+<p>If this parser is constructed with a real builder, the wt and m
+arguments to HKLF are not supported.</p>
+<p>This parser is unusual in that it does not rely entirely on its
+builder: it builds a dictionary containing the parsed information.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.instruction_parser.filtered_commands" title="iotbx.shelx.parsers.instruction_parser.filtered_commands"><tt class="xref py py-obj docutils literal"><span class="pre">filtered_commands</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#iotbx.shelx.parsers.instruction_parser.issue_merohedral_twinning" title="iotbx.shelx.parsers.instruction_parser.issue_merohedral_twinning"><tt class="xref py py-obj docutils literal"><span class="pre">issue_merohedral_twinning</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">parse</span></tt>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="iotbx.shelx.parsers.instruction_parser.filtered_commands">
+<tt class="descname">filtered_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.instruction_parser.filtered_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.instruction_parser.issue_merohedral_twinning">
+<tt class="descname">issue_merohedral_twinning</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.instruction_parser.issue_merohedral_twinning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="iotbx.shelx.parsers.parser">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.parsers.</tt><tt class="descname">parser</tt><big>(</big><em>command_stream</em>, <em>builder=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.parser" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.parser.parse" title="iotbx.shelx.parsers.parser.parse"><tt class="xref py py-obj docutils literal"><span class="pre">parse</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="iotbx.shelx.parsers.parser.parse">
+<tt class="descname">parse</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.parser.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="iotbx.shelx.parsers.restraint_parser">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.parsers.</tt><tt class="descname">restraint_parser</tt><big>(</big><em>command_stream</em>, <em>builder=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.restraint_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>It must be after an atom parser</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.restraint_parser.cache_restraint" title="iotbx.shelx.parsers.restraint_parser.cache_restraint"><tt class="xref py py-obj docutils literal"><span class="pre">cache_restraint</span></tt></a>(cmd,&nbsp;cmd_residue,&nbsp;line,&nbsp;args)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#iotbx.shelx.parsers.restraint_parser.filtered_commands" title="iotbx.shelx.parsers.restraint_parser.filtered_commands"><tt class="xref py py-obj docutils literal"><span class="pre">filtered_commands</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.restraint_parser.i_seqs_from_atoms" title="iotbx.shelx.parsers.restraint_parser.i_seqs_from_atoms"><tt class="xref py py-obj docutils literal"><span class="pre">i_seqs_from_atoms</span></tt></a>(atoms,&nbsp;residue_number)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">parse</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.restraint_parser.parse_restraints" title="iotbx.shelx.parsers.restraint_parser.parse_restraints"><tt class="xref py py-obj docutils literal"><span class="pre">parse_restraints</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="iotbx.shelx.parsers.restraint_parser.cache_restraint">
+<tt class="descname">cache_restraint</tt><big>(</big><em>cmd</em>, <em>cmd_residue</em>, <em>line</em>, <em>args</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.restraint_parser.cache_restraint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.restraint_parser.filtered_commands">
+<tt class="descname">filtered_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.restraint_parser.filtered_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.restraint_parser.i_seqs_from_atoms">
+<tt class="descname">i_seqs_from_atoms</tt><big>(</big><em>atoms</em>, <em>residue_number</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.restraint_parser.i_seqs_from_atoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.restraint_parser.parse_restraints">
+<tt class="descname">parse_restraints</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.restraint_parser.parse_restraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iotbx.shelx.parsers.restraint_parser.restraint_types">
+<tt class="descname">restraint_types</tt><em class="property"> = {'FLAT': 'planarity', 'ISOR': 'isotropic_adp', 'DELU': 'rigid_bond', 'SIMU': 'adp_similarity', 'SADI': 'bond_similarity', 'DANG': 'bond', 'DFIX': 'bond', 'CHIV': 'chirality'}</em><a class="headerlink" href="#iotbx.shelx.parsers.restraint_parser.restraint_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="iotbx.shelx.parsers.variable_decoder">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.parsers.</tt><tt class="descname">variable_decoder</tt><a class="headerlink" href="#iotbx.shelx.parsers.variable_decoder" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.variable_decoder.decode_one_variable" title="iotbx.shelx.parsers.variable_decoder.decode_one_variable"><tt class="xref py py-obj docutils literal"><span class="pre">decode_one_variable</span></tt></a>(coded_variable[,&nbsp;u_iso_idx])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#iotbx.shelx.parsers.variable_decoder.decode_variables" title="iotbx.shelx.parsers.variable_decoder.decode_variables"><tt class="xref py py-obj docutils literal"><span class="pre">decode_variables</span></tt></a>(coded_variables[,&nbsp;u_iso_idx])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="iotbx.shelx.parsers.variable_decoder.decode_one_variable">
+<tt class="descname">decode_one_variable</tt><big>(</big><em>coded_variable</em>, <em>u_iso_idx=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.variable_decoder.decode_one_variable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.shelx.parsers.variable_decoder.decode_variables">
+<tt class="descname">decode_variables</tt><big>(</big><em>coded_variables</em>, <em>u_iso_idx=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.variable_decoder.decode_variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="iotbx.shelx.parsers.wavelength_parser">
+<em class="property">class </em><tt class="descclassname">iotbx.shelx.parsers.</tt><tt class="descname">wavelength_parser</tt><big>(</big><em>command_stream</em>, <em>builder=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.wavelength_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A parser pulling out the wavelength info from a command stream</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.shelx.parsers.wavelength_parser.filtered_commands" title="iotbx.shelx.parsers.wavelength_parser.filtered_commands"><tt class="xref py py-obj docutils literal"><span class="pre">filtered_commands</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">parse</span></tt>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="iotbx.shelx.parsers.wavelength_parser.filtered_commands">
+<tt class="descname">filtered_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.shelx.parsers.wavelength_parser.filtered_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-iotbx.shelx.writer"></span><dl class="function">
+<dt id="iotbx.shelx.writer.generator">
+<tt class="descclassname">iotbx.shelx.writer.</tt><tt class="descname">generator</tt><big>(</big><em>xray_structure</em>, <em>data_are_intensities=True</em>, <em>title=None</em>, <em>wavelength=None</em>, <em>temperature=None</em>, <em>full_matrix_least_squares_cycles=None</em>, <em>conjugate_gradient_least_squares_cycles=None</em>, <em>overall_scale_factor=None</em>, <em>weighting_scheme_params=None</em>, <em>sort_scatterers=True</em><big>)</big><a class="headerlink" href="#iotbx.shelx.writer.generator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-iotbx.shelx.write_ins"></span><dl class="function">
+<dt id="iotbx.shelx.write_ins.LATT_SYMM">
+<tt class="descclassname">iotbx.shelx.write_ins.</tt><tt class="descname">LATT_SYMM</tt><big>(</big><em>s</em>, <em>space_group</em>, <em>decimal=False</em><big>)</big><a class="headerlink" href="#iotbx.shelx.write_ins.LATT_SYMM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="iotbx.shelx.write_ins.shelxd">
+<tt class="descclassname">iotbx.shelx.write_ins.</tt><tt class="descname">shelxd</tt><big>(</big><em>s</em>, <em>title</em>, <em>crystal_symmetry</em>, <em>n_sites</em>, <em>scattering_type</em>, <em>d_min</em>, <em>mind_mdis=-3.5</em>, <em>mind_mdeq=None</em><big>)</big><a class="headerlink" href="#iotbx.shelx.write_ins.shelxd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">iotbx.shelx</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#module-iotbx.shelx">API documentation</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/iotbx/iotbx.shelx.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="index.html" >iotbx - file readers and writers</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

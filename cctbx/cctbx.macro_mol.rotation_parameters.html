@@ -1,0 +1,690 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cctbx.macro_mol.rotation_parameters module &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="cctbx.macro_mol package" href="cctbx.macro_mol.html" />
+    <link rel="prev" title="cctbx.macro_mol package" href="cctbx.macro_mol.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cctbx.macro_mol.html" title="cctbx.macro_mol package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &raquo;</li>
+          <li><a href="cctbx.macro_mol.html" accesskey="U">cctbx.macro_mol package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-cctbx.macro_mol.rotation_parameters">
+<span id="cctbx-macro-mol-rotation-parameters-module"></span><h1>cctbx.macro_mol.rotation_parameters module<a class="headerlink" href="#module-cctbx.macro_mol.rotation_parameters" title="Permalink to this headline">¶</a></h1>
+<p>Module for rotation parameter conversions.</p>
+<p>Example usage:</p>
+<p>import rotation_parameters
+a = rotation_parameters.amore_alpha_beta_gamma(params=(30,40,50))
+print a.params
+print a.matrix
+c = rotation_parameters.cns_theta1_theta2_theta3(matrix=a.matrix)
+print c.params
+print c.matrix</p>
+<p>To see a list of all available converters:</p>
+<p>import rotation_parameters
+for conv in rotation_parameters.get_converters():</p>
+<blockquote>
+<div>print conv.__doc__</div></blockquote>
+<p>With kind permission of A.G. Urzhumtsev, some functions are
+based on the FORTRAN program CONVROT:</p>
+<blockquote>
+<div>Urzhumtseva, L.M. &amp; Urzhumtsev, A.G. (1997).
+Tcl/Tk-based programs. II.
+CONVROT: a program to recalculate different rotation descriptions.
+J. Appl. Cryst. 30, 402-410.</div></blockquote>
+<dl class="docutils">
+<dt>Revision history:</dt>
+<dd>2002 Jan: Created (Ralf W. Grosse-Kunstleve)</dd>
+</dl>
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.adjust_cosine">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">adjust_cosine</tt><big>(</big><em>c</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.adjust_cosine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">amore_alpha_beta_gamma</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="cctbx.macro_mol.rotation_parameters.converter_base"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.macro_mol.rotation_parameters.converter_base</span></tt></a></p>
+<p>AMoRe alpha, beta, gamma (Crowther, 1972)</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.matrix_to_params" title="cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.matrix_to_params"><tt class="xref py py-obj docutils literal"><span class="pre">matrix_to_params</span></tt></a>(matrix[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.normalize" title="cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.normalize"><tt class="xref py py-obj docutils literal"><span class="pre">normalize</span></tt></a>([alternative])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.params_to_matrix" title="cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.params_to_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">params_to_matrix</span></tt></a>(params[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.matrix_to_params">
+<tt class="descname">matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.normalize">
+<tt class="descname">normalize</tt><big>(</big><em>alternative=0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.params_to_matrix">
+<tt class="descname">params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma.params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma_as_matrix">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">amore_alpha_beta_gamma_as_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma_as_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Core routine for conversion of Euler angles.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma_from_matrix">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">amore_alpha_beta_gamma_from_matrix</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma_from_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Core routine for conversion of Euler angles.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma_normalize">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">amore_alpha_beta_gamma_normalize</tt><big>(</big><em>params</em>, <em>alternative</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_alpha_beta_gamma_normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">amore_kappa_l_m_n</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="cctbx.macro_mol.rotation_parameters.converter_base"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.macro_mol.rotation_parameters.converter_base</span></tt></a></p>
+<p>AMoRe kappa, l, m, n (Diamond, 1993; Rossmann, 1993)</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.matrix_to_params" title="cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.matrix_to_params"><tt class="xref py py-obj docutils literal"><span class="pre">matrix_to_params</span></tt></a>(matrix[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.normalize" title="cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.normalize"><tt class="xref py py-obj docutils literal"><span class="pre">normalize</span></tt></a>([alternative])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.params_to_matrix" title="cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.params_to_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">params_to_matrix</span></tt></a>(params[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.matrix_to_params">
+<tt class="descname">matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.normalize">
+<tt class="descname">normalize</tt><big>(</big><em>alternative=0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.params_to_matrix">
+<tt class="descname">params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1000000.0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n.params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n_as_matrix">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">amore_kappa_l_m_n_as_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n_as_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Core routine for conversion of direction cosines.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n_from_matrix">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">amore_kappa_l_m_n_from_matrix</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n_from_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Core routine for conversion of direction cosines.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n_normalize">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">amore_kappa_l_m_n_normalize</tt><big>(</big><em>kappa</em>, <em>l</em>, <em>m</em>, <em>n</em>, <em>alternative</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.amore_kappa_l_m_n_normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">ccp4_alpha_beta_gamma_fcalc_fobs</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="cctbx.macro_mol.rotation_parameters.converter_base"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.macro_mol.rotation_parameters.converter_base</span></tt></a></p>
+<p>CCP4 alpha, beta, gamma, Fcalc/Fobs (Crowther, 1972)</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.matrix_to_params" title="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.matrix_to_params"><tt class="xref py py-obj docutils literal"><span class="pre">matrix_to_params</span></tt></a>(matrix[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.normalize" title="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.normalize"><tt class="xref py py-obj docutils literal"><span class="pre">normalize</span></tt></a>([alternative])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.params_to_matrix" title="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.params_to_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">params_to_matrix</span></tt></a>(params[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.matrix_to_params">
+<tt class="descname">matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.normalize">
+<tt class="descname">normalize</tt><big>(</big><em>alternative=0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.params_to_matrix">
+<tt class="descname">params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fcalc_fobs.params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">ccp4_alpha_beta_gamma_fobs_fcalc</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="cctbx.macro_mol.rotation_parameters.converter_base"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.macro_mol.rotation_parameters.converter_base</span></tt></a></p>
+<p>CCP4 alpha, beta, gamma, Fobs/Fcalc (Crowther, 1972)</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.matrix_to_params" title="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.matrix_to_params"><tt class="xref py py-obj docutils literal"><span class="pre">matrix_to_params</span></tt></a>(matrix[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.normalize" title="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.normalize"><tt class="xref py py-obj docutils literal"><span class="pre">normalize</span></tt></a>([alternative])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.params_to_matrix" title="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.params_to_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">params_to_matrix</span></tt></a>(params[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.matrix_to_params">
+<tt class="descname">matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.normalize">
+<tt class="descname">normalize</tt><big>(</big><em>alternative=0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.params_to_matrix">
+<tt class="descname">params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_alpha_beta_gamma_fobs_fcalc.params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">ccp4_phi_omega_kappa_fcalc_fobs</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="cctbx.macro_mol.rotation_parameters.converter_base"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.macro_mol.rotation_parameters.converter_base</span></tt></a></p>
+<p>CCP4 phi, omega, kappa, Fcalc/Fobs (Crowther, 1972)</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.matrix_to_params" title="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.matrix_to_params"><tt class="xref py py-obj docutils literal"><span class="pre">matrix_to_params</span></tt></a>(matrix[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.normalize" title="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.normalize"><tt class="xref py py-obj docutils literal"><span class="pre">normalize</span></tt></a>([alternative])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.params_to_matrix" title="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.params_to_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">params_to_matrix</span></tt></a>(params[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.matrix_to_params">
+<tt class="descname">matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.normalize">
+<tt class="descname">normalize</tt><big>(</big><em>alternative=0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.params_to_matrix">
+<tt class="descname">params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs.params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs_params_to_matrix">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">ccp4_phi_omega_kappa_fcalc_fobs_params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fcalc_fobs_params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">ccp4_phi_omega_kappa_fobs_fcalc</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="cctbx.macro_mol.rotation_parameters.converter_base"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.macro_mol.rotation_parameters.converter_base</span></tt></a></p>
+<p>CCP4 phi, omega, kappa, Fobs/Fcalc (Crowther, 1972)</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.matrix_to_params" title="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.matrix_to_params"><tt class="xref py py-obj docutils literal"><span class="pre">matrix_to_params</span></tt></a>(matrix[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.normalize" title="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.normalize"><tt class="xref py py-obj docutils literal"><span class="pre">normalize</span></tt></a>([alternative])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.params_to_matrix" title="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.params_to_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">params_to_matrix</span></tt></a>(params[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.matrix_to_params">
+<tt class="descname">matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.normalize">
+<tt class="descname">normalize</tt><big>(</big><em>alternative=0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.params_to_matrix">
+<tt class="descname">params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc.params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc_matrix_to_params">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">ccp4_phi_omega_kappa_fobs_fcalc_matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.ccp4_phi_omega_kappa_fobs_fcalc_matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">cns_axis_x_axis_y_axis_z_axis_kappa</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="cctbx.macro_mol.rotation_parameters.converter_base"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.macro_mol.rotation_parameters.converter_base</span></tt></a></p>
+<p>CNS axis_x, axis_y, axis_z, axis_kappa (Brunger, 1992)</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.matrix_to_params" title="cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.matrix_to_params"><tt class="xref py py-obj docutils literal"><span class="pre">matrix_to_params</span></tt></a>(matrix[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.normalize" title="cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.normalize"><tt class="xref py py-obj docutils literal"><span class="pre">normalize</span></tt></a>([alternative])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.params_to_matrix" title="cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.params_to_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">params_to_matrix</span></tt></a>(params[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.matrix_to_params">
+<tt class="descname">matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.normalize">
+<tt class="descname">normalize</tt><big>(</big><em>alternative=0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.params_to_matrix">
+<tt class="descname">params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1000000.0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_axis_x_axis_y_axis_z_axis_kappa.params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">cns_psi_phi_kappa</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="cctbx.macro_mol.rotation_parameters.converter_base"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.macro_mol.rotation_parameters.converter_base</span></tt></a></p>
+<p>CNS psi, phi, kappa (Rossmann, 1962)</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.matrix_to_params" title="cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.matrix_to_params"><tt class="xref py py-obj docutils literal"><span class="pre">matrix_to_params</span></tt></a>(matrix[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.normalize" title="cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.normalize"><tt class="xref py py-obj docutils literal"><span class="pre">normalize</span></tt></a>([alternative])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.params_to_matrix" title="cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.params_to_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">params_to_matrix</span></tt></a>(params[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.matrix_to_params">
+<tt class="descname">matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.normalize">
+<tt class="descname">normalize</tt><big>(</big><em>alternative=0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.params_to_matrix">
+<tt class="descname">params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_psi_phi_kappa.params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">cns_theta1_theta2_theta3</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="cctbx.macro_mol.rotation_parameters.converter_base"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.macro_mol.rotation_parameters.converter_base</span></tt></a></p>
+<p>CNS theta1, theta2, theta3 (Rossmann, 1962)</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.matrix_to_params" title="cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.matrix_to_params"><tt class="xref py py-obj docutils literal"><span class="pre">matrix_to_params</span></tt></a>(matrix[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.normalize" title="cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.normalize"><tt class="xref py py-obj docutils literal"><span class="pre">normalize</span></tt></a>([alternative])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.params_to_matrix" title="cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.params_to_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">params_to_matrix</span></tt></a>(params[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.matrix_to_params">
+<tt class="descname">matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.normalize">
+<tt class="descname">normalize</tt><big>(</big><em>alternative=0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.params_to_matrix">
+<tt class="descname">params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_theta1_theta2_theta3.params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_theta_123_as_p2m">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">cns_theta_123_as_p2m</tt><big>(</big><em>params</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_theta_123_as_p2m" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_theta_123_from_p2m">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">cns_theta_123_from_p2m</tt><big>(</big><em>params</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_theta_123_from_p2m" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">cns_theta_plus_theta2_theta_minus</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="cctbx.macro_mol.rotation_parameters.converter_base"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.macro_mol.rotation_parameters.converter_base</span></tt></a></p>
+<p>CNS theta+, theta2, theta- (Lattman, 1972)</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.matrix_to_params" title="cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.matrix_to_params"><tt class="xref py py-obj docutils literal"><span class="pre">matrix_to_params</span></tt></a>(matrix[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.normalize" title="cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.normalize"><tt class="xref py py-obj docutils literal"><span class="pre">normalize</span></tt></a>([alternative])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.params_to_matrix" title="cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.params_to_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">params_to_matrix</span></tt></a>(params[,&nbsp;tolerance])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.matrix_to_params">
+<tt class="descname">matrix_to_params</tt><big>(</big><em>matrix</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.matrix_to_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.normalize">
+<tt class="descname">normalize</tt><big>(</big><em>alternative=0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.params_to_matrix">
+<tt class="descname">params_to_matrix</tt><big>(</big><em>params</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.cns_theta_plus_theta2_theta_minus.params_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.converter_base">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">converter_base</tt><big>(</big><em>params=None</em>, <em>matrix=None</em>, <em>tolerance=1e-06</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.converter_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Base class for conversions of rotation parameters.
+m = self.matrix is a (3x3) matrix that transforms
+cartesian coordinates of the search body according to:</p>
+<p>(x&#8217;)   (m(0,0),m(0,1),m(0,2)) (x)
+(y&#8217;) = (m(1,0),m(1,1),m(1,2)) (y)
+(z&#8217;)   (m(2,0),m(2,1),m(2,2)) (z)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.degree_as_radians">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">degree_as_radians</tt><big>(</big><em>angles</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.degree_as_radians" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.degree_from_radians">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">degree_from_radians</tt><big>(</big><em>angles</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.degree_from_radians" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.fmod_positive">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">fmod_positive</tt><big>(</big><em>phi</em>, <em>period=360.0</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.fmod_positive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.generic_polar_normalize">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">generic_polar_normalize</tt><big>(</big><em>a1</em>, <em>a2</em>, <em>kappa</em>, <em>alternative</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.generic_polar_normalize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.get_converter_by_docstring">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">get_converter_by_docstring</tt><big>(</big><em>docstring</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.get_converter_by_docstring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.get_converters">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">get_converters</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.get_converters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="cctbx.macro_mol.rotation_parameters.matrix33">
+<em class="property">class </em><tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">matrix33</tt><big>(</big><em>elems=None</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.matrix33" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Minimal class for the handling of (3x3) matrices.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">__call__</span></tt>(i,&nbsp;j)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.matrix33.det" title="cctbx.macro_mol.rotation_parameters.matrix33.det"><tt class="xref py py-obj docutils literal"><span class="pre">det</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.matrix33.index1d" title="cctbx.macro_mol.rotation_parameters.matrix33.index1d"><tt class="xref py py-obj docutils literal"><span class="pre">index1d</span></tt></a>(key)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cctbx.macro_mol.rotation_parameters.matrix33.trace" title="cctbx.macro_mol.rotation_parameters.matrix33.trace"><tt class="xref py py-obj docutils literal"><span class="pre">trace</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.matrix33.det">
+<tt class="descname">det</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.matrix33.det" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.matrix33.index1d">
+<tt class="descname">index1d</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.matrix33.index1d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cctbx.macro_mol.rotation_parameters.matrix33.trace">
+<tt class="descname">trace</tt><big>(</big><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.matrix33.trace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.preprocess_angles">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">preprocess_angles</tt><big>(</big><em>params</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.preprocess_angles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cctbx.macro_mol.rotation_parameters.safe_atan2">
+<tt class="descclassname">cctbx.macro_mol.rotation_parameters.</tt><tt class="descname">safe_atan2</tt><big>(</big><em>y</em>, <em>x</em><big>)</big><a class="headerlink" href="#cctbx.macro_mol.rotation_parameters.safe_atan2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cctbx.macro_mol.html"
+                        title="previous chapter">cctbx.macro_mol package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/cctbx/cctbx.macro_mol.rotation_parameters.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cctbx.macro_mol.html" title="cctbx.macro_mol package"
+             >previous</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &raquo;</li>
+          <li><a href="cctbx.macro_mol.html" >cctbx.macro_mol package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

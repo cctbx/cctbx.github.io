@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>mmtbx.ligands package &mdash; CCTBX None documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'None',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="up" title="mmtbx - macromolecular crystallography" href="mmtbx.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mmtbx-ligands-package">
+<h1>mmtbx.ligands package<a class="headerlink" href="#mmtbx-ligands-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-mmtbx.ligands.xtal_screens">
+<span id="mmtbx-ligands-xtal-screens-module"></span><h2>mmtbx.ligands.xtal_screens module<a class="headerlink" href="#module-mmtbx.ligands.xtal_screens" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="mmtbx.ligands.xtal_screens.server">
+<em class="property">class </em><tt class="descclassname">mmtbx.ligands.xtal_screens.</tt><tt class="descname">server</tt><a class="headerlink" href="#mmtbx.ligands.xtal_screens.server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ligands.xtal_screens.server.get_condition" title="mmtbx.ligands.xtal_screens.server.get_condition"><tt class="xref py py-obj docutils literal"><span class="pre">get_condition</span></tt></a>(screen_name,&nbsp;condition_id)</td>
+<td>Gets the crystallization conditions used within a particular well.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="mmtbx.ligands.xtal_screens.server.get_condition">
+<tt class="descname">get_condition</tt><big>(</big><em>screen_name</em>, <em>condition_id</em><big>)</big><a class="headerlink" href="#mmtbx.ligands.xtal_screens.server.get_condition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the crystallization conditions used within a particular well.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>screen_name</strong> : str</p>
+<blockquote>
+<div><p>The name of the crystal screen used. (i.e. Crystal Screen HT)</p>
+</div></blockquote>
+<p><strong>condition_id</strong> : int</p>
+<blockquote>
+<div><p>The condition number within that screen. (i.e. D2 or 38)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">mmtbx.ligands.xtal_screens.solution</p>
+<blockquote class="last">
+<div><p>The information associated with that screen.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.ligands.xtal_screens.solution">
+<em class="property">class </em><tt class="descclassname">mmtbx.ligands.xtal_screens.</tt><tt class="descname">solution</tt><big>(</big><em>**kwds</em><big>)</big><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate" title="libtbx.slots_getstate_setstate"><tt class="xref py py-class docutils literal"><span class="pre">libtbx.slots_getstate_setstate</span></tt></a></p>
+<p>Container for information about a specific crystallization condition (as
+defined in crystallization_screens.cif).</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ligands.xtal_screens.solution.condition_name" title="mmtbx.ligands.xtal_screens.solution.condition_name"><tt class="xref py py-obj docutils literal"><span class="pre">condition_name</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ligands.xtal_screens.solution.ligands" title="mmtbx.ligands.xtal_screens.solution.ligands"><tt class="xref py py-obj docutils literal"><span class="pre">ligands</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ligands.xtal_screens.solution.pH" title="mmtbx.ligands.xtal_screens.solution.pH"><tt class="xref py py-obj docutils literal"><span class="pre">pH</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="mmtbx.ligands.xtal_screens.solution.condition_">
+<tt class="descname">condition_</tt><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.condition_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ligands.xtal_screens.solution.condition_name">
+<tt class="descname">condition_name</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.condition_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ligands.xtal_screens.solution.condition_number_">
+<tt class="descname">condition_number_</tt><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.condition_number_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ligands.xtal_screens.solution.ligands">
+<tt class="descname">ligands</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.ligands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ligands.xtal_screens.solution.ligands_">
+<tt class="descname">ligands_</tt><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.ligands_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ligands.xtal_screens.solution.pH">
+<tt class="descname">pH</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.pH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ligands.xtal_screens.solution.pH_">
+<tt class="descname">pH_</tt><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.pH_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ligands.xtal_screens.solution.screen_name_">
+<tt class="descname">screen_name_</tt><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.screen_name_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ligands.xtal_screens.solution.screen_number_">
+<tt class="descname">screen_number_</tt><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.screen_number_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ligands.xtal_screens.solution.tube_number_">
+<tt class="descname">tube_number_</tt><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.tube_number_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ligands.xtal_screens.solution.well_number_">
+<tt class="descname">well_number_</tt><a class="headerlink" href="#mmtbx.ligands.xtal_screens.solution.well_number_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mmtbx.ligands">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mmtbx.ligands" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">mmtbx.ligands package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ligands.xtal_screens">mmtbx.ligands.xtal_screens module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.ligands">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/mmtbx/mmtbx.ligands.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, University of California.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

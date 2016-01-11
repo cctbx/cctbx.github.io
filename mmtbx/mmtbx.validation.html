@@ -104,7 +104,7 @@ a multi-atom validation result.</p>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">header</span></tt>()</td>
 <td>Format for header in result listings.</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">id_str</span></tt>([ignore_altloc])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">id_str</span></tt>([ignore_altloc,&nbsp;ignore_segid])</td>
 <td></td>
 </tr>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">is_outlier</span></tt>()</td>
@@ -220,7 +220,7 @@ atoms classes.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.atom_base.atom_group_id_str" title="mmtbx.validation.atom_base.atom_group_id_str"><tt class="xref py py-obj docutils literal"><span class="pre">atom_group_id_str</span></tt></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.atom_base.id_str" title="mmtbx.validation.atom_base.id_str"><tt class="xref py py-obj docutils literal"><span class="pre">id_str</span></tt></a>([ignore_altloc])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.atom_base.id_str" title="mmtbx.validation.atom_base.id_str"><tt class="xref py py-obj docutils literal"><span class="pre">id_str</span></tt></a>([ignore_altloc,&nbsp;ignore_segid])</td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.atom_base.residue_group_id_str" title="mmtbx.validation.atom_base.residue_group_id_str"><tt class="xref py py-obj docutils literal"><span class="pre">residue_group_id_str</span></tt></a>()</td>
@@ -235,7 +235,7 @@ atoms classes.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.atom_base.id_str">
-<tt class="descname">id_str</tt><big>(</big><em>ignore_altloc=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.atom_base.id_str" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">id_str</tt><big>(</big><em>ignore_altloc=False</em>, <em>ignore_segid=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.atom_base.id_str" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -262,7 +262,7 @@ atoms classes.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">atom_group_id_str</span></tt>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">id_str</span></tt>([ignore_altloc])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">id_str</span></tt>([ignore_altloc,&nbsp;ignore_segid])</td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">residue_group_id_str</span></tt>()</td>
@@ -919,13 +919,16 @@ the unimplemented methods.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.validation.outlier_selection" title="mmtbx.validation.validation.outlier_selection"><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt></a>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.validation.show" title="mmtbx.validation.validation.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.validation.save_table_data" title="mmtbx.validation.validation.save_table_data"><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt></a>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.validation.show" title="mmtbx.validation.validation.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.validation.show_old_output" title="mmtbx.validation.validation.show_old_output"><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt></a>([out,&nbsp;verbose])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.validation.show_old_output" title="mmtbx.validation.validation.show_old_output"><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt></a>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.validation.show_summary" title="mmtbx.validation.validation.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.validation.show_summary" title="mmtbx.validation.validation.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -1033,20 +1036,31 @@ pre-built _outlier_i_seqs attribute.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="mmtbx.validation.validation.save_table_data">
+<tt class="descname">save_table_data</tt><big>(</big><em>file_name=None</em><big>)</big><a class="headerlink" href="#mmtbx.validation.validation.save_table_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save all results as a comma separated, text file</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="mmtbx.validation.validation.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix='  '</em>, <em>outliers_only=True</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.validation.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix='  '</em>, <em>outliers_only=True</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.validation.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.validation.show_old_output">
-<tt class="descname">show_old_output</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>verbose=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.validation.show_old_output" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_old_output</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>verbose=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.validation.show_old_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>For backwards compatibility with output formats of older utilities
 (phenix.ramalyze et al.).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.validation.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.validation.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.validation.show_summary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.validation.wx_column_widths">
+<tt class="descname">wx_column_widths</tt><em class="property"> = []</em><a class="headerlink" href="#mmtbx.validation.validation.wx_column_widths" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1104,7 +1118,7 @@ CCTBX development, you will already have access to everything necessary.</p>
 
 <dl class="function">
 <dt id="mmtbx.validation.rotalyze.evaluate_residue">
-<tt class="descclassname">mmtbx.validation.rotalyze.</tt><tt class="descname">evaluate_residue</tt><big>(</big><em>residue_group</em>, <em>sa</em>, <em>r</em>, <em>all_dict</em>, <em>data_version='500'</em>, <em>sites_cart=None</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rotalyze.evaluate_residue" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.validation.rotalyze.</tt><tt class="descname">evaluate_residue</tt><big>(</big><em>residue_group</em>, <em>sa</em>, <em>r</em>, <em>all_dict</em>, <em>sites_cart=None</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rotalyze.evaluate_residue" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -1134,7 +1148,7 @@ CCTBX development, you will already have access to everything necessary.</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.rotalyze.residue_evaluator">
-<em class="property">class </em><tt class="descclassname">mmtbx.validation.rotalyze.</tt><tt class="descname">residue_evaluator</tt><big>(</big><em>data_version='500'</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rotalyze.residue_evaluator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">mmtbx.validation.rotalyze.</tt><tt class="descname">residue_evaluator</tt><a class="headerlink" href="#mmtbx.validation.rotalyze.residue_evaluator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -1160,7 +1174,7 @@ CCTBX development, you will already have access to everything necessary.</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.rotalyze.rotalyze">
-<em class="property">class </em><tt class="descclassname">mmtbx.validation.rotalyze.</tt><tt class="descname">rotalyze</tt><big>(</big><em>pdb_hierarchy</em>, <em>data_version='8000'</em>, <em>outliers_only=False</em>, <em>show_errors=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>quiet=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rotalyze.rotalyze" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">mmtbx.validation.rotalyze.</tt><tt class="descname">rotalyze</tt><big>(</big><em>pdb_hierarchy</em>, <em>data_version='8000'</em>, <em>outliers_only=False</em>, <em>show_errors=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>quiet=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rotalyze.rotalyze" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.validation" title="mmtbx.validation.validation"><tt class="xref py py-class docutils literal"><span class="pre">mmtbx.validation.validation</span></tt></a></p>
 <p class="rubric">Attributes</p>
 <table border="1" class="longtable docutils">
@@ -1226,13 +1240,16 @@ CCTBX development, you will already have access to everything necessary.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.rotalyze.rotalyze.show_summary" title="mmtbx.validation.rotalyze.rotalyze.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.rotalyze.rotalyze.show_summary" title="mmtbx.validation.rotalyze.rotalyze.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -1339,7 +1356,7 @@ CCTBX development, you will already have access to everything necessary.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.rotalyze.rotalyze.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rotalyze.rotalyze.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rotalyze.rotalyze.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -2377,7 +2394,7 @@ conviniently use constants defined in the beginning of the file.</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.ramalyze.ramalyze">
-<em class="property">class </em><tt class="descclassname">mmtbx.validation.ramalyze.</tt><tt class="descname">ramalyze</tt><big>(</big><em>pdb_hierarchy</em>, <em>outliers_only=False</em>, <em>show_errors=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>quiet=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ramalyze.ramalyze" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">mmtbx.validation.ramalyze.</tt><tt class="descname">ramalyze</tt><big>(</big><em>pdb_hierarchy</em>, <em>outliers_only=False</em>, <em>show_errors=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>quiet=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ramalyze.ramalyze" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.validation" title="mmtbx.validation.validation"><tt class="xref py py-class docutils literal"><span class="pre">mmtbx.validation.validation</span></tt></a></p>
 <p>Frontend for calculating Ramachandran statistics for a model.  Can directly
 generate the corresponding plots.</p>
@@ -2484,16 +2501,19 @@ generate the corresponding plots.</p>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.ramalyze.ramalyze.show_summary" title="mmtbx.validation.ramalyze.ramalyze.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.ramalyze.ramalyze.show_summary" title="mmtbx.validation.ramalyze.ramalyze.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.ramalyze.ramalyze.write_plots" title="mmtbx.validation.ramalyze.ramalyze.write_plots"><tt class="xref py py-obj docutils literal"><span class="pre">write_plots</span></tt></a>(plot_file_base,&nbsp;out)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.ramalyze.ramalyze.write_plots" title="mmtbx.validation.ramalyze.ramalyze.write_plots"><tt class="xref py py-obj docutils literal"><span class="pre">write_plots</span></tt></a>(plot_file_base,&nbsp;out)</td>
 <td>Write a set of six PNG images representing the plots for each residue type.</td>
 </tr>
 </tbody>
@@ -2665,7 +2685,7 @@ generate the corresponding plots.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.ramalyze.ramalyze.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ramalyze.ramalyze.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ramalyze.ramalyze.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2867,7 +2887,7 @@ crystal_symmetry : must provide crystal symmetry when using pdb_hierarchy</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.clashscore.clashscore">
-<em class="property">class </em><tt class="descclassname">mmtbx.validation.clashscore.</tt><tt class="descname">clashscore</tt><big>(</big><em>pdb_hierarchy</em>, <em>keep_hydrogens=True</em>, <em>nuclear=False</em>, <em>force_unique_chain_ids=False</em>, <em>time_limit=120</em>, <em>b_factor_cutoff=None</em>, <em>save_probe_unformatted_file=None</em>, <em>save_modified_hierarchy=False</em>, <em>verbose=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">mmtbx.validation.clashscore.</tt><tt class="descname">clashscore</tt><big>(</big><em>pdb_hierarchy</em>, <em>keep_hydrogens=True</em>, <em>nuclear=False</em>, <em>force_unique_chain_ids=False</em>, <em>time_limit=120</em>, <em>b_factor_cutoff=None</em>, <em>save_probe_unformatted_file=None</em>, <em>save_modified_hierarchy=False</em>, <em>verbose=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.validation" title="mmtbx.validation.validation"><tt class="xref py py-class docutils literal"><span class="pre">mmtbx.validation.validation</span></tt></a></p>
 <p class="rubric">Attributes</p>
 <table border="1" class="longtable docutils">
@@ -2941,13 +2961,16 @@ crystal_symmetry : must provide crystal symmetry when using pdb_hierarchy</p>
 <tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.clashscore.clashscore.print_clashlist_old" title="mmtbx.validation.clashscore.clashscore.print_clashlist_old"><tt class="xref py py-obj docutils literal"><span class="pre">print_clashlist_old</span></tt></a>([out])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.clashscore.clashscore.show" title="mmtbx.validation.clashscore.clashscore.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.clashscore.clashscore.show" title="mmtbx.validation.clashscore.clashscore.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.clashscore.clashscore.show_old_output" title="mmtbx.validation.clashscore.clashscore.show_old_output"><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt></a>([out,&nbsp;verbose])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.clashscore.clashscore.show_old_output" title="mmtbx.validation.clashscore.clashscore.show_old_output"><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt></a>([out,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.clashscore.clashscore.show_summary" title="mmtbx.validation.clashscore.clashscore.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.clashscore.clashscore.show_summary" title="mmtbx.validation.clashscore.clashscore.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -3024,7 +3047,7 @@ crystal_symmetry : must provide crystal symmetry when using pdb_hierarchy</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.clashscore.clashscore.print_clashlist_old">
-<tt class="descname">print_clashlist_old</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.print_clashlist_old" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">print_clashlist_old</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.print_clashlist_old" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -3044,17 +3067,17 @@ crystal_symmetry : must provide crystal symmetry when using pdb_hierarchy</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.clashscore.clashscore.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em>, <em>outliers_only=None</em>, <em>verbose=None</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em>, <em>outliers_only=None</em>, <em>verbose=None</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.clashscore.clashscore.show_old_output">
-<tt class="descname">show_old_output</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>verbose=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.show_old_output" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_old_output</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>verbose=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.show_old_output" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.clashscore.clashscore.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -3248,13 +3271,16 @@ network optimization.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.clashscore.nqh_flips.show" title="mmtbx.validation.clashscore.nqh_flips.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.clashscore.nqh_flips.show" title="mmtbx.validation.clashscore.nqh_flips.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -3271,7 +3297,7 @@ network optimization.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.clashscore.nqh_flips.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.nqh_flips.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.clashscore.nqh_flips.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -3531,7 +3557,7 @@ and Cbeta deviation.  Proteins. 2003 Feb 15;50(3):437-50.
 
 <dl class="class">
 <dt id="mmtbx.validation.cbetadev.cbetadev">
-<em class="property">class </em><tt class="descclassname">mmtbx.validation.cbetadev.</tt><tt class="descname">cbetadev</tt><big>(</big><em>pdb_hierarchy</em>, <em>outliers_only=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>collect_ideal=False</em>, <em>quiet=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.cbetadev.cbetadev" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">mmtbx.validation.cbetadev.</tt><tt class="descname">cbetadev</tt><big>(</big><em>pdb_hierarchy</em>, <em>outliers_only=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>collect_ideal=False</em>, <em>quiet=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.cbetadev.cbetadev" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.validation" title="mmtbx.validation.validation"><tt class="xref py py-class docutils literal"><span class="pre">mmtbx.validation.validation</span></tt></a></p>
 <p class="rubric">Attributes</p>
 <table border="1" class="longtable docutils">
@@ -3594,13 +3620,16 @@ and Cbeta deviation.  Proteins. 2003 Feb 15;50(3):437-50.
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.cbetadev.cbetadev.show_old_output" title="mmtbx.validation.cbetadev.cbetadev.show_old_output"><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt></a>(out[,&nbsp;verbose,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.cbetadev.cbetadev.show_old_output" title="mmtbx.validation.cbetadev.cbetadev.show_old_output"><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt></a>(out[,&nbsp;verbose,&nbsp;prefix])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.cbetadev.cbetadev.show_summary" title="mmtbx.validation.cbetadev.cbetadev.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>(out[,&nbsp;prefix])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.cbetadev.cbetadev.show_summary" title="mmtbx.validation.cbetadev.cbetadev.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>(out[,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -3871,13 +3900,16 @@ from the target value.</p>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>(*args,&nbsp;**kwds)</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>(*args,&nbsp;**kwds)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -4139,13 +4171,16 @@ from the target value.</p>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>(*args,&nbsp;**kwds)</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>(*args,&nbsp;**kwds)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -4268,13 +4303,16 @@ from the target value.</p>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>(*args,&nbsp;**kwds)</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>(*args,&nbsp;**kwds)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -4448,7 +4486,7 @@ classes.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.restraints.combined.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.restraints.combined.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.restraints.combined.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -4608,13 +4646,16 @@ classes.</p>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>(*args,&nbsp;**kwds)</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>(*args,&nbsp;**kwds)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -4722,13 +4763,16 @@ classes.</p>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>(*args,&nbsp;**kwds)</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>(*args,&nbsp;**kwds)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -5164,13 +5208,16 @@ type, including overall statistics and individual outliers.</p>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.restraints.restraint_validation.show" title="mmtbx.validation.restraints.restraint_validation.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.restraints.restraint_validation.show" title="mmtbx.validation.restraints.restraint_validation.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.restraints.restraint_validation.show_old_output" title="mmtbx.validation.restraints.restraint_validation.show_old_output"><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt></a>(*args,&nbsp;**kwds)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.restraints.restraint_validation.show_old_output" title="mmtbx.validation.restraints.restraint_validation.show_old_output"><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt></a>(*args,&nbsp;**kwds)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.restraints.restraint_validation.show_summary" title="mmtbx.validation.restraints.restraint_validation.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.restraints.restraint_validation.show_summary" title="mmtbx.validation.restraints.restraint_validation.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -5237,7 +5284,7 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.restraints.restraint_validation.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix='  '</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.restraints.restraint_validation.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix='  '</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.restraints.restraint_validation.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -5247,7 +5294,7 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.restraints.restraint_validation.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.restraints.restraint_validation.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.restraints.restraint_validation.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -5318,8 +5365,8 @@ type, including overall statistics and individual outliers.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_molprobity</span></tt>()</td>
 <td>Returns a list of formatted table cells for display by MolProbity.</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt>()</td>
-<td>Returns a list of formatted table cells for display by Phenix.</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_angle.as_table_row_phenix" title="mmtbx.validation.rna_validate.rna_angle.as_table_row_phenix"><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt></a>()</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">assert_all_attributes_defined</span></tt>()</td>
 <td></td>
@@ -5385,6 +5432,11 @@ type, including overall statistics and individual outliers.</p>
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_angle.as_string">
 <tt class="descname">as_string</tt><big>(</big><em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_angle.as_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.validation.rna_validate.rna_angle.as_table_row_phenix">
+<tt class="descname">as_table_row_phenix</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_angle.as_table_row_phenix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -5466,7 +5518,7 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.rna_validate.rna_angles">
-<em class="property">class </em><tt class="descclassname">mmtbx.validation.rna_validate.</tt><tt class="descname">rna_angles</tt><big>(</big><em>pdb_hierarchy</em>, <em>pdb_atoms</em>, <em>geometry_restraints_manager</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_angles" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">mmtbx.validation.rna_validate.</tt><tt class="descname">rna_angles</tt><big>(</big><em>pdb_hierarchy</em>, <em>pdb_atoms</em>, <em>geometry_restraints_manager</em>, <em>outliers_only=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_angles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.rna_validate.rna_geometry" title="mmtbx.validation.rna_validate.rna_geometry"><tt class="xref py py-class docutils literal"><span class="pre">mmtbx.validation.rna_validate.rna_geometry</span></tt></a></p>
 <p class="rubric">Attributes</p>
 <table border="1" class="longtable docutils">
@@ -5531,13 +5583,16 @@ type, including overall statistics and individual outliers.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_angles.show_summary" title="mmtbx.validation.rna_validate.rna_angles.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_angles.show_summary" title="mmtbx.validation.rna_validate.rna_angles.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -5549,12 +5604,12 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="attribute">
 <dt id="mmtbx.validation.rna_validate.rna_angles.gui_formats">
-<tt class="descname">gui_formats</tt><em class="property"> = ['%s', '%s', '%s', '%d', '%.1f']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_angles.gui_formats" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">gui_formats</tt><em class="property"> = ['%s', '%s', '%s', '%s', '%.2f']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_angles.gui_formats" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.validation.rna_validate.rna_angles.gui_list_headers">
-<tt class="descname">gui_list_headers</tt><em class="property"> = ['Chain', 'Residue', 'Altloc', 'Bad angles', 'Max. sigma']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_angles.gui_list_headers" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">gui_list_headers</tt><em class="property"> = ['Residue', 'Atom 1', 'Atom 2', 'Atom 3', 'Sigmas']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_angles.gui_list_headers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -5569,7 +5624,7 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_angles.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_angles.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_angles.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -5617,8 +5672,8 @@ type, including overall statistics and individual outliers.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_molprobity</span></tt>()</td>
 <td>Returns a list of formatted table cells for display by MolProbity.</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt>()</td>
-<td>Returns a list of formatted table cells for display by Phenix.</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_bond.as_table_row_phenix" title="mmtbx.validation.rna_validate.rna_bond.as_table_row_phenix"><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt></a>()</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">assert_all_attributes_defined</span></tt>()</td>
 <td></td>
@@ -5684,6 +5739,11 @@ type, including overall statistics and individual outliers.</p>
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_bond.as_string">
 <tt class="descname">as_string</tt><big>(</big><em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bond.as_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.validation.rna_validate.rna_bond.as_table_row_phenix">
+<tt class="descname">as_table_row_phenix</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bond.as_table_row_phenix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -5765,7 +5825,7 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.rna_validate.rna_bonds">
-<em class="property">class </em><tt class="descclassname">mmtbx.validation.rna_validate.</tt><tt class="descname">rna_bonds</tt><big>(</big><em>pdb_hierarchy</em>, <em>pdb_atoms</em>, <em>geometry_restraints_manager</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bonds" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">mmtbx.validation.rna_validate.</tt><tt class="descname">rna_bonds</tt><big>(</big><em>pdb_hierarchy</em>, <em>pdb_atoms</em>, <em>geometry_restraints_manager</em>, <em>outliers_only=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bonds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.rna_validate.rna_geometry" title="mmtbx.validation.rna_validate.rna_geometry"><tt class="xref py py-class docutils literal"><span class="pre">mmtbx.validation.rna_validate.rna_geometry</span></tt></a></p>
 <p class="rubric">Attributes</p>
 <table border="1" class="longtable docutils">
@@ -5830,13 +5890,16 @@ type, including overall statistics and individual outliers.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_bonds.show_summary" title="mmtbx.validation.rna_validate.rna_bonds.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_bonds.show_summary" title="mmtbx.validation.rna_validate.rna_bonds.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -5848,12 +5911,12 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="attribute">
 <dt id="mmtbx.validation.rna_validate.rna_bonds.gui_formats">
-<tt class="descname">gui_formats</tt><em class="property"> = ['%s', '%s', '%s', '%d', '%.1f']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bonds.gui_formats" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">gui_formats</tt><em class="property"> = ['%s', '%s', '%s', '%.2f']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bonds.gui_formats" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.validation.rna_validate.rna_bonds.gui_list_headers">
-<tt class="descname">gui_list_headers</tt><em class="property"> = ['Chain', 'Residue', 'Altloc', 'Bad bonds', 'Max. sigma']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bonds.gui_list_headers" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">gui_list_headers</tt><em class="property"> = ['Residue', 'Atom 1', 'Atom 2', 'Sigmas']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bonds.gui_list_headers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -5868,12 +5931,12 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_bonds.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bonds.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bonds.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.validation.rna_validate.rna_bonds.wx_column_widths">
-<tt class="descname">wx_column_widths</tt><em class="property"> = [160, 160, 160, 160, 160]</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bonds.wx_column_widths" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">wx_column_widths</tt><em class="property"> = [160, 160, 160, 160]</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_bonds.wx_column_widths" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -5948,20 +6011,23 @@ type, including overall statistics and individual outliers.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_geometry.show" title="mmtbx.validation.rna_validate.rna_geometry.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_geometry.show" title="mmtbx.validation.rna_validate.rna_geometry.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_geometry.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix='  '</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_geometry.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix='  '</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_geometry.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -6005,8 +6071,8 @@ type, including overall statistics and individual outliers.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_molprobity</span></tt>()</td>
 <td>Returns a list of formatted table cells for display by MolProbity.</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt>()</td>
-<td>Returns a list of formatted table cells for display by Phenix.</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_pucker.as_table_row_phenix" title="mmtbx.validation.rna_validate.rna_pucker.as_table_row_phenix"><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt></a>()</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">assert_all_attributes_defined</span></tt>()</td>
 <td></td>
@@ -6072,6 +6138,11 @@ type, including overall statistics and individual outliers.</p>
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_pucker.as_string">
 <tt class="descname">as_string</tt><big>(</big><em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_pucker.as_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.validation.rna_validate.rna_pucker.as_table_row_phenix">
+<tt class="descname">as_table_row_phenix</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_pucker.as_table_row_phenix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -6246,13 +6317,16 @@ type, including overall statistics and individual outliers.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_puckers.show_summary" title="mmtbx.validation.rna_validate.rna_puckers.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_puckers.show_summary" title="mmtbx.validation.rna_validate.rna_puckers.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -6264,12 +6338,12 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="attribute">
 <dt id="mmtbx.validation.rna_validate.rna_puckers.gui_formats">
-<tt class="descname">gui_formats</tt><em class="property"> = ['%s', '%s', '%s', '%s']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_puckers.gui_formats" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">gui_formats</tt><em class="property"> = ['%s', '%.2f', '%.2f']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_puckers.gui_formats" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.validation.rna_validate.rna_puckers.gui_list_headers">
-<tt class="descname">gui_list_headers</tt><em class="property"> = ['Chain', 'Residue', 'Altloc', 'Bad angles']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_puckers.gui_list_headers" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">gui_list_headers</tt><em class="property"> = ['Residue', 'Delta', 'Epsilon']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_puckers.gui_list_headers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -6314,12 +6388,12 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_puckers.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_puckers.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_puckers.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.validation.rna_validate.rna_puckers.wx_column_widths">
-<tt class="descname">wx_column_widths</tt><em class="property"> = [200, 200, 200, 200]</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_puckers.wx_column_widths" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">wx_column_widths</tt><em class="property"> = [200, 200, 200]</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_puckers.wx_column_widths" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -6363,8 +6437,8 @@ type, including overall statistics and individual outliers.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_molprobity</span></tt>()</td>
 <td>Returns a list of formatted table cells for display by MolProbity.</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt>()</td>
-<td>Returns a list of formatted table cells for display by Phenix.</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_suite.as_table_row_phenix" title="mmtbx.validation.rna_validate.rna_suite.as_table_row_phenix"><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt></a>()</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">assert_all_attributes_defined</span></tt>()</td>
 <td></td>
@@ -6430,6 +6504,11 @@ type, including overall statistics and individual outliers.</p>
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_suite.as_string">
 <tt class="descname">as_string</tt><big>(</big><em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_suite.as_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.validation.rna_validate.rna_suite.as_table_row_phenix">
+<tt class="descname">as_table_row_phenix</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_suite.as_table_row_phenix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -6581,13 +6660,16 @@ type, including overall statistics and individual outliers.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_suites.show_summary" title="mmtbx.validation.rna_validate.rna_suites.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.rna_validate.rna_suites.show_summary" title="mmtbx.validation.rna_validate.rna_suites.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -6609,7 +6691,7 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="attribute">
 <dt id="mmtbx.validation.rna_validate.rna_suites.gui_list_headers">
-<tt class="descname">gui_list_headers</tt><em class="property"> = ['Chain', 'Residue', 'Altloc', 'Triaged angles']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_suites.gui_list_headers" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">gui_list_headers</tt><em class="property"> = ['Suite ID', 'Suite', 'Suiteness', 'Triaged angles']</em><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_suites.gui_list_headers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -6654,7 +6736,7 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_suites.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_suites.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_suites.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -6700,12 +6782,12 @@ type, including overall statistics and individual outliers.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_validation.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em>, <em>outliers_only=None</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_validation.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em>, <em>outliers_only=None</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_validation.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.rna_validate.rna_validation.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_validation.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.rna_validate.rna_validation.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -6875,12 +6957,12 @@ which are performed approximately as in model_vs_data.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.experimental.data_statistics.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.data_statistics.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.data_statistics.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.experimental.data_statistics.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.data_statistics.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.data_statistics.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -6902,7 +6984,7 @@ which are performed approximately as in model_vs_data.</p>
 
 <dl class="function">
 <dt id="mmtbx.validation.experimental.merging_and_model_statistics">
-<tt class="descclassname">mmtbx.validation.experimental.</tt><tt class="descname">merging_and_model_statistics</tt><big>(</big><em>f_obs</em>, <em>f_model</em>, <em>r_free_flags</em>, <em>unmerged_i_obs</em>, <em>n_bins=20</em>, <em>sigma_filtering=&lt;libtbx.AutoType object at 0x7ff9720e7390&gt;</em>, <em>anomalous=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.merging_and_model_statistics" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.validation.experimental.</tt><tt class="descname">merging_and_model_statistics</tt><big>(</big><em>f_obs</em>, <em>f_model</em>, <em>r_free_flags</em>, <em>unmerged_i_obs</em>, <em>n_bins=20</em>, <em>sigma_filtering=&lt;libtbx.AutoType object at 0x7f5bbd1cf710&gt;</em>, <em>anomalous=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.merging_and_model_statistics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute merging statistics - CC* in particular - together with measures of
 model quality using reciprocal-space data (R-factors and CCs).  See Karplus
 &amp; Diederichs 2012 for rationale.</p>
@@ -6912,7 +6994,7 @@ model quality using reciprocal-space data (R-factors and CCs).  See Karplus
 <dt id="mmtbx.validation.experimental.real_space">
 <em class="property">class </em><tt class="descclassname">mmtbx.validation.experimental.</tt><tt class="descname">real_space</tt><big>(</big><em>fmodel</em>, <em>pdb_hierarchy</em>, <em>cc_min=0.8</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.real_space" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.validation" title="mmtbx.validation.validation"><tt class="xref py py-class docutils literal"><span class="pre">mmtbx.validation.validation</span></tt></a></p>
-<p>Real-space correlation calculation for residues with at least two atoms.</p>
+<p>Real-space correlation calculation for residues</p>
 <p class="rubric">Attributes</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -6927,14 +7009,11 @@ model quality using reciprocal-space data (R-factors and CCs).  See Karplus
 </table>
 <table border="1" class="docutils">
 <colgroup>
-<col width="66%" />
-<col width="34%" />
+<col width="57%" />
+<col width="43%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>output_header</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>program_description</td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
@@ -6946,38 +7025,44 @@ model quality using reciprocal-space data (R-factors and CCs).  See Karplus
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_coot_data</span></tt>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.experimental.real_space.add_water" title="mmtbx.validation.experimental.real_space.add_water"><tt class="xref py py-obj docutils literal"><span class="pre">add_water</span></tt></a>([water])</td>
+<td>Function for incorporating water results from water.py</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_coot_data</span></tt>()</td>
 <td>Return results in a format suitable for unpickling in Coot.</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_gui_table_data</span></tt>([outliers_only,&nbsp;include_zoom])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_gui_table_data</span></tt>([outliers_only,&nbsp;include_zoom])</td>
 <td>Format results for display in the Phenix GUI.</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_kinemage</span></tt>()</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_kinemage</span></tt>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">coot_todo</span></tt>()</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">coot_todo</span></tt>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">find_atom_group</span></tt>([other,&nbsp;atom_group_id_str])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">find_atom_group</span></tt>([other,&nbsp;atom_group_id_str])</td>
 <td>Attempt to locate a result corresponding to a given atom_group object.</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">find_residue</span></tt>([other,&nbsp;residue_id_str])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">find_residue</span></tt>([other,&nbsp;residue_id_str])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_outliers_count_and_fraction</span></tt>()</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_outliers_count_and_fraction</span></tt>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_outliers_goal</span></tt>()</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_outliers_goal</span></tt>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.experimental.real_space.get_result_class" title="mmtbx.validation.experimental.real_space.get_result_class"><tt class="xref py py-obj docutils literal"><span class="pre">get_result_class</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.experimental.real_space.get_result_class" title="mmtbx.validation.experimental.real_space.get_result_class"><tt class="xref py py-obj docutils literal"><span class="pre">get_result_class</span></tt></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">iter_results</span></tt>([outliers_only])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">iter_results</span></tt>([outliers_only])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.experimental.real_space.show" title="mmtbx.validation.experimental.real_space.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
@@ -6991,18 +7076,84 @@ model quality using reciprocal-space data (R-factors and CCs).  See Karplus
 </tbody>
 </table>
 <dl class="method">
+<dt id="mmtbx.validation.experimental.real_space.add_water">
+<tt class="descname">add_water</tt><big>(</big><em>water=None</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.real_space.add_water" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for incorporating water results from water.py</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.everything">
+<tt class="descname">everything</tt><a class="headerlink" href="#mmtbx.validation.experimental.real_space.everything" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="mmtbx.validation.experimental.real_space.get_result_class">
 <tt class="descname">get_result_class</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.real_space.get_result_class" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.gui_formats">
+<tt class="descname">gui_formats</tt><em class="property"> = ['%s', '%6.2f', '%4.2f', '%6.2f', '%6.2f', '%5.3f']</em><a class="headerlink" href="#mmtbx.validation.experimental.real_space.gui_formats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.gui_list_headers">
+<tt class="descname">gui_list_headers</tt><em class="property"> = ['Residue', 'B_iso', 'Occupancy', '2Fo-Fc', 'Fmodel', 'CC']</em><a class="headerlink" href="#mmtbx.validation.experimental.real_space.gui_list_headers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.n_outliers">
+<tt class="descname">n_outliers</tt><a class="headerlink" href="#mmtbx.validation.experimental.real_space.n_outliers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.n_total">
+<tt class="descname">n_total</tt><a class="headerlink" href="#mmtbx.validation.experimental.real_space.n_total" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.other">
+<tt class="descname">other</tt><a class="headerlink" href="#mmtbx.validation.experimental.real_space.other" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.output_header">
+<tt class="descname">output_header</tt><em class="property"> = None</em><a class="headerlink" href="#mmtbx.validation.experimental.real_space.output_header" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.program_description">
+<tt class="descname">program_description</tt><em class="property"> = 'Analyze real space correlation'</em><a class="headerlink" href="#mmtbx.validation.experimental.real_space.program_description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.protein">
+<tt class="descname">protein</tt><a class="headerlink" href="#mmtbx.validation.experimental.real_space.protein" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.results">
+<tt class="descname">results</tt><a class="headerlink" href="#mmtbx.validation.experimental.real_space.results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="mmtbx.validation.experimental.real_space.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix='  '</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.real_space.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix='  '</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.real_space.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.experimental.real_space.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.real_space.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.real_space.show_summary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.water">
+<tt class="descname">water</tt><a class="headerlink" href="#mmtbx.validation.experimental.real_space.water" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.experimental.real_space.wx_column_widths">
+<tt class="descname">wx_column_widths</tt><em class="property"> = [120, 120, 120, 120, 120, 120]</em><a class="headerlink" href="#mmtbx.validation.experimental.real_space.wx_column_widths" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -7048,8 +7199,8 @@ model quality using reciprocal-space data (R-factors and CCs).  See Karplus
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_molprobity</span></tt>()</td>
 <td>Returns a list of formatted table cells for display by MolProbity.</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt>()</td>
-<td>Returns a list of formatted table cells for display by Phenix.</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.experimental.residue_real_space.as_table_row_phenix" title="mmtbx.validation.experimental.residue_real_space.as_table_row_phenix"><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt></a>()</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">assert_all_attributes_defined</span></tt>()</td>
 <td></td>
@@ -7112,6 +7263,11 @@ model quality using reciprocal-space data (R-factors and CCs).  See Karplus
 <dl class="method">
 <dt id="mmtbx.validation.experimental.residue_real_space.as_string">
 <tt class="descname">as_string</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.residue_real_space.as_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.validation.experimental.residue_real_space.as_table_row_phenix">
+<tt class="descname">as_table_row_phenix</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.validation.experimental.residue_real_space.as_table_row_phenix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -7381,12 +7537,12 @@ model quality using reciprocal-space data (R-factors and CCs).  See Karplus
 <span id="mmtbx-validation-ligands-module"></span><h2>mmtbx.validation.ligands module<a class="headerlink" href="#module-mmtbx.validation.ligands" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="mmtbx.validation.ligands.compare_ligands">
-<tt class="descclassname">mmtbx.validation.ligands.</tt><tt class="descname">compare_ligands</tt><big>(</big><em>ligand_code</em>, <em>hierarchy_1=None</em>, <em>hierarchy_2=None</em>, <em>pdb_file_1=None</em>, <em>pdb_file_2=None</em>, <em>max_distance_between_centers_of_mass=8.0</em>, <em>exclude_hydrogens=True</em>, <em>verbose=False</em>, <em>implicit_matching=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ligands.compare_ligands" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.validation.ligands.</tt><tt class="descname">compare_ligands</tt><big>(</big><em>ligand_code</em>, <em>hierarchy_1=None</em>, <em>hierarchy_2=None</em>, <em>pdb_file_1=None</em>, <em>pdb_file_2=None</em>, <em>max_distance_between_centers_of_mass=8.0</em>, <em>exclude_hydrogens=True</em>, <em>verbose=False</em>, <em>implicit_matching=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ligands.compare_ligands" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="mmtbx.validation.ligands.compare_ligands_impl">
-<tt class="descclassname">mmtbx.validation.ligands.</tt><tt class="descname">compare_ligands_impl</tt><big>(</big><em>ligand</em>, <em>reference_ligands</em>, <em>max_distance_between_centers_of_mass=8.0</em>, <em>exclude_hydrogens=True</em>, <em>implicit_matching=False</em>, <em>verbose=False</em>, <em>quiet=False</em>, <em>raise_sorry_if_no_matching_atoms=True</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ligands.compare_ligands_impl" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.validation.ligands.</tt><tt class="descname">compare_ligands_impl</tt><big>(</big><em>ligand</em>, <em>reference_ligands</em>, <em>max_distance_between_centers_of_mass=8.0</em>, <em>exclude_hydrogens=True</em>, <em>implicit_matching=False</em>, <em>verbose=False</em>, <em>quiet=False</em>, <em>raise_sorry_if_no_matching_atoms=True</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ligands.compare_ligands_impl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a target ligand and a list of reference ligands, return the RMSD(s)
 for any ligand determined to be approximately equivalent.  (Usually there
 will be just one of these, but this allows for alternate conformations.)</p>
@@ -7483,12 +7639,12 @@ will be just one of these, but this allows for alternate conformations.)</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.ligands.ligand_validation.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ligands.ligand_validation.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ligands.ligand_validation.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.ligands.ligand_validation.show_simple">
-<tt class="descname">show_simple</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>warnings=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ligands.ligand_validation.show_simple" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_simple</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>warnings=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.ligands.ligand_validation.show_simple" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -7568,7 +7724,7 @@ will be just one of these, but this allows for alternate conformations.)</p>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">header</span></tt>()</td>
 <td>Format for header in result listings.</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">id_str</span></tt>([ignore_altloc])</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">id_str</span></tt>()</td>
 <td></td>
 </tr>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">is_outlier</span></tt>()</td>
@@ -7630,7 +7786,7 @@ occupancy).</p>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">header</span></tt>()</td>
 <td>Format for header in result listings.</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">id_str</span></tt>([ignore_altloc])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.model_properties.atom_occupancy.id_str" title="mmtbx.validation.model_properties.atom_occupancy.id_str"><tt class="xref py py-obj docutils literal"><span class="pre">id_str</span></tt></a>()</td>
 <td></td>
 </tr>
 <tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">is_outlier</span></tt>()</td>
@@ -7655,6 +7811,11 @@ occupancy).</p>
 <dl class="method">
 <dt id="mmtbx.validation.model_properties.atom_occupancy.as_table_row_phenix">
 <tt class="descname">as_table_row_phenix</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.validation.model_properties.atom_occupancy.as_table_row_phenix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.validation.model_properties.atom_occupancy.id_str">
+<tt class="descname">id_str</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.validation.model_properties.atom_occupancy.id_str" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -7753,7 +7914,7 @@ in the xray_structure_statistics objects for subsets of the model.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.model_properties.model_statistics.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.model_properties.model_statistics.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.model_properties.model_statistics.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -8106,19 +8267,22 @@ in the xray_structure_statistics objects for subsets of the model.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt>([out,&nbsp;prefix,&nbsp;outliers_only,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_bad_occupancy" title="mmtbx.validation.model_properties.xray_structure_statistics.show_bad_occupancy"><tt class="xref py py-obj docutils literal"><span class="pre">show_bad_occupancy</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_bad_occupancy" title="mmtbx.validation.model_properties.xray_structure_statistics.show_bad_occupancy"><tt class="xref py py-obj docutils literal"><span class="pre">show_bad_occupancy</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_bfactors" title="mmtbx.validation.model_properties.xray_structure_statistics.show_bfactors"><tt class="xref py py-obj docutils literal"><span class="pre">show_bfactors</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_bfactors" title="mmtbx.validation.model_properties.xray_structure_statistics.show_bfactors"><tt class="xref py py-obj docutils literal"><span class="pre">show_bfactors</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_summary" title="mmtbx.validation.model_properties.xray_structure_statistics.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_summary" title="mmtbx.validation.model_properties.xray_structure_statistics.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -8250,17 +8414,17 @@ in the xray_structure_statistics objects for subsets of the model.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.model_properties.xray_structure_statistics.show_bad_occupancy">
-<tt class="descname">show_bad_occupancy</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_bad_occupancy" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_bad_occupancy</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_bad_occupancy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.model_properties.xray_structure_statistics.show_bfactors">
-<tt class="descname">show_bfactors</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_bfactors" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_bfactors</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_bfactors" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.model_properties.xray_structure_statistics.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix=''</em><big>)</big><a class="headerlink" href="#mmtbx.validation.model_properties.xray_structure_statistics.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -8405,7 +8569,7 @@ padding the array with None so it matches the sequence and resid arrays.</p>
 
 <dl class="function">
 <dt id="mmtbx.validation.sequence.get_sequence_n_copies">
-<tt class="descclassname">mmtbx.validation.sequence.</tt><tt class="descname">get_sequence_n_copies</tt><big>(</big><em>sequences</em>, <em>pdb_hierarchy</em>, <em>force_accept_composition=False</em>, <em>copies_from_xtriage=None</em>, <em>copies_from_user=&lt;libtbx.AutoType object at 0x7ff9720e7390&gt;</em>, <em>minimum_identity=0.3</em>, <em>assume_xtriage_copies_from_sequence_file=None</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>nproc=1</em><big>)</big><a class="headerlink" href="#mmtbx.validation.sequence.get_sequence_n_copies" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.validation.sequence.</tt><tt class="descname">get_sequence_n_copies</tt><big>(</big><em>sequences</em>, <em>pdb_hierarchy</em>, <em>force_accept_composition=False</em>, <em>copies_from_xtriage=None</em>, <em>copies_from_user=&lt;libtbx.AutoType object at 0x7f5bbd1cf710&gt;</em>, <em>minimum_identity=0.3</em>, <em>assume_xtriage_copies_from_sequence_file=None</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>nproc=1</em><big>)</big><a class="headerlink" href="#mmtbx.validation.sequence.get_sequence_n_copies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Utility function for reconciling the contents of the sequence file, the
 chains in the model, and the ASU.  Returns the number of copies of the
 sequence file to tell Phaser are present, or raises an error if this is
@@ -8427,7 +8591,7 @@ monomer sequence file, the ASU contains 8 copies of the sequence(s).</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.sequence.validation">
-<em class="property">class </em><tt class="descclassname">mmtbx.validation.sequence.</tt><tt class="descname">validation</tt><big>(</big><em>pdb_hierarchy</em>, <em>sequences</em>, <em>params=None</em>, <em>log=None</em>, <em>nproc=&lt;libtbx.AutoType object at 0x7ff9720e7390&gt;</em>, <em>include_secondary_structure=False</em>, <em>extract_coordinates=False</em>, <em>extract_residue_groups=False</em>, <em>minimum_identity=0</em><big>)</big><a class="headerlink" href="#mmtbx.validation.sequence.validation" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">mmtbx.validation.sequence.</tt><tt class="descname">validation</tt><big>(</big><em>pdb_hierarchy</em>, <em>sequences</em>, <em>params=None</em>, <em>log=None</em>, <em>nproc=&lt;libtbx.AutoType object at 0x7f5bbd1cf710&gt;</em>, <em>include_secondary_structure=False</em>, <em>extract_coordinates=False</em>, <em>extract_residue_groups=False</em>, <em>minimum_identity=0</em><big>)</big><a class="headerlink" href="#mmtbx.validation.sequence.validation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -8529,7 +8693,7 @@ display using matplotlib (see wxtbx.plots).  Will reduce dimensionality to
 
 <dl class="function">
 <dt id="mmtbx.validation.utils.find_sequence_mismatches">
-<tt class="descclassname">mmtbx.validation.utils.</tt><tt class="descname">find_sequence_mismatches</tt><big>(</big><em>pdb_hierarchy</em>, <em>sequences</em>, <em>assume_same_order=True</em>, <em>expected_sequence_identity=0.8</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.utils.find_sequence_mismatches" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.validation.utils.</tt><tt class="descname">find_sequence_mismatches</tt><big>(</big><em>pdb_hierarchy</em>, <em>sequences</em>, <em>assume_same_order=True</em>, <em>expected_sequence_identity=0.8</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.validation.utils.find_sequence_mismatches" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -8615,8 +8779,8 @@ properties.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_molprobity</span></tt>()</td>
 <td>Returns a list of formatted table cells for display by MolProbity.</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt>()</td>
-<td>Returns a list of formatted table cells for display by Phenix.</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.waters.water.as_table_row_phenix" title="mmtbx.validation.waters.water.as_table_row_phenix"><tt class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></tt></a>()</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">atom_group_id_str</span></tt>()</td>
 <td></td>
@@ -8666,6 +8830,11 @@ properties.</p>
 <dl class="method">
 <dt id="mmtbx.validation.waters.water.as_string">
 <tt class="descname">as_string</tt><big>(</big><em>prefix=''</em>, <em>highlight_if_heavy=False</em><big>)</big><a class="headerlink" href="#mmtbx.validation.waters.water.as_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.validation.waters.water.as_table_row_phenix">
+<tt class="descname">as_table_row_phenix</tt><big>(</big><big>)</big><a class="headerlink" href="#mmtbx.validation.waters.water.as_table_row_phenix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -8867,13 +9036,16 @@ electron density.</p>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">outlier_selection</span></tt>()</td>
 <td>Return a flex.size_t object containing the i_seqs of atoms flagged as outliers (either individually or as part of an atom_group).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.waters.waters.show" title="mmtbx.validation.waters.waters.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">save_table_data</span></tt>([file_name])</td>
+<td>Save all results as a comma separated, text file</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.waters.waters.show" title="mmtbx.validation.waters.waters.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>([out,&nbsp;prefix,&nbsp;verbose])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_old_output</span></tt>([out,&nbsp;verbose])</td>
 <td>For backwards compatibility with output formats of older utilities (phenix.ramalyze et al.).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.waters.waters.show_summary" title="mmtbx.validation.waters.waters.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.waters.waters.show_summary" title="mmtbx.validation.waters.waters.show_summary"><tt class="xref py py-obj docutils literal"><span class="pre">show_summary</span></tt></a>([out,&nbsp;prefix])</td>
 <td></td>
 </tr>
 </tbody>
@@ -8910,12 +9082,12 @@ electron density.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.waters.waters.show">
-<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix='  '</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.waters.waters.show" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix='  '</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#mmtbx.validation.waters.waters.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.waters.waters.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7ff97a4a5150&gt;</em>, <em>prefix='  '</em><big>)</big><a class="headerlink" href="#mmtbx.validation.waters.waters.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f5bc165c150&gt;</em>, <em>prefix='  '</em><big>)</big><a class="headerlink" href="#mmtbx.validation.waters.waters.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

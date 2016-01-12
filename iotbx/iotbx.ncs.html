@@ -175,50 +175,6 @@ Returns (-100,-100,-100) when selection is bad</dd>
 </dd></dl>
 
 <dl class="function">
-<dt id="iotbx.ncs.ncs_preprocess.get_residue_sequence">
-<tt class="descclassname">iotbx.ncs.ncs_preprocess.</tt><tt class="descname">get_residue_sequence</tt><big>(</big><em>ph</em><big>)</big><a class="headerlink" href="#iotbx.ncs.ncs_preprocess.get_residue_sequence" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a list of residues numbers and names from hierarchy &#8220;ph&#8221;, excluding
-water molecules</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ph (hierarchy): hierarchy of a single chain</dd>
-<dt>Returns:</dt>
-<dd>res_list_new (list of str): list of residues names
-resid_list_new (list of str): list of residues number</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="iotbx.ncs.ncs_preprocess.get_rot_trans">
-<tt class="descclassname">iotbx.ncs.ncs_preprocess.</tt><tt class="descname">get_rot_trans</tt><big>(</big><em>ph=None</em>, <em>master_selection=None</em>, <em>copy_selection=None</em>, <em>max_rmsd=0.02</em><big>)</big><a class="headerlink" href="#iotbx.ncs.ncs_preprocess.get_rot_trans" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get rotation and translation using superpose.</p>
-<p>This function is used only when phil parameters are provided. In this case
-we require the selection of NCS master and copies to be correct.
-Correct means:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li>residue sequence in master and copies is exactly the same</li>
-<li>the number of atoms in master and copies is exactly the same</li>
-</ol>
-</div></blockquote>
-<p>One can get exact selection strings by ncs_object.show(verbose=True)</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">ph : pdb hierarchy input object
-master/copy_selection (str): master and copy selection strings
-max_rmsd (float): limit of rms difference between chains to be considered</p>
-<blockquote class="last">
-<div>as copies</div></blockquote>
-</dd>
-<dt>Returns:</dt>
-<dd>r: rotation matrix
-t: translation vector
-rmsd (float): RMSD between master and copy
-msg (str): error messages</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="iotbx.ncs.ncs_preprocess.get_transform_order">
 <tt class="descclassname">iotbx.ncs.ncs_preprocess.</tt><tt class="descname">get_transform_order</tt><big>(</big><em>transform_to_ncs</em><big>)</big><a class="headerlink" href="#iotbx.ncs.ncs_preprocess.get_transform_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>order transforms mainly for proper chain naming</p>
@@ -914,7 +870,7 @@ pdb_hierarchy_inp object</p>
 
 <dl class="class">
 <dt id="iotbx.ncs.ncs_preprocess.selections">
-<em class="property">class </em><tt class="descclassname">iotbx.ncs.ncs_preprocess.</tt><tt class="descname">selections</tt><big>(</big><em>master_chain_id=''</em>, <em>copy_chain_id=''</em>, <em>master_sel=&lt;scitbx_array_family_flex_ext.size_t object at 0x7f5ba1fe6470&gt;</em>, <em>copy_sel=&lt;scitbx_array_family_flex_ext.size_t object at 0x7f5ba1fe64c8&gt;</em>, <em>not_in_master=&lt;scitbx_array_family_flex_ext.size_t object at 0x7f5ba1fe6520&gt;</em>, <em>not_in_copy=&lt;scitbx_array_family_flex_ext.size_t object at 0x7f5ba1fe6578&gt;</em><big>)</big><a class="headerlink" href="#iotbx.ncs.ncs_preprocess.selections" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">iotbx.ncs.ncs_preprocess.</tt><tt class="descname">selections</tt><big>(</big><em>master_chain_id=''</em>, <em>copy_chain_id=''</em>, <em>master_sel=&lt;scitbx_array_family_flex_ext.size_t object at 0x7fc1b9056578&gt;</em>, <em>copy_sel=&lt;scitbx_array_family_flex_ext.size_t object at 0x7fc1b90565d0&gt;</em>, <em>not_in_master=&lt;scitbx_array_family_flex_ext.size_t object at 0x7fc1b9056628&gt;</em>, <em>not_in_copy=&lt;scitbx_array_family_flex_ext.size_t object at 0x7fc1b9056680&gt;</em><big>)</big><a class="headerlink" href="#iotbx.ncs.ncs_preprocess.selections" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
 <p>object for grouping multiple selection information for master ncs and copy</p>
 </dd></dl>

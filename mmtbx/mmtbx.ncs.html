@@ -1453,6 +1453,11 @@ min_matches (int): adjusted match count</dd>
 </dd></dl>
 
 <dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_bool_selection_to_keep">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_bool_selection_to_keep</tt><big>(</big><em>big_selection</em>, <em>small_selection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_bool_selection_to_keep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_chains_info">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_chains_info</tt><big>(</big><em>ph</em>, <em>selection_list=None</em>, <em>exclude_water=True</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_chains_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collect information about chains or segments of the hierarchy according to
@@ -1478,6 +1483,11 @@ chains_atom_number (list of int): list of number of atoms in each chain</dd>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_info_from_match_dict">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_info_from_match_dict</tt><big>(</big><em>match_dict</em>, <em>key</em>, <em>chain</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_info_from_match_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_matching_atoms">
@@ -1537,6 +1547,20 @@ similarity (float): actual similarity between hierarchies</dd>
 </dd></dl>
 
 <dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_residue_sequence">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_residue_sequence</tt><big>(</big><em>ph</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_residue_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of residues numbers and names from hierarchy &#8220;ph&#8221;, excluding
+water molecules</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>ph (hierarchy): hierarchy of a single chain</dd>
+<dt>Returns:</dt>
+<dd>res_list_new (list of str): list of residues names
+resid_list_new (list of str): list of residues number</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_rmsds">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_rmsds</tt><big>(</big><em>hierarchy</em>, <em>cache</em>, <em>cur_ttg</em>, <em>master</em>, <em>copy</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rmsds" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is for debugging purposes and not called.
@@ -1545,10 +1569,50 @@ wrong grouping will raise Sorry: bad phil records.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_rmsds2">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_rmsds2</tt><big>(</big><em>master_xyz</em>, <em>copy_xyz</em>, <em>cur_ttg</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rmsds2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_rot_trans">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_rot_trans</tt><big>(</big><em>ph</em>, <em>master_selection</em>, <em>copy_selection</em>, <em>max_rmsd=0.02</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rot_trans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get rotation and translation using superpose.</p>
+<p>This function is used only when phil parameters are provided. In this case
+we require the selection of NCS master and copies to be correct.
+Correct means:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>residue sequence in master and copies is exactly the same</li>
+<li>the number of atoms in master and copies is exactly the same</li>
+</ol>
+</div></blockquote>
+<p>One can get exact selection strings by ncs_object.show(verbose=True)</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">ph : pdb hierarchy input object
+master/copy_selection (str): master and copy selection strings
+max_rmsd (float): limit of rms difference between chains to be considered</p>
+<blockquote class="last">
+<div>as copies</div></blockquote>
+</dd>
+<dt>Returns:</dt>
+<dd>r: rotation matrix
+t: translation vector
+rmsd (float): RMSD between master and copy
+msg (str): error messages</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_rotation_vec">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_rotation_vec</tt><big>(</big><em>r</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rotation_vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>get the eigen vector associated with the eigen value 1</p>
 </dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_sequence_from_array">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_sequence_from_array</tt><big>(</big><em>arr</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_sequence_from_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.initialize_score_matrix">
@@ -1596,7 +1660,7 @@ t1, t2: Translation vectors</dd>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.minimal_master_ncs_grouping">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">minimal_master_ncs_grouping</tt><big>(</big><em>match_dict</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.minimal_master_ncs_grouping" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">minimal_master_ncs_grouping</tt><big>(</big><em>match_dict</em>, <em>hierarchy</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.minimal_master_ncs_grouping" title="Permalink to this definition">¶</a></dt>
 <dd><p>Look for NCS groups with the smallest number of chains in the master copy
 This is not the minimal number of NCS operations</p>
 <dl class="docutils">
@@ -1650,6 +1714,20 @@ values: NCS_groups_container objects</dd>
 <p class="last">match_dict (dict): updated match_dict</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.my_get_rot_trans">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">my_get_rot_trans</tt><big>(</big><em>ph</em>, <em>master_selection</em>, <em>copy_selection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.my_get_rot_trans" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.ncs_grouping_and_group_dict">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">ncs_grouping_and_group_dict</tt><big>(</big><em>match_dict</em>, <em>hierarchy</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.ncs_grouping_and_group_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>The implementation of simplest way to do NCS grouping. Maximum one chain
+in selection.
+Do the job of minimal_master_ncs_grouping/minimal_ncs_operators_grouping
+and build_group_dict.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1838,7 +1916,13 @@ i (int): position in the list</dd>
 </dl>
 <p>23/09/2015 Oleg. Disabled because arbitrary tossing chains may cause
 selection problems in future execution. The test exercising it is in:
-cctbx_project/iotbx/regression/ncs/tst_ncs_input.py, exersice_23()</p>
+cctbx_project/iotbx/regression/ncs/tst_ncs_input.py, exersice_23().
+In nutshell:
+given chain order in pdb file: ADEFCB and groups are ABC and DEF, where
+matches are A-D, B-E, C-F
+selections are going to extract atoms in the following order:
+ACB, DEF and they will be not atom-to-atom matched (the resulting matching
+is A-D, C-E, B-F)</p>
 </dd></dl>
 
 <dl class="function">

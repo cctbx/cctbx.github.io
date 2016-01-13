@@ -1455,7 +1455,11 @@ min_matches (int): adjusted match count</dd>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_bool_selection_to_keep">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_bool_selection_to_keep</tt><big>(</big><em>big_selection</em>, <em>small_selection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_bool_selection_to_keep" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>given 2 iselections (they are sorted), returns bool selection of size
+big selection showing what are the matches with small selection.
+Rather fast algorithm but may be beneficial to transfer to C++
+O(n+m), where n,m - sizes of selections</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_chains_info">
@@ -1571,7 +1575,8 @@ wrong grouping will raise Sorry: bad phil records.</p>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_rmsds2">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_rmsds2</tt><big>(</big><em>master_xyz</em>, <em>copy_xyz</em>, <em>cur_ttg</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rmsds2" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>This function is for debugging purposes and not called.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_rot_trans">
@@ -1661,7 +1666,10 @@ t1, t2: Translation vectors</dd>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.minimal_master_ncs_grouping">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">minimal_master_ncs_grouping</tt><big>(</big><em>match_dict</em>, <em>hierarchy</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.minimal_master_ncs_grouping" title="Permalink to this definition">¶</a></dt>
-<dd><p>Look for NCS groups with the smallest number of chains in the master copy
+<dd><p>XXX
+XXX still used in ncs_preprocess.py:validate_ncs_phil_groups()
+XXX
+Look for NCS groups with the smallest number of chains in the master copy
 This is not the minimal number of NCS operations</p>
 <dl class="docutils">
 <dt>Args:</dt>

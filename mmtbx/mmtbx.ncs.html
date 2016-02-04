@@ -1317,7 +1317,7 @@ exclude_misaligned_residues (bool): check and exclude individual residues</p>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.find_ncs_in_hierarchy">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">find_ncs_in_hierarchy</tt><big>(</big><em>ph</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>use_minimal_master_ncs=True</em>, <em>max_rmsd=5.0</em>, <em>write=False</em>, <em>log=None</em>, <em>check_atom_order=False</em>, <em>allow_different_size_res=True</em>, <em>exclude_misaligned_residues=False</em>, <em>similarity_threshold=0.95</em>, <em>match_radius=4.0</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_ncs_in_hierarchy" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">find_ncs_in_hierarchy</tt><big>(</big><em>ph</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>max_rmsd=5.0</em>, <em>write=False</em>, <em>log=None</em>, <em>check_atom_order=False</em>, <em>allow_different_size_res=True</em>, <em>exclude_misaligned_residues=False</em>, <em>similarity_threshold=0.95</em>, <em>match_radius=4.0</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_ncs_in_hierarchy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find NCS relation in hierarchy</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1403,7 +1403,7 @@ O(n+m), where n,m - sizes of selections</p>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_chains_info">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_chains_info</tt><big>(</big><em>ph</em>, <em>selection_list=None</em>, <em>exclude_water=True</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_chains_info" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_chains_info</tt><big>(</big><em>ph</em>, <em>selection_list=None</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_chains_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collect information about chains or segments of the hierarchy according to
 selection strings
 Exclude water atoms
@@ -1708,7 +1708,7 @@ similarity (float): actual similarity between hierarchies</dd>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.search_ncs_relations">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">search_ncs_relations</tt><big>(</big><em>ph=None</em>, <em>chains_info=None</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>write=False</em>, <em>log=None</em>, <em>check_atom_order=False</em>, <em>allow_different_size_res=True</em>, <em>use_minimal_master_ncs=True</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.search_ncs_relations" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">search_ncs_relations</tt><big>(</big><em>ph=None</em>, <em>chains_info=None</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>write=False</em>, <em>log=None</em>, <em>check_atom_order=False</em>, <em>allow_different_size_res=True</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.search_ncs_relations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search for NCS relations between chains or parts of chains, in a protein
 hierarchy</p>
 <dl class="docutils">
@@ -1733,9 +1733,6 @@ check_atom_order (bool): check atom order in matching residues.</p>
 <div>When False, matching residues with different number of atoms will be
 excluded from matching set</div></blockquote>
 <dl class="docutils">
-<dt>use_minimal_master_ncs (bool): use maximal or minimal common chains</dt>
-<dd>in master ncs groups (when True, search does not need to be done all
-all chains -&gt; can be significantly faster on large structures)</dd>
 <dt>allow_different_size_res (bool): keep matching residue with different</dt>
 <dd>number of atoms</dd>
 </dl>
@@ -1752,53 +1749,6 @@ similarity (float): similarity between chains</div></blockquote>
 <p class="last">We use sel_2 to avoid problems when residues have different number of atoms</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_search.sort_by_dist">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">sort_by_dist</tt><big>(</big><em>chains_info</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.sort_by_dist" title="Permalink to this definition">¶</a></dt>
-<dd><p>The process of grouping chains is not exhaustive, meaning that is does not
-consider every possible chains grouping, due to potential computation time
-such a search might take. To improve the the probability of getting
-preferred grouping, instead of searching using the order of the chain
-names, we arrange chains by distance.
-Starting from the first chain look for the closest chain to it, then
-the closest to the second chain, and so one.</p>
-<p>Note that this only improve but does not guarantee optimal grouping</p>
-<p>This function is used only when minimizing number of NCS operators</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>chains_info (obj): Chain_info object</dd>
-<dt>Return:</dt>
-<dd>ch_id_list (lst): ordered list of chain IDs</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_search.update_chain_ids_search_order">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">update_chain_ids_search_order</tt><big>(</big><em>chains_info</em>, <em>sorted_ch</em>, <em>chains_in_copies</em>, <em>i</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.update_chain_ids_search_order" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is used only when minimizing number of chains in master NCS.
-It design to improve grouping by choosing masters that are near by.</p>
-<p>Replace chain ID i in the list sorted_ch with the closest chain i-1 in
-sorted_ch, ignoring chains that are already in NCS groups</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>chains_info (obj): Chain_info object
-sorted_ch (list): chain IDs list
-chains_in_copies (set): chain already in NCS groups
-i (int): position in the list</dd>
-<dt>Return:</dt>
-<dd>ch_id_list (list): ordered list of chain IDs</dd>
-</dl>
-<p>23/09/2015 Oleg. Disabled because arbitrary tossing chains may cause
-selection problems in future execution. The test exercising it is in:
-cctbx_project/iotbx/regression/ncs/tst_ncs_input.py, exersice_23().
-In nutshell:
-given chain order in pdb file: ADEFCB and groups are ABC and DEF, where
-matches are A-D, B-E, C-F
-selections are going to extract atoms in the following order:
-ACB, DEF and they will be not atom-to-atom matched (the resulting matching
-is A-D, C-E, B-F)</p>
 </dd></dl>
 
 <dl class="function">

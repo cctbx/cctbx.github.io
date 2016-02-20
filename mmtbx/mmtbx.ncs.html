@@ -1317,7 +1317,7 @@ exclude_misaligned_residues (bool): check and exclude individual residues</p>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.find_ncs_in_hierarchy">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">find_ncs_in_hierarchy</tt><big>(</big><em>ph</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>max_rmsd=5.0</em>, <em>write=False</em>, <em>log=None</em>, <em>check_atom_order=False</em>, <em>allow_different_size_res=True</em>, <em>exclude_misaligned_residues=False</em>, <em>similarity_threshold=0.95</em>, <em>match_radius=4.0</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_ncs_in_hierarchy" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">find_ncs_in_hierarchy</tt><big>(</big><em>ph</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>max_rmsd=5.0</em>, <em>log=None</em>, <em>exclude_misaligned_residues=False</em>, <em>similarity_threshold=0.95</em>, <em>match_radius=4.0</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_ncs_in_hierarchy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find NCS relation in hierarchy</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1332,21 +1332,14 @@ min_percent (float): Threshold for similarity between chains</p>
 <dd>in master ncs groups</dd>
 </dl>
 <p>max_rmsd (float): limit of rms difference chains when aligned together
-write (bool): when true, write ncs search messages to log
-check_atom_order (bool): check atom order in matching residues.</p>
+exclude_misaligned_residues (bool): check and exclude individual residues</p>
 <blockquote>
-<div>When False, matching residues with different number of atoms will be
-excluded from matching set</div></blockquote>
+<div>alignment quality</div></blockquote>
 <dl class="docutils">
-<dt>exclude_misaligned_residues (bool): check and exclude individual residues</dt>
-<dd>alignment quality</dd>
 <dt>match_radius (float): max allow distance difference between pairs of matching</dt>
 <dd>atoms of two residues</dd>
-<dt>allow_different_size_res (bool): keep matching residue with different</dt>
-<dd>number of atoms</dd>
 </dl>
-<p class="last">similarity_threshold (float): min similarity between matching chains
-ignore_chains (set of str): set of chain IDs to exclude</p>
+<p class="last">similarity_threshold (float): min similarity between matching chains</p>
 </dd>
 <dt>Return:</dt>
 <dd><p class="first">groups_list (list of NCS_groups_container objects)
@@ -1361,7 +1354,8 @@ values: NCS_groups_container objects</div></blockquote>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.find_same_transform">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">find_same_transform</tt><big>(</big><em>r</em>, <em>t</em>, <em>transforms</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_same_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if the rotation r and translation t exist in the transform dictionary.
+<dd><p>Not used.</p>
+<p>Check if the rotation r and translation t exist in the transform dictionary.
 Note that there can be both inverse and regular match. Return the
 non-transpose if exist.</p>
 <dl class="docutils">
@@ -1403,7 +1397,7 @@ O(n+m), where n,m - sizes of selections</p>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_chains_info">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_chains_info</tt><big>(</big><em>ph</em>, <em>selection_list=None</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_chains_info" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_chains_info</tt><big>(</big><em>ph</em>, <em>selection_list=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_chains_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collect information about chains or segments of the hierarchy according to
 selection strings
 Exclude water atoms
@@ -1411,8 +1405,7 @@ When there are alternate conformations, we use the first one</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd>ph : pdb_hierarchy
-selection_list (list of str): specific selection of hierarchy segments
-ignore_chains (set of str): set of chain IDs to exclude</dd>
+selection_list (list of str): specific selection of hierarchy segments</dd>
 <dt>Returns:</dt>
 <dd><dl class="first docutils">
 <dt>chains_info (dict): values are object containing</dt>
@@ -1440,7 +1433,7 @@ chains_atom_number (list of int): list of number of atoms in each chain</dd>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_matching_atoms">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_matching_atoms</tt><big>(</big><em>chains_info</em>, <em>a_id</em>, <em>b_id</em>, <em>res_num_a</em>, <em>res_num_b</em>, <em>check_atom_order=False</em>, <em>allow_different_size_res=True</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_matching_atoms" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_matching_atoms</tt><big>(</big><em>chains_info</em>, <em>a_id</em>, <em>b_id</em>, <em>res_num_a</em>, <em>res_num_b</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_matching_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get selection of matching chains, match residues atoms
 We keep only residues with continuous matching atoms</p>
 <p>Residues with alternative locations and of different size are excluded</p>
@@ -1455,16 +1448,8 @@ atom_names (list of list of str): list of atoms in residues
 atom_selection (list of list of list of int): the location of atoms in ph
 chains_atom_number (list of int): list of number of atoms in each chain</dd>
 </dl>
-<p>a_id,b_id (str): Chain IDs
-res_num_a/b (list of int): indices of matching residues position
-check_atom_order (bool): check atom order in matching residues.</p>
-<blockquote>
-<div>When False, matching residues with different number of atoms will be
-excluded from matching set</div></blockquote>
-<dl class="last docutils">
-<dt>allow_different_size_res (bool): keep matching residue with different</dt>
-<dd>number of atoms</dd>
-</dl>
+<p class="last">a_id,b_id (str): Chain IDs
+res_num_a/b (list of int): indices of matching residues position</p>
 </dd>
 <dt>Returns:</dt>
 <dd>sel_a/b (list of lists): matching atoms selection
@@ -1614,35 +1599,6 @@ t1, t2: Translation vectors</dd>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_search.minimal_ncs_operators_grouping">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">minimal_ncs_operators_grouping</tt><big>(</big><em>match_dict</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.minimal_ncs_operators_grouping" title="Permalink to this definition">¶</a></dt>
-<dd><p>Look for NCS groups with the smallest number of chains in the master copy
-This is not the minimal number of NCS operations</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>match_dict(dict):</dt>
-<dd>key:(chains_id_1,chains_id_2)
-val:[select_1,select_2,res_list_1,res_list_2,rot,trans,rmsd]
-chain_ID (str), selection_1/2 (flex.size_t)
-res_list_1/2 (list): list of matching residues indices
-rot (matrix obj): rotation matrix
-tran (matrix obj): translation vector
-rmsd (float)</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first docutils">
-<dt>transform_to_group (dict):</dt>
-<dd>keys: tuple of master chain IDs
-values: NCS_groups_container objects</dd>
-</dl>
-<p class="last">match_dict (dict): updated match_dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_search.my_get_rot_trans">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">my_get_rot_trans</tt><big>(</big><em>ph</em>, <em>master_selection</em>, <em>copy_selection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.my_get_rot_trans" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1708,7 +1664,7 @@ similarity (float): actual similarity between hierarchies</dd>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.search_ncs_relations">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">search_ncs_relations</tt><big>(</big><em>ph=None</em>, <em>chains_info=None</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>write=False</em>, <em>log=None</em>, <em>check_atom_order=False</em>, <em>allow_different_size_res=True</em>, <em>ignore_chains=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.search_ncs_relations" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">search_ncs_relations</tt><big>(</big><em>ph=None</em>, <em>chains_info=None</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.search_ncs_relations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search for NCS relations between chains or parts of chains, in a protein
 hierarchy</p>
 <dl class="docutils">
@@ -1724,19 +1680,9 @@ atom_selection (list of list of list of int): the location of atoms in ph
 chains_atom_number (list of int): list of number of atoms in each chain</div></blockquote>
 <p>min_contig_length (int): segments &lt; min_contig_length rejected
 min_percent (float): Threshold for similarity between chains.</p>
-<blockquote>
+<blockquote class="last">
 <div>similarity define as:
 (number of matching res) / (number of res in longer chain)</div></blockquote>
-<p>write (bool): when true, write ncs search messages to log
-check_atom_order (bool): check atom order in matching residues.</p>
-<blockquote>
-<div>When False, matching residues with different number of atoms will be
-excluded from matching set</div></blockquote>
-<dl class="docutils">
-<dt>allow_different_size_res (bool): keep matching residue with different</dt>
-<dd>number of atoms</dd>
-</dl>
-<p class="last">ignore_chains (set of str): set of chain IDs to exclude</p>
 </dd>
 <dt>Returns:</dt>
 <dd><p class="first">msg (str): message regarding matching residues with different atom number

@@ -1281,7 +1281,7 @@ residue level selection.</p>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.clean_chain_matching">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">clean_chain_matching</tt><big>(</big><em>chain_match_list</em>, <em>ph</em>, <em>max_rmsd=10.0</em>, <em>exclude_misaligned_residues=False</em>, <em>match_radius=4.0</em>, <em>similarity_threshold=0.95</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.clean_chain_matching" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">clean_chain_matching</tt><big>(</big><em>chain_match_list</em>, <em>ph</em>, <em>chain_max_rmsd=10.0</em>, <em>residue_match_radius=4.0</em>, <em>chain_similarity_threshold=0.95</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.clean_chain_matching" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all bad matches from chain_match_list</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1292,15 +1292,11 @@ chain_match_list (list): list of</p>
 chain_ID (str), sel_1/2 (list of lists)
 res_m/res_c (lists): indices of the aligned components
 similarity (float): similarity between chains</div></blockquote>
-<p>max_rmsd (float): limit of rms difference chains
-exclude_misaligned_residues (bool): check and exclude individual residues</p>
+<p>chain_max_rmsd (float): limit of rms difference chains
+residue_match_radius (float): max allow distance difference between pairs of matching</p>
 <blockquote>
-<div>alignment quality</div></blockquote>
-<dl class="docutils">
-<dt>match_radius (float): max allow distance difference between pairs of matching</dt>
-<dd>atoms of two residues</dd>
-</dl>
-<p class="last">similarity_threshold (float): min similarity between matching chains</p>
+<div>atoms of two residues</div></blockquote>
+<p class="last">chain_similarity_threshold (float): min similarity between matching chains</p>
 </dd>
 <dt>Returns:</dt>
 <dd><dl class="first last docutils">
@@ -1317,29 +1313,19 @@ exclude_misaligned_residues (bool): check and exclude individual residues</p>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.find_ncs_in_hierarchy">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">find_ncs_in_hierarchy</tt><big>(</big><em>ph</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>max_rmsd=5.0</em>, <em>log=None</em>, <em>exclude_misaligned_residues=False</em>, <em>similarity_threshold=0.95</em>, <em>match_radius=4.0</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_ncs_in_hierarchy" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">find_ncs_in_hierarchy</tt><big>(</big><em>ph</em>, <em>chain_max_rmsd=5.0</em>, <em>log=None</em>, <em>chain_similarity_threshold=0.85</em>, <em>residue_match_radius=4.0</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_ncs_in_hierarchy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find NCS relation in hierarchy</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><p class="first">ph (object): hierarchy
-min_contig_length (int): minimum length of matching chain segments
-min_percent (float): Threshold for similarity between chains</p>
+use_minimal_master_ncs (bool): use maximal or minimal common chains</p>
 <blockquote>
-<div>similarity define as:
-(number of matching res) / (number of res in longer chain)</div></blockquote>
-<dl class="docutils">
-<dt>use_minimal_master_ncs (bool): use maximal or minimal common chains</dt>
-<dd>in master ncs groups</dd>
-</dl>
-<p>max_rmsd (float): limit of rms difference chains when aligned together
-exclude_misaligned_residues (bool): check and exclude individual residues</p>
+<div>in master ncs groups</div></blockquote>
+<p>chain_max_rmsd (float): limit of rms difference chains when aligned together
+residue_match_radius (float): max allow distance difference between pairs of matching</p>
 <blockquote>
-<div>alignment quality</div></blockquote>
-<dl class="docutils">
-<dt>match_radius (float): max allow distance difference between pairs of matching</dt>
-<dd>atoms of two residues</dd>
-</dl>
-<p class="last">similarity_threshold (float): min similarity between matching chains</p>
+<div>atoms of two residues</div></blockquote>
+<p class="last">chain_similarity_threshold (float): min similarity between matching chains</p>
 </dd>
 <dt>Return:</dt>
 <dd><p class="first">groups_list (list of NCS_groups_container objects)
@@ -1460,7 +1446,7 @@ msg (str): message regarding matching residues with different atom number</dd>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_matching_res_indices">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_matching_res_indices</tt><big>(</big><em>R</em>, <em>row</em>, <em>col</em>, <em>min_percent</em>, <em>min_contig_length</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_matching_res_indices" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_matching_res_indices</tt><big>(</big><em>R</em>, <em>row</em>, <em>col</em>, <em>min_percent</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_matching_res_indices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trace back best solution and collect the indices of matching pairs</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1468,10 +1454,9 @@ msg (str): message regarding matching residues with different atom number</dd>
 row (int): number of rows
 col (int): number of columns
 min_percent (float): min percent of similarity between hierarchies</p>
-<blockquote>
+<blockquote class="last">
 <div>similarity define as:
 (number of matching res) / (number of res in longer chain)</div></blockquote>
-<p class="last">min_contig_length (int): domain &lt; min_contig_length rejected</p>
 </dd>
 <dt>Returns:</dt>
 <dd>sel_a (list): matching indices sequence a
@@ -1515,7 +1500,7 @@ wrong grouping will raise Sorry: bad phil records.</p>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_rot_trans">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_rot_trans</tt><big>(</big><em>ph</em>, <em>master_selection</em>, <em>copy_selection</em>, <em>max_rmsd=0.02</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rot_trans" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_rot_trans</tt><big>(</big><em>ph</em>, <em>master_selection</em>, <em>copy_selection</em>, <em>chain_max_rmsd=0.02</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rot_trans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get rotation and translation using superpose.</p>
 <p>This function is used only when phil parameters are provided. In this case
 we require the selection of NCS master and copies to be correct.
@@ -1531,7 +1516,7 @@ Correct means:</p>
 <dt>Args:</dt>
 <dd><p class="first">ph : pdb.hierarchy
 master/copy_selection (str): master and copy selection strings
-max_rmsd (float): limit of rms difference between chains to be considered</p>
+chain_max_rmsd (float): limit of rms difference between chains to be considered</p>
 <blockquote class="last">
 <div>as copies</div></blockquote>
 </dd>
@@ -1614,19 +1599,19 @@ and build_group_dict.</p>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.remove_far_atoms">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">remove_far_atoms</tt><big>(</big><em>list_a</em>, <em>list_b</em>, <em>res_list_a</em>, <em>res_list_b</em>, <em>ref_sites</em>, <em>other_sites</em>, <em>match_radius=4.0</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.remove_far_atoms" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">remove_far_atoms</tt><big>(</big><em>list_a</em>, <em>list_b</em>, <em>res_list_a</em>, <em>res_list_b</em>, <em>ref_sites</em>, <em>other_sites</em>, <em>residue_match_radius=4.0</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.remove_far_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>When comparing lists of matching atoms, remove residues where some atoms are
 are locally misaligned, for example when matching residues are
 perpendicular to each other rather than being close to parallel.</p>
 <p>The criteria used:
 For each matching residues, the difference between distance of farthest
-matching atoms pair and the distance of closest pair mast be &lt; match_radius</p>
+matching atoms pair and the distance of closest pair mast be &lt; residue_match_radius</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd>list_a, list_a (list of list): list of residues atoms
 res_list_a,res_list_b (list): list of residues in chains
 ref_sites,other_sites (flex.vec3): atoms coordinates
-match_radius (float): max allow distance difference</dd>
+residue_match_radius (float): max allow distance difference</dd>
 <dt>Returns:</dt>
 <dd><dl class="first last docutils">
 <dt>Updated arguments:</dt>
@@ -1640,7 +1625,7 @@ ref_sites_new,other_sites_new</dd>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.res_alignment">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">res_alignment</tt><big>(</big><em>seq_a</em>, <em>seq_b</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.res_alignment" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">res_alignment</tt><big>(</big><em>seq_a</em>, <em>seq_b</em>, <em>min_contig_length=1</em>, <em>min_percent=0.85</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.res_alignment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Align two lists of strings (All lower case characters).</p>
 <p>Penalize misalignment, gaps, when contiguous section is less
 than min_contig_length and when the
@@ -1664,25 +1649,20 @@ similarity (float): actual similarity between hierarchies</dd>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.search_ncs_relations">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">search_ncs_relations</tt><big>(</big><em>ph=None</em>, <em>chains_info=None</em>, <em>min_contig_length=10</em>, <em>min_percent=0.95</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.search_ncs_relations" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">search_ncs_relations</tt><big>(</big><em>ph=None</em>, <em>chains_info=None</em>, <em>chain_similarity_threshold=0.85</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.search_ncs_relations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search for NCS relations between chains or parts of chains, in a protein
 hierarchy</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><p class="first">ph (object): hierarchy
 chains_info (dict): values are object containing</p>
-<blockquote>
+<blockquote class="last">
 <div>chains (str): chain IDs OR selections string
 res_name (list of str): list of residues names
 resid (list of str): list of residues sequence number, resid
 atom_names (list of list of str): list of atoms in residues
 atom_selection (list of list of list of int): the location of atoms in ph
 chains_atom_number (list of int): list of number of atoms in each chain</div></blockquote>
-<p>min_contig_length (int): segments &lt; min_contig_length rejected
-min_percent (float): Threshold for similarity between chains.</p>
-<blockquote class="last">
-<div>similarity define as:
-(number of matching res) / (number of res in longer chain)</div></blockquote>
 </dd>
 <dt>Returns:</dt>
 <dd><p class="first">msg (str): message regarding matching residues with different atom number
@@ -1699,7 +1679,7 @@ similarity (float): similarity between chains</div></blockquote>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.update_match_dicts">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">update_match_dicts</tt><big>(</big><em>best_matches</em>, <em>match_dict</em>, <em>ch_a_id</em>, <em>ch_b_id</em>, <em>similarity</em>, <em>similarity_threshold=0.95</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.update_match_dicts" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">update_match_dicts</tt><big>(</big><em>best_matches</em>, <em>match_dict</em>, <em>ch_a_id</em>, <em>ch_b_id</em>, <em>similarity</em>, <em>chain_similarity_threshold=0.95</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.update_match_dicts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the best_matches dictionaries best_matches,match_dict to keep only
 matches that are at least 95% of best match and</p>
 <dl class="docutils">
@@ -1714,7 +1694,7 @@ val: [selection_1,selection_2,res_list_1,res_list_2,rot,trans,rmsd]</dd>
 </dl>
 <p>ch_a_id,ch_b_id (str): chain IDs
 similarity (float): similarity between chains
-similarity_threshold (float): min similarity between matching chains</p>
+chain_similarity_threshold (float): min similarity between matching chains</p>
 <blockquote class="last">
 <div>Note that smaller value cause more chains to be grouped together and
 can lower the number of common residues</div></blockquote>
@@ -1725,34 +1705,6 @@ can lower the number of common residues</div></blockquote>
 </div>
 <div class="section" id="module-mmtbx.ncs.ncs_utils">
 <span id="mmtbx-ncs-ncs-utils-module"></span><h2><a class="toc-backref" href="#id7">mmtbx.ncs.ncs_utils module</a><a class="headerlink" href="#module-mmtbx.ncs.ncs_utils" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="mmtbx.ncs.ncs_utils.Phil_NCS">
-<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">Phil_NCS</tt><a class="headerlink" href="#mmtbx.ncs.ncs_utils.Phil_NCS" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
-<p>ncs Phil strings</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="mmtbx.ncs.ncs_utils.Phil_constraints">
-<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">Phil_constraints</tt><a class="headerlink" href="#mmtbx.ncs.ncs_utils.Phil_constraints" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
-<p>constraints Phil strings</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="mmtbx.ncs.ncs_utils.Phil_pdb_interpretation">
-<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">Phil_pdb_interpretation</tt><a class="headerlink" href="#mmtbx.ncs.ncs_utils.Phil_pdb_interpretation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
-<p>pdb_interpretation Phil strings</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="mmtbx.ncs.ncs_utils.Phil_restraints">
-<em class="property">class </em><tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">Phil_restraints</tt><a class="headerlink" href="#mmtbx.ncs.ncs_utils.Phil_restraints" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
-<p>restraints Phil strings</p>
-</dd></dl>
-
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.angles_to_rotation">
 <tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">angles_to_rotation</tt><big>(</big><em>alpha)*Ry(beta)*Rz(gamma</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.angles_to_rotation" title="Permalink to this definition">¶</a></dt>
@@ -1847,15 +1799,6 @@ objects matrix.rec) and Translation vectors (lists of objects matrix.rec)</dd>
 <dt>Returns:</dt>
 <dd>flex.double : [(alpha_1,beta_1,gamma_1,Tx_1,Ty_1,Tz_1)...]</dd>
 </dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.convert_phil_format">
-<tt class="descclassname">mmtbx.ncs.ncs_utils.</tt><tt class="descname">convert_phil_format</tt><big>(</big><em>phil_str</em>, <em>to_type='ncs'</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_utils.convert_phil_format" title="Permalink to this definition">¶</a></dt>
-<dd><p>There is no more different formats,
-so this function should be removed completely.</p>
-<p>Convert ncs Phil format according tot the to_type
-between &#8216;ncs&#8217;, &#8216;restraints&#8217;, &#8216;constraints&#8217; and &#8216;pdb_interpretation&#8217;</p>
 </dd></dl>
 
 <dl class="function">

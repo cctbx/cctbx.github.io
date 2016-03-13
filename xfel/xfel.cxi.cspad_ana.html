@@ -49,26 +49,827 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-average-tbx-module">
-<h2>xfel.cxi.cspad_ana.average_tbx module<a class="headerlink" href="#xfel-cxi-cspad-ana-average-tbx-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.average_tbx">
+<span id="xfel-cxi-cspad-ana-average-tbx-module"></span><h2>xfel.cxi.cspad_ana.average_tbx module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.average_tbx" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.average_tbx.average_mixin">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.average_tbx.</tt><tt class="descname">average_mixin</tt><big>(</big><em>address</em>, <em>avg_dirname=None</em>, <em>avg_basename=None</em>, <em>stddev_dirname=None</em>, <em>stddev_basename=None</em>, <em>max_dirname=None</em>, <em>max_basename=None</em>, <em>background_path=None</em>, <em>flags=None</em>, <em>hot_threshold=None</em>, <em>gain_threshold=None</em>, <em>noise_threshold=7</em>, <em>elastic_threshold=9</em>, <em>symnoise_threshold=4</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.average_tbx.average_mixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.common_mode.common_mode_correction</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.average_tbx.average_mixin.beginjob" title="xfel.cxi.cspad_ana.average_tbx.average_mixin.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.average_tbx.average_mixin.endjob" title="xfel.cxi.cspad_ana.average_tbx.average_mixin.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>The endjob() function finalises the mean and standard deviation images.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.average_tbx.average_mixin.event" title="xfel.cxi.cspad_ana.average_tbx.average_mixin.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.average_tbx.average_mixin.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.average_tbx.average_mixin.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The beginjob() function does one-time initialisation from
+event- or environment data.  It is called at an XTC configure
+transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.average_tbx.average_mixin.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.average_tbx.average_mixin.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The endjob() function finalises the mean and standard deviation
+images.  The distance and wavelength in all images is actually the
+mean distance and wavelength, since standard deviations or maximum
+values of those quantities do not make much sense in
+visualisation.</p>
+<p>&#64;param evt Event object (psana only)
+&#64;param env Environment object
+&#64;return    A dictionary object with accumulated statistics or &#64;c</p>
+<blockquote>
+<div>none if the contribution from the worker process is
+accounted for elsewhere</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.average_tbx.average_mixin.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.average_tbx.average_mixin.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-common-mode-module">
-<h2>xfel.cxi.cspad_ana.common_mode module<a class="headerlink" href="#xfel-cxi-cspad-ana-common-mode-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.common_mode">
+<span id="xfel-cxi-cspad-ana-common-mode-module"></span><h2>xfel.cxi.cspad_ana.common_mode module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.common_mode" title="Permalink to this headline">¶</a></h2>
+<p>Base class for dark subtraction and common-mode correction</p>
+<p>XXX Better named cspad_base?</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.common_mode.common_mode_correction">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.common_mode.</tt><tt class="descname">common_mode_correction</tt><big>(</big><em>address</em>, <em>calib_dir=None</em>, <em>common_mode_correction='none'</em>, <em>photon_threshold=None</em>, <em>two_photon_threshold=None</em>, <em>dark_path=None</em>, <em>dark_stddev=None</em>, <em>mask_path=None</em>, <em>gain_map_path=None</em>, <em>gain_map_level=None</em>, <em>cache_image=True</em>, <em>roi=None</em>, <em>laser_1_status=None</em>, <em>laser_4_status=None</em>, <em>laser_wait_time=None</em>, <em>override_beam_x=None</em>, <em>override_beam_y=None</em>, <em>bin_size=None</em>, <em>crop_rayonix=False</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.mod_event_info.mod_event_info" title="xfel.cxi.cspad_ana.mod_event_info.mod_event_info"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.mod_event_info.mod_event_info</span></tt></a></p>
+<p>Dark subtraction and alternate implementation of common mode
+substituting for cspad_tbx.</p>
+<p>Known problems: the algorithm relies on a substantial part of the
+sensor having no signal, which is not the case if a water ring
+crosses the sensor.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.beginjob" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.chebyshev_common_mode" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction.chebyshev_common_mode"><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt></a>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.chebyshev_fit" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction.chebyshev_fit"><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt></a>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.common_mode" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction.common_mode"><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt></a>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.do_photon_counting" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction.do_photon_counting"><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.do_sigma_scaling" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction.do_sigma_scaling"><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.endjob" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.event" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.common_mode.common_mode_correction.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The beginjob() function does one-time initialisation from
+event- or environment data.  It is called at an XTC configure
+transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.common_mode.common_mode_correction.chebyshev_common_mode">
+<tt class="descname">chebyshev_common_mode</tt><big>(</big><em>imgs</em>, <em>masks</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.chebyshev_common_mode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.common_mode.common_mode_correction.chebyshev_fit">
+<tt class="descname">chebyshev_fit</tt><big>(</big><em>x_obs</em>, <em>y_obs</em>, <em>w_obs</em>, <em>n_terms=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.chebyshev_fit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.common_mode.common_mode_correction.common_mode">
+<tt class="descname">common_mode</tt><big>(</big><em>img</em>, <em>stddev</em>, <em>mask</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.common_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>The common_mode() function returns the mode of image stored in
+the array pointed to by &#64;p img.  &#64;p mask must be such that the &#64;p
+stddev at the selected pixels is greater than zero.</p>
+<p>&#64;param img    2D integer array of the image
+&#64;param stddev 2D integer array of the standard deviation of each</p>
+<blockquote>
+<div>pixel in &#64;p img</div></blockquote>
+<dl class="docutils">
+<dt>&#64;param mask   2D Boolean array, &#64;c True if the pixel is to be</dt>
+<dd>included, &#64;c False otherwise</dd>
+</dl>
+<p>&#64;return       Mode of the image, as a real number</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.common_mode.common_mode_correction.do_photon_counting">
+<tt class="descname">do_photon_counting</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.do_photon_counting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.common_mode.common_mode_correction.do_sigma_scaling">
+<tt class="descname">do_sigma_scaling</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.do_sigma_scaling" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.common_mode.common_mode_correction.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.endjob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.common_mode.common_mode_correction.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-cspad-tbx-module">
-<h2>xfel.cxi.cspad_ana.cspad_tbx module<a class="headerlink" href="#xfel-cxi-cspad-ana-cspad-tbx-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.cspad_tbx">
+<span id="xfel-cxi-cspad-ana-cspad-tbx-module"></span><h2>xfel.cxi.cspad_ana.cspad_tbx module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.cspad_tbx" title="Permalink to this headline">¶</a></h2>
+<p>Toolbox for images from the Cornell SLAC Pixel Array Detector
+(CSpad).</p>
+<p>XXX Better named cspad_common?</p>
+<p>XXX Read out detector temperature (see Hart et al., 2012)?</p>
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.CsPad2x2Image">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">CsPad2x2Image</tt><big>(</big><em>data</em>, <em>config</em>, <em>sections</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.CsPad2x2Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CsPad2x2Image() function assembles a two-dimensional image
+from the Sc1 detector readout in &#64;p data.</p>
+<p>&#64;param data     Detector readout from XTC stream
+&#64;param config   XXX
+&#64;param sections XXX Directory with calibration information
+&#64;return         Assembled detector image</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.CsPadDetector">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">CsPadDetector</tt><big>(</big><em>address</em>, <em>evt</em>, <em>env</em>, <em>sections</em>, <em>right=True</em>, <em>quads=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.CsPadDetector" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CsPadDetector() function assembles a two-dimensional image
+from the Ds1 detector readout in &#64;p data3d and the calibration
+information in &#64;p sections.  XXX General question: do
+variable/function names make sense?</p>
+<p>&#64;param address  Full data source address of the DAQ device
+&#64;param evt      Event data object, a configure object
+&#64;param env      Environment object
+&#64;param sections XXX Directory with calibration information
+&#64;param right    &#64;c True to restrict rotations to right angles
+&#64;return         Assembled detector image</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.CsPadElement">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">CsPadElement</tt><big>(</big><em>data3d</em>, <em>qn</em>, <em>config</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.CsPadElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct one image for each quadrant, each with 8 sections from
+a data3d = 3 x 2*194 x 185 data array.  This function was originally
+written by Ingrid Ofte for pyana&#8217;s XtcExplorer module.  XXX
+Documentation!</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.address_split">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">address_split</tt><big>(</big><em>address</em>, <em>env=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.address_split" title="Permalink to this definition">¶</a></dt>
+<dd><p>The address_split() function splits an address into its four
+components.  Address strings are on the form
+detector-detectorID|device-deviceID, where the detectors must be in
+dir(xtc.DetInfo.Detector) and device must be in
+(xtc.DetInfo.Device).
+&#64;param address Full data source address of the DAQ device
+&#64;param env     Optional env to dereference an alias into an address
+&#64;return        Four-tuple of detector name, detector ID, device, and</p>
+<blockquote>
+<div>device ID</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.cbcaa">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">cbcaa</tt><big>(</big><em>config</em>, <em>sections</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.cbcaa" title="Permalink to this definition">¶</a></dt>
+<dd><p>The cbcaa() function uses on-disk calibration data to estimate
+the beam centre and the active detector areas.  The beam centre is
+approximated as the average of the four ASIC corners closest to the
+detector centre.  That is the first corner of the section 1 in every
+quadrant.  Note that first corner index is vertical coordinate,
+second index is the horizontal coordinate.  XXX Construct the active
+areas in &#8220;spotfinder format&#8221;, i.e. opposing corners.  XXX This is a
+really bad function name!  XXX The beam centre may be extracted from
+the ebeam object?</p>
+<p>&#64;param config   XXX
+&#64;param sections XXX Directory with calibration information
+&#64;return         Tuple of 2D beam centre, and active areas in</p>
+<blockquote>
+<div>&#8220;spotfinder format&#8221;</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.dpack">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">dpack</tt><big>(</big><em>active_areas=None</em>, <em>address=None</em>, <em>beam_center_x=None</em>, <em>beam_center_y=None</em>, <em>ccd_image_saturation=None</em>, <em>data=None</em>, <em>distance=None</em>, <em>pixel_size=0.11</em>, <em>saturated_value=None</em>, <em>timestamp=None</em>, <em>wavelength=None</em>, <em>xtal_target=None</em>, <em>min_trusted_value=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.dpack" title="Permalink to this definition">¶</a></dt>
+<dd><p>XXX Check completeness.  Should fill in sensible defaults.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.dwritef">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">dwritef</tt><big>(</big><em>d</em>, <em>dirname=None</em>, <em>basename=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.dwritef" title="Permalink to this definition">¶</a></dt>
+<dd><p>The dwritef() function pickles the dictionary pointed to by &#64;p d
+to the file whose directory and filename portions are pointed to by
+&#64;p dirname and &#64;p basename, respectively.  The directory at &#64;p
+dirname, as well as any intermediate directories, are recursively
+created if they do not already exist.  The name of the written file
+is the concatenation of the &#64;p basename parameter and a sequence
+number derived from the timestamp in the dictionary, &#64;p d.</p>
+<p>&#64;param d        Dictionary, as created by e.g. dpack()
+&#64;param dirname  Directory portion of output file
+&#64;param basename Filename prefix of output file
+&#64;return         Path of output file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.dwritef2">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">dwritef2</tt><big>(</big><em>obj</em>, <em>path</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.dwritef2" title="Permalink to this definition">¶</a></dt>
+<dd><p>The dwritef2() function writes the object &#64;p obj to the Python
+pickle file whose path is pointed to by &#64;p path.  Non-existent
+directories of &#64;p path are created as necessary.</p>
+<p>&#64;param obj  Object to write, as created by e.g. dpack()
+&#64;param path Path of output file
+&#64;return     Path of output file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.env_detz">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">env_detz</tt><big>(</big><em>address</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.env_detz" title="Permalink to this definition">¶</a></dt>
+<dd><p>The env_detz() function returns the position of the detector with
+the given address string on the z-axis in mm.  The zero-point is as
+far away as possible from the sample, and values decrease as the
+detector is moved towards the sample.
+&#64;param address Full data source address of the DAQ device
+&#64;param env     Environment object
+&#64;return        Detector z-position, in mm</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.env_distance">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">env_distance</tt><big>(</big><em>address</em>, <em>env</em>, <em>offset</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.env_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>The env_distance() function returns the distance between the
+sample and the detector with the given address string in mm.  The
+distance between the sample and the the detector&#8217;s zero-point can
+vary by an inch or more between different LCLS runs.  According to
+Sébastien Boutet the offset should be stable to within ±0.5 mm
+during a normal experiment.</p>
+<p>&#64;param address Full data source address of the DAQ device
+&#64;param env     Environment object
+&#64;param offset  Detector-sample offset in mm, corresponding to</p>
+<blockquote>
+<div>longest detector-sample distance</div></blockquote>
+<p>&#64;return        Detector-sample distance, in mm</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.env_injector_xyz">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">env_injector_xyz</tt><big>(</big><em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.env_injector_xyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the coordinates of the sample injector.  XXX units unknown?</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.env_laser_status">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">env_laser_status</tt><big>(</big><em>env</em>, <em>laser_id</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.env_laser_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The return value is a bool that indicates whether the laser in
+question was on for that particular shot.  Bear in mind that sample
+hit by the laser will only encounter the X-rays some time after,
+depending on the flow rate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.env_sifoil">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">env_sifoil</tt><big>(</big><em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.env_sifoil" title="Permalink to this definition">¶</a></dt>
+<dd><p>The env_sifoil() function returns the total thickness of Si-foil,
+in um, that attenuates the beam.  According to an e-mail from Garth
+Williams, the centres of the attenuators are in the beam at around 0
+mm, and leave the beam at something like -7 mm.  The &#8220;out&#8221; position
+is at approximately -15 mm.</p>
+<p>&#64;param env Environment object
+&#64;return    Total thickness of attenuating Si-foil</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.env_wavelength_sxr">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">env_wavelength_sxr</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.env_wavelength_sxr" title="Permalink to this definition">¶</a></dt>
+<dd><p>The env_wavelength_sxr() function returns the wavelength in
+Ångström of the environment pointed to by &#64;p env at the time of the
+event &#64;p evt.  The function returns a positive value or &#64;c None if
+no wavelength is available for the event.  See Heimann et al. (2011)
+Rev. Sci. Instrum. 82, 093104.</p>
+<dl class="docutils">
+<dt>&#64;note The wavelength in eV is 12398.4187 divided by the value</dt>
+<dd>returned from env_wavelength_sxr().</dd>
+</dl>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object
+&#64;return    Wavelength, in Ångström</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.evt_beam_charge">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">evt_beam_charge</tt><big>(</big><em>evt</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.evt_beam_charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>The evt_beam_charge() function returns the charge of the pulse in
+nC.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;return    Pulse charge, in nC</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.evt_get_quads">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">evt_get_quads</tt><big>(</big><em>address</em>, <em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.evt_get_quads" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.evt_pulse_energy">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">evt_pulse_energy</tt><big>(</big><em>evt</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.evt_pulse_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The evt_pulse_energy() function returns the energy, or the
+intensity, of the pulse in arbitrary units.  The returned value
+should be proportional to the number of photons in the pulse, and
+may be negative due to noise.</p>
+<dl class="docutils">
+<dt>&#64;note An absolute, but less accurate, estimate of the number of</dt>
+<dd>photons in the pulse may be obtained from the gas monitor
+detector&#8217;s fMilliJoulesPerPulse value.</dd>
+</dl>
+<p>&#64;param evt Event data object, a configure object
+&#64;return    Pulse intensity, in arbitrary units</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.evt_pulse_length">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">evt_pulse_length</tt><big>(</big><em>evt</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.evt_pulse_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>The evt_pulse_length() function returns the pulse length in fs.
+It is calculated as the ratio of the charge (in nC) and the peak
+current (in A).</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;return    Pulse length, in fs</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.evt_repetition_rate">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">evt_repetition_rate</tt><big>(</big><em>evt</em>, <em>address='*'</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.evt_repetition_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The evt_repetition_rate() function returns the repetition rate of
+the instrument in Hz.  See
+<a class="reference external" href="https://confluence.slac.stanford.edu/display/PCDS/EVR+Event+Codes">https://confluence.slac.stanford.edu/display/PCDS/EVR+Event+Codes</a></p>
+<p>&#64;param evt     Event data object, a configure object
+&#64;param address Data source address of the DAQ device
+&#64;return        Integer repetition rate, in Hz</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.evt_seqno">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">evt_seqno</tt><big>(</big><em>evt=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.evt_seqno" title="Permalink to this definition">¶</a></dt>
+<dd><p>The evt_seqno() function returns string representation of a
+sequence number.  If &#64;p evt is not &#64;c None the return value reflects
+the time at which &#64;p evt occurred, otherwise the current time is
+used.  If &#64;p evt does not contain a time, evt_seqno() returns &#64;c
+None.  XXX Should probably return an integer type instead?</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;return    String representation of sequence number</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.evt_time">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">evt_time</tt><big>(</big><em>evt=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.evt_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The evt_time() function returns the time of the event &#64;p evt since
+midnight, 1 January 1970 UTC (Unix time) to millisecond precision.
+If &#64;p evt does not contain a time, evt_time() returns &#64;c None.  If
+&#64;p evt is &#64;c None the return value reflects current time is used.</p>
+<dl class="docutils">
+<dt>&#64;note Millisecond precision is sufficient, because at 120 Hz, shots</dt>
+<dd>are taken at 8.3 ms intervals.</dd>
+</dl>
+<p>&#64;param evt Event data object, a configure object
+&#64;return    Unix time as a tuple of seconds and milliseconds</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.evt_timestamp">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">evt_timestamp</tt><big>(</big><em>t=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.evt_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The evt_timestamp() function returns a string representation of
+an extended human-readable ISO 8601 timestamp.  If &#64;p t is &#64;c None
+the current time is used.  The function returns &#64;c None on failure.</p>
+<p>&#64;param t Tuple of the time in seconds and milliseconds
+&#64;return  Human-readable ISO 8601 timestamp in string representation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.evt_wavelength">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">evt_wavelength</tt><big>(</big><em>evt</em>, <em>delta_k=0</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.evt_wavelength" title="Permalink to this definition">¶</a></dt>
+<dd><p>The evt_wavelength() function returns the wavelength in Ångström
+of the event pointed to by &#64;p evt.  From Margaritondo &amp; Rebernik
+Ribic (2011): the dimensionless relativistic γ-factor is derived
+from beam energy in MeV and the electron rest mass, K is a
+dimensionless &#8220;undulator parameter&#8221;, and L is the macroscopic
+undulator period in Ångström.  See also
+<a class="reference external" href="http://ast.coe.berkeley.edu/srms/2007/Lec10.pdf">http://ast.coe.berkeley.edu/srms/2007/Lec10.pdf</a>.</p>
+<p>&#64;param evt     Event data object, a configure object
+&#64;param delta_k Optional K-value correction
+&#64;return        Wavelength, in Ångström</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.getOptBool">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">getOptBool</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.getOptBool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.getOptEvalOrString">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">getOptEvalOrString</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.getOptEvalOrString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow python code macros in the pyana configuration file, e.g.
+dark_path   = &#8220;/location_of_darks/r%%04d/Ds1-avg.pickle&#8221;%%(max([{True:dark,False:0}[3 &gt; dark] for dark in [1,2,6,9,12,14,17,19]]))</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.getOptFloat">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">getOptFloat</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.getOptFloat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a single float.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.getOptInteger">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">getOptInteger</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.getOptInteger" title="Permalink to this definition">¶</a></dt>
+<dd><p>XXX Return a single integer.  This function was originally
+written by Ingrid Ofte for pyana&#8217;s XtcExplorer module.  XXX What if
+conversion fails?</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.getOptROI">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">getOptROI</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.getOptROI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a tuple of the region of interest.
+Format: roi = fast_low:fast_high,slow_low:slow_high</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.getOptString">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">getOptString</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.getOptString" title="Permalink to this definition">¶</a></dt>
+<dd><p>XXX Return the string, strip of any white space (make sure there
+are no newline characters here).  This function was originally
+written by Ingrid Ofte for pyana&#8217;s XtcExplorer module.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.getOptStrings">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">getOptStrings</tt><big>(</big><em>s</em>, <em>default=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.getOptStrings" title="Permalink to this definition">¶</a></dt>
+<dd><p>XXX Return a list of strings.  This function was originally
+written by Ingrid Ofte for pyana&#8217;s XtcExplorer module.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.get_ebeam">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">get_ebeam</tt><big>(</big><em>evt</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.get_ebeam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.hdf5pack">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">hdf5pack</tt><big>(</big><em>hdf5_file</em>, <em>active_areas=None</em>, <em>address=None</em>, <em>attenuation=None</em>, <em>beam_center_x=None</em>, <em>beam_center_y=None</em>, <em>ccd_image_saturation=None</em>, <em>data=None</em>, <em>distance=None</em>, <em>pixel_size=None</em>, <em>pulse_length=None</em>, <em>saturated_value=None</em>, <em>timestamp=None</em>, <em>wavelength=None</em>, <em>xtal_target=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.hdf5pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar but far from identical to the HDF5 output from CASS.  XXX
+Poor diagnostics&#8211;we don&#8217;t know if it failed or not.</p>
+<dl class="docutils">
+<dt>&#64;note Does not include the deprecated SEQUENCE_NUMBER attribute.</dt>
+<dd>While some redundant items are written in order to keep the
+HDF5 synchronised to the pickle format, neither SIZE1 nor
+SIZE2 are included.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.image">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">image</tt><big>(</big><em>address</em>, <em>config</em>, <em>evt</em>, <em>env</em>, <em>sections=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assemble the uint16 detector image, and sum it up as int32.  Sum
+the image of squared intensities as uint64.  XXX Documentation! XXX
+Would be nice to get rid of the constant string names.  XXX Better
+named evt_image()?</p>
+<p>&#64;param address  Full data source address of the DAQ device
+&#64;param config   XXX This should go&#8211;get up-to-date object on the fly!
+&#64;param evt      Event data object, a configure object
+&#64;param env      Environment object
+&#64;param sections XXX
+&#64;return         XXX</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.image_xpp">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">image_xpp</tt><big>(</big><em>address</em>, <em>evt</em>, <em>env</em>, <em>aa</em>, <em>quads=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.image_xpp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assemble the uint16 detector image, see also
+cspad_tbx.CsPadDetector().  XXX Documentation! XXX Would be nice to
+get rid of the constant string names.  XXX Better named evt_image()?</p>
+<p>&#64;param address Full data source address of the DAQ device
+&#64;param evt     Event data object, a configure object
+&#64;param env     Environment object
+&#64;param aa      Active areas, in lieu of full metrology object
+&#64;param quads   Data, if None get it from the event
+&#64;return        XXX</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.iplace">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">iplace</tt><big>(</big><em>dst</em>, <em>src</em>, <em>angle</em>, <em>center</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.iplace" title="Permalink to this definition">¶</a></dt>
+<dd><p>The iplace() function places &#64;p src in &#64;p dst centred on &#64;p
+center after rotating it by &#64;p angle degrees counter-clockwise.
+The source image is mapped onto the destination image by bilinear
+interpolation.  While this may introduce interpolation artifacts
+it is significantly simpler than many other interpolation
+methods&#8211;and bog slow.</p>
+<p>&#64;p dst    Destination image
+&#64;p src    Source image
+&#64;p angle  Rotation angle, in degrees
+&#64;p center Centre of &#64;p src in &#64;p dst, after rotation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.old_address_to_new_address">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">old_address_to_new_address</tt><big>(</big><em>address</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.old_address_to_new_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change between old and new style detector addresses.
+I.E. CxiDs1-0|Cspad-0 becomes CxiDs1.0:Cspad.0
+&#64;param address detector address to convert</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.pathsubst">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">pathsubst</tt><big>(</big><em>format_string</em>, <em>evt</em>, <em>env</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.pathsubst" title="Permalink to this definition">¶</a></dt>
+<dd><p>The pathsubst() function provides variable substitution and value
+formatting as described in PEP 3101.  The function returns a copy of
+the input string, &#64;p format_string, with field names replaced by
+their appropriate values as determined by either &#64;p evt, &#64;p env, or
+the user-supplied keyworded arguments, &#64;p kwargs.</p>
+<p>chunk:      Chunk number or -1 if unknown.</p>
+<dl class="docutils">
+<dt>epoch:      Time of the event, in number of seconds since midnight,</dt>
+<dd>1 January 1970 UTC (Unix time), to millisecond
+precision.</dd>
+</dl>
+<p>experiment: Experiment name, or empty string if unknown.</p>
+<p>expNum:     Experiment number or -1 if unknown.</p>
+<p>instrument: Instrument name, or empty string if unknown.</p>
+<dl class="docutils">
+<dt>iso8601:    The time of the event as an extended human-readable ISO</dt>
+<dd>8601 timestamp, to millisecond precision, or the empty
+string if unknown.  Not suitable for file names, because
+it contains characters that do not play well with
+certain file systems (e.g. NTFS).</dd>
+</dl>
+<p>jobName:    Job name.</p>
+<dl class="docutils">
+<dt>jobNameSub: Combination of job name and subprocess index as a string</dt>
+<dd>which is unique for all subprocesses in a job.</dd>
+</dl>
+<p>run:        Run number or -1 if unknown.</p>
+<p>seqno:      Sequence number or -1 if unknown.</p>
+<p>stream:     Stream number or -1 if unknown.</p>
+<dl class="docutils">
+<dt>subprocess: Subprocess number.  This is a non-negative integer in</dt>
+<dd>the range [0, nproc) when multiprocessing, or -1 for a
+single-process job.</dd>
+</dl>
+<p>user:       The &#8220;login name&#8221; of the user.</p>
+<p>In addition to the standard conversion flags, the pathsubst()
+function implements the &lt;code&gt;!u&lt;/code&gt; and &lt;code&gt;!l&lt;/code&gt; flags
+for conversion to upper- and lower-case strings, respectively.</p>
+<p>Literal braces can be escaped by doubling, i.e. &lt;code&gt;{&lt;/code&gt; is
+written &lt;code&gt;{{&lt;/code&gt;, and &lt;code&gt;}&lt;/code&gt; as &lt;code&gt;}}&lt;/code&gt;.</p>
+<dl class="docutils">
+<dt>&#64;note Chunk number, expNum, run number, and stream number are</dt>
+<dd>determined from the input XTC file name.  If a file does not
+adhere to the standard format, it may not be possible to
+determine these quantities.</dd>
+<dt>&#64;note String substitution requires PSDM pyana version 0.10.3 or</dt>
+<dd>greater.</dd>
+</dl>
+<p>&#64;param format_string String containing replacement fields
+&#64;param evt           Event data object, a configure object
+&#64;param env           Environment object
+&#64;param kwargs        User-supplied replacements, on the form</p>
+<blockquote>
+<div>&lt;code&gt;field_name=value&lt;/code&gt;</div></blockquote>
+<dl class="docutils">
+<dt>&#64;return               Copy of &#64;p format_string, with replacement</dt>
+<dd>fields substituted by their appropriate values</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.rplace">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">rplace</tt><big>(</big><em>dst</em>, <em>src</em>, <em>angle</em>, <em>center</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.rplace" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rplace() function places &#64;p src in &#64;p dst centred on &#64;p
+centre after rotating it by &#64;p angle degrees counter-clockwise.
+The rotation angle is rounded to the nearest integer multiple of
+90 degrees before transformation.</p>
+<p>&#64;p dst    Destination image
+&#64;p src    Source image
+&#64;p angle  Rotation angle, in degrees
+&#64;p center Centre of &#64;p src in &#64;p dst, after rotation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.cspad_tbx.write_tiff">
+<tt class="descclassname">xfel.cxi.cspad_ana.cspad_tbx.</tt><tt class="descname">write_tiff</tt><big>(</big><em>d</em>, <em>dirname=None</em>, <em>basename=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.cspad_tbx.write_tiff" title="Permalink to this definition">¶</a></dt>
+<dd><p>The write an image tiff.  Basic implementation no frills, no metadata</p>
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-display-calib-module">
-<h2>xfel.cxi.cspad_ana.display_calib module<a class="headerlink" href="#xfel-cxi-cspad-ana-display-calib-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.display_calib">
+<span id="xfel-cxi-cspad-ana-display-calib-module"></span><h2>xfel.cxi.cspad_ana.display_calib module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.display_calib" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.display_calib.display_calib">
+<tt class="descclassname">xfel.cxi.cspad_ana.display_calib.</tt><tt class="descname">display_calib</tt><big>(</big><em>dirname</em>, <em>right</em>, <em>verbose</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.display_calib.display_calib" title="Permalink to this definition">¶</a></dt>
+<dd><p>XXX Docstring, in fact revise all the documentation</p>
+<p>&#64;param dirname Directory with calibration information
+&#64;param right   &#64;c True to restrict rotations to right angles
+&#64;param verbose &#64;c True to print ASIC coordinates</p>
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-histogram-finalise-module">
-<h2>xfel.cxi.cspad_ana.histogram_finalise module<a class="headerlink" href="#xfel-cxi-cspad-ana-histogram-finalise-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.histogram_finalise">
+<span id="xfel-cxi-cspad-ana-histogram-finalise-module"></span><h2>xfel.cxi.cspad_ana.histogram_finalise module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.histogram_finalise" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.histogram_finalise.finalise_one_run">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.histogram_finalise.</tt><tt class="descname">finalise_one_run</tt><big>(</big><em>scratch_dir</em>, <em>pickle_pattern=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.histogram_finalise.finalise_one_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.histogram_finalise.histogram_finalise">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.histogram_finalise.</tt><tt class="descname">histogram_finalise</tt><big>(</big><em>output_dirname</em>, <em>runs</em>, <em>pickle_pattern=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.histogram_finalise.histogram_finalise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.histogram_finalise.update_histograms">
+<tt class="descclassname">xfel.cxi.cspad_ana.histogram_finalise.</tt><tt class="descname">update_histograms</tt><big>(</big><em>hist_dict1</em>, <em>hist_dict2</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.histogram_finalise.update_histograms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-hitfinder-tbx-module">
-<h2>xfel.cxi.cspad_ana.hitfinder_tbx module<a class="headerlink" href="#xfel-cxi-cspad-ana-hitfinder-tbx-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.hitfinder_tbx">
+<span id="xfel-cxi-cspad-ana-hitfinder-tbx-module"></span><h2>xfel.cxi.cspad_ana.hitfinder_tbx module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.hitfinder_tbx" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.hitfinder_tbx.</tt><tt class="descname">distl_hitfinder</tt><a class="headerlink" href="#xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.distl_filter" title="xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.distl_filter"><tt class="xref py py-obj docutils literal"><span class="pre">distl_filter</span></tt></a>(address,&nbsp;cspad_img,&nbsp;distance,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.get_active_data" title="xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.get_active_data"><tt class="xref py py-obj docutils literal"><span class="pre">get_active_data</span></tt></a>(imgobj,&nbsp;phil)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.set_up_hitfinder" title="xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.set_up_hitfinder"><tt class="xref py py-obj docutils literal"><span class="pre">set_up_hitfinder</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.distl_filter">
+<tt class="descname">distl_filter</tt><big>(</big><em>address</em>, <em>cspad_img</em>, <em>distance</em>, <em>timestamp</em>, <em>wavelength</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.distl_filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.get_active_data">
+<tt class="descname">get_active_data</tt><big>(</big><em>imgobj</em>, <em>phil</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.get_active_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.set_up_hitfinder">
+<tt class="descname">set_up_hitfinder</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder.set_up_hitfinder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-average-module">
-<h2>xfel.cxi.cspad_ana.mod_average module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-average-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_average">
+<span id="xfel-cxi-cspad-ana-mod-average-module"></span><h2>xfel.cxi.cspad_ana.mod_average module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_average" title="Permalink to this headline">¶</a></h2>
+<p>First- and second-order statistics for CS-PAD images</p>
+<p>The mod_average user analysis module computes the (arithmetic) mean and the
+standard deviation from the images in an XTC stream.  On successful
+completion, the mean and standard deviation images are written to disk
+as pickled dictionaries.</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_average.mod_average">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_average.</tt><tt class="descname">mod_average</tt><big>(</big><em>address</em>, <em>max_out=None</em>, <em>mean_out=None</em>, <em>std_out=None</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_average.mod_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.average_tbx.average_mixin" title="xfel.cxi.cspad_ana.average_tbx.average_mixin"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.average_tbx.average_mixin</span></tt></a></p>
+<p>Class for generating first- and second-order statistics within
+the pyana framework</p>
+<p>XXX Maybe this module should be renamed to mod_stat12, mod_sstat or
+some such?</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_average.mod_average.beginjob" title="xfel.cxi.cspad_ana.mod_average.mod_average.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_average.mod_average.endjob" title="xfel.cxi.cspad_ana.mod_average.mod_average.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>The endjob() function writes the mean and standard deviation images to disk.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_average.mod_average.event" title="xfel.cxi.cspad_ana.mod_average.mod_average.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_average.mod_average.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_average.mod_average.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The beginjob() function does one-time initialisation from
+event- or environment data.  It is called at an XTC configure
+transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_average.mod_average.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_average.mod_average.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The endjob() function writes the mean and standard deviation images
+to disk.</p>
+<p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_average.mod_average.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_average.mod_average.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="xfel-cxi-cspad-ana-mod-average-cbf-module">
 <h2>xfel.cxi.cspad_ana.mod_average_cbf module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-average-cbf-module" title="Permalink to this headline">¶</a></h2>
@@ -85,47 +886,907 @@
 <div class="section" id="xfel-cxi-cspad-ana-mod-cspad-cbf-dump-module">
 <h2>xfel.cxi.cspad_ana.mod_cspad_cbf_dump module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-cspad-cbf-dump-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-daq-status-module">
-<h2>xfel.cxi.cspad_ana.mod_daq_status module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-daq-status-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_daq_status">
+<span id="xfel-cxi-cspad-ana-mod-daq-status-module"></span><h2>xfel.cxi.cspad_ana.mod_daq_status module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_daq_status" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_daq_status.StatusFrame_thread">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_daq_status.</tt><tt class="descname">StatusFrame_thread</tt><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_daq_status.StatusFrame_thread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/threading.html#threading.Thread" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">threading.Thread</span></tt></a></p>
+<p>The XrayFrame_thread class allows Run MainLoop() to be run as a
+thread, which is necessary because all calls to wxPython must be
+made from the same thread that originally imported wxPython.</p>
+<p>This is all based on &#8220;Running MainLoop in a separate thread&#8221;,
+<a class="reference external" href="http://wiki.wxpython.org/MainLoopAsThread">http://wiki.wxpython.org/MainLoopAsThread</a>.</p>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">daemon</span></tt></td>
+<td>A boolean value indicating whether this thread is a daemon thread (True) or not (False).</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">ident</span></tt></td>
+<td>Thread identifier of this thread or None if it has not been started.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">name</span></tt></td>
+<td>A string used for identification purposes only.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">getName</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">isAlive</span></tt>()</td>
+<td>Return whether the thread is alive.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">isDaemon</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">is_alive</span></tt>()</td>
+<td>Return whether the thread is alive.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">join</span></tt>([timeout])</td>
+<td>Wait until the thread terminates.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_daq_status.StatusFrame_thread.run" title="xfel.cxi.cspad_ana.mod_daq_status.StatusFrame_thread.run"><tt class="xref py py-obj docutils literal"><span class="pre">run</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">setDaemon</span></tt>(daemonic)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">setName</span></tt>(name)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">start</span></tt>()</td>
+<td>Start the thread&#8217;s activity.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_daq_status.StatusFrame_thread.start_local" title="xfel.cxi.cspad_ana.mod_daq_status.StatusFrame_thread.start_local"><tt class="xref py py-obj docutils literal"><span class="pre">start_local</span></tt></a>()</td>
+<td>The start_local() function calls the run() function through self.start_orig, and exists only after self.lock has been released.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_daq_status.StatusFrame_thread.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_daq_status.StatusFrame_thread.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_daq_status.StatusFrame_thread.start_local">
+<tt class="descname">start_local</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_daq_status.StatusFrame_thread.start_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>The start_local() function calls the run() function through
+self.start_orig, and exists only after self.lock has been
+released.  This eliminates a race condition which could cause
+updates to be sent to non-existent frame.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_daq_status.</tt><tt class="descname">mod_daq_status</tt><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.beginjob" title="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.endjob" title="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>&#64;param evt Event object (psana only)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.event" title="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.initialize" title="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.initialize"><tt class="xref py py-obj docutils literal"><span class="pre">initialize</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.update_plot" title="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.update_plot"><tt class="xref py py-obj docutils literal"><span class="pre">update_plot</span></tt></a>()</td>
+<td>Post an update event with current plot values to redraw the window.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.initialize">
+<tt class="descname">initialize</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.update_plot">
+<tt class="descname">update_plot</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_daq_status.mod_daq_status.update_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post an update event with current plot values to redraw the window.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-dump-module">
-<h2>xfel.cxi.cspad_ana.mod_dump module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-dump-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_dump">
+<span id="xfel-cxi-cspad-ana-mod-dump-module"></span><h2>xfel.cxi.cspad_ana.mod_dump module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_dump" title="Permalink to this headline">¶</a></h2>
+<p>Output image to the file system.</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_dump.mod_dump">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_dump.</tt><tt class="descname">mod_dump</tt><big>(</big><em>address</em>, <em>out_dirname</em>, <em>out_basename</em>, <em>out_format='pickle'</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_dump.mod_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.common_mode.common_mode_correction</span></tt></a></p>
+<p>Class for outputting images to the file system within the pyana
+analysis framework.  XXX This should eventually deprecate the
+&#8216;write_dict&#8217; dispatch from mod_hitfind.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt>(obj1[,&nbsp;obj2])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_dump.mod_dump.event" title="xfel.cxi.cspad_ana.mod_dump.mod_dump.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_dump.mod_dump.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_dump.mod_dump.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.  It
+outputs the detector image associated with the event &#64;p evt to the
+file system.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-dump-bitmap-module">
-<h2>xfel.cxi.cspad_ana.mod_dump_bitmap module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-dump-bitmap-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_dump_bitmap">
+<span id="xfel-cxi-cspad-ana-mod-dump-bitmap-module"></span><h2>xfel.cxi.cspad_ana.mod_dump_bitmap module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_dump_bitmap" title="Permalink to this headline">¶</a></h2>
+<p>Output image to the file system.</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_dump_bitmap.mod_dump_bitmap">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_dump_bitmap.</tt><tt class="descname">mod_dump_bitmap</tt><big>(</big><em>address</em>, <em>out_dirname</em>, <em>out_basename</em>, <em>binning=1</em>, <em>brightness=1.0</em>, <em>color_scheme=0</em>, <em>format='png'</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_dump_bitmap.mod_dump_bitmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.common_mode.common_mode_correction</span></tt></a></p>
+<p>Class for outputting images to the file system within the pyana
+analysis framework.  XXX This should eventually deprecate the
+&#8216;write_dict&#8217; dispatch from mod_hitfind.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt>(obj1[,&nbsp;obj2])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_dump_bitmap.mod_dump_bitmap.event" title="xfel.cxi.cspad_ana.mod_dump_bitmap.mod_dump_bitmap.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_dump_bitmap.mod_dump_bitmap.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_dump_bitmap.mod_dump_bitmap.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.  It
+outputs the detector image associated with the event &#64;p evt to the
+file system.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-event-info-module">
-<h2>xfel.cxi.cspad_ana.mod_event_info module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-event-info-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_event_info">
+<span id="xfel-cxi-cspad-ana-mod-event-info-module"></span><h2>xfel.cxi.cspad_ana.mod_event_info module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_event_info" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_event_info.laser_status">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_event_info.</tt><tt class="descname">laser_status</tt><big>(</big><em>laser_id</em>, <em>status=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_event_info.laser_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_event_info.laser_status.status" title="xfel.cxi.cspad_ana.mod_event_info.laser_status.status"><tt class="xref py py-obj docutils literal"><span class="pre">status</span></tt></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="70%" />
+<col width="30%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>status_change_timestamp</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_event_info.laser_status.ms_since_last_status_change" title="xfel.cxi.cspad_ana.mod_event_info.laser_status.ms_since_last_status_change"><tt class="xref py py-obj docutils literal"><span class="pre">ms_since_last_status_change</span></tt></a>(evt_time)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_event_info.laser_status.set_status" title="xfel.cxi.cspad_ana.mod_event_info.laser_status.set_status"><tt class="xref py py-obj docutils literal"><span class="pre">set_status</span></tt></a>(status,&nbsp;evt_time)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_event_info.laser_status.ms_since_last_status_change">
+<tt class="descname">ms_since_last_status_change</tt><big>(</big><em>evt_time</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_event_info.laser_status.ms_since_last_status_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_event_info.laser_status.set_status">
+<tt class="descname">set_status</tt><big>(</big><em>status</em>, <em>evt_time</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_event_info.laser_status.set_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xfel.cxi.cspad_ana.mod_event_info.laser_status.status">
+<tt class="descname">status</tt><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_event_info.laser_status.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xfel.cxi.cspad_ana.mod_event_info.laser_status.status_change_timestamp">
+<tt class="descname">status_change_timestamp</tt><em class="property"> = None</em><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_event_info.laser_status.status_change_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_event_info.mod_event_info">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_event_info.</tt><tt class="descname">mod_event_info</tt><big>(</big><em>address</em>, <em>detz_offset=575</em>, <em>check_beam_status=True</em>, <em>verbose=False</em>, <em>delta_k=0.0</em>, <em>override_energy=None</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_event_info.mod_event_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Extract basic information from the evt and env objects for each event.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_event_info.mod_event_info.beginjob" title="xfel.cxi.cspad_ana.mod_event_info.mod_event_info.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_event_info.mod_event_info.endjob" title="xfel.cxi.cspad_ana.mod_event_info.mod_event_info.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_event_info.mod_event_info.event" title="xfel.cxi.cspad_ana.mod_event_info.mod_event_info.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_event_info.mod_event_info.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_event_info.mod_event_info.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The beginjob() function does one-time initialisation from
+event- or environment data.  It is called at an XTC configure
+transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_event_info.mod_event_info.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_event_info.mod_event_info.endjob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_event_info.mod_event_info.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_event_info.mod_event_info.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-filter-module">
-<h2>xfel.cxi.cspad_ana.mod_filter module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-filter-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_filter">
+<span id="xfel-cxi-cspad-ana-mod-filter-module"></span><h2>xfel.cxi.cspad_ana.mod_filter module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_filter" title="Permalink to this headline">¶</a></h2>
+<p>The mod_filter module extracts timestamps from a file and uses them
+to filter events.  A single valid timestamp can be embedded anywhere
+in a word, where individual words must be separated by any amount of
+white space.  Lines where the first non-white space character is a
+hash mark are ignored.</p>
+<p>By default, only events whose timestamps match are passed through to
+downwind modules.  If &#64;c negate is &#64;c True, mismatching events are
+selected instead.  Events with missing timestamps are always skipped.</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_filter.mod_filter">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_filter.</tt><tt class="descname">mod_filter</tt><big>(</big><em>timestamps_path=None</em>, <em>timestamps_interval=None</em>, <em>negate='False'</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_filter.mod_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_filter.mod_filter.beginjob" title="xfel.cxi.cspad_ana.mod_filter.mod_filter.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_filter.mod_filter.endjob" title="xfel.cxi.cspad_ana.mod_filter.mod_filter.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>&#64;param evt Event object (psana only)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_filter.mod_filter.event" title="xfel.cxi.cspad_ana.mod_filter.mod_filter.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function puts a &#8220;skip_event&#8221; object with value &#64;c True into the event if the shot is to be skipped.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_filter.mod_filter.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_filter.mod_filter.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_filter.mod_filter.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_filter.mod_filter.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_filter.mod_filter.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_filter.mod_filter.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function puts a &#8220;skip_event&#8221; object with value &#64;c
+True into the event if the shot is to be skipped.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-hdf5-module">
-<h2>xfel.cxi.cspad_ana.mod_hdf5 module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-hdf5-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_hdf5">
+<span id="xfel-cxi-cspad-ana-mod-hdf5-module"></span><h2>xfel.cxi.cspad_ana.mod_hdf5 module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_hdf5" title="Permalink to this headline">¶</a></h2>
+<p>The mod_hdf5 module writes all events to a single HDF5
+(hierarchical data format, version 5) file.  XXX Not sure how this
+module will behave under multiprocessing.</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_hdf5.mod_hdf5">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_hdf5.</tt><tt class="descname">mod_hdf5</tt><big>(</big><em>address</em>, <em>path</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_hdf5.mod_hdf5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.common_mode.common_mode_correction</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt>(obj1[,&nbsp;obj2])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_hdf5.mod_hdf5.event" title="xfel.cxi.cspad_ana.mod_hdf5.mod_hdf5.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function creates a HDF5 group for the event, unless it contains a &#8220;skip_event&#8221; object with value &#64;c True.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_hdf5.mod_hdf5.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_hdf5.mod_hdf5.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function creates a HDF5 group for the event, unless
+it contains a &#8220;skip_event&#8221; object with value &#64;c True.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-hitfind-module">
-<h2>xfel.cxi.cspad_ana.mod_hitfind module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-hitfind-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_hitfind">
+<span id="xfel-cxi-cspad-ana-mod-hitfind-module"></span><h2>xfel.cxi.cspad_ana.mod_hitfind module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_hitfind" title="Permalink to this headline">¶</a></h2>
+<p>Hitfinding for CSPad images</p>
+<p>XXX</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_hitfind.</tt><tt class="descname">mod_hitfind</tt><big>(</big><em>address</em>, <em>dispatch=None</em>, <em>integration_dirname=None</em>, <em>integration_basename=None</em>, <em>out_dirname=None</em>, <em>out_basename=None</em>, <em>roi=None</em>, <em>distl_min_peaks=None</em>, <em>distl_flags=None</em>, <em>threshold=None</em>, <em>xtal_target=None</em>, <em>negate_hits=False</em>, <em>trial_id=None</em>, <em>db_logging=False</em>, <em>progress_logging=False</em>, <em>sql_buffer_size=1</em>, <em>db_host=None</em>, <em>db_name=None</em>, <em>db_table_name=None</em>, <em>db_experiment_tag=None</em>, <em>db_user=None</em>, <em>db_password=None</em>, <em>db_tags=None</em>, <em>rungroup_id=None</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.common_mode.common_mode_correction</span></tt></a>, <a class="reference internal" href="#xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder" title="xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.hitfinder_tbx.distl_hitfinder</span></tt></a></p>
+<p>Class for hitfinding within the pyana framework</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.beginjob" title="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.commit_entries" title="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.commit_entries"><tt class="xref py py-obj docutils literal"><span class="pre">commit_entries</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.commit_progress_entries" title="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.commit_progress_entries"><tt class="xref py py-obj docutils literal"><span class="pre">commit_progress_entries</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">distl_filter</span></tt>(address,&nbsp;cspad_img,&nbsp;distance,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.endjob" title="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>The endjob() function logs the number of processed shots.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.event" title="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_active_data</span></tt>(imgobj,&nbsp;phil)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.queue_entry" title="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.queue_entry"><tt class="xref py py-obj docutils literal"><span class="pre">queue_entry</span></tt></a>(entry)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.queue_progress_entry" title="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.queue_progress_entry"><tt class="xref py py-obj docutils literal"><span class="pre">queue_progress_entry</span></tt></a>(entry)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">set_up_hitfinder</span></tt>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The beginjob() function does one-time initialisation from
+event- or environment data.  It is called at an XTC configure
+transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.commit_entries">
+<tt class="descname">commit_entries</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.commit_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.commit_progress_entries">
+<tt class="descname">commit_progress_entries</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.commit_progress_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The endjob() function logs the number of processed shots.</p>
+<p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.
+XXX more?</p>
+<p>Previously, common-mode correction was applied only after initial
+threshold filtering.  Since the common_mode class applies the
+(lengthy) common-mode correction immediately after reading the
+image from the stream, this optimisation is currently not
+(elegantly) doable.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.queue_entry">
+<tt class="descname">queue_entry</tt><big>(</big><em>entry</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.queue_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.queue_progress_entry">
+<tt class="descname">queue_progress_entry</tt><big>(</big><em>entry</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_hitfind.mod_hitfind.queue_progress_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-illumination-filter-module">
-<h2>xfel.cxi.cspad_ana.mod_illumination_filter module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-illumination-filter-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_illumination_filter">
+<span id="xfel-cxi-cspad-ana-mod-illumination-filter-module"></span><h2>xfel.cxi.cspad_ana.mod_illumination_filter module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_illumination_filter" title="Permalink to this headline">¶</a></h2>
+<p>The mod_illumination_filter module filter events by their
+illumination condition.  When illumination conditions matter, laser 4
+should always be off, and laser 1 must have had its state changed for
+least laser_wait_time ms before the event.  Events with missing
+timestamps are always skipped.</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_illumination_filter.</tt><tt class="descname">mod_illumination_filter</tt><big>(</big><em>illumination</em>, <em>laser_wait_time='2000'</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.beginjob" title="xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.endjob" title="xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>&#64;param evt Event object (psana only)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.event" title="xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function puts a &#8220;skip_event&#8221; object with value &#64;c True into the event if the shot is to be skipped.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_illumination_filter.mod_illumination_filter.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function puts a &#8220;skip_event&#8221; object with value &#64;c
+True into the event if the shot is to be skipped.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="xfel-cxi-cspad-ana-mod-ledge-module">
 <h2>xfel.cxi.cspad_ana.mod_ledge module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-ledge-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-mar-module">
-<h2>xfel.cxi.cspad_ana.mod_mar module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-mar-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_mar">
+<span id="xfel-cxi-cspad-ana-mod-mar-module"></span><h2>xfel.cxi.cspad_ana.mod_mar module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_mar" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_mar.mod_mar">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_mar.</tt><tt class="descname">mod_mar</tt><big>(</big><em>address</em>, <em>directory</em>, <em>beam_x=None</em>, <em>beam_y=None</em>, <em>template=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_mar.mod_mar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_mar.mod_mar.begincalibcycle" title="xfel.cxi.cspad_ana.mod_mar.mod_mar.begincalibcycle"><tt class="xref py py-obj docutils literal"><span class="pre">begincalibcycle</span></tt></a>(evt,&nbsp;env)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_mar.mod_mar.beginjob" title="xfel.cxi.cspad_ana.mod_mar.mod_mar.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_mar.mod_mar.endjob" title="xfel.cxi.cspad_ana.mod_mar.mod_mar.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>&#64;param evt Event object (psana only)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_mar.mod_mar.event" title="xfel.cxi.cspad_ana.mod_mar.mod_mar.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_mar.mod_mar.begincalibcycle">
+<tt class="descname">begincalibcycle</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_mar.mod_mar.begincalibcycle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_mar.mod_mar.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_mar.mod_mar.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_mar.mod_mar.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_mar.mod_mar.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_mar.mod_mar.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_mar.mod_mar.event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-param-module">
-<h2>xfel.cxi.cspad_ana.mod_param module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-param-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_param">
+<span id="xfel-cxi-cspad-ana-mod-param-module"></span><h2>xfel.cxi.cspad_ana.mod_param module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_param" title="Permalink to this headline">¶</a></h2>
+<p>Simple analysis of per-shot parameters of a run</p>
+<p>XXX mod_param must be run as a single process&#8211;guard against it!</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_param.mod_param">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_param.</tt><tt class="descname">mod_param</tt><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_param.mod_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Class for simple analysis of certain per-shot parameters of a
+run.  Currently attenuation, sample-detector distance, and
+wavelength are considered.  Since attenuation and distance is not
+expected to vary, their values are output only when changed.  For
+the wavelength, the average and standard deviation is computed.
+Note that incompleteness due to lacking image data is not detected,
+because it may slow down this module considerably.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_param.mod_param.beginjob" title="xfel.cxi.cspad_ana.mod_param.mod_param.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_param.mod_param.endjob" title="xfel.cxi.cspad_ana.mod_param.mod_param.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>The endjob() function finalises the mean and standard deviation calculations, and reports on the total number of skipped shots.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_param.mod_param.event" title="xfel.cxi.cspad_ana.mod_param.mod_param.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_param.mod_param.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_param.mod_param.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The beginjob() function does one-time initialisation from
+event- or environment data.  It is called at an XTC configure
+transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_param.mod_param.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_param.mod_param.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The endjob() function finalises the mean and standard deviation
+calculations, and reports on the total number of skipped shots.</p>
+<p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_param.mod_param.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_param.mod_param.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.
+The event() function does not log shots skipped due to
+incompleteness in order to keep the output streams clean.
+Instead, the number of skipped shots is reported by endjob().</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="xfel-cxi-cspad-ana-mod-pickle2cbf-dump-module">
 <h2>xfel.cxi.cspad_ana.mod_pickle2cbf_dump module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-pickle2cbf-dump-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-pulnix-dump-module">
-<h2>xfel.cxi.cspad_ana.mod_pulnix_dump module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-pulnix-dump-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_pulnix_dump">
+<span id="xfel-cxi-cspad-ana-mod-pulnix-dump-module"></span><h2>xfel.cxi.cspad_ana.mod_pulnix_dump module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_pulnix_dump" title="Permalink to this headline">¶</a></h2>
+<p>XXX</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_pulnix_dump.</tt><tt class="descname">mod_pulnix_dump</tt><big>(</big><em>address</em>, <em>out_dirname=None</em>, <em>out_basename=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Class for dumping simple intensity images into an uncompressed
+tarball.  At 120 Hz it is inconvenient to dump every single image to
+its own file.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.beginjob" title="xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td>The beginjob() function is called at an XTC configure transition.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.endjob" title="xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>The endjob() function closes the tar file opened in beginjob().</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.event" title="xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The beginjob() function is called at an XTC configure transition.
+It opens per-process tar files to avoid clobbering while
+multiprocessing.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The endjob() function closes the tar file opened in beginjob().</p>
+<p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_pulnix_dump.mod_pulnix_dump.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-radial-average-module">
-<h2>xfel.cxi.cspad_ana.mod_radial_average module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-radial-average-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_radial_average">
+<span id="xfel-cxi-cspad-ana-mod-radial-average-module"></span><h2>xfel.cxi.cspad_ana.mod_radial_average module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_radial_average" title="Permalink to this headline">¶</a></h2>
+<p>Calculate the radial average of the images in a stream, for each image.</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_radial_average.</tt><tt class="descname">mod_radial_average</tt><big>(</big><em>address</em>, <em>out_dirname=None</em>, <em>out_basename=None</em>, <em>xtal_target=None</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.common_mode.common_mode_correction</span></tt></a></p>
+<p>Class for calulating radial average of images</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.beginjob" title="xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.endjob" title="xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>The endjob() function logs the number of processed shots.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.event" title="xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The beginjob() function does one-time initialisation from
+event- or environment data.  It is called at an XTC configure
+transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The endjob() function logs the number of processed shots.</p>
+<p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_radial_average.mod_radial_average.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.
+&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="xfel-cxi-cspad-ana-mod-spectra-module">
 <h2>xfel.cxi.cspad_ana.mod_spectra module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-spectra-module" title="Permalink to this headline">¶</a></h2>
@@ -133,26 +1794,493 @@
 <div class="section" id="xfel-cxi-cspad-ana-mod-spectra-view-module">
 <h2>xfel.cxi.cspad_ana.mod_spectra_view module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-spectra-view-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-view-module">
-<h2>xfel.cxi.cspad_ana.mod_view module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-view-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_view">
+<span id="xfel-cxi-cspad-ana-mod-view-module"></span><h2>xfel.cxi.cspad_ana.mod_view module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_view" title="Permalink to this headline">¶</a></h2>
+<p>Interactive image viewer for CSPad images</p>
+<p>XXX Known issues, wishlist:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Is it slow?  Yes!</li>
+<li>Radial distribution plot, requested by Jan F. Kern</li>
+<li>Coordinate and resolution tool-tips in sub-pixel zoom.  Can we
+choose the colour automagically?</li>
+</ul>
+</div></blockquote>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_view.mod_view">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_view.</tt><tt class="descname">mod_view</tt><big>(</big><em>address</em>, <em>n_collate=None</em>, <em>n_update=120</em>, <em>common_mode_correction='none'</em>, <em>wait=None</em>, <em>photon_counting=False</em>, <em>sigma_scaling=False</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_view.mod_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.common_mode.common_mode_correction</span></tt></a></p>
+<p>XXX</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_view.mod_view.endjob" title="xfel.cxi.cspad_ana.mod_view.mod_view.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>The endjob() function terminates the viewer process by sending it a &#64;c None object, and waiting for it to finish.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_view.mod_view.event" title="xfel.cxi.cspad_ana.mod_view.mod_view.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_view.mod_view.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_view.mod_view.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The endjob() function terminates the viewer process by sending
+it a &#64;c None object, and waiting for it to finish.</p>
+<p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_view.mod_view.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_view.mod_view.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.
+XXX Since the viewer is now running in a parallel process, the
+averaging here is now the bottleneck.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-mod-xes-module">
-<h2>xfel.cxi.cspad_ana.mod_xes module<a class="headerlink" href="#xfel-cxi-cspad-ana-mod-xes-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.mod_xes">
+<span id="xfel-cxi-cspad-ana-mod-xes-module"></span><h2>xfel.cxi.cspad_ana.mod_xes module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.mod_xes" title="Permalink to this headline">¶</a></h2>
+<p>First- and second-order statistics for CS-PAD images</p>
+<p>The mod_xes user analysis module performs the following sequence of
+analysis:  dark correction (using average dark previously computed
+by mod_average); removal of inactive pixels; common mode correction;
+removal of pixels with high stddev (&#8220;hot pixels&#8221;); removal of
+noise &lt; 5 ADUs; selection of scan rows known to contain the
+spectrum; summation-reduction so as to form a single spectrum.</p>
+<p>XXX mod_xes must be run as a single process&#8211;guard against it!</p>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.mod_xes.mod_xes">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.mod_xes.</tt><tt class="descname">mod_xes</tt><big>(</big><em>address</em>, <em>pickle_dirname='.'</em>, <em>pickle_basename=''</em>, <em>roi=None</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_xes.mod_xes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.average_tbx.average_mixin" title="xfel.cxi.cspad_ana.average_tbx.average_mixin"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.average_tbx.average_mixin</span></tt></a></p>
+<p>Class for generating first- and second-order statistics within
+the pyana framework</p>
+<p>XXX Maybe this module should be renamed to mod_stat12, mod_sstat or
+some such?</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt>(evt,&nbsp;env)</td>
+<td>The beginjob() function does one-time initialisation from event- or environment data.</td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_xes.mod_xes.endjob" title="xfel.cxi.cspad_ana.mod_xes.mod_xes.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>The endjob() function finalises the mean and standard deviation images and writes them to disk.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.mod_xes.mod_xes.event" title="xfel.cxi.cspad_ana.mod_xes.mod_xes.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_xes.mod_xes.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_xes.mod_xes.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The endjob() function finalises the mean and standard deviation
+images and writes them to disk.</p>
+<p>&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.mod_xes.mod_xes.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.mod_xes.mod_xes.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-parse-calib-module">
-<h2>xfel.cxi.cspad_ana.parse_calib module<a class="headerlink" href="#xfel-cxi-cspad-ana-parse-calib-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.parse_calib">
+<span id="xfel-cxi-cspad-ana-parse-calib-module"></span><h2>xfel.cxi.cspad_ana.parse_calib module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.parse_calib" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.parse_calib.Section">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.parse_calib.</tt><tt class="descname">Section</tt><big>(</big><em>angle=0</em>, <em>center=(0</em>, <em>0)</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.Section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Class for a section, or a pair of ASIC:s, or a two-by-one.  A
+quadrant (and to some extent a section) is really an imaginary
+object&#8211;the detector only reads out the ASIC:s.  The metrology
+should be accurate to +/- one pixel, usually better but occasionally
+worse.  XXX Is it a section, a two-by-one, or a sensor?</p>
+<p>This class adopts a matrix-oriented coordinate system.  The origin
+is in the top left corner, the first coordinate increases downwards,
+the second coordinate increases to the right, and the third
+coordinate increases towards the viewer.  In this right-handed
+coordinate system, a rotation by a positive angle is
+counter-clockwise in the plane of the two first coordinates.</p>
+<p>&#64;note There are a few hard coded numbers throughout this class.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.parse_calib.Section.corners" title="xfel.cxi.cspad_ana.parse_calib.Section.corners"><tt class="xref py py-obj docutils literal"><span class="pre">corners</span></tt></a>([right])</td>
+<td>The corners() function returns an array of the four corners of the section, in counter-clockwise order.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.parse_calib.Section.corners_asic" title="xfel.cxi.cspad_ana.parse_calib.Section.corners_asic"><tt class="xref py py-obj docutils literal"><span class="pre">corners_asic</span></tt></a>()</td>
+<td>The corners_asic() function returns a list of pixel indices which position the two ASIC:s on the detector, in order from top to bottom by the &#8220;standing up&#8221; convention.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.parse_calib.Section.qrotate" title="xfel.cxi.cspad_ana.parse_calib.Section.qrotate"><tt class="xref py py-obj docutils literal"><span class="pre">qrotate</span></tt></a>(angle)</td>
+<td>The qrotate() function rotates the section counter-clockwise by &#64;p angle degrees around the centre of its quadrant.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.parse_calib.Section.srotate" title="xfel.cxi.cspad_ana.parse_calib.Section.srotate"><tt class="xref py py-obj docutils literal"><span class="pre">srotate</span></tt></a>(angle)</td>
+<td>The srotate() function rotates the section counter-clockwise by &#64;p angle degrees around its centre.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.parse_calib.Section.translate" title="xfel.cxi.cspad_ana.parse_calib.Section.translate"><tt class="xref py py-obj docutils literal"><span class="pre">translate</span></tt></a>(displacement)</td>
+<td>The translate() function displaces the section.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.parse_calib.Section.corners">
+<tt class="descname">corners</tt><big>(</big><em>right=True</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.Section.corners" title="Permalink to this definition">¶</a></dt>
+<dd><p>The corners() function returns an array of the four corners of
+the section, in counter-clockwise order.  Each vertex is a
+two-dimensional array of the plane components.  XXX Maybe better
+named corners_section()?</p>
+<p>&#64;param right &#64;c True to restrict rotations to right angles
+&#64;return      Coordinates of the four corners, in counter-clockwise</p>
+<blockquote>
+<div>order</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.parse_calib.Section.corners_asic">
+<tt class="descname">corners_asic</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.Section.corners_asic" title="Permalink to this definition">¶</a></dt>
+<dd><p>The corners_asic() function returns a list of pixel indices
+which position the two ASIC:s on the detector, in order from top
+to bottom by the &#8220;standing up&#8221; convention.  Each list of indices
+gives the coordinates of the top, left and bottom, right corners
+of the section&#8217;s ASIC:s in &#8220;spotfinder format&#8221;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xfel.cxi.cspad_ana.parse_calib.Section.q_size">
+<tt class="descname">q_size</tt><em class="property"> = (850, 850)</em><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.Section.q_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.parse_calib.Section.qrotate">
+<tt class="descname">qrotate</tt><big>(</big><em>angle</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.Section.qrotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The qrotate() function rotates the section counter-clockwise
+by &#64;p angle degrees around the centre of its quadrant.  The
+rotation angle is rounded to an integer multiple of 90 degrees
+prior to transformation.  Rotation around the quadrant centre
+changes the location and the orientation of the section.</p>
+<p>&#64;param angle Rotation angle, in degrees</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.parse_calib.Section.srotate">
+<tt class="descname">srotate</tt><big>(</big><em>angle</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.Section.srotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The srotate() function rotates the section counter-clockwise by
+&#64;p angle degrees around its centre.  Rotation within the quadrant
+only changes the orientation of the section.</p>
+<p>&#64;param angle Rotation angle, in degrees</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.parse_calib.Section.translate">
+<tt class="descname">translate</tt><big>(</big><em>displacement</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.Section.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The translate() function displaces the section.</p>
+<dl class="docutils">
+<dt>&#64;param displacement Two-dimensional array of the additive</dt>
+<dd>displacement</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.parse_calib.calib2sections">
+<tt class="descclassname">xfel.cxi.cspad_ana.parse_calib.</tt><tt class="descname">calib2sections</tt><big>(</big><em>dirname</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.calib2sections" title="Permalink to this definition">¶</a></dt>
+<dd><p>The calib2sections() function reads calibration information
+stored in the directory tree beneath &#64;p dirname and returns a
+two-dimensional array of Section objects.  The first index in the
+returned array identifies the quadrant, and the second index
+identifies the section within the quadrant.</p>
+<p>&#64;param dirname Directory with calibration information
+&#64;return        Section objects</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.parse_calib.calib2tensor3">
+<tt class="descclassname">xfel.cxi.cspad_ana.parse_calib.</tt><tt class="descname">calib2tensor3</tt><big>(</big><em>dirname</em>, <em>component</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.calib2tensor3" title="Permalink to this definition">¶</a></dt>
+<dd><p>The calib2tensor3() function reads the latest calibration tensor
+for &#64;p component from &#64;p dirname.  Any obsoleted calibration data is
+ignored.  The function returns the tensor as a numpy array on
+successful completion.</p>
+<p>&#64;param dirname   Directory with calibration information
+&#64;param component Kind of calibration data sought
+&#64;return          Tensor as numpy array</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.parse_calib.fread_matrix">
+<tt class="descclassname">xfel.cxi.cspad_ana.parse_calib.</tt><tt class="descname">fread_matrix</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.fread_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fread_matrix() function reads a vector or matrix from the
+stream pointed to by &#64;p stream and returns it as a numpy array.</p>
+<p>&#64;param stream Stream object
+&#64;return       Tensor as numpy array</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.parse_calib.fread_tensor3">
+<tt class="descclassname">xfel.cxi.cspad_ana.parse_calib.</tt><tt class="descname">fread_tensor3</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.fread_tensor3" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fread_tensor3() function reads a tensor of rank no greater
+than 3 from the stream pointed to by &#64;p stream and returns it as a
+numpy array.</p>
+<p>&#64;param stream Stream object
+&#64;return       Tensor as numpy array</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.parse_calib.fread_vector">
+<tt class="descclassname">xfel.cxi.cspad_ana.parse_calib.</tt><tt class="descname">fread_vector</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.fread_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fread_vector() function reads a vector from the stream
+pointed to by &#64;p stream and returns it as a numpy array.</p>
+<p>&#64;param stream Stream object
+&#64;return       Tensor as numpy array</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.parse_calib.v2calib2sections">
+<tt class="descclassname">xfel.cxi.cspad_ana.parse_calib.</tt><tt class="descname">v2calib2sections</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.parse_calib.v2calib2sections" title="Permalink to this definition">¶</a></dt>
+<dd><p>The v2calib2sections() function reads calibration information
+stored in new style SLAC calibration file and returns a
+two-dimensional array of Section objects.  The first index in the
+returned array identifies the quadrant, and the second index
+identifies the section within the quadrant.</p>
+<p>&#64;param dirname Directory with calibration information
+&#64;return        Section objects</p>
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-pixel-histograms-module">
-<h2>xfel.cxi.cspad_ana.pixel_histograms module<a class="headerlink" href="#xfel-cxi-cspad-ana-pixel-histograms-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.pixel_histograms">
+<span id="xfel-cxi-cspad-ana-pixel-histograms-module"></span><h2>xfel.cxi.cspad_ana.pixel_histograms module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.pixel_histograms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.pixel_histograms.</tt><tt class="descname">pixel_histograms</tt><big>(</big><em>address</em>, <em>pickle_dirname='.'</em>, <em>pickle_basename='hist'</em>, <em>roi=None</em>, <em>hist_min=None</em>, <em>hist_max=None</em>, <em>n_slots=None</em>, <em>**kwds</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cxi.cspad_ana.common_mode.common_mode_correction" title="xfel.cxi.cspad_ana.common_mode.common_mode_correction"><tt class="xref py py-class docutils literal"><span class="pre">xfel.cxi.cspad_ana.common_mode.common_mode_correction</span></tt></a></p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.beginjob" title="xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.beginjob"><tt class="xref py py-obj docutils literal"><span class="pre">beginjob</span></tt></a>(evt,&nbsp;env)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_common_mode</span></tt>(imgs,&nbsp;masks)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">chebyshev_fit</span></tt>(x_obs,&nbsp;y_obs,&nbsp;w_obs[,&nbsp;n_terms])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">common_mode</span></tt>(img,&nbsp;stddev,&nbsp;mask)</td>
+<td>The common_mode() function returns the mode of image stored in the array pointed to by &#64;p img.</td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_photon_counting</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">do_sigma_scaling</span></tt>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.endjob" title="xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.endjob"><tt class="xref py py-obj docutils literal"><span class="pre">endjob</span></tt></a>(obj1[,&nbsp;obj2])</td>
+<td>The endjob() function finalises the mean and standard deviation images and writes them to disk.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.event" title="xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.event"><tt class="xref py py-obj docutils literal"><span class="pre">event</span></tt></a>(evt,&nbsp;env)</td>
+<td>The event() function is called for every L1Accept transition.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.beginjob">
+<tt class="descname">beginjob</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.beginjob" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.endjob">
+<tt class="descname">endjob</tt><big>(</big><em>obj1</em>, <em>obj2=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.endjob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The endjob() function finalises the mean and standard deviation
+images and writes them to disk.
+&#64;param evt Event object (psana only)
+&#64;param env Environment object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.event">
+<tt class="descname">event</tt><big>(</big><em>evt</em>, <em>env</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.pixel_histograms.pixel_histograms.event" title="Permalink to this definition">¶</a></dt>
+<dd><p>The event() function is called for every L1Accept transition.
+Once self.nshots shots are accumulated, this function turns into
+a nop.</p>
+<p>&#64;param evt Event data object, a configure object
+&#64;param env Environment object</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-xes-finalise-module">
-<h2>xfel.cxi.cspad_ana.xes_finalise module<a class="headerlink" href="#xfel-cxi-cspad-ana-xes-finalise-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.xes_finalise">
+<span id="xfel-cxi-cspad-ana-xes-finalise-module"></span><h2>xfel.cxi.cspad_ana.xes_finalise module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.xes_finalise" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.cspad2x2_bad_pixel_mask_cxi_run7">
+<tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">cspad2x2_bad_pixel_mask_cxi_run7</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.cspad2x2_bad_pixel_mask_cxi_run7" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.cspad_unbound_pixel_mask">
+<tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">cspad_unbound_pixel_mask</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.cspad_unbound_pixel_mask" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.filter_outlying_pixels">
+<tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">filter_outlying_pixels</tt><big>(</big><em>spectrum_focus</em>, <em>mask_focus</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.filter_outlying_pixels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.finalise_one_run">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">finalise_one_run</tt><big>(</big><em>scratch_dir</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.finalise_one_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.first_moment_analysis">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">first_moment_analysis</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.first_moment_analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.xes_finalise.first_moment_analysis.as_trace" title="xfel.cxi.cspad_ana.xes_finalise.first_moment_analysis.as_trace"><tt class="xref py py-obj docutils literal"><span class="pre">as_trace</span></tt></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.cxi.cspad_ana.xes_finalise.first_moment_analysis.calculate" title="xfel.cxi.cspad_ana.xes_finalise.first_moment_analysis.calculate"><tt class="xref py py-obj docutils literal"><span class="pre">calculate</span></tt></a>()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.first_moment_analysis.as_trace">
+<tt class="descname">as_trace</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.first_moment_analysis.as_trace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.first_moment_analysis.calculate">
+<tt class="descname">calculate</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.first_moment_analysis.calculate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.get_spectrum">
+<tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">get_spectrum</tt><big>(</big><em>spectrum_focus</em>, <em>mask_focus=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.get_spectrum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.output_image">
+<tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">output_image</tt><big>(</big><em>flex_img</em>, <em>filename</em>, <em>invert=False</em>, <em>scale=False</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.output_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.output_matlab_form">
+<tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">output_matlab_form</tt><big>(</big><em>flex_matrix</em>, <em>filename</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.output_matlab_form" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.output_spectrum">
+<tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">output_spectrum</tt><big>(</big><em>spectrum_focus</em>, <em>mask_focus=None</em>, <em>output_dirname='.'</em>, <em>run=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.output_spectrum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.plot_energy">
+<tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">plot_energy</tt><big>(</big><em>plot_x</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.plot_energy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.spec_plot">
+<tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">spec_plot</tt><big>(</big><em>x</em>, <em>y</em>, <em>img</em>, <em>file_name</em>, <em>figure_size=(10</em>, <em>5)</em>, <em>transparent=False</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.spec_plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.xes_finalise.xes_finalise">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.xes_finalise.</tt><tt class="descname">xes_finalise</tt><big>(</big><em>runs</em>, <em>output_dirname='.'</em>, <em>roi=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_finalise.xes_finalise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
 </div>
-<div class="section" id="xfel-cxi-cspad-ana-xes-histograms-module">
-<h2>xfel.cxi.cspad_ana.xes_histograms module<a class="headerlink" href="#xfel-cxi-cspad-ana-xes-histograms-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana.xes_histograms">
+<span id="xfel-cxi-cspad-ana-xes-histograms-module"></span><h2>xfel.cxi.cspad_ana.xes_histograms module<a class="headerlink" href="#module-xfel.cxi.cspad_ana.xes_histograms" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.xes_histograms.run">
+<tt class="descclassname">xfel.cxi.cspad_ana.xes_histograms.</tt><tt class="descname">run</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_histograms.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="xfel.cxi.cspad_ana.xes_histograms.xes_from_histograms">
+<em class="property">class </em><tt class="descclassname">xfel.cxi.cspad_ana.xes_histograms.</tt><tt class="descname">xes_from_histograms</tt><big>(</big><em>pixel_histograms</em>, <em>output_dirname='.'</em>, <em>gain_map_path=None</em>, <em>gain_map=None</em>, <em>method='photon_counting'</em>, <em>estimated_gain=30</em>, <em>nproc=None</em>, <em>photon_threshold=0.6666666666666666</em>, <em>roi=None</em>, <em>run=None</em><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.xes_histograms.xes_from_histograms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+</dd></dl>
+
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.cxi.cspad_ana">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-xfel.cxi.cspad_ana" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="xfel.cxi.cspad_ana.skip_event_flag">
+<tt class="descclassname">xfel.cxi.cspad_ana.</tt><tt class="descname">skip_event_flag</tt><big>(</big><big>)</big><a class="headerlink" href="#xfel.cxi.cspad_ana.skip_event_flag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 
@@ -166,41 +2294,45 @@
   <ul>
 <li><a class="reference internal" href="#">xfel.cxi.cspad_ana package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-average-tbx-module">xfel.cxi.cspad_ana.average_tbx module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-common-mode-module">xfel.cxi.cspad_ana.common_mode module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-cspad-tbx-module">xfel.cxi.cspad_ana.cspad_tbx module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-display-calib-module">xfel.cxi.cspad_ana.display_calib module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-histogram-finalise-module">xfel.cxi.cspad_ana.histogram_finalise module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-hitfinder-tbx-module">xfel.cxi.cspad_ana.hitfinder_tbx module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-average-module">xfel.cxi.cspad_ana.mod_average module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.average_tbx">xfel.cxi.cspad_ana.average_tbx module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.common_mode">xfel.cxi.cspad_ana.common_mode module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.cspad_tbx">xfel.cxi.cspad_ana.cspad_tbx module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.display_calib">xfel.cxi.cspad_ana.display_calib module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.histogram_finalise">xfel.cxi.cspad_ana.histogram_finalise module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.hitfinder_tbx">xfel.cxi.cspad_ana.hitfinder_tbx module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_average">xfel.cxi.cspad_ana.mod_average module</a></li>
 <li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-average-cbf-module">xfel.cxi.cspad_ana.mod_average_cbf module</a></li>
 <li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-cbf-hitfind-module">xfel.cxi.cspad_ana.mod_cbf_hitfind module</a></li>
 <li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-cbf-index-module">xfel.cxi.cspad_ana.mod_cbf_index module</a></li>
 <li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-cspad-cbf-module">xfel.cxi.cspad_ana.mod_cspad_cbf module</a></li>
 <li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-cspad-cbf-dump-module">xfel.cxi.cspad_ana.mod_cspad_cbf_dump module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-daq-status-module">xfel.cxi.cspad_ana.mod_daq_status module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-dump-module">xfel.cxi.cspad_ana.mod_dump module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-dump-bitmap-module">xfel.cxi.cspad_ana.mod_dump_bitmap module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-event-info-module">xfel.cxi.cspad_ana.mod_event_info module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-filter-module">xfel.cxi.cspad_ana.mod_filter module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-hdf5-module">xfel.cxi.cspad_ana.mod_hdf5 module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-hitfind-module">xfel.cxi.cspad_ana.mod_hitfind module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-illumination-filter-module">xfel.cxi.cspad_ana.mod_illumination_filter module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_daq_status">xfel.cxi.cspad_ana.mod_daq_status module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_dump">xfel.cxi.cspad_ana.mod_dump module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_dump_bitmap">xfel.cxi.cspad_ana.mod_dump_bitmap module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_event_info">xfel.cxi.cspad_ana.mod_event_info module</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_filter">xfel.cxi.cspad_ana.mod_filter module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_hdf5">xfel.cxi.cspad_ana.mod_hdf5 module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_hitfind">xfel.cxi.cspad_ana.mod_hitfind module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_illumination_filter">xfel.cxi.cspad_ana.mod_illumination_filter module</a></li>
 <li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-ledge-module">xfel.cxi.cspad_ana.mod_ledge module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-mar-module">xfel.cxi.cspad_ana.mod_mar module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-param-module">xfel.cxi.cspad_ana.mod_param module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_mar">xfel.cxi.cspad_ana.mod_mar module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_param">xfel.cxi.cspad_ana.mod_param module</a></li>
 <li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-pickle2cbf-dump-module">xfel.cxi.cspad_ana.mod_pickle2cbf_dump module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-pulnix-dump-module">xfel.cxi.cspad_ana.mod_pulnix_dump module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-radial-average-module">xfel.cxi.cspad_ana.mod_radial_average module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_pulnix_dump">xfel.cxi.cspad_ana.mod_pulnix_dump module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_radial_average">xfel.cxi.cspad_ana.mod_radial_average module</a></li>
 <li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-spectra-module">xfel.cxi.cspad_ana.mod_spectra module</a></li>
 <li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-spectra-view-module">xfel.cxi.cspad_ana.mod_spectra_view module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-view-module">xfel.cxi.cspad_ana.mod_view module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-mod-xes-module">xfel.cxi.cspad_ana.mod_xes module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-parse-calib-module">xfel.cxi.cspad_ana.parse_calib module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-pixel-histograms-module">xfel.cxi.cspad_ana.pixel_histograms module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-xes-finalise-module">xfel.cxi.cspad_ana.xes_finalise module</a></li>
-<li><a class="reference internal" href="#xfel-cxi-cspad-ana-xes-histograms-module">xfel.cxi.cspad_ana.xes_histograms module</a></li>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_view">xfel.cxi.cspad_ana.mod_view module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.mod_xes">xfel.cxi.cspad_ana.mod_xes module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.parse_calib">xfel.cxi.cspad_ana.parse_calib module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.pixel_histograms">xfel.cxi.cspad_ana.pixel_histograms module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.xes_finalise">xfel.cxi.cspad_ana.xes_finalise module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana.xes_histograms">xfel.cxi.cspad_ana.xes_histograms module</a></li>
+<li><a class="reference internal" href="#module-xfel.cxi.cspad_ana">Module contents</a></li>
 </ul>
 </li>
 </ul>

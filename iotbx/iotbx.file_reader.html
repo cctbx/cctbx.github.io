@@ -147,7 +147,7 @@ file extension as an implicit replacement for <tt class="docutils literal"><span
 
 <dl class="function">
 <dt id="iotbx.file_reader.any_file">
-<tt class="descclassname">iotbx.file_reader.</tt><tt class="descname">any_file</tt><big>(</big><em>file_name, get_processed_file=False, valid_types=['pdb', 'hkl', 'cif', 'pkl', 'seq', 'phil', 'aln', 'txt', 'xplor_map', 'ccp4_map'], allow_directories=False, force_type=None, input_class=None, raise_sorry_if_errors=False, raise_sorry_if_not_expected_format=False</em><big>)</big><a class="headerlink" href="#iotbx.file_reader.any_file" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">iotbx.file_reader.</tt><tt class="descname">any_file</tt><big>(</big><em>file_name, get_processed_file=False, valid_types=['pdb', 'hkl', 'cif', 'pkl', 'ncs', 'seq', 'phil', 'aln', 'txt', 'xplor_map', 'ccp4_map'], allow_directories=False, force_type=None, input_class=None, raise_sorry_if_errors=False, raise_sorry_if_not_expected_format=False</em><big>)</big><a class="headerlink" href="#iotbx.file_reader.any_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main input method, wrapper for any_file_input class.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -177,7 +177,7 @@ file extension does not match the parsed file type</li>
 
 <dl class="function">
 <dt id="iotbx.file_reader.any_file_fast">
-<tt class="descclassname">iotbx.file_reader.</tt><tt class="descname">any_file_fast</tt><big>(</big><em>file_name, get_processed_file=False, valid_types=['pdb', 'hkl', 'cif', 'pkl', 'seq', 'phil', 'aln', 'txt', 'xplor_map', 'ccp4_map'], allow_directories=False, force_type=None, input_class=None</em><big>)</big><a class="headerlink" href="#iotbx.file_reader.any_file_fast" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">iotbx.file_reader.</tt><tt class="descname">any_file_fast</tt><big>(</big><em>file_name, get_processed_file=False, valid_types=['pdb', 'hkl', 'cif', 'pkl', 'ncs', 'seq', 'phil', 'aln', 'txt', 'xplor_map', 'ccp4_map'], allow_directories=False, force_type=None, input_class=None</em><big>)</big><a class="headerlink" href="#iotbx.file_reader.any_file_fast" title="Permalink to this definition">¶</a></dt>
 <dd><p>mimics any_file, but without parsing - will instead guess the file type from
 the extension.  for most output files produced by cctbx/phenix this is
 relatively safe; for files of unknown provenance it is less effective.</p>
@@ -317,7 +317,7 @@ could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
 
 <dl class="method">
 <dt id="iotbx.file_reader.any_file_input.show_summary">
-<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f9690efd150&gt;</em><big>)</big><a class="headerlink" href="#iotbx.file_reader.any_file_input.show_summary" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">show_summary</tt><big>(</big><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f9416f02150&gt;</em><big>)</big><a class="headerlink" href="#iotbx.file_reader.any_file_input.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print out some basic information about the file.</p>
 </dd></dl>
 
@@ -374,7 +374,7 @@ could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
 
 <dl class="function">
 <dt id="iotbx.file_reader.guess_file_type">
-<tt class="descclassname">iotbx.file_reader.</tt><tt class="descname">guess_file_type</tt><big>(</big><em>file_name, extensions={'xml': ['xml'], 'map': ['xplor', 'map', 'ccp4'], 'cif': ['cif', 'mmcif'], 'seq': ['fa', 'faa', 'seq', 'pir', 'dat', 'fasta'], 'hhr': ['hhr'], 'phil': ['params', 'eff', 'def', 'phil', 'param'], 'smi': ['smi'], 'ccp4_map': ['ccp4', 'map', 'mrc'], 'mtz': ['mtz'], 'img': ['img', 'osc', 'mccd', 'cbf'], 'sdf': ['sdf'], 'rosetta': ['gz'], 'hkl': ['mtz', 'hkl', 'sca', 'cns', 'xplor', 'cv', 'ref', 'fobs'], 'aln': ['aln', 'ali', 'clustal'], 'txt': ['txt', 'log', 'html', 'geo'], 'pdb': ['pdb', 'ent'], 'pkl': ['pickle', 'pkl'], 'xplor_map': ['xplor', 'map']}</em><big>)</big><a class="headerlink" href="#iotbx.file_reader.guess_file_type" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">iotbx.file_reader.</tt><tt class="descname">guess_file_type</tt><big>(</big><em>file_name, extensions={'xml': ['xml'], 'map': ['xplor', 'map', 'ccp4'], 'ncs': ['ncs', 'ncs_spec'], 'cif': ['cif', 'mmcif'], 'seq': ['fa', 'faa', 'seq', 'pir', 'dat', 'fasta'], 'hhr': ['hhr'], 'phil': ['params', 'eff', 'def', 'phil', 'param'], 'smi': ['smi'], 'ccp4_map': ['ccp4', 'map', 'mrc'], 'mtz': ['mtz'], 'img': ['img', 'osc', 'mccd', 'cbf'], 'sdf': ['sdf'], 'rosetta': ['gz'], 'hkl': ['mtz', 'hkl', 'sca', 'cns', 'xplor', 'cv', 'ref', 'fobs'], 'aln': ['aln', 'ali', 'clustal'], 'txt': ['txt', 'log', 'html', 'geo'], 'pdb': ['pdb', 'ent'], 'pkl': ['pickle', 'pkl'], 'xplor_map': ['xplor', 'map']}</em><big>)</big><a class="headerlink" href="#iotbx.file_reader.guess_file_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">

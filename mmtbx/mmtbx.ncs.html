@@ -1297,7 +1297,7 @@ residue level selection.</p>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.clean_chain_matching">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">clean_chain_matching</tt><big>(</big><em>chain_match_list</em>, <em>ph</em>, <em>chain_max_rmsd=10.0</em>, <em>residue_match_radius=4.0</em>, <em>chain_similarity_threshold=0.95</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.clean_chain_matching" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">clean_chain_matching</tt><big>(</big><em>chain_match_list</em>, <em>ph</em>, <em>chain_max_rmsd=10.0</em>, <em>residue_match_radius=4.0</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.clean_chain_matching" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all bad matches from chain_match_list</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1372,23 +1372,6 @@ is_transpose: (bool) True if the matching transform is transpose</dd>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_search.gap_score">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">gap_score</tt><big>(</big><em>r</em>, <em>min_matches</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.gap_score" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the score in case of a gap, taking into account consecutive matches
-and the minimum matches required.
-If we have a short matching section, we need to adjust the match_count,
-so not to count it</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>r (Score_record object)
-min_matches (int): minimum matches required between to sequences</dd>
-<dt>Returns:</dt>
-<dd>s (int): score
-min_matches (int): adjusted match count</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_bool_selection_to_keep">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_bool_selection_to_keep</tt><big>(</big><em>big_selection</em>, <em>small_selection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_bool_selection_to_keep" title="Permalink to this definition">¶</a></dt>
 <dd><p>given 2 iselections (they are sorted), returns bool selection of size
@@ -1456,27 +1439,6 @@ res_num_a/b (list of int): indices of matching residues position</p>
 <dd>sel_a/b (list of lists): matching atoms selection
 res_num_a/b (list of int): updated res_num_a/b
 msg (str): message regarding matching residues with different atom number</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_search.get_matching_res_indices">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">get_matching_res_indices</tt><big>(</big><em>R</em>, <em>row</em>, <em>col</em>, <em>min_percent</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_matching_res_indices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Trace back best solution and collect the indices of matching pairs</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">R (list of lists of int): the score matrix
-row (int): number of rows
-col (int): number of columns
-min_percent (float): min percent of similarity between hierarchies</p>
-<blockquote class="last">
-<div>similarity define as:
-(number of matching res) / (number of res in longer chain)</div></blockquote>
-</dd>
-<dt>Returns:</dt>
-<dd>sel_a (list): matching indices sequence a
-sel_b (list): matching indices sequence b
-similarity (float): actual similarity between hierarchies</dd>
 </dl>
 </dd></dl>
 
@@ -1555,23 +1517,6 @@ msg (str): error messages</dd>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_search.initialize_score_matrix">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">initialize_score_matrix</tt><big>(</big><em>row</em>, <em>col</em>, <em>max_score=1000</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.initialize_score_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>initialize a matrix in a dictionary form
-The matrix values are initialized according the the gap penalties.</p>
-<p>We initializing the zero row and column with descending score and the reset
-of the matrix with -10000 score</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>row (int): number of rows
-col (int): number of columns
-max_score (int): the score assigned for perfect alignment</dd>
-<dt>Returns:</dt>
-<dd>R (dict): the score matrix in a form of a dictionary of Score_record objects</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_search.inverse_transform">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">inverse_transform</tt><big>(</big><em>r</em>, <em>t</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.inverse_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>inverse rotation and translation</p>
@@ -1611,9 +1556,30 @@ t1, t2: Translation vectors</dd>
 </dd></dl>
 
 <dl class="function">
+<dt id="mmtbx.ncs.ncs_search.mmtbx_res_alignment">
+<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">mmtbx_res_alignment</tt><big>(</big><em>seq_a</em>, <em>seq_b</em>, <em>min_percent=0.85</em>, <em>atomnames=False</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.mmtbx_res_alignment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="mmtbx.ncs.ncs_search.my_get_rot_trans">
 <tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">my_get_rot_trans</tt><big>(</big><em>ph</em>, <em>master_selection</em>, <em>copy_selection</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.my_get_rot_trans" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get rotation and translation using superpose.</p>
+<p>This function is used only when phil parameters are provided. In this case
+we require the selection of NCS master and copies to be correct.
+Correct means:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>residue sequence in master and copies is exactly the same</li>
+<li>the number of atoms in master and copies is exactly the same</li>
+</ol>
+</div></blockquote>
+<p>One can get exact selection strings by ncs_object.show(verbose=True)</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>ph : hierarchy
+master/copy_selection: master and copy iselections</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.ncs_grouping_and_group_dict">
@@ -1647,30 +1613,6 @@ res_list_a_new,res_list_b_new,
 ref_sites_new,other_sites_new</dd>
 </dl>
 </dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_search.res_alignment">
-<tt class="descclassname">mmtbx.ncs.ncs_search.</tt><tt class="descname">res_alignment</tt><big>(</big><em>seq_a</em>, <em>seq_b</em>, <em>min_contig_length=1</em>, <em>min_percent=0.85</em><big>)</big><a class="headerlink" href="#mmtbx.ncs.ncs_search.res_alignment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Align two lists of strings (All lower case characters).</p>
-<p>Penalize misalignment, gaps, when contiguous section is less
-than min_contig_length and when the
-Do not give any points for alignment. (score only change when &#8220;bad&#8221; things
-happens)</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">seq_a, seq_b (lists of str): list of characters to compare
-min_percent (float): min percent of similarity between hierarchies</p>
-<blockquote>
-<div>similarity define as:
-(number of matching res) / (number of res in longer chain)</div></blockquote>
-<p class="last">min_contig_length (int): domain &lt; min_contig_length rejected</p>
-</dd>
-<dt>Returns:</dt>
-<dd>aligned_sel_a (list): the indices of the aligned components of seq_a
-aligned_sel_b (list): the indices of the aligned components of seq_b
-similarity (float): actual similarity between hierarchies</dd>
 </dl>
 </dd></dl>
 

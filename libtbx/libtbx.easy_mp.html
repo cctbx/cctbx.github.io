@@ -66,7 +66,7 @@ parallelization on Windows systems.  However, it will simply run in serial on
 Windows, allowing it to be used in a platform-independent manner.</p>
 <dl class="function">
 <dt id="libtbx.easy_mp.pool_map">
-<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">pool_map</tt><big>(</big><em>processes=None</em>, <em>initializer=None</em>, <em>initargs=()</em>, <em>maxtasksperchild=&lt;libtbx.AutoType object at 0x7f7713c9f490&gt;</em>, <em>func=None</em>, <em>fixed_func=None</em>, <em>iterable=None</em>, <em>args=None</em>, <em>chunksize=&lt;libtbx.AutoType object at 0x7f7713c9f490&gt;</em>, <em>func_wrapper='simple'</em>, <em>index_args=True</em>, <em>log=None</em>, <em>call_back_for_serial_run=None</em><big>)</big><a class="headerlink" href="#libtbx.easy_mp.pool_map" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">pool_map</tt><big>(</big><em>processes=None</em>, <em>initializer=None</em>, <em>initargs=()</em>, <em>maxtasksperchild=&lt;libtbx.AutoType object at 0x7f7568a15490&gt;</em>, <em>func=None</em>, <em>fixed_func=None</em>, <em>iterable=None</em>, <em>args=None</em>, <em>chunksize=&lt;libtbx.AutoType object at 0x7f7568a15490&gt;</em>, <em>func_wrapper='simple'</em>, <em>index_args=True</em>, <em>log=None</em>, <em>call_back_for_serial_run=None</em><big>)</big><a class="headerlink" href="#libtbx.easy_mp.pool_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallelized map() using subclassed multiprocessing.Pool.  If func is not
 None, this function essentially calls the Pool&#8217;s own map method; this means
 that both func and iterable/args must be pickle-able.  If fixed_func is not
@@ -130,7 +130,7 @@ the child process when forked (instead of pickling)</li>
 
 <dl class="function">
 <dt id="libtbx.easy_mp.enable_multiprocessing_if_possible">
-<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">enable_multiprocessing_if_possible</tt><big>(</big><em>nproc=&lt;libtbx.AutoType object at 0x7f7713c9f490&gt;</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#libtbx.easy_mp.enable_multiprocessing_if_possible" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">enable_multiprocessing_if_possible</tt><big>(</big><em>nproc=&lt;libtbx.AutoType object at 0x7f7568a15490&gt;</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#libtbx.easy_mp.enable_multiprocessing_if_possible" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch for using multiple CPUs with the pool_map function, usually called at
 the beginning of an app.  If nproc is Auto or None and we are running
 Windows, it will be reset to 1.</p>
@@ -174,7 +174,7 @@ that take minutes or longer to run, but the use of cluster resources means that
 it can handle much larger operations efficiently.</p>
 <dl class="function">
 <dt id="libtbx.easy_mp.parallel_map">
-<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">parallel_map</tt><big>(</big><em>func</em>, <em>iterable</em>, <em>iterable_type=&lt;function single_argument at 0x7f76f67707d0&gt;</em>, <em>params=None</em>, <em>processes=1</em>, <em>method='multiprocessing'</em>, <em>qsub_command=None</em>, <em>asynchronous=True</em>, <em>callback=None</em>, <em>preserve_order=True</em>, <em>preserve_exception_message=False</em>, <em>use_manager=False</em><big>)</big><a class="headerlink" href="#libtbx.easy_mp.parallel_map" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">parallel_map</tt><big>(</big><em>func</em>, <em>iterable</em>, <em>iterable_type=&lt;function single_argument at 0x7f754b5247d0&gt;</em>, <em>params=None</em>, <em>processes=1</em>, <em>method='multiprocessing'</em>, <em>qsub_command=None</em>, <em>asynchronous=True</em>, <em>callback=None</em>, <em>preserve_order=True</em>, <em>preserve_exception_message=False</em>, <em>use_manager=False</em><big>)</big><a class="headerlink" href="#libtbx.easy_mp.parallel_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generic parallel map() implementation for a variety of platforms, including
 the multiprocessing module and supported queuing systems, via the module
 libtbx.queuing_system_utils.scheduling.  This is less flexible than pool_map

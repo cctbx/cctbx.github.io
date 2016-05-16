@@ -86,7 +86,7 @@
 <span id="mmtbx-tls-tls-as-xyz-module"></span><h2>mmtbx.tls.tls_as_xyz module<a class="headerlink" href="#module-mmtbx.tls.tls_as_xyz" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="mmtbx.tls.tls_as_xyz.ensemble_generator">
-<em class="property">class </em><tt class="descclassname">mmtbx.tls.tls_as_xyz.</tt><tt class="descname">ensemble_generator</tt><big>(</big><em>decompose_tls_object</em>, <em>pdb_hierarchy</em>, <em>xray_structure</em>, <em>n_models</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tls_as_xyz.ensemble_generator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">mmtbx.tls.tls_as_xyz.</tt><tt class="descname">ensemble_generator</tt><big>(</big><em>tls_from_motions_object</em>, <em>pdb_hierarchy</em>, <em>xray_structure</em>, <em>n_models</em>, <em>origin</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tls_as_xyz.ensemble_generator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -108,6 +108,12 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="mmtbx.tls.tls_as_xyz.formula_49">
+<tt class="descclassname">mmtbx.tls.tls_as_xyz.</tt><tt class="descname">formula_49</tt><big>(</big><em>r</em>, <em>log</em>, <em>eps=1e-07</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tls_as_xyz.formula_49" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate shifts from group translation.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="mmtbx.tls.tls_as_xyz.print_step">
 <tt class="descclassname">mmtbx.tls.tls_as_xyz.</tt><tt class="descname">print_step</tt><big>(</big><em>s</em>, <em>log</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tls_as_xyz.print_step" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -124,14 +130,8 @@
 
 <dl class="function">
 <dt id="mmtbx.tls.tls_as_xyz.step_i__get_dxdydz">
-<tt class="descclassname">mmtbx.tls.tls_as_xyz.</tt><tt class="descname">step_i__get_dxdydz</tt><big>(</big><em>L_L</em>, <em>R_PL</em>, <em>log</em>, <em>eps=1e-07</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tls_as_xyz.step_i__get_dxdydz" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">mmtbx.tls.tls_as_xyz.</tt><tt class="descname">step_i__get_dxdydz</tt><big>(</big><em>r</em>, <em>log</em>, <em>eps=1e-07</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tls_as_xyz.step_i__get_dxdydz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generation of shifts from screw rotations.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.tls.tls_as_xyz.step_j">
-<tt class="descclassname">mmtbx.tls.tls_as_xyz.</tt><tt class="descname">step_j</tt><big>(</big><em>r</em>, <em>log</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tls_as_xyz.step_j" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate shifts from group translation.</p>
 </dd></dl>
 
 </div>
@@ -160,6 +160,11 @@
 <dl class="function">
 <dt id="mmtbx.tls.tools.generate_tlsos">
 <tt class="descclassname">mmtbx.tls.tools.</tt><tt class="descname">generate_tlsos</tt><big>(</big><em>selections</em>, <em>xray_structure</em>, <em>value=None</em>, <em>T=None</em>, <em>L=None</em>, <em>S=None</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tools.generate_tlsos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.tls.tools.get_u_cart">
+<tt class="descclassname">mmtbx.tls.tools.</tt><tt class="descname">get_u_cart</tt><big>(</big><em>o_tfm</em>, <em>origin</em>, <em>sites_cart</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tools.get_u_cart" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -353,6 +358,16 @@
 <dl class="function">
 <dt id="mmtbx.tls.tools.u_cart_from_tls">
 <tt class="descclassname">mmtbx.tls.tools.</tt><tt class="descname">u_cart_from_tls</tt><big>(</big><em>sites_cart</em>, <em>selections</em>, <em>tlsos</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tools.u_cart_from_tls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.tls.tools.u_cart_from_xyz">
+<tt class="descclassname">mmtbx.tls.tools.</tt><tt class="descname">u_cart_from_xyz</tt><big>(</big><em>sites_cart</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tools.u_cart_from_xyz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.tls.tools.u_tls_vs_u_ens">
+<tt class="descclassname">mmtbx.tls.tools.</tt><tt class="descname">u_tls_vs_u_ens</tt><big>(</big><em>pdb_str, dx=0, dy=0, dz=0, sx=0, sy=0, sz=0, lx=[1, 0, 0], ly=[0, 1, 0], lz=[0, 0, 1], tx=0, ty=0, tz=0, vx=[1, 0, 0], vy=[0, 1, 0], vz=[0, 0, 1], w_M_lx=[0, 0, 0], w_M_ly=[0, 0, 0], w_M_lz=[0, 0, 0], n_models=10000</em><big>)</big><a class="headerlink" href="#mmtbx.tls.tools.u_tls_vs_u_ens" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">

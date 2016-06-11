@@ -8,7 +8,7 @@
     
     <title>libtbx.phil - Python-based hierarchical interchange language &mdash; CCTBX None documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -27,8 +27,8 @@
     <link rel="up" title="libtbx - low-level utilities and infrastructure for CCTBX" href="index.html" />
     <link rel="prev" title="libtbx - low-level utilities and infrastructure for CCTBX" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,15 +40,15 @@
         <li class="right" >
           <a href="index.html" title="libtbx - low-level utilities and infrastructure for CCTBX"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">libtbx - low-level utilities and infrastructure for CCTBX</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">libtbx - low-level utilities and infrastructure for CCTBX</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="libtbx-phil-python-based-hierarchical-interchange-language">
 <h1><a class="toc-backref" href="#id1">libtbx.phil - Python-based hierarchical interchange language</a><a class="headerlink" href="#libtbx-phil-python-based-hierarchical-interchange-language" title="Permalink to this headline">¶</a></h1>
@@ -102,7 +102,7 @@
 <dd><a class="reference external" href="http://cctbx.sourceforge.net/libtbx_phil.html">http://cctbx.sourceforge.net/libtbx_phil.html</a></dd>
 <dt>The source code examples below are available as one file here:</dt>
 <dd><a class="reference external" href="http://cctbx.sourceforge.net/libtbx_phil_examples.py">http://cctbx.sourceforge.net/libtbx_phil_examples.py</a></dd>
-<dt><tt class="docutils literal"><span class="pre">libtbx.phil</span></tt> is part of the cctbx open source libraries:</dt>
+<dt><code class="docutils literal"><span class="pre">libtbx.phil</span></code> is part of the cctbx open source libraries:</dt>
 <dd><a class="reference external" href="http://cctbx.sourceforge.net/">http://cctbx.sourceforge.net/</a></dd>
 </dl>
 <div class="section" id="phil-overview">
@@ -131,8 +131,8 @@ minimization.parameters {
 <p>Phil is designed with a minimal syntax. An important goal is to
 enable users to get started just by looking at defaults and examples,
 without having to read documentation.</p>
-<p>The Phil syntax has only two main elements, <tt class="docutils literal"><span class="pre">phil.definition</span></tt> (e.g.
-<tt class="docutils literal"><span class="pre">max_iterations</span> <span class="pre">=</span> <span class="pre">10</span></tt> and <tt class="docutils literal"><span class="pre">phil.scope</span></tt> (e.g. <tt class="docutils literal"><span class="pre">minimization.input</span> <span class="pre">{</span> <span class="pre">}</span></tt>).
+<p>The Phil syntax has only two main elements, <code class="docutils literal"><span class="pre">phil.definition</span></code> (e.g.
+<code class="docutils literal"><span class="pre">max_iterations</span> <span class="pre">=</span> <span class="pre">10</span></code> and <code class="docutils literal"><span class="pre">phil.scope</span></code> (e.g. <code class="docutils literal"><span class="pre">minimization.input</span> <span class="pre">{</span> <span class="pre">}</span></code>).
 To make this syntax as user-friendly as possible, strings
 do not have to be quoted and, unlike Python, indentation is not
 syntactically significant. E.g. this:</p>
@@ -181,7 +181,7 @@ actually have to depend on Phil.</li>
 objects back to Phil files. This could also be viewed as a Phil
 pretty printer.</li>
 <li>Shell-like variable substitution using $var and ${var} syntax.</li>
-<li><tt class="docutils literal"><span class="pre">include</span></tt> syntax to merge Phil files at the parser level,
+<li><code class="docutils literal"><span class="pre">include</span></code> syntax to merge Phil files at the parser level,
 or to import Phil objects from other Python scripts.</li>
 </ul>
 </div></blockquote>
@@ -208,8 +208,8 @@ interfaces. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre>libtbx.phil --show-some-attributes example.params
 </pre></div>
 </div>
-<p>Run this command with <tt class="docutils literal"><span class="pre">--show-all-attributes</span></tt> to see the full set
-of <tt class="docutils literal"><span class="pre">definition</span></tt> and <tt class="docutils literal"><span class="pre">scope</span></tt> attributes. This output tends to get
+<p>Run this command with <code class="docutils literal"><span class="pre">--show-all-attributes</span></code> to see the full set
+of <code class="docutils literal"><span class="pre">definition</span></code> and <code class="docutils literal"><span class="pre">scope</span></code> attributes. This output tends to get
 very long, but end-users don&#8217;t have to be aware of this, and even
 programmers only have to deal with the attributes they want to change.</p>
 </div>
@@ -221,10 +221,10 @@ programmers only have to deal with the attributes they want to change.</p>
 </div>
 <p>will process its master file and show only the most
 relevant parameters, classified by the software developer as
-<tt class="docutils literal"><span class="pre">.expert_level</span> <span class="pre">=</span> <span class="pre">0</span></tt> (default). E.g. the <tt class="docutils literal"><span class="pre">minimization.parameters</span></tt>
+<code class="docutils literal"><span class="pre">.expert_level</span> <span class="pre">=</span> <span class="pre">0</span></code> (default). E.g. the <code class="docutils literal"><span class="pre">minimization.parameters</span></code>
 scope in the example above is not shown. The attributes are also
 not shown. Therefore the output is much shorter compared to the
-<tt class="docutils literal"><span class="pre">libtbx.phil</span> <span class="pre">--show-some-attributes</span></tt> output above:</p>
+<code class="docutils literal"><span class="pre">libtbx.phil</span> <span class="pre">--show-some-attributes</span></code> output above:</p>
 <div class="highlight-python"><div class="highlight"><pre>minimization.parameters {
   method = *bfgs conjugate_gradient
   max_iterations = 10
@@ -243,7 +243,7 @@ the possiblity of typing errors. In addition, the user can specify
 parameters directly on the command line, and this information is also
 use to fill in the blanks.</p>
 <p>Command-line arguments that are not file names or options prefixed
-with <tt class="docutils literal"><span class="pre">--</span></tt> (like <tt class="docutils literal"><span class="pre">--show_defaults</span></tt> above) should be given to Phil
+with <code class="docutils literal"><span class="pre">--</span></code> (like <code class="docutils literal"><span class="pre">--show_defaults</span></code> above) should be given to Phil
 for examination. E.g., this is a possible command:</p>
 <div class="highlight-python"><div class="highlight"><pre>minimization.quick experiment.dat output.plot_file=plot.pdf
 </pre></div>
@@ -251,7 +251,7 @@ for examination. E.g., this is a possible command:</p>
 <p>First the application should check if an argument is the name of a
 file that can be opened. Assume this succeeds for the first argument,
 so the processing of this argument is finished. Assume further that a
-file with the name <tt class="docutils literal"><span class="pre">output.plot_file=plot.pdf</span></tt> does not exist. This
+file with the name <code class="docutils literal"><span class="pre">output.plot_file=plot.pdf</span></code> does not exist. This
 argument will therefore be interpreted with Phil. The next section
 presents an example.</p>
 </div>
@@ -291,11 +291,11 @@ with embedded Phil syntax:</p>
 <span class="c">## extract code end</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">master_phil</span></tt> defines all available parameters including the
-type information. <tt class="docutils literal"><span class="pre">user_phil</span></tt> overrides the default <tt class="docutils literal"><span class="pre">file_name</span></tt>
-assignment but leaves the <tt class="docutils literal"><span class="pre">labels</span></tt> undefined. These are defined
+<p><code class="docutils literal"><span class="pre">master_phil</span></code> defines all available parameters including the
+type information. <code class="docutils literal"><span class="pre">user_phil</span></code> overrides the default <code class="docutils literal"><span class="pre">file_name</span></code>
+assignment but leaves the <code class="docutils literal"><span class="pre">labels</span></code> undefined. These are defined
 by a (fake) command-line argument. All inputs are merged via
-<tt class="docutils literal"><span class="pre">master_phil.fetch()</span></tt>. <tt class="docutils literal"><span class="pre">working_phil.show()</span></tt> produces:</p>
+<code class="docutils literal"><span class="pre">master_phil.fetch()</span></code>. <code class="docutils literal"><span class="pre">working_phil.show()</span></code> produces:</p>
 <div class="highlight-python"><div class="highlight"><pre>minimization.input {
   file_name = experiment.dat
   label = set2
@@ -303,7 +303,7 @@ by a (fake) command-line argument. All inputs are merged via
 </pre></div>
 </div>
 <p>Having to type in fully qualified parameter names (e.g.
-<tt class="docutils literal"><span class="pre">minimization.input.labels</span></tt>) can be very inconvenient. Therefore
+<code class="docutils literal"><span class="pre">minimization.input.labels</span></code>) can be very inconvenient. Therefore
 Phil includes support for matching parameter names of command-line
 arguments as substrings to the parameter names in the master files:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
@@ -317,8 +317,8 @@ arguments as substrings to the parameter names in the master files:</p>
 <span class="c">## extract code end</span>
 </pre></div>
 </div>
-<p>This works even if the user writes just <tt class="docutils literal"><span class="pre">label=set2</span></tt> or even
-<tt class="docutils literal"><span class="pre">put.lab=x1</span> <span class="pre">x2</span></tt>. The only requirement is that the substring leads
+<p>This works even if the user writes just <code class="docutils literal"><span class="pre">label=set2</span></code> or even
+<code class="docutils literal"><span class="pre">put.lab=x1</span> <span class="pre">x2</span></code>. The only requirement is that the substring leads
 to a unique match in the master file. Otherwise Phil produces a helpful
 error message. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">argument_interpreter</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="s">&quot;a=set2&quot;</span><span class="p">)</span>
@@ -365,7 +365,7 @@ this can be achieved with just one line:</p>
 <span class="n">set2</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">file_name</span></tt> and <tt class="docutils literal"><span class="pre">label</span></tt> are now a simple Python strings.</p>
+<p><code class="docutils literal"><span class="pre">file_name</span></code> and <code class="docutils literal"><span class="pre">label</span></code> are now a simple Python strings.</p>
 </div>
 <div class="section" id="format-conversion-of-python-objects-to-phil-objects">
 <h2><a class="toc-backref" href="#id9">format: conversion of Python objects to Phil objects</a><a class="headerlink" href="#format-conversion-of-python-objects-to-phil-objects" title="Permalink to this headline">¶</a></h2>
@@ -388,18 +388,18 @@ example, to change the label:</p>
 }
 </pre></div>
 </div>
-<p>We need to bring in <tt class="docutils literal"><span class="pre">master_phil</span></tt> again because all the meta
-information was lost in the <tt class="docutils literal"><span class="pre">working_phil.extract()</span></tt> step that
-produced <tt class="docutils literal"><span class="pre">working_params</span></tt>. A type-specific converter is used to
+<p>We need to bring in <code class="docutils literal"><span class="pre">master_phil</span></code> again because all the meta
+information was lost in the <code class="docutils literal"><span class="pre">working_phil.extract()</span></code> step that
+produced <code class="docutils literal"><span class="pre">working_params</span></code>. A type-specific converter is used to
 produce a string for each Python object (see the Extending Phil
 section below).</p>
 </div>
 <div class="section" id="multiple-true">
 <h2><a class="toc-backref" href="#id10">.multiple = True</a><a class="headerlink" href="#multiple-true" title="Permalink to this headline">¶</a></h2>
-<p>Both <tt class="docutils literal"><span class="pre">phil.definition</span></tt> and <tt class="docutils literal"><span class="pre">phil.scope</span></tt> support the <tt class="docutils literal"><span class="pre">.multiple</span>
-<span class="pre">=</span> <span class="pre">True</span></tt> attribute. For the sake of simplicity, in the following
+<p>Both <code class="docutils literal"><span class="pre">phil.definition</span></code> and <code class="docutils literal"><span class="pre">phil.scope</span></code> support the <code class="docutils literal"><span class="pre">.multiple</span>
+<span class="pre">=</span> <span class="pre">True</span></code> attribute. For the sake of simplicity, in the following
 &#8220;multiple definition&#8221; and &#8220;multiple scope&#8221; means a master definition or
-scope with <tt class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">True</span></tt>. Please note the distinction between
+scope with <code class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">True</span></code>. Please note the distinction between
 this and multiple <em>values</em> given in a user file. For example, this
 is a multiple definition in a master file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
@@ -430,10 +430,10 @@ is a multiple definition in a master file:</p>
 </pre></div>
 </div>
 <p>I.e. multiple values are simply specified by repeated definitions.
-Without the <tt class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">True</span></tt> in the master file, <tt class="docutils literal"><span class="pre">.fetch()</span></tt>
+Without the <code class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">True</span></code> in the master file, <code class="docutils literal"><span class="pre">.fetch()</span></code>
 retains only the <em>last</em> definition found in the master and all user
-files or command-line arguments. <tt class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">True</span></tt> directs Phil
-to keep all values. <tt class="docutils literal"><span class="pre">.extract()</span></tt> then returns a list of all these
+files or command-line arguments. <code class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">True</span></code> directs Phil
+to keep all values. <code class="docutils literal"><span class="pre">.extract()</span></code> then returns a list of all these
 values converted to Python objects. For example, given the user
 file above:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
@@ -505,7 +505,7 @@ file above:</p>
 </pre></div>
 </div>
 <p>Definitions and scopes may be nested with any combination of
-<tt class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">False</span></tt> or <tt class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">True</span></tt>. For example, this
+<code class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">False</span></code> or <code class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">True</span></code>. For example, this
 would be a plausible master file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
@@ -559,7 +559,7 @@ would be a plausible master file:</p>
 <span class="c">## extract code end</span>
 </pre></div>
 </div>
-<p>but the output shows lists of strings for <tt class="docutils literal"><span class="pre">label</span></tt> instead of just
+<p>but the output shows lists of strings for <code class="docutils literal"><span class="pre">label</span></code> instead of just
 one Python string:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">experiment1</span><span class="o">.</span><span class="n">dat</span>
 <span class="p">[</span><span class="s">&#39;set1&#39;</span><span class="p">,</span> <span class="s">&#39;set2&#39;</span><span class="p">,</span> <span class="s">&#39;set3&#39;</span><span class="p">]</span>
@@ -570,13 +570,13 @@ one Python string:</p>
 </div>
 <div class="section" id="fetch-diff-difference-between-master-phil-and-working-phil">
 <h2><a class="toc-backref" href="#id11">fetch_diff: difference between master_phil and working_phil</a><a class="headerlink" href="#fetch-diff-difference-between-master-phil-and-working-phil" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">.fetch()</span></tt> method introduced above produces a complete copy
+<p>The <code class="docutils literal"><span class="pre">.fetch()</span></code> method introduced above produces a complete copy
 of the Phil master with all user definitions and scopes merged in.
-If the Phil master is large, the output of <tt class="docutils literal"><span class="pre">working_phil.show()</span></tt> will
+If the Phil master is large, the output of <code class="docutils literal"><span class="pre">working_phil.show()</span></code> will
 therefore also be large. It may be difficult to see which definitions
 still have default values, and which definitions are changed.
 To get just the difference between the master and the working
-Phil objects, the <tt class="docutils literal"><span class="pre">.fetch_diff()</span></tt> method is available. For example:</p>
+Phil objects, the <code class="docutils literal"><span class="pre">.fetch_diff()</span></code> method is available. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
@@ -607,12 +607,12 @@ Phil objects, the <tt class="docutils literal"><span class="pre">.fetch_diff()</
 }
 </pre></div>
 </div>
-<p>Here the minimization method was changed from <tt class="docutils literal"><span class="pre">bfgs</span></tt>
-to <tt class="docutils literal"><span class="pre">conjugate_gradient</span></tt> but the number of iterations is
+<p>Here the minimization method was changed from <code class="docutils literal"><span class="pre">bfgs</span></code>
+to <code class="docutils literal"><span class="pre">conjugate_gradient</span></code> but the number of iterations is
 unchanged. Therefore the latter does not appear in the output.
-<tt class="docutils literal"><span class="pre">.fetch_diff()</span></tt> is completely general and works for any combination
-of definitions and scopes with <tt class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">False</span></tt> or <tt class="docutils literal"><span class="pre">.multiple</span>
-<span class="pre">=</span> <span class="pre">True</span></tt>.</p>
+<code class="docutils literal"><span class="pre">.fetch_diff()</span></code> is completely general and works for any combination
+of definitions and scopes with <code class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">False</span></code> or <code class="docutils literal"><span class="pre">.multiple</span>
+<span class="pre">=</span> <span class="pre">True</span></code>.</p>
 </div>
 <div class="section" id="includes">
 <h2><a class="toc-backref" href="#id12">Includes</a><a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
@@ -633,13 +633,13 @@ minimization.parameters {
 }
 </pre></div>
 </div>
-<p>When encountering the <tt class="docutils literal"><span class="pre">include</span> <span class="pre">scope</span></tt>, the Phil parser automatically
-imports <tt class="docutils literal"><span class="pre">app.module</span></tt> (equivalent to <tt class="docutils literal"><span class="pre">import</span> <span class="pre">app.module</span></tt> in a Python
-script). The <tt class="docutils literal"><span class="pre">master_phil</span></tt> object in the imported module must be
+<p>When encountering the <code class="docutils literal"><span class="pre">include</span> <span class="pre">scope</span></code>, the Phil parser automatically
+imports <code class="docutils literal"><span class="pre">app.module</span></code> (equivalent to <code class="docutils literal"><span class="pre">import</span> <span class="pre">app.module</span></code> in a Python
+script). The <code class="docutils literal"><span class="pre">master_phil</span></code> object in the imported module must be
 a pre-parsed Phil scope or a plain Phil string. The content of the
-<tt class="docutils literal"><span class="pre">master_phil</span></tt> scope is inserted into the scope of the <tt class="docutils literal"><span class="pre">include</span>
-<span class="pre">scope</span></tt> statement.</p>
-<p><tt class="docutils literal"><span class="pre">include</span></tt> directives enable hierarchical building of
+<code class="docutils literal"><span class="pre">master_phil</span></code> scope is inserted into the scope of the <code class="docutils literal"><span class="pre">include</span>
+<span class="pre">scope</span></code> statement.</p>
+<p><code class="docutils literal"><span class="pre">include</span></code> directives enable hierarchical building of
 master files without the need to copy-and-paste large fragments
 explicitly. Duplication appears only in automatically generated user
 files. I.e. the programmer is well served because a system of master
@@ -677,14 +677,14 @@ syntax. A few examples say more than many words:</p>
 </pre></div>
 </div>
 <p>Note that the variable substitution does not happen during parsing.
-The output of <tt class="docutils literal"><span class="pre">params.show</span></tt> is identical to the input. In the
-example above, variables are substituted by the <tt class="docutils literal"><span class="pre">.fetch()</span></tt> method
+The output of <code class="docutils literal"><span class="pre">params.show</span></code> is identical to the input. In the
+example above, variables are substituted by the <code class="docutils literal"><span class="pre">.fetch()</span></code> method
 that we introduced earlier to merge user files given a master file.</p>
 </div>
 <div class="section" id="extending-phil">
 <h2><a class="toc-backref" href="#id14">Extending Phil</a><a class="headerlink" href="#extending-phil" title="Permalink to this headline">¶</a></h2>
-<p>Phil comes with a number of predefined converters used by <tt class="docutils literal"><span class="pre">.extract()</span></tt>
-and <tt class="docutils literal"><span class="pre">.format()</span></tt> to convert to and from pure Python objects. These
+<p>Phil comes with a number of predefined converters used by <code class="docutils literal"><span class="pre">.extract()</span></code>
+and <code class="docutils literal"><span class="pre">.format()</span></code> to convert to and from pure Python objects. These
 are:</p>
 <div class="highlight-python"><div class="highlight"><pre>.type =
   words     retains the &quot;words&quot; produced by the parser
@@ -727,8 +727,8 @@ For example:</p>
 <span class="c">## extract code end</span>
 </pre></div>
 </div>
-<p>The extended <tt class="docutils literal"><span class="pre">converter_registry</span></tt> is passed as an additional
-argument to Phil&#8217;s <tt class="docutils literal"><span class="pre">parse</span></tt> function:</p>
+<p>The extended <code class="docutils literal"><span class="pre">converter_registry</span></code> is passed as an additional
+argument to Phil&#8217;s <code class="docutils literal"><span class="pre">parse</span></code> function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
@@ -743,7 +743,7 @@ argument to Phil&#8217;s <tt class="docutils literal"><span class="pre">parse</s
 <span class="c">## extract code end</span>
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">print</span></tt> statement at the end writes &#8220;EXTRACTED&#8221;. It also goes
+<p>The <code class="docutils literal"><span class="pre">print</span></code> statement at the end writes &#8220;EXTRACTED&#8221;. It also goes
 the other way, starting with a lower-case Python value:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
@@ -754,24 +754,24 @@ the other way, starting with a lower-case Python value:</p>
 <span class="c">## extract code end</span>
 </pre></div>
 </div>
-<p>The output of the <tt class="docutils literal"><span class="pre">.show()</span></tt> call is &#8220;value = FORMATTED&#8221;.</p>
+<p>The output of the <code class="docutils literal"><span class="pre">.show()</span></code> call is &#8220;value = FORMATTED&#8221;.</p>
 <p>Arbitrary new types can be added to Phil by defining similar
 converters. If desired, the pre-defined converters for the basic
-types can even be replaced. All converters have to have <tt class="docutils literal"><span class="pre">__str__()</span></tt>,
-<tt class="docutils literal"><span class="pre">from_words()</span></tt> and <tt class="docutils literal"><span class="pre">as_words()</span></tt> methods. More complex converters
-may optionally have a non-trivial <tt class="docutils literal"><span class="pre">__init__()</span></tt> method (an example
-is the <tt class="docutils literal"><span class="pre">choice_converters</span></tt> class in <tt class="docutils literal"><span class="pre">libtbx/phil/__init__.py</span></tt>).</p>
+types can even be replaced. All converters have to have <code class="docutils literal"><span class="pre">__str__()</span></code>,
+<code class="docutils literal"><span class="pre">from_words()</span></code> and <code class="docutils literal"><span class="pre">as_words()</span></code> methods. More complex converters
+may optionally have a non-trivial <code class="docutils literal"><span class="pre">__init__()</span></code> method (an example
+is the <code class="docutils literal"><span class="pre">choice_converters</span></code> class in <code class="docutils literal"><span class="pre">libtbx/phil/__init__.py</span></code>).</p>
 <p>Additional domain-specific converters are best defined in a separate
 module, along with a corresponding parse() function using the
 extended converter registry as the default. See, for example,
-<tt class="docutils literal"><span class="pre">iotbx/phil.py</span></tt> in the same <tt class="docutils literal"><span class="pre">cctbx</span></tt> project that also hosts
-<tt class="docutils literal"><span class="pre">libtbx</span></tt>.</p>
+<code class="docutils literal"><span class="pre">iotbx/phil.py</span></code> in the same <code class="docutils literal"><span class="pre">cctbx</span></code> project that also hosts
+<code class="docutils literal"><span class="pre">libtbx</span></code>.</p>
 </div>
 <div class="section" id="details">
 <h2><a class="toc-backref" href="#id15">Details</a><a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="type-ints-and-type-floats">
 <h3><a class="toc-backref" href="#id16">.type = ints and .type = floats</a><a class="headerlink" href="#type-ints-and-type-floats" title="Permalink to this headline">¶</a></h3>
-<p>The built-in <tt class="docutils literal"><span class="pre">ints</span></tt> and <tt class="docutils literal"><span class="pre">floats</span></tt> converters handle lists of
+<p>The built-in <code class="docutils literal"><span class="pre">ints</span></code> and <code class="docutils literal"><span class="pre">floats</span></code> converters handle lists of
 integer and floating point numbers, respectively. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
@@ -825,26 +825,26 @@ unit_cell_parameters = 10 20 30
 rotation_part = 1 0 0 0 -1 0 0 0 -1
 </pre></div>
 </div>
-<p>The list of <tt class="docutils literal"><span class="pre">random_integers</span></tt> can have arbitrary size and arbitrary
+<p>The list of <code class="docutils literal"><span class="pre">random_integers</span></code> can have arbitrary size and arbitrary
 values.</p>
-<p>For <tt class="docutils literal"><span class="pre">euler_angles</span></tt>, exactly three values must be given.</p>
-<p>For <tt class="docutils literal"><span class="pre">unit_cell_parameters</span></tt>, one to six values are acceptable.</p>
-<p>The list of values for <tt class="docutils literal"><span class="pre">rotation_part</span></tt> must have nine integer
+<p>For <code class="docutils literal"><span class="pre">euler_angles</span></code>, exactly three values must be given.</p>
+<p>For <code class="docutils literal"><span class="pre">unit_cell_parameters</span></code>, one to six values are acceptable.</p>
+<p>The list of values for <code class="docutils literal"><span class="pre">rotation_part</span></code> must have nine integer
 elements, with values {-1,0,1}.</p>
 <p>All keywords are optional and can be used in any combination, except if
-<tt class="docutils literal"><span class="pre">size</span></tt> is given, <tt class="docutils literal"><span class="pre">size_min</span></tt> and <tt class="docutils literal"><span class="pre">size_max</span></tt> cannot also be given.</p>
+<code class="docutils literal"><span class="pre">size</span></code> is given, <code class="docutils literal"><span class="pre">size_min</span></code> and <code class="docutils literal"><span class="pre">size_max</span></code> cannot also be given.</p>
 <p>Lists of values can optionally use commas or semicolons as separators
 between values. In this context, both characters are equivalent to
-a white-space. <tt class="docutils literal"><span class="pre">.format()</span></tt> always uses spaces as separators, i.e.
-commas and semicolons are not preserved in an <tt class="docutils literal"><span class="pre">.extract()</span></tt>-<tt class="docutils literal"><span class="pre">.format()</span></tt>
+a white-space. <code class="docutils literal"><span class="pre">.format()</span></code> always uses spaces as separators, i.e.
+commas and semicolons are not preserved in an <code class="docutils literal"><span class="pre">.extract()</span></code>-<code class="docutils literal"><span class="pre">.format()</span></code>
 cycle. (Note that lists using semicolons as separators must be quoted;
 see the &#8220;Semicolon syntax&#8221; section below.)</p>
 </div>
 <div class="section" id="type-choice">
 <h3><a class="toc-backref" href="#id17">.type = choice</a><a class="headerlink" href="#type-choice" title="Permalink to this headline">¶</a></h3>
-<p>The built-in <tt class="docutils literal"><span class="pre">choice</span></tt> converters support single and multi choices.
-Here are two examples, a single choice <tt class="docutils literal"><span class="pre">gender</span></tt> and a multi choice
-<tt class="docutils literal"><span class="pre">favorite_sweets</span></tt>:</p>
+<p>The built-in <code class="docutils literal"><span class="pre">choice</span></code> converters support single and multi choices.
+Here are two examples, a single choice <code class="docutils literal"><span class="pre">gender</span></code> and a multi choice
+<code class="docutils literal"><span class="pre">favorite_sweets</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
@@ -867,7 +867,7 @@ Here are two examples, a single choice <tt class="docutils literal"><span class=
 <span class="c">## extract code end</span>
 </pre></div>
 </div>
-<p>Selected items are marked with a star <tt class="docutils literal"><span class="pre">*</span></tt>. The <tt class="docutils literal"><span class="pre">.extract()</span></tt>
+<p>Selected items are marked with a star <code class="docutils literal"><span class="pre">*</span></code>. The <code class="docutils literal"><span class="pre">.extract()</span></code>
 method returns either a string with the selected value (single choice)
 or a list of strings with all selected values (multi choice). The
 output of the example is:</p>
@@ -877,13 +877,13 @@ male [&#39;ice_cream&#39;, &#39;cookies&#39;]
 </pre></div>
 </div>
 <p>To maximize convenience, especially for choices specified via the
-command-line, the <tt class="docutils literal"><span class="pre">*</span></tt> is optional if only one value is given.
+command-line, the <code class="docutils literal"><span class="pre">*</span></code> is optional if only one value is given.
 For example, the following two definitions are equivalent:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">gender</span> <span class="o">=</span> <span class="n">female</span>
 <span class="n">gender</span> <span class="o">=</span> <span class="n">male</span> <span class="o">*</span><span class="n">female</span>
 </pre></div>
 </div>
-<p>If the <tt class="docutils literal"><span class="pre">.optional</span></tt> attribute is not defined, it defaults to <tt class="docutils literal"><span class="pre">True</span></tt>
+<p>If the <code class="docutils literal"><span class="pre">.optional</span></code> attribute is not defined, it defaults to <code class="docutils literal"><span class="pre">True</span></code>
 and this is possible:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
@@ -902,11 +902,11 @@ and this is possible:</p>
 <div class="highlight-python"><div class="highlight"><pre>None []
 </pre></div>
 </div>
-<p>In this case the application has to deal with the <tt class="docutils literal"><span class="pre">None</span></tt> and
-the empty list. If <tt class="docutils literal"><span class="pre">.optional</span> <span class="pre">=</span> <span class="pre">False</span></tt>, <tt class="docutils literal"><span class="pre">.extract()</span></tt> will lead
+<p>In this case the application has to deal with the <code class="docutils literal"><span class="pre">None</span></code> and
+the empty list. If <code class="docutils literal"><span class="pre">.optional</span> <span class="pre">=</span> <span class="pre">False</span></code>, <code class="docutils literal"><span class="pre">.extract()</span></code> will lead
 to informative error messages. The application will never receive
-<tt class="docutils literal"><span class="pre">None</span></tt> or an empty list.</p>
-<p>If a value in the user file is not a possible choice, <tt class="docutils literal"><span class="pre">.extract()</span></tt>
+<code class="docutils literal"><span class="pre">None</span></code> or an empty list.</p>
+<p>If a value in the user file is not a possible choice, <code class="docutils literal"><span class="pre">.extract()</span></code>
 leads to an error message listing all possible choices, for example:</p>
 <div class="highlight-python"><div class="highlight"><pre>Sorry: Not a possible choice for favorite_sweets: icecream
   Possible choices are:
@@ -935,8 +935,8 @@ further supported by this syntax:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="s">&#39;ice_cream&#39;</span><span class="p">,</span> <span class="s">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s">&#39;cookies&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Finally, if the <tt class="docutils literal"><span class="pre">.optional</span></tt> attribute is not specified or <tt class="docutils literal"><span class="pre">True</span></tt>,
-<tt class="docutils literal"><span class="pre">None</span></tt> can be assigned:</p>
+<p>Finally, if the <code class="docutils literal"><span class="pre">.optional</span></code> attribute is not specified or <code class="docutils literal"><span class="pre">True</span></code>,
+<code class="docutils literal"><span class="pre">None</span></code> can be assigned:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">no_thanks_choices</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
@@ -956,7 +956,7 @@ further supported by this syntax:</p>
 </div>
 <div class="section" id="scope-extract">
 <h3><a class="toc-backref" href="#id18">scope_extract</a><a class="headerlink" href="#scope-extract" title="Permalink to this headline">¶</a></h3>
-<p>The result of <tt class="docutils literal"><span class="pre">scope.extract()</span></tt> is a <tt class="docutils literal"><span class="pre">scope_extract</span></tt> instance
+<p>The result of <code class="docutils literal"><span class="pre">scope.extract()</span></code> is a <code class="docutils literal"><span class="pre">scope_extract</span></code> instance
 with attributes corresponding to the embedded definitions and
 sub-scopes. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
@@ -992,8 +992,8 @@ experiment.dat
 </pre></div>
 </div>
 <p>This just repeats what was shown several times before, but
-<tt class="docutils literal"><span class="pre">scope_extract</span></tt> includes a few additional, special features that are
-worth knowing. The first special feature is the <tt class="docutils literal"><span class="pre">.__phil_path__()</span></tt>
+<code class="docutils literal"><span class="pre">scope_extract</span></code> includes a few additional, special features that are
+worth knowing. The first special feature is the <code class="docutils literal"><span class="pre">.__phil_path__()</span></code>
 method:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
@@ -1010,15 +1010,15 @@ method:</p>
 </div>
 <p>This feature is most useful for formatting informative error messages
 without having to hard-wire the fully-qualified parameter names. Use
-<tt class="docutils literal"><span class="pre">.__phil_path__()</span></tt> to ensure that the names are automatically
+<code class="docutils literal"><span class="pre">.__phil_path__()</span></code> to ensure that the names are automatically
 correct even if the master file is changed in major ways. Note that the
-<tt class="docutils literal"><span class="pre">.__phil_path__()</span></tt> method is available only for extracted scopes,
+<code class="docutils literal"><span class="pre">.__phil_path__()</span></code> method is available only for extracted scopes,
 not for extracted definitions since it would be very cumbersome to
 implement. However, the fully-qualified name of a definition can
-be obtained via <tt class="docutils literal"><span class="pre">.__phil_path__(object_name=&quot;max_iterations&quot;)</span></tt>;
-usually the <tt class="docutils literal"><span class="pre">object_name</span></tt> is readily available in the contexts in
+be obtained via <code class="docutils literal"><span class="pre">.__phil_path__(object_name=&quot;max_iterations&quot;)</span></code>;
+usually the <code class="docutils literal"><span class="pre">object_name</span></code> is readily available in the contexts in
 which the fully-qualified name is needed. There is also
-<tt class="docutils literal"><span class="pre">.__phil_path_and_value__(object_name)</span></tt> which returns a 2-tuple
+<code class="docutils literal"><span class="pre">.__phil_path_and_value__(object_name)</span></code> which returns a 2-tuple
 of the fully-qualified path and the extracted value, ready to
 be used for formatting error messages.</p>
 <p>The next important feature is a safety guard: assignment to a
@@ -1037,10 +1037,10 @@ if the attribute is mis-spelled:</p>
 overlooked dependencies related to changes in the master file.</p>
 <p>In some (unusual) situations it may be useful to attach attributes to
 an extracted scope that have no correspondence in the master file.
-Use the <tt class="docutils literal"><span class="pre">.__inject__(name,</span> <span class="pre">value)</span></tt> method for this purpose to
+Use the <code class="docutils literal"><span class="pre">.__inject__(name,</span> <span class="pre">value)</span></code> method for this purpose to
 by-pass the safety-guard. As a side-effect of this design, injected
 attributes are easily pin-pointed in the source code (simply search
-for <tt class="docutils literal"><span class="pre">__inject__</span></tt>), which can be a big help in maintaining a large
+for <code class="docutils literal"><span class="pre">__inject__</span></code>), which can be a big help in maintaining a large
 code base.</p>
 </div>
 <div class="section" id="multiple-definitions-and-scopes">
@@ -1048,7 +1048,7 @@ code base.</p>
 <p>All Phil attributes of multiple definitions or scopes are determined
 by the first occurrence in the master file. All following instances in
 the master file are defaults. Any instances in user files (merged via
-<tt class="docutils literal"><span class="pre">.fetch()</span></tt>) are added to the default instances in the master file.
+<code class="docutils literal"><span class="pre">.fetch()</span></code>) are added to the default instances in the master file.
 For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
@@ -1091,7 +1091,7 @@ plot {
 }
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">.extract()</span></tt> will produce a list with two elements:</p>
+<p><code class="docutils literal"><span class="pre">.extract()</span></code> will produce a list with two elements:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">working_params</span> <span class="o">=</span> <span class="n">working_phil</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
@@ -1107,8 +1107,8 @@ plot {
 </div>
 <p>Note that the first (i.e. master) occurrence of the scope is not
 extracted. In practice this is usually the desired behavior, but it
-can be changed by setting the <tt class="docutils literal"><span class="pre">plot</span></tt> scope attribute <tt class="docutils literal"><span class="pre">.optional</span>
-<span class="pre">=</span> <span class="pre">False</span></tt>. For example:</p>
+can be changed by setting the <code class="docutils literal"><span class="pre">plot</span></code> scope attribute <code class="docutils literal"><span class="pre">.optional</span>
+<span class="pre">=</span> <span class="pre">False</span></code>. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
@@ -1130,7 +1130,7 @@ can be changed by setting the <tt class="docutils literal"><span class="pre">plo
 <span class="c">## extract code end</span>
 </pre></div>
 </div>
-<p>With the <tt class="docutils literal"><span class="pre">user_phil</span></tt> as before, <tt class="docutils literal"><span class="pre">.show()</span></tt> and <tt class="docutils literal"><span class="pre">.extract()</span></tt> now
+<p>With the <code class="docutils literal"><span class="pre">user_phil</span></code> as before, <code class="docutils literal"><span class="pre">.show()</span></code> and <code class="docutils literal"><span class="pre">.extract()</span></code> now
 produce three entries each:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
@@ -1159,8 +1159,8 @@ plot {
  &lt;libtbx.phil.scope_extract object at 0x2af4c307be10&gt;]
 </pre></div>
 </div>
-<p>With <tt class="docutils literal"><span class="pre">.optional</span> <span class="pre">=</span> <span class="pre">True</span></tt>, the master of a multiple definition or
-scope is <em>never</em> extracted. With <tt class="docutils literal"><span class="pre">.optional</span> <span class="pre">=</span> <span class="pre">False</span></tt>, it is <em>always</em>
+<p>With <code class="docutils literal"><span class="pre">.optional</span> <span class="pre">=</span> <span class="pre">True</span></code>, the master of a multiple definition or
+scope is <em>never</em> extracted. With <code class="docutils literal"><span class="pre">.optional</span> <span class="pre">=</span> <span class="pre">False</span></code>, it is <em>always</em>
 extracted, and always first in the list.</p>
 <p>The &#8220;always first in the list&#8221; rule for multiple master objects is
 special. Other instances of multiple scopes are shown and extracted
@@ -1168,15 +1168,15 @@ in the order in which they appear in the master file and the merged
 user file(s), with all <em>exact</em> duplicates removed. If duplicates are
 detected, the earlier copy is removed, unless it is the master.</p>
 <p>These rules are designed to produce easily predictable results in
-situations where multiple Phil files are merged (via <tt class="docutils literal"><span class="pre">.fetch()</span></tt>),
+situations where multiple Phil files are merged (via <code class="docutils literal"><span class="pre">.fetch()</span></code>),
 including complete copies of the master file.</p>
 </div>
 <div class="section" id="fetch-option-track-unused-definitions">
 <h3><a class="toc-backref" href="#id20">fetch option: track_unused_definitions</a><a class="headerlink" href="#fetch-option-track-unused-definitions" title="Permalink to this headline">¶</a></h3>
-<p>The default behavior of <tt class="docutils literal"><span class="pre">.fetch()</span></tt> is to simply ignore user
+<p>The default behavior of <code class="docutils literal"><span class="pre">.fetch()</span></code> is to simply ignore user
 definitions that don&#8217;t match anything in the master file. It it is
 possible to request a complete list of all user definitions ignored by
-<tt class="docutils literal"><span class="pre">.fetch()</span></tt>. For example:</p>
+<code class="docutils literal"><span class="pre">.fetch()</span></code>. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
@@ -1212,14 +1212,14 @@ unused: input.lable (input line 5)
 </pre></div>
 </div>
 <p>To catch spelling errors, or to alert users to changes in the master
-file, it is good practice to set <tt class="docutils literal"><span class="pre">track_unused_definitions=True</span></tt>
+file, it is good practice to set <code class="docutils literal"><span class="pre">track_unused_definitions=True</span></code>
 and to show warnings or errors.</p>
 </div>
 <div class="section" id="semicolon-syntax">
 <h3><a class="toc-backref" href="#id21">Semicolon syntax</a><a class="headerlink" href="#semicolon-syntax" title="Permalink to this headline">¶</a></h3>
 <p>In all the examples above, line breaks act as syntactical elements
 delineating the end of definitions. This is most obvious, but for
-convenience, Phil also supports using the semicolon <tt class="docutils literal"><span class="pre">;</span></tt> instead.
+convenience, Phil also supports using the semicolon <code class="docutils literal"><span class="pre">;</span></code> instead.
 For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
@@ -1247,7 +1247,7 @@ For example:</p>
 <p>Master files generally shouldn&#8217;t make use of the semicolon syntax, even
 though it is possible. In user files it is more acceptable, but the main
 purpose is to support passing parameters from the command line.</p>
-<p>Note that the Phil output methods (<tt class="docutils literal"><span class="pre">.show()</span></tt>, <tt class="docutils literal"><span class="pre">.as_str()</span></tt>) never
+<p>Note that the Phil output methods (<code class="docutils literal"><span class="pre">.show()</span></code>, <code class="docutils literal"><span class="pre">.as_str()</span></code>) never
 make use of the semicolon syntax.</p>
 </div>
 <div class="section" id="phil-comments">
@@ -1255,9 +1255,9 @@ make use of the semicolon syntax.</p>
 <p>Phil supports two types of comments:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Simple one-line comments starting with a hash <tt class="docutils literal"><span class="pre">#</span></tt>.
+<li>Simple one-line comments starting with a hash <code class="docutils literal"><span class="pre">#</span></code>.
 All following characters through the end of the line are ignored.</li>
-<li>Syntax-aware comments starting with an exclamation mark <tt class="docutils literal"><span class="pre">!</span></tt>.</li>
+<li>Syntax-aware comments starting with an exclamation mark <code class="docutils literal"><span class="pre">!</span></code>.</li>
 </ul>
 </div></blockquote>
 <p>The exclamation mark can be used to easily comment out entire
@@ -1284,7 +1284,7 @@ attributes:</p>
 </pre></div>
 </div>
 <p>As is evident from the output, Phil keeps the content &#8220;in mind&#8221;,
-but the scope is not actually used by <tt class="docutils literal"><span class="pre">.fetch()</span></tt>:</p>
+but the scope is not actually used by <code class="docutils literal"><span class="pre">.fetch()</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
@@ -1299,7 +1299,7 @@ but the scope is not actually used by <tt class="docutils literal"><span class="
 <div class="highlight-python"><div class="highlight"><pre><span class="mi">0</span>
 </pre></div>
 </div>
-<p>I.e. the <tt class="docutils literal"><span class="pre">.fetch()</span></tt> method ignored the user definition because the
+<p>I.e. the <code class="docutils literal"><span class="pre">.fetch()</span></code> method ignored the user definition because the
 corresponding master is commented out.</p>
 </div>
 <div class="section" id="quotes-and-backslash">
@@ -1308,7 +1308,7 @@ corresponding master is commented out.</p>
 and triple quotes (three single or three double quotes). Unlike
 Python, quotes can often be omitted, and single quotes and double
 quotes have different semantics, similar to that of Unix shells:
-<tt class="docutils literal"><span class="pre">$</span></tt> variables are expanded if embedded in double quotes, but not
+<code class="docutils literal"><span class="pre">$</span></code> variables are expanded if embedded in double quotes, but not
 if embedded in single quotes. See the variable substitution section
 above for examples.</p>
 <p>The backslash can be used in the usual way (Python, Unix shells) to
@@ -1325,23 +1325,23 @@ and error (as opposed to studying the intricate rules).</p>
 </div>
 <div class="section" id="scope-show-attributes-level-3">
 <h3><a class="toc-backref" href="#id24">scope.show(attributes_level=3)</a><a class="headerlink" href="#scope-show-attributes-level-3" title="Permalink to this headline">¶</a></h3>
-<p>In this document, the <tt class="docutils literal"><span class="pre">scope.show()</span></tt> method is used extensively
+<p>In this document, the <code class="docutils literal"><span class="pre">scope.show()</span></code> method is used extensively
 in the examples. With the defaults for the method parameters, it
 only shows the Phil scope or definition names and and associated
 values. It is also possible to include some or all Phil scope or
-definition attributes in the <tt class="docutils literal"><span class="pre">.show()</span></tt> output, as directed by the
-<tt class="docutils literal"><span class="pre">attributes_level</span></tt> parameter:</p>
+definition attributes in the <code class="docutils literal"><span class="pre">.show()</span></code> output, as directed by the
+<code class="docutils literal"><span class="pre">attributes_level</span></code> parameter:</p>
 <div class="highlight-python"><div class="highlight"><pre>attributes_level=0: shows only names and values
                  1: also shows the .help attribute
                  2: shows all attributes which are not None
                  3: shows all attributes
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">scope.show(attributes_level=2)</span></tt> can be used to pretty-print
-master files without any loss of information. <tt class="docutils literal"><span class="pre">attributes_level=3</span></tt>
+<p><code class="docutils literal"><span class="pre">scope.show(attributes_level=2)</span></code> can be used to pretty-print
+master files without any loss of information. <code class="docutils literal"><span class="pre">attributes_level=3</span></code>
 is useful to obtain a full listing of all available attributes,
 but all information is preserved with the usually much less verbose
-<tt class="docutils literal"><span class="pre">attributes_level=2</span></tt>. This is illustrated by the following example:</p>
+<code class="docutils literal"><span class="pre">attributes_level=2</span></code>. This is illustrated by the following example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
@@ -1365,7 +1365,7 @@ but all information is preserved with the usually much less verbose
 <span class="c">## extract code end</span>
 </pre></div>
 </div>
-<p>Output with <tt class="docutils literal"><span class="pre">attributes_level=0</span></tt> (the default):</p>
+<p>Output with <code class="docutils literal"><span class="pre">attributes_level=0</span></code> (the default):</p>
 <div class="highlight-python"><div class="highlight"><pre>minimization {
   input {
     file_name = None
@@ -1374,7 +1374,7 @@ but all information is preserved with the usually much less verbose
 }
 </pre></div>
 </div>
-<p>Output with <tt class="docutils literal"><span class="pre">attributes_level=1</span></tt>:</p>
+<p>Output with <code class="docutils literal"><span class="pre">attributes_level=1</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>minimization {
   input
     .help = &quot;File names and data labels.&quot;
@@ -1386,7 +1386,7 @@ but all information is preserved with the usually much less verbose
 }
 </pre></div>
 </div>
-<p>Output with <tt class="docutils literal"><span class="pre">attributes_level=2</span></tt>:</p>
+<p>Output with <code class="docutils literal"><span class="pre">attributes_level=2</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>minimization {
   input
     .help = &quot;File names and data labels.&quot;
@@ -1401,7 +1401,7 @@ but all information is preserved with the usually much less verbose
 }
 </pre></div>
 </div>
-<p>Output with <tt class="docutils literal"><span class="pre">attributes_level=3</span></tt>:</p>
+<p>Output with <code class="docutils literal"><span class="pre">attributes_level=3</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>minimization
   .style = None
   .help = None
@@ -1456,7 +1456,7 @@ but all information is preserved with the usually much less verbose
 <h2><a class="toc-backref" href="#id25">API documentation for PHIL definition</a><a class="headerlink" href="#api-documentation-for-phil-definition" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="libtbx.phil.scope">
-<em class="property">class </em><tt class="descclassname">libtbx.phil.</tt><tt class="descname">scope</tt><big>(</big><em>name</em>, <em>objects=None</em>, <em>primary_id=None</em>, <em>primary_parent_scope=None</em>, <em>is_disabled=False</em>, <em>is_template=0</em>, <em>where_str=''</em>, <em>merge_names=False</em>, <em>style=None</em>, <em>help=None</em>, <em>caption=None</em>, <em>short_caption=None</em>, <em>optional=None</em>, <em>call=None</em>, <em>multiple=None</em>, <em>sequential_format=None</em>, <em>disable_add=None</em>, <em>disable_delete=None</em>, <em>expert_level=None</em>, <em>alias=None</em><big>)</big><a class="headerlink" href="#libtbx.phil.scope" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.phil.</code><code class="descname">scope</code><span class="sig-paren">(</span><em>name</em>, <em>objects=None</em>, <em>primary_id=None</em>, <em>primary_parent_scope=None</em>, <em>is_disabled=False</em>, <em>is_template=0</em>, <em>where_str=''</em>, <em>merge_names=False</em>, <em>style=None</em>, <em>help=None</em>, <em>caption=None</em>, <em>short_caption=None</em>, <em>optional=None</em>, <em>call=None</em>, <em>multiple=None</em>, <em>sequential_format=None</em>, <em>disable_add=None</em>, <em>disable_delete=None</em>, <em>expert_level=None</em>, <em>alias=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.phil.scope" title="Permalink to this definition">¶</a></dt>
 <dd><p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -1464,91 +1464,91 @@ but all information is preserved with the usually much less verbose
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">active_objects</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">active_objects</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">adopt</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">adopt</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">adopt_scope</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">adopt_scope</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">alias_path</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">alias_path</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">all_definitions</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">all_definitions</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_str</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">as_str</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">assign_attribute</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">assign_attribute</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">assign_tmp</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">assign_tmp</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">change_primary_parent_scope</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">change_primary_parent_scope</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">clone</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">clone</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">command_line_argument_interpreter</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">command_line_argument_interpreter</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">copy</span></tt></a></td>
+<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
 <td>Generic (shallow and deep) copying operations.</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">customized_copy</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">customized_copy</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">extract</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">extract</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">extract_format</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">extract_format</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">fetch</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">fetch</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">fetch_diff</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">fetch_diff</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/functions.html#format" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">format</span></tt></a></td>
+<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/functions.html#format" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">format</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">full_path</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">full_path</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_without_substitution</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_without_substitution</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">has_attribute_with_name</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">has_attribute_with_name</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">is_empty</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">is_empty</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">lexical_get</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">lexical_get</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">master_active_objects</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">master_active_objects</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">process_includes</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">process_includes</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">resolve_variables</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">resolve_variables</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">unique</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">unique</span></code></td>
 <td></td>
 </tr>
 </tbody>
@@ -1560,7 +1560,7 @@ but all information is preserved with the usually much less verbose
 <h2><a class="toc-backref" href="#id26">API documentation for PHIL scope</a><a class="headerlink" href="#api-documentation-for-phil-scope" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt>
-<em class="property">class </em><tt class="descclassname">libtbx.phil.</tt><tt class="descname">scope</tt><big>(</big><em>name</em>, <em>objects=None</em>, <em>primary_id=None</em>, <em>primary_parent_scope=None</em>, <em>is_disabled=False</em>, <em>is_template=0</em>, <em>where_str=''</em>, <em>merge_names=False</em>, <em>style=None</em>, <em>help=None</em>, <em>caption=None</em>, <em>short_caption=None</em>, <em>optional=None</em>, <em>call=None</em>, <em>multiple=None</em>, <em>sequential_format=None</em>, <em>disable_add=None</em>, <em>disable_delete=None</em>, <em>expert_level=None</em>, <em>alias=None</em><big>)</big></dt>
+<em class="property">class </em><code class="descclassname">libtbx.phil.</code><code class="descname">scope</code><span class="sig-paren">(</span><em>name</em>, <em>objects=None</em>, <em>primary_id=None</em>, <em>primary_parent_scope=None</em>, <em>is_disabled=False</em>, <em>is_template=0</em>, <em>where_str=''</em>, <em>merge_names=False</em>, <em>style=None</em>, <em>help=None</em>, <em>caption=None</em>, <em>short_caption=None</em>, <em>optional=None</em>, <em>call=None</em>, <em>multiple=None</em>, <em>sequential_format=None</em>, <em>disable_add=None</em>, <em>disable_delete=None</em>, <em>expert_level=None</em>, <em>alias=None</em><span class="sig-paren">)</span></dt>
 <dd><p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -1568,91 +1568,91 @@ but all information is preserved with the usually much less verbose
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">active_objects</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">active_objects</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">adopt</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">adopt</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">adopt_scope</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">adopt_scope</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">alias_path</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">alias_path</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">all_definitions</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">all_definitions</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_str</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">as_str</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">assign_attribute</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">assign_attribute</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">assign_tmp</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">assign_tmp</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">change_primary_parent_scope</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">change_primary_parent_scope</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">clone</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">clone</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">command_line_argument_interpreter</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">command_line_argument_interpreter</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">copy</span></tt></a></td>
+<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
 <td>Generic (shallow and deep) copying operations.</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">customized_copy</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">customized_copy</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">extract</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">extract</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">extract_format</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">extract_format</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">fetch</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">fetch</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">fetch_diff</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">fetch_diff</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/functions.html#format" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">format</span></tt></a></td>
+<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/functions.html#format" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">format</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">full_path</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">full_path</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_without_substitution</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_without_substitution</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">has_attribute_with_name</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">has_attribute_with_name</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">is_empty</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">is_empty</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">lexical_get</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">lexical_get</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">master_active_objects</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">master_active_objects</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">process_includes</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">process_includes</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">resolve_variables</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">resolve_variables</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">unique</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">unique</span></code></td>
 <td></td>
 </tr>
 </tbody>
@@ -1669,7 +1669,7 @@ but all information is preserved with the usually much less verbose
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -1709,12 +1709,14 @@ but all information is preserved with the usually much less verbose
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">libtbx - low-level utilities and infrastructure for CCTBX</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/libtbx/libtbx.phil.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/libtbx/libtbx.phil.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -1731,7 +1733,7 @@ but all information is preserved with the usually much less verbose
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1743,13 +1745,13 @@ but all information is preserved with the usually much less verbose
         <li class="right" >
           <a href="index.html" title="libtbx - low-level utilities and infrastructure for CCTBX"
              >previous</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
-          <li><a href="index.html" >libtbx - low-level utilities and infrastructure for CCTBX</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >libtbx - low-level utilities and infrastructure for CCTBX</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

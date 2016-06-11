@@ -8,7 +8,7 @@
     
     <title>iotbx.cif &mdash; CCTBX None documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,8 +26,8 @@
     <link rel="top" title="CCTBX None documentation" href="../index.html" />
     <link rel="up" title="iotbx - file readers and writers" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -36,15 +36,15 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">iotbx - file readers and writers</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iotbx - file readers and writers</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="iotbx-cif">
 <h1><a class="toc-backref" href="#id1">iotbx.cif</a><a class="headerlink" href="#iotbx-cif" title="Permalink to this headline">¶</a></h1>
@@ -70,14 +70,14 @@
 </div>
 <div class="section" id="overview">
 <h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p><tt class="xref py py-mod docutils literal"><span class="pre">iotbx.cif</span></tt> is a module for the development of applications that make use of
+<p><code class="xref py py-mod docutils literal"><span class="pre">iotbx.cif</span></code> is a module for the development of applications that make use of
 the CIF format. Comprehensive tools are provided for input, output and
 validation of CIFs, as well as for interconversion with high-level cctbx
 crystallographic objects. The interface to the library is written in Python,
 whilst parsing is carried out using a compiled parser, combining the
 performance of a compiled language (C++) with the benefits of using an
 interpreted language.</p>
-<p>If you use <tt class="xref py py-mod docutils literal"><span class="pre">iotbx.cif</span></tt> in your work please cite:</p>
+<p>If you use <code class="xref py py-mod docutils literal"><span class="pre">iotbx.cif</span></code> in your work please cite:</p>
 <blockquote>
 <div>R. J. Gildea, L. J. Bourhis, O. V. Dolomanov, R. W. Grosse-Kunstleve,
 H. Puschmann, P. D. Adams and J. A. K. Howard:
@@ -109,25 +109,25 @@ representation of the quartz structure:</p>
 <span class="s">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p>Next we import the <tt class="xref py py-mod docutils literal"><span class="pre">iotbx.cif</span></tt> module, and extract an instance of
-<a class="reference internal" href="../cctbx/cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></tt></a> from the CIF string:</p>
+<p>Next we import the <code class="xref py py-mod docutils literal"><span class="pre">iotbx.cif</span></code> module, and extract an instance of
+<a class="reference internal" href="../cctbx/cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><code class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></code></a> from the CIF string:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">iotbx.cif</span>
 <span class="n">quartz_structure</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">cif</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span>
   <span class="n">input_string</span><span class="o">=</span><span class="n">quartz_as_cif</span><span class="p">)</span><span class="o">.</span><span class="n">build_crystal_structures</span><span class="p">()[</span><span class="s">&quot;quartz&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>The <a class="reference internal" href="#iotbx.cif.reader" title="iotbx.cif.reader"><tt class="xref py py-class docutils literal"><span class="pre">iotbx.cif.reader</span></tt></a> class reads the CIF string and builds a Python
+<p>The <a class="reference internal" href="#iotbx.cif.reader" title="iotbx.cif.reader"><code class="xref py py-class docutils literal"><span class="pre">iotbx.cif.reader</span></code></a> class reads the CIF string and builds a Python
 representation of the CIF. We then call the
-<a class="reference internal" href="#iotbx.cif.reader.build_crystal_structures" title="iotbx.cif.reader.build_crystal_structures"><tt class="xref py py-meth docutils literal"><span class="pre">build_crystal_structures()</span></tt></a>
-method which constructs an instance of <a class="reference internal" href="../cctbx/cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></tt></a> for each crystal
+<a class="reference internal" href="#iotbx.cif.reader.build_crystal_structures" title="iotbx.cif.reader.build_crystal_structures"><code class="xref py py-meth docutils literal"><span class="pre">build_crystal_structures()</span></code></a>
+method which constructs an instance of <a class="reference internal" href="../cctbx/cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><code class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></code></a> for each crystal
 structure it finds in the CIF. Since a single CIF file may contain multiple
-crystal structures, the <a class="reference internal" href="#iotbx.cif.reader.build_crystal_structures" title="iotbx.cif.reader.build_crystal_structures"><tt class="xref py py-meth docutils literal"><span class="pre">build_crystal_structures()</span></tt></a>
+crystal structures, the <a class="reference internal" href="#iotbx.cif.reader.build_crystal_structures" title="iotbx.cif.reader.build_crystal_structures"><code class="xref py py-meth docutils literal"><span class="pre">build_crystal_structures()</span></code></a>
 method returns a dictionary
 of all the crystal structures found in the given CIF, where the keys are the
 name of each data block containing a crystal structure.</p>
-<p>We then call consecutively the <tt class="xref py py-meth docutils literal"><span class="pre">show_summary()</span></tt>
-and <tt class="xref py py-meth docutils literal"><span class="pre">show_scatterers()</span></tt>
-methods of the <a class="reference internal" href="../cctbx/cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></tt></a> object</p>
+<p>We then call consecutively the <code class="xref py py-meth docutils literal"><span class="pre">show_summary()</span></code>
+and <code class="xref py py-meth docutils literal"><span class="pre">show_scatterers()</span></code>
+methods of the <a class="reference internal" href="../cctbx/cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><code class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></code></a> object</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">quartz_structure</span><span class="o">.</span><span class="n">show_summary</span><span class="p">()</span><span class="o">.</span><span class="n">show_scatterers</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -141,7 +141,7 @@ Si   Si     3 ( 0.5000  0.5000  0.3333) 1.00 0.2000 [ - ]
 O    O      6 ( 0.1970 -0.1970  0.8333) 1.00 0.2000 [ - ]
 </pre></div>
 </div>
-<p>Next we explore the <tt class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></tt> object further by examining the
+<p>Next we explore the <code class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></code> object further by examining the
 symmetry of each site in the structure:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">scatterer</span> <span class="ow">in</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">scatterers</span><span class="p">():</span>
   <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="n">scatterer</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">%8.4f</span><span class="s"> </span><span class="si">%8.4f</span><span class="s"> </span><span class="si">%8.4f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">scatterer</span><span class="o">.</span><span class="n">site</span>
@@ -159,20 +159,20 @@ O:   0.1970  -0.1970   0.8333
   special position operator: x,-x,5/6
 </pre></div>
 </div>
-<p>Now we would like to calculate some intensities for our <tt class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></tt> and
+<p>Now we would like to calculate some intensities for our <code class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></code> and
 output them in CIF format. The cctbx provides several pretabulated  scattering
 factor tables that we can use; here we choose to use those from the
 International Tables:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">quartz_structure</span><span class="o">.</span><span class="n">scattering_type_registry</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s">&quot;it1992&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>First we calculate the structure factors from the <tt class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></tt>
-by calling the <tt class="xref py py-meth docutils literal"><span class="pre">structure_factors()</span></tt> method of
-<a class="reference internal" href="../cctbx/cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></tt></a>,
-passing the argument <tt class="docutils literal"><span class="pre">d_min=2</span></tt> to indicate that we only want to calculate the
+<p>First we calculate the structure factors from the <code class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></code>
+by calling the <code class="xref py py-meth docutils literal"><span class="pre">structure_factors()</span></code> method of
+<a class="reference internal" href="../cctbx/cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><code class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></code></a>,
+passing the argument <code class="docutils literal"><span class="pre">d_min=2</span></code> to indicate that we only want to calculate the
 structure factors for miller indices with d-spacings not less than 2 Angstroms.
-Following that we call the <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array.as_intensity_array" title="cctbx.miller.array.as_intensity_array"><tt class="xref py py-meth docutils literal"><span class="pre">as_intensity_array()</span></tt></a>
-method of <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><tt class="xref py py-class docutils literal"><span class="pre">array</span></tt></a>
+Following that we call the <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array.as_intensity_array" title="cctbx.miller.array.as_intensity_array"><code class="xref py py-meth docutils literal"><span class="pre">as_intensity_array()</span></code></a>
+method of <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal"><span class="pre">array</span></code></a>
 to convert the complex structure factors to intensities:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">f_calc</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">structure_factors</span><span class="p">(</span><span class="n">d_min</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">f_calc</span><span class="p">()</span>
 <span class="n">f_calc_sq</span> <span class="o">=</span> <span class="n">f_calc</span><span class="o">.</span><span class="n">as_intensity_array</span><span class="p">()</span>
@@ -187,19 +187,19 @@ to convert the complex structure factors to intensities:</p>
 </div>
 <div class="section" id="python-representation-of-a-cif-file">
 <h3><a class="toc-backref" href="#id4">Python representation of a CIF file</a><a class="headerlink" href="#python-representation-of-a-cif-file" title="Permalink to this headline">¶</a></h3>
-<p>The module <tt class="xref py py-mod docutils literal"><span class="pre">iotbx.cif.model</span></tt> contains three important classes that
+<p>The module <code class="xref py py-mod docutils literal"><span class="pre">iotbx.cif.model</span></code> contains three important classes that
 represent different levels of the CIF hierarchy. The class
-<tt class="xref py py-class docutils literal"><span class="pre">iotbx.model.cif</span></tt> is equivalent to
+<code class="xref py py-class docutils literal"><span class="pre">iotbx.model.cif</span></code> is equivalent to
 a full CIF file, and contains zero or more CIF data blocks, which in turn are
-represented by the class <tt class="xref py py-class docutils literal"><span class="pre">iotbx.model.block</span></tt>. These two classes
+represented by the class <code class="xref py py-class docutils literal"><span class="pre">iotbx.model.block</span></code>. These two classes
 behave in a very similar way to a normal Python dictionary, and values can be
 set or accessed using the familiar square bracket syntax.
-A <tt class="xref py py-class docutils literal"><span class="pre">iotbx.model.block</span></tt> object consists of a set of data names and
+A <code class="xref py py-class docutils literal"><span class="pre">iotbx.model.block</span></code> object consists of a set of data names and
 associated data values, which may or may not be looped items. Querying a
-<tt class="xref py py-class docutils literal"><span class="pre">iotbx.model.block</span></tt> object for a given data name will return a
+<code class="xref py py-class docutils literal"><span class="pre">iotbx.model.block</span></code> object for a given data name will return a
 simple string if the item is not looped, or a
-<tt class="xref py py-class docutils literal"><span class="pre">scitbx.flex.std_string</span></tt> array for looped values.</p>
-<p>Starting with the <tt class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></tt> already obtained above we will create a
+<code class="xref py py-class docutils literal"><span class="pre">scitbx.flex.std_string</span></code> array for looped values.</p>
+<p>Starting with the <code class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></code> already obtained above we will create a
 cif block containing the symmetry information about the structure:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">iotbx.cif</span> <span class="kn">import</span> <span class="n">model</span>
 
@@ -207,9 +207,9 @@ cif block containing the symmetry information about the structure:</p>
 <span class="n">cif_block</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">block</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>First we add the unit cell parameters to the <tt class="xref py py-obj docutils literal"><span class="pre">cif_block</span></tt> using the square
+<p>First we add the unit cell parameters to the <code class="xref py py-obj docutils literal"><span class="pre">cif_block</span></code> using the square
 bracket syntax to add key-value (data name, data value) pairs to the
-<tt class="xref py py-obj docutils literal"><span class="pre">cif_block</span></tt>:</p>
+<code class="xref py py-obj docutils literal"><span class="pre">cif_block</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">unit_cell</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">unit_cell</span><span class="p">()</span>
 <span class="n">params</span> <span class="o">=</span> <span class="n">unit_cell</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span>
 <span class="n">cif_block</span><span class="p">[</span><span class="s">&quot;_cell_length_a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -222,8 +222,8 @@ bracket syntax to add key-value (data name, data value) pairs to the
 </pre></div>
 </div>
 <p>Now we will create a CIF loop object containing the space group symmetry
-operations. First we create an instance of <a class="reference internal" href="#iotbx.cif.model.loop" title="iotbx.cif.model.loop"><tt class="xref py py-class docutils literal"><span class="pre">iotbx.cif.model.loop</span></tt></a>
-providing the data names (<tt class="docutils literal"><span class="pre">header</span></tt>) for the loop, before adding data values
+operations. First we create an instance of <a class="reference internal" href="#iotbx.cif.model.loop" title="iotbx.cif.model.loop"><code class="xref py py-class docutils literal"><span class="pre">iotbx.cif.model.loop</span></code></a>
+providing the data names (<code class="docutils literal"><span class="pre">header</span></code>) for the loop, before adding data values
 one row at a time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">space_group</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">space_group</span><span class="p">()</span>
 <span class="n">symop_loop</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="p">(</span><span class="s">&quot;_space_group_symop_id&quot;</span><span class="p">,</span>
@@ -232,8 +232,8 @@ one row at a time:</p>
   <span class="n">symop_loop</span><span class="o">.</span><span class="n">add_row</span><span class="p">((</span><span class="n">symop_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">symop</span><span class="o">.</span><span class="n">as_xyz</span><span class="p">()))</span>
 </pre></div>
 </div>
-<p>Next we add the <tt class="xref py py-obj docutils literal"><span class="pre">symop_loop</span></tt> and other space group items to the
-<tt class="xref py py-obj docutils literal"><span class="pre">cif_block</span></tt>:</p>
+<p>Next we add the <code class="xref py py-obj docutils literal"><span class="pre">symop_loop</span></code> and other space group items to the
+<code class="xref py py-obj docutils literal"><span class="pre">cif_block</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">space_group_type</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">space_group_info</span><span class="p">()</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
 <span class="n">cif_block</span><span class="p">[</span><span class="s">&quot;_space_group_crystal_system&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">space_group</span><span class="o">.</span><span class="n">crystal_system</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <span class="n">cif_block</span><span class="p">[</span><span class="s">&quot;_space_group_IT_number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">space_group_type</span><span class="o">.</span><span class="n">number</span><span class="p">()</span>
@@ -242,8 +242,8 @@ one row at a time:</p>
 <span class="n">cif_block</span><span class="o">.</span><span class="n">add_loop</span><span class="p">(</span><span class="n">symop_loop</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Finally we add <tt class="xref py py-obj docutils literal"><span class="pre">cif_block</span></tt> to the <tt class="xref py py-obj docutils literal"><span class="pre">cif</span></tt> object with the
-data block name &#8220;quartz&#8221; and print the <tt class="xref py py-obj docutils literal"><span class="pre">cif</span></tt> object to the standard output:</p>
+<p>Finally we add <code class="xref py py-obj docutils literal"><span class="pre">cif_block</span></code> to the <code class="xref py py-obj docutils literal"><span class="pre">cif</span></code> object with the
+data block name &#8220;quartz&#8221; and print the <code class="xref py py-obj docutils literal"><span class="pre">cif</span></code> object to the standard output:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">cif</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cif_block</span>
 <span class="k">print</span> <span class="n">cif</span>
 </pre></div>
@@ -251,7 +251,7 @@ data block name &#8220;quartz&#8221; and print the <tt class="xref py py-obj doc
 </div>
 <div class="section" id="dictionary-validation">
 <h3><a class="toc-backref" href="#id5">Dictionary validation</a><a class="headerlink" href="#dictionary-validation" title="Permalink to this headline">¶</a></h3>
-<p>We shall take the <tt class="xref py py-obj docutils literal"><span class="pre">quartz_as_cif</span></tt> from above and intentionally add some
+<p>We shall take the <code class="xref py py-obj docutils literal"><span class="pre">quartz_as_cif</span></code> from above and intentionally add some
 extra CIF items that contain will be interpreted as  errors when validated
 against the <a class="reference external" href="http://www.iucr.org/resources/cif/dictionaries/cif_core">core CIF dictionary</a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">iotbx.cif</span> <span class="kn">import</span> <span class="n">validation</span>
@@ -259,24 +259,24 @@ against the <a class="reference external" href="http://www.iucr.org/resources/ci
 <span class="n">cif_model</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">cif</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">input_string</span><span class="o">=</span><span class="n">quartz_as_cif</span><span class="p">)</span><span class="o">.</span><span class="n">model</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Here we call the <a class="reference internal" href="#iotbx.cif.reader" title="iotbx.cif.reader"><tt class="xref py py-class docutils literal"><span class="pre">iotbx.cif.reader</span></tt></a> class as before, and then
-following that we call the <a class="reference internal" href="#iotbx.cif.reader.model" title="iotbx.cif.reader.model"><tt class="xref py py-meth docutils literal"><span class="pre">iotbx.cif.reader.model()</span></tt></a> method to get
+<p>Here we call the <a class="reference internal" href="#iotbx.cif.reader" title="iotbx.cif.reader"><code class="xref py py-class docutils literal"><span class="pre">iotbx.cif.reader</span></code></a> class as before, and then
+following that we call the <a class="reference internal" href="#iotbx.cif.reader.model" title="iotbx.cif.reader.model"><code class="xref py py-meth docutils literal"><span class="pre">iotbx.cif.reader.model()</span></code></a> method to get
 direct access to the Python representation of the CIF that has been
-constructed by the <a class="reference internal" href="#iotbx.cif.reader" title="iotbx.cif.reader"><tt class="xref py py-class docutils literal"><span class="pre">reader</span></tt></a> class. We can then
+constructed by the <a class="reference internal" href="#iotbx.cif.reader" title="iotbx.cif.reader"><code class="xref py py-class docutils literal"><span class="pre">reader</span></code></a> class. We can then
 interact with this to add new data items:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">cif_model</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">][</span><span class="s">&quot;_diffrn_radiation_probe&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;xray&quot;</span>
 <span class="n">cif_model</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">][</span><span class="s">&quot;_space_group_crystal_system&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Monoclinic&quot;</span>
 <span class="n">cif_model</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">][</span><span class="s">&quot;_space_group_IT_number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;one hundred and eighty&quot;</span>
 </pre></div>
 </div>
-<p>Next we add take the <tt class="xref py py-obj docutils literal"><span class="pre">symop_loop</span></tt> constructed above and add another column
+<p>Next we add take the <code class="xref py py-obj docutils literal"><span class="pre">symop_loop</span></code> constructed above and add another column
 to the loop, before adding the loop to the &#8220;quartz&#8221; CIF block:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">symop_loop</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&quot;_space_group_symop_sg_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">cif_model</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">add_loop</span><span class="p">(</span><span class="n">symop_loop</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We can load a cif dictionary object using the
-<tt class="xref py py-func docutils literal"><span class="pre">iotbx.cif.validation.smart_load_dictionary()</span></tt> function.
+<code class="xref py py-func docutils literal"><span class="pre">iotbx.cif.validation.smart_load_dictionary()</span></code> function.
 This can load a dictionary from a given file path or url, or given the name of
 a dictionary it will attempt to first find a local copy of the dictionary, then
 alternatively look up the dictionary in the IUCr cif dictionary register and
@@ -296,7 +296,7 @@ Warning: case-sensitive match failure for value &#39;Monoclinic&#39; for &#39;_s
 </div>
 <div class="section" id="creating-a-standalone-c-cif-parser">
 <h3><a class="toc-backref" href="#id6">Creating a standalone C++ CIF parser</a><a class="headerlink" href="#creating-a-standalone-c-cif-parser" title="Permalink to this headline">¶</a></h3>
-<p>Using the <tt class="xref py py-mod docutils literal"><span class="pre">ucif</span></tt> module it is possible to very easily integrate a CIF parser
+<p>Using the <code class="xref py py-mod docutils literal"><span class="pre">ucif</span></code> module it is possible to very easily integrate a CIF parser
 with minimal dependencies into any C++ software. For further details see the
 <a class="reference external" href="http://cctbx.sourceforge.net/ucif">ucif documentation</a>.</p>
 <p>[<a class="reference external" href="http://cci.lbl.gov/cctbx_sources/iotbx/examples/iotbx_cif.py">Complete example script</a>]</p>
@@ -308,8 +308,8 @@ with minimal dependencies into any C++ software. For further details see the
 <h3><a class="toc-backref" href="#id8">iotbx.cif objects</a><a class="headerlink" href="#iotbx-cif-objects" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="iotbx.cif.reader">
-<em class="property">class </em><tt class="descclassname">iotbx.cif.</tt><tt class="descname">reader</tt><big>(</big><em>file_path=None</em>, <em>file_object=None</em>, <em>input_string=None</em>, <em>cif_object=None</em>, <em>builder=None</em>, <em>raise_if_errors=True</em>, <em>strict=True</em><big>)</big><a class="headerlink" href="#iotbx.cif.reader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<em class="property">class </em><code class="descclassname">iotbx.cif.</code><code class="descname">reader</code><span class="sig-paren">(</span><em>file_path=None</em>, <em>file_object=None</em>, <em>input_string=None</em>, <em>cif_object=None</em>, <em>builder=None</em>, <em>raise_if_errors=True</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.reader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -317,62 +317,62 @@ with minimal dependencies into any C++ software. For further details see the
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">as_miller_arrays</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">as_miller_arrays</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">build_crystal_structures</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">build_crystal_structures</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">build_miller_arrays</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">build_miller_arrays</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">error_count</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">error_count</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">model</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">model</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show_errors</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">show_errors</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="iotbx.cif.reader.as_miller_arrays">
-<tt class="descname">as_miller_arrays</tt><big>(</big><em>data_block_name=None</em>, <em>crystal_symmetry=None</em>, <em>force_symmetry=False</em>, <em>merge_equivalents=True</em>, <em>base_array_info=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.reader.as_miller_arrays" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_miller_arrays</code><span class="sig-paren">(</span><em>data_block_name=None</em>, <em>crystal_symmetry=None</em>, <em>force_symmetry=False</em>, <em>merge_equivalents=True</em>, <em>base_array_info=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.reader.as_miller_arrays" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.reader.build_crystal_structures">
-<tt class="descname">build_crystal_structures</tt><big>(</big><em>data_block_name=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.reader.build_crystal_structures" title="Permalink to this definition">¶</a></dt>
+<code class="descname">build_crystal_structures</code><span class="sig-paren">(</span><em>data_block_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.reader.build_crystal_structures" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.reader.build_miller_arrays">
-<tt class="descname">build_miller_arrays</tt><big>(</big><em>data_block_name=None</em>, <em>base_array_info=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.reader.build_miller_arrays" title="Permalink to this definition">¶</a></dt>
+<code class="descname">build_miller_arrays</code><span class="sig-paren">(</span><em>data_block_name=None</em>, <em>base_array_info=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.reader.build_miller_arrays" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.reader.error_count">
-<tt class="descname">error_count</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.reader.error_count" title="Permalink to this definition">¶</a></dt>
+<code class="descname">error_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.reader.error_count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.reader.model">
-<tt class="descname">model</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.reader.model" title="Permalink to this definition">¶</a></dt>
+<code class="descname">model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.reader.model" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.reader.show_errors">
-<tt class="descname">show_errors</tt><big>(</big><em>max_errors=50</em>, <em>out=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.reader.show_errors" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_errors</code><span class="sig-paren">(</span><em>max_errors=50</em>, <em>out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.reader.show_errors" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="iotbx.cif.model.cif">
-<em class="property">class </em><tt class="descclassname">iotbx.cif.model.</tt><tt class="descname">cif</tt><big>(</big><em>blocks=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.cif" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/userdict.html#UserDict.DictMixin" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">UserDict.DictMixin</span></tt></a></p>
+<em class="property">class </em><code class="descclassname">iotbx.cif.model.</code><code class="descname">cif</code><span class="sig-paren">(</span><em>blocks=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/userdict.html#UserDict.DictMixin" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">UserDict.DictMixin</span></code></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -380,103 +380,103 @@ with minimal dependencies into any C++ software. For further details see the
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">clear</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">copy</span></tt></a></td>
+<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
 <td>Generic (shallow and deep) copying operations.</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">has_key</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">has_key</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">items</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">iteritems</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">iteritems</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">itervalues</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">itervalues</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">keys</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">pop</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">pop</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">popitem</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">popitem</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">setdefault</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">setdefault</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">sort</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sort</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">update</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">validate</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">validate</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">values</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">values</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="iotbx.cif.model.cif.copy">
-<tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.cif.copy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.copy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.cif.deepcopy">
-<tt class="descname">deepcopy</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.cif.deepcopy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">deepcopy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.deepcopy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.cif.get">
-<tt class="descname">get</tt><big>(</big><em>key</em>, <em>default=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.cif.get" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get</code><span class="sig-paren">(</span><em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.cif.keys">
-<tt class="descname">keys</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.cif.keys" title="Permalink to this definition">¶</a></dt>
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.keys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.cif.show">
-<tt class="descname">show</tt><big>(</big><em>out=None</em>, <em>indent='  '</em>, <em>indent_row=None</em>, <em>data_name_field_width=34</em>, <em>loop_format_strings=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.cif.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>indent='  '</em>, <em>indent_row=None</em>, <em>data_name_field_width=34</em>, <em>loop_format_strings=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.cif.sort">
-<tt class="descname">sort</tt><big>(</big><em>recursive=False</em>, <em>key=None</em>, <em>reverse=False</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.cif.sort" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sort</code><span class="sig-paren">(</span><em>recursive=False</em>, <em>key=None</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.sort" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.cif.validate">
-<tt class="descname">validate</tt><big>(</big><em>dictionary</em>, <em>show_warnings=True</em>, <em>error_handler=None</em>, <em>out=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.cif.validate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">validate</code><span class="sig-paren">(</span><em>dictionary</em>, <em>show_warnings=True</em>, <em>error_handler=None</em>, <em>out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.validate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="iotbx.cif.model.save">
-<em class="property">class </em><tt class="descclassname">iotbx.cif.model.</tt><tt class="descname">save</tt><a class="headerlink" href="#iotbx.cif.model.save" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">iotbx.cif.model.block_base</span></tt></p>
+<em class="property">class </em><code class="descclassname">iotbx.cif.model.</code><code class="descname">save</code><a class="headerlink" href="#iotbx.cif.model.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">iotbx.cif.model.block_base</span></code></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -484,100 +484,103 @@ with minimal dependencies into any C++ software. For further details see the
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">add_data_item</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">add_data_item</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">add_loop</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">add_loop</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">clear</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">copy</span></tt></a></td>
+<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
 <td>Generic (shallow and deep) copying operations.</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">difference</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">difference</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_loop</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_loop</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_loop_with_defaults</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_loop_or_row</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_looped_item</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_loop_with_defaults</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_single_item</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_looped_item</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">has_key</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_single_item</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">items</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">has_key</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">iteritems</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">iteritems</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">iterloops</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">itervalues</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">iterloops</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">keys</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">itervalues</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">loop_keys</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">pop</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">loop_keys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">popitem</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">pop</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">setdefault</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">popitem</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">setdefault</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">sort</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">update</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sort</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">validate</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">values</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">validate</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">values</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="iotbx.cif.model.save.show">
-<tt class="descname">show</tt><big>(</big><em>out=None</em>, <em>indent='  '</em>, <em>data_name_field_width=34</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.save.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>indent='  '</em>, <em>data_name_field_width=34</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.save.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="iotbx.cif.model.block">
-<em class="property">class </em><tt class="descclassname">iotbx.cif.model.</tt><tt class="descname">block</tt><a class="headerlink" href="#iotbx.cif.model.block" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">iotbx.cif.model.block_base</span></tt></p>
+<em class="property">class </em><code class="descclassname">iotbx.cif.model.</code><code class="descname">block</code><a class="headerlink" href="#iotbx.cif.model.block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">iotbx.cif.model.block_base</span></code></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -585,115 +588,118 @@ with minimal dependencies into any C++ software. For further details see the
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">add_data_item</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">add_data_item</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">add_loop</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">add_loop</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">clear</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">copy</span></tt></a></td>
+<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
 <td>Generic (shallow and deep) copying operations.</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">difference</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">difference</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_loop</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_loop</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_loop_with_defaults</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_loop_or_row</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_looped_item</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_loop_with_defaults</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get_single_item</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_looped_item</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">has_key</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_single_item</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">items</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">has_key</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">iteritems</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">iteritems</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">iterloops</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">itervalues</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">iterloops</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">keys</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">itervalues</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">loop_keys</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">pop</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">loop_keys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">popitem</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">pop</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">setdefault</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">popitem</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">setdefault</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">sort</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">update</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sort</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">validate</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">values</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">validate</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">values</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="iotbx.cif.model.block.keys">
-<tt class="descname">keys</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.block.keys" title="Permalink to this definition">¶</a></dt>
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.block.keys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.block.show">
-<tt class="descname">show</tt><big>(</big><em>out=None</em>, <em>indent='  '</em>, <em>indent_row=None</em>, <em>data_name_field_width=34</em>, <em>loop_format_strings=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.block.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>indent='  '</em>, <em>indent_row=None</em>, <em>data_name_field_width=34</em>, <em>loop_format_strings=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.block.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.block.sort">
-<tt class="descname">sort</tt><big>(</big><em>recursive=False</em>, <em>key=None</em>, <em>reverse=False</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.block.sort" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sort</code><span class="sig-paren">(</span><em>recursive=False</em>, <em>key=None</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.block.sort" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.block.update">
-<tt class="descname">update</tt><big>(</big><em>other=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.block.update" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update</code><span class="sig-paren">(</span><em>other=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.block.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="iotbx.cif.model.loop">
-<em class="property">class </em><tt class="descclassname">iotbx.cif.model.</tt><tt class="descname">loop</tt><big>(</big><em>header=None</em>, <em>data=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/userdict.html#UserDict.DictMixin" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">UserDict.DictMixin</span></tt></a></p>
+<em class="property">class </em><code class="descclassname">iotbx.cif.model.</code><code class="descname">loop</code><span class="sig-paren">(</span><em>header=None</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/userdict.html#UserDict.DictMixin" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">UserDict.DictMixin</span></code></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -701,190 +707,190 @@ with minimal dependencies into any C++ software. For further details see the
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">add_column</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">add_column</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">add_columns</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">add_columns</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">add_row</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">add_row</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">clear</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><tt class="xref py py-obj docutils literal"><span class="pre">copy</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
 <td>Generic (shallow and deep) copying operations.</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">delete_row</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">delete_row</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">get</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">has_key</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">has_key</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">items</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">iteritems</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">iteritems</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">iterrows</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">iterrows</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">itervalues</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">itervalues</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">keys</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">n_columns</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">n_columns</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">n_rows</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">n_rows</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">name</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">name</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">order</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">order</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">pop</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">pop</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">popitem</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">popitem</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">setdefault</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">setdefault</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">size</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">size</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">sort</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sort</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">update</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">update_column</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">update_column</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">values</span></tt></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">values</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="iotbx.cif.model.loop.add_column">
-<tt class="descname">add_column</tt><big>(</big><em>key</em>, <em>values</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.add_column" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_column</code><span class="sig-paren">(</span><em>key</em>, <em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.add_column" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.add_columns">
-<tt class="descname">add_columns</tt><big>(</big><em>columns</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.add_columns" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_columns</code><span class="sig-paren">(</span><em>columns</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.add_columns" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.add_row">
-<tt class="descname">add_row</tt><big>(</big><em>row</em>, <em>default_value='?'</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.add_row" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_row</code><span class="sig-paren">(</span><em>row</em>, <em>default_value='?'</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.add_row" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.copy">
-<tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.copy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.copy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.deepcopy">
-<tt class="descname">deepcopy</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.deepcopy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">deepcopy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.deepcopy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.delete_row">
-<tt class="descname">delete_row</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.delete_row" title="Permalink to this definition">¶</a></dt>
+<code class="descname">delete_row</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.delete_row" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.iterrows">
-<tt class="descname">iterrows</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.iterrows" title="Permalink to this definition">¶</a></dt>
+<code class="descname">iterrows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.iterrows" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.keys">
-<tt class="descname">keys</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.keys" title="Permalink to this definition">¶</a></dt>
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.keys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.n_columns">
-<tt class="descname">n_columns</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.n_columns" title="Permalink to this definition">¶</a></dt>
+<code class="descname">n_columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.n_columns" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.n_rows">
-<tt class="descname">n_rows</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.n_rows" title="Permalink to this definition">¶</a></dt>
+<code class="descname">n_rows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.n_rows" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.name">
-<tt class="descname">name</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.order">
-<tt class="descname">order</tt><big>(</big><em>order</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.order" title="Permalink to this definition">¶</a></dt>
+<code class="descname">order</code><span class="sig-paren">(</span><em>order</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.order" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.show">
-<tt class="descname">show</tt><big>(</big><em>out=None</em>, <em>indent='  '</em>, <em>indent_row=None</em>, <em>fmt_str=None</em>, <em>align_columns=True</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>indent='  '</em>, <em>indent_row=None</em>, <em>fmt_str=None</em>, <em>align_columns=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.size">
-<tt class="descname">size</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.size" title="Permalink to this definition">¶</a></dt>
+<code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.size" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.sort">
-<tt class="descname">sort</tt><big>(</big><em>key=None</em>, <em>reverse=False</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.sort" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sort</code><span class="sig-paren">(</span><em>key=None</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.sort" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.update_column">
-<tt class="descname">update_column</tt><big>(</big><em>key</em>, <em>values</em><big>)</big><a class="headerlink" href="#iotbx.cif.model.loop.update_column" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_column</code><span class="sig-paren">(</span><em>key</em>, <em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.update_column" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="iotbx.cif.crystal_symmetry_as_cif_block">
-<em class="property">class </em><tt class="descclassname">iotbx.cif.</tt><tt class="descname">crystal_symmetry_as_cif_block</tt><big>(</big><em>crystal_symmetry</em>, <em>cell_covariance_matrix=None</em>, <em>format='coreCIF'</em>, <em>numeric_format='%.3f'</em><big>)</big><a class="headerlink" href="#iotbx.cif.crystal_symmetry_as_cif_block" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<em class="property">class </em><code class="descclassname">iotbx.cif.</code><code class="descname">crystal_symmetry_as_cif_block</code><span class="sig-paren">(</span><em>crystal_symmetry</em>, <em>cell_covariance_matrix=None</em>, <em>format='coreCIF'</em>, <em>numeric_format='%.3f'</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.crystal_symmetry_as_cif_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="iotbx.cif.xray_structure_as_cif_block">
-<em class="property">class </em><tt class="descclassname">iotbx.cif.</tt><tt class="descname">xray_structure_as_cif_block</tt><big>(</big><em>xray_structure</em>, <em>covariance_matrix=None</em>, <em>cell_covariance_matrix=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.xray_structure_as_cif_block" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iotbx.cif.crystal_symmetry_as_cif_block" title="iotbx.cif.crystal_symmetry_as_cif_block"><tt class="xref py py-class docutils literal"><span class="pre">iotbx.cif.crystal_symmetry_as_cif_block</span></tt></a></p>
+<em class="property">class </em><code class="descclassname">iotbx.cif.</code><code class="descname">xray_structure_as_cif_block</code><span class="sig-paren">(</span><em>xray_structure</em>, <em>covariance_matrix=None</em>, <em>cell_covariance_matrix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.xray_structure_as_cif_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#iotbx.cif.crystal_symmetry_as_cif_block" title="iotbx.cif.crystal_symmetry_as_cif_block"><code class="xref py py-class docutils literal"><span class="pre">iotbx.cif.crystal_symmetry_as_cif_block</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="iotbx.cif.miller_arrays_as_cif_block">
-<em class="property">class </em><tt class="descclassname">iotbx.cif.</tt><tt class="descname">miller_arrays_as_cif_block</tt><big>(</big><em>array</em>, <em>array_type=None</em>, <em>column_name=None</em>, <em>column_names=None</em>, <em>miller_index_prefix='_refln'</em>, <em>format='coreCIF'</em><big>)</big><a class="headerlink" href="#iotbx.cif.miller_arrays_as_cif_block" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iotbx.cif.crystal_symmetry_as_cif_block" title="iotbx.cif.crystal_symmetry_as_cif_block"><tt class="xref py py-class docutils literal"><span class="pre">iotbx.cif.crystal_symmetry_as_cif_block</span></tt></a></p>
+<em class="property">class </em><code class="descclassname">iotbx.cif.</code><code class="descname">miller_arrays_as_cif_block</code><span class="sig-paren">(</span><em>array</em>, <em>array_type=None</em>, <em>column_name=None</em>, <em>column_names=None</em>, <em>miller_index_prefix='_refln'</em>, <em>format='coreCIF'</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.miller_arrays_as_cif_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#iotbx.cif.crystal_symmetry_as_cif_block" title="iotbx.cif.crystal_symmetry_as_cif_block"><code class="xref py py-class docutils literal"><span class="pre">iotbx.cif.crystal_symmetry_as_cif_block</span></code></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -892,14 +898,14 @@ with minimal dependencies into any C++ software. For further details see the
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">add_miller_array</span></tt></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">add_miller_array</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="iotbx.cif.miller_arrays_as_cif_block.add_miller_array">
-<tt class="descname">add_miller_array</tt><big>(</big><em>array</em>, <em>array_type=None</em>, <em>column_name=None</em>, <em>column_names=None</em><big>)</big><a class="headerlink" href="#iotbx.cif.miller_arrays_as_cif_block.add_miller_array" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_miller_array</code><span class="sig-paren">(</span><em>array</em>, <em>array_type=None</em>, <em>column_name=None</em>, <em>column_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.miller_arrays_as_cif_block.add_miller_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accepts a miller array, and one of array_type, column_name or column_names.</p>
 </dd></dl>
 
@@ -916,7 +922,7 @@ with minimal dependencies into any C++ software. For further details see the
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -939,12 +945,14 @@ with minimal dependencies into any C++ software. For further details see the
 </li>
 </ul>
 
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/iotbx/iotbx.cif.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/iotbx/iotbx.cif.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -961,7 +969,7 @@ with minimal dependencies into any C++ software. For further details see the
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -970,13 +978,13 @@ with minimal dependencies into any C++ software. For further details see the
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
-          <li><a href="index.html" >iotbx - file readers and writers</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >iotbx - file readers and writers</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

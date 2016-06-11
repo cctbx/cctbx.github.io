@@ -8,7 +8,7 @@
     
     <title>libtbx.easy_mp: functions for painless parallelization of Python code &mdash; CCTBX None documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,8 +26,8 @@
     <link rel="top" title="CCTBX None documentation" href="../index.html" />
     <link rel="up" title="libtbx - low-level utilities and infrastructure for CCTBX" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -36,37 +36,37 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">libtbx - low-level utilities and infrastructure for CCTBX</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">libtbx - low-level utilities and infrastructure for CCTBX</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="libtbx-easy-mp-functions-for-painless-parallelization-of-python-code">
 <h1>libtbx.easy_mp: functions for painless parallelization of Python code<a class="headerlink" href="#libtbx-easy-mp-functions-for-painless-parallelization-of-python-code" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="pool-map-parallel-map-function-for-unix-linux-systems">
 <h2>pool_map: parallel map() function for Unix/Linux systems<a class="headerlink" href="#pool-map-parallel-map-function-for-unix-linux-systems" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">pool_map</span></tt> is essentially a simple replacement for the built-in map function, and is fast enough to be suitable for parallelization across arbitrarily large
+<p><code class="docutils literal"><span class="pre">pool_map</span></code> is essentially a simple replacement for the built-in map function, and is fast enough to be suitable for parallelization across arbitrarily large
 shared-memory systems even for relatively short-running methods.  Although it
-is based on the <tt class="docutils literal"><span class="pre">map</span></tt> method of the <tt class="docutils literal"><span class="pre">multiprocessing.Pool</span></tt> class, the
+is based on the <code class="docutils literal"><span class="pre">map</span></code> method of the <code class="docutils literal"><span class="pre">multiprocessing.Pool</span></code> class, the
 underlying implementation has been modified to take advantage of the internal
-behavior.  On systems that support the <tt class="docutils literal"><span class="pre">os.fork()</span></tt> call, it can embed a
+behavior.  On systems that support the <code class="docutils literal"><span class="pre">os.fork()</span></code> call, it can embed a
 reference to a &#8220;fixed&#8221; function that is preserved in the child processes,
-bypassing all <tt class="docutils literal"><span class="pre">pickle</span></tt> calls.  This means that unpickleable objects can be
-embedded in a callable which is given as the <tt class="docutils literal"><span class="pre">fixed_func</span></tt> argument.
-<tt class="docutils literal"><span class="pre">easy_mp</span></tt> is therefore suitable for parallelizing existing code that would
+bypassing all <code class="docutils literal"><span class="pre">pickle</span></code> calls.  This means that unpickleable objects can be
+embedded in a callable which is given as the <code class="docutils literal"><span class="pre">fixed_func</span></code> argument.
+<code class="docutils literal"><span class="pre">easy_mp</span></code> is therefore suitable for parallelizing existing code that would
 otherwise require extensive refactoring (for instance, the weight optimization
 in phenix.refine).</p>
-<p>Note that since <tt class="docutils literal"><span class="pre">pool_map</span></tt> depends on <tt class="docutils literal"><span class="pre">os.fork()</span></tt>, it does not support
+<p>Note that since <code class="docutils literal"><span class="pre">pool_map</span></code> depends on <code class="docutils literal"><span class="pre">os.fork()</span></code>, it does not support
 parallelization on Windows systems.  However, it will simply run in serial on
 Windows, allowing it to be used in a platform-independent manner.</p>
 <dl class="function">
 <dt id="libtbx.easy_mp.pool_map">
-<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">pool_map</tt><big>(</big><em>processes=None</em>, <em>initializer=None</em>, <em>initargs=()</em>, <em>maxtasksperchild=&lt;libtbx.AutoType object at 0x7f7c11e57dd0&gt;</em>, <em>func=None</em>, <em>fixed_func=None</em>, <em>iterable=None</em>, <em>args=None</em>, <em>chunksize=&lt;libtbx.AutoType object at 0x7f7c11e57dd0&gt;</em>, <em>func_wrapper='simple'</em>, <em>index_args=True</em>, <em>log=None</em>, <em>call_back_for_serial_run=None</em><big>)</big><a class="headerlink" href="#libtbx.easy_mp.pool_map" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.easy_mp.</code><code class="descname">pool_map</code><span class="sig-paren">(</span><em>processes=None</em>, <em>initializer=None</em>, <em>initargs=()</em>, <em>maxtasksperchild=&lt;libtbx.AutoType object&gt;</em>, <em>func=None</em>, <em>fixed_func=None</em>, <em>iterable=None</em>, <em>args=None</em>, <em>chunksize=&lt;libtbx.AutoType object&gt;</em>, <em>func_wrapper='simple'</em>, <em>index_args=True</em>, <em>log=None</em>, <em>call_back_for_serial_run=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.pool_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallelized map() using subclassed multiprocessing.Pool.  If func is not
 None, this function essentially calls the Pool&#8217;s own map method; this means
 that both func and iterable/args must be pickle-able.  If fixed_func is not
@@ -124,13 +124,13 @@ the child process when forked (instead of pickling)</li>
 
 <dl class="function">
 <dt id="libtbx.easy_mp.detect_problem">
-<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">detect_problem</tt><big>(</big><big>)</big><a class="headerlink" href="#libtbx.easy_mp.detect_problem" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.easy_mp.</code><code class="descname">detect_problem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.detect_problem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify situations where multiprocessing will not work as required.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="libtbx.easy_mp.enable_multiprocessing_if_possible">
-<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">enable_multiprocessing_if_possible</tt><big>(</big><em>nproc=&lt;libtbx.AutoType object at 0x7f7c11e57dd0&gt;</em>, <em>log=None</em><big>)</big><a class="headerlink" href="#libtbx.easy_mp.enable_multiprocessing_if_possible" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.easy_mp.</code><code class="descname">enable_multiprocessing_if_possible</code><span class="sig-paren">(</span><em>nproc=&lt;libtbx.AutoType object&gt;</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.enable_multiprocessing_if_possible" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch for using multiple CPUs with the pool_map function, usually called at
 the beginning of an app.  If nproc is Auto or None and we are running
 Windows, it will be reset to 1.</p>
@@ -148,7 +148,7 @@ Windows, it will be reset to 1.</p>
 
 <dl class="function">
 <dt id="libtbx.easy_mp.get_processes">
-<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">get_processes</tt><big>(</big><em>processes</em><big>)</big><a class="headerlink" href="#libtbx.easy_mp.get_processes" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.easy_mp.</code><code class="descname">get_processes</code><span class="sig-paren">(</span><em>processes</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.get_processes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine number of processes dynamically: number of CPUs minus the current
 load average (with a minimum of 1).</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -166,7 +166,7 @@ load average (with a minimum of 1).</p>
 </div>
 <div class="section" id="parallel-map-parallel-map-function-for-multiple-architectures">
 <h2>parallel_map: parallel map() function for multiple architectures<a class="headerlink" href="#parallel-map-parallel-map-function-for-multiple-architectures" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">parallel_map</span></tt> is a more general replacement for <tt class="docutils literal"><span class="pre">map()</span></tt>, and supports
+<p><code class="docutils literal"><span class="pre">parallel_map</span></code> is a more general replacement for <code class="docutils literal"><span class="pre">map()</span></code>, and supports
 Windows systems in addition to Unix/Linux.  It also enables use of managed
 clusters via several common queuing systems such as Sun Grid Engine or PBS.
 Because of the higher overhead involved, it is more suitable for functions
@@ -174,7 +174,7 @@ that take minutes or longer to run, but the use of cluster resources means that
 it can handle much larger operations efficiently.</p>
 <dl class="function">
 <dt id="libtbx.easy_mp.parallel_map">
-<tt class="descclassname">libtbx.easy_mp.</tt><tt class="descname">parallel_map</tt><big>(</big><em>func</em>, <em>iterable</em>, <em>iterable_type=&lt;function single_argument at 0x7f7bf4c4b758&gt;</em>, <em>params=None</em>, <em>processes=1</em>, <em>method='multiprocessing'</em>, <em>qsub_command=None</em>, <em>asynchronous=True</em>, <em>callback=None</em>, <em>preserve_order=True</em>, <em>preserve_exception_message=False</em>, <em>use_manager=False</em><big>)</big><a class="headerlink" href="#libtbx.easy_mp.parallel_map" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.easy_mp.</code><code class="descname">parallel_map</code><span class="sig-paren">(</span><em>func</em>, <em>iterable</em>, <em>iterable_type=&lt;function single_argument&gt;</em>, <em>params=None</em>, <em>processes=1</em>, <em>method='multiprocessing'</em>, <em>qsub_command=None</em>, <em>asynchronous=True</em>, <em>callback=None</em>, <em>preserve_order=True</em>, <em>preserve_exception_message=False</em>, <em>use_manager=False</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.parallel_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generic parallel map() implementation for a variety of platforms, including
 the multiprocessing module and supported queuing systems, via the module
 libtbx.queuing_system_utils.scheduling.  This is less flexible than pool_map
@@ -216,7 +216,7 @@ the underlying method.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -227,12 +227,14 @@ the underlying method.</p>
 </li>
 </ul>
 
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/libtbx/libtbx.easy_mp.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/libtbx/libtbx.easy_mp.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -249,7 +251,7 @@ the underlying method.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -258,13 +260,13 @@ the underlying method.</p>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
-          <li><a href="index.html" >libtbx - low-level utilities and infrastructure for CCTBX</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >libtbx - low-level utilities and infrastructure for CCTBX</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

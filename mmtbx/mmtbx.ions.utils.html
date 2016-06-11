@@ -8,7 +8,7 @@
     
     <title>mmtbx.ions.utils module &mdash; CCTBX None documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,8 +26,8 @@
     <link rel="top" title="CCTBX None documentation" href="../index.html" />
     <link rel="up" title="mmtbx.ions package" href="mmtbx.ions.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -36,22 +36,22 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
-          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
-          <li><a href="mmtbx.ions.html" accesskey="U">mmtbx.ions package</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="mmtbx.ions.html" accesskey="U">mmtbx.ions package</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="module-mmtbx.ions.utils">
 <span id="mmtbx-ions-utils-module"></span><h1>mmtbx.ions.utils module<a class="headerlink" href="#module-mmtbx.ions.utils" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="mmtbx.ions.utils.anonymize_ions">
-<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">anonymize_ions</tt><big>(</big><em>pdb_hierarchy</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x7f7c1651b150&gt;</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.anonymize_ions" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.ions.utils.</code><code class="descname">anonymize_ions</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>log=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.anonymize_ions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert any elemental ions in the PDB hierarchy to water, resetting the
 occupancy and scaling the B-factor.  The atom segids will be set to the old
 resname.  NOTE: this does not change the corresponding scatterer in the xray
@@ -81,7 +81,7 @@ hierarchy.extract_xray_structure(crystal_symmetry).</p>
 
 <dl class="function">
 <dt id="mmtbx.ions.utils.collect_ions">
-<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">collect_ions</tt><big>(</big><em>pdb_hierarchy</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.collect_ions" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.ions.utils.</code><code class="descname">collect_ions</code><span class="sig-paren">(</span><em>pdb_hierarchy</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.collect_ions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collects a list of all ions in pdb_hierarchy.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -97,7 +97,7 @@ hierarchy.extract_xray_structure(crystal_symmetry).</p>
 
 <dl class="function">
 <dt id="mmtbx.ions.utils.compare_ions">
-<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">compare_ions</tt><big>(</big><em>hierarchy</em>, <em>reference_hierarchy</em>, <em>reference_xrs</em>, <em>distance_cutoff=2.0</em>, <em>log=None</em>, <em>ignore_elements=()</em>, <em>only_elements=()</em>, <em>sel_str_base='segid ION'</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.compare_ions" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.ions.utils.</code><code class="descname">compare_ions</code><span class="sig-paren">(</span><em>hierarchy</em>, <em>reference_hierarchy</em>, <em>reference_xrs</em>, <em>distance_cutoff=2.0</em>, <em>log=None</em>, <em>ignore_elements=()</em>, <em>only_elements=()</em>, <em>sel_str_base='segid ION'</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.compare_ions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compares two pdb structures to determine the number of ions that appear in the
 reference structure and are either matched or missing in the other structure.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -130,7 +130,7 @@ reference structure and are either matched or missing in the other structure.</p
 
 <dl class="function">
 <dt id="mmtbx.ions.utils.count_coordinating_residues">
-<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">count_coordinating_residues</tt><big>(</big><em>nearby_atoms</em>, <em>distance_cutoff=3.0</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.count_coordinating_residues" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.ions.utils.</code><code class="descname">count_coordinating_residues</code><span class="sig-paren">(</span><em>nearby_atoms</em>, <em>distance_cutoff=3.0</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.count_coordinating_residues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Count the number of residues of each type involved in the coordination
 sphere.  This may yield additional clues to the identity of ions, e.g. only
 Zn will have 4 Cys residues.</p>
@@ -151,7 +151,7 @@ Zn will have 4 Cys residues.</p>
 
 <dl class="function">
 <dt id="mmtbx.ions.utils.fit_gaussian">
-<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">fit_gaussian</tt><big>(</big><em>unit_cell</em>, <em>site_cart</em>, <em>real_map</em>, <em>radius=1.6</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.fit_gaussian" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.ions.utils.</code><code class="descname">fit_gaussian</code><span class="sig-paren">(</span><em>unit_cell</em>, <em>site_cart</em>, <em>real_map</em>, <em>radius=1.6</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.fit_gaussian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit a gaussian function to the map around a site. Samples points in concentric
 spheres up to radius away from the site.</p>
 <p>f(x) = a * exp(-b * x ** 2)</p>
@@ -188,13 +188,13 @@ spheres up to radius away from the site.</p>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><tt class="xref py py-obj docutils literal"><span class="pre">scitbx.math.gaussian_fit_1d_analytical</span></tt></p>
+<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">scitbx.math.gaussian_fit_1d_analytical</span></code></p>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="mmtbx.ions.utils.sort_atoms_permutation">
-<tt class="descclassname">mmtbx.ions.utils.</tt><tt class="descname">sort_atoms_permutation</tt><big>(</big><em>pdb_atoms</em>, <em>xray_structure</em><big>)</big><a class="headerlink" href="#mmtbx.ions.utils.sort_atoms_permutation" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.ions.utils.</code><code class="descname">sort_atoms_permutation</code><span class="sig-paren">(</span><em>pdb_atoms</em>, <em>xray_structure</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.sort_atoms_permutation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a list of atoms in pdb_atoms, sorted first by their atomic number,
 then by occupancy, and finally, by isotropic b-factor.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -221,14 +221,16 @@ then by occupancy, and finally, by isotropic b-factor.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/mmtbx/mmtbx.ions.utils.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/mmtbx/mmtbx.ions.utils.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -245,7 +247,7 @@ then by occupancy, and finally, by isotropic b-factor.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -254,14 +256,14 @@ then by occupancy, and finally, by isotropic b-factor.</p>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
-          <li><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
-          <li><a href="mmtbx.ions.html" >mmtbx.ions package</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="mmtbx.ions.html" >mmtbx.ions package</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

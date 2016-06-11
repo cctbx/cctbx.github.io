@@ -8,7 +8,7 @@
     
     <title>iotbx.reflection_file_reader - generic reflection file input &mdash; CCTBX None documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,8 +26,8 @@
     <link rel="top" title="CCTBX None documentation" href="../index.html" />
     <link rel="up" title="iotbx - file readers and writers" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -36,23 +36,23 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">iotbx - file readers and writers</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">iotbx - file readers and writers</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="module-iotbx.reflection_file_reader">
 <span id="iotbx-reflection-file-reader-generic-reflection-file-input"></span><h1>iotbx.reflection_file_reader - generic reflection file input<a class="headerlink" href="#module-iotbx.reflection_file_reader" title="Permalink to this headline">¶</a></h1>
 <p>This module provides a generic frontend to all of the reflection file formats
-supported in <tt class="docutils literal"><span class="pre">iotbx</span></tt>.  Note that this module can also be used indirectly via
-the even more generic <a class="reference internal" href="iotbx.file_reader.html#module-iotbx.file_reader" title="iotbx.file_reader"><tt class="xref py py-mod docutils literal"><span class="pre">iotbx.file_reader</span></tt></a> module, which provides
+supported in <code class="docutils literal"><span class="pre">iotbx</span></code>.  Note that this module can also be used indirectly via
+the even more generic <a class="reference internal" href="iotbx.file_reader.html#module-iotbx.file_reader" title="iotbx.file_reader"><code class="xref py py-mod docutils literal"><span class="pre">iotbx.file_reader</span></code></a> module, which provides
 a unified API for reading in any file (but calls
-<a class="reference internal" href="#iotbx.reflection_file_reader.any_reflection_file" title="iotbx.reflection_file_reader.any_reflection_file"><tt class="xref py py-class docutils literal"><span class="pre">iotbx.reflection_file_reader.any_reflection_file</span></tt></a> internally).
+<a class="reference internal" href="#iotbx.reflection_file_reader.any_reflection_file" title="iotbx.reflection_file_reader.any_reflection_file"><code class="xref py py-class docutils literal"><span class="pre">iotbx.reflection_file_reader.any_reflection_file</span></code></a> internally).
 Currently, the supported formats include:</p>
 <ul class="simple">
 <li><strong>CIF</strong>: Crystallographic Information Format, the common syntax for
@@ -60,28 +60,28 @@ specifying most structured data encountered in crystallography (but more
 widely used in small-molecule versus macromolecular crystallography), usually
 as ASCII text.  May encapsulate a variety of other data types, but only
 reflection data (of any type) is handled by this particular module.  Uses
-<tt class="xref py py-mod docutils literal"><span class="pre">iotbx.cif</span></tt> internally.</li>
+<code class="xref py py-mod docutils literal"><span class="pre">iotbx.cif</span></code> internally.</li>
 <li><strong>MTZ</strong>: Binary file format established by <a class="reference external" href="http://www.ccp4.ac.uk">CCP4</a>
 capable of storing any numerical data, and used by most major macromolecular
 crystallography software packages.
 Because of its speed and broad compatibility, this is the primary interchange
-format for reflection data in Phenix.  Uses <tt class="xref py py-mod docutils literal"><span class="pre">iotbx.mtz</span></tt> internally.</li>
+format for reflection data in Phenix.  Uses <code class="xref py py-mod docutils literal"><span class="pre">iotbx.mtz</span></code> internally.</li>
 <li><strong>Scalepack</strong>: Fixed-format ASCII text produced by the program of the same
 name and the HKL2000 graphical interface.  This is actually two separate
 formats: one for merged intensities (with or without Friedel mates), another
 for unmerged intensities and associated processing metadata.  Uses either
-<tt class="xref py py-mod docutils literal"><span class="pre">iotbx.scalepack.merge</span></tt> or <tt class="xref py py-mod docutils literal"><span class="pre">iotbx.scalepack.no_merge_original_index</span></tt> internally.</li>
+<code class="xref py py-mod docutils literal"><span class="pre">iotbx.scalepack.merge</span></code> or <code class="xref py py-mod docutils literal"><span class="pre">iotbx.scalepack.no_merge_original_index</span></code> internally.</li>
 <li><strong>CNS</strong>: ASCII format, not as flexible as MTZ or CIF but able to store
 either amplitudes or intensities, R-free flags, and Hendrickson-Lattman
-coefficients.  Uses <tt class="xref py py-mod docutils literal"><span class="pre">iotbx.cns.reflection_reader</span></tt> internally.</li>
+coefficients.  Uses <code class="xref py py-mod docutils literal"><span class="pre">iotbx.cns.reflection_reader</span></code> internally.</li>
 <li><strong>SHELX</strong>: Fixed-format ASCII used by the eponymous software suite.  This
 format has significan disadvantages, discussed below.  Uses
-<a class="reference internal" href="iotbx.shelx.html#module-iotbx.shelx.hklf" title="iotbx.shelx.hklf"><tt class="xref py py-mod docutils literal"><span class="pre">iotbx.shelx.hklf</span></tt></a> internally.</li>
+<a class="reference internal" href="iotbx.shelx.html#module-iotbx.shelx.hklf" title="iotbx.shelx.hklf"><code class="xref py py-mod docutils literal"><span class="pre">iotbx.shelx.hklf</span></code></a> internally.</li>
 <li><strong>XDS</strong>: ASCII format for processed intensities (both merged and unmerged).
-Uses <a class="reference internal" href="iotbx.xds.html#module-iotbx.xds.read_ascii" title="iotbx.xds.read_ascii"><tt class="xref py py-mod docutils literal"><span class="pre">iotbx.xds.read_ascii</span></tt></a> internally.</li>
+Uses <a class="reference internal" href="iotbx.xds.html#module-iotbx.xds.read_ascii" title="iotbx.xds.read_ascii"><code class="xref py py-mod docutils literal"><span class="pre">iotbx.xds.read_ascii</span></code></a> internally.</li>
 <li><strong>D*Trek</strong>: ASCII format produced by software sold by Rigaku.</li>
 </ul>
-<p>Independently, the <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.miller.array</span></tt></a> class defines output methods
+<p>Independently, the <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal"><span class="pre">cctbx.miller.array</span></code></a> class defines output methods
 for CIF, MTZ, CNS, SHELX, and unmerged Scalepack files (although only the first
 two are recommended for routine use).</p>
 <p>Note that the underlying formats do not always contain complete information
@@ -98,8 +98,8 @@ specified as part of the file name:</p>
 symmetry.  MTZ, XDS, and (usually) CIF files will be more complete.</p>
 <dl class="class">
 <dt id="iotbx.reflection_file_reader.any_reflection_file">
-<em class="property">class </em><tt class="descclassname">iotbx.reflection_file_reader.</tt><tt class="descname">any_reflection_file</tt><big>(</big><em>file_name</em>, <em>ensure_read_access=True</em>, <em>strict=True</em><big>)</big><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<em class="property">class </em><code class="descclassname">iotbx.reflection_file_reader.</code><code class="descname">any_reflection_file</code><span class="sig-paren">(</span><em>file_name</em>, <em>ensure_read_access=True</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p>Proxy object for reading a reflection file of unspecified format, and
 extracting the Miller arrays contained therein.</p>
 <p class="rubric">Examples</p>
@@ -119,25 +119,25 @@ extracting the Miller arrays contained therein.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.reflection_file_reader.any_reflection_file.as_miller_arrays" title="iotbx.reflection_file_reader.any_reflection_file.as_miller_arrays"><tt class="xref py py-obj docutils literal"><span class="pre">as_miller_arrays</span></tt></a>([crystal_symmetry,&nbsp;...])</td>
-<td>Convert the contents of the reflection file into a list of <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.miller.array</span></tt></a> objects, each of which may contain multiple columns of data from the underlying file.</td>
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.reflection_file_reader.any_reflection_file.as_miller_arrays" title="iotbx.reflection_file_reader.any_reflection_file.as_miller_arrays"><code class="xref py py-obj docutils literal"><span class="pre">as_miller_arrays</span></code></a>([crystal_symmetry,&nbsp;...])</td>
+<td>Convert the contents of the reflection file into a list of <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal"><span class="pre">cctbx.miller.array</span></code></a> objects, each of which may contain multiple columns of data from the underlying file.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#iotbx.reflection_file_reader.any_reflection_file.file_content" title="iotbx.reflection_file_reader.any_reflection_file.file_content"><tt class="xref py py-obj docutils literal"><span class="pre">file_content</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#iotbx.reflection_file_reader.any_reflection_file.file_content" title="iotbx.reflection_file_reader.any_reflection_file.file_content"><code class="xref py py-obj docutils literal"><span class="pre">file_content</span></code></a>()</td>
 <td>Return the underlying format-specific object.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.reflection_file_reader.any_reflection_file.file_name" title="iotbx.reflection_file_reader.any_reflection_file.file_name"><tt class="xref py py-obj docutils literal"><span class="pre">file_name</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#iotbx.reflection_file_reader.any_reflection_file.file_name" title="iotbx.reflection_file_reader.any_reflection_file.file_name"><code class="xref py py-obj docutils literal"><span class="pre">file_name</span></code></a>()</td>
 <td>Returns the file name.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#iotbx.reflection_file_reader.any_reflection_file.file_type" title="iotbx.reflection_file_reader.any_reflection_file.file_type"><tt class="xref py py-obj docutils literal"><span class="pre">file_type</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#iotbx.reflection_file_reader.any_reflection_file.file_type" title="iotbx.reflection_file_reader.any_reflection_file.file_type"><code class="xref py py-obj docutils literal"><span class="pre">file_type</span></code></a>()</td>
 <td>Return a string specifying the format type (e.g.</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="iotbx.reflection_file_reader.any_reflection_file.as_miller_arrays">
-<tt class="descname">as_miller_arrays</tt><big>(</big><em>crystal_symmetry=None</em>, <em>force_symmetry=False</em>, <em>merge_equivalents=True</em>, <em>base_array_info=None</em>, <em>assume_shelx_observation_type_is=None</em>, <em>enforce_positive_sigmas=False</em><big>)</big><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.as_miller_arrays" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_miller_arrays</code><span class="sig-paren">(</span><em>crystal_symmetry=None</em>, <em>force_symmetry=False</em>, <em>merge_equivalents=True</em>, <em>base_array_info=None</em>, <em>assume_shelx_observation_type_is=None</em>, <em>enforce_positive_sigmas=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.as_miller_arrays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the contents of the reflection file into a list of
-<a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.miller.array</span></tt></a> objects, each of which may contain multiple
+<a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal"><span class="pre">cctbx.miller.array</span></code></a> objects, each of which may contain multiple
 columns of data from the underlying file.  By default this will
 automatically merge redundant observations to obtain a unique set under
 symmetry.</p>
@@ -146,11 +146,11 @@ symmetry.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>crystal_symmetry</strong> &#8211; <a class="reference internal" href="../cctbx/cctbx.crystal.html#cctbx.crystal.symmetry" title="cctbx.crystal.symmetry"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.crystal.symmetry</span></tt></a> object
+<li><strong>crystal_symmetry</strong> &#8211; <a class="reference internal" href="../cctbx/cctbx.crystal.html#cctbx.crystal.symmetry" title="cctbx.crystal.symmetry"><code class="xref py py-class docutils literal"><span class="pre">cctbx.crystal.symmetry</span></code></a> object
 (defaults to using internally specified symmetry, if any)</li>
 <li><strong>force_symmetry</strong> &#8211; TODO</li>
 <li><strong>merge_equivalents</strong> &#8211; merge redundant obervations (default=True)</li>
-<li><strong>base_array_info</strong> &#8211; <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array_info" title="cctbx.miller.array_info"><tt class="xref py py-class docutils literal"><span class="pre">cctbx.miller.array_info</span></tt></a> object
+<li><strong>base_array_info</strong> &#8211; <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array_info" title="cctbx.miller.array_info"><code class="xref py py-class docutils literal"><span class="pre">cctbx.miller.array_info</span></code></a> object
 containing basic information to be propagated to the arrays</li>
 <li><strong>assume_shelx_observation_type_is</strong> &#8211; if specified, instead of raising
 an exception if the SHELX file type is not known from the file name plus
@@ -164,19 +164,19 @@ data type tag, the function will force the specified data type.</li>
 
 <dl class="method">
 <dt id="iotbx.reflection_file_reader.any_reflection_file.file_content">
-<tt class="descname">file_content</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_content" title="Permalink to this definition">¶</a></dt>
+<code class="descname">file_content</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the underlying format-specific object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iotbx.reflection_file_reader.any_reflection_file.file_name">
-<tt class="descname">file_name</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">file_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the file name.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iotbx.reflection_file_reader.any_reflection_file.file_type">
-<tt class="descname">file_type</tt><big>(</big><big>)</big><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_type" title="Permalink to this definition">¶</a></dt>
+<code class="descname">file_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a string specifying the format type (e.g. &#8216;ccp4_mtz&#8217;).</p>
 </dd></dl>
 
@@ -184,22 +184,22 @@ data type tag, the function will force the specified data type.</li>
 
 <dl class="function">
 <dt id="iotbx.reflection_file_reader.collect_arrays">
-<tt class="descclassname">iotbx.reflection_file_reader.</tt><tt class="descname">collect_arrays</tt><big>(</big><em>file_names</em>, <em>crystal_symmetry</em>, <em>force_symmetry</em>, <em>merge_equivalents=True</em>, <em>discard_arrays=False</em>, <em>verbose=2</em>, <em>report_out=None</em><big>)</big><a class="headerlink" href="#iotbx.reflection_file_reader.collect_arrays" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">iotbx.reflection_file_reader.</code><code class="descname">collect_arrays</code><span class="sig-paren">(</span><em>file_names</em>, <em>crystal_symmetry</em>, <em>force_symmetry</em>, <em>merge_equivalents=True</em>, <em>discard_arrays=False</em>, <em>verbose=2</em>, <em>report_out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.collect_arrays" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="iotbx.reflection_file_reader.run">
-<tt class="descclassname">iotbx.reflection_file_reader.</tt><tt class="descname">run</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#iotbx.reflection_file_reader.run" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">iotbx.reflection_file_reader.</code><code class="descname">run</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.run" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="iotbx.reflection_file_reader.try_all_readers">
-<tt class="descclassname">iotbx.reflection_file_reader.</tt><tt class="descname">try_all_readers</tt><big>(</big><em>file_name</em><big>)</big><a class="headerlink" href="#iotbx.reflection_file_reader.try_all_readers" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">iotbx.reflection_file_reader.</code><code class="descname">try_all_readers</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.try_all_readers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="iotbx.reflection_file_reader.unpickle_miller_arrays">
-<tt class="descclassname">iotbx.reflection_file_reader.</tt><tt class="descname">unpickle_miller_arrays</tt><big>(</big><em>file_name</em><big>)</big><a class="headerlink" href="#iotbx.reflection_file_reader.unpickle_miller_arrays" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">iotbx.reflection_file_reader.</code><code class="descname">unpickle_miller_arrays</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.unpickle_miller_arrays" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -208,14 +208,16 @@ data type tag, the function will force the specified data type.</li>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/iotbx/iotbx.reflection_file_reader.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/iotbx/iotbx.reflection_file_reader.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -232,7 +234,7 @@ data type tag, the function will force the specified data type.</li>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -241,13 +243,13 @@ data type tag, the function will force the specified data type.</li>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
-          <li><a href="index.html" >iotbx - file readers and writers</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >iotbx - file readers and writers</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

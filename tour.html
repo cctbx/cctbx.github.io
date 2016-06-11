@@ -8,7 +8,7 @@
     
     <title>Tour of the cctbx &mdash; CCTBX None documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -27,8 +27,8 @@
     <link rel="next" title="SCons - the backbone of the cctbx build system" href="build_system.html" />
     <link rel="prev" title="Installation overview" href="installation.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,14 +43,14 @@
         <li class="right" >
           <a href="installation.html" title="Installation overview"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CCTBX None documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">CCTBX None documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="tour-of-the-cctbx">
 <span id="tour"></span><h1><a class="toc-backref" href="#id1">Tour of the cctbx</a><a class="headerlink" href="#tour-of-the-cctbx" title="Permalink to this headline">¶</a></h1>
@@ -60,8 +60,8 @@
 <li><a class="reference internal" href="#tour-of-the-cctbx" id="id1">Tour of the cctbx</a><ul>
 <li><a class="reference internal" href="#the-beach-in-the-box" id="id2">The beach in the box</a></li>
 <li><a class="reference internal" href="#at-the-very-bottom" id="id3">At the very bottom</a></li>
-<li><a class="reference internal" href="#scitbx-array-family-flex" id="id4"><tt class="docutils literal"><span class="pre">scitbx.array_family.flex</span></tt></a></li>
-<li><a class="reference internal" href="#cctbx-array-family-flex" id="id5"><tt class="docutils literal"><span class="pre">cctbx.array_family.flex</span></tt></a></li>
+<li><a class="reference internal" href="#scitbx-array-family-flex" id="id4"><code class="docutils literal"><span class="pre">scitbx.array_family.flex</span></code></a></li>
+<li><a class="reference internal" href="#cctbx-array-family-flex" id="id5"><code class="docutils literal"><span class="pre">cctbx.array_family.flex</span></code></a></li>
 <li><a class="reference internal" href="#a-balancing-act" id="id6">A balancing act</a></li>
 <li><a class="reference internal" href="#hybrid-systems" id="id7">Hybrid systems</a></li>
 <li><a class="reference internal" href="#building-bridges" id="id8">Building bridges</a></li>
@@ -109,21 +109,21 @@ O      6  0.1970 -0.1970  0.8333 1.00 0.0000
 </div>
 <p>Note that the script is pure Python, even though at first sight the
 format might appear to be specifically designed for crystallographic
-data. Now let&#8217;s give the <tt class="docutils literal"><span class="pre">quartz_structure</span></tt> a rest break at the
+data. Now let&#8217;s give the <code class="docutils literal"><span class="pre">quartz_structure</span></code> a rest break at the
 beach:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">libtbx</span> <span class="kn">import</span> <span class="n">easy_pickle</span>
 <span class="n">easy_pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s">&quot;beach&quot;</span><span class="p">,</span> <span class="n">quartz_structure</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This creates a file with the name <tt class="docutils literal"><span class="pre">beach</span></tt> containing all the
-information required for restoring the <tt class="docutils literal"><span class="pre">quartz_structure</span></tt> <strong>object</strong>,
+<p>This creates a file with the name <code class="docutils literal"><span class="pre">beach</span></code> containing all the
+information required for restoring the <code class="docutils literal"><span class="pre">quartz_structure</span></code> <strong>object</strong>,
 which is the technical term for the entire hierarchy of data
-referenced by the <tt class="docutils literal"><span class="pre">quartz_structure</span></tt> identifier in the Python
-script. A very important point to notice is that the <tt class="docutils literal"><span class="pre">easy_pickle</span></tt>
-module used for storing the <tt class="docutils literal"><span class="pre">quartz_structure</span></tt> is not specific to our
-object. <tt class="docutils literal"><span class="pre">easy_pickle</span></tt> will store and restore (almost) any
+referenced by the <code class="docutils literal"><span class="pre">quartz_structure</span></code> identifier in the Python
+script. A very important point to notice is that the <code class="docutils literal"><span class="pre">easy_pickle</span></code>
+module used for storing the <code class="docutils literal"><span class="pre">quartz_structure</span></code> is not specific to our
+object. <code class="docutils literal"><span class="pre">easy_pickle</span></code> will store and restore (almost) any
 user-defined Python object.</p>
-<p>Being automatically generated, the <tt class="docutils literal"><span class="pre">beach</span></tt> file is not pretty to look
+<p>Being automatically generated, the <code class="docutils literal"><span class="pre">beach</span></code> file is not pretty to look
 at, but this is not important because we can easily resurrect the
 original object to extract any information that we might be interested
 in. In a potentially <em>different script</em> on a potentially <em>different
@@ -133,13 +133,13 @@ computer</em> with a potentially <em>different operating system</em>:</p>
 </pre></div>
 </div>
 <p>Note that it is not necessary to explicitly import the relevant cctbx
-modules in this script. Python&#8217;s <tt class="docutils literal"><span class="pre">pickle</span></tt> module does it for us
-automatically after inspecting the <tt class="docutils literal"><span class="pre">beach</span></tt> file.</p>
+modules in this script. Python&#8217;s <code class="docutils literal"><span class="pre">pickle</span></code> module does it for us
+automatically after inspecting the <code class="docutils literal"><span class="pre">beach</span></code> file.</p>
 <p>In practice a &#8220;live object&#8221; in memory is much more valuable than
 information stored in a good-old file format because there are often
 many different questions one can ask about particular real-world
 objects. For example, we could ask: What are the site symmetries of the
-atoms in the <tt class="docutils literal"><span class="pre">quartz_structure</span></tt>? Here is how we ask that question in
+atoms in the <code class="docutils literal"><span class="pre">quartz_structure</span></code>? Here is how we ask that question in
 Python&#8217;s language:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">scatterer</span> <span class="ow">in</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">scatterers</span><span class="p">():</span>
   <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="n">scatterer</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">%8.4f</span><span class="s"> </span><span class="si">%8.4f</span><span class="s"> </span><span class="si">%8.4f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">scatterer</span><span class="o">.</span><span class="n">site</span>
@@ -180,7 +180,7 @@ Space group: P 62 2 2 (No. 180)
 (2, 0, 1) (4.95031293935+8.57419352432j)
 </pre></div>
 </div>
-<p>Now we could turn our attention to the new <tt class="docutils literal"><span class="pre">f_calc</span></tt> object and start
+<p>Now we could turn our attention to the new <code class="docutils literal"><span class="pre">f_calc</span></code> object and start
 asking different questions. For example: What are the d-spacings?</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">f_calc</span><span class="o">.</span><span class="n">d_spacings</span><span class="p">()</span><span class="o">.</span><span class="n">show_array</span><span class="p">()</span>
 </pre></div>
@@ -230,10 +230,10 @@ AtomInfo). Moving from &#8216;C&#8217; to C++ including the Standard Template
 Library (STL) was a major step away from the bits-and-bytes counting
 era. For example, switching to C++ exception handling for dealing with
 errors reduced the source code size significantly and resulted in much
-improved readability. Equally important, using <tt class="docutils literal"><span class="pre">std::vector</span></tt> for
+improved readability. Equally important, using <code class="docutils literal"><span class="pre">std::vector</span></code> for
 managing dynamically allocated memory was a huge improvement over using
-&#8216;C&#8217; style raw memory allocation functions (<tt class="docutils literal"><span class="pre">malloc()</span></tt> and <tt class="docutils literal"><span class="pre">free()</span></tt>).
-However, the idea of using <tt class="docutils literal"><span class="pre">std::vector</span></tt> throughout the cctbx wasn&#8217;t
+&#8216;C&#8217; style raw memory allocation functions (<code class="docutils literal"><span class="pre">malloc()</span></code> and <code class="docutils literal"><span class="pre">free()</span></code>).
+However, the idea of using <code class="docutils literal"><span class="pre">std::vector</span></code> throughout the cctbx wasn&#8217;t
 very satisfactory: for small arrays such as 3x3 rotation matrices the
 dynamic memory allocation overhead can become a rate-limiting factor,
 and for large arrays the copy-semantics enforce a coding style that
@@ -248,8 +248,8 @@ certainly look like this:</p>
 <div class="highlight-python"><div class="highlight"><pre>std::vector&lt;int&gt; multiplicity(std::vector&lt;miller::index&lt;&gt; &gt; const&amp; h);
 </pre></div>
 </div>
-<p>However, <tt class="docutils literal"><span class="pre">std::vector</span></tt> has deep-copy semantics (the same is true for
-<tt class="docutils literal"><span class="pre">std::valarray</span></tt>). This results in the following:</p>
+<p>However, <code class="docutils literal"><span class="pre">std::vector</span></code> has deep-copy semantics (the same is true for
+<code class="docutils literal"><span class="pre">std::valarray</span></code>). This results in the following:</p>
 <div class="highlight-python"><div class="highlight"><pre>std::vector&lt;int&gt; multiplicity(std::vector&lt;miller::index&lt;&gt; &gt; const&amp; h)
 {
   std::vector&lt;int&gt; result; // Constructs the array.
@@ -273,7 +273,7 @@ avoid the copying overhead the function above could be coded as:</p>
 <p>Unfortunately this is not only harder to read, but also more difficult
 to use because the result has to be instantiated before the function
 is called. This prevents convenient chaining of the type used in the
-<tt class="docutils literal"><span class="pre">quartz_structure</span></tt> examples above.</p>
+<code class="docutils literal"><span class="pre">quartz_structure</span></code> examples above.</p>
 <p>Other major problems are the absence of a multi-dimensional array
 type in the STL and limited support for algebraic array operations. We
 considered using <a class="reference external" href="http://www.oonumerics.org/blitz/">Blitz++</a>, and <a class="reference external" href="http://www.boost.org/libs/multi_array/doc/">boost::multi_array</a>, but these do only
@@ -285,7 +285,7 @@ implementing a family of small and large array types that address all
 our requirements and are as uniform as possible: the scitbx array family.</p>
 </div>
 <div class="section" id="scitbx-array-family-flex">
-<h2><a class="toc-backref" href="#id4"><tt class="docutils literal"><span class="pre">scitbx.array_family.flex</span></tt></a><a class="headerlink" href="#scitbx-array-family-flex" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><code class="docutils literal"><span class="pre">scitbx.array_family.flex</span></code></a><a class="headerlink" href="#scitbx-array-family-flex" title="Permalink to this headline">¶</a></h2>
 <p>The scitbx array family forms the backbone of the cctbx project. Viewed
 from the C++ side the family is quite big and diverse, but viewed from
 the Python side things are a lot simpler, as usual. All small C++ array
@@ -293,13 +293,13 @@ types are transparently mapped to standard Python tuples. This gives
 immediate access to the rich and familiar set of standard tools for
 manipulating tuples. All large array types are transparently and
 uniformly mapped to a group of Python types in the
-<tt class="docutils literal"><span class="pre">scitbx.array_family.flex</span></tt> module. For example:</p>
+<code class="docutils literal"><span class="pre">scitbx.array_family.flex</span></code> module. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">scitbx.array_family</span> <span class="kn">import</span> <span class="n">flex</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="c"># a 1-dimensional array of 30 double-precision values</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">int</span><span class="p">(</span><span class="n">flex</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c"># a 2-dimensional array of 2x3 integer values</span>
 </pre></div>
 </div>
-<p>For numeric element types the <tt class="docutils literal"><span class="pre">flex</span></tt> type supports algebraic operations:</p>
+<p>For numeric element types the <code class="docutils literal"><span class="pre">flex</span></code> type supports algebraic operations:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">flex</span><span class="o">.</span><span class="n">double</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">flex</span><span class="o">.</span><span class="n">double</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
@@ -308,33 +308,33 @@ uniformly mapped to a group of Python types in the
 <span class="go">(2.0, 2.0, 2.0)</span>
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">flex</span></tt> type also supports a large number of other functions
-(<tt class="docutils literal"><span class="pre">abs</span></tt>, <tt class="docutils literal"><span class="pre">sin</span></tt>, <tt class="docutils literal"><span class="pre">pow</span></tt>, etc.), slicing, and as seen in the
-<tt class="docutils literal"><span class="pre">quartz_structure</span></tt> example above, pickling.</p>
+<p>The <code class="docutils literal"><span class="pre">flex</span></code> type also supports a large number of other functions
+(<code class="docutils literal"><span class="pre">abs</span></code>, <code class="docutils literal"><span class="pre">sin</span></code>, <code class="docutils literal"><span class="pre">pow</span></code>, etc.), slicing, and as seen in the
+<code class="docutils literal"><span class="pre">quartz_structure</span></code> example above, pickling.</p>
 <p>If all this looks similar to the popular <a class="reference external" href="http://numeric.scipy.org/">Numeric</a> module: it is at the
 surface. However, there are two very important differences:</p>
 <ul class="simple">
-<li>Under the hood the <tt class="docutils literal"><span class="pre">flex</span></tt> types are instantiations of a C++ array type
+<li>Under the hood the <code class="docutils literal"><span class="pre">flex</span></code> types are instantiations of a C++ array type
 that resembles familiar STL container types as much as possible.
 In contrast Numeric presents itself with a raw &#8216;C&#8217; API.</li>
-<li>It is straightforward to implement other <tt class="docutils literal"><span class="pre">flex</span></tt> types with custom
+<li>It is straightforward to implement other <code class="docutils literal"><span class="pre">flex</span></code> types with custom
 user-defined element types, even outside the scitbx module. This
 would be extremely difficult to do with Numeric, and is virtually
 impossible if the user-defined types are implemented in C++.</li>
 </ul>
 </div>
 <div class="section" id="cctbx-array-family-flex">
-<h2><a class="toc-backref" href="#id5"><tt class="docutils literal"><span class="pre">cctbx.array_family.flex</span></tt></a><a class="headerlink" href="#cctbx-array-family-flex" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">cctbx.array_family.flex</span></tt> inherits all <tt class="docutils literal"><span class="pre">flex</span></tt> types from the
-<tt class="docutils literal"><span class="pre">scitbx.array_family.flex</span></tt> module and adds a few types specific to
+<h2><a class="toc-backref" href="#id5"><code class="docutils literal"><span class="pre">cctbx.array_family.flex</span></code></a><a class="headerlink" href="#cctbx-array-family-flex" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">cctbx.array_family.flex</span></code> inherits all <code class="docutils literal"><span class="pre">flex</span></code> types from the
+<code class="docutils literal"><span class="pre">scitbx.array_family.flex</span></code> module and adds a few types specific to
 the cctbx module, for example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="kn">import</span> <span class="n">flex</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">miller_index</span><span class="p">(((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">hendrickson_lattman</span><span class="p">(((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p>Another example is <tt class="docutils literal"><span class="pre">flex.xray_scatterer</span></tt> used in the
-<tt class="docutils literal"><span class="pre">quartz_structure</span></tt> above.  The cctbx specific C++ code for
+<p>Another example is <code class="docutils literal"><span class="pre">flex.xray_scatterer</span></code> used in the
+<code class="docutils literal"><span class="pre">quartz_structure</span></code> above.  The cctbx specific C++ code for
 establishing these Python types is fairly minimal (about 470 lines for
 exposing 6 types, including full pickle support and all copyright
 statements). This approach can therefore be easily adopted for
@@ -358,8 +358,8 @@ For example consider this trivial function:</p>
 <span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</span>
 </pre></div>
 </div>
-<p>It works because the meaning of <tt class="docutils literal"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></tt> is determined at runtime
-based on the actual types of <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt>.</p>
+<p>It works because the meaning of <code class="docutils literal"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> is determined at runtime
+based on the actual types of <code class="docutils literal"><span class="pre">a</span></code> and <code class="docutils literal"><span class="pre">b</span></code>.</p>
 <p>The <strong>runtime efficiency</strong> of C++ code is directly related to the way
 the C++ type system works: type information is usually evaluated at
 compile-time (virtual functions are an exception which we will not
@@ -374,7 +374,7 @@ T plus(T const&amp; a, T const&amp; b)
 </pre></div>
 </div>
 <p>This template function is automatically <em>instantiated</em> for a given type
-<tt class="docutils literal"><span class="pre">T</span></tt> as used:</p>
+<code class="docutils literal"><span class="pre">T</span></code> as used:</p>
 <div class="highlight-python"><div class="highlight"><pre>int a = 1;
 int b = 2;
 int c = plus(a, b); // implicitly instantiates plus with T==int
@@ -391,7 +391,7 @@ copy of the corresponding machine language instructions tailored for
 the specific types involved. This point may seem subtle at first, but
 being overly generous with the use of C++ compile-time polymorphism can
 lead to very large executable sizes and excessive compile times.</p>
-<p>A comparison of the <tt class="docutils literal"><span class="pre">plus</span></tt> Python function and its C++ counterpart
+<p>A comparison of the <code class="docutils literal"><span class="pre">plus</span></code> Python function and its C++ counterpart
 shows that the notational overhead of the C++ syntax can easily double
 the size of the source code. Therefore a programmer, given the choice,
 will naturally lean towards the Python solution until the runtime
@@ -420,17 +420,17 @@ the desired result:</p>
 <p>However, for the purpose of this discussion let&#8217;s pretend that this
 solution does not exist. Of course the first question is: what is
 the reason for the apparently stupid limitation?</p>
-<p>As mentioned before, the Python <tt class="docutils literal"><span class="pre">flex</span></tt> types are implemented as
+<p>As mentioned before, the Python <code class="docutils literal"><span class="pre">flex</span></code> types are implemented as
 instantiations of C++ class templates. This ensures that all array
 operations are very fast. However, from the discussion in the previous
 section it follows that exposing the full class with its many member
-functions to Python <strong>for each element type</strong> (<tt class="docutils literal"><span class="pre">int</span></tt>, <tt class="docutils literal"><span class="pre">double</span></tt>,
-<tt class="docutils literal"><span class="pre">miller::index&lt;&gt;</span></tt>, etc.) creates very sizable object files. If only
-<em>homogeneous</em> operators (<tt class="docutils literal"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">int</span></tt>, <tt class="docutils literal"><span class="pre">double</span> <span class="pre">*</span> <span class="pre">double</span></tt>, etc.) are
+functions to Python <strong>for each element type</strong> (<code class="docutils literal"><span class="pre">int</span></code>, <code class="docutils literal"><span class="pre">double</span></code>,
+<code class="docutils literal"><span class="pre">miller::index&lt;&gt;</span></code>, etc.) creates very sizable object files. If only
+<em>homogeneous</em> operators (<code class="docutils literal"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">int</span></code>, <code class="docutils literal"><span class="pre">double</span> <span class="pre">*</span> <span class="pre">double</span></code>, etc.) are
 used the combined size of the object files scales linearly with the
 number of element types involved. However, if the library is expanded
-to support <em>heterogeneous</em> operators (<tt class="docutils literal"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">double</span></tt>, <tt class="docutils literal"><span class="pre">double</span> <span class="pre">*</span>
-<span class="pre">int</span></tt>, etc.) the combined object files grow proportional to the square
+to support <em>heterogeneous</em> operators (<code class="docutils literal"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">double</span></code>, <code class="docutils literal"><span class="pre">double</span> <span class="pre">*</span>
+<span class="pre">int</span></code>, etc.) the combined object files grow proportional to the square
 of the number of array element types involved! With current technology
 this is simply prohibitive.</p>
 <p>Limitations of the kind discussed here will apply to any hybrid
@@ -505,7 +505,7 @@ bindings needed to tie them back into the existing higher-level
 procedure.</p>
 <p>To give an example, this approach was used in the development of the
 <em>Euclidean model matching algorithm</em> found in the cctbx
-(<tt class="docutils literal"><span class="pre">cctbx/euclidean_model_matching.py</span></tt>). This algorithm is used to
+(<code class="docutils literal"><span class="pre">cctbx/euclidean_model_matching.py</span></code>). This algorithm is used to
 compare heavy-atom substructures or anomalously scattering
 substructures from isomorphous replacement or anomalous diffraction
 experiments. The algorithm was first implemented in about 300 lines of
@@ -553,7 +553,7 @@ language they are written in. If portability is not an issue this can
 be a great solution to some problems. We are convinced that the cctbx
 can be very useful as an intelligent mediator between otherwise
 incompatible crystallographic applications.</p>
-<p><a class="reference internal" href="index.html#introduction"><em>Back</em></a></p>
+<p><a class="reference internal" href="index.html#introduction"><span>Back</span></a></p>
 </div>
 </div>
 
@@ -561,15 +561,15 @@ incompatible crystallographic applications.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Tour of the cctbx</a><ul>
 <li><a class="reference internal" href="#the-beach-in-the-box">The beach in the box</a></li>
 <li><a class="reference internal" href="#at-the-very-bottom">At the very bottom</a></li>
-<li><a class="reference internal" href="#scitbx-array-family-flex"><tt class="docutils literal"><span class="pre">scitbx.array_family.flex</span></tt></a></li>
-<li><a class="reference internal" href="#cctbx-array-family-flex"><tt class="docutils literal"><span class="pre">cctbx.array_family.flex</span></tt></a></li>
+<li><a class="reference internal" href="#scitbx-array-family-flex"><code class="docutils literal"><span class="pre">scitbx.array_family.flex</span></code></a></li>
+<li><a class="reference internal" href="#cctbx-array-family-flex"><code class="docutils literal"><span class="pre">cctbx.array_family.flex</span></code></a></li>
 <li><a class="reference internal" href="#a-balancing-act">A balancing act</a></li>
 <li><a class="reference internal" href="#hybrid-systems">Hybrid systems</a></li>
 <li><a class="reference internal" href="#building-bridges">Building bridges</a></li>
@@ -584,12 +584,14 @@ incompatible crystallographic applications.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="build_system.html"
                         title="next chapter">SCons - the backbone of the cctbx build system</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/tour.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tour.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -606,7 +608,7 @@ incompatible crystallographic applications.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -621,12 +623,12 @@ incompatible crystallographic applications.</p>
         <li class="right" >
           <a href="installation.html" title="Installation overview"
              >previous</a> |</li>
-        <li><a href="index.html">CCTBX None documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">CCTBX None documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

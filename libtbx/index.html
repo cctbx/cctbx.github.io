@@ -8,7 +8,7 @@
     
     <title>libtbx - low-level utilities and infrastructure for CCTBX &mdash; CCTBX None documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -27,8 +27,8 @@
     <link rel="next" title="libtbx.phil - Python-based hierarchical interchange language" href="libtbx.phil.html" />
     <link rel="prev" title="CCTBX development history" href="../history.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,18 +43,18 @@
         <li class="right" >
           <a href="../history.html" title="CCTBX development history"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="libtbx-low-level-utilities-and-infrastructure-for-cctbx">
 <h1>libtbx - low-level utilities and infrastructure for CCTBX<a class="headerlink" href="#libtbx-low-level-utilities-and-infrastructure-for-cctbx" title="Permalink to this headline">¶</a></h1>
-<p id="libtbx"><tt class="docutils literal"><span class="pre">libtbx</span></tt> is the only pure-Python module in CCTBX, and is required by all
+<p id="libtbx"><code class="docutils literal"><span class="pre">libtbx</span></code> is the only pure-Python module in CCTBX, and is required by all
 other modules.  Among many other functions, it handles all of the environment
 and build system configuration.</p>
 <div class="section" id="submodules">
@@ -68,11 +68,11 @@ and build system configuration.</p>
 </div>
 <div class="section" id="basic-functionality">
 <h2>Basic functionality<a class="headerlink" href="#basic-functionality" title="Permalink to this headline">¶</a></h2>
-<p>The base <tt class="docutils literal"><span class="pre">libtbx</span></tt> module contains several convenience tools for simplifying
+<p>The base <code class="docutils literal"><span class="pre">libtbx</span></code> module contains several convenience tools for simplifying
 other modules.</p>
 <span class="target" id="module-libtbx"></span><dl class="class">
 <dt id="libtbx.AutoType">
-<em class="property">class </em><tt class="descclassname">libtbx.</tt><tt class="descname">AutoType</tt><a class="headerlink" href="#libtbx.AutoType" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">AutoType</code><a class="headerlink" href="#libtbx.AutoType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for creating the Auto instance, which mimics the behavior of None
 with respect to the &#8216;is&#8217; and &#8216;==&#8217; operators; this is used throughout
 CCTBX to indicate parameters that should be determined automatically.</p>
@@ -92,7 +92,7 @@ CCTBX to indicate parameters that should be determined automatically.</p>
 
 <dl class="function">
 <dt id="libtbx.adopt_init_args">
-<tt class="descclassname">libtbx.</tt><tt class="descname">adopt_init_args</tt><big>(</big><em>obj</em>, <em>args</em>, <em>exclude=()</em>, <em>hide=False</em><big>)</big><a class="headerlink" href="#libtbx.adopt_init_args" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.</code><code class="descname">adopt_init_args</code><span class="sig-paren">(</span><em>obj</em>, <em>args</em>, <em>exclude=()</em>, <em>hide=False</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.adopt_init_args" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adopts the initial arguments passed to an object, allowing developers to skip
 the tedious task of assigning each attribute of an instance in its __init__
 method.</p>
@@ -123,7 +123,7 @@ method.</p>
 
 <dl class="function">
 <dt id="libtbx.adopt_optional_init_args">
-<tt class="descclassname">libtbx.</tt><tt class="descname">adopt_optional_init_args</tt><big>(</big><em>obj</em>, <em>kwds</em><big>)</big><a class="headerlink" href="#libtbx.adopt_optional_init_args" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.</code><code class="descname">adopt_optional_init_args</code><span class="sig-paren">(</span><em>obj</em>, <em>kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.adopt_optional_init_args" title="Permalink to this definition">¶</a></dt>
 <dd><p>Easy management of long list of arguments with default value
 passed to __init__.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -152,7 +152,7 @@ passed to __init__.</p>
 
 <dl class="class">
 <dt id="libtbx.group_args">
-<em class="property">class </em><tt class="descclassname">libtbx.</tt><tt class="descname">group_args</tt><big>(</big><em>**keyword_arguments</em><big>)</big><a class="headerlink" href="#libtbx.group_args" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">group_args</code><span class="sig-paren">(</span><em>**keyword_arguments</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.group_args" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to build an arbitrary object from a list of keyword arguments.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="kn">import</span> <span class="n">group_args</span>
@@ -168,7 +168,7 @@ passed to __init__.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">__call__</span></tt>()</td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">__call__</span></code>()</td>
 <td></td>
 </tr>
 </tbody>
@@ -177,7 +177,7 @@ passed to __init__.</p>
 
 <dl class="function">
 <dt id="libtbx.only_element">
-<tt class="descclassname">libtbx.</tt><tt class="descname">only_element</tt><big>(</big><em>sequence</em><big>)</big><a class="headerlink" href="#libtbx.only_element" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.</code><code class="descname">only_element</code><span class="sig-paren">(</span><em>sequence</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.only_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises an exception if sequence contains anything other than one element.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -191,7 +191,7 @@ passed to __init__.</p>
 
 <dl class="class">
 <dt id="libtbx.property">
-<em class="property">class </em><tt class="descclassname">libtbx.</tt><tt class="descname">property</tt><a class="headerlink" href="#libtbx.property" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">property</code><a class="headerlink" href="#libtbx.property" title="Permalink to this definition">¶</a></dt>
 <dd><p>Syntactic sugar for defining class properties for those poor souls
 who must stay compatible with older versions of Python which do not
 feature the &#64;property decorator.</p>
@@ -209,7 +209,7 @@ feature the &#64;property decorator.</p>
 
 <dl class="class">
 <dt id="libtbx.slots_getstate_setstate">
-<em class="property">class </em><tt class="descclassname">libtbx.</tt><tt class="descname">slots_getstate_setstate</tt><a class="headerlink" href="#libtbx.slots_getstate_setstate" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">slots_getstate_setstate</code><a class="headerlink" href="#libtbx.slots_getstate_setstate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements getstate and setstate for classes with __slots__ defined. Allows an
 object to easily pickle only certain attributes.</p>
 <p class="rubric">Examples</p>
@@ -225,7 +225,7 @@ object to easily pickle only certain attributes.</p>
 
 <dl class="class">
 <dt id="libtbx.slots_getstate_setstate_default_initializer">
-<em class="property">class </em><tt class="descclassname">libtbx.</tt><tt class="descname">slots_getstate_setstate_default_initializer</tt><big>(</big><em>**kwds</em><big>)</big><a class="headerlink" href="#libtbx.slots_getstate_setstate_default_initializer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">slots_getstate_setstate_default_initializer</code><span class="sig-paren">(</span><em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.slots_getstate_setstate_default_initializer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges together functionality from slots_getstate_setstate with
 adopt_optional_init_args.</p>
 <p class="rubric">Examples</p>
@@ -241,7 +241,7 @@ adopt_optional_init_args.</p>
 
 <dl class="class">
 <dt id="libtbx.unpicklable">
-<em class="property">class </em><tt class="descclassname">libtbx.</tt><tt class="descname">unpicklable</tt><a class="headerlink" href="#libtbx.unpicklable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">unpicklable</code><a class="headerlink" href="#libtbx.unpicklable" title="Permalink to this definition">¶</a></dt>
 <dd><p>An inheritable class that raises a runtime exception that an object is
 unpicklable.</p>
 </dd></dl>
@@ -253,7 +253,7 @@ unpicklable.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -270,12 +270,14 @@ unpicklable.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="libtbx.phil.html"
                         title="next chapter">libtbx.phil - Python-based hierarchical interchange language</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/libtbx/index.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/libtbx/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -292,7 +294,7 @@ unpicklable.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -307,12 +309,12 @@ unpicklable.</p>
         <li class="right" >
           <a href="../history.html" title="CCTBX development history"
              >previous</a> |</li>
-        <li><a href="../index.html">CCTBX None documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

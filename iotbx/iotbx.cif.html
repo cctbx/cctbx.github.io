@@ -88,7 +88,7 @@ H. Puschmann, P. D. Adams and J. A. K. Howard:
 <h3><a class="toc-backref" href="#id3">Reading a CIF file</a><a class="headerlink" href="#reading-a-cif-file" title="Permalink to this headline">¶</a></h3>
 <p>First we define a Python string containing a short extract from a CIF
 representation of the quartz structure:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">quartz_as_cif</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span><span class="se">\</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">quartz_as_cif</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span><span class="se">\</span>
 <span class="s">data_quartz</span>
 <span class="s">_space_group_name_H-M_alt         &#39;P 62 2 2&#39;</span>
 <span class="s">_cell_length_a                    5.01</span>
@@ -111,7 +111,7 @@ representation of the quartz structure:</p>
 </div>
 <p>Next we import the <code class="xref py py-mod docutils literal"><span class="pre">iotbx.cif</span></code> module, and extract an instance of
 <a class="reference internal" href="../cctbx/cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><code class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></code></a> from the CIF string:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">iotbx.cif</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">iotbx.cif</span>
 <span class="n">quartz_structure</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">cif</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span>
   <span class="n">input_string</span><span class="o">=</span><span class="n">quartz_as_cif</span><span class="p">)</span><span class="o">.</span><span class="n">build_crystal_structures</span><span class="p">()[</span><span class="s">&quot;quartz&quot;</span><span class="p">]</span>
 </pre></div>
@@ -128,42 +128,42 @@ name of each data block containing a crystal structure.</p>
 <p>We then call consecutively the <code class="xref py py-meth docutils literal"><span class="pre">show_summary()</span></code>
 and <code class="xref py py-meth docutils literal"><span class="pre">show_scatterers()</span></code>
 methods of the <a class="reference internal" href="../cctbx/cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><code class="xref py py-class docutils literal"><span class="pre">cctbx.xray.structure</span></code></a> object</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">quartz_structure</span><span class="o">.</span><span class="n">show_summary</span><span class="p">()</span><span class="o">.</span><span class="n">show_scatterers</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">quartz_structure</span><span class="o">.</span><span class="n">show_summary</span><span class="p">()</span><span class="o">.</span><span class="n">show_scatterers</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>which produces the following output:</p>
-<div class="highlight-python"><div class="highlight"><pre>Number of scatterers: 2
-At special positions: 2
-Unit cell: (5.01, 5.01, 5.47, 90, 90, 120)
-Space group: P 62 2 2 (No. 180)
-Label, Scattering, Multiplicity, Coordinates, Occupancy, Uiso, Ustar as Uiso
-Si   Si     3 ( 0.5000  0.5000  0.3333) 1.00 0.2000 [ - ]
-O    O      6 ( 0.1970 -0.1970  0.8333) 1.00 0.2000 [ - ]
+<div class="highlight-default"><div class="highlight"><pre><span class="n">Number</span> <span class="n">of</span> <span class="n">scatterers</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">At</span> <span class="n">special</span> <span class="n">positions</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Unit</span> <span class="n">cell</span><span class="p">:</span> <span class="p">(</span><span class="mf">5.01</span><span class="p">,</span> <span class="mf">5.01</span><span class="p">,</span> <span class="mf">5.47</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">Space</span> <span class="n">group</span><span class="p">:</span> <span class="n">P</span> <span class="mi">62</span> <span class="mi">2</span> <span class="mi">2</span> <span class="p">(</span><span class="n">No</span><span class="o">.</span> <span class="mi">180</span><span class="p">)</span>
+<span class="n">Label</span><span class="p">,</span> <span class="n">Scattering</span><span class="p">,</span> <span class="n">Multiplicity</span><span class="p">,</span> <span class="n">Coordinates</span><span class="p">,</span> <span class="n">Occupancy</span><span class="p">,</span> <span class="n">Uiso</span><span class="p">,</span> <span class="n">Ustar</span> <span class="k">as</span> <span class="n">Uiso</span>
+<span class="n">Si</span>   <span class="n">Si</span>     <span class="mi">3</span> <span class="p">(</span> <span class="mf">0.5000</span>  <span class="mf">0.5000</span>  <span class="mf">0.3333</span><span class="p">)</span> <span class="mf">1.00</span> <span class="mf">0.2000</span> <span class="p">[</span> <span class="o">-</span> <span class="p">]</span>
+<span class="n">O</span>    <span class="n">O</span>      <span class="mi">6</span> <span class="p">(</span> <span class="mf">0.1970</span> <span class="o">-</span><span class="mf">0.1970</span>  <span class="mf">0.8333</span><span class="p">)</span> <span class="mf">1.00</span> <span class="mf">0.2000</span> <span class="p">[</span> <span class="o">-</span> <span class="p">]</span>
 </pre></div>
 </div>
 <p>Next we explore the <code class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></code> object further by examining the
 symmetry of each site in the structure:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">scatterer</span> <span class="ow">in</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">scatterers</span><span class="p">():</span>
-  <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="n">scatterer</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">%8.4f</span><span class="s"> </span><span class="si">%8.4f</span><span class="s"> </span><span class="si">%8.4f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">scatterer</span><span class="o">.</span><span class="n">site</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="k">for</span> <span class="n">scatterer</span> <span class="ow">in</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">scatterers</span><span class="p">():</span>
+  <span class="nb">print</span> <span class="s">&quot;%s:&quot;</span> <span class="o">%</span> <span class="n">scatterer</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="s">&quot;%8.4f %8.4f %8.4f&quot;</span> <span class="o">%</span> <span class="n">scatterer</span><span class="o">.</span><span class="n">site</span>
   <span class="n">site_symmetry</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">site_symmetry</span><span class="p">(</span><span class="n">scatterer</span><span class="o">.</span><span class="n">site</span><span class="p">)</span>
-  <span class="k">print</span> <span class="s">&quot;  point group type:&quot;</span><span class="p">,</span> <span class="n">site_symmetry</span><span class="o">.</span><span class="n">point_group_type</span><span class="p">()</span>
-  <span class="k">print</span> <span class="s">&quot;  special position operator:&quot;</span><span class="p">,</span> <span class="n">site_symmetry</span><span class="o">.</span><span class="n">special_op_simplified</span><span class="p">()</span>
+  <span class="nb">print</span> <span class="s">&quot;  point group type:&quot;</span><span class="p">,</span> <span class="n">site_symmetry</span><span class="o">.</span><span class="n">point_group_type</span><span class="p">()</span>
+  <span class="nb">print</span> <span class="s">&quot;  special position operator:&quot;</span><span class="p">,</span> <span class="n">site_symmetry</span><span class="o">.</span><span class="n">special_op_simplified</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>This will produce the output:</p>
-<div class="highlight-python"><div class="highlight"><pre>Si:   0.5000   0.5000   0.3333
-  point group type: 222
-  special position operator: 1/2,1/2,1/3
-O:   0.1970  -0.1970   0.8333
-  point group type: 2
-  special position operator: x,-x,5/6
+<div class="highlight-default"><div class="highlight"><pre><span class="n">Si</span><span class="p">:</span>   <span class="mf">0.5000</span>   <span class="mf">0.5000</span>   <span class="mf">0.3333</span>
+  <span class="n">point</span> <span class="n">group</span> <span class="nb">type</span><span class="p">:</span> <span class="mi">222</span>
+  <span class="n">special</span> <span class="n">position</span> <span class="n">operator</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span>
+<span class="n">O</span><span class="p">:</span>   <span class="mf">0.1970</span>  <span class="o">-</span><span class="mf">0.1970</span>   <span class="mf">0.8333</span>
+  <span class="n">point</span> <span class="n">group</span> <span class="nb">type</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="n">special</span> <span class="n">position</span> <span class="n">operator</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="o">/</span><span class="mi">6</span>
 </pre></div>
 </div>
 <p>Now we would like to calculate some intensities for our <code class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></code> and
 output them in CIF format. The cctbx provides several pretabulated  scattering
 factor tables that we can use; here we choose to use those from the
 International Tables:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">quartz_structure</span><span class="o">.</span><span class="n">scattering_type_registry</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s">&quot;it1992&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">quartz_structure</span><span class="o">.</span><span class="n">scattering_type_registry</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s">&quot;it1992&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>First we calculate the structure factors from the <code class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></code>
@@ -174,13 +174,13 @@ structure factors for miller indices with d-spacings not less than 2 Angstroms.
 Following that we call the <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array.as_intensity_array" title="cctbx.miller.array.as_intensity_array"><code class="xref py py-meth docutils literal"><span class="pre">as_intensity_array()</span></code></a>
 method of <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal"><span class="pre">array</span></code></a>
 to convert the complex structure factors to intensities:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f_calc</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">structure_factors</span><span class="p">(</span><span class="n">d_min</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">f_calc</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">f_calc</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">structure_factors</span><span class="p">(</span><span class="n">d_min</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">f_calc</span><span class="p">()</span>
 <span class="n">f_calc_sq</span> <span class="o">=</span> <span class="n">f_calc</span><span class="o">.</span><span class="n">as_intensity_array</span><span class="p">()</span>
 <span class="n">f_calc_sq</span><span class="o">.</span><span class="n">show_summary</span><span class="p">()</span><span class="o">.</span><span class="n">show_array</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Finally we output the calculated intensities to a CIF file:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">f_calc_sq</span><span class="o">.</span><span class="n">as_cif_simple</span><span class="p">(</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">f_calc_sq</span><span class="o">.</span><span class="n">as_cif_simple</span><span class="p">(</span>
   <span class="n">array_type</span><span class="o">=</span><span class="s">&quot;calc&quot;</span><span class="p">,</span> <span class="n">data_name</span><span class="o">=</span><span class="s">&quot;quartz&quot;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;quartz.hkl&quot;</span><span class="p">,</span> <span class="s">&quot;wb&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -201,7 +201,7 @@ simple string if the item is not looped, or a
 <code class="xref py py-class docutils literal"><span class="pre">scitbx.flex.std_string</span></code> array for looped values.</p>
 <p>Starting with the <code class="xref py py-obj docutils literal"><span class="pre">quartz_structure</span></code> already obtained above we will create a
 cif block containing the symmetry information about the structure:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">iotbx.cif</span> <span class="kn">import</span> <span class="n">model</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">iotbx.cif</span> <span class="k">import</span> <span class="n">model</span>
 
 <span class="n">cif</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">cif</span><span class="p">()</span>
 <span class="n">cif_block</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">block</span><span class="p">()</span>
@@ -210,7 +210,7 @@ cif block containing the symmetry information about the structure:</p>
 <p>First we add the unit cell parameters to the <code class="xref py py-obj docutils literal"><span class="pre">cif_block</span></code> using the square
 bracket syntax to add key-value (data name, data value) pairs to the
 <code class="xref py py-obj docutils literal"><span class="pre">cif_block</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">unit_cell</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">unit_cell</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">unit_cell</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">unit_cell</span><span class="p">()</span>
 <span class="n">params</span> <span class="o">=</span> <span class="n">unit_cell</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span>
 <span class="n">cif_block</span><span class="p">[</span><span class="s">&quot;_cell_length_a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">cif_block</span><span class="p">[</span><span class="s">&quot;_cell_length_b&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -225,7 +225,7 @@ bracket syntax to add key-value (data name, data value) pairs to the
 operations. First we create an instance of <a class="reference internal" href="#iotbx.cif.model.loop" title="iotbx.cif.model.loop"><code class="xref py py-class docutils literal"><span class="pre">iotbx.cif.model.loop</span></code></a>
 providing the data names (<code class="docutils literal"><span class="pre">header</span></code>) for the loop, before adding data values
 one row at a time:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">space_group</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">space_group</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">space_group</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">space_group</span><span class="p">()</span>
 <span class="n">symop_loop</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="p">(</span><span class="s">&quot;_space_group_symop_id&quot;</span><span class="p">,</span>
                                 <span class="s">&quot;_space_group_symop_operation_xyz&quot;</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">symop_id</span><span class="p">,</span> <span class="n">symop</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">space_group</span><span class="p">):</span>
@@ -234,7 +234,7 @@ one row at a time:</p>
 </div>
 <p>Next we add the <code class="xref py py-obj docutils literal"><span class="pre">symop_loop</span></code> and other space group items to the
 <code class="xref py py-obj docutils literal"><span class="pre">cif_block</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">space_group_type</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">space_group_info</span><span class="p">()</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">space_group_type</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">space_group_info</span><span class="p">()</span><span class="o">.</span><span class="n">type</span><span class="p">()</span>
 <span class="n">cif_block</span><span class="p">[</span><span class="s">&quot;_space_group_crystal_system&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">space_group</span><span class="o">.</span><span class="n">crystal_system</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <span class="n">cif_block</span><span class="p">[</span><span class="s">&quot;_space_group_IT_number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">space_group_type</span><span class="o">.</span><span class="n">number</span><span class="p">()</span>
 <span class="n">cif_block</span><span class="p">[</span><span class="s">&quot;_space_group_name_H-M_alt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">space_group_type</span><span class="o">.</span><span class="n">lookup_symbol</span><span class="p">()</span>
@@ -244,8 +244,8 @@ one row at a time:</p>
 </div>
 <p>Finally we add <code class="xref py py-obj docutils literal"><span class="pre">cif_block</span></code> to the <code class="xref py py-obj docutils literal"><span class="pre">cif</span></code> object with the
 data block name &#8220;quartz&#8221; and print the <code class="xref py py-obj docutils literal"><span class="pre">cif</span></code> object to the standard output:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cif</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cif_block</span>
-<span class="k">print</span> <span class="n">cif</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cif</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cif_block</span>
+<span class="nb">print</span> <span class="n">cif</span>
 </pre></div>
 </div>
 </div>
@@ -254,7 +254,7 @@ data block name &#8220;quartz&#8221; and print the <code class="xref py py-obj d
 <p>We shall take the <code class="xref py py-obj docutils literal"><span class="pre">quartz_as_cif</span></code> from above and intentionally add some
 extra CIF items that contain will be interpreted as  errors when validated
 against the <a class="reference external" href="http://www.iucr.org/resources/cif/dictionaries/cif_core">core CIF dictionary</a>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">iotbx.cif</span> <span class="kn">import</span> <span class="n">validation</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">iotbx.cif</span> <span class="k">import</span> <span class="n">validation</span>
 
 <span class="n">cif_model</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">cif</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">input_string</span><span class="o">=</span><span class="n">quartz_as_cif</span><span class="p">)</span><span class="o">.</span><span class="n">model</span><span class="p">()</span>
 </pre></div>
@@ -264,14 +264,14 @@ following that we call the <a class="reference internal" href="#iotbx.cif.reader
 direct access to the Python representation of the CIF that has been
 constructed by the <a class="reference internal" href="#iotbx.cif.reader" title="iotbx.cif.reader"><code class="xref py py-class docutils literal"><span class="pre">reader</span></code></a> class. We can then
 interact with this to add new data items:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cif_model</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">][</span><span class="s">&quot;_diffrn_radiation_probe&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;xray&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cif_model</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">][</span><span class="s">&quot;_diffrn_radiation_probe&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;xray&quot;</span>
 <span class="n">cif_model</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">][</span><span class="s">&quot;_space_group_crystal_system&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Monoclinic&quot;</span>
 <span class="n">cif_model</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">][</span><span class="s">&quot;_space_group_IT_number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;one hundred and eighty&quot;</span>
 </pre></div>
 </div>
 <p>Next we add take the <code class="xref py py-obj docutils literal"><span class="pre">symop_loop</span></code> constructed above and add another column
 to the loop, before adding the loop to the &#8220;quartz&#8221; CIF block:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">symop_loop</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&quot;_space_group_symop_sg_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">symop_loop</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&quot;_space_group_symop_sg_id&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">cif_model</span><span class="p">[</span><span class="s">&quot;quartz&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">add_loop</span><span class="p">(</span><span class="n">symop_loop</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -281,16 +281,16 @@ This can load a dictionary from a given file path or url, or given the name of
 a dictionary it will attempt to first find a local copy of the dictionary, then
 alternatively look up the dictionary in the IUCr cif dictionary register and
 download it from the IUCr website:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cif_core_dic</span> <span class="o">=</span> <span class="n">validation</span><span class="o">.</span><span class="n">smart_load_dictionary</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;cif_core.dic&quot;</span><span class="p">)</span>
-<span class="n">cif_model</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">cif_core_dic</span><span class="p">,</span> <span class="n">show_warnings</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cif_core_dic</span> <span class="o">=</span> <span class="n">validation</span><span class="o">.</span><span class="n">smart_load_dictionary</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;cif_core.dic&quot;</span><span class="p">)</span>
+<span class="n">cif_model</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">cif_core_dic</span><span class="p">,</span> <span class="n">show_warnings</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will give the following output detailing the errors found:</p>
-<div class="highlight-python"><div class="highlight"><pre>Invalid loop: missing parent for loop containing &#39;_atom_site_type_symbol&#39;: &#39;_atom_type_symbol&#39; required but not present in data block
-Invalid loop: missing parent for loop containing &#39;_space_group_symop_sg_id&#39;: &#39;_space_group_id&#39; required but not present in data block
-Type error for _space_group_IT_number: &#39;one hundred and eighty&#39; is not interpretable as type &#39;numb&#39;
-Invalid enumeration value for _diffrn_radiation_probe: &#39;xray&#39; not in (&#39;x-ray&#39;, &#39;neutron&#39;, &#39;electron&#39;, &#39;gamma&#39;)
-Warning: case-sensitive match failure for value &#39;Monoclinic&#39; for &#39;_space_group_crystal_system&#39;
+<div class="highlight-default"><div class="highlight"><pre><span class="n">Invalid</span> <span class="n">loop</span><span class="p">:</span> <span class="n">missing</span> <span class="n">parent</span> <span class="k">for</span> <span class="n">loop</span> <span class="n">containing</span> <span class="s">&#39;_atom_site_type_symbol&#39;</span><span class="p">:</span> <span class="s">&#39;_atom_type_symbol&#39;</span> <span class="n">required</span> <span class="n">but</span> <span class="ow">not</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">data</span> <span class="n">block</span>
+<span class="n">Invalid</span> <span class="n">loop</span><span class="p">:</span> <span class="n">missing</span> <span class="n">parent</span> <span class="k">for</span> <span class="n">loop</span> <span class="n">containing</span> <span class="s">&#39;_space_group_symop_sg_id&#39;</span><span class="p">:</span> <span class="s">&#39;_space_group_id&#39;</span> <span class="n">required</span> <span class="n">but</span> <span class="ow">not</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">data</span> <span class="n">block</span>
+<span class="n">Type</span> <span class="n">error</span> <span class="k">for</span> <span class="n">_space_group_IT_number</span><span class="p">:</span> <span class="s">&#39;one hundred and eighty&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">interpretable</span> <span class="k">as</span> <span class="nb">type</span> <span class="s">&#39;numb&#39;</span>
+<span class="n">Invalid</span> <span class="n">enumeration</span> <span class="n">value</span> <span class="k">for</span> <span class="n">_diffrn_radiation_probe</span><span class="p">:</span> <span class="s">&#39;xray&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s">&#39;x-ray&#39;</span><span class="p">,</span> <span class="s">&#39;neutron&#39;</span><span class="p">,</span> <span class="s">&#39;electron&#39;</span><span class="p">,</span> <span class="s">&#39;gamma&#39;</span><span class="p">)</span>
+<span class="ne">Warning</span><span class="p">:</span> <span class="n">case</span><span class="o">-</span><span class="n">sensitive</span> <span class="n">match</span> <span class="n">failure</span> <span class="k">for</span> <span class="n">value</span> <span class="s">&#39;Monoclinic&#39;</span> <span class="k">for</span> <span class="s">&#39;_space_group_crystal_system&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -309,7 +309,7 @@ with minimal dependencies into any C++ software. For further details see the
 <dl class="class">
 <dt id="iotbx.cif.reader">
 <em class="property">class </em><code class="descclassname">iotbx.cif.</code><code class="descname">reader</code><span class="sig-paren">(</span><em>file_path=None</em>, <em>file_object=None</em>, <em>input_string=None</em>, <em>cif_object=None</em>, <em>builder=None</em>, <em>raise_if_errors=True</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.reader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -372,7 +372,7 @@ with minimal dependencies into any C++ software. For further details see the
 <dl class="class">
 <dt id="iotbx.cif.model.cif">
 <em class="property">class </em><code class="descclassname">iotbx.cif.model.</code><code class="descname">cif</code><span class="sig-paren">(</span><em>blocks=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/userdict.html#UserDict.DictMixin" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">UserDict.DictMixin</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/userdict.html#UserDict.DictMixin" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">UserDict.DictMixin</span></code></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -383,7 +383,7 @@ with minimal dependencies into any C++ software. For further details see the
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
+<tr class="row-even"><td><a class="reference external" href="https://docs.python.org/2/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
 <td>Generic (shallow and deep) copying operations.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></code></td>
@@ -493,7 +493,7 @@ with minimal dependencies into any C++ software. For further details see the
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
+<tr class="row-even"><td><a class="reference external" href="https://docs.python.org/2/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
 <td>Generic (shallow and deep) copying operations.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></code></td>
@@ -597,7 +597,7 @@ with minimal dependencies into any C++ software. For further details see the
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
+<tr class="row-even"><td><a class="reference external" href="https://docs.python.org/2/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
 <td>Generic (shallow and deep) copying operations.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></code></td>
@@ -699,7 +699,7 @@ with minimal dependencies into any C++ software. For further details see the
 <dl class="class">
 <dt id="iotbx.cif.model.loop">
 <em class="property">class </em><code class="descclassname">iotbx.cif.model.</code><code class="descname">loop</code><span class="sig-paren">(</span><em>header=None</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/userdict.html#UserDict.DictMixin" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">UserDict.DictMixin</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/userdict.html#UserDict.DictMixin" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">UserDict.DictMixin</span></code></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -719,7 +719,7 @@ with minimal dependencies into any C++ software. For further details see the
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="http://docs.python.org/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
+<tr class="row-odd"><td><a class="reference external" href="https://docs.python.org/2/library/copy.html#module-copy" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a></td>
 <td>Generic (shallow and deep) copying operations.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">deepcopy</span></code></td>
@@ -942,14 +942,11 @@ with minimal dependencies into any C++ software. For further details see the
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -971,7 +968,7 @@ with minimal dependencies into any C++ software. For further details see the
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
     </div>
   </body>
 </html>

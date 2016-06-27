@@ -103,61 +103,61 @@ automatically.</p>
 <p>Building from sources requires Python 2.4 through 2.7 and a C++
 compiler. If you like to use the most recent Python, it can be
 installed in the following way:</p>
-<div class="highlight-python"><div class="highlight"><pre>gunzip -c Python-2.7.2.tar.gz | tar xf -
-cd Python-2.7.2
-./configure --prefix=/your/choice
-make
-make install
+<div class="highlight-default"><div class="highlight"><pre><span class="n">gunzip</span> <span class="o">-</span><span class="n">c</span> <span class="n">Python</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mf">2.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">|</span> <span class="n">tar</span> <span class="n">xf</span> <span class="o">-</span>
+<span class="n">cd</span> <span class="n">Python</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">2</span>
+<span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">your</span><span class="o">/</span><span class="n">choice</span>
+<span class="n">make</span>
+<span class="n">make</span> <span class="n">install</span>
 </pre></div>
 </div>
 <p>It may be convenient (but is not required) to add the directory
 <code class="docutils literal"><span class="pre">/your/choice/bin</span></code> to the command-line search <code class="docutils literal"><span class="pre">PATH</span></code>, e.g. using
 <code class="docutils literal"><span class="pre">csh</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>set path=(/your/choice/bin $path)
+<div class="highlight-default"><div class="highlight"><pre>set path=(/your/choice/bin $path)
 </pre></div>
 </div>
 <p>Recent self-contained cctbx sources are available in the file
 <a class="reference external" href="http://cci.lbl.gov/cctbx_build/results/last_published/cctbx_bundle.tar.gz">cctbx_bundle.tar.gz</a>
 published at the cctbx build page. To unpack this file in a new,
 empty directory:</p>
-<div class="highlight-python"><div class="highlight"><pre>tar zxf cctbx_bundle.tar.gz
+<div class="highlight-default"><div class="highlight"><pre><span class="n">tar</span> <span class="n">zxf</span> <span class="n">cctbx_bundle</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
 </pre></div>
 </div>
 <p>This creates a subdirectory <code class="docutils literal"><span class="pre">cctbx_sources</span></code>. The installation
 procedure should be executed in another directory, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre>mkdir cctbx_build
-cd cctbx_build
-/your/choice/bin/python ../cctbx_sources/libtbx/configure.py mmtbx
+<div class="highlight-default"><div class="highlight"><pre><span class="n">mkdir</span> <span class="n">cctbx_build</span>
+<span class="n">cd</span> <span class="n">cctbx_build</span>
+<span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">choice</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">../</span><span class="n">cctbx_sources</span><span class="o">/</span><span class="n">libtbx</span><span class="o">/</span><span class="n">configure</span><span class="o">.</span><span class="n">py</span> <span class="n">mmtbx</span>
 </pre></div>
 </div>
 <p>The last command initializes the <code class="docutils literal"><span class="pre">cctbx_build</span></code> directory and creates a
 file <code class="docutils literal"><span class="pre">setpaths.csh</span></code> (among others). This file must be used to
 initialize a new shell or process with the cctbx settings:</p>
-<div class="highlight-python"><div class="highlight"><pre>source setpaths.csh
+<div class="highlight-default"><div class="highlight"><pre><span class="n">source</span> <span class="n">setpaths</span><span class="o">.</span><span class="n">csh</span>
 </pre></div>
 </div>
 <p>There is also a <code class="docutils literal"><span class="pre">setpaths.sh</span></code> for <code class="docutils literal"><span class="pre">bash</span></code> users.</p>
 <p>To compile enter:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">make</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">make</span>
 </pre></div>
 </div>
 <p>This will actually run the <code class="docutils literal"><span class="pre">libtbx.scons</span></code> command using all
 available CPUs. You can also manually specify the number of CPUs to
 use, for example:</p>
-<div class="highlight-python"><div class="highlight"><pre>libtbx.scons -j 4
+<div class="highlight-default"><div class="highlight"><pre><span class="n">libtbx</span><span class="o">.</span><span class="n">scons</span> <span class="o">-</span><span class="n">j</span> <span class="mi">4</span>
 </pre></div>
 </div>
 <p>Note that <code class="docutils literal"><span class="pre">libtbx.scons</span></code> is just a thin wrapper around <a class="reference external" href="http://www.scons.org/">SCons</a>. The
 <a class="reference external" href="http://www.scons.org/doc/HTML/scons-man.html">SCons documentation</a> applies without modification.</p>
 <p>To run scripts with cctbx imports use the command:</p>
-<div class="highlight-python"><div class="highlight"><pre>libtbx.python your_script.py
+<div class="highlight-default"><div class="highlight"><pre><span class="n">libtbx</span><span class="o">.</span><span class="n">python</span> <span class="n">your_script</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>(You can also use <code class="docutils literal"><span class="pre">scitbx.python</span></code>, <code class="docutils literal"><span class="pre">cctbx.python</span></code>, <code class="docutils literal"><span class="pre">iotbx.python</span></code>, etc.;
 all these commands are equivalent.)</p>
 <p>For example, to run some regression tests after the compilation is
 finished enter:</p>
-<div class="highlight-python"><div class="highlight"><pre>source setpaths_all.csh
+<div class="highlight-default"><div class="highlight"><pre>source setpaths_all.csh
 libtbx.python $SCITBX_DIST/run_tests.py
 libtbx.python $CCTBX_DIST/run_tests.py --Quick
 </pre></div>
@@ -177,44 +177,44 @@ self-extracting file
 <a class="reference external" href="http://cci.lbl.gov/cctbx_build/results/last_published/cctbx_bundle.exe">cctbx_bundle.exe</a>
 published at the cctbx build page. To unpack this file in a new, empty
 directory enter:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cctbx_bundle</span><span class="o">.</span><span class="n">exe</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cctbx_bundle</span><span class="o">.</span><span class="n">exe</span>
 </pre></div>
 </div>
 <p>This creates a subdirectory <code class="docutils literal"><span class="pre">cctbx_sources</span></code>. The installation
 procedure should be executed in another directory, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre>mkdir cctbx_build
-cd cctbx_build
-C:\python27\python.exe ..\cctbx_sources\libtbx\configure.py mmtbx
+<div class="highlight-default"><div class="highlight"><pre><span class="n">mkdir</span> <span class="n">cctbx_build</span>
+<span class="n">cd</span> <span class="n">cctbx_build</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">python27</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="o">..</span>\<span class="n">cctbx_sources</span>\<span class="n">libtbx</span>\<span class="n">configure</span><span class="o">.</span><span class="n">py</span> <span class="n">mmtbx</span>
 </pre></div>
 </div>
 <p>The last command initializes the <code class="docutils literal"><span class="pre">cctbx_build</span></code> directory and creates
 a file <code class="docutils literal"><span class="pre">setpaths.bat</span></code> (among others). This file must be used to
 initialize a new shell or process with the cctbx settings:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">setpaths</span><span class="o">.</span><span class="n">bat</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">setpaths</span><span class="o">.</span><span class="n">bat</span>
 </pre></div>
 </div>
 <p>To compile enter:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">libtbx</span><span class="o">.</span><span class="n">scons</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">libtbx</span><span class="o">.</span><span class="n">scons</span>
 </pre></div>
 </div>
 <p>On a machine with multiple CPUs enter:</p>
-<div class="highlight-python"><div class="highlight"><pre>libtbx.scons -j N
+<div class="highlight-default"><div class="highlight"><pre><span class="n">libtbx</span><span class="o">.</span><span class="n">scons</span> <span class="o">-</span><span class="n">j</span> <span class="n">N</span>
 </pre></div>
 </div>
 <p>where N is the number of CPUs available.</p>
 <p>Note that <code class="docutils literal"><span class="pre">libtbx.scons</span></code> is just a thin wrapper around <a class="reference external" href="http://www.scons.org/">SCons</a>. The
 <a class="reference external" href="http://www.scons.org/doc/HTML/scons-man.html">SCons documentation</a> applies without modification.</p>
 <p>To run scripts with cctbx imports use the command:</p>
-<div class="highlight-python"><div class="highlight"><pre>libtbx.python your_script.py
+<div class="highlight-default"><div class="highlight"><pre><span class="n">libtbx</span><span class="o">.</span><span class="n">python</span> <span class="n">your_script</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>(You can also use <code class="docutils literal"><span class="pre">scitbx.python</span></code>, <code class="docutils literal"><span class="pre">cctbx.python</span></code>, <code class="docutils literal"><span class="pre">iotbx.python</span></code>, etc.;
 all these commands are equivalent.)</p>
 <p>For example, to run some regression tests after the compilation is
 finished enter:</p>
-<div class="highlight-python"><div class="highlight"><pre>setpaths_all.bat
-libtbx.python %SCITBX_DIST%\run_tests.py
-libtbx.python %CCTBX_DIST%\run_tests.py --Quick
+<div class="highlight-default"><div class="highlight"><pre><span class="n">setpaths_all</span><span class="o">.</span><span class="n">bat</span>
+<span class="n">libtbx</span><span class="o">.</span><span class="n">python</span> <span class="o">%</span><span class="n">SCITBX_DIST</span><span class="o">%</span>\<span class="n">run_tests</span><span class="o">.</span><span class="n">py</span>
+<span class="n">libtbx</span><span class="o">.</span><span class="n">python</span> <span class="o">%</span><span class="n">CCTBX_DIST</span><span class="o">%</span>\<span class="n">run_tests</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">Quick</span>
 </pre></div>
 </div>
 <p>The output should show many OK. A Python Traceback is an indicator
@@ -226,8 +226,8 @@ for problems.</p>
 get easy access to the most recent changes, it may be useful
 to checkout the cctbx project directly from the SVN repository
 maintained at <a class="reference external" href="http://sourceforge.net/">Sourceforge</a>. An easy way to get started is:</p>
-<div class="highlight-python"><div class="highlight"><pre>svn export svn://svn.code.sf.net/p/cctbx/code/trunk/libtbx/development/cctbx_svn_getting_started.csh
-./cctbx_svn_getting_started.csh
+<div class="highlight-default"><div class="highlight"><pre><span class="n">svn</span> <span class="n">export</span> <span class="n">svn</span><span class="p">:</span><span class="o">//</span><span class="n">svn</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">sf</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="n">cctbx</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">trunk</span><span class="o">/</span><span class="n">libtbx</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">cctbx_svn_getting_started</span><span class="o">.</span><span class="n">csh</span>
+<span class="o">./</span><span class="n">cctbx_svn_getting_started</span><span class="o">.</span><span class="n">csh</span>
 </pre></div>
 </div>
 <p>The script will create a <code class="docutils literal"><span class="pre">sources</span></code> directory with a <code class="docutils literal"><span class="pre">cctbx_project</span></code>
@@ -235,11 +235,11 @@ svn working copy checked out from SourceForge, and all other
 third-party sources (e.g. boost, scons) taken from the latest nightly
 cctbx build.</p>
 <p>To configure a new build using the <code class="docutils literal"><span class="pre">sources</span></code> directory:</p>
-<div class="highlight-python"><div class="highlight"><pre>mkdir build
-cd build
-/your/choice/bin/python ../sources/cctbx_project/libtbx/configure.py mmtbx
-source setpaths.csh
-make
+<div class="highlight-default"><div class="highlight"><pre><span class="n">mkdir</span> <span class="n">build</span>
+<span class="n">cd</span> <span class="n">build</span>
+<span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">choice</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">../</span><span class="n">sources</span><span class="o">/</span><span class="n">cctbx_project</span><span class="o">/</span><span class="n">libtbx</span><span class="o">/</span><span class="n">configure</span><span class="o">.</span><span class="n">py</span> <span class="n">mmtbx</span>
+<span class="n">source</span> <span class="n">setpaths</span><span class="o">.</span><span class="n">csh</span>
+<span class="n">make</span>
 </pre></div>
 </div>
 <p>It is also possible to replace the <code class="docutils literal"><span class="pre">sources/boost</span></code> directory with
@@ -281,14 +281,11 @@ it will be best to use the boost sources obtained with the
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -315,7 +312,7 @@ it will be best to use the boost sources obtained with the
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
     </div>
   </body>
 </html>

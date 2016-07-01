@@ -69,7 +69,7 @@
 <dl class="function">
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.angle_and_axis">
 <code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">angle_and_axis</code><span class="sig-paren">(</span><em>basis</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.angle_and_axis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalize a quarternion and return the angle and axis
+<dd><p>Normalize a quaternion and return the angle and axis
 &#64;param params metrology object</p>
 </dd></dl>
 
@@ -116,7 +116,7 @@ read_optical_metrology_from_flat_file
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper">
 <em class="property">class </em><code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">cbf_wrapper</code><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxtbx.format.FormatCBFMultiTile.cbf_wrapper</span></code></p>
-<p>Wrapper class that provids convience functions for working with cbflib</p>
+<p>Wrapper class that provides convenience functions for working with cbflib</p>
 <p class="rubric">Attributes</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -785,6 +785,23 @@ object&#8217;s calibration store
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.get_cspad_cbf_handle">
 <code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">get_cspad_cbf_handle</code><span class="sig-paren">(</span><em>tiles</em>, <em>metro</em>, <em>metro_style</em>, <em>timestamp</em>, <em>cbf_root</em>, <em>wavelength</em>, <em>distance</em>, <em>verbose=True</em>, <em>header_only=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.get_cspad_cbf_handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="function">
+<dt id="xfel.cftbx.detector.cspad_cbf_tbx.get_psana_corrected_data">
+<code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">get_psana_corrected_data</code><span class="sig-paren">(</span><em>psana_det</em>, <em>evt</em>, <em>use_default=False</em>, <em>dark=True</em>, <em>common_mode=None</em>, <em>apply_gain_mask=True</em>, <em>gain_mask_value=None</em>, <em>per_pixel_gain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.get_psana_corrected_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a psana Detector object, apply corrections as appropriate and return the data from the event
+&#64;param psana_det psana Detector object
+&#64;param evt psana event
+&#64;param use_default If true, apply the default calibration only, using the psana algorithms. Otherise, use the corrections
+specified by the rest of the flags and values passed in.
+&#64;param dark Whether to apply the detector dark
+&#64;param common_mode Which common mode algorithm to apply. None: apply no algorithm. Default: use the algorithm specified
+in the calib folder. Otherwise should be a list as specified by the psana documentation for common mode customization
+&#64;param apply_gain_mask Whether to apply the common mode gain mask correction
+&#64;param gain_mask_value Multiplier to apply to the pixels, according to the gain mask
+&#64;param per_pixel_gain If available, use the per pixel gain deployed to the calibration folder
+&#64;return Numpy array corrected as specified.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.map_detector_to_basis_dict">

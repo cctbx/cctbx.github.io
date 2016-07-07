@@ -755,7 +755,7 @@ In all cases information is provided in the CBF coordinate frame.</p>
 </table>
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.detector_factory.complex">
-<em class="property">static </em><code class="descname">complex</code><span class="sig-paren">(</span><em>sensor</em>, <em>origin</em>, <em>fast</em>, <em>slow</em>, <em>pixel</em>, <em>size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.complex" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">complex</code><span class="sig-paren">(</span><em>sensor</em>, <em>origin</em>, <em>fast</em>, <em>slow</em>, <em>pixel</em>, <em>size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em>, <em>gain=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.complex" title="Permalink to this definition">¶</a></dt>
 <dd><p>A complex detector model, where you know exactly where everything
 is. This is useful for implementation of the Rigaku Saturn header
 format, as that is exactly what is in there. Origin, fast and slow are
@@ -778,7 +778,7 @@ is assumed that the file has already been read.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.detector_factory.make_detector">
-<em class="property">static </em><code class="descname">make_detector</code><span class="sig-paren">(</span><em>stype</em>, <em>fast_axis</em>, <em>slow_axis</em>, <em>origin</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em>, <em>name='Panel'</em>, <em>thickness=0.0</em>, <em>material=''</em>, <em>mu=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.make_detector" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">make_detector</code><span class="sig-paren">(</span><em>stype</em>, <em>fast_axis</em>, <em>slow_axis</em>, <em>origin</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em>, <em>name='Panel'</em>, <em>thickness=0.0</em>, <em>material=''</em>, <em>mu=0.0</em>, <em>gain=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.make_detector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensure all types are correct before creating c++ detector class.</p>
 </dd></dl>
 
@@ -1178,13 +1178,16 @@ angle in degrees or radians.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_cell_parameter_sd" title="dxtbx.model.crystal.crystal_model.get_cell_parameter_sd"><code class="xref py py-obj docutils literal"><span class="pre">get_cell_parameter_sd</span></code></a>()</td>
 <td>Return the estimated standard deviations of unit cell parameters in units of Angstroms and degrees, if available, otherwise None.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_mosaicity" title="dxtbx.model.crystal.crystal_model.get_mosaicity"><code class="xref py py-obj docutils literal"><span class="pre">get_mosaicity</span></code></a>([deg])</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_cell_volume_sd" title="dxtbx.model.crystal.crystal_model.get_cell_volume_sd"><code class="xref py py-obj docutils literal"><span class="pre">get_cell_volume_sd</span></code></a>()</td>
+<td>Return the estimated standard deviation of the unit cell volume in units of Angstroms^3, if available, otherwise None.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_mosaicity" title="dxtbx.model.crystal.crystal_model.get_mosaicity"><code class="xref py py-obj docutils literal"><span class="pre">get_mosaicity</span></code></a>([deg])</td>
 <td>Get the current value of the mosaicity.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_real_space_vectors" title="dxtbx.model.crystal.crystal_model.get_real_space_vectors"><code class="xref py py-obj docutils literal"><span class="pre">get_real_space_vectors</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_real_space_vectors" title="dxtbx.model.crystal.crystal_model.get_real_space_vectors"><code class="xref py py-obj docutils literal"><span class="pre">get_real_space_vectors</span></code></a>()</td>
 <td>Get the real space unit cell basis vectors.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_space_group" title="dxtbx.model.crystal.crystal_model.get_space_group"><code class="xref py py-obj docutils literal"><span class="pre">get_space_group</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_space_group" title="dxtbx.model.crystal.crystal_model.get_space_group"><code class="xref py py-obj docutils literal"><span class="pre">get_space_group</span></code></a>()</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1195,7 +1198,7 @@ angle in degrees or radians.</p>
 </table>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_unit_cell" title="dxtbx.model.crystal.crystal_model.get_unit_cell"><code class="xref py py-obj docutils literal"><span class="pre">get_unit_cell</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_unit_cell" title="dxtbx.model.crystal.crystal_model.get_unit_cell"><code class="xref py py-obj docutils literal"><span class="pre">get_unit_cell</span></code></a>()</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1206,40 +1209,40 @@ angle in degrees or radians.</p>
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_unit_cell_at_scan_point" title="dxtbx.model.crystal.crystal_model.get_unit_cell_at_scan_point"><code class="xref py py-obj docutils literal"><span class="pre">get_unit_cell_at_scan_point</span></code></a>(t)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.get_unit_cell_at_scan_point" title="dxtbx.model.crystal.crystal_model.get_unit_cell_at_scan_point"><code class="xref py py-obj docutils literal"><span class="pre">get_unit_cell_at_scan_point</span></code></a>(t)</td>
 <td>Return unit cell with index t.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.is_similar_to" title="dxtbx.model.crystal.crystal_model.is_similar_to"><code class="xref py py-obj docutils literal"><span class="pre">is_similar_to</span></code></a>(other[,&nbsp;angle_tolerance,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.is_similar_to" title="dxtbx.model.crystal.crystal_model.is_similar_to"><code class="xref py py-obj docutils literal"><span class="pre">is_similar_to</span></code></a>(other[,&nbsp;angle_tolerance,&nbsp;...])</td>
 <td>Test similarity of this to another crystal model</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.reset_scan_points" title="dxtbx.model.crystal.crystal_model.reset_scan_points"><code class="xref py py-obj docutils literal"><span class="pre">reset_scan_points</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.reset_scan_points" title="dxtbx.model.crystal.crystal_model.reset_scan_points"><code class="xref py py-obj docutils literal"><span class="pre">reset_scan_points</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.reset_unit_cell_errors" title="dxtbx.model.crystal.crystal_model.reset_unit_cell_errors"><code class="xref py py-obj docutils literal"><span class="pre">reset_unit_cell_errors</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.reset_unit_cell_errors" title="dxtbx.model.crystal.crystal_model.reset_unit_cell_errors"><code class="xref py py-obj docutils literal"><span class="pre">reset_unit_cell_errors</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.rotate_around_origin" title="dxtbx.model.crystal.crystal_model.rotate_around_origin"><code class="xref py py-obj docutils literal"><span class="pre">rotate_around_origin</span></code></a>(axis,&nbsp;angle[,&nbsp;deg])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.rotate_around_origin" title="dxtbx.model.crystal.crystal_model.rotate_around_origin"><code class="xref py py-obj docutils literal"><span class="pre">rotate_around_origin</span></code></a>(axis,&nbsp;angle[,&nbsp;deg])</td>
 <td>Rotate the model around an axis and angle</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_A" title="dxtbx.model.crystal.crystal_model.set_A"><code class="xref py py-obj docutils literal"><span class="pre">set_A</span></code></a>(A)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_A" title="dxtbx.model.crystal.crystal_model.set_A"><code class="xref py py-obj docutils literal"><span class="pre">set_A</span></code></a>(A)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_A_at_scan_points" title="dxtbx.model.crystal.crystal_model.set_A_at_scan_points"><code class="xref py py-obj docutils literal"><span class="pre">set_A_at_scan_points</span></code></a>(A_list)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_A_at_scan_points" title="dxtbx.model.crystal.crystal_model.set_A_at_scan_points"><code class="xref py py-obj docutils literal"><span class="pre">set_A_at_scan_points</span></code></a>(A_list)</td>
 <td>Set the setting matrix A at a series of checkpoints within a rotation scan.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_B" title="dxtbx.model.crystal.crystal_model.set_B"><code class="xref py py-obj docutils literal"><span class="pre">set_B</span></code></a>(B)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_B" title="dxtbx.model.crystal.crystal_model.set_B"><code class="xref py py-obj docutils literal"><span class="pre">set_B</span></code></a>(B)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_B_covariance" title="dxtbx.model.crystal.crystal_model.set_B_covariance"><code class="xref py py-obj docutils literal"><span class="pre">set_B_covariance</span></code></a>(cov)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_B_covariance" title="dxtbx.model.crystal.crystal_model.set_B_covariance"><code class="xref py py-obj docutils literal"><span class="pre">set_B_covariance</span></code></a>(cov)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_U" title="dxtbx.model.crystal.crystal_model.set_U"><code class="xref py py-obj docutils literal"><span class="pre">set_U</span></code></a>(U)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_U" title="dxtbx.model.crystal.crystal_model.set_U"><code class="xref py py-obj docutils literal"><span class="pre">set_U</span></code></a>(U)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_mosaicity" title="dxtbx.model.crystal.crystal_model.set_mosaicity"><code class="xref py py-obj docutils literal"><span class="pre">set_mosaicity</span></code></a>(mosaicity[,&nbsp;deg])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_mosaicity" title="dxtbx.model.crystal.crystal_model.set_mosaicity"><code class="xref py py-obj docutils literal"><span class="pre">set_mosaicity</span></code></a>(mosaicity[,&nbsp;deg])</td>
 <td>Update the value of the mosaicity.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_space_group" title="dxtbx.model.crystal.crystal_model.set_space_group"><code class="xref py py-obj docutils literal"><span class="pre">set_space_group</span></code></a>(space_group)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_space_group" title="dxtbx.model.crystal.crystal_model.set_space_group"><code class="xref py py-obj docutils literal"><span class="pre">set_space_group</span></code></a>(space_group)</td>
 <td><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1251,13 +1254,13 @@ angle in degrees or radians.</p>
 </table>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_unit_cell" title="dxtbx.model.crystal.crystal_model.set_unit_cell"><code class="xref py py-obj docutils literal"><span class="pre">set_unit_cell</span></code></a>(real_space_a,&nbsp;real_space_b,&nbsp;...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.set_unit_cell" title="dxtbx.model.crystal.crystal_model.set_unit_cell"><code class="xref py py-obj docutils literal"><span class="pre">set_unit_cell</span></code></a>(real_space_a,&nbsp;real_space_b,&nbsp;...)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.show" title="dxtbx.model.crystal.crystal_model.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>([show_scan_varying,&nbsp;out])</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.show" title="dxtbx.model.crystal.crystal_model.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>([show_scan_varying,&nbsp;out])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.update" title="dxtbx.model.crystal.crystal_model.update"><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></a>(other)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.crystal.crystal_model.update" title="dxtbx.model.crystal.crystal_model.update"><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></a>(other)</td>
 <td>Update the current crystal model such that self == other.</td>
 </tr>
 </tbody>
@@ -1374,6 +1377,21 @@ otherwise None. The order of elements of this matrix are determined by
 <code class="descname">get_cell_parameter_sd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.crystal.crystal_model.get_cell_parameter_sd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the estimated standard deviations of unit cell parameters in
 units of Angstroms and degrees, if available, otherwise None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">tuple</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxtbx.model.crystal.crystal_model.get_cell_volume_sd">
+<code class="descname">get_cell_volume_sd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.crystal.crystal_model.get_cell_volume_sd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the estimated standard deviation of the unit cell volume in
+units of Angstroms^3, if available, otherwise None.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

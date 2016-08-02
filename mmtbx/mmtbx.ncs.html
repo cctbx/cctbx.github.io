@@ -1336,38 +1336,6 @@ residue level selection.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_search.clean_chain_matching">
-<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">clean_chain_matching</code><span class="sig-paren">(</span><em>chain_match_list</em>, <em>ph</em>, <em>chain_max_rmsd=10.0</em>, <em>residue_match_radius=4.0</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.clean_chain_matching" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove all bad matches from chain_match_list</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">ph (object): hierarchy
-chain_match_list (list): list of</p>
-<blockquote>
-<div>[chain_ID_1, chain_ID_2, sel_1, sel_2,res_m/res_c similarity]
-chain_ID (str), sel_1/2 (list of lists)
-res_m/res_c (lists): indices of the aligned components
-similarity (float): similarity between chains</div></blockquote>
-<p>chain_max_rmsd (float): limit of rms difference chains
-residue_match_radius (float): max allow distance difference between pairs of matching</p>
-<blockquote>
-<div>atoms of two residues</div></blockquote>
-<p class="last">chain_similarity_threshold (float): min similarity between matching chains</p>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>match_dict(dict): key:(chains_id_a,chains_id_b)</dt>
-<dd><dl class="first last docutils">
-<dt>val:[selection_a,selection_b,</dt>
-<dd>res_list_a,res_list_b,rot,trans,rmsd]</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_search.find_ncs_in_hierarchy">
 <code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">find_ncs_in_hierarchy</code><span class="sig-paren">(</span><em>ph</em>, <em>chains_info=None</em>, <em>chain_max_rmsd=5.0</em>, <em>log=None</em>, <em>chain_similarity_threshold=0.85</em>, <em>residue_match_radius=4.0</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_ncs_in_hierarchy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find NCS relation in hierarchy</p>
@@ -1453,6 +1421,11 @@ chains_atom_number (list of int): list of number of atoms in each chain</dd>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_info_from_match_dict">
 <code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">get_info_from_match_dict</code><span class="sig-paren">(</span><em>match_dict</em>, <em>key</em>, <em>chain</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_info_from_match_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.ncs.ncs_search.get_match_rmsd">
+<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">get_match_rmsd</code><span class="sig-paren">(</span><em>ph</em>, <em>match</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_match_rmsd" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -1652,7 +1625,7 @@ ref_sites_new,other_sites_new</dd>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.search_ncs_relations">
-<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">search_ncs_relations</code><span class="sig-paren">(</span><em>ph=None</em>, <em>chains_info=None</em>, <em>chain_similarity_threshold=0.85</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.search_ncs_relations" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">search_ncs_relations</code><span class="sig-paren">(</span><em>ph=None</em>, <em>chains_info=None</em>, <em>chain_similarity_threshold=0.85</em>, <em>chain_max_rmsd=2.0</em>, <em>residue_match_radius=4</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.search_ncs_relations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search for NCS relations between chains or parts of chains, in a protein
 hierarchy</p>
 <dl class="docutils">
@@ -1669,13 +1642,13 @@ chains_atom_number (list of int): list of number of atoms in each chain</div></b
 </dd>
 <dt>Returns:</dt>
 <dd><p class="first">msg (str): message regarding matching residues with different atom number
-chain_match_list (list): list of</p>
-<blockquote>
-<div>[chain_ID_1,chain_ID_2,sel_1,sel_2,res_sel_m, res_sel_c,similarity]
-chain_ID (str), sel_1/2 (flex.size_t),
-res_sel_m/c (lists of lists): indices of the aligned components
-similarity (float): similarity between chains</div></blockquote>
-<p class="last">We use sel_2 to avoid problems when residues have different number of atoms</p>
+match_dict(dict): key:(chains_id_a,chains_id_b)</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>val:[selection_a,selection_b,</dt>
+<dd>res_list_a,res_list_b,rot,trans,rmsd]</dd>
+</dl>
+</div></blockquote>
 </dd>
 </dl>
 </dd></dl>

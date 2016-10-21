@@ -101,7 +101,7 @@ In all cases information is provided in the CBF coordinate frame.</p>
 </table>
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.detector_factory.complex">
-<em class="property">static </em><code class="descname">complex</code><span class="sig-paren">(</span><em>sensor</em>, <em>origin</em>, <em>fast</em>, <em>slow</em>, <em>pixel</em>, <em>size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em>, <em>gain=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.complex" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">complex</code><span class="sig-paren">(</span><em>sensor</em>, <em>origin</em>, <em>fast</em>, <em>slow</em>, <em>pixel</em>, <em>size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.complex" title="Permalink to this definition">¶</a></dt>
 <dd><p>A complex detector model, where you know exactly where everything
 is. This is useful for implementation of the Rigaku Saturn header
 format, as that is exactly what is in there. Origin, fast and slow are
@@ -124,7 +124,7 @@ is assumed that the file has already been read.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.detector_factory.make_detector">
-<em class="property">static </em><code class="descname">make_detector</code><span class="sig-paren">(</span><em>stype</em>, <em>fast_axis</em>, <em>slow_axis</em>, <em>origin</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em>, <em>name='Panel'</em>, <em>thickness=0.0</em>, <em>material=''</em>, <em>mu=0.0</em>, <em>gain=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.make_detector" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">make_detector</code><span class="sig-paren">(</span><em>stype</em>, <em>fast_axis</em>, <em>slow_axis</em>, <em>origin</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em>, <em>name='Panel'</em>, <em>thickness=0.0</em>, <em>material=''</em>, <em>mu=0.0</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.make_detector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensure all types are correct before creating c++ detector class.</p>
 </dd></dl>
 
@@ -141,7 +141,7 @@ everywhere else in this. Also allow existing token to be passed in.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.detector_factory.simple">
-<em class="property">static </em><code class="descname">simple</code><span class="sig-paren">(</span><em>sensor</em>, <em>distance</em>, <em>beam_centre</em>, <em>fast_direction</em>, <em>slow_direction</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>mask=[]</em>, <em>px_mm=None</em>, <em>mu=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.simple" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">simple</code><span class="sig-paren">(</span><em>sensor</em>, <em>distance</em>, <em>beam_centre</em>, <em>fast_direction</em>, <em>slow_direction</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>mask=[]</em>, <em>px_mm=None</em>, <em>mu=0.0</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.simple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a simple detector at a given distance from the sample
 along the direct beam presumed to be aligned with -z, offset by the
 beam centre - the directions of which are given by the fast and slow
@@ -153,7 +153,7 @@ for the main reference frame.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.detector_factory.two_theta">
-<em class="property">static </em><code class="descname">two_theta</code><span class="sig-paren">(</span><em>sensor</em>, <em>distance</em>, <em>beam_centre</em>, <em>fast_direction</em>, <em>slow_direction</em>, <em>two_theta_direction</em>, <em>two_theta_angle</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>mask=[]</em>, <em>px_mm=None</em>, <em>mu=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.two_theta" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">two_theta</code><span class="sig-paren">(</span><em>sensor</em>, <em>distance</em>, <em>beam_centre</em>, <em>fast_direction</em>, <em>slow_direction</em>, <em>two_theta_direction</em>, <em>two_theta_angle</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>mask=[]</em>, <em>px_mm=None</em>, <em>mu=0.0</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.detector_factory.two_theta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a simple detector at a given distance from the sample
 along the direct beam presumed to be aligned with -z, offset by the
 beam centre - the directions of which are given by the fast and slow

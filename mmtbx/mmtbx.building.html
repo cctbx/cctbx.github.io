@@ -162,15 +162,28 @@ write final model and map coefficients.</p>
 
 <dl class="function">
 <dt id="mmtbx.building.extend_sidechains.extend_protein_model">
-<code class="descclassname">mmtbx.building.extend_sidechains.</code><code class="descname">extend_protein_model</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>selection=None</em>, <em>hydrogens=&lt;libtbx.AutoType object&gt;</em>, <em>max_atoms_missing=None</em>, <em>log=None</em>, <em>modify_segids=True</em>, <em>prefilter_callback=None</em>, <em>idealized_residue_dict=None</em>, <em>skip_non_protein_chains=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.building.extend_sidechains.extend_protein_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replace all sidechains with missing non-hydrogen atoms in a PDB hierarchy.</p>
+<code class="descclassname">mmtbx.building.extend_sidechains.</code><code class="descname">extend_protein_model</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>mon_lib_srv</em>, <em>add_hydrogens=None</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.building.extend_sidechains.extend_protein_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rebuild a sidechain by substituting an ideal amino acid and rotating the
+sidechain to match the old conformation as closely as possible.
+Limited functionality:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Amino-acids only, 2) side chain atoms only.</li>
+</ol>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="mmtbx.building.extend_sidechains.extend_residue">
-<code class="descclassname">mmtbx.building.extend_sidechains.</code><code class="descname">extend_residue</code><span class="sig-paren">(</span><em>residue</em>, <em>ideal_dict</em>, <em>mon_lib_srv=None</em>, <em>hydrogens=False</em>, <em>match_conformation=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.building.extend_sidechains.extend_residue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rebuild a sidechain by substituting an ideal amino acid and (optionally)
-rotating the sidechain to match the old conformation as closely as possible.</p>
+<code class="descclassname">mmtbx.building.extend_sidechains.</code><code class="descname">extend_residue</code><span class="sig-paren">(</span><em>residue</em>, <em>target_atom_group</em>, <em>mon_lib_srv</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.building.extend_sidechains.extend_residue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rebuild a sidechain by substituting an ideal amino acid and rotating the
+sidechain to match the old conformation as closely as possible.
+Limited functionality:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Amino-acids only, 2) side chain atoms only.</li>
+</ol>
+</div></blockquote>
 </dd></dl>
 
 <dl class="class">

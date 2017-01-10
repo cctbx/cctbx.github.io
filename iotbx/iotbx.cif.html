@@ -458,7 +458,7 @@ with minimal dependencies into any C++ software. For further details see the
 
 <dl class="method">
 <dt id="iotbx.cif.model.cif.show">
-<code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>indent='  '</em>, <em>indent_row=None</em>, <em>data_name_field_width=34</em>, <em>loop_format_strings=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>indent='  '</em>, <em>indent_row=None</em>, <em>data_name_field_width=34</em>, <em>loop_format_strings=None</em>, <em>align_columns=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -575,7 +575,7 @@ with minimal dependencies into any C++ software. For further details see the
 </table>
 <dl class="method">
 <dt id="iotbx.cif.model.save.show">
-<code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>indent='  '</em>, <em>data_name_field_width=34</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.save.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>indent='  '</em>, <em>data_name_field_width=34</em>, <em>align_columns=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.save.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -687,7 +687,7 @@ with minimal dependencies into any C++ software. For further details see the
 
 <dl class="method">
 <dt id="iotbx.cif.model.block.show">
-<code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>indent='  '</em>, <em>indent_row=None</em>, <em>data_name_field_width=34</em>, <em>loop_format_strings=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.block.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>indent='  '</em>, <em>indent_row=None</em>, <em>data_name_field_width=34</em>, <em>loop_format_strings=None</em>, <em>align_columns=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.block.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -734,67 +734,70 @@ with minimal dependencies into any C++ software. For further details see the
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">delete_row</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">find_row</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">has_key</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">has_key</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">iteritems</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">items</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">iteritems</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">iterrows</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">itervalues</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">iterrows</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">itervalues</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">n_columns</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">n_rows</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">n_columns</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">name</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">n_rows</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">order</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">name</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">pop</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">order</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">popitem</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">pop</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">setdefault</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">popitem</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">setdefault</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">size</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sort</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">size</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">sort</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">update_column</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">values</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">update_column</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">values</span></code></td>
 <td></td>
 </tr>
 </tbody>
@@ -830,9 +833,15 @@ with minimal dependencies into any C++ software. For further details see the
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="iotbx.cif.model.loop.find_row">
+<code class="descname">find_row</code><span class="sig-paren">(</span><em>kv_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.find_row" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="iotbx.cif.model.loop.iterrows">
 <code class="descname">iterrows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.iterrows" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Warning! Still super-slow!</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.keys">

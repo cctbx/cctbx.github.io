@@ -82,6 +82,12 @@ In all cases information is provided in the CBF coordinate frame.</p>
 <tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.from_dict" title="dxtbx.model.detector.DetectorFactory.from_dict"><code class="xref py py-obj docutils literal"><span class="pre">from_dict</span></code></a>(d[,&nbsp;t])</td>
 <td>Convert the dictionary to a detector model</td>
 </tr>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.from_phil" title="dxtbx.model.detector.DetectorFactory.from_phil"><code class="xref py py-obj docutils literal"><span class="pre">from_phil</span></code></a>(params[,&nbsp;reference,&nbsp;beam])</td>
+<td>Convert phil parameters into detector model</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.generate_from_phil" title="dxtbx.model.detector.DetectorFactory.generate_from_phil"><code class="xref py py-obj docutils literal"><span class="pre">generate_from_phil</span></code></a>(params[,&nbsp;beam])</td>
+<td>Create a new detector model from phil parameters</td>
+</tr>
 <tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.imgCIF" title="dxtbx.model.detector.DetectorFactory.imgCIF"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF</span></code></a>(cif_file,&nbsp;sensor)</td>
 <td>Initialize a detector model from an imgCIF file.</td>
 </tr>
@@ -91,13 +97,16 @@ In all cases information is provided in the CBF coordinate frame.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.make_detector" title="dxtbx.model.detector.DetectorFactory.make_detector"><code class="xref py py-obj docutils literal"><span class="pre">make_detector</span></code></a>(stype,&nbsp;fast_axis,&nbsp;slow_axis,&nbsp;...)</td>
 <td>Ensure all types are correct before creating c++ detector class.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.sensor" title="dxtbx.model.detector.DetectorFactory.sensor"><code class="xref py py-obj docutils literal"><span class="pre">sensor</span></code></a>(name)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.overwrite_from_phil" title="dxtbx.model.detector.DetectorFactory.overwrite_from_phil"><code class="xref py py-obj docutils literal"><span class="pre">overwrite_from_phil</span></code></a>(params,&nbsp;detector[,&nbsp;beam])</td>
+<td>Overwrite from phil parameters</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.sensor" title="dxtbx.model.detector.DetectorFactory.sensor"><code class="xref py py-obj docutils literal"><span class="pre">sensor</span></code></a>(name)</td>
 <td>Return the correct sensor token for a given name, for example:</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.simple" title="dxtbx.model.detector.DetectorFactory.simple"><code class="xref py py-obj docutils literal"><span class="pre">simple</span></code></a>(sensor,&nbsp;distance,&nbsp;beam_centre,&nbsp;...[,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.simple" title="dxtbx.model.detector.DetectorFactory.simple"><code class="xref py py-obj docutils literal"><span class="pre">simple</span></code></a>(sensor,&nbsp;distance,&nbsp;beam_centre,&nbsp;...[,&nbsp;...])</td>
 <td>Construct a simple detector at a given distance from the sample along the direct beam presumed to be aligned with -z, offset by the beam centre - the directions of which are given by the fast and slow directions, which are themselves given as +x, +y, -x, -y.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.two_theta" title="dxtbx.model.detector.DetectorFactory.two_theta"><code class="xref py py-obj docutils literal"><span class="pre">two_theta</span></code></a>(sensor,&nbsp;distance,&nbsp;beam_centre,&nbsp;...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.two_theta" title="dxtbx.model.detector.DetectorFactory.two_theta"><code class="xref py py-obj docutils literal"><span class="pre">two_theta</span></code></a>(sensor,&nbsp;distance,&nbsp;beam_centre,&nbsp;...)</td>
 <td>Construct a simple detector at a given distance from the sample along the direct beam presumed to be aligned with -z, offset by the beam centre - the directions of which are given by the fast and slow directions, which are themselves given as +x, +y, -x, -y.</td>
 </tr>
 </tbody>
@@ -126,6 +135,18 @@ t The template dictionary to use</dd>
 </dd></dl>
 
 <dl class="staticmethod">
+<dt id="dxtbx.model.detector.DetectorFactory.from_phil">
+<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em>, <em>beam=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.from_phil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert phil parameters into detector model</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dxtbx.model.detector.DetectorFactory.generate_from_phil">
+<em class="property">static </em><code class="descname">generate_from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>beam=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.generate_from_phil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new detector model from phil parameters</p>
+</dd></dl>
+
+<dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.imgCIF">
 <em class="property">static </em><code class="descname">imgCIF</code><span class="sig-paren">(</span><em>cif_file</em>, <em>sensor</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.imgCIF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a detector model from an imgCIF file.</p>
@@ -142,6 +163,12 @@ is assumed that the file has already been read.</p>
 <dt id="dxtbx.model.detector.DetectorFactory.make_detector">
 <em class="property">static </em><code class="descname">make_detector</code><span class="sig-paren">(</span><em>stype</em>, <em>fast_axis</em>, <em>slow_axis</em>, <em>origin</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em>, <em>name='Panel'</em>, <em>thickness=0.0</em>, <em>material=''</em>, <em>mu=0.0</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.make_detector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensure all types are correct before creating c++ detector class.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dxtbx.model.detector.DetectorFactory.overwrite_from_phil">
+<em class="property">static </em><code class="descname">overwrite_from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>detector</em>, <em>beam=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.overwrite_from_phil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overwrite from phil parameters</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -205,22 +232,25 @@ will be used, otherwise simplified descriptions can be applied.</p>
 <tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.from_dict" title="dxtbx.model.beam.BeamFactory.from_dict"><code class="xref py py-obj docutils literal"><span class="pre">from_dict</span></code></a>(d[,&nbsp;t])</td>
 <td>Convert the dictionary to a beam model</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.imgCIF" title="dxtbx.model.beam.BeamFactory.imgCIF"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF</span></code></a>(cif_file)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.from_phil" title="dxtbx.model.beam.BeamFactory.from_phil"><code class="xref py py-obj docutils literal"><span class="pre">from_phil</span></code></a>(params[,&nbsp;reference])</td>
+<td>Convert the phil parameters into a beam model</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.imgCIF" title="dxtbx.model.beam.BeamFactory.imgCIF"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF</span></code></a>(cif_file)</td>
 <td>Initialize a detector model from an imgCIF file.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.imgCIF_H" title="dxtbx.model.beam.BeamFactory.imgCIF_H"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF_H</span></code></a>(cbf_handle)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.imgCIF_H" title="dxtbx.model.beam.BeamFactory.imgCIF_H"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF_H</span></code></a>(cbf_handle)</td>
 <td>Initialize a detector model from an imgCIF file.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.make_beam" title="dxtbx.model.beam.BeamFactory.make_beam"><code class="xref py py-obj docutils literal"><span class="pre">make_beam</span></code></a>([sample_to_source,&nbsp;wavelength,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.make_beam" title="dxtbx.model.beam.BeamFactory.make_beam"><code class="xref py py-obj docutils literal"><span class="pre">make_beam</span></code></a>([sample_to_source,&nbsp;wavelength,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.make_polarized_beam" title="dxtbx.model.beam.BeamFactory.make_polarized_beam"><code class="xref py py-obj docutils literal"><span class="pre">make_polarized_beam</span></code></a>([sample_to_source,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.make_polarized_beam" title="dxtbx.model.beam.BeamFactory.make_polarized_beam"><code class="xref py py-obj docutils literal"><span class="pre">make_polarized_beam</span></code></a>([sample_to_source,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.simple" title="dxtbx.model.beam.BeamFactory.simple"><code class="xref py py-obj docutils literal"><span class="pre">simple</span></code></a>(wavelength)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.simple" title="dxtbx.model.beam.BeamFactory.simple"><code class="xref py py-obj docutils literal"><span class="pre">simple</span></code></a>(wavelength)</td>
 <td>Construct a beam object on the principle that the beam is aligned with the +z axis, as is quite normal.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.simple_directional" title="dxtbx.model.beam.BeamFactory.simple_directional"><code class="xref py py-obj docutils literal"><span class="pre">simple_directional</span></code></a>(sample_to_source,&nbsp;wavelength)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.simple_directional" title="dxtbx.model.beam.BeamFactory.simple_directional"><code class="xref py py-obj docutils literal"><span class="pre">simple_directional</span></code></a>(sample_to_source,&nbsp;wavelength)</td>
 <td>Construct a beam with direction and wavelength.</td>
 </tr>
 </tbody>
@@ -243,6 +273,12 @@ t The template dictionary to use</dd>
 <dt>Returns:</dt>
 <dd>The beam model</dd>
 </dl>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dxtbx.model.beam.BeamFactory.from_phil">
+<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.from_phil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the phil parameters into a beam model</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -314,19 +350,22 @@ in a set of common circumstances.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.from_dict" title="dxtbx.model.scan.ScanFactory.from_dict"><code class="xref py py-obj docutils literal"><span class="pre">from_dict</span></code></a>(d[,&nbsp;t])</td>
 <td>Convert the dictionary to a scan model</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.imgCIF" title="dxtbx.model.scan.ScanFactory.imgCIF"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF</span></code></a>(cif_file)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.from_phil" title="dxtbx.model.scan.ScanFactory.from_phil"><code class="xref py py-obj docutils literal"><span class="pre">from_phil</span></code></a>(params[,&nbsp;reference])</td>
+<td>Generate a scan model from phil parameters</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.imgCIF" title="dxtbx.model.scan.ScanFactory.imgCIF"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF</span></code></a>(cif_file)</td>
 <td>Initialize a scan model from an imgCIF file.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.imgCIF_H" title="dxtbx.model.scan.ScanFactory.imgCIF_H"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF_H</span></code></a>(cif_file,&nbsp;cbf_handle)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.imgCIF_H" title="dxtbx.model.scan.ScanFactory.imgCIF_H"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF_H</span></code></a>(cif_file,&nbsp;cbf_handle)</td>
 <td>Initialize a scan model from an imgCIF file handle, where it is assumed that the file has already been read.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.make_scan" title="dxtbx.model.scan.ScanFactory.make_scan"><code class="xref py py-obj docutils literal"><span class="pre">make_scan</span></code></a>(image_range,&nbsp;exposure_times,&nbsp;...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.make_scan" title="dxtbx.model.scan.ScanFactory.make_scan"><code class="xref py py-obj docutils literal"><span class="pre">make_scan</span></code></a>(image_range,&nbsp;exposure_times,&nbsp;...)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.search" title="dxtbx.model.scan.ScanFactory.search"><code class="xref py py-obj docutils literal"><span class="pre">search</span></code></a>(filename)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.search" title="dxtbx.model.scan.ScanFactory.search"><code class="xref py py-obj docutils literal"><span class="pre">search</span></code></a>(filename)</td>
 <td>Get a list of files which appear to match the template and directory implied by the input filename.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.single" title="dxtbx.model.scan.ScanFactory.single"><code class="xref py py-obj docutils literal"><span class="pre">single</span></code></a>(filename,&nbsp;format,&nbsp;exposure_times,&nbsp;...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.single" title="dxtbx.model.scan.ScanFactory.single"><code class="xref py py-obj docutils literal"><span class="pre">single</span></code></a>(filename,&nbsp;format,&nbsp;exposure_times,&nbsp;...)</td>
 <td>Construct an scan instance for a single image.</td>
 </tr>
 </tbody>
@@ -362,6 +401,12 @@ t The template dictionary to use</dd>
 <dt>Returns:</dt>
 <dd>The scan model</dd>
 </dl>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dxtbx.model.scan.ScanFactory.from_phil">
+<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.from_phil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a scan model from phil parameters</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -420,34 +465,43 @@ peachy.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.from_dict" title="dxtbx.model.goniometer.GoniometerFactory.from_dict"><code class="xref py py-obj docutils literal"><span class="pre">from_dict</span></code></a>(d[,&nbsp;t])</td>
 <td>Convert the dictionary to a goniometer model</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.imgCIF" title="dxtbx.model.goniometer.GoniometerFactory.imgCIF"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF</span></code></a>(cif_file)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.from_phil" title="dxtbx.model.goniometer.GoniometerFactory.from_phil"><code class="xref py py-obj docutils literal"><span class="pre">from_phil</span></code></a>(params[,&nbsp;reference])</td>
+<td>Convert the phil parameters into a beam model</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.imgCIF" title="dxtbx.model.goniometer.GoniometerFactory.imgCIF"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF</span></code></a>(cif_file)</td>
 <td>Initialize a goniometer model from an imgCIF file.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.imgCIF_H" title="dxtbx.model.goniometer.GoniometerFactory.imgCIF_H"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF_H</span></code></a>(cbf_handle)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.imgCIF_H" title="dxtbx.model.goniometer.GoniometerFactory.imgCIF_H"><code class="xref py py-obj docutils literal"><span class="pre">imgCIF_H</span></code></a>(cbf_handle)</td>
 <td>Initialize a goniometer model from an imgCIF file handle, where it is assumed that the file has already been read.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.kappa" title="dxtbx.model.goniometer.GoniometerFactory.kappa"><code class="xref py py-obj docutils literal"><span class="pre">kappa</span></code></a>(alpha,&nbsp;omega,&nbsp;kappa,&nbsp;phi,&nbsp;direction,&nbsp;...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.kappa" title="dxtbx.model.goniometer.GoniometerFactory.kappa"><code class="xref py py-obj docutils literal"><span class="pre">kappa</span></code></a>(alpha,&nbsp;omega,&nbsp;kappa,&nbsp;phi,&nbsp;direction,&nbsp;...)</td>
 <td>Return a kappa goniometer where omega is the primary axis (i,e.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.known_axis" title="dxtbx.model.goniometer.GoniometerFactory.known_axis"><code class="xref py py-obj docutils literal"><span class="pre">known_axis</span></code></a>(axis)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.known_axis" title="dxtbx.model.goniometer.GoniometerFactory.known_axis"><code class="xref py py-obj docutils literal"><span class="pre">known_axis</span></code></a>(axis)</td>
 <td>Return an goniometer instance for a known rotation axis, assuming that nothing is known about the fixed element of the rotation axis.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.make_goniometer" title="dxtbx.model.goniometer.GoniometerFactory.make_goniometer"><code class="xref py py-obj docutils literal"><span class="pre">make_goniometer</span></code></a>(rotation_axis,&nbsp;fixed_rotation)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.make_goniometer" title="dxtbx.model.goniometer.GoniometerFactory.make_goniometer"><code class="xref py py-obj docutils literal"><span class="pre">make_goniometer</span></code></a>(rotation_axis,&nbsp;fixed_rotation)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.make_kappa_goniometer" title="dxtbx.model.goniometer.GoniometerFactory.make_kappa_goniometer"><code class="xref py py-obj docutils literal"><span class="pre">make_kappa_goniometer</span></code></a>(alpha,&nbsp;omega,&nbsp;kappa,&nbsp;...)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.make_kappa_goniometer" title="dxtbx.model.goniometer.GoniometerFactory.make_kappa_goniometer"><code class="xref py py-obj docutils literal"><span class="pre">make_kappa_goniometer</span></code></a>(alpha,&nbsp;omega,&nbsp;kappa,&nbsp;...)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.make_multi_axis_goniometer" title="dxtbx.model.goniometer.GoniometerFactory.make_multi_axis_goniometer"><code class="xref py py-obj docutils literal"><span class="pre">make_multi_axis_goniometer</span></code></a>(axes,&nbsp;angles,&nbsp;...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.make_multi_axis_goniometer" title="dxtbx.model.goniometer.GoniometerFactory.make_multi_axis_goniometer"><code class="xref py py-obj docutils literal"><span class="pre">make_multi_axis_goniometer</span></code></a>(axes,&nbsp;angles,&nbsp;...)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.multi_axis" title="dxtbx.model.goniometer.GoniometerFactory.multi_axis"><code class="xref py py-obj docutils literal"><span class="pre">multi_axis</span></code></a>(axes,&nbsp;angles,&nbsp;names,&nbsp;scan_axis)</td>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.multi_axis" title="dxtbx.model.goniometer.GoniometerFactory.multi_axis"><code class="xref py py-obj docutils literal"><span class="pre">multi_axis</span></code></a>(axes,&nbsp;angles,&nbsp;names,&nbsp;scan_axis)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.multi_axis_goniometer_from_phil" title="dxtbx.model.goniometer.GoniometerFactory.multi_axis_goniometer_from_phil"><code class="xref py py-obj docutils literal"><span class="pre">multi_axis_goniometer_from_phil</span></code></a>(params[,&nbsp;...])</td>
 <td></td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis" title="dxtbx.model.goniometer.GoniometerFactory.single_axis"><code class="xref py py-obj docutils literal"><span class="pre">single_axis</span></code></a>()</td>
 <td>Construct a single axis goniometer which is canonical in the CBF reference frame.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis_reverse" title="dxtbx.model.goniometer.GoniometerFactory.single_axis_reverse"><code class="xref py py-obj docutils literal"><span class="pre">single_axis_reverse</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis_goniometer_from_phil" title="dxtbx.model.goniometer.GoniometerFactory.single_axis_goniometer_from_phil"><code class="xref py py-obj docutils literal"><span class="pre">single_axis_goniometer_from_phil</span></code></a>(params[,&nbsp;...])</td>
+<td>Generate or overwrite a single axis goniometer</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis_reverse" title="dxtbx.model.goniometer.GoniometerFactory.single_axis_reverse"><code class="xref py py-obj docutils literal"><span class="pre">single_axis_reverse</span></code></a>()</td>
 <td>Construct a single axis goniometer which is canonical in the CBF reference frame, but reversed in rotation.</td>
 </tr>
 </tbody>
@@ -463,6 +517,12 @@ t The template dictionary to use</dd>
 <dt>Returns:</dt>
 <dd>The goniometer model</dd>
 </dl>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dxtbx.model.goniometer.GoniometerFactory.from_phil">
+<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.from_phil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the phil parameters into a beam model</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -520,10 +580,21 @@ that nothing is known about the fixed element of the rotation axis.</p>
 <dd></dd></dl>
 
 <dl class="staticmethod">
+<dt id="dxtbx.model.goniometer.GoniometerFactory.multi_axis_goniometer_from_phil">
+<em class="property">static </em><code class="descname">multi_axis_goniometer_from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.multi_axis_goniometer_from_phil" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.single_axis">
 <em class="property">static </em><code class="descname">single_axis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a single axis goniometer which is canonical in the
 CBF reference frame.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dxtbx.model.goniometer.GoniometerFactory.single_axis_goniometer_from_phil">
+<em class="property">static </em><code class="descname">single_axis_goniometer_from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis_goniometer_from_phil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate or overwrite a single axis goniometer</p>
 </dd></dl>
 
 <dl class="staticmethod">

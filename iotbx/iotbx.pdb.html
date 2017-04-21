@@ -5229,91 +5229,8 @@ chain.residue_groups() instead.</p>
 <div class="section" id="submodules">
 <h3>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="module-iotbx.pdb.multimer_reconstruction">
-<span id="iotbx-pdb-multimer-reconstruction-module"></span><h3>iotbx.pdb.multimer_reconstruction module<a class="headerlink" href="#module-iotbx.pdb.multimer_reconstruction" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
-<dt id="iotbx.pdb.multimer_reconstruction.multimer">
-<em class="property">class </em><code class="descclassname">iotbx.pdb.multimer_reconstruction.</code><code class="descname">multimer</code><span class="sig-paren">(</span><em>reconstruction_type='cau'</em>, <em>file_name=None</em>, <em>pdb_str=None</em>, <em>error_handle=True</em>, <em>eps=0.001</em>, <em>round_coordinates=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.multimer_reconstruction.multimer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Reconstruction of either the biological assembly or the crystallographic
-asymmetric unit</p>
-<p>Reconstruction of the biological assembly multimer by applying
-BIOMT transformation, from the pdb file, to all chains.</p>
-<p>Reconstruction of the crystallographic asymmetric unit by applying
-MTRIX transformations, from the pdb file, to all chains.</p>
-<p>self.assembled_multimer is a pdb.hierarchy object with the multimer
-information</p>
-<p>The method write generates a PDB file containing the multimer</p>
-<p>since chain names string length is limited to two, this process does
-not maintain any referance to the original chain names.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.pdb.multimer_reconstruction.multimer.get_ncs_hierarchy" title="iotbx.pdb.multimer_reconstruction.multimer.get_ncs_hierarchy"><code class="xref py py-obj docutils literal"><span class="pre">get_ncs_hierarchy</span></code></a>()</td>
-<td>Retrieve the Original PDB hierarchy from the ASU</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#iotbx.pdb.multimer_reconstruction.multimer.get_ncs_restraints_group_list" title="iotbx.pdb.multimer_reconstruction.multimer.get_ncs_restraints_group_list"><code class="xref py py-obj docutils literal"><span class="pre">get_ncs_restraints_group_list</span></code></a>([raise_sorry])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.pdb.multimer_reconstruction.multimer.sites_cart" title="iotbx.pdb.multimer_reconstruction.multimer.sites_cart"><code class="xref py py-obj docutils literal"><span class="pre">sites_cart</span></code></a>()</td>
-<td>() -&gt; flex.vec3</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#iotbx.pdb.multimer_reconstruction.multimer.total_asu_length" title="iotbx.pdb.multimer_reconstruction.multimer.total_asu_length"><code class="xref py py-obj docutils literal"><span class="pre">total_asu_length</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.pdb.multimer_reconstruction.multimer.write" title="iotbx.pdb.multimer_reconstruction.multimer.write"><code class="xref py py-obj docutils literal"><span class="pre">write</span></code></a>([pdb_output_file_name,&nbsp;crystal_symmetry])</td>
-<td>(string) -&gt; text file</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="iotbx.pdb.multimer_reconstruction.multimer.get_ncs_hierarchy">
-<code class="descname">get_ncs_hierarchy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.multimer_reconstruction.multimer.get_ncs_hierarchy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve the Original PDB hierarchy from the ASU</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iotbx.pdb.multimer_reconstruction.multimer.get_ncs_restraints_group_list">
-<code class="descname">get_ncs_restraints_group_list</code><span class="sig-paren">(</span><em>raise_sorry=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.multimer_reconstruction.multimer.get_ncs_restraints_group_list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="iotbx.pdb.multimer_reconstruction.multimer.sites_cart">
-<code class="descname">sites_cart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.multimer_reconstruction.multimer.sites_cart" title="Permalink to this definition">¶</a></dt>
-<dd><p>() -&gt; flex.vec3
-Returns the reconstructed hierarchy sites cart (atom coordinates)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iotbx.pdb.multimer_reconstruction.multimer.total_asu_length">
-<code class="descname">total_asu_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.multimer_reconstruction.multimer.total_asu_length" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="iotbx.pdb.multimer_reconstruction.multimer.write">
-<code class="descname">write</code><span class="sig-paren">(</span><em>pdb_output_file_name=''</em>, <em>crystal_symmetry=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.multimer_reconstruction.multimer.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>(string) -&gt; text file
-Writes the modified protein, with the added chains, obtained by the
-BIOMT/MTRIX reconstruction, to a text file in a pdb format.
-self.assembled_multimer is the modified pdb object with the added chains</p>
-<p>Argumets:
-pdb_output_file_name &#8211; string. &#8216;name.pdb&#8217;
-if no pdn_output_file_name is given pdb_output_file_name=file_name</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">multimer</span><span class="p">(</span><span class="s">&#39;name.pdb&#39;</span><span class="p">,</span><span class="s">&#39;ba&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_name.pdb&#39;</span><span class="p">)</span>
-<span class="go">Write a file &#39;new_name.pdb&#39; to the current directory</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">pdb_input_file_name</span><span class="p">)</span>
-<span class="go">Write a file &#39;copy_name.pdb&#39; to the current directory</span>
-</pre></div>
-</div>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="iotbx-pdb-multimer-reconstruction-module">
+<h3>iotbx.pdb.multimer_reconstruction module<a class="headerlink" href="#iotbx-pdb-multimer-reconstruction-module" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -5350,7 +5267,7 @@ if no pdn_output_file_name is given pdb_output_file_name=file_name</p>
 </li>
 <li><a class="reference internal" href="#accessory-classes-and-functions">Accessory classes and functions</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-iotbx.pdb.multimer_reconstruction">iotbx.pdb.multimer_reconstruction module</a></li>
+<li><a class="reference internal" href="#iotbx-pdb-multimer-reconstruction-module">iotbx.pdb.multimer_reconstruction module</a></li>
 </ul>
 </li>
 </ul>

@@ -56,55 +56,36 @@
 <span id="installation"></span><p class="topic-title first">Table of Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#installation-overview" id="id1">Installation overview</a></li>
-<li><a class="reference internal" href="#manually-building-from-sources-under-unix" id="id2">Manually building from sources under Unix</a></li>
+<li><a class="reference internal" href="#manually-building-from-sources-under-linux-and-macos" id="id2">Manually building from sources under Linux and macOS</a></li>
 <li><a class="reference internal" href="#manually-building-from-sources-under-windows-2000-or-higher" id="id3">Manually building from sources under Windows 2000 or higher</a></li>
-<li><a class="reference internal" href="#using-the-cctbx-svn-repository" id="id4">Using the cctbx SVN repository</a></li>
 </ul>
 </div>
 <div class="section" id="installation-overview">
 <h1><a class="toc-backref" href="#id1">Installation overview</a><a class="headerlink" href="#installation-overview" title="Permalink to this headline">¶</a></h1>
-<p>Periodically the most recent cctbx source code including all its
+<p>Periodically, the most recent cctbx source code including all its
 dependencies is automatically exported from the source code repositories
-(SVN, CVS) and bundled into self-extracting files that are published
+(git) and bundled into compressed binary installers that are published
 at:</p>
 <blockquote>
 <div><ul class="simple">
 <li><a class="reference external" href="http://cci.lbl.gov/cctbx_build/">http://cci.lbl.gov/cctbx_build/</a></li>
 </ul>
 </div></blockquote>
-<p>This web page also provides self-extracting binary distributions for a
+<p>This web page provides compressed binary distributions for a
 variety of platforms. It is most convenient to use these binary bundles
-if possible. Installation is very simple and fast. The minimal
-instructions are shown at the download page.</p>
-<p>Source code bundles are also available. Under Unix, if Python 2.4
-through 2.7 is pre-installed on the target platform, the smaller
-<code class="docutils literal"><span class="pre">cctbx_bundle.selfx</span></code> can be used. However, in general it will be
-best to download the <code class="docutils literal"><span class="pre">cctbx_python_*_bundle.selfx</span></code> file because
-the installation script will automatically install a recent Python
-before proceeding with the installation of the cctbx modules.</p>
-<p>The Unix bundles include a file <code class="docutils literal"><span class="pre">cctbx_install_script.csh</span></code>.
-This script is known to work with:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Linux: any gcc &gt;= 3.2</li>
-<li>Mac OS 10.4 or higher with Apple&#8217;s compiler</li>
-</ul>
-</div></blockquote>
-<p>Other Unix platforms will most likely require adjustments of the
-build scripts.</p>
-<p>The self-extracting source code bundle for Windows (<code class="docutils literal"><span class="pre">cctbx_bundle.exe</span></code>)
-does not include an installation script.</p>
+if possible. Installation is very simple and fast. After uncompressing the
+bundle, run the <code class="docutils literal"><span class="pre">install</span> <span class="pre">--prefix=&lt;installation</span> <span class="pre">location&gt;</span></code> command to
+install on macOS and Linux. On Windows, uncompressing the zip file will provide
+a working copy of cctbx. There is not installation script.</p>
 </div>
-<div class="section" id="manually-building-from-sources-under-unix">
-<h1><a class="toc-backref" href="#id2">Manually building from sources under Unix</a><a class="headerlink" href="#manually-building-from-sources-under-unix" title="Permalink to this headline">¶</a></h1>
-<p>Please note: <strong>The following instructions are for developers!</strong> The
-self-extracting (.selfx) source bundles perform all the steps
-automatically.</p>
-<p>Building from sources requires Python 2.4 through 2.7 and a C++
+<div class="section" id="manually-building-from-sources-under-linux-and-macos">
+<h1><a class="toc-backref" href="#id2">Manually building from sources under Linux and macOS</a><a class="headerlink" href="#manually-building-from-sources-under-linux-and-macos" title="Permalink to this headline">¶</a></h1>
+<p>Please note: <strong>The following instructions are for developers!</strong></p>
+<p>Building from sources requires Python 2.5 through 2.7 and a C++
 compiler. If you like to use the most recent Python, it can be
 installed in the following way:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">gunzip</span> <span class="o">-</span><span class="n">c</span> <span class="n">Python</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mf">2.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">|</span> <span class="n">tar</span> <span class="n">xf</span> <span class="o">-</span>
-<span class="n">cd</span> <span class="n">Python</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">2</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">tar</span> <span class="o">-</span><span class="n">xf</span> <span class="n">Python</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mf">13.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span>
+<span class="n">cd</span> <span class="n">Python</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">13</span>
 <span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">your</span><span class="o">/</span><span class="n">choice</span>
 <span class="n">make</span>
 <span class="n">make</span> <span class="n">install</span>
@@ -116,28 +97,48 @@ installed in the following way:</p>
 <div class="highlight-default"><div class="highlight"><pre>set path=(/your/choice/bin $path)
 </pre></div>
 </div>
-<p>Recent self-contained cctbx sources are available in the file
-<a class="reference external" href="http://cci.lbl.gov/cctbx_build/results/last_published/cctbx_bundle.tar.gz">cctbx_bundle.tar.gz</a>
-published at the cctbx build page. To unpack this file in a new,
-empty directory:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">tar</span> <span class="n">zxf</span> <span class="n">cctbx_bundle</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<p>Recent cctbx sources are available from the cctbx <a class="reference external" href="https://github.com/cctbx/cctbx_project/">GitHub</a> repository. To
+download the repository and build cctbx, use bootstrap.py:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">mkdir</span> <span class="o">&lt;</span><span class="n">installation</span> <span class="n">directory</span><span class="o">&gt;</span>
+<span class="n">cd</span> <span class="o">&lt;</span><span class="n">installation</span> <span class="n">directory</span><span class="o">&gt;</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">cctbx</span><span class="o">/</span><span class="n">cctbx_project</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">libtbx</span><span class="o">/</span><span class="n">auto_build</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="o">./</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>This creates a subdirectory <code class="docutils literal"><span class="pre">cctbx_sources</span></code>. The installation
-procedure should be executed in another directory, e.g.:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">mkdir</span> <span class="n">cctbx_build</span>
-<span class="n">cd</span> <span class="n">cctbx_build</span>
-<span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">choice</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">../</span><span class="n">cctbx_sources</span><span class="o">/</span><span class="n">libtbx</span><span class="o">/</span><span class="n">configure</span><span class="o">.</span><span class="n">py</span> <span class="n">mmtbx</span>
+<p>On macOS, since <code class="docutils literal"><span class="pre">wget</span></code> is not available by default, use <code class="docutils literal"><span class="pre">curl</span></code> instead:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">cctbx</span><span class="o">/</span><span class="n">cctbx_project</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">libtbx</span><span class="o">/</span><span class="n">auto_build</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">py</span> <span class="o">&gt;</span> <span class="n">bootstrap</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>The last command initializes the <code class="docutils literal"><span class="pre">cctbx_build</span></code> directory and creates a
+<p>After some time, this creates the subdirectories <code class="docutils literal"><span class="pre">base</span></code>, <code class="docutils literal"><span class="pre">base_tmp</span></code>,
+<code class="docutils literal"><span class="pre">build</span></code>, and <code class="docutils literal"><span class="pre">modules</span></code>. The <code class="docutils literal"><span class="pre">base</span></code> directory contains dependencies for
+cctbx, <code class="docutils literal"><span class="pre">base_tmp</span></code> is a temporary directory for compiling dependencies (can be
+deleted), <code class="docutils literal"><span class="pre">build</span></code> contains the compiled cctbx code, and <code class="docutils literal"><span class="pre">modules</span></code> contains
+the source code for cctbx. To keep <code class="docutils literal"><span class="pre">bootstrap.py</span></code> in your
+<code class="docutils literal"><span class="pre">&lt;installation</span> <span class="pre">directory&gt;</span></code> up-to-date with the version in <code class="docutils literal"><span class="pre">modules</span></code>, you
+can create a symbolic link to that version:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">cd</span> <span class="o">&lt;</span><span class="n">installation</span> <span class="n">directory</span><span class="o">&gt;</span>
+<span class="n">rm</span> <span class="n">bootstrap</span><span class="o">.</span><span class="n">py</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">./</span><span class="n">modules</span><span class="o">/</span><span class="n">cctbx_project</span><span class="o">/</span><span class="n">libtbx</span><span class="o">/</span><span class="n">auto_build</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Within the <code class="docutils literal"><span class="pre">build</span></code> directory, cctbx creates a
 file <code class="docutils literal"><span class="pre">setpaths.csh</span></code> (among others). This file must be used to
 initialize a new shell or process with the cctbx settings:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">source</span> <span class="n">setpaths</span><span class="o">.</span><span class="n">csh</span>
 </pre></div>
 </div>
 <p>There is also a <code class="docutils literal"><span class="pre">setpaths.sh</span></code> for <code class="docutils literal"><span class="pre">bash</span></code> users.</p>
-<p>To compile enter:</p>
+<p>To update your cctbx installation to the latest version, you can just run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">python</span> <span class="o">./</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>again in the <code class="docutils literal"><span class="pre">&lt;installation</span> <span class="pre">directory&gt;</span></code>. This will update the source code in
+the <code class="docutils literal"><span class="pre">modules</span></code> directory and recompile the changes (if necessary) in
+<code class="docutils literal"><span class="pre">build</span></code>. Occasionally, dependencies in <code class="docutils literal"><span class="pre">base</span></code> are updated. When this
+happens, just delete the <code class="docutils literal"><span class="pre">base</span></code> and <code class="docutils literal"><span class="pre">base_tmp</span></code> directories and rerun
+the <code class="docutils literal"><span class="pre">bootstrap.py</span></code> command.</p>
+<p>To compile any local changes to the source code, enter the <code class="docutils literal"><span class="pre">build</span></code> directory
+and run:</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="n">make</span>
 </pre></div>
 </div>
@@ -157,7 +158,7 @@ use, for example:</p>
 all these commands are equivalent.)</p>
 <p>For example, to run some regression tests after the compilation is
 finished enter:</p>
-<div class="highlight-default"><div class="highlight"><pre>source setpaths_all.csh
+<div class="highlight-default"><div class="highlight"><pre>source build/setpaths_all.csh
 libtbx.python $SCITBX_DIST/run_tests.py
 libtbx.python $CCTBX_DIST/run_tests.py --Quick
 </pre></div>
@@ -219,35 +220,6 @@ finished enter:</p>
 </div>
 <p>The output should show many OK. A Python Traceback is an indicator
 for problems.</p>
-</div>
-<div class="section" id="using-the-cctbx-svn-repository">
-<h1><a class="toc-backref" href="#id4">Using the cctbx SVN repository</a><a class="headerlink" href="#using-the-cctbx-svn-repository" title="Permalink to this headline">¶</a></h1>
-<p>To participate in the development of the cctbx project, or to
-get easy access to the most recent changes, it may be useful
-to checkout the cctbx project directly from the git repository
-maintained at <a class="reference external" href="https://github.com/cctbx/">Github</a>. An easy way to get started is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">cctbx</span><span class="o">/</span><span class="n">cctbx_project</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">libtbx</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">cctbx_svn_getting_started</span><span class="o">.</span><span class="n">csh</span>
-<span class="o">./</span><span class="n">cctbx_svn_getting_started</span><span class="o">.</span><span class="n">csh</span>
-</pre></div>
-</div>
-<p>The script will create a <code class="docutils literal"><span class="pre">sources</span></code> directory with a <code class="docutils literal"><span class="pre">cctbx_project</span></code>
-repository checked out from Github, and all other
-third-party sources (e.g. boost, scons) taken from the latest nightly
-cctbx build.</p>
-<p>To configure a new build using the <code class="docutils literal"><span class="pre">sources</span></code> directory:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">mkdir</span> <span class="n">build</span>
-<span class="n">cd</span> <span class="n">build</span>
-<span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">choice</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">../</span><span class="n">sources</span><span class="o">/</span><span class="n">cctbx_project</span><span class="o">/</span><span class="n">libtbx</span><span class="o">/</span><span class="n">configure</span><span class="o">.</span><span class="n">py</span> <span class="n">mmtbx</span>
-<span class="n">source</span> <span class="n">setpaths</span><span class="o">.</span><span class="n">csh</span>
-<span class="n">make</span>
-</pre></div>
-</div>
-<p>It is also possible to replace the <code class="docutils literal"><span class="pre">sources/boost</span></code> directory with
-a working copy of the <a class="reference external" href="http://svn.boost.org/trac/boost/wiki/BoostSubversion">boost SVN tree</a> . However, in practice
-it sometimes happens that a <code class="docutils literal"><span class="pre">svn</span> <span class="pre">update</span></code> of the boost tree
-leads to compilation errors on some platforms. In most cases
-it will be best to use the boost sources obtained with the
-<code class="docutils literal"><span class="pre">cctbx_svn_getting_started.csh</span></code> script.</p>
 <p><a class="reference external" href="introduction.html">Back</a></p>
 </div>
 
@@ -260,9 +232,8 @@ it will be best to use the boost sources obtained with the
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Installation overview</a></li>
-<li><a class="reference internal" href="#manually-building-from-sources-under-unix">Manually building from sources under Unix</a></li>
+<li><a class="reference internal" href="#manually-building-from-sources-under-linux-and-macos">Manually building from sources under Linux and macOS</a></li>
 <li><a class="reference internal" href="#manually-building-from-sources-under-windows-2000-or-higher">Manually building from sources under Windows 2000 or higher</a></li>
-<li><a class="reference internal" href="#using-the-cctbx-svn-repository">Using the cctbx SVN repository</a></li>
 </ul>
 
   <h4>Previous topic</h4>

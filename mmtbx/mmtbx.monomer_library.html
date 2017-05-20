@@ -2463,11 +2463,11 @@ _lib_vdw.H_flag</p>
 <tr class="row-odd"><td><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selection_multiple" title="mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selection_multiple"><code class="xref py py-obj docutils literal"><span class="pre">phil_atom_selection_multiple</span></code></a>(cache,&nbsp;...[,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs" title="mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs"><code class="xref py py-obj docutils literal"><span class="pre">phil_atom_selections_as_i_seqs</span></code></a>(cache,&nbsp;...)</td>
-<td></td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs" title="mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs"><code class="xref py py-obj docutils literal"><span class="pre">phil_atom_selections_as_i_seqs</span></code></a>(cache,&nbsp;...[,&nbsp;...])</td>
+<td>This function should be used when selection parameter is .multiple=False On top of that it can demand exactly one atom to be selected or more than 2 atoms shoud be selected.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs_multiple" title="mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs_multiple"><code class="xref py py-obj docutils literal"><span class="pre">phil_atom_selections_as_i_seqs_multiple</span></code></a>(...)</td>
-<td></td>
+<td>This function should be used when selection parameter is .multiple=True</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_apply_cif_link" title="mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_apply_cif_link"><code class="xref py py-obj docutils literal"><span class="pre">process_apply_cif_link</span></code></a>(mon_lib_srv,&nbsp;log)</td>
 <td></td>
@@ -2606,13 +2606,21 @@ _lib_vdw.H_flag</p>
 
 <dl class="method">
 <dt id="mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs">
-<code class="descname">phil_atom_selections_as_i_seqs</code><span class="sig-paren">(</span><em>cache</em>, <em>scope_extract</em>, <em>sel_attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">phil_atom_selections_as_i_seqs</code><span class="sig-paren">(</span><em>cache</em>, <em>scope_extract</em>, <em>sel_attrs</em>, <em>n_atoms_needed='one'</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function should be used when selection parameter is .multiple=False
+On top of that it can demand exactly one atom to be selected or more than 2
+atoms shoud be selected. Other options are not required at the moment.
+n_atoms_needed:</p>
+<blockquote>
+<div>one - exactly one
+many - 3 and more for parallelity</div></blockquote>
+</dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs_multiple">
 <code class="descname">phil_atom_selections_as_i_seqs_multiple</code><span class="sig-paren">(</span><em>cache</em>, <em>scope_extract</em>, <em>sel_attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs_multiple" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>This function should be used when selection parameter is .multiple=True</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_apply_cif_link">

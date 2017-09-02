@@ -1162,6 +1162,12 @@ representation of the hierarchy.</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">contains_rna</span></code></td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">convert_met_to_semet</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">convert_semet_to_met</span></code></td>
+<td></td>
+</tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">deep_copy</span></code></td>
 <td></td>
 </tr>
@@ -1240,10 +1246,16 @@ representation of the hierarchy.</p>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">pre_allocate_models</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">remove_hd</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">remove_atoms</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">remove_model</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">remove_hd</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">remove_model</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">rename_chain_id</span></code></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reset_atom_i_seqs</span></code></td>
@@ -1258,13 +1270,19 @@ representation of the hierarchy.</p>
 <tr class="row-even"><td><a class="reference external" href="https://docs.python.org/2/library/select.html#module-select" title="(in Python v2.7)"><code class="xref py py-obj docutils literal"><span class="pre">select</span></code></a></td>
 <td>This module supports asynchronous I/O on multiple file descriptors.</td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_atomic_charge</span></code></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">sort_atoms_in_place</span></code></td>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">transfer_chains_from_other</span></code></td>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sort_atoms_in_place</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">transfer_chains_from_other</span></code></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">truncate_to_poly_gly</span></code></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">write_mmcif_file</span></code></td>
@@ -1447,6 +1465,16 @@ them are protein.</p>
 <dd><p>Inspect residue names (stored in atom_group objects) to determine if any of
 them are RNA.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.hierarchy.root.convert_met_to_semet">
+<code class="descname">convert_met_to_semet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.convert_met_to_semet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.hierarchy.root.convert_semet_to_met">
+<code class="descname">convert_semet_to_met</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.convert_semet_to_met" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.pdb.hierarchy.root.deep_copy">
@@ -1649,6 +1677,11 @@ number of residues of each type.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="iotbx.pdb.hierarchy.root.remove_atoms">
+<code class="descname">remove_atoms</code><span class="sig-paren">(</span><em>fraction</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.remove_atoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="iotbx.pdb.hierarchy.root.remove_hd">
 <code class="descname">remove_hd</code><span class="sig-paren">(</span><em>reset_i_seq=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.remove_hd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all hydrogen/deuterium atoms in-place.  Returns the number of atoms
@@ -1672,6 +1705,11 @@ deleted.</p>
 </dl>
 </div></blockquote>
 </dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.hierarchy.root.rename_chain_id">
+<code class="descname">rename_chain_id</code><span class="sig-paren">(</span><em>old_id</em>, <em>new_id</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.rename_chain_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="iotbx.pdb.hierarchy.root.reset_atom_i_seqs">
@@ -1712,6 +1750,11 @@ deleted.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="iotbx.pdb.hierarchy.root.set_atomic_charge">
+<code class="descname">set_atomic_charge</code><span class="sig-paren">(</span><em>iselection</em>, <em>charge</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.set_atomic_charge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="iotbx.pdb.hierarchy.root.show">
 <code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>prefix=''</em>, <em>level_id=None</em>, <em>level_id_exception=&lt;type 'exceptions.ValueError'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display a summary of hierarchy contents.</p>
@@ -1729,6 +1772,11 @@ deleted.</p>
 <dl class="method">
 <dt id="iotbx.pdb.hierarchy.root.transfer_chains_from_other">
 <code class="descname">transfer_chains_from_other</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.transfer_chains_from_other" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.hierarchy.root.truncate_to_poly_gly">
+<code class="descname">truncate_to_poly_gly</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.truncate_to_poly_gly" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

@@ -50,88 +50,14 @@
 <h1>mmtbx.pdbtools - model manipulation utilities<a class="headerlink" href="#mmtbx-pdbtools-model-manipulation-utilities" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-mmtbx.pdbtools">
 <span id="api-documentation"></span><h2>API documentation<a class="headerlink" href="#module-mmtbx.pdbtools" title="Permalink to this headline">¶</a></h2>
-<p>Common manipulations of (macromolecular) model files.  This module is used
-as a standalone program, phenix.pdbtools, but some components are also used
-in phenix.refine, and it is also a dumping ground for individual related
-functions.</p>
 <dl class="function">
-<dt id="mmtbx.pdbtools.convert_met_to_semet">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">convert_met_to_semet</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>xray_structure</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.convert_met_to_semet" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change the chemical identity of MET residues to MSE, without changing
-coordinates.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.convert_semet_to_met">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">convert_semet_to_met</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>xray_structure</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.convert_semet_to_met" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change the chemical identity of MSE residues to MET, without changing
-coordinates.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.finish_job">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">finish_job</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.finish_job" title="Permalink to this definition">¶</a></dt>
+<dt id="mmtbx.pdbtools.master_params">
+<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">master_params</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.master_params" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="class">
-<dt id="mmtbx.pdbtools.interpreter">
-<em class="property">class </em><code class="descclassname">mmtbx.pdbtools.</code><code class="descname">interpreter</code><span class="sig-paren">(</span><em>command_name</em>, <em>args</em>, <em>log</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.interpreter" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.pdbtools.interpreter.process_args" title="mmtbx.pdbtools.interpreter.process_args"><code class="xref py py-obj docutils literal"><span class="pre">process_args</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.pdbtools.interpreter.set_ppf" title="mmtbx.pdbtools.interpreter.set_ppf"><code class="xref py py-obj docutils literal"><span class="pre">set_ppf</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="mmtbx.pdbtools.interpreter.process_args">
-<code class="descname">process_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.interpreter.process_args" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="mmtbx.pdbtools.interpreter.set_ppf">
-<code class="descname">set_ppf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.interpreter.set_ppf" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="mmtbx.pdbtools.launcher">
-<em class="property">class </em><code class="descclassname">mmtbx.pdbtools.</code><code class="descname">launcher</code><span class="sig-paren">(</span><em>args</em>, <em>file_name</em>, <em>output_dir=None</em>, <em>log_file=None</em>, <em>job_title=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.launcher" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">libtbx.runtime_utils.target_with_save_result</span></code></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">__call__</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.pdbtools.launcher.run" title="mmtbx.pdbtools.launcher.run"><code class="xref py py-obj docutils literal"><span class="pre">run</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="mmtbx.pdbtools.launcher.run">
-<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.launcher.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
 
 <dl class="class">
 <dt id="mmtbx.pdbtools.modify">
-<em class="property">class </em><code class="descclassname">mmtbx.pdbtools.</code><code class="descname">modify</code><span class="sig-paren">(</span><em>xray_structure</em>, <em>params</em>, <em>all_chain_proxies</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.modify" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.pdbtools.</code><code class="descname">modify</code><span class="sig-paren">(</span><em>xray_structure</em>, <em>params</em>, <em>pdb_hierarchy</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.modify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -140,87 +66,17 @@ coordinates.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.pdbtools.modify.report_number_of_atoms_to_be_removed" title="mmtbx.pdbtools.modify.report_number_of_atoms_to_be_removed"><code class="xref py py-obj docutils literal"><span class="pre">report_number_of_atoms_to_be_removed</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.pdbtools.modify.get_results" title="mmtbx.pdbtools.modify.get_results"><code class="xref py py-obj docutils literal"><span class="pre">get_results</span></code></a>()</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="mmtbx.pdbtools.modify.report_number_of_atoms_to_be_removed">
-<code class="descname">report_number_of_atoms_to_be_removed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.modify.report_number_of_atoms_to_be_removed" title="Permalink to this definition">¶</a></dt>
+<dt id="mmtbx.pdbtools.modify.get_results">
+<code class="descname">get_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.modify.get_results" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.move_waters">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">move_waters</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>xray_structure</em>, <em>out</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.move_waters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Re-arranges the PDB hierarchy so that waters are located at the end of the
-atom list.  This is done automatically in phenix.refine if water picking is
-enabled, but the routine here is more flexible.  (Note that there is some
-overlap in functionality with mmtbx.command_line.sort_hetatms, but the
-latter module is significantly more complicated.)</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.normalize_occupancies">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">normalize_occupancies</code><span class="sig-paren">(</span><em>hierarchy</em>, <em>selection=None</em>, <em>xray_structure=None</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.normalize_occupancies" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reset the sum of occupancies for each residue_group to 1.0.  This will fail
-if any (selected) atom_group has non-uniform occupancies.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.remove_alt_confs">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">remove_alt_confs</code><span class="sig-paren">(</span><em>hierarchy</em>, <em>always_keep_one_conformer=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.remove_alt_confs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove all alternate conformers from the hierarchy.  Depending on the
-value of always_keep_one_conformer, this will either remove any atom_group
-with altloc other than blank or &#8216;A&#8217;, or it will remove any atom_group
-beyond the first conformer found.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.rename_chain_id">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">rename_chain_id</code><span class="sig-paren">(</span><em>hierarchy</em>, <em>params</em>, <em>log</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.rename_chain_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.renumber_residues">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">renumber_residues</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>renumber_from=None</em>, <em>atom_selection=None</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.renumber_residues" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.run">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">run</code><span class="sig-paren">(</span><em>args</em>, <em>command_name='phenix.pdbtools'</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em>, <em>replace_stderr=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.set_atomic_charge">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">set_atomic_charge</code><span class="sig-paren">(</span><em>hierarchy</em>, <em>xray_structure</em>, <em>pdb_atoms</em>, <em>selection</em>, <em>charge</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.set_atomic_charge" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the charge for selected atoms.  Note that both the hierarchy and the
-xray_structure must be passed here - in the context of the pdbtools app,
-the scattering_type attributes will override the atom&#8217;s element and charge
-when the structure is written out.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.truncate_to_poly_ala">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">truncate_to_poly_ala</code><span class="sig-paren">(</span><em>hierarchy</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.truncate_to_poly_ala" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove all protein sidechain atoms beyond C-alpha (as well as all hydrogens).
-Does not change the chemical identity of the residues.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.truncate_to_poly_gly">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">truncate_to_poly_gly</code><span class="sig-paren">(</span><em>hierarchy</em>, <em>start_res_num=None</em>, <em>end_res_num=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.truncate_to_poly_gly" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove all protein sidechain atoms beyond C-alpha (as well as all hydrogens).
-Does not change the chemical identity of the residues.
-Refactoring ideas: combine with truncate_to_poly_ala</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.pdbtools.validate_params">
-<code class="descclassname">mmtbx.pdbtools.</code><code class="descname">validate_params</code><span class="sig-paren">(</span><em>params</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.pdbtools.validate_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </div>
 </div>
@@ -234,9 +90,7 @@ Refactoring ideas: combine with truncate_to_poly_ala</p>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">mmtbx.pdbtools - model manipulation utilities</a><ul>
-<li><a class="reference internal" href="#module-mmtbx.pdbtools">API documentation</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-mmtbx.pdbtools">API documentation</a></li>
 </ul>
 </li>
 </ul>

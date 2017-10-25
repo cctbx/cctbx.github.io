@@ -1841,7 +1841,10 @@ objects matrix.rec) and Translation vectors (lists of objects matrix.rec)</dd>
 <dt id="mmtbx.ncs.ncs_utils.filter_ncs_restraints_group_list">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">filter_ncs_restraints_group_list</code><span class="sig-paren">(</span><em>whole_h</em>, <em>ncs_restr_group_list</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.filter_ncs_restraints_group_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove ncs groups where master or copy does not cover whole chain
-(some atoms are left behind).</p>
+(some atoms are left behind).
+Reason for this - when big moves are likely (e.g. in real-space refine or
+model idealization), the chain can get a big gap in place where NCS ends.
+This leads to undesired artefacts in refinement.</p>
 </dd></dl>
 
 <dl class="function">

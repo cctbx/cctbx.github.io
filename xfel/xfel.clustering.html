@@ -73,10 +73,219 @@ point group composition of each cluster.</td>
 </dd></dl>
 
 </div>
-<div class="section" id="xfel-clustering-singleframe-module">
-<h2>xfel.clustering.singleframe module<a class="headerlink" href="#xfel-clustering-singleframe-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.clustering.singleframe">
+<span id="xfel-clustering-singleframe-module"></span><h2>xfel.clustering.singleframe module<a class="headerlink" href="#module-xfel.clustering.singleframe" title="Permalink to this headline">¶</a></h2>
+<p>Module for working with single images in a serial crystallography
+dataset</p>
 <div class="section" id="singleframe-singleframe">
 <h3>singleframe.SingleFrame<a class="headerlink" href="#singleframe-singleframe" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xfel.clustering.singleframe.SingleFrame">
+<em class="property">class </em><code class="descclassname">xfel.clustering.singleframe.</code><code class="descname">SingleFrame</code><span class="sig-paren">(</span><em>path=None</em>, <em>filename=None</em>, <em>crystal_num=0</em>, <em>remove_negative=False</em>, <em>use_b=True</em>, <em>scale=True</em>, <em>dicti=None</em>, <em>pixel_size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">prime.api.InputFrame</span></code></p>
+<p>Class that creates single-image agregate metrics/scoring that can then be
+used in downstream clustering or filtering procedures.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">check_prime_input</span></code>()</td>
+<td>Check attribute names and types to ensure that the object is valid.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.singleframe.SingleFrame.distance_from" title="xfel.clustering.singleframe.SingleFrame.distance_from"><code class="xref py py-obj docutils literal"><span class="pre">distance_from</span></code></a>(other_uc)</td>
+<td>Calculates distance using NCDist from Andrews and Bernstein J.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.singleframe.SingleFrame.filter_negative_intensities" title="xfel.clustering.singleframe.SingleFrame.filter_negative_intensities"><code class="xref py py-obj docutils literal"><span class="pre">filter_negative_intensities</span></code></a>()</td>
+<td>Filters negative intensities from the Miller array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.singleframe.SingleFrame.init_calc_wilson" title="xfel.clustering.singleframe.SingleFrame.init_calc_wilson"><code class="xref py py-obj docutils literal"><span class="pre">init_calc_wilson</span></code></a>(use_b_factor[,&nbsp;i_corrections])</td>
+<td>If use_b_factor is :param i_corrections: allows flex array of correction factors (e.g.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.singleframe.SingleFrame.make_g6" title="xfel.clustering.singleframe.SingleFrame.make_g6"><code class="xref py py-obj docutils literal"><span class="pre">make_g6</span></code></a>(uc)</td>
+<td>Take a reduced Niggli Cell, and turn it into the G6 representation</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.singleframe.SingleFrame.n_reflections_by_sigi" title="xfel.clustering.singleframe.SingleFrame.n_reflections_by_sigi"><code class="xref py py-obj docutils literal"><span class="pre">n_reflections_by_sigi</span></code></a>(sig_i_cuttoff)</td>
+<td>Currently a placeholder that returns None.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.singleframe.SingleFrame.plot_wilson" title="xfel.clustering.singleframe.SingleFrame.plot_wilson"><code class="xref py py-obj docutils literal"><span class="pre">plot_wilson</span></code></a>([width,&nbsp;ax])</td>
+<td>Makes a log(I) vs 1/d**2 plot, displaying the raw partial data, a rolling average of the data, and the Wilson model fit to the data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.singleframe.SingleFrame.polarization_correction" title="xfel.clustering.singleframe.SingleFrame.polarization_correction"><code class="xref py py-obj docutils literal"><span class="pre">polarization_correction</span></code></a>()</td>
+<td>Perform basic polarization correction in place, and change the is_polarization_corrected flag to True.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.singleframe.SingleFrame.to_panda" title="xfel.clustering.singleframe.SingleFrame.to_panda"><code class="xref py py-obj docutils literal"><span class="pre">to_panda</span></code></a>()</td>
+<td>Returns the object attributes as a pandas series</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.singleframe.SingleFrame.trim_res_limit" title="xfel.clustering.singleframe.SingleFrame.trim_res_limit"><code class="xref py py-obj docutils literal"><span class="pre">trim_res_limit</span></code></a>([d_min,&nbsp;d_max])</td>
+<td>Remove all miller indicies outside the range of _d_min, _d_max.</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="xfel.clustering.singleframe.SingleFrame.ANGSTROMS_TO_EV">
+<code class="descname">ANGSTROMS_TO_EV</code><em class="property"> = 12398.425</em><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.ANGSTROMS_TO_EV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.singleframe.SingleFrame.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>path=None</em>, <em>filename=None</em>, <em>crystal_num=0</em>, <em>remove_negative=False</em>, <em>use_b=True</em>, <em>scale=True</em>, <em>dicti=None</em>, <em>pixel_size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor for SingleFrame object, using a cctbx.xfel integration pickle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> &#8211; path to integration pickle</li>
+<li><strong>filename</strong> &#8211; the file name alone (used as a label)</li>
+<li><strong>crystal_num</strong> &#8211; if multiple lattices present, the latice number.</li>
+<li><strong>remove_negative</strong> &#8211; Boolean for removal of negative intensities</li>
+<li><strong>use_b</strong> &#8211; if True, initialise scale and B, if false, use only mean-intensity scaling.</li>
+<li><strong>dicti</strong> &#8211; optional. If a dictionairy is supplied here, will create object from that rather than attempting to read the file specified in path, filename.</li>
+<li><strong>pixel_size</strong> &#8211; the size of pixels in mm. Defaults to a MAR detector with a warning at debug level of logging.</li>
+<li><strong>scale</strong> &#8211; if False, will intialise scales to G=1, B=0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a SingleFrame object, with the following Object attributes:</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Object attributes are:</dt>
+<dd><ul class="first last simple">
+<li><cite>is_polarization_corrected</cite>: Boolean flag indicatinf if polarization correction has been applied</li>
+<li><cite>miller_array</cite>: the cctbx.miller miller array of spot intensities.</li>
+<li><cite>mapped_predictions</cite>: the mapped_predictions locations</li>
+<li><cite>path</cite>: full path to the original file</li>
+<li><cite>name</cite>: file-name, used as an identifier</li>
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>crystal_system:</li>
+<li><cite>pg</cite>: point group of pickle</li>
+<li><cite>uc</cite>: Niggli unit cell as a tuple</li>
+<li><cite>orientation</cite>: cctbx crystal_orientation object</li>
+<li><cite>total_i</cite>: the total integrated intensity for this frame</li>
+<li><cite>xbeam</cite>: x-location of beam centre</li>
+<li><cite>ybeam</cite>: y-location of beam centre</li>
+<li><a href="#id3"><span class="problematic" id="id4">`</span></a>wavelength:</li>
+<li><cite>spot_offset</cite>: the mean offset between observed spots and predicted centroids. Only created if integration was performed using verbose_cv=True. Otherwise None.</li>
+<li><cite>minus_2B</cite>: the gradient of the ln(i) vs. sinsqtheta_over_lambda_sq plot</li>
+<li><cite>G</cite>: intercept of the of the ln(i) vs. sinsqtheta_over_lambda_sq plot</li>
+<li><cite>log_i</cite>: list of log_i intensities</li>
+<li><cite>sinsqtheta_over_lambda_sq</cite>: list of sinsqtheta_over_lambda_sq</li>
+<li><cite>wilson_err</cite>: standard error on the fit of ln(i) vs. sinsqtheta_over_lambda_sq</li>
+<li><cite>miller_fullies</cite>: a cctbx.miller array of fully recorded intensites.</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xfel.clustering.singleframe.SingleFrame.__module__">
+<code class="descname">__module__</code><em class="property"> = 'xfel.clustering.singleframe'</em><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.singleframe.SingleFrame.distance_from">
+<code class="descname">distance_from</code><span class="sig-paren">(</span><em>other_uc</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.distance_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates distance using NCDist from Andrews and Bernstein J. Appl.
+Cryst. 2014 between this frame and some other unit cell.
+:param:other_uc: a 6-tuple of a, b, c, alpha, beta, gamma for some unit cell
+:return: the NCDist in A^2 to other_uc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.singleframe.SingleFrame.filter_negative_intensities">
+<code class="descname">filter_negative_intensities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.filter_negative_intensities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters negative intensities from the Miller array. Acts in place.
+:return: acts in place.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.singleframe.SingleFrame.init_calc_wilson">
+<code class="descname">init_calc_wilson</code><span class="sig-paren">(</span><em>use_b_factor</em>, <em>i_corrections=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.init_calc_wilson" title="Permalink to this definition">¶</a></dt>
+<dd><p>If use_b_factor is
+:param i_corrections: allows flex array of correction factors (e.g. partialities) to be specified
+:param use_b_factor: if True, do a linear regression to fit G and B and returns the coeficients minus_2B, G, the transformed data log_i, and one_over_d_sqare. Also returns fit_stats, which is a dictionairy. If use_b_factor is False, then B is 0, and G is the mean intensity of the image. The r_value is then 0 (by definition), and the std_err is the standard error on the mean.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Return minus_2B, G, log_i, on_over_d_square:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><cite>minus_2B</cite>: gradient of fit; <cite>G</cite>: intercept of fit; <cite>log_i</cite>: dependent variable of fit; <cite>one_over_d_square</cite>: independent variable of fit.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="xfel.clustering.singleframe.SingleFrame.make_g6">
+<em class="property">static </em><code class="descname">make_g6</code><span class="sig-paren">(</span><em>uc</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.make_g6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take a reduced Niggli Cell, and turn it into the G6 representation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.singleframe.SingleFrame.n_reflections_by_sigi">
+<code class="descname">n_reflections_by_sigi</code><span class="sig-paren">(</span><em>sig_i_cuttoff</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.n_reflections_by_sigi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Currently a placeholder that returns None.</p>
+<p>This method should return the number of reflection in the frame that have an
+I/sig(I) &gt; sig_i_cuttoff</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.singleframe.SingleFrame.plot_wilson">
+<code class="descname">plot_wilson</code><span class="sig-paren">(</span><em>width=30</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.plot_wilson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes a log(I) vs 1/d**2 plot, displaying the raw partial data, a
+rolling average of the data, and the Wilson model fit to the data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body">width: smoothing window size</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Param:</th><td class="field-body">ax: optional axes object to ve used for plotting</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.singleframe.SingleFrame.polarization_correction">
+<code class="descname">polarization_correction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.polarization_correction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform basic polarization correction in place, and change the
+is_polarization_corrected flag to True.</p>
+<p>I_corrected = 2*I_uncorrected/(1 + cos(two_theta)**2)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.singleframe.SingleFrame.to_panda">
+<code class="descname">to_panda</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.to_panda" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the object attributes as a pandas series</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.singleframe.SingleFrame.trim_res_limit">
+<code class="descname">trim_res_limit</code><span class="sig-paren">(</span><em>d_min=None</em>, <em>d_max=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.trim_res_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all miller indicies outside the range of _d_min, _d_max.
+Changes the object in place.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>d_min</strong> &#8211; min res of new miller array. Defaults to current value.</li>
+<li><strong>d_max</strong> &#8211; max res of new miller array. Defaults to current value.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 </div>
@@ -95,7 +304,7 @@ point group composition of each cluster.</td>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-xfel.clustering.cluster_groups">xfel.clustering.cluster_groups module</a></li>
-<li><a class="reference internal" href="#xfel-clustering-singleframe-module">xfel.clustering.singleframe module</a><ul>
+<li><a class="reference internal" href="#module-xfel.clustering.singleframe">xfel.clustering.singleframe module</a><ul>
 <li><a class="reference internal" href="#singleframe-singleframe">singleframe.SingleFrame</a></li>
 </ul>
 </li>

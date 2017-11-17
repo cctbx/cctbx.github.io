@@ -46,10 +46,385 @@
             
   <div class="section" id="xfel-clustering-package">
 <h1>xfel.clustering package<a class="headerlink" href="#xfel-clustering-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="xfel-clustering-cluster-module">
-<h2>xfel.clustering.cluster module<a class="headerlink" href="#xfel-clustering-cluster-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xfel.clustering.cluster">
+<span id="xfel-clustering-cluster-module"></span><h2>xfel.clustering.cluster module<a class="headerlink" href="#module-xfel.clustering.cluster" title="Permalink to this headline">¶</a></h2>
+<p>This module is designed to provide tools to deal with groups of serial
+crystallography images.</p>
+<p>The class Cluster allows the creation, storage and manipulation of these sets
+of frames. Methods exist to create sub-clusters (new cluster objects) or to act
+on an existing cluster, e.g. to plot the unit cell distributions.</p>
+<p><strong>Author:</strong>   Oliver Zeldin &lt;<a class="reference external" href="mailto:zeldin&#37;&#52;&#48;stanford&#46;edu">zeldin<span>&#64;</span>stanford<span>&#46;</span>edu</a>&gt;</p>
 <div class="section" id="cluster-cluster">
 <h3>cluster.Cluster<a class="headerlink" href="#cluster-cluster" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="xfel.clustering.cluster.Cluster">
+<em class="property">class </em><code class="descclassname">xfel.clustering.cluster.</code><code class="descname">Cluster</code><span class="sig-paren">(</span><em>data</em>, <em>cname='cluster'</em>, <em>info=''</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for operation on groups of single XFEL images (here described by
+SingleFrame objects) as cluster objects.</p>
+<p>Objects can be created directily using the __init__ method, or by using a
+classmethod e.g. to create an object from a folder full of integration
+pickles. Whenever a method can plot, there is the option of
+passing it an appropriate number of matplotlib axes objects, which will then
+get returned for use in composite plots. See cluster.42 for an example.
+If no axes are passed, the methods will just plot the result to the screen.
+Clustering filters can act on these to break them up into cluster objects with
+different members. A &#8216;filter&#8217; is just a clustering procedure that puts the
+passes and fails into different clusters. This is acheived through the
+make_sub_cluster() method. This also keeps track of a sub-clusters heritage
+through the .info string, which is appended to. The idea is to be able to
+write filter scripts for each data.
+e.g</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_cluster</span> <span class="o">=</span> <span class="n">Cluster</span><span class="o">.</span><span class="n">from_directories</span><span class="p">([</span><span class="s">&quot;~/test_data&quot;</span><span class="p">],</span>
+<span class="gp">... </span>                                       <span class="s">&#39;test_script&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">P3_only</span> <span class="o">=</span> <span class="n">test_cluster</span><span class="o">.</span><span class="n">point_group_filer</span><span class="p">(</span><span class="s">&#39;P3&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sub_clusters</span> <span class="o">=</span> <span class="n">P3_only</span><span class="o">.</span><span class="n">ab_cluster</span><span class="p">(</span><span class="mi">1200</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">big_cluster</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">sub_clusters</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">members</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">best_data</span> <span class="o">=</span> <span class="n">big_cluster</span><span class="o">.</span><span class="n">total_intensity_filter</span><span class="p">(</span><span class="n">res</span><span class="o">=</span><span class="mf">6.5</span><span class="p">,</span>
+<span class="gp">... </span>                                              <span class="n">completeness_threshold</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+<span class="gp">... </span>                                              <span class="n">plot</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">best_data</span><span class="o">.</span><span class="n">info</span>
+</pre></div>
+</div>
+<p>Subsequent postrefinenment/merging programs can be called on an output
+cluster.lst file:</p>
+<div class="highlight-default"><div class="highlight"><pre>&gt;&gt;&gt; prime.postrefine params.phil $(cat cluster.lst)
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.ab_cluster" title="xfel.clustering.cluster.Cluster.ab_cluster"><code class="xref py py-obj docutils literal"><span class="pre">ab_cluster</span></code></a>([threshold,&nbsp;method,&nbsp;...])</td>
+<td>Hierarchical clustering using the unit cell dimentions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.all_frames_intensity_stats" title="xfel.clustering.cluster.Cluster.all_frames_intensity_stats"><code class="xref py py-obj docutils literal"><span class="pre">all_frames_intensity_stats</span></code></a>([ax,&nbsp;smoothing_width])</td>
+<td>Goes through all frames in the cluster, and plots all the partial intensites.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.best_by_CC" title="xfel.clustering.cluster.Cluster.best_by_CC"><code class="xref py py-obj docutils literal"><span class="pre">best_by_CC</span></code></a>(other[,&nbsp;assert_is_similar_symmetry])</td>
+<td>Return the SingleFrame object with the highest CC to a reference miller array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.dump_as_mtz" title="xfel.clustering.cluster.Cluster.dump_as_mtz"><code class="xref py py-obj docutils literal"><span class="pre">dump_as_mtz</span></code></a>(mtz_name[,&nbsp;use_fullies])</td>
+<td>Merge using weighted mean and standard deviation if all miller arrays</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.dump_file_list" title="xfel.clustering.cluster.Cluster.dump_file_list"><code class="xref py py-obj docutils literal"><span class="pre">dump_file_list</span></code></a>([out_file_name])</td>
+<td>Dumps a list of paths to inegration pickle files to a file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.from_directories" title="xfel.clustering.cluster.Cluster.from_directories"><code class="xref py py-obj docutils literal"><span class="pre">from_directories</span></code></a>(path_to_integration_dir[,&nbsp;...])</td>
+<td>Constructor to get a cluster from pickle files, from the recursively walked paths.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.from_expts" title="xfel.clustering.cluster.Cluster.from_expts"><code class="xref py py-obj docutils literal"><span class="pre">from_expts</span></code></a>([refl_table,&nbsp;expts_list,&nbsp;...])</td>
+<td>Constructor to get a cluster from experiment and reflection list objects</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.from_files" title="xfel.clustering.cluster.Cluster.from_files"><code class="xref py py-obj docutils literal"><span class="pre">from_files</span></code></a>([raw_input,&nbsp;pickle_list,&nbsp;...])</td>
+<td>Constructor to get a cluster from a list of individual files.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.from_list" title="xfel.clustering.cluster.Cluster.from_list"><code class="xref py py-obj docutils literal"><span class="pre">from_list</span></code></a>(file_name[,&nbsp;raw_input,&nbsp;...])</td>
+<td>Constructor to get a cluster from a single file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.intensity_statistics" title="xfel.clustering.cluster.Cluster.intensity_statistics"><code class="xref py py-obj docutils literal"><span class="pre">intensity_statistics</span></code></a>([ax])</td>
+<td>Uses the per-frame B and G fits (gradient and intercept of the ln(i) vs (sin(theta)/lambda)**2 plot) to create three agregate plots: 1) histogram of standard errors on the per-frame fits 2) histogram of B factors 3) scatter  plot of intercept vs.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.make_sub_cluster" title="xfel.clustering.cluster.Cluster.make_sub_cluster"><code class="xref py py-obj docutils literal"><span class="pre">make_sub_cluster</span></code></a>(new_members,&nbsp;new_prefix,&nbsp;...)</td>
+<td>Make a sub-cluster from a list of SingleFrame objects from the old SingleFrame array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.merge_dict" title="xfel.clustering.cluster.Cluster.merge_dict"><code class="xref py py-obj docutils literal"><span class="pre">merge_dict</span></code></a>([use_fullies])</td>
+<td>Make a dict of Miller indices with  ([list of intensities], resolution) value tuples for each miller index.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.point_group_filter" title="xfel.clustering.cluster.Cluster.point_group_filter"><code class="xref py py-obj docutils literal"><span class="pre">point_group_filter</span></code></a>(point_group)</td>
+<td>Return all the SingleFrames that have a given pointgroup.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.prime_postrefine" title="xfel.clustering.cluster.Cluster.prime_postrefine"><code class="xref py py-obj docutils literal"><span class="pre">prime_postrefine</span></code></a>(inputfile)</td>
+<td>Run postrefinement from Prime on a cluster.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.print_ucs" title="xfel.clustering.cluster.Cluster.print_ucs"><code class="xref py py-obj docutils literal"><span class="pre">print_ucs</span></code></a>()</td>
+<td>Prints a list of all the unit cells in the cluster to CSV.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.to_pandas" title="xfel.clustering.cluster.Cluster.to_pandas"><code class="xref py py-obj docutils literal"><span class="pre">to_pandas</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.total_intensity_filter" title="xfel.clustering.cluster.Cluster.total_intensity_filter"><code class="xref py py-obj docutils literal"><span class="pre">total_intensity_filter</span></code></a>([res,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.uc_feature_vector" title="xfel.clustering.cluster.Cluster.uc_feature_vector"><code class="xref py py-obj docutils literal"><span class="pre">uc_feature_vector</span></code></a>()</td>
+<td>Return a len(cluster) * 6 numpy array of features for use in ML algos</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.visualise_orientational_distribution" title="xfel.clustering.cluster.Cluster.visualise_orientational_distribution"><code class="xref py py-obj docutils literal"><span class="pre">visualise_orientational_distribution</span></code></a>([...])</td>
+<td>Creates a plot of the orientational distribution of the unit cells.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>data</em>, <em>cname='cluster'</em>, <em>info=''</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a cluster from a list of SingleFrame objects, as well as information
+about these as a cluster (e.g. mean unit cell).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data</strong> &#8211; a list of SingleFrame objects</li>
+<li><strong>cname</strong> &#8211; the name of the cluster, as a string.</li>
+<li><strong>info</strong> &#8211; an info-string for the cluster.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.__len__">
+<code class="descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.__len__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of images in the cluster</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xfel.clustering.cluster.Cluster.__module__">
+<code class="descname">__module__</code><em class="property"> = 'xfel.clustering.cluster'</em><a class="headerlink" href="#xfel.clustering.cluster.Cluster.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.ab_cluster">
+<code class="descname">ab_cluster</code><span class="sig-paren">(</span><em>threshold=10000</em>, <em>method='distance'</em>, <em>linkage_method='single'</em>, <em>log=False</em>, <em>ax=None</em>, <em>write_file_lists=True</em>, <em>schnell=False</em>, <em>doplot=True</em>, <em>labels='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.ab_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hierarchical clustering using the unit cell dimentions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>threshold</strong> &#8211; the threshold to use for prunning the tree into clusters.</li>
+<li><strong>method</strong> &#8211; which clustering method from scipy to use when creating the tree (see scipy.cluster.hierarchy)</li>
+<li><strong>linkage_method</strong> &#8211; which linkage method from scipy to use when creating the linkages. x (see scipy.cluster.hierarchy)</li>
+<li><strong>log</strong> &#8211; if True, use log scale on y axis.</li>
+<li><strong>ax</strong> &#8211; if a matplotlib axes object is provided, plot to this. Otherwise, create a new axes object and display on screen.</li>
+<li><strong>write_file_lists</strong> &#8211; if True, write out the files that make up each cluster.</li>
+<li><strong>schnell</strong> &#8211; if True, use simple euclidian distance, otherwise, use Andrews-Berstein distance from Andrews &amp; Bernstein J Appl Cryst 47:346 (2014) on the Niggli cells.</li>
+<li><strong>doplot</strong> &#8211; Boolean flag for if the plotting should be done at all.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Runs faster if switched off.
+:param labels: &#8216;default&#8217; will not display any labels for more than 100 images, but will display file names for fewer. This can be manually overidden with a boolean flag.
+:return: A list of Clusters ordered by largest Cluster to smallest</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use &#8216;schnell&#8217; option with caution, since it can cause strange behaviour
+around symmetry boundaries.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.all_frames_intensity_stats">
+<code class="descname">all_frames_intensity_stats</code><span class="sig-paren">(</span><em>ax=None</em>, <em>smoothing_width=2000</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.all_frames_intensity_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Goes through all frames in the cluster, and plots all the partial intensites.
+Then does a linear fit and rolling average on these.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>smoothing_width</strong> &#8211; the width of the smoothing window.</li>
+<li><strong>ax</strong> &#8211; Optional matplotlib axes object to plot to. Otherwise, plot to screen.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the axis, with the data plotted onto it.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.best_by_CC">
+<code class="descname">best_by_CC</code><span class="sig-paren">(</span><em>other</em>, <em>assert_is_similar_symmetry=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.best_by_CC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the SingleFrame object with the highest CC to a reference miller array.
+:param other: miller array object to be correlated against
+:return: a SingleFrame object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.dump_as_mtz">
+<code class="descname">dump_as_mtz</code><span class="sig-paren">(</span><em>mtz_name</em>, <em>use_fullies=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.dump_as_mtz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge using weighted mean and standard deviation if all miller arrays</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.dump_file_list">
+<code class="descname">dump_file_list</code><span class="sig-paren">(</span><em>out_file_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.dump_file_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dumps a list of paths to inegration pickle files to a file. One
+line per image. Provides easy input into post-refinement programs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>out_file_name</strong> &#8211; the output file name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xfel.clustering.cluster.Cluster.from_directories">
+<em class="property">classmethod </em><code class="descname">from_directories</code><span class="sig-paren">(</span><em>path_to_integration_dir</em>, <em>_prefix='cluster_from_dir'</em>, <em>n_images=None</em>, <em>dials=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.from_directories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor to get a cluster from pickle files, from the recursively
+walked paths. Can take more than one argument for multiple folders.
+usage: Cluster.from_directories(..)
+:param path_to_integration_dir: list of directories containing pickle files.
+Will be searched recursively.
+:param n_images: find at most this number of images.
+:param use_b: Boolean. If True, intialise Scale and B. If False, use only
+mean intensity scalling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xfel.clustering.cluster.Cluster.from_expts">
+<em class="property">classmethod </em><code class="descname">from_expts</code><span class="sig-paren">(</span><em>refl_table=None</em>, <em>expts_list=None</em>, <em>_prefix='cluster_from_file'</em>, <em>_message='Made from experiment objects'</em>, <em>n_images=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.from_expts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor to get a cluster from experiment and reflection list objects
+:param refl_table: DIALS integrated reflection table
+:param expts_list: DIALS experiment list
+:param n_images: find at most this number of images</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xfel.clustering.cluster.Cluster.from_files">
+<em class="property">classmethod </em><code class="descname">from_files</code><span class="sig-paren">(</span><em>raw_input=None</em>, <em>pickle_list=[]</em>, <em>dials_refls=[]</em>, <em>dials_expts=[]</em>, <em>_prefix='cluster_from_file'</em>, <em>_message='Made from list of individual files'</em>, <em>n_images=None</em>, <em>dials=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.from_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor to get a cluster from a list of individual files.
+:param pickle_list: list of pickle files
+:param dials_refls: list of DIALS integrated reflections
+:param dials_expts: list of DIALS experiment jsons
+:param n_images: find at most this number of images
+:param dials: use the dials_refls and dials_expts arguments to construct the clusters (default: False)
+:param use_b: Boolean. If True, intialise Scale and B. If False, use only
+mean intensity scalling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xfel.clustering.cluster.Cluster.from_list">
+<em class="property">classmethod </em><code class="descname">from_list</code><span class="sig-paren">(</span><em>file_name</em>, <em>raw_input=None</em>, <em>pickle_list=[]</em>, <em>dials_refls=[]</em>, <em>dials_expts=[]</em>, <em>_prefix='cluster_from_file'</em>, <em>_message='Made from list of individual cells'</em>, <em>n_images=None</em>, <em>dials=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.from_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor to get a cluster from a single file.  The file must list unit cell a,b,c,alpha,beta,gamma
+and space_group_type, each as a single token.
+:param file_name: pathname of the file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.intensity_statistics">
+<code class="descname">intensity_statistics</code><span class="sig-paren">(</span><em>ax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.intensity_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses the per-frame B and G fits (gradient and intercept of the ln(i) vs
+(sin(theta)/lambda)**2 plot) to create three agregate plots:
+1) histogram of standard errors on the per-frame fits
+2) histogram of B factors
+3) scatter  plot of intercept vs. gradient (G vs. B)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ax</strong> &#8211; optionally hand the method three matplotlib axes objects to plot onto. If not specified, will plot the data.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the three axes, with the data plotted onto them.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.make_sub_cluster">
+<code class="descname">make_sub_cluster</code><span class="sig-paren">(</span><em>new_members</em>, <em>new_prefix</em>, <em>new_info</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.make_sub_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a sub-cluster from a list of SingleFrame objects from the old
+SingleFrame array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_members</strong> &#8211; a new set of SingleFrame objects, typically a subset of</td>
+</tr>
+</tbody>
+</table>
+<p>the current cluster.
+:param new_prefix: prefix to be passed directly to __init__
+:param new_info: new information about this cluster. This is inteligently
+appended to the old info string so that the history of sub-clusters is
+tracted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.merge_dict">
+<code class="descname">merge_dict</code><span class="sig-paren">(</span><em>use_fullies=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.merge_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a dict of Miller indices with  ([list of intensities], resolution)
+value tuples for each miller index.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.point_group_filter">
+<code class="descname">point_group_filter</code><span class="sig-paren">(</span><em>point_group</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.point_group_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all the SingleFrames that have a given pointgroup.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.prime_postrefine">
+<code class="descname">prime_postrefine</code><span class="sig-paren">(</span><em>inputfile</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.prime_postrefine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run postrefinement from Prime on a cluster. Implements the prime API, and updates the SingleFrame objects with the attribute <cite>miller_fullies</cite>.
+:param cluster: a cluster object.
+:param inputfile: a Prime .inp file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.print_ucs">
+<code class="descname">print_ucs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.print_ucs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a list of all the unit cells in the cluster to CSV.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.to_pandas">
+<code class="descname">to_pandas</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.to_pandas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.total_intensity_filter">
+<code class="descname">total_intensity_filter</code><span class="sig-paren">(</span><em>res=''</em>, <em>completeness_threshold=0.95</em>, <em>plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.total_intensity_filter" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is still in development, use at own risk!</p>
+</div>
+<p>Creates an optimal sub-cluster using the fewest images that fulfil the
+criteria defined by:
+:param res: desired resolution. Defaults to that of the dataset.
+:param completeness: the desired completeness of the subset
+:param multiplicity: the desired multiplicity of the subset</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.uc_feature_vector">
+<code class="descname">uc_feature_vector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.uc_feature_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a len(cluster) * 6 numpy array of features for use in ML algos</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xfel.clustering.cluster.Cluster.visualise_orientational_distribution">
+<code class="descname">visualise_orientational_distribution</code><span class="sig-paren">(</span><em>axes_to_return=None</em>, <em>cbar=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.visualise_orientational_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a plot of the orientational distribution of the unit cells.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>axes_to_return</strong> &#8211; if None, print to screen, otherwise, requires 3 axes objects, and will return them.</li>
+<li><strong>cbar</strong> &#8211; boolean to specify if a color bar should be used.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="module-xfel.clustering.cluster_groups">
@@ -299,7 +674,7 @@ Changes the object in place.</p>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">xfel.clustering package</a><ul>
-<li><a class="reference internal" href="#xfel-clustering-cluster-module">xfel.clustering.cluster module</a><ul>
+<li><a class="reference internal" href="#module-xfel.clustering.cluster">xfel.clustering.cluster module</a><ul>
 <li><a class="reference internal" href="#cluster-cluster">cluster.Cluster</a></li>
 </ul>
 </li>

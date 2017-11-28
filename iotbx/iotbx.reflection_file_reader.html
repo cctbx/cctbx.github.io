@@ -90,8 +90,8 @@ problematic as it not only omits crystal symmetry, but the same format may be
 used to store either amplitudes or intensities, without any distinguishing
 features.  As a crude workaround for the latter problem, the data type may be
 specified as part of the file name:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">hkl_file</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="s">&quot;data.hkl=hklf4&quot;</span><span class="p">)</span>
-<span class="n">hkl_file</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="s">&quot;data.hkl=intensities&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">hkl_file</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="s2">&quot;data.hkl=hklf4&quot;</span><span class="p">)</span>
+<span class="n">hkl_file</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="s2">&quot;data.hkl=intensities&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Other formats (CNS, unmerged Scalepack) may have incomplete or missing crystal
@@ -103,8 +103,8 @@ symmetry.  MTZ, XDS, and (usually) CIF files will be more complete.</p>
 <p>Proxy object for reading a reflection file of unspecified format, and
 extracting the Miller arrays contained therein.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hkl_file</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="s">&quot;data.mtz&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hkl_file</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="s2">&quot;data.mtz&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">hkl_file</span><span class="o">.</span><span class="n">file_type</span><span class="p">()</span>
 <span class="go">&#39;ccp4_mtz&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="nb">type</span><span class="p">(</span><span class="n">hkl_file</span><span class="o">.</span><span class="n">file_content</span><span class="p">())</span>

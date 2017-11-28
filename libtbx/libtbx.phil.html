@@ -114,13 +114,13 @@ inputs. Many applications use command-line options as a user interface
 well for small applications, but has it limitations for more complex
 applications with a large set of parameters.</p>
 <p>A simple Phil file as presented to the user may look like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">input</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span> <span class="p">{</span>
   <span class="n">file_name</span> <span class="o">=</span> <span class="n">experiment</span><span class="o">.</span><span class="n">dat</span>
   <span class="n">label</span> <span class="o">=</span> <span class="n">set2</span>
 <span class="p">}</span>
 <span class="n">minimization</span><span class="o">.</span><span class="n">output</span> <span class="p">{</span>
   <span class="n">model_file</span> <span class="o">=</span> <span class="n">final</span><span class="o">.</span><span class="n">mdl</span>
-  <span class="n">plot_file</span> <span class="o">=</span> <span class="k">None</span>
+  <span class="n">plot_file</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">}</span>
 <span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span> <span class="p">{</span>
   <span class="n">method</span> <span class="o">=</span> <span class="o">*</span><span class="n">bfgs</span> <span class="n">conjugate_gradient</span>
@@ -136,9 +136,9 @@ without having to read documentation.</p>
 To make this syntax as user-friendly as possible, strings
 do not have to be quoted and, unlike Python, indentation is not
 syntactically significant. E.g. this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">input</span> <span class="p">{</span>
-<span class="n">file_name</span><span class="o">=</span><span class="s">&quot;experiment.dat&quot;</span>
-<span class="n">labels</span><span class="o">=</span><span class="s">&quot;set2&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span> <span class="p">{</span>
+<span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;experiment.dat&quot;</span>
+<span class="n">labels</span><span class="o">=</span><span class="s2">&quot;set2&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -147,14 +147,14 @@ syntactically significant. E.g. this:</p>
 limited only by Python&#8217;s recursion limit (default 1000). To maximize
 convenience, nested scopes can be defined in two equivalent ways.
 For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span> <span class="p">{</span>
   <span class="nb">input</span> <span class="p">{</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>is equivalent to:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">input</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span> <span class="p">{</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -192,8 +192,8 @@ or to import Phil objects from other Python scripts.</li>
 &#8220;attributes&#8221; for each parameter, such as the type (integer,
 floating-point, string, etc.) and support information for graphical
 interfaces. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span>
-  <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s">&quot;Selection and tuning of minimization algorithm.&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span>
+  <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Selection and tuning of minimization algorithm.&quot;</span>
   <span class="o">.</span><span class="n">expert_level</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="p">{</span>
   <span class="n">method</span> <span class="o">=</span> <span class="o">*</span><span class="n">bfgs</span> <span class="n">conjugate_gradient</span>
@@ -205,7 +205,7 @@ interfaces. For example:</p>
 </pre></div>
 </div>
 <p>The is the last part of the output of this command:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">libtbx</span><span class="o">.</span><span class="n">phil</span> <span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">some</span><span class="o">-</span><span class="n">attributes</span> <span class="n">example</span><span class="o">.</span><span class="n">params</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">libtbx</span><span class="o">.</span><span class="n">phil</span> <span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">some</span><span class="o">-</span><span class="n">attributes</span> <span class="n">example</span><span class="o">.</span><span class="n">params</span>
 </pre></div>
 </div>
 <p>Run this command with <code class="docutils literal"><span class="pre">--show-all-attributes</span></code> to see the full set
@@ -216,7 +216,7 @@ programmers only have to deal with the attributes they want to change.</p>
 <div class="section" id="user-files">
 <h2><a class="toc-backref" href="#id5">User files</a><a class="headerlink" href="#user-files" title="Permalink to this headline">¶</a></h2>
 <p>User files are typically generated by the application. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">quick</span> <span class="o">--</span><span class="n">show_defaults</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">quick</span> <span class="o">--</span><span class="n">show_defaults</span>
 </pre></div>
 </div>
 <p>will process its master file and show only the most
@@ -225,7 +225,7 @@ relevant parameters, classified by the software developer as
 scope in the example above is not shown. The attributes are also
 not shown. Therefore the output is much shorter compared to the
 <code class="docutils literal"><span class="pre">libtbx.phil</span> <span class="pre">--show-some-attributes</span></code> output above:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span> <span class="p">{</span>
   <span class="n">method</span> <span class="o">=</span> <span class="o">*</span><span class="n">bfgs</span> <span class="n">conjugate_gradient</span>
   <span class="n">max_iterations</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="p">}</span>
@@ -245,7 +245,7 @@ use to fill in the blanks.</p>
 <p>Command-line arguments that are not file names or options prefixed
 with <code class="docutils literal"><span class="pre">--</span></code> (like <code class="docutils literal"><span class="pre">--show_defaults</span></code> above) should be given to Phil
 for examination. E.g., this is a possible command:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">quick</span> <span class="n">experiment</span><span class="o">.</span><span class="n">dat</span> <span class="n">output</span><span class="o">.</span><span class="n">plot_file</span><span class="o">=</span><span class="n">plot</span><span class="o">.</span><span class="n">pdf</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">quick</span> <span class="n">experiment</span><span class="o">.</span><span class="n">dat</span> <span class="n">output</span><span class="o">.</span><span class="n">plot_file</span><span class="o">=</span><span class="n">plot</span><span class="o">.</span><span class="n">pdf</span>
 </pre></div>
 </div>
 <p>First the application should check if an argument is the name of a
@@ -262,33 +262,33 @@ arguments to uniform Phil objects which can be merged to generate a
 combined set of &#8220;working&#8221; parameters used in running the application.
 We demonstrate this by way of a simple, self-contained Python script
 with embedded Phil syntax:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="kn">from</span> <span class="nn">libtbx.phil</span> <span class="k">import</span> <span class="n">parse</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization.input {</span>
-<span class="s">    file_name = None</span>
-<span class="s">      .type = path</span>
-<span class="s">    label = None</span>
-<span class="s">      .type = str</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization.input {</span>
+<span class="s2">    file_name = None</span>
+<span class="s2">      .type = path</span>
+<span class="s2">    label = None</span>
+<span class="s2">      .type = str</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization.input {</span>
-<span class="s">    file_name = experiment.dat</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization.input {</span>
+<span class="s2">    file_name = experiment.dat</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">command_line_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span>
-  <span class="s">&quot;minimization.input.label=set2&quot;</span><span class="p">)</span>
+  <span class="s2">&quot;minimization.input.label=set2&quot;</span><span class="p">)</span>
 
 <span class="n">working_phil</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span>
   <span class="n">sources</span><span class="o">=</span><span class="p">[</span><span class="n">user_phil</span><span class="p">,</span> <span class="n">command_line_phil</span><span class="p">])</span>
 <span class="n">working_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">master_phil</span></code> defines all available parameters including the
@@ -296,7 +296,7 @@ type information. <code class="docutils literal"><span class="pre">user_phil</sp
 assignment but leaves the <code class="docutils literal"><span class="pre">labels</span></code> undefined. These are defined
 by a (fake) command-line argument. All inputs are merged via
 <code class="docutils literal"><span class="pre">master_phil.fetch()</span></code>. <code class="docutils literal"><span class="pre">working_phil.show()</span></code> produces:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">input</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span> <span class="p">{</span>
   <span class="n">file_name</span> <span class="o">=</span> <span class="n">experiment</span><span class="o">.</span><span class="n">dat</span>
   <span class="n">label</span> <span class="o">=</span> <span class="n">set2</span>
 <span class="p">}</span>
@@ -306,26 +306,26 @@ by a (fake) command-line argument. All inputs are merged via
 <code class="docutils literal"><span class="pre">minimization.input.labels</span></code>) can be very inconvenient. Therefore
 Phil includes support for matching parameter names of command-line
 arguments as substrings to the parameter names in the master files:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">argument_interpreter</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">command_line_argument_interpreter</span><span class="p">(</span>
-  <span class="n">home_scope</span><span class="o">=</span><span class="s">&quot;minimization&quot;</span><span class="p">)</span>
+  <span class="n">home_scope</span><span class="o">=</span><span class="s2">&quot;minimization&quot;</span><span class="p">)</span>
 
 <span class="n">command_line_phil</span> <span class="o">=</span> <span class="n">argument_interpreter</span><span class="o">.</span><span class="n">process</span><span class="p">(</span>
-  <span class="n">arg</span><span class="o">=</span><span class="s">&quot;minimization.input.label=set2&quot;</span><span class="p">)</span>
+  <span class="n">arg</span><span class="o">=</span><span class="s2">&quot;minimization.input.label=set2&quot;</span><span class="p">)</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>This works even if the user writes just <code class="docutils literal"><span class="pre">label=set2</span></code> or even
 <code class="docutils literal"><span class="pre">put.lab=x1</span> <span class="pre">x2</span></code>. The only requirement is that the substring leads
 to a unique match in the master file. Otherwise Phil produces a helpful
 error message. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">argument_interpreter</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="s">&quot;a=set2&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">argument_interpreter</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="s2">&quot;a=set2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>leads to:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">Sorry</span><span class="p">:</span> <span class="n">Ambiguous</span> <span class="n">parameter</span> <span class="n">definition</span><span class="p">:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">set2</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Sorry</span><span class="p">:</span> <span class="n">Ambiguous</span> <span class="n">parameter</span> <span class="n">definition</span><span class="p">:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">set2</span>
 <span class="n">Best</span> <span class="n">matches</span><span class="p">:</span>
   <span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">file_name</span>
   <span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">label</span>
@@ -344,24 +344,24 @@ of graphical user interfaces, it is only a burden in the context of
 core algorithms. Therefore Phil supports &#8220;extraction&#8221; of light-weight
 Python objects from the Phil objects. Based on the example above,
 this can be achieved with just one line:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">working_params</span> <span class="o">=</span> <span class="n">working_phil</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>We can now use the extracted objects in the context of Python:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="nb">print</span> <span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">file_name</span>
 <span class="nb">print</span> <span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">label</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">experiment</span><span class="o">.</span><span class="n">dat</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">experiment</span><span class="o">.</span><span class="n">dat</span>
 <span class="n">set2</span>
 </pre></div>
 </div>
@@ -372,19 +372,19 @@ this can be achieved with just one line:</p>
 <p>Phil also supports the reverse conversion compared to the
 previous section, from Python objects to Phil objects. For
 example, to change the label:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s">&quot;set3&quot;</span>
+<span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;set3&quot;</span>
 <span class="n">modified_phil</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">python_object</span><span class="o">=</span><span class="n">working_params</span><span class="p">)</span>
 <span class="n">modified_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">input</span> <span class="p">{</span>
-  <span class="n">file_name</span> <span class="o">=</span> <span class="s">&quot;experiment.dat&quot;</span>
-  <span class="n">label</span> <span class="o">=</span> <span class="s">&quot;set3&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span> <span class="p">{</span>
+  <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;experiment.dat&quot;</span>
+  <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;set3&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -402,31 +402,31 @@ section below).</p>
 scope with <code class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">True</span></code>. Please note the distinction between
 this and multiple <em>values</em> given in a user file. For example, this
 is a multiple definition in a master file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization.input {</span>
-<span class="s">    file_name = None</span>
-<span class="s">      .type = path</span>
-<span class="s">      .multiple = True</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization.input {</span>
+<span class="s2">    file_name = None</span>
+<span class="s2">      .type = path</span>
+<span class="s2">      .multiple = True</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>And these are multiple values for this definition in a user file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization.input {</span>
-<span class="s">    file_name = experiment1.dat</span>
-<span class="s">    file_name = experiment2.dat</span>
-<span class="s">    file_name = experiment3.dat</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization.input {</span>
+<span class="s2">    file_name = experiment1.dat</span>
+<span class="s2">    file_name = experiment2.dat</span>
+<span class="s2">    file_name = experiment3.dat</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>I.e. multiple values are simply specified by repeated definitions.
@@ -436,69 +436,69 @@ files or command-line arguments. <code class="docutils literal"><span class="pre
 to keep all values. <code class="docutils literal"><span class="pre">.extract()</span></code> then returns a list of all these
 values converted to Python objects. For example, given the user
 file above:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">working_params</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">file_name</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>will show this Python list:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">[</span><span class="s">&#39;experiment1.dat&#39;</span><span class="p">,</span> <span class="s">&#39;experiment2.dat&#39;</span><span class="p">,</span> <span class="s">&#39;experiment3.dat&#39;</span><span class="p">]</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;experiment1.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;experiment2.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;experiment3.dat&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Multiple scopes work similarly, for example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization {</span>
-<span class="s">    input</span>
-<span class="s">      .multiple = True</span>
-<span class="s">    {</span>
-<span class="s">      file_name = None</span>
-<span class="s">        .type = path</span>
-<span class="s">      label = None</span>
-<span class="s">        .type = str</span>
-<span class="s">    }</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization {</span>
+<span class="s2">    input</span>
+<span class="s2">      .multiple = True</span>
+<span class="s2">    {</span>
+<span class="s2">      file_name = None</span>
+<span class="s2">        .type = path</span>
+<span class="s2">      label = None</span>
+<span class="s2">        .type = str</span>
+<span class="s2">    }</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>A corresponding user file may look this this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization {</span>
-<span class="s">    input {</span>
-<span class="s">      file_name = experiment1.dat</span>
-<span class="s">      label = set2</span>
-<span class="s">    }</span>
-<span class="s">    input {</span>
-<span class="s">      file_name = experiment2.dat</span>
-<span class="s">      label = set1</span>
-<span class="s">    }</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization {</span>
+<span class="s2">    input {</span>
+<span class="s2">      file_name = experiment1.dat</span>
+<span class="s2">      label = set2</span>
+<span class="s2">    }</span>
+<span class="s2">    input {</span>
+<span class="s2">      file_name = experiment2.dat</span>
+<span class="s2">      label = set1</span>
+<span class="s2">    }</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>The result of the usual fetch-extract sequence is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">working_params</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="k">for</span> <span class="nb">input</span> <span class="ow">in</span> <span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
   <span class="nb">print</span> <span class="nb">input</span><span class="o">.</span><span class="n">file_name</span>
   <span class="nb">print</span> <span class="nb">input</span><span class="o">.</span><span class="n">label</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">experiment1</span><span class="o">.</span><span class="n">dat</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">experiment1</span><span class="o">.</span><span class="n">dat</span>
 <span class="n">set2</span>
 <span class="n">experiment2</span><span class="o">.</span><span class="n">dat</span>
 <span class="n">set1</span>
@@ -507,64 +507,64 @@ file above:</p>
 <p>Definitions and scopes may be nested with any combination of
 <code class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">False</span></code> or <code class="docutils literal"><span class="pre">.multiple</span> <span class="pre">=</span> <span class="pre">True</span></code>. For example, this
 would be a plausible master file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization {</span>
-<span class="s">    input</span>
-<span class="s">      .multiple = True</span>
-<span class="s">    {</span>
-<span class="s">      file_name = None</span>
-<span class="s">        .type = path</span>
-<span class="s">      label = None</span>
-<span class="s">        .type = str</span>
-<span class="s">        .multiple = True</span>
-<span class="s">    }</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization {</span>
+<span class="s2">    input</span>
+<span class="s2">      .multiple = True</span>
+<span class="s2">    {</span>
+<span class="s2">      file_name = None</span>
+<span class="s2">        .type = path</span>
+<span class="s2">      label = None</span>
+<span class="s2">        .type = str</span>
+<span class="s2">        .multiple = True</span>
+<span class="s2">    }</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>This is a possible corresponding user file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization {</span>
-<span class="s">    input {</span>
-<span class="s">      file_name = experiment1.dat</span>
-<span class="s">      label = set1</span>
-<span class="s">      label = set2</span>
-<span class="s">      label = set3</span>
-<span class="s">    }</span>
-<span class="s">    input {</span>
-<span class="s">      file_name = experiment2.dat</span>
-<span class="s">      label = set2</span>
-<span class="s">      label = set3</span>
-<span class="s">    }</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization {</span>
+<span class="s2">    input {</span>
+<span class="s2">      file_name = experiment1.dat</span>
+<span class="s2">      label = set1</span>
+<span class="s2">      label = set2</span>
+<span class="s2">      label = set3</span>
+<span class="s2">    }</span>
+<span class="s2">    input {</span>
+<span class="s2">      file_name = experiment2.dat</span>
+<span class="s2">      label = set2</span>
+<span class="s2">      label = set3</span>
+<span class="s2">    }</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>The fetch-extract sequence is the same as before:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">working_params</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="k">for</span> <span class="nb">input</span> <span class="ow">in</span> <span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
   <span class="nb">print</span> <span class="nb">input</span><span class="o">.</span><span class="n">file_name</span>
   <span class="nb">print</span> <span class="nb">input</span><span class="o">.</span><span class="n">label</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>but the output shows lists of strings for <code class="docutils literal"><span class="pre">label</span></code> instead of just
 one Python string:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">experiment1</span><span class="o">.</span><span class="n">dat</span>
-<span class="p">[</span><span class="s">&#39;set1&#39;</span><span class="p">,</span> <span class="s">&#39;set2&#39;</span><span class="p">,</span> <span class="s">&#39;set3&#39;</span><span class="p">]</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">experiment1</span><span class="o">.</span><span class="n">dat</span>
+<span class="p">[</span><span class="s1">&#39;set1&#39;</span><span class="p">,</span> <span class="s1">&#39;set2&#39;</span><span class="p">,</span> <span class="s1">&#39;set3&#39;</span><span class="p">]</span>
 <span class="n">experiment2</span><span class="o">.</span><span class="n">dat</span>
-<span class="p">[</span><span class="s">&#39;set2&#39;</span><span class="p">,</span> <span class="s">&#39;set3&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;set2&#39;</span><span class="p">,</span> <span class="s1">&#39;set3&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -577,32 +577,32 @@ therefore also be large. It may be difficult to see which definitions
 still have default values, and which definitions are changed.
 To get just the difference between the master and the working
 Phil objects, the <code class="docutils literal"><span class="pre">.fetch_diff()</span></code> method is available. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization.parameters {</span>
-<span class="s">    method = *bfgs conjugate_gradient</span>
-<span class="s">      .type = choice</span>
-<span class="s">    max_iterations = 10</span>
-<span class="s">      .type = int</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization.parameters {</span>
+<span class="s2">    method = *bfgs conjugate_gradient</span>
+<span class="s2">      .type = choice</span>
+<span class="s2">    max_iterations = 10</span>
+<span class="s2">      .type = int</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization.parameters {</span>
-<span class="s">    method = bfgs *conjugate_gradient</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization.parameters {</span>
+<span class="s2">    method = bfgs *conjugate_gradient</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">working_phil</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">)</span>
 <span class="n">diff_phil</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch_diff</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">working_phil</span><span class="p">)</span>
 <span class="n">diff_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span> <span class="p">{</span>
   <span class="n">method</span> <span class="o">=</span> <span class="n">bfgs</span> <span class="o">*</span><span class="n">conjugate_gradient</span>
 <span class="p">}</span>
 </pre></div>
@@ -617,7 +617,7 @@ of definitions and scopes with <code class="docutils literal"><span class="pre">
 <div class="section" id="includes">
 <h2><a class="toc-backref" href="#id12">Includes</a><a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
 <p>Phil also supports merging of files at the parsing level. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">include</span> <span class="n">file</span> <span class="n">general</span><span class="o">.</span><span class="n">params</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">include</span> <span class="n">file</span> <span class="n">general</span><span class="o">.</span><span class="n">params</span>
 
 <span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span> <span class="p">{</span>
   <span class="n">include</span> <span class="n">file</span> <span class="n">specific</span><span class="o">.</span><span class="n">params</span>
@@ -626,7 +626,7 @@ of definitions and scopes with <code class="docutils literal"><span class="pre">
 </div>
 <p>Another option for building master files from a library of building
 blocks is based on Python&#8217;s import mechanism. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">include</span> <span class="n">file</span> <span class="n">general</span><span class="o">.</span><span class="n">params</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">include</span> <span class="n">file</span> <span class="n">general</span><span class="o">.</span><span class="n">params</span>
 
 <span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span> <span class="p">{</span>
   <span class="n">include</span> <span class="n">scope</span> <span class="n">app</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">master_phil</span>
@@ -652,28 +652,28 @@ presented in one uniform view.</p>
 <h2><a class="toc-backref" href="#id13">Variable substitution</a><a class="headerlink" href="#variable-substitution" title="Permalink to this headline">¶</a></h2>
 <p>Phil supports variable substitution using $var and $(var)
 syntax. A few examples say more than many words:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">var_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  root_name = peak</span>
-<span class="s">  file_name = $root_name.mtz</span>
-<span class="s">  full_path = $HOME/$file_name</span>
-<span class="s">  related_file_name = $(root_name)_data.mtz</span>
-<span class="s">  message = &quot;Reading $file_name&quot;</span>
-<span class="s">  as_is = &#39; $file_name &#39;</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">var_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  root_name = peak</span>
+<span class="s2">  file_name = $root_name.mtz</span>
+<span class="s2">  full_path = $HOME/$file_name</span>
+<span class="s2">  related_file_name = $(root_name)_data.mtz</span>
+<span class="s2">  message = &quot;Reading $file_name&quot;</span>
+<span class="s2">  as_is = &#39; $file_name &#39;</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 <span class="n">var_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">var_phil</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">root_name</span> <span class="o">=</span> <span class="n">peak</span>
-<span class="n">file_name</span> <span class="o">=</span> <span class="s">&quot;peak.mtz&quot;</span>
-<span class="n">full_path</span> <span class="o">=</span> <span class="s">&quot;/net/cci/rwgk/peak.mtz&quot;</span>
-<span class="n">related_file_name</span> <span class="o">=</span> <span class="s">&quot;peak_data.mtz&quot;</span>
-<span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Reading peak.mtz&quot;</span>
-<span class="n">as_is</span> <span class="o">=</span> <span class="s">&#39; $file_name &#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">root_name</span> <span class="o">=</span> <span class="n">peak</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;peak.mtz&quot;</span>
+<span class="n">full_path</span> <span class="o">=</span> <span class="s2">&quot;/net/cci/rwgk/peak.mtz&quot;</span>
+<span class="n">related_file_name</span> <span class="o">=</span> <span class="s2">&quot;peak_data.mtz&quot;</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Reading peak.mtz&quot;</span>
+<span class="n">as_is</span> <span class="o">=</span> <span class="s1">&#39; $file_name &#39;</span>
 </pre></div>
 </div>
 <p>Note that the variable substitution does not happen during parsing.
@@ -686,9 +686,9 @@ that we introduced earlier to merge user files given a master file.</p>
 <p>Phil comes with a number of predefined converters used by <code class="docutils literal"><span class="pre">.extract()</span></code>
 and <code class="docutils literal"><span class="pre">.format()</span></code> to convert to and from pure Python objects. These
 are:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">.</span><span class="n">type</span> <span class="o">=</span>
-  <span class="n">words</span>     <span class="n">retains</span> <span class="n">the</span> <span class="s">&quot;words&quot;</span> <span class="n">produced</span> <span class="n">by</span> <span class="n">the</span> <span class="n">parser</span>
-  <span class="n">strings</span>   <span class="nb">list</span> <span class="n">of</span> <span class="n">Python</span> <span class="n">strings</span> <span class="p">(</span><span class="n">also</span> <span class="n">used</span> <span class="k">for</span> <span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="k">None</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">type</span> <span class="o">=</span>
+  <span class="n">words</span>     <span class="n">retains</span> <span class="n">the</span> <span class="s2">&quot;words&quot;</span> <span class="n">produced</span> <span class="n">by</span> <span class="n">the</span> <span class="n">parser</span>
+  <span class="n">strings</span>   <span class="nb">list</span> <span class="n">of</span> <span class="n">Python</span> <span class="n">strings</span> <span class="p">(</span><span class="n">also</span> <span class="n">used</span> <span class="k">for</span> <span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
   <span class="nb">str</span>       <span class="n">combines</span> <span class="nb">all</span> <span class="n">words</span> <span class="n">into</span> <span class="n">one</span> <span class="n">string</span>
   <span class="n">path</span>      <span class="n">path</span> <span class="n">name</span> <span class="p">(</span><span class="n">same</span> <span class="k">as</span> <span class="n">str_converters</span><span class="p">)</span>
   <span class="n">key</span>       <span class="n">database</span> <span class="n">key</span> <span class="p">(</span><span class="n">same</span> <span class="k">as</span> <span class="n">str_converters</span><span class="p">)</span>
@@ -700,58 +700,58 @@ are:</p>
 </div>
 <p>It is possible to extend Phil with user-defined converters.
 For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="kn">import</span> <span class="nn">libtbx.phil</span>
 <span class="kn">from</span> <span class="nn">libtbx.phil</span> <span class="k">import</span> <span class="n">tokenizer</span>
 
 <span class="k">class</span> <span class="nc">upper_converters</span><span class="p">:</span>
 
-  <span class="n">phil_type</span> <span class="o">=</span> <span class="s">&quot;upper&quot;</span>
+  <span class="n">phil_type</span> <span class="o">=</span> <span class="s2">&quot;upper&quot;</span>
 
   <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">phil_type</span>
 
   <span class="k">def</span> <span class="nf">from_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">master</span><span class="p">):</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">libtbx</span><span class="o">.</span><span class="n">phil</span><span class="o">.</span><span class="n">str_from_words</span><span class="p">(</span><span class="n">words</span><span class="o">=</span><span class="n">words</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="ow">is</span> <span class="k">None</span><span class="p">):</span> <span class="k">return</span> <span class="k">None</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span> <span class="k">return</span> <span class="kc">None</span>
     <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 
   <span class="k">def</span> <span class="nf">as_words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">python_object</span><span class="p">,</span> <span class="n">master</span><span class="p">):</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">python_object</span> <span class="ow">is</span> <span class="k">None</span><span class="p">):</span>
-      <span class="k">return</span> <span class="p">[</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">word</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;None&quot;</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">python_object</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+      <span class="k">return</span> <span class="p">[</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">word</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">)]</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">word</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">python_object</span><span class="o">.</span><span class="n">upper</span><span class="p">())]</span>
 
 <span class="n">converter_registry</span> <span class="o">=</span> <span class="n">libtbx</span><span class="o">.</span><span class="n">phil</span><span class="o">.</span><span class="n">extended_converter_registry</span><span class="p">(</span>
   <span class="n">additional_converters</span><span class="o">=</span><span class="p">[</span><span class="n">upper_converters</span><span class="p">])</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>The extended <code class="docutils literal"><span class="pre">converter_registry</span></code> is passed as an additional
 argument to Phil&#8217;s <code class="docutils literal"><span class="pre">parse</span></code> function:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  value = None</span>
-<span class="s">    .type = upper</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">,</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  value = None</span>
+<span class="s2">    .type = upper</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">,</span>
     <span class="n">converter_registry</span><span class="o">=</span><span class="n">converter_registry</span><span class="p">)</span>
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;value = extracted&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;value = extracted&quot;</span><span class="p">)</span>
 <span class="n">working_params</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">working_params</span><span class="o">.</span><span class="n">value</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">print</span></code> statement at the end writes &#8220;EXTRACTED&#8221;. It also goes
 the other way, starting with a lower-case Python value:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">working_params</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;formatted&quot;</span>
+<span class="n">working_params</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;formatted&quot;</span>
 <span class="n">working_phil</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">python_object</span><span class="o">=</span><span class="n">working_params</span><span class="p">)</span>
 <span class="n">working_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>The output of the <code class="docutils literal"><span class="pre">.show()</span></code> call is &#8220;value = FORMATTED&#8221;.</p>
@@ -773,25 +773,25 @@ extended converter registry as the default. See, for example,
 <h3><a class="toc-backref" href="#id16">.type = ints and .type = floats</a><a class="headerlink" href="#type-ints-and-type-floats" title="Permalink to this headline">¶</a></h3>
 <p>The built-in <code class="docutils literal"><span class="pre">ints</span></code> and <code class="docutils literal"><span class="pre">floats</span></code> converters handle lists of
 integer and floating point numbers, respectively. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  random_integers = None</span>
-<span class="s">    .type = ints</span>
-<span class="s">  euler_angles = None</span>
-<span class="s">    .type = floats(size=3)</span>
-<span class="s">  unit_cell_parameters = None</span>
-<span class="s">    .type = floats(size_min=1, size_max=6)</span>
-<span class="s">  rotation_part = None</span>
-<span class="s">    .type = ints(size=9, value_min=-1, value_max=1)</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  random_integers = None</span>
+<span class="s2">    .type = ints</span>
+<span class="s2">  euler_angles = None</span>
+<span class="s2">    .type = floats(size=3)</span>
+<span class="s2">  unit_cell_parameters = None</span>
+<span class="s2">    .type = floats(size_min=1, size_max=6)</span>
+<span class="s2">  rotation_part = None</span>
+<span class="s2">    .type = ints(size=9, value_min=-1, value_max=1)</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  random_integers = 3 18 5</span>
-<span class="s">  euler_angles = 10 -20 30</span>
-<span class="s">  unit_cell_parameters = 10,20,30</span>
-<span class="s">  rotation_part = &quot;1,0,0;0,-1,0;0,0,-1&quot;</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  random_integers = 3 18 5</span>
+<span class="s2">  euler_angles = 10 -20 30</span>
+<span class="s2">  unit_cell_parameters = 10,20,30</span>
+<span class="s2">  rotation_part = &quot;1,0,0;0,-1,0;0,0,-1&quot;</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">working_phil</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">)</span>
 <span class="n">working_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -805,14 +805,14 @@ integer and floating point numbers, respectively. For example:</p>
 <span class="n">working_phil</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">python_object</span><span class="o">=</span><span class="n">working_params</span><span class="p">)</span>
 <span class="n">working_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">random_integers</span> <span class="o">=</span> <span class="mi">3</span> <span class="mi">18</span> <span class="mi">5</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">random_integers</span> <span class="o">=</span> <span class="mi">3</span> <span class="mi">18</span> <span class="mi">5</span>
 <span class="n">euler_angles</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span><span class="mi">20</span> <span class="mi">30</span>
 <span class="n">unit_cell_parameters</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span>
-<span class="n">rotation_part</span> <span class="o">=</span> <span class="s">&quot;1,0,0;0,-1,0;0,0,-1&quot;</span>
+<span class="n">rotation_part</span> <span class="o">=</span> <span class="s2">&quot;1,0,0;0,-1,0;0,0,-1&quot;</span>
 
 <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">]</span>
@@ -845,61 +845,61 @@ see the &#8220;Semicolon syntax&#8221; section below.)</p>
 <p>The built-in <code class="docutils literal"><span class="pre">choice</span></code> converters support single and multi choices.
 Here are two examples, a single choice <code class="docutils literal"><span class="pre">gender</span></code> and a multi choice
 <code class="docutils literal"><span class="pre">favorite_sweets</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  gender = male female</span>
-<span class="s">    .type = choice</span>
-<span class="s">  favorite_sweets = ice_cream chocolate candy_cane cookies</span>
-<span class="s">    .type = choice(multi=True)</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  gender = male female</span>
+<span class="s2">    .type = choice</span>
+<span class="s2">  favorite_sweets = ice_cream chocolate candy_cane cookies</span>
+<span class="s2">    .type = choice(multi=True)</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="n">jims_choices</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  gender = *male female</span>
-<span class="s">  favorite_sweets = *ice_cream chocolate candy_cane *cookies</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">jims_choices</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  gender = *male female</span>
+<span class="s2">  favorite_sweets = *ice_cream chocolate candy_cane *cookies</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">jims_phil</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">jims_choices</span><span class="p">)</span>
 <span class="n">jims_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">jims_params</span> <span class="o">=</span> <span class="n">jims_phil</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">jims_params</span><span class="o">.</span><span class="n">gender</span><span class="p">,</span> <span class="n">jims_params</span><span class="o">.</span><span class="n">favorite_sweets</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Selected items are marked with a star <code class="docutils literal"><span class="pre">*</span></code>. The <code class="docutils literal"><span class="pre">.extract()</span></code>
 method returns either a string with the selected value (single choice)
 or a list of strings with all selected values (multi choice). The
 output of the example is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">gender</span> <span class="o">=</span> <span class="o">*</span><span class="n">male</span> <span class="n">female</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gender</span> <span class="o">=</span> <span class="o">*</span><span class="n">male</span> <span class="n">female</span>
 <span class="n">favorite_sweets</span> <span class="o">=</span> <span class="o">*</span><span class="n">ice_cream</span> <span class="n">chocolate</span> <span class="n">candy_cane</span> <span class="o">*</span><span class="n">cookies</span>
-<span class="n">male</span> <span class="p">[</span><span class="s">&#39;ice_cream&#39;</span><span class="p">,</span> <span class="s">&#39;cookies&#39;</span><span class="p">]</span>
+<span class="n">male</span> <span class="p">[</span><span class="s1">&#39;ice_cream&#39;</span><span class="p">,</span> <span class="s1">&#39;cookies&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>To maximize convenience, especially for choices specified via the
 command-line, the <code class="docutils literal"><span class="pre">*</span></code> is optional if only one value is given.
 For example, the following two definitions are equivalent:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">gender</span> <span class="o">=</span> <span class="n">female</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gender</span> <span class="o">=</span> <span class="n">female</span>
 <span class="n">gender</span> <span class="o">=</span> <span class="n">male</span> <span class="o">*</span><span class="n">female</span>
 </pre></div>
 </div>
 <p>If the <code class="docutils literal"><span class="pre">.optional</span></code> attribute is not defined, it defaults to <code class="docutils literal"><span class="pre">True</span></code>
 and this is possible:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">ignorant_choices</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  gender = male female</span>
-<span class="s">  favorite_sweets = ice_cream chocolate candy_cane cookies</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">ignorant_choices</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  gender = male female</span>
+<span class="s2">  favorite_sweets = ice_cream chocolate candy_cane cookies</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">ignorant_params</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">ignorant_choices</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">ignorant_params</span><span class="o">.</span><span class="n">gender</span><span class="p">,</span> <span class="n">ignorant_params</span><span class="o">.</span><span class="n">favorite_sweets</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="k">None</span> <span class="p">[]</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kc">None</span> <span class="p">[]</span>
 </pre></div>
 </div>
 <p>In this case the application has to deal with the <code class="docutils literal"><span class="pre">None</span></code> and
@@ -908,7 +908,7 @@ to informative error messages. The application will never receive
 <code class="docutils literal"><span class="pre">None</span></code> or an empty list.</p>
 <p>If a value in the user file is not a possible choice, <code class="docutils literal"><span class="pre">.extract()</span></code>
 leads to an error message listing all possible choices, for example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">Sorry</span><span class="p">:</span> <span class="n">Not</span> <span class="n">a</span> <span class="n">possible</span> <span class="n">choice</span> <span class="k">for</span> <span class="n">favorite_sweets</span><span class="p">:</span> <span class="n">icecream</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Sorry</span><span class="p">:</span> <span class="n">Not</span> <span class="n">a</span> <span class="n">possible</span> <span class="n">choice</span> <span class="k">for</span> <span class="n">favorite_sweets</span><span class="p">:</span> <span class="n">icecream</span>
   <span class="n">Possible</span> <span class="n">choices</span> <span class="n">are</span><span class="p">:</span>
     <span class="n">ice_cream</span>
     <span class="n">chocolate</span>
@@ -919,38 +919,38 @@ leads to an error message listing all possible choices, for example:</p>
 <p>This message is designed to aid users in recovering from mis-spelled
 choices typed in at the command-line. Command-line choices are
 further supported by this syntax:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">greedy_choices</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  favorite_sweets=ice_cream+chocolate+cookies</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">greedy_choices</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  favorite_sweets=ice_cream+chocolate+cookies</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">greedy_params</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">greedy_choices</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">greedy_params</span><span class="o">.</span><span class="n">favorite_sweets</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Ouput:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">[</span><span class="s">&#39;ice_cream&#39;</span><span class="p">,</span> <span class="s">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s">&#39;cookies&#39;</span><span class="p">]</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;ice_cream&#39;</span><span class="p">,</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;cookies&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Finally, if the <code class="docutils literal"><span class="pre">.optional</span></code> attribute is not specified or <code class="docutils literal"><span class="pre">True</span></code>,
 <code class="docutils literal"><span class="pre">None</span></code> can be assigned:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">no_thanks_choices</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  favorite_sweets=None</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">no_thanks_choices</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  favorite_sweets=None</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">no_thanks_params</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">no_thanks_choices</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">no_thanks_params</span><span class="o">.</span><span class="n">favorite_sweets</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">[]</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[]</span>
 </pre></div>
 </div>
 </div>
@@ -959,34 +959,34 @@ further supported by this syntax:</p>
 <p>The result of <code class="docutils literal"><span class="pre">scope.extract()</span></code> is a <code class="docutils literal"><span class="pre">scope_extract</span></code> instance
 with attributes corresponding to the embedded definitions and
 sub-scopes. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization.input {</span>
-<span class="s">    file_name = None</span>
-<span class="s">      .type = path</span>
-<span class="s">  }</span>
-<span class="s">  minimization.parameters {</span>
-<span class="s">    max_iterations = 10</span>
-<span class="s">      .type = int</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization.input {</span>
+<span class="s2">    file_name = None</span>
+<span class="s2">      .type = path</span>
+<span class="s2">  }</span>
+<span class="s2">  minimization.parameters {</span>
+<span class="s2">    max_iterations = 10</span>
+<span class="s2">      .type = int</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization.input.file_name = experiment.dat</span>
-<span class="s">  minimization.parameters.max_iterations = 5</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization.input.file_name = experiment.dat</span>
+<span class="s2">  minimization.parameters.max_iterations = 5</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">working_params</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">working_params</span>
 <span class="nb">print</span> <span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">file_name</span>
 <span class="nb">print</span> <span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">max_iterations</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="o">&lt;</span><span class="n">libtbx</span><span class="o">.</span><span class="n">phil</span><span class="o">.</span><span class="n">scope_extract</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x2ad50bae7550</span><span class="o">&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">libtbx</span><span class="o">.</span><span class="n">phil</span><span class="o">.</span><span class="n">scope_extract</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x2ad50bae7550</span><span class="o">&gt;</span>
 <span class="n">experiment</span><span class="o">.</span><span class="n">dat</span>
 <span class="mi">5</span>
 </pre></div>
@@ -995,16 +995,16 @@ sub-scopes. For example:</p>
 <code class="docutils literal"><span class="pre">scope_extract</span></code> includes a few additional, special features that are
 worth knowing. The first special feature is the <code class="docutils literal"><span class="pre">.__phil_path__()</span></code>
 method:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="nb">print</span> <span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">__phil_path__</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">__phil_path__</span><span class="p">()</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span><span class="o">.</span><span class="n">input</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span>
 <span class="n">minimization</span><span class="o">.</span><span class="n">parameters</span>
 </pre></div>
 </div>
@@ -1024,11 +1024,11 @@ be used for formatting error messages.</p>
 <p>The next important feature is a safety guard: assignment to a
 non-existing attribute leads to an exception. For example,
 if the attribute is mis-spelled:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;other.dat&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">working_params</span><span class="o">.</span><span class="n">minimization</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;other.dat&quot;</span>
 </pre></div>
 </div>
 <p>Result:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="ne">AttributeError</span><span class="p">:</span> <span class="n">Assignment</span> <span class="n">to</span> <span class="n">non</span><span class="o">-</span><span class="n">existing</span> <span class="n">attribute</span> <span class="s">&quot;minimization.input.filename&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ne">AttributeError</span><span class="p">:</span> <span class="n">Assignment</span> <span class="n">to</span> <span class="n">non</span><span class="o">-</span><span class="n">existing</span> <span class="n">attribute</span> <span class="s2">&quot;minimization.input.filename&quot;</span>
   <span class="n">Please</span> <span class="n">correct</span> <span class="n">the</span> <span class="n">attribute</span> <span class="n">name</span><span class="p">,</span> <span class="ow">or</span> <span class="n">to</span> <span class="n">create</span>
   <span class="n">a</span> <span class="n">new</span> <span class="n">attribute</span> <span class="n">use</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">__inject__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
@@ -1050,38 +1050,38 @@ by the first occurrence in the master file. All following instances in
 the master file are defaults. Any instances in user files (merged via
 <code class="docutils literal"><span class="pre">.fetch()</span></code>) are added to the default instances in the master file.
 For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  plot</span>
-<span class="s">    .multiple = True</span>
-<span class="s">  {</span>
-<span class="s">    style = line bar pie_chart</span>
-<span class="s">      .type=choice</span>
-<span class="s">    title = None</span>
-<span class="s">      .type = str</span>
-<span class="s">  }</span>
-<span class="s">  plot {</span>
-<span class="s">    style = line</span>
-<span class="s">    title = Line plot (default in master)</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  plot</span>
+<span class="s2">    .multiple = True</span>
+<span class="s2">  {</span>
+<span class="s2">    style = line bar pie_chart</span>
+<span class="s2">      .type=choice</span>
+<span class="s2">    title = None</span>
+<span class="s2">      .type = str</span>
+<span class="s2">  }</span>
+<span class="s2">  plot {</span>
+<span class="s2">    style = line</span>
+<span class="s2">    title = Line plot (default in master)</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  plot {</span>
-<span class="s">    style = bar</span>
-<span class="s">    title = Bar plot (provided by user)</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  plot {</span>
+<span class="s2">    style = bar</span>
+<span class="s2">    title = Bar plot (provided by user)</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">working_phil</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">)</span>
 <span class="n">working_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">plot</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="p">{</span>
   <span class="n">style</span> <span class="o">=</span> <span class="o">*</span><span class="n">line</span> <span class="n">bar</span> <span class="n">pie_chart</span>
   <span class="n">title</span> <span class="o">=</span> <span class="n">Line</span> <span class="n">plot</span> <span class="p">(</span><span class="n">default</span> <span class="ow">in</span> <span class="n">master</span><span class="p">)</span>
 <span class="p">}</span>
@@ -1092,16 +1092,16 @@ For example:</p>
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">.extract()</span></code> will produce a list with two elements:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">working_params</span> <span class="o">=</span> <span class="n">working_phil</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">working_params</span><span class="o">.</span><span class="n">plot</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">[</span><span class="o">&lt;</span><span class="n">libtbx</span><span class="o">.</span><span class="n">phil</span><span class="o">.</span><span class="n">scope_extract</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x2b1ccb5b1910</span><span class="o">&gt;</span><span class="p">,</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">&lt;</span><span class="n">libtbx</span><span class="o">.</span><span class="n">phil</span><span class="o">.</span><span class="n">scope_extract</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x2b1ccb5b1910</span><span class="o">&gt;</span><span class="p">,</span>
  <span class="o">&lt;</span><span class="n">libtbx</span><span class="o">.</span><span class="n">phil</span><span class="o">.</span><span class="n">scope_extract</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x2b1ccb5b1c10</span><span class="o">&gt;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1109,42 +1109,42 @@ For example:</p>
 extracted. In practice this is usually the desired behavior, but it
 can be changed by setting the <code class="docutils literal"><span class="pre">plot</span></code> scope attribute <code class="docutils literal"><span class="pre">.optional</span>
 <span class="pre">=</span> <span class="pre">False</span></code>. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  plot</span>
-<span class="s">    .multiple = True</span>
-<span class="s">    .optional = False</span>
-<span class="s">  {</span>
-<span class="s">    style = line bar pie_chart</span>
-<span class="s">      .type=choice</span>
-<span class="s">    title = None</span>
-<span class="s">      .type = str</span>
-<span class="s">  }</span>
-<span class="s">  plot {</span>
-<span class="s">    style = line</span>
-<span class="s">    title = Line plot (default in master)</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  plot</span>
+<span class="s2">    .multiple = True</span>
+<span class="s2">    .optional = False</span>
+<span class="s2">  {</span>
+<span class="s2">    style = line bar pie_chart</span>
+<span class="s2">      .type=choice</span>
+<span class="s2">    title = None</span>
+<span class="s2">      .type = str</span>
+<span class="s2">  }</span>
+<span class="s2">  plot {</span>
+<span class="s2">    style = line</span>
+<span class="s2">    title = Line plot (default in master)</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>With the <code class="docutils literal"><span class="pre">user_phil</span></code> as before, <code class="docutils literal"><span class="pre">.show()</span></code> and <code class="docutils literal"><span class="pre">.extract()</span></code> now
 produce three entries each:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
 <span class="n">working_phil</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">)</span>
 <span class="n">working_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="nb">print</span> <span class="n">working_phil</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">plot</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="p">{</span>
   <span class="n">style</span> <span class="o">=</span> <span class="n">line</span> <span class="n">bar</span> <span class="n">pie_chart</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="k">None</span>
+  <span class="n">title</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">}</span>
 <span class="n">plot</span> <span class="p">{</span>
   <span class="n">style</span> <span class="o">=</span> <span class="o">*</span><span class="n">line</span> <span class="n">bar</span> <span class="n">pie_chart</span>
@@ -1177,34 +1177,34 @@ including complete copies of the master file.</p>
 definitions that don&#8217;t match anything in the master file. It it is
 possible to request a complete list of all user definitions ignored by
 <code class="docutils literal"><span class="pre">.fetch()</span></code>. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  input {</span>
-<span class="s">    file_name = None</span>
-<span class="s">      .type = path</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  input {</span>
+<span class="s2">    file_name = None</span>
+<span class="s2">      .type = path</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  input {</span>
-<span class="s">    file_name = experiment.dat</span>
-<span class="s">    label = set1</span>
-<span class="s">    lable = set2</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  input {</span>
+<span class="s2">    file_name = experiment.dat</span>
+<span class="s2">    label = set1</span>
+<span class="s2">    lable = set2</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">working_phil</span><span class="p">,</span> <span class="n">unused</span> <span class="o">=</span> <span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span>
-  <span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">,</span> <span class="n">track_unused_definitions</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+  <span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">,</span> <span class="n">track_unused_definitions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">working_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">object_locator</span> <span class="ow">in</span> <span class="n">unused</span><span class="p">:</span>
-  <span class="nb">print</span> <span class="s">&quot;unused:&quot;</span><span class="p">,</span> <span class="n">object_locator</span>
+  <span class="nb">print</span> <span class="s2">&quot;unused:&quot;</span><span class="p">,</span> <span class="n">object_locator</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="nb">input</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">input</span> <span class="p">{</span>
   <span class="n">file_name</span> <span class="o">=</span> <span class="n">experiment</span><span class="o">.</span><span class="n">dat</span>
 <span class="p">}</span>
 <span class="n">unused</span><span class="p">:</span> <span class="nb">input</span><span class="o">.</span><span class="n">label</span> <span class="p">(</span><span class="nb">input</span> <span class="n">line</span> <span class="mi">4</span><span class="p">)</span>
@@ -1221,19 +1221,19 @@ and to show warnings or errors.</p>
 delineating the end of definitions. This is most obvious, but for
 convenience, Phil also supports using the semicolon <code class="docutils literal"><span class="pre">;</span></code> instead.
 For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">phil_scope</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">   quick .multiple=true;.optional=false{and=very;.type=str;dirty=use only on command-lines, please!;.type=str}</span>
-<span class="s">   &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">phil_scope</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">   quick .multiple=true;.optional=false{and=very;.type=str;dirty=use only on command-lines, please!;.type=str}</span>
+<span class="s2">   &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">phil_scope</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">attributes_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Clearly, the output looks much nicer:</p>
-<div class="highlight-default"><div class="highlight"><pre>quick
+<div class="highlight-default"><div class="highlight"><pre><span></span>quick
   .optional = False
   .multiple = True
 {
@@ -1263,40 +1263,40 @@ All following characters through the end of the line are ignored.</li>
 <p>The exclamation mark can be used to easily comment out entire
 syntactical constructs, for example a complete scope including all
 attributes:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  !input {</span>
-<span class="s">    file_name = None</span>
-<span class="s">      .type = path</span>
-<span class="s">      .multiple = True</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  !input {</span>
+<span class="s2">    file_name = None</span>
+<span class="s2">      .type = path</span>
+<span class="s2">      .multiple = True</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 <span class="n">master_phil</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre>!input {
+<div class="highlight-default"><div class="highlight"><pre><span></span>!input {
   file_name = None
 }
 </pre></div>
 </div>
 <p>As is evident from the output, Phil keeps the content &#8220;in mind&#8221;,
 but the scope is not actually used by <code class="docutils literal"><span class="pre">.fetch()</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  input.file_name = experiment.dat</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">user_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  input.file_name = experiment.dat</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">master_phil</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">user_phil</span><span class="p">)</span><span class="o">.</span><span class="n">as_str</span><span class="p">())</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="mi">0</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">0</span>
 </pre></div>
 </div>
 <p>I.e. the <code class="docutils literal"><span class="pre">.fetch()</span></code> method ignored the user definition because the
@@ -1331,9 +1331,9 @@ only shows the Phil scope or definition names and and associated
 values. It is also possible to include some or all Phil scope or
 definition attributes in the <code class="docutils literal"><span class="pre">.show()</span></code> output, as directed by the
 <code class="docutils literal"><span class="pre">attributes_level</span></code> parameter:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">attributes_level</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span> <span class="n">shows</span> <span class="n">only</span> <span class="n">names</span> <span class="ow">and</span> <span class="n">values</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">attributes_level</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span> <span class="n">shows</span> <span class="n">only</span> <span class="n">names</span> <span class="ow">and</span> <span class="n">values</span>
                  <span class="mi">1</span><span class="p">:</span> <span class="n">also</span> <span class="n">shows</span> <span class="n">the</span> <span class="o">.</span><span class="n">help</span> <span class="n">attribute</span>
-                 <span class="mi">2</span><span class="p">:</span> <span class="n">shows</span> <span class="nb">all</span> <span class="n">attributes</span> <span class="n">which</span> <span class="n">are</span> <span class="ow">not</span> <span class="k">None</span>
+                 <span class="mi">2</span><span class="p">:</span> <span class="n">shows</span> <span class="nb">all</span> <span class="n">attributes</span> <span class="n">which</span> <span class="n">are</span> <span class="ow">not</span> <span class="kc">None</span>
                  <span class="mi">3</span><span class="p">:</span> <span class="n">shows</span> <span class="nb">all</span> <span class="n">attributes</span>
 </pre></div>
 </div>
@@ -1342,110 +1342,110 @@ master files without any loss of information. <code class="docutils literal"><sp
 is useful to obtain a full listing of all available attributes,
 but all information is preserved with the usually much less verbose
 <code class="docutils literal"><span class="pre">attributes_level=2</span></code>. This is illustrated by the following example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="c">## extract code begin: libtbx_phil_examples.py</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## extract code begin: libtbx_phil_examples.py</span>
 
-<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
-<span class="s">  minimization {</span>
-<span class="s">    input</span>
-<span class="s">      .help = &quot;File names and data labels.&quot;</span>
-<span class="s">      .multiple = True</span>
-<span class="s">    {</span>
-<span class="s">      file_name = None</span>
-<span class="s">        .type = path</span>
-<span class="s">      label = None</span>
-<span class="s">        .help = &quot;A unique substring of the data label is sufficient.&quot;</span>
-<span class="s">        .type = str</span>
-<span class="s">    }</span>
-<span class="s">  }</span>
-<span class="s">  &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">master_phil</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  minimization {</span>
+<span class="s2">    input</span>
+<span class="s2">      .help = &quot;File names and data labels.&quot;</span>
+<span class="s2">      .multiple = True</span>
+<span class="s2">    {</span>
+<span class="s2">      file_name = None</span>
+<span class="s2">        .type = path</span>
+<span class="s2">      label = None</span>
+<span class="s2">        .help = &quot;A unique substring of the data label is sufficient.&quot;</span>
+<span class="s2">        .type = str</span>
+<span class="s2">    }</span>
+<span class="s2">  }</span>
+<span class="s2">  &quot;&quot;&quot;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">attributes_level</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
   <span class="n">master_phil</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">attributes_level</span><span class="o">=</span><span class="n">attributes_level</span><span class="p">)</span>
 
-<span class="c">## extract code end</span>
+<span class="c1">## extract code end</span>
 </pre></div>
 </div>
 <p>Output with <code class="docutils literal"><span class="pre">attributes_level=0</span></code> (the default):</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span> <span class="p">{</span>
   <span class="nb">input</span> <span class="p">{</span>
-    <span class="n">file_name</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="k">None</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Output with <code class="docutils literal"><span class="pre">attributes_level=1</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span> <span class="p">{</span>
   <span class="nb">input</span>
-    <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s">&quot;File names and data labels.&quot;</span>
+    <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;File names and data labels.&quot;</span>
   <span class="p">{</span>
-    <span class="n">file_name</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s">&quot;A unique substring of the data label is sufficient.&quot;</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;A unique substring of the data label is sufficient.&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Output with <code class="docutils literal"><span class="pre">attributes_level=2</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span> <span class="p">{</span>
   <span class="nb">input</span>
-    <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s">&quot;File names and data labels.&quot;</span>
-    <span class="o">.</span><span class="n">multiple</span> <span class="o">=</span> <span class="k">True</span>
+    <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;File names and data labels.&quot;</span>
+    <span class="o">.</span><span class="n">multiple</span> <span class="o">=</span> <span class="kc">True</span>
   <span class="p">{</span>
-    <span class="n">file_name</span> <span class="o">=</span> <span class="k">None</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="kc">None</span>
       <span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">path</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s">&quot;A unique substring of the data label is sufficient.&quot;</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;A unique substring of the data label is sufficient.&quot;</span>
       <span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">str</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Output with <code class="docutils literal"><span class="pre">attributes_level=3</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">minimization</span>
-  <span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="k">None</span>
-  <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">None</span>
-  <span class="o">.</span><span class="n">caption</span> <span class="o">=</span> <span class="k">None</span>
-  <span class="o">.</span><span class="n">short_caption</span> <span class="o">=</span> <span class="k">None</span>
-  <span class="o">.</span><span class="n">optional</span> <span class="o">=</span> <span class="k">None</span>
-  <span class="o">.</span><span class="n">call</span> <span class="o">=</span> <span class="k">None</span>
-  <span class="o">.</span><span class="n">multiple</span> <span class="o">=</span> <span class="k">None</span>
-  <span class="o">.</span><span class="n">sequential_format</span> <span class="o">=</span> <span class="k">None</span>
-  <span class="o">.</span><span class="n">disable_add</span> <span class="o">=</span> <span class="k">None</span>
-  <span class="o">.</span><span class="n">disable_delete</span> <span class="o">=</span> <span class="k">None</span>
-  <span class="o">.</span><span class="n">expert_level</span> <span class="o">=</span> <span class="k">None</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">minimization</span>
+  <span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="o">.</span><span class="n">caption</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="o">.</span><span class="n">short_caption</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="o">.</span><span class="n">optional</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="o">.</span><span class="n">call</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="o">.</span><span class="n">multiple</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="o">.</span><span class="n">sequential_format</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="o">.</span><span class="n">disable_add</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="o">.</span><span class="n">disable_delete</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="o">.</span><span class="n">expert_level</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">{</span>
   <span class="nb">input</span>
-    <span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s">&quot;File names and data labels.&quot;</span>
-    <span class="o">.</span><span class="n">caption</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="o">.</span><span class="n">short_caption</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="o">.</span><span class="n">optional</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="o">.</span><span class="n">call</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="o">.</span><span class="n">multiple</span> <span class="o">=</span> <span class="k">True</span>
-    <span class="o">.</span><span class="n">sequential_format</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="o">.</span><span class="n">disable_add</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="o">.</span><span class="n">disable_delete</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="o">.</span><span class="n">expert_level</span> <span class="o">=</span> <span class="k">None</span>
+    <span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;File names and data labels.&quot;</span>
+    <span class="o">.</span><span class="n">caption</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="o">.</span><span class="n">short_caption</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="o">.</span><span class="n">optional</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="o">.</span><span class="n">call</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="o">.</span><span class="n">multiple</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="o">.</span><span class="n">sequential_format</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="o">.</span><span class="n">disable_add</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="o">.</span><span class="n">disable_delete</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="o">.</span><span class="n">expert_level</span> <span class="o">=</span> <span class="kc">None</span>
   <span class="p">{</span>
-    <span class="n">file_name</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">caption</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">short_caption</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">optional</span> <span class="o">=</span> <span class="k">None</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">caption</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">short_caption</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">optional</span> <span class="o">=</span> <span class="kc">None</span>
       <span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">path</span>
-      <span class="o">.</span><span class="n">multiple</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">input_size</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">expert_level</span> <span class="o">=</span> <span class="k">None</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s">&quot;A unique substring of the data label is sufficient.&quot;</span>
-      <span class="o">.</span><span class="n">caption</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">short_caption</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">optional</span> <span class="o">=</span> <span class="k">None</span>
+      <span class="o">.</span><span class="n">multiple</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">input_size</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">expert_level</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;A unique substring of the data label is sufficient.&quot;</span>
+      <span class="o">.</span><span class="n">caption</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">short_caption</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">optional</span> <span class="o">=</span> <span class="kc">None</span>
       <span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="nb">str</span>
-      <span class="o">.</span><span class="n">multiple</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">input_size</span> <span class="o">=</span> <span class="k">None</span>
-      <span class="o">.</span><span class="n">expert_level</span> <span class="o">=</span> <span class="k">None</span>
+      <span class="o">.</span><span class="n">multiple</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">input_size</span> <span class="o">=</span> <span class="kc">None</span>
+      <span class="o">.</span><span class="n">expert_level</span> <span class="o">=</span> <span class="kc">None</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

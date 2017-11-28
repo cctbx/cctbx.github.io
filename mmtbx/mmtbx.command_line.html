@@ -173,17 +173,17 @@ and raise an interpretable error.</p>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mmtbx.command_line</span> <span class="k">import</span> <span class="n">load_model_and_data</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mmtbx.command_line</span> <span class="k">import</span> <span class="n">load_model_and_data</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cmdline</span> <span class="o">=</span> <span class="n">load_model_and_data</span><span class="p">(</span>
-<span class="gp">... </span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;model.pdb&quot;</span><span class="p">,</span> <span class="s">&quot;data.mtz&quot;</span><span class="p">],</span>
+<span class="gp">... </span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;data.mtz&quot;</span><span class="p">],</span>
 <span class="gp">... </span> <span class="n">master_phil</span><span class="o">=</span><span class="n">master_phil</span><span class="p">,</span>
-<span class="gp">... </span> <span class="n">prefer_anomalous</span><span class="o">=</span><span class="k">True</span><span class="p">,</span>
-<span class="gp">... </span> <span class="n">set_wavelength_from_model_header</span><span class="o">=</span><span class="k">True</span><span class="p">,</span>
-<span class="gp">... </span> <span class="n">set_inelastic_form_factors</span><span class="o">=</span><span class="s">&quot;sasaki&quot;</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">prefer_anomalous</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">set_wavelength_from_model_header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">set_inelastic_form_factors</span><span class="o">=</span><span class="s2">&quot;sasaki&quot;</span><span class="p">,</span>
 <span class="gp">... </span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">pdb_hierarchy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="k">None</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">fmodel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="k">None</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">wavelength</span> <span class="ow">is</span> <span class="ow">not</span> <span class="k">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">pdb_hierarchy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">fmodel</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">wavelength</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 </pre></div>
 </div>
 <p class="rubric">Attributes</p>
@@ -341,25 +341,25 @@ multi_out pseudo-filehandle.</p>
 
 <p>A more complex example, which identifies suspect ligands based on electron
 density:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">master_phil</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">command_line</span><span class="o">.</span><span class="n">generate_master_phil_with_inputs</span><span class="p">(</span>
-<span class="gp">... </span>  <span class="n">enable_twin_law</span><span class="o">=</span><span class="k">True</span><span class="p">,</span>
-<span class="gp">... </span>  <span class="n">phil_string</span><span class="o">=</span><span class="s">&quot;&quot;&quot;</span>
-<span class="gp">... </span><span class="s">    hetatms_only = True</span>
-<span class="gp">... </span><span class="s">      .type = bool</span>
-<span class="gp">... </span><span class="s">    skip_single_atoms = True</span>
-<span class="gp">... </span><span class="s">      .type = bool</span>
-<span class="gp">... </span><span class="s">    min_acceptable_cc = 0.8</span>
-<span class="gp">... </span><span class="s">      .type = float&quot;&quot;&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">master_phil</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">command_line</span><span class="o">.</span><span class="n">generate_master_phil_with_inputs</span><span class="p">(</span>
+<span class="gp">... </span>  <span class="n">enable_twin_law</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">phil_string</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="gp">... </span><span class="s2">    hetatms_only = True</span>
+<span class="gp">... </span><span class="s2">      .type = bool</span>
+<span class="gp">... </span><span class="s2">    skip_single_atoms = True</span>
+<span class="gp">... </span><span class="s2">      .type = bool</span>
+<span class="gp">... </span><span class="s2">    min_acceptable_cc = 0.8</span>
+<span class="gp">... </span><span class="s2">      .type = float&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cmdline</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">command_line</span><span class="o">.</span><span class="n">load_model_and_data</span><span class="p">(</span>
 <span class="gp">... </span> <span class="n">args</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
 <span class="gp">... </span> <span class="n">master_phil</span><span class="o">=</span><span class="n">master_phil</span><span class="p">,</span>
 <span class="gp">... </span> <span class="n">out</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
-<span class="gp">... </span> <span class="n">process_pdb_file</span><span class="o">=</span><span class="k">True</span><span class="p">,</span>
-<span class="gp">... </span> <span class="n">create_fmodel</span><span class="o">=</span><span class="k">True</span><span class="p">,</span>
-<span class="gp">... </span> <span class="n">prefer_anomalous</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
+<span class="gp">... </span> <span class="n">process_pdb_file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">create_fmodel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">prefer_anomalous</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">start_log_file</span><span class="p">(</span><span class="s">&quot;bad_ligands.log&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">start_log_file</span><span class="p">(</span><span class="s2">&quot;bad_ligands.log&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">params</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bad_ligands</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">real_space_correlation</span><span class="o">.</span><span class="n">find_suspicious_residues</span><span class="p">(</span>
 <span class="gp">... </span>  <span class="n">fmodel</span><span class="o">=</span><span class="n">fmodel</span><span class="p">,</span>

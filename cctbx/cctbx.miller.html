@@ -94,13 +94,13 @@ reading from a file, or from a <a class="reference internal" href="cctbx.xray.st
 practice, the latter two options almost always return an array object rather
 than a set.)  Programmatic creation can be done directly, or through the
 convenience method <a class="reference internal" href="#cctbx.miller.build_set" title="cctbx.miller.build_set"><code class="xref py py-func docutils literal"><span class="pre">cctbx.miller.build_set()</span></code></a>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">miller</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">miller</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">crystal</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ms</span> <span class="o">=</span> <span class="n">miller</span><span class="o">.</span><span class="n">build_set</span><span class="p">(</span>
 <span class="gp">... </span>  <span class="n">crystal_symmetry</span><span class="o">=</span><span class="n">crystal</span><span class="o">.</span><span class="n">symmetry</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">space_group_symbol</span><span class="o">=</span><span class="s">&quot;P212121&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">space_group_symbol</span><span class="o">=</span><span class="s2">&quot;P212121&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">unit_cell</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">)),</span>
-<span class="gp">... </span>  <span class="n">anomalous_flag</span><span class="o">=</span><span class="k">False</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">anomalous_flag</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="gp">... </span>  <span class="n">d_min</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">ms</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 <span class="go">7</span>
@@ -111,14 +111,14 @@ convenience method <a class="reference internal" href="#cctbx.miller.build_set" 
 </pre></div>
 </div>
 <p>The same set, instantiated directly:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">miller</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">miller</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">crystal</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="k">import</span> <span class="n">flex</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ms</span> <span class="o">=</span> <span class="n">miller</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
 <span class="gp">... </span>  <span class="n">crystal_symmetry</span><span class="o">=</span><span class="n">crystal</span><span class="o">.</span><span class="n">symmetry</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">space_group_symbol</span><span class="o">=</span><span class="s">&quot;P212121&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">space_group_symbol</span><span class="o">=</span><span class="s2">&quot;P212121&quot;</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">unit_cell</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">)),</span>
-<span class="gp">... </span>  <span class="n">anomalous_flag</span><span class="o">=</span><span class="k">False</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">anomalous_flag</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="gp">... </span>  <span class="n">indices</span><span class="o">=</span><span class="n">flex</span><span class="o">.</span><span class="n">miller_index</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]))</span>
 </pre></div>
@@ -126,7 +126,7 @@ convenience method <a class="reference internal" href="#cctbx.miller.build_set" 
 <p>From here we can retrieve a variety of information, even before we have
 experimental data.  For instance, exploring systematic absences (starting
 from the above example):</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">sgtbx</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">sgtbx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">point_group</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">space_group</span><span class="p">()</span><span class="o">.</span><span class="n">build_derived_point_group</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ms_base</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">customized_copy</span><span class="p">(</span><span class="n">space_group</span><span class="o">=</span><span class="n">point_group</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ms_all</span> <span class="o">=</span> <span class="n">ms_base</span><span class="o">.</span><span class="n">complete_set</span><span class="p">()</span>
@@ -178,14 +178,14 @@ copy any underlying <code class="docutils literal"><span class="pre">flex</span>
 class).  This means that modifications to these arrays via the new copy will
 be propagated back to the original object.  If you want to avoid this
 behavior, use the <code class="docutils literal"><span class="pre">deep_copy()</span></code> method:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ms_base</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">customized_copy</span><span class="p">(</span><span class="n">space_group</span><span class="o">=</span><span class="n">point_group</span><span class="p">)</span><span class="o">.</span><span class="n">deep_copy</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ms_base</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">customized_copy</span><span class="p">(</span><span class="n">space_group</span><span class="o">=</span><span class="n">point_group</span><span class="p">)</span><span class="o">.</span><span class="n">deep_copy</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>2) The comparison of sets in <code class="docutils literal"><span class="pre">lone_set()</span></code>, and in general most other methods
 that involve an <code class="docutils literal"><span class="pre">other</span></code> argument, will fail if the crystal symmetry is
 not identical.  For instance, in the above example, if we instead tried to
 call <code class="docutils literal"><span class="pre">lone_set()</span></code> using the original <code class="docutils literal"><span class="pre">P</span> <span class="pre">21</span> <span class="pre">21</span> <span class="pre">21</span></code> set as <code class="docutils literal"><span class="pre">other</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sys_abs</span> <span class="o">=</span> <span class="n">ms_all</span><span class="o">.</span><span class="n">lone_set</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">ms</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys_abs</span> <span class="o">=</span> <span class="n">ms_all</span><span class="o">.</span><span class="n">lone_set</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">ms</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
   File <span class="nb">&quot;/home/nat/src/cctbx_project/cctbx/miller/__init__.py&quot;</span>, line <span class="m">1047</span>, in <span class="n">lone_set</span>
@@ -196,7 +196,7 @@ call <code class="docutils literal"><span class="pre">lone_set()</span></code> u
 </pre></div>
 </div>
 <p>We can prevent this if we want:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sys_abs</span> <span class="o">=</span> <span class="n">ms_all</span><span class="o">.</span><span class="n">lone_set</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">ms</span><span class="p">,</span> <span class="n">assert_is_similar_symmetry</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys_abs</span> <span class="o">=</span> <span class="n">ms_all</span><span class="o">.</span><span class="n">lone_set</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">ms</span><span class="p">,</span> <span class="n">assert_is_similar_symmetry</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>However, you should use caution when disabling the symmetry check, as this
@@ -210,8 +210,8 @@ additional APIs are required.  Methods for reading input files are covered in
 more detail in the documentation for <a class="reference internal" href="../iotbx/iotbx.reflection_file_reader.html#module-iotbx.reflection_file_reader" title="iotbx.reflection_file_reader"><code class="xref py py-mod docutils literal"><span class="pre">iotbx.reflection_file_reader</span></code></a>
 and <a class="reference internal" href="../iotbx/iotbx.file_reader.html#module-iotbx.file_reader" title="iotbx.file_reader"><code class="xref py py-mod docutils literal"><span class="pre">iotbx.file_reader</span></code></a>, but in the simplest case we can obtain
 experimental data in just a couple of lines of code:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hkl_in</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s">&quot;data.sca&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hkl_in</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;data.sca&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">miller_arrays</span> <span class="o">=</span> <span class="n">hkl_in</span><span class="o">.</span><span class="n">as_miller_arrays</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i_obs</span> <span class="o">=</span> <span class="n">miller_arrays</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
@@ -222,7 +222,7 @@ obtain the symmetry information separately and pass it to
 <code class="docutils literal"><span class="pre">as_miller_arrays()</span></code>.</p>
 <p>Some of the file metadata will be preserved in the embedded <code class="docutils literal"><span class="pre">array_info</span></code>
 object; other attributes are properties of the array itself:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">i_obs</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">i_obs</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="go">data.sca:I(+),SIGI(+),I(-),SIGI(-)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">i_obs</span><span class="o">.</span><span class="n">observation_type</span><span class="p">()</span>
 <span class="go">xray.intensity</span>
@@ -245,7 +245,7 @@ itself - this is because the <code class="docutils literal"><span class="pre">sh
 and original column labels; elsewhere, these attributes are used to select
 specific arrays from multi-purpose formats such as MTZ.</p>
 <p>From here we can quickly convert to amplitudes:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f_obs</span> <span class="o">=</span> <span class="n">i_obs</span><span class="o">.</span><span class="n">f_sq_as_f</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f_obs</span> <span class="o">=</span> <span class="n">i_obs</span><span class="o">.</span><span class="n">f_sq_as_f</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">f_obs</span><span class="o">.</span><span class="n">observation_type</span><span class="p">()</span>
 <span class="go">xray.amplitude</span>
 </pre></div>
@@ -259,19 +259,19 @@ sufficient.)</p>
 format only), SHELX, or CNS formats, although some restrictions apply.  Some
 of these methods (where the format is limited to certain data types) can
 directly write to a file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">i_obs</span><span class="o">.</span><span class="n">export_as_scalepack_unmerged</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s">&quot;data2.sca&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;data.hkl&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">i_obs</span><span class="o">.</span><span class="n">export_as_scalepack_unmerged</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;data2.sca&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.hkl&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i_obs</span><span class="o">.</span><span class="n">export_as_shelx_hklf</span><span class="p">(</span><span class="n">file_object</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Others require multiple steps, but this has the advantage of allowing multiple
 arrays to be combined (provided that they have identical crystal symmetry):</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mtz_dataset</span> <span class="o">=</span> <span class="n">i_obs</span><span class="o">.</span><span class="n">as_mtz_dataset</span><span class="p">(</span><span class="n">column_root_label</span><span class="o">=</span><span class="s">&quot;I&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mtz_dataset</span><span class="o">.</span><span class="n">add_miller_array</span><span class="p">(</span><span class="n">f_obs</span><span class="p">,</span> <span class="n">column_root_label</span><span class="o">=</span><span class="s">&quot;F&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mtz_dataset</span> <span class="o">=</span> <span class="n">i_obs</span><span class="o">.</span><span class="n">as_mtz_dataset</span><span class="p">(</span><span class="n">column_root_label</span><span class="o">=</span><span class="s2">&quot;I&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mtz_dataset</span><span class="o">.</span><span class="n">add_miller_array</span><span class="p">(</span><span class="n">f_obs</span><span class="p">,</span> <span class="n">column_root_label</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mtz_dataset</span><span class="o">.</span><span class="n">add_miller_array</span><span class="p">(</span><span class="n">r_free_flags</span><span class="p">,</span>
-<span class="gp">... </span>  <span class="n">column_root_label</span><span class="o">=</span><span class="s">&quot;FreeR_flag&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mtz_dataset</span><span class="o">.</span><span class="n">mtz_object</span><span class="p">()</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;data.mtz&quot;</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="n">column_root_label</span><span class="o">=</span><span class="s2">&quot;FreeR_flag&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mtz_dataset</span><span class="o">.</span><span class="n">mtz_object</span><span class="p">()</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;data.mtz&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In addition to conventional formats, since all of the internal types can be
@@ -282,7 +282,7 @@ serialized as Python pickles, the same applies to set and array objects.</p>
 is often significantly more complicated than implied in the previous section.
 Suppose for example we have an MTZ
 file with these columns (output excerpted from <code class="docutils literal"><span class="pre">phenix.mtz.dump</span> <span class="pre">data.mtz</span></code>):</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">label</span>      <span class="c">#valid  %valid    min     max type</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">label</span>      <span class="c1">#valid  %valid    min     max type</span>
 <span class="n">H</span>           <span class="mi">75612</span> <span class="mf">100.00</span><span class="o">%</span> <span class="o">-</span><span class="mf">40.00</span>   <span class="mf">38.00</span> <span class="n">H</span><span class="p">:</span> <span class="n">index</span> <span class="n">h</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">l</span>
 <span class="n">K</span>           <span class="mi">75612</span> <span class="mf">100.00</span><span class="o">%</span>   <span class="mf">0.00</span>   <span class="mf">25.00</span> <span class="n">H</span><span class="p">:</span> <span class="n">index</span> <span class="n">h</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">l</span>
 <span class="n">L</span>           <span class="mi">75612</span> <span class="mf">100.00</span><span class="o">%</span>   <span class="mf">0.00</span>   <span class="mf">70.00</span> <span class="n">H</span><span class="p">:</span> <span class="n">index</span> <span class="n">h</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">l</span>
@@ -300,8 +300,8 @@ actions will behave sensibly: we must make sure that the input data are of
 the correct type, symmetry-unique, using conventional indices, and consistent
 with the R-free flags; we also want to use the R-free flags to separate out
 &#8220;working&#8221; and &#8220;test&#8221; arrays.  To begin with, we read in the data:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hkl_in</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s">&quot;data.mtz&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hkl_in</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;data.mtz&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">miller_arrays</span> <span class="o">=</span> <span class="n">hkl_in</span><span class="o">.</span><span class="n">as_miller_arrays</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i_obs</span> <span class="o">=</span> <span class="n">miller_arrays</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">flags</span> <span class="o">=</span> <span class="n">miller_arrays</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -322,7 +322,7 @@ A number of consistency checks built in to the various set and array methods
 may raise exceptions if these steps are skipped - for instance, the separate
 storage of <code class="docutils literal"><span class="pre">(h,k,l)</span></code> and <code class="docutils literal"><span class="pre">(-h,-k,-l)</span></code> requires us to expand the R-free
 flags to be &#8220;anomalous&#8221;, and if we skip that step:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f_obs</span><span class="p">,</span> <span class="n">flags</span> <span class="o">=</span> <span class="n">f_obs</span><span class="o">.</span><span class="n">common_sets</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">flags</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f_obs</span><span class="p">,</span> <span class="n">flags</span> <span class="o">=</span> <span class="n">f_obs</span><span class="o">.</span><span class="n">common_sets</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">flags</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
   File <span class="nb">&quot;/home/nat/src/cctbx_project/cctbx/miller/__init__.py&quot;</span>, line <span class="m">1032</span>, in <span class="n">common_sets</span>
@@ -333,7 +333,7 @@ flags to be &#8220;anomalous&#8221;, and if we skip that step:</p>
 </pre></div>
 </div>
 <p>Or if we omit the call to <code class="docutils literal"><span class="pre">common_sets()</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f_obs_work</span> <span class="o">=</span> <span class="n">f_obs</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">~</span><span class="n">flags_plus_minus</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f_obs_work</span> <span class="o">=</span> <span class="n">f_obs</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">~</span><span class="n">flags_plus_minus</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
   File <span class="nb">&quot;/home/nat/src/cctbx_project/cctbx/miller/__init__.py&quot;</span>, line <span class="m">3232</span>, in <span class="n">select</span>
@@ -365,7 +365,7 @@ steps.</p>
 <p>Here is a slightly more complex example of comparing data output by a
 refinement program.  The input arrays are assumed to already be merged and
 in the same ASU, but normally this would be taken care of by previous routines.</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="k">def</span> <span class="nf">compute_r_factors</span> <span class="p">(</span><span class="n">fobs</span><span class="p">,</span> <span class="n">fmodel</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_r_factors</span> <span class="p">(</span><span class="n">fobs</span><span class="p">,</span> <span class="n">fmodel</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span> <span class="p">:</span>
   <span class="n">fmodel</span><span class="p">,</span> <span class="n">fobs</span> <span class="o">=</span> <span class="n">fmodel</span><span class="o">.</span><span class="n">common_sets</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">fobs</span><span class="p">)</span>
   <span class="n">fmodel</span><span class="p">,</span> <span class="n">flags</span> <span class="o">=</span> <span class="n">fmodel</span><span class="o">.</span><span class="n">common_sets</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">flags</span><span class="p">)</span>
   <span class="n">fc_work</span> <span class="o">=</span> <span class="n">fmodel</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">data</span><span class="p">()))</span>
@@ -374,9 +374,9 @@ in the same ASU, but normally this would be taken care of by previous routines.<
   <span class="n">fo_test</span> <span class="o">=</span> <span class="n">fobs</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">data</span><span class="p">())</span>
   <span class="n">r_work</span> <span class="o">=</span> <span class="n">fo_work</span><span class="o">.</span><span class="n">r1_factor</span><span class="p">(</span><span class="n">fc_work</span><span class="p">)</span>
   <span class="n">r_free</span> <span class="o">=</span> <span class="n">fo_test</span><span class="o">.</span><span class="n">r1_factor</span><span class="p">(</span><span class="n">fc_test</span><span class="p">)</span>
-  <span class="nb">print</span> <span class="s">&quot;r_work = %.4f&quot;</span> <span class="o">%</span> <span class="n">r_work</span>
-  <span class="nb">print</span> <span class="s">&quot;r_free = %.4f&quot;</span> <span class="o">%</span> <span class="n">r_free</span>
-  <span class="nb">print</span> <span class="s">&quot;&quot;</span>
+  <span class="nb">print</span> <span class="s2">&quot;r_work = </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">r_work</span>
+  <span class="nb">print</span> <span class="s2">&quot;r_free = </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">r_free</span>
+  <span class="nb">print</span> <span class="s2">&quot;&quot;</span>
   <span class="n">flags</span><span class="o">.</span><span class="n">setup_binner</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
   <span class="n">fo_work</span><span class="o">.</span><span class="n">use_binning_of</span><span class="p">(</span><span class="n">flags</span><span class="p">)</span>
   <span class="n">fc_work</span><span class="o">.</span><span class="n">use_binner_of</span><span class="p">(</span><span class="n">fo_work</span><span class="p">)</span>
@@ -391,13 +391,13 @@ in the same ASU, but normally this would be taken care of by previous routines.<
     <span class="n">fc_test_bin</span> <span class="o">=</span> <span class="n">fc_test</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">sel_test</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">fc_test_bin</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="k">continue</span>
     <span class="n">r_work_bin</span> <span class="o">=</span> <span class="n">fo_work_bin</span><span class="o">.</span><span class="n">r1_factor</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">fc_work_bin</span><span class="p">,</span>
-      <span class="n">assume_index_matching</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+      <span class="n">assume_index_matching</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">r_free_bin</span> <span class="o">=</span> <span class="n">fo_test_bin</span><span class="o">.</span><span class="n">r1_factor</span><span class="p">(</span><span class="n">other</span><span class="o">=</span><span class="n">fc_test_bin</span><span class="p">,</span>
-      <span class="n">assume_index_matching</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+      <span class="n">assume_index_matching</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">cc_work_bin</span> <span class="o">=</span> <span class="n">fo_work_bin</span><span class="o">.</span><span class="n">correlation</span><span class="p">(</span><span class="n">fc_work_bin</span><span class="p">)</span><span class="o">.</span><span class="n">coefficient</span><span class="p">()</span>
     <span class="n">cc_free_bin</span> <span class="o">=</span> <span class="n">fo_test_bin</span><span class="o">.</span><span class="n">correlation</span><span class="p">(</span><span class="n">fc_test_bin</span><span class="p">)</span><span class="o">.</span><span class="n">coefficient</span><span class="p">()</span>
-    <span class="n">legend</span> <span class="o">=</span> <span class="n">flags</span><span class="o">.</span><span class="n">binner</span><span class="p">()</span><span class="o">.</span><span class="n">bin_legend</span><span class="p">(</span><span class="n">i_bin</span><span class="p">,</span> <span class="n">show_counts</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="s">&quot;%s  %8d %8d  %.4f %.4f  %.3f %.3f&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">legend</span><span class="p">,</span> <span class="n">fo_work_bin</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="n">flags</span><span class="o">.</span><span class="n">binner</span><span class="p">()</span><span class="o">.</span><span class="n">bin_legend</span><span class="p">(</span><span class="n">i_bin</span><span class="p">,</span> <span class="n">show_counts</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">  </span><span class="si">%8d</span><span class="s2"> </span><span class="si">%8d</span><span class="s2">  </span><span class="si">%.4f</span><span class="s2"> </span><span class="si">%.4f</span><span class="s2">  </span><span class="si">%.3f</span><span class="s2"> </span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">legend</span><span class="p">,</span> <span class="n">fo_work_bin</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span>
       <span class="n">fo_test_bin</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">r_work_bin</span><span class="p">,</span> <span class="n">r_free_bin</span><span class="p">,</span> <span class="n">cc_work_bin</span><span class="p">,</span> <span class="n">cc_free_bin</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -411,7 +411,7 @@ in the same ASU, but normally this would be taken care of by previous routines.<
 <div class="section" id="from-arrays-to-maps">
 <h2>From arrays to maps<a class="headerlink" href="#from-arrays-to-maps" title="Permalink to this headline">¶</a></h2>
 <p>TODO</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">fft_map</span> <span class="o">=</span> <span class="n">map_coeffs</span><span class="o">.</span><span class="n">fft_map</span><span class="p">(</span><span class="n">resolution_factor</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fft_map</span> <span class="o">=</span> <span class="n">map_coeffs</span><span class="o">.</span><span class="n">fft_map</span><span class="p">(</span><span class="n">resolution_factor</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
 <span class="n">fft_map</span><span class="o">.</span><span class="n">apply_sigma_scaling</span><span class="p">()</span>
 <span class="n">real_map</span> <span class="o">=</span> <span class="n">fft_map</span><span class="o">.</span><span class="n">real_map_unpadded</span><span class="p">()</span>
 <span class="n">site_map_values</span> <span class="o">=</span> <span class="n">flex</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
@@ -424,12 +424,12 @@ in the same ASU, but normally this would be taken care of by previous routines.<
 <code class="docutils literal"><span class="pre">cctbx.miller</span></code>, here is a complete six-line script to convert all sets of map
 coefficients in an MTZ file to sigma-scaled CCP4-format map files (covering the
 unit cell):</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
-<span class="n">hkl_in</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s">&quot;map_coeffs.mtz&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
+<span class="n">hkl_in</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;map_coeffs.mtz&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i_map</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hkl_in</span><span class="o">.</span><span class="n">as_miller_arrays</span><span class="p">())</span> <span class="p">:</span>
   <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">is_complex_array</span><span class="p">()</span> <span class="p">:</span>
     <span class="n">fft_map</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">fft_map</span><span class="p">(</span><span class="n">resolution_factor</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span><span class="o">.</span><span class="n">apply_sigma_scaling</span><span class="p">()</span>
-    <span class="n">fft_map</span><span class="o">.</span><span class="n">as_ccp4_map</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s">&quot;map_%d.ccp4&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i_map</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">fft_map</span><span class="o">.</span><span class="n">as_ccp4_map</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;map_</span><span class="si">%d</span><span class="s2">.ccp4&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i_map</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>See the documentation for <a class="reference internal" href="cctbx.maptbx.html#module-cctbx.maptbx" title="cctbx.maptbx"><code class="xref py py-mod docutils literal"><span class="pre">cctbx.maptbx</span></code></a> for details of working with

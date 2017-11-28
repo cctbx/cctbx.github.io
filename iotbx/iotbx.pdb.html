@@ -70,19 +70,19 @@ well.</p>
 <h2>Quick overview<a class="headerlink" href="#quick-overview" title="Permalink to this headline">¶</a></h2>
 <p>Here is a simple example of reading in a single-model PDB (or mmCIF) model and
 traversing the hierarchy, deleting any zinc atoms:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="k">import</span> <span class="n">hierarchy</span>
-<span class="n">pdb_in</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s">&quot;model.pdb&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="k">import</span> <span class="n">hierarchy</span>
+<span class="n">pdb_in</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">only_model</span><span class="p">()</span><span class="o">.</span><span class="n">chains</span><span class="p">()</span> <span class="p">:</span>
   <span class="k">for</span> <span class="n">residue_group</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">residue_groups</span><span class="p">()</span> <span class="p">:</span>
     <span class="k">for</span> <span class="n">atom_group</span> <span class="ow">in</span> <span class="n">residue_group</span><span class="o">.</span><span class="n">atom_groups</span><span class="p">()</span> <span class="p">:</span>
       <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">atom_group</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span> <span class="p">:</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s">&quot;ZN&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;ZN&quot;</span><span class="p">)</span> <span class="p">:</span>
           <span class="n">atom_group</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">atom_group</span><span class="o">.</span><span class="n">atoms_size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
         <span class="n">residue_group</span><span class="o">.</span><span class="n">remove_atom_group</span><span class="p">(</span><span class="n">atom_group</span><span class="p">)</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">residue_group</span><span class="o">.</span><span class="n">atom_groups_size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
       <span class="n">chain</span><span class="o">.</span><span class="n">remove_residue_group</span><span class="p">(</span><span class="n">residue_group</span><span class="p">)</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;model_Zn_free.pdb&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;model_Zn_free.pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">as_pdb_string</span><span class="p">(</span>
   <span class="n">crystal_symmetry</span><span class="o">=</span><span class="n">pdb_in</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">crystal_symmetry</span><span class="p">()))</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -90,8 +90,8 @@ traversing the hierarchy, deleting any zinc atoms:</p>
 </div>
 <p>The hierarchy provides an atom selection syntax that allows us to perform
 the same operation with much less code:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">sel_cache</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">atom_selection_cache</span><span class="p">()</span>
-<span class="n">non_zn_sel</span> <span class="o">=</span> <span class="n">sel_cache</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="s">&quot;not (resname ZN)&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sel_cache</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">atom_selection_cache</span><span class="p">()</span>
+<span class="n">non_zn_sel</span> <span class="o">=</span> <span class="n">sel_cache</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="s2">&quot;not (resname ZN)&quot;</span><span class="p">)</span>
 <span class="n">hierarchy_new</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">non_zn_sel</span><span class="p">)</span>
 <span class="o">...</span>
 </pre></div>
@@ -100,8 +100,8 @@ the same operation with much less code:</p>
 structure in place.</p>
 <p>For applications that deal with actual crystal scattering, in addition to the
 PDB hierarchy we also need the corresponding X-ray structure:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="k">import</span> <span class="n">hierarchy</span>
-<span class="n">pdb_in</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s">&quot;model.pdb&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="k">import</span> <span class="n">hierarchy</span>
+<span class="n">pdb_in</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">)</span>
 <span class="n">xray_structure</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">xray_structure_simple</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -132,7 +132,7 @@ iotbx.pdb facilities for handling very large models.</p>
 <div class="section" id="real-world-pdb-files">
 <h3>Real-world PDB files<a class="headerlink" href="#real-world-pdb-files" title="Permalink to this headline">¶</a></h3>
 <p>The simplicity of the PDB format is only superficial and, in the general case, stops after the initial parsing level. The structure of the PDB file implies a hierarchy of objects. A first approximation is this hierarchical view is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">model</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">model</span>
   <span class="n">chain</span>
     <span class="n">residue</span>
       <span class="n">atom</span>
@@ -154,7 +154,7 @@ difficulties encountered while pursuing this goal were:</p>
 <p>These difficulties are best illustrated with examples. An old version of PDB
 entry 2IZQ (from Aug 2008) includes a chain with conformers that have different
 sequences, the residue with resseq 11 in chain A, atoms 220 through 283:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">HEADER</span>    <span class="n">ANTIBIOTIC</span>                              <span class="mi">26</span><span class="o">-</span><span class="n">JUL</span><span class="o">-</span><span class="mi">06</span>   <span class="mi">2</span><span class="n">IZQ</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HEADER</span>    <span class="n">ANTIBIOTIC</span>                              <span class="mi">26</span><span class="o">-</span><span class="n">JUL</span><span class="o">-</span><span class="mi">06</span>   <span class="mi">2</span><span class="n">IZQ</span>
 <span class="n">ATOM</span>    <span class="mi">220</span>  <span class="n">N</span>  <span class="n">ATRP</span> <span class="n">A</span>  <span class="mi">11</span>      <span class="mf">20.498</span>  <span class="mf">12.832</span>  <span class="mf">34.558</span>  <span class="mf">0.50</span>  <span class="mf">6.03</span>           <span class="n">N</span>
 <span class="o">................</span><span class="n">ATRP</span> <span class="n">A</span>  <span class="mi">11</span> <span class="o">...................................................</span>
 <span class="n">ATOM</span>    <span class="mi">243</span>  <span class="n">HH2ATRP</span> <span class="n">A</span>  <span class="mi">11</span>      <span class="mf">15.522</span>   <span class="mf">9.077</span>  <span class="mf">38.323</span>  <span class="mf">0.50</span> <span class="mf">10.40</span>           <span class="n">H</span>
@@ -189,7 +189,7 @@ PDB processing library is suitable as a component of an automated system only
 if it handles them sensibly.</p>
 <p>An old version of PDB entry 1ZEH (Aug 2008) includes a chain with consecutive
 duplicate resseq+icode, atoms 878 through 894:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">HEADER</span>    <span class="n">HORMONE</span>                                 <span class="mi">01</span><span class="o">-</span><span class="n">MAY</span><span class="o">-</span><span class="mi">98</span>   <span class="mi">1</span><span class="n">ZEH</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HEADER</span>    <span class="n">HORMONE</span>                                 <span class="mi">01</span><span class="o">-</span><span class="n">MAY</span><span class="o">-</span><span class="mi">98</span>   <span class="mi">1</span><span class="n">ZEH</span>
 <span class="n">HETATM</span>  <span class="mi">878</span>  <span class="n">C1</span> <span class="n">ACRS</span>     <span class="mi">5</span>      <span class="mf">12.880</span>  <span class="mf">14.021</span>   <span class="mf">1.197</span>  <span class="mf">0.50</span> <span class="mf">33.23</span>           <span class="n">C</span>
 <span class="n">HETATM</span>  <span class="mi">879</span>  <span class="n">C1</span> <span class="n">BCRS</span>     <span class="mi">5</span>      <span class="mf">12.880</span>  <span class="mf">14.007</span>   <span class="mf">1.210</span>  <span class="mf">0.50</span> <span class="mf">34.27</span>           <span class="n">C</span>
 <span class="o">................</span><span class="n">ACRS</span>     <span class="mi">5</span> <span class="o">...................................................</span>
@@ -212,7 +212,7 @@ avoided, if possible.</p>
 consecutively. However, as mentioned in the introduction, the PDB format is
 also the predominant working format. Some programs produce files with
 conformers separated in this way (this file was provided to us by a user):</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">ATOM</span>   <span class="mi">1716</span>  <span class="n">N</span>  <span class="n">ALEU</span>   <span class="mi">190</span>      <span class="mf">28.628</span>   <span class="mf">4.549</span>  <span class="mf">20.230</span>  <span class="mf">0.70</span>  <span class="mf">3.78</span>           <span class="n">N</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ATOM</span>   <span class="mi">1716</span>  <span class="n">N</span>  <span class="n">ALEU</span>   <span class="mi">190</span>      <span class="mf">28.628</span>   <span class="mf">4.549</span>  <span class="mf">20.230</span>  <span class="mf">0.70</span>  <span class="mf">3.78</span>           <span class="n">N</span>
 <span class="n">ATOM</span>   <span class="mi">1717</span>  <span class="n">CA</span> <span class="n">ALEU</span>   <span class="mi">190</span>      <span class="mf">27.606</span>   <span class="mf">5.007</span>  <span class="mf">19.274</span>  <span class="mf">0.70</span>  <span class="mf">3.71</span>           <span class="n">C</span>
 <span class="n">ATOM</span>   <span class="mi">1718</span>  <span class="n">CB</span> <span class="n">ALEU</span>   <span class="mi">190</span>      <span class="mf">26.715</span>   <span class="mf">3.852</span>  <span class="mf">18.800</span>  <span class="mf">0.70</span>  <span class="mf">4.15</span>           <span class="n">C</span>
 <span class="n">ATOM</span>   <span class="mi">1719</span>  <span class="n">CG</span> <span class="n">ALEU</span>   <span class="mi">190</span>      <span class="mf">25.758</span>   <span class="mf">4.277</span>  <span class="mf">17.672</span>  <span class="mf">0.70</span>  <span class="mf">4.34</span>           <span class="n">C</span>
@@ -258,7 +258,7 @@ covalently bound&#8221;). Complex rules imply complex implementations, are diffi
 to explain and understand, tend to lead to surprises, and are therefore likely
 to be rejected by the community. With this and the real-world situations in
 mind, we arrived at the following primary organization of the PDB hierarchy:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">Primary</span> <span class="n">PDB</span> <span class="n">hierarchy</span><span class="p">:</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Primary</span> <span class="n">PDB</span> <span class="n">hierarchy</span><span class="p">:</span>
 
   <span class="n">model</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="nb">id</span>
@@ -282,7 +282,7 @@ be introduced to cover all the real-world cases shown above. The residue_group
 and atom_group types are new and unusual. Before we go into the details of
 these types, it will be helpful to consider the bigger picture by introducing
 the alternative secondary view of the PDB hierarchy:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">Secondary</span> <span class="n">view</span> <span class="n">of</span> <span class="n">PDB</span> <span class="n">hierarchy</span><span class="p">:</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Secondary</span> <span class="n">view</span> <span class="n">of</span> <span class="n">PDB</span> <span class="n">hierarchy</span><span class="p">:</span>
 
   <span class="n">model</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="nb">id</span>
@@ -311,7 +311,7 @@ the alternative secondary view of the PDB hierarchy:</p>
 given by a block of consecutive ATOM or HETATM records with identical
 resseq+icode columns (SIGATM, ANISOU, and SIGUIJ records may be interleaved),
 e.g.:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">ATOM</span>    <span class="mi">234</span>  <span class="n">H</span>  <span class="n">ATRP</span> <span class="n">A</span>  <span class="mi">11</span>      <span class="mf">20.540</span>  <span class="mf">12.567</span>  <span class="mf">33.741</span>  <span class="mf">0.50</span>  <span class="mf">7.24</span>           <span class="n">H</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ATOM</span>    <span class="mi">234</span>  <span class="n">H</span>  <span class="n">ATRP</span> <span class="n">A</span>  <span class="mi">11</span>      <span class="mf">20.540</span>  <span class="mf">12.567</span>  <span class="mf">33.741</span>  <span class="mf">0.50</span>  <span class="mf">7.24</span>           <span class="n">H</span>
 <span class="n">ATOM</span>    <span class="mi">235</span>  <span class="n">HA</span> <span class="n">ATRP</span> <span class="n">A</span>  <span class="mi">11</span>      <span class="mf">20.771</span>  <span class="mf">12.306</span>  <span class="mf">36.485</span>  <span class="mf">0.50</span>  <span class="mf">6.28</span>           <span class="n">H</span>
 <span class="n">ATOM</span>    <span class="mi">244</span>  <span class="n">N</span>  <span class="n">CPHE</span> <span class="n">A</span>  <span class="mi">11</span>      <span class="mf">20.226</span>  <span class="mf">13.044</span>  <span class="mf">34.556</span>  <span class="mf">0.15</span>  <span class="mf">6.35</span>           <span class="n">N</span>
 <span class="n">ATOM</span>    <span class="mi">245</span>  <span class="n">CA</span> <span class="n">CPHE</span> <span class="n">A</span>  <span class="mi">11</span>      <span class="mf">20.950</span>  <span class="mf">12.135</span>  <span class="mf">35.430</span>  <span class="mf">0.15</span>  <span class="mf">5.92</span>
@@ -320,7 +320,7 @@ e.g.:</p>
 <p>However, there is an important pre-condition: unless a sub-block of ATOM
 records with identical resname+resseq+icode columns contains a main-conformer
 atom (almost &#8220;blank altloc&#8221;), e.g.:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">HEADER</span>    <span class="n">ANTIBIOTIC</span> <span class="n">RESISTANCE</span>                   <span class="mi">07</span><span class="o">-</span><span class="n">MAY</span><span class="o">-</span><span class="mi">97</span>   <span class="mi">1</span><span class="n">AJQ</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HEADER</span>    <span class="n">ANTIBIOTIC</span> <span class="n">RESISTANCE</span>                   <span class="mi">07</span><span class="o">-</span><span class="n">MAY</span><span class="o">-</span><span class="mi">97</span>   <span class="mi">1</span><span class="n">AJQ</span>
 <span class="n">CRYST1</span>   <span class="mf">52.120</span>   <span class="mf">65.080</span>   <span class="mf">76.300</span> <span class="mf">100.20</span> <span class="mf">111.44</span> <span class="mf">105.81</span> <span class="n">P</span> <span class="mi">1</span>           <span class="mi">1</span>
 <span class="n">HETATM</span> <span class="mi">6097</span> <span class="n">CA</span>    <span class="n">CA</span>     <span class="mi">1</span>       <span class="mf">5.676</span>  <span class="mf">34.115</span>  <span class="mf">52.446</span>  <span class="mf">1.00</span> <span class="mf">18.50</span>          <span class="n">CA</span>
 <span class="n">HETATM</span> <span class="mi">6100</span>  <span class="n">C2</span>  <span class="n">SPA</span>     <span class="mi">1</span>      <span class="mf">11.860</span>  <span class="mf">36.159</span>  <span class="mf">33.853</span>  <span class="mf">1.00</span> <span class="mf">14.30</span>           <span class="n">C</span>
@@ -361,7 +361,7 @@ aspects of alternative conformations:</p>
 <p><strong>Main conf. atom</strong> : an atom with 1) a blank altloc character, and 2) no other
 atom with the same name+resname (but different altloc) in the residue group.
 This second condition is needed for cases like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">HEADER</span>    <span class="n">HYDROLASE</span>                               <span class="mi">12</span><span class="o">-</span><span class="n">MAR</span><span class="o">-</span><span class="mi">04</span>   <span class="mi">1</span><span class="n">SO7</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HEADER</span>    <span class="n">HYDROLASE</span>                               <span class="mi">12</span><span class="o">-</span><span class="n">MAR</span><span class="o">-</span><span class="mi">04</span>   <span class="mi">1</span><span class="n">SO7</span>
 <span class="n">ATOM</span>   <span class="mi">2460</span>  <span class="n">CG1</span> <span class="n">VAL</span> <span class="n">A</span> <span class="mi">325</span>     <span class="o">-</span><span class="mf">23.284</span>  <span class="mf">97.713</span>  <span class="mf">15.815</span>  <span class="mf">0.66</span> <span class="mf">21.74</span>           <span class="n">C</span>
 <span class="n">ATOM</span>   <span class="mi">2461</span>  <span class="n">CG1AVAL</span> <span class="n">A</span> <span class="mi">325</span>     <span class="o">-</span><span class="mf">23.010</span>  <span class="mf">97.616</span>  <span class="mf">18.295</span>  <span class="mf">0.66</span> <span class="mf">22.88</span>           <span class="n">C</span>
 <span class="n">ATOM</span>   <span class="mi">2462</span>  <span class="n">CG2BVAL</span> <span class="n">A</span> <span class="mi">325</span>     <span class="o">-</span><span class="mf">24.819</span>  <span class="mf">96.373</span>  <span class="mf">17.146</span>  <span class="mf">0.66</span> <span class="mf">22.57</span>           <span class="n">C</span>
@@ -397,7 +397,7 @@ is up to the application how to react to the diagnostics.</p>
 <p>The phenix.pdb.hierarchy command can be used to quickly obtain a summary of the
 hierarchy in a PDB file and some diagnostics. This example command highlights
 all main features:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">phenix</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span> <span class="n">pdb1jxw</span><span class="o">.</span><span class="n">ent</span><span class="o">.</span><span class="n">gz</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">phenix</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span> <span class="n">pdb1jxw</span><span class="o">.</span><span class="n">ent</span><span class="o">.</span><span class="n">gz</span>
 
 <span class="n">Output</span><span class="p">:</span>
   <span class="n">file</span> <span class="n">pdb1jxw</span><span class="o">.</span><span class="n">ent</span><span class="o">.</span><span class="n">gz</span>
@@ -410,23 +410,23 @@ all main features:</p>
       <span class="n">anisou</span><span class="p">:</span>       <span class="mi">0</span>
     <span class="n">number</span> <span class="n">of</span> <span class="n">atom</span> <span class="n">element</span><span class="o">+</span><span class="n">charge</span> <span class="n">types</span><span class="p">:</span> <span class="mi">5</span>
     <span class="n">histogram</span> <span class="n">of</span> <span class="n">atom</span> <span class="n">element</span><span class="o">+</span><span class="n">charge</span> <span class="n">frequency</span><span class="p">:</span>
-      <span class="s">&quot; H  &quot;</span> <span class="mi">383</span>
-      <span class="s">&quot; C  &quot;</span> <span class="mi">261</span>
-      <span class="s">&quot; O  &quot;</span>  <span class="mi">77</span>
-      <span class="s">&quot; N  &quot;</span>  <span class="mi">59</span>
-      <span class="s">&quot; S  &quot;</span>   <span class="mi">6</span>
+      <span class="s2">&quot; H  &quot;</span> <span class="mi">383</span>
+      <span class="s2">&quot; C  &quot;</span> <span class="mi">261</span>
+      <span class="s2">&quot; O  &quot;</span>  <span class="mi">77</span>
+      <span class="s2">&quot; N  &quot;</span>  <span class="mi">59</span>
+      <span class="s2">&quot; S  &quot;</span>   <span class="mi">6</span>
     <span class="n">residue</span> <span class="n">name</span> <span class="n">classes</span><span class="p">:</span>
-      <span class="s">&quot;common_amino_acid&quot;</span> <span class="mi">48</span>
-      <span class="s">&quot;other&quot;</span>              <span class="mi">1</span>
+      <span class="s2">&quot;common_amino_acid&quot;</span> <span class="mi">48</span>
+      <span class="s2">&quot;other&quot;</span>              <span class="mi">1</span>
     <span class="n">number</span> <span class="n">of</span> <span class="n">chain</span> <span class="n">ids</span><span class="p">:</span> <span class="mi">2</span>
     <span class="n">histogram</span> <span class="n">of</span> <span class="n">chain</span> <span class="nb">id</span> <span class="n">frequency</span><span class="p">:</span>
-      <span class="s">&quot; &quot;</span> <span class="mi">1</span>
-      <span class="s">&quot;A&quot;</span> <span class="mi">1</span>
+      <span class="s2">&quot; &quot;</span> <span class="mi">1</span>
+      <span class="s2">&quot;A&quot;</span> <span class="mi">1</span>
     <span class="n">number</span> <span class="n">of</span> <span class="n">alt</span><span class="o">.</span> <span class="n">conf</span><span class="o">.</span> <span class="n">ids</span><span class="p">:</span> <span class="mi">3</span>
     <span class="n">histogram</span> <span class="n">of</span> <span class="n">alt</span><span class="o">.</span> <span class="n">conf</span><span class="o">.</span> <span class="nb">id</span> <span class="n">frequency</span><span class="p">:</span>
-      <span class="s">&quot;A&quot;</span> <span class="mi">2</span>
-      <span class="s">&quot;B&quot;</span> <span class="mi">2</span>
-      <span class="s">&quot;C&quot;</span> <span class="mi">1</span>
+      <span class="s2">&quot;A&quot;</span> <span class="mi">2</span>
+      <span class="s2">&quot;B&quot;</span> <span class="mi">2</span>
+      <span class="s2">&quot;C&quot;</span> <span class="mi">1</span>
     <span class="n">residue</span> <span class="n">alt</span><span class="o">.</span> <span class="n">conf</span><span class="o">.</span> <span class="n">situations</span><span class="p">:</span>
       <span class="n">pure</span> <span class="n">main</span> <span class="n">conf</span><span class="o">.</span><span class="p">:</span>     <span class="mi">32</span>
       <span class="n">pure</span> <span class="n">alt</span><span class="o">.</span> <span class="n">conf</span><span class="o">.</span><span class="p">:</span>      <span class="mi">3</span>
@@ -435,41 +435,41 @@ all main features:</p>
     <span class="n">chains</span> <span class="k">with</span> <span class="n">mix</span> <span class="n">of</span> <span class="n">proper</span> <span class="ow">and</span> <span class="n">improper</span> <span class="n">alt</span><span class="o">.</span> <span class="n">conf</span><span class="o">.</span><span class="p">:</span> <span class="mi">0</span>
     <span class="n">number</span> <span class="n">of</span> <span class="n">residue</span> <span class="n">names</span><span class="p">:</span> <span class="mi">16</span>
     <span class="n">histogram</span> <span class="n">of</span> <span class="n">residue</span> <span class="n">name</span> <span class="n">frequency</span><span class="p">:</span>
-      <span class="s">&quot;CYS&quot;</span> <span class="mi">6</span>
-      <span class="s">&quot;THR&quot;</span> <span class="mi">6</span>
-      <span class="s">&quot;ALA&quot;</span> <span class="mi">5</span>
-      <span class="s">&quot;ILE&quot;</span> <span class="mi">5</span>
-      <span class="s">&quot;PRO&quot;</span> <span class="mi">5</span>
-      <span class="s">&quot;GLY&quot;</span> <span class="mi">4</span>
-      <span class="s">&quot;ASN&quot;</span> <span class="mi">3</span>
-      <span class="s">&quot;SER&quot;</span> <span class="mi">3</span>
-      <span class="s">&quot;ARG&quot;</span> <span class="mi">2</span>
-      <span class="s">&quot;LEU&quot;</span> <span class="mi">2</span>
-      <span class="s">&quot;TYR&quot;</span> <span class="mi">2</span>
-      <span class="s">&quot;VAL&quot;</span> <span class="mi">2</span>
-      <span class="s">&quot;ASP&quot;</span> <span class="mi">1</span>
-      <span class="s">&quot;EOH&quot;</span> <span class="mi">1</span>    <span class="n">other</span>
-      <span class="s">&quot;GLU&quot;</span> <span class="mi">1</span>
-      <span class="s">&quot;PHE&quot;</span> <span class="mi">1</span>
-    <span class="c">### WARNING: consecutive residue_groups with same resid ###</span>
+      <span class="s2">&quot;CYS&quot;</span> <span class="mi">6</span>
+      <span class="s2">&quot;THR&quot;</span> <span class="mi">6</span>
+      <span class="s2">&quot;ALA&quot;</span> <span class="mi">5</span>
+      <span class="s2">&quot;ILE&quot;</span> <span class="mi">5</span>
+      <span class="s2">&quot;PRO&quot;</span> <span class="mi">5</span>
+      <span class="s2">&quot;GLY&quot;</span> <span class="mi">4</span>
+      <span class="s2">&quot;ASN&quot;</span> <span class="mi">3</span>
+      <span class="s2">&quot;SER&quot;</span> <span class="mi">3</span>
+      <span class="s2">&quot;ARG&quot;</span> <span class="mi">2</span>
+      <span class="s2">&quot;LEU&quot;</span> <span class="mi">2</span>
+      <span class="s2">&quot;TYR&quot;</span> <span class="mi">2</span>
+      <span class="s2">&quot;VAL&quot;</span> <span class="mi">2</span>
+      <span class="s2">&quot;ASP&quot;</span> <span class="mi">1</span>
+      <span class="s2">&quot;EOH&quot;</span> <span class="mi">1</span>    <span class="n">other</span>
+      <span class="s2">&quot;GLU&quot;</span> <span class="mi">1</span>
+      <span class="s2">&quot;PHE&quot;</span> <span class="mi">1</span>
+    <span class="c1">### WARNING: consecutive residue_groups with same resid ###</span>
     <span class="n">number</span> <span class="n">of</span> <span class="n">consecutive</span> <span class="n">residue</span> <span class="n">groups</span> <span class="k">with</span> <span class="n">same</span> <span class="n">resid</span><span class="p">:</span> <span class="mi">2</span>
       <span class="n">residue</span> <span class="n">group</span><span class="p">:</span>
-        <span class="s">&quot;ATOM    378  N   PRO A  22 .*.     N  &quot;</span>
+        <span class="s2">&quot;ATOM    378  N   PRO A  22 .*.     N  &quot;</span>
         <span class="o">...</span> <span class="mi">12</span> <span class="n">atoms</span> <span class="ow">not</span> <span class="n">shown</span>
-        <span class="s">&quot;ATOM    391  HD3APRO A  22 .*.     H  &quot;</span>
+        <span class="s2">&quot;ATOM    391  HD3APRO A  22 .*.     H  &quot;</span>
       <span class="nb">next</span> <span class="n">residue</span> <span class="n">group</span><span class="p">:</span>
-        <span class="s">&quot;ATOM    392  CB BSER A  22 .*.     C  &quot;</span>
+        <span class="s2">&quot;ATOM    392  CB BSER A  22 .*.     C  &quot;</span>
         <span class="o">...</span> <span class="mi">6</span> <span class="n">atoms</span> <span class="ow">not</span> <span class="n">shown</span>
-        <span class="s">&quot;ATOM    399  HB3CSER A  22 .*.     H  &quot;</span>
+        <span class="s2">&quot;ATOM    399  HB3CSER A  22 .*.     H  &quot;</span>
       <span class="o">------------------------------------------</span>
       <span class="n">residue</span> <span class="n">group</span><span class="p">:</span>
-        <span class="s">&quot;ATOM    432  N   LEU A  25 .*.     N  &quot;</span>
+        <span class="s2">&quot;ATOM    432  N   LEU A  25 .*.     N  &quot;</span>
         <span class="o">...</span> <span class="mi">18</span> <span class="n">atoms</span> <span class="ow">not</span> <span class="n">shown</span>
-        <span class="s">&quot;ATOM    439  CD1CLEU A  25 .*.     C  &quot;</span>
+        <span class="s2">&quot;ATOM    439  CD1CLEU A  25 .*.     C  &quot;</span>
       <span class="nb">next</span> <span class="n">residue</span> <span class="n">group</span><span class="p">:</span>
-        <span class="s">&quot;ATOM    452  CG1BILE A  25 .*.     C  &quot;</span>
+        <span class="s2">&quot;ATOM    452  CG1BILE A  25 .*.     C  &quot;</span>
         <span class="o">...</span> <span class="mi">13</span> <span class="n">atoms</span> <span class="ow">not</span> <span class="n">shown</span>
-        <span class="s">&quot;ATOM    466 HD13CILE A  25 .*.     H  &quot;</span>
+        <span class="s2">&quot;ATOM    466 HD13CILE A  25 .*.     H  &quot;</span>
 </pre></div>
 </div>
 <p>The diagnostics are mainly intended for PDB working files, but we have tested
@@ -478,7 +478,7 @@ the iotbx.pdb  module by processing the entire PDB archive. (This took about
 seconds. Disk and network I/O is rate-limiting in this case, not the
 performance of the PDB handling library.) The results are summarized in the
 following table:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">Total</span> <span class="n">number</span> <span class="n">of</span> <span class="o">.</span><span class="n">ent</span> <span class="n">files</span><span class="p">:</span> <span class="mi">65802</span> <span class="p">(</span><span class="mi">2010</span> <span class="n">Jun</span> <span class="mi">8</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Total</span> <span class="n">number</span> <span class="n">of</span> <span class="o">.</span><span class="n">ent</span> <span class="n">files</span><span class="p">:</span> <span class="mi">65802</span> <span class="p">(</span><span class="mi">2010</span> <span class="n">Jun</span> <span class="mi">8</span><span class="p">)</span>
 
 <span class="mi">56873</span>   <span class="n">WARNING</span><span class="p">:</span> <span class="n">duplicate</span> <span class="n">chain</span> <span class="nb">id</span>
     <span class="mi">3</span>   <span class="n">WARNING</span><span class="p">:</span> <span class="n">consecutive</span> <span class="n">residue_groups</span> <span class="k">with</span> <span class="n">same</span> <span class="n">resid</span>
@@ -524,12 +524,12 @@ residue number, chain ID, or B-factor, which can be combined by the use of
 simple boolean statements (<code class="docutils literal"><span class="pre">and</span></code>, <code class="docutils literal"><span class="pre">or</span></code>, or <code class="docutils literal"><span class="pre">not</span></code>).  The class
 <code class="xref py py-class docutils literal"><span class="pre">iotbx.pdb.atom_selection.cache</span></code> implements these selections, and
 is created directly by the hierarchy object:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="k">import</span> <span class="n">hierarchy</span>
-<span class="n">pdb_in</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s">&quot;model.pdb&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="k">import</span> <span class="n">hierarchy</span>
+<span class="n">pdb_in</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">)</span>
 <span class="n">pdb_atoms</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span>
 <span class="n">xray_structure</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">xray_structure_simple</span><span class="p">()</span>
 <span class="n">sel_cache</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">atom_selection_cache</span><span class="p">()</span>
-<span class="n">c_alpha_sel</span> <span class="o">=</span> <span class="n">sel_cache</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="s">&quot;name ca&quot;</span><span class="p">)</span> <span class="c"># XXX not case sensitive!</span>
+<span class="n">c_alpha_sel</span> <span class="o">=</span> <span class="n">sel_cache</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="s2">&quot;name ca&quot;</span><span class="p">)</span> <span class="c1"># XXX not case sensitive!</span>
 <span class="n">c_alpha_atoms</span> <span class="o">=</span> <span class="n">pdb_atoms</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">c_alpha_sel</span><span class="p">)</span>
 <span class="n">c_alpha_xray_structure</span> <span class="o">=</span> <span class="n">xray_structure</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">c_alpha_sel</span><span class="p">)</span>
 <span class="n">c_alpha_hierarchy</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">c_alpha_sel</span><span class="p">)</span>
@@ -546,27 +546,27 @@ they store comparable data (and in the latter case, an actual array internally)
 they are also implemented with the <code class="docutils literal"><span class="pre">select()</span></code> method.</p>
 <p>Other practical examples of the syntax:</p>
 <p><strong>All atoms</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="nb">all</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">all</span>
 </pre></div>
 </div>
 <p><strong>All atoms with H in the name (* is a wildcard character)</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">name</span> <span class="o">*</span><span class="n">H</span><span class="o">*</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">*</span><span class="n">H</span><span class="o">*</span>
 </pre></div>
 </div>
 <p><strong>Atoms names with * (backslash disables wildcard function)</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">name</span> <span class="n">o2</span>\<span class="o">*</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="n">o2</span>\<span class="o">*</span>
 </pre></div>
 </div>
 <p><strong>Atom names with spaces</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">name</span> <span class="s">&#39;O 1&#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="s1">&#39;O 1&#39;</span>
 </pre></div>
 </div>
 <p><strong>Atom names with primes don&#8217;t necessarily have to be quoted</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">name</span> <span class="n">o2</span><span class="s">&#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="n">o2</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 <p><strong>Boolean &#8220;and&#8221;, &#8220;or&#8221;, and &#8220;not&#8221;</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">resname</span> <span class="n">ALA</span> <span class="ow">and</span> <span class="p">(</span><span class="n">name</span> <span class="n">ca</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">n</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">o</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">resname</span> <span class="n">ALA</span> <span class="ow">and</span> <span class="p">(</span><span class="n">name</span> <span class="n">ca</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">n</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">o</span><span class="p">)</span>
 <span class="n">chain</span> <span class="n">a</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">altid</span> <span class="n">b</span>
 <span class="n">resid</span> <span class="mi">120</span> <span class="ow">and</span> <span class="n">icode</span> <span class="n">c</span> <span class="ow">and</span> <span class="n">model</span> <span class="mi">2</span>
 <span class="n">segid</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">element</span> <span class="n">c</span> <span class="ow">and</span> <span class="n">charge</span> <span class="mi">2</span><span class="o">+</span> <span class="ow">and</span> <span class="n">anisou</span>
@@ -576,24 +576,24 @@ they are also implemented with the <code class="docutils literal"><span class="p
 parentheses may be required to indicate which clauses go together.
 The first example above selects for all atoms with the specified names in
 alanine residues, but if the parentheses are omitted:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">resname</span> <span class="n">ALA</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">ca</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">n</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">o</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">resname</span> <span class="n">ALA</span> <span class="ow">and</span> <span class="n">name</span> <span class="n">ca</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">c</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">n</span> <span class="ow">or</span> <span class="n">name</span> <span class="n">o</span>
 </pre></div>
 </div>
 <p>it will instead select C-alpha atoms in ALA, plus all atoms named C, N, or O
 regardless of residue name.</p>
 <p><strong>A single residue by number</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">resseq</span> <span class="mi">188</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">resseq</span> <span class="mi">188</span>
 </pre></div>
 </div>
 <p>Note that if there are several chains containing residue number 188, all of
 them will be selected. To be more specific and select residue 188 in particular
 chain:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">chain</span> <span class="n">A</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">188</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chain</span> <span class="n">A</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">188</span>
 </pre></div>
 </div>
 <p>this will select residue 188 only in chain A.</p>
 <p><strong>A range of residues</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">resseq</span> <span class="mi">2</span><span class="p">:</span><span class="mi">10</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">resseq</span> <span class="mi">2</span><span class="p">:</span><span class="mi">10</span>
 </pre></div>
 </div>
 <p>This selects all residue numbers falling within this range, independent of
@@ -601,13 +601,13 @@ their order in the PDB file.  The numbering must be ascending; <code class="docu
 will not work.</p>
 <p><strong>Insertion codes</strong></p>
 <p><code class="docutils literal"><span class="pre">resid</span></code> combines the residue number (<code class="docutils literal"><span class="pre">resseq</span></code>) with the insertion code (icode); thus the following selections are identical:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">resid</span> <span class="mi">188</span>
-<span class="n">resseq</span> <span class="mi">188</span> <span class="ow">and</span> <span class="n">icode</span> <span class="s">&#39; &#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">resid</span> <span class="mi">188</span>
+<span class="n">resseq</span> <span class="mi">188</span> <span class="ow">and</span> <span class="n">icode</span> <span class="s1">&#39; &#39;</span>
 </pre></div>
 </div>
 <p>as are these:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">resid</span> <span class="mi">27</span><span class="n">C</span>
-<span class="n">resseq</span> <span class="mi">27</span> <span class="ow">and</span> <span class="n">icode</span> <span class="s">&#39;C&#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">resid</span> <span class="mi">27</span><span class="n">C</span>
+<span class="n">resseq</span> <span class="mi">27</span> <span class="ow">and</span> <span class="n">icode</span> <span class="s1">&#39;C&#39;</span>
 </pre></div>
 </div>
 <p><strong>Specifying ordered ranges of residues</strong></p>
@@ -617,7 +617,7 @@ case when the residue numbering is not continuous and ascending, which is
 found in some PDB entries, or when the insertion code is non-blank.  An
 alternative is to define a series of residues by their combined number and
 insertion code, using the <code class="docutils literal"><span class="pre">through</span></code> keyword:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">chain</span> <span class="n">A</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">1000</span> <span class="n">through</span> <span class="mi">17</span><span class="n">J</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chain</span> <span class="n">A</span> <span class="ow">and</span> <span class="n">resid</span> <span class="mi">1000</span> <span class="n">through</span> <span class="mi">17</span><span class="n">J</span>
 </pre></div>
 </div>
 <p>In this case, the residues will be examined in the order that they appear in
@@ -626,7 +626,7 @@ be included.  This is the only situation where the ordering of atoms is
 important in atom selections.</p>
 <p><strong>B-factors and occupancies</strong></p>
 <p>You may also select atoms based on their numerical properties:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">bfactor</span> <span class="o">&gt;</span> <span class="mi">80</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bfactor</span> <span class="o">&gt;</span> <span class="mi">80</span>
 <span class="n">bfactor</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">occupancy</span> <span class="o">&lt;</span> <span class="mi">1</span>
 <span class="n">occupancy</span> <span class="o">=</span> <span class="mi">0</span>
@@ -634,7 +634,7 @@ important in atom selections.</p>
 </div>
 <p><strong>Other</strong></p>
 <p>A few additional keywords are supported:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">element</span> <span class="n">H</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="n">H</span>
 <span class="n">water</span>
 <span class="n">pepnames</span>
 <span class="n">hetero</span>
@@ -643,15 +643,15 @@ important in atom selections.</p>
 <p>These examples specify hydrogen atoms, water molecules (detected by residue
 name), common amino acid residues, and atoms labeled as HETATM, respectively.</p>
 <p><strong>Selecting no atoms</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span class="p">(</span><span class="ow">not</span> <span class="nb">all</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="ow">not</span> <span class="nb">all</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="extracting-selections-from-atom-arrays">
 <h3>Extracting selections from atom arrays<a class="headerlink" href="#extracting-selections-from-atom-arrays" title="Permalink to this headline">¶</a></h3>
 <p>In addition to the string-based selection mechanism, it is also possible to
 derive selections from any object in the PDB hierarchy:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">iotbx.pdb.hierarchy</span>
-<span class="n">pdb_in</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s">&quot;model.cif&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iotbx.pdb.hierarchy</span>
+<span class="n">pdb_in</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;model.cif&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">only_model</span><span class="p">()</span><span class="o">.</span><span class="n">chains</span><span class="p">()</span> <span class="p">:</span>
   <span class="n">chain_atoms</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span>
   <span class="n">chain_selection</span> <span class="o">=</span> <span class="n">chain_atoms</span><span class="o">.</span><span class="n">extract_i_seq</span><span class="p">()</span>
@@ -659,11 +659,11 @@ derive selections from any object in the PDB hierarchy:</p>
 </div>
 <p>This is especially useful when referencing a string-based selection, as it
 allows us to compare any hierarchy object to the selection:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">selection</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">atom_selection_cache</span><span class="p">()</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="s">&quot;hetatm&quot;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">atom_selection_cache</span><span class="p">()</span><span class="o">.</span><span class="n">selection</span><span class="p">(</span><span class="s2">&quot;hetatm&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">only_model</span><span class="p">()</span><span class="o">.</span><span class="n">chains</span><span class="p">()</span> <span class="p">:</span>
   <span class="k">for</span> <span class="n">residue_group</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">residue_groups</span><span class="p">()</span> <span class="p">:</span>
     <span class="n">residue_isel</span> <span class="o">=</span> <span class="n">residue_group</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span><span class="o">.</span><span class="n">extract_i_seq</span><span class="p">()</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">selection</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">residue_isel</span><span class="p">)</span><span class="o">.</span><span class="n">all_eq</span><span class="p">(</span><span class="k">True</span><span class="p">))</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">selection</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">residue_isel</span><span class="p">)</span><span class="o">.</span><span class="n">all_eq</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span> <span class="p">:</span>
       <span class="n">do_something_with_heteroatom_residue</span><span class="p">(</span><span class="n">residue_group</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -672,11 +672,11 @@ represents its position in the hierarchy (and corresponding array returned by
 <code class="docutils literal"><span class="pre">hierarchy.atoms()</span></code>).  The <code class="docutils literal"><span class="pre">i_seq</span></code> will be initialized by default when
 constructing the hierarchy, but modifications to the hierarchy will not be
 propagated to the individual atoms.  You can reset the <code class="docutils literal"><span class="pre">i_seq</span></code> at any time:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">hierarchy</span><span class="o">.</span><span class="n">reset_atom_i_seqs</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">hierarchy</span><span class="o">.</span><span class="n">reset_atom_i_seqs</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>or:</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="n">pdb_atoms</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pdb_atoms</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span>
 <span class="n">pdb_atoms</span><span class="o">.</span><span class="n">reset_i_seq</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -692,11 +692,11 @@ propagated to the individual atoms.  You can reset the <code class="docutils lit
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">iotbx.pdb.hierarchy.input_hierarchy_pair</span></code></p>
 <p>Class used for reading a PDB hierarchy from a file or string.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iotbx.pdb.hierarchy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pdb_in</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">pdb_string</span><span class="o">=</span><span class="s">&#39;&#39;&#39;</span>
-<span class="gp">... </span><span class="s">ATOM      1  N   ASP A  37      10.710  14.456   9.568  1.00 15.78           N</span>
-<span class="gp">... </span><span class="s">ATOM      2  CA  ASP A  37       9.318  14.587   9.999  1.00 18.38           C</span>
-<span class="gp">... </span><span class="s">&#39;&#39;&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iotbx.pdb.hierarchy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pdb_in</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">pdb_string</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">ATOM      1  N   ASP A  37      10.710  14.456   9.568  1.00 15.78           N</span>
+<span class="gp">... </span><span class="s1">ATOM      2  CA  ASP A  37       9.318  14.587   9.999  1.00 18.38           C</span>
+<span class="gp">... </span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">atoms_size</span><span class="p">()</span>
 <span class="go">2</span>
 <span class="go">&quot;&quot;)</span>
@@ -1074,7 +1074,7 @@ it must often be tracked alongside an equivalent cctbx.xray.structure object.
 Pickling is supported, simply by writing out and reading back the PDB-format
 representation of the hierarchy.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">hierarchy</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">root</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hierarchy</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">root</span><span class="p">()</span>
 </pre></div>
 </div>
 <p class="rubric">Attributes</p>

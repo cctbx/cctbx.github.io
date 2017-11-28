@@ -94,7 +94,7 @@ the child process when forked (instead of pickling)</li>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
 <span class="gp">... </span>  <span class="k">return</span> <span class="n">some_long_running_method</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
@@ -106,7 +106,7 @@ the child process when forked (instead of pickling)</li>
 <span class="gp">... </span><span class="mi">1000</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">f_caller</span> <span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">f_caller</span> <span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
 <span class="gp">... </span>  <span class="k">def</span> <span class="nf">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">non_pickleable_object</span><span class="p">)</span> <span class="p">:</span>
 <span class="gp">... </span>    <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span> <span class="o">=</span> <span class="n">non_pickleable_object</span>
 <span class="gp">... </span>  <span class="k">def</span> <span class="nf">__call__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="p">:</span>

@@ -1569,22 +1569,6 @@ match_dict(dict): key:(chains_id_a,chains_id_b)</p>
 <div class="section" id="module-mmtbx.ncs.ncs_utils">
 <span id="mmtbx-ncs-ncs-utils-module"></span><h2><a class="toc-backref" href="#id7">mmtbx.ncs.ncs_utils module</a><a class="headerlink" href="#module-mmtbx.ncs.ncs_utils" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.angles_to_rotation">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">angles_to_rotation</code><span class="sig-paren">(</span><em>alpha)*Ry(beta)*Rz(gamma</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.angles_to_rotation" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">angles_xyz : (flex.double) (alpha,beta,gamma)
-deg : (bool) When False use radians, when True degrees
-rotation_is_tuple : (bool) when False, return flxe.double object,</p>
-<blockquote class="last">
-<div>when True return tuple</div></blockquote>
-</dd>
-</dl>
-<p>Returns:
-R : (tuple or flex.double) the components of a rotation matrix</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.apply_transforms">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">apply_transforms</code><span class="sig-paren">(</span><em>ncs_coordinates</em>, <em>ncs_restraints_group_list</em>, <em>total_asu_length</em>, <em>extended_ncs_selection</em>, <em>round_coordinates=True</em>, <em>center_of_coordinates=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.apply_transforms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply transformation to ncs_coordinates,
@@ -1611,23 +1595,15 @@ total_asu_length (int): Complete ASU length</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.check_ncs_group_list">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">check_ncs_group_list</code><span class="sig-paren">(</span><em>ncs_restraints_group_list</em>, <em>ph</em>, <em>chain_max_rmsd=10.0</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.check_ncs_group_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check that all copies relate correctly to master via the transforms</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ncs_restraints_group_list : list of ncs restraints group objects
-ph: Hierarchy object
-chain_max_rmsd (float): maximum allowed rmsd between coordinates copies</dd>
-<dt>Returns:</dt>
-<dd>nrgl_ok (bool): True when ncs_restraints_group_list is OK</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.compute_transform_grad">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">compute_transform_grad</code><span class="sig-paren">(</span><em>the)Ry(psi)Rz(phi</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.compute_transform_grad" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">compute_transform_grad</code><span class="sig-paren">(</span><em>grad_wrt_xyz</em>, <em>xyz_asu</em>, <em>x</em>, <em>ncs_restraints_group_list=None</em>, <em>transforms_obj=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.compute_transform_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>XXX
+XXX Remove transforms_obj from parameter list.
+XXX Consider making it method of class_ncs_restraints_group_list
+XXX</p>
+<p>Compute gradient in respect to the rotation angles and the translation
+vectors. R = Rx(the)Ry(psi)Rz(phi)</p>
+<dl class="docutils">
 <dt>Args:</dt>
 <dd><p class="first">grad_wrt_xyz (flex.double): gradients with respect to xyz.
 ncs_restraints_group_list: list containing ncs_restraint_group objects
@@ -1648,7 +1624,11 @@ theta_n,psi_n,phi_n,tx_n/s,ty_n/s,tz_n/s)</div></blockquote>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.concatenate_rot_tran">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">concatenate_rot_tran</code><span class="sig-paren">(</span><em>transforms_obj=None</em>, <em>ncs_restraints_group_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.concatenate_rot_tran" title="Permalink to this definition">¶</a></dt>
-<dd><p>Concatenate rotation angles, corresponding to the rotation
+<dd><p>XXX
+XXX Remove transforms_obj parameter
+XXX Make it method of class_ncs_restraints_group_list
+XXX</p>
+<p>Concatenate rotation angles, corresponding to the rotation
 matrices and scaled translation vectors to a single long flex.double object</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1665,44 +1645,14 @@ objects matrix.rec) and Translation vectors (lists of objects matrix.rec)</dd>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.filter_ncs_restraints_group_list">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">filter_ncs_restraints_group_list</code><span class="sig-paren">(</span><em>whole_h</em>, <em>ncs_restr_group_list</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.filter_ncs_restraints_group_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove ncs groups where master or copy does not cover whole chain
-(some atoms are left behind).
-Reason for this - when big moves are likely (e.g. in real-space refine or
-model idealization), the chain can get a big gap in place where NCS ends.
-This leads to undesired artefacts in refinement.</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.flip_atoms_in_ncs_groups">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">flip_atoms_in_ncs_groups</code><span class="sig-paren">(</span><em>hierarchy</em>, <em>ncs_restraints_group_list</em>, <em>mon_lib_srv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.flip_atoms_in_ncs_groups" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function will actually modify hierarchy by making necessary flips
+<dd><p>XXX
+XXX not used, only tested. May have some value.
+XXX
+This function will actually modify hierarchy by making necessary flips
 in ncs-related residues. Flip will be made by exchanging atom coordinates.
 Will make all copies consistent with master.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.get_extended_ncs_selection">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">get_extended_ncs_selection</code><span class="sig-paren">(</span><em>ncs_restraints_group_list</em>, <em>refine_selection=None</em>, <em>assume_strick_ncs=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_extended_ncs_selection" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">ncs_restraints_group_list: list of ncs_restraint_group objects
-refine_selection (flex.siz_t): of all ncs related copies and</p>
-<blockquote>
-<div>non ncs related parts to be included in selection (to be refined)</div></blockquote>
-<dl class="last docutils">
-<dt>assume_strick_ncs (bool): assume that all atoms are NCS related</dt>
-<dd>(applicable only if refine selection is not given)</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>(flex.siz_t): selection of all ncs groups master ncs selection and</dt>
-<dd>non ncs related portions that are being refined (exclude NCS copies)</dd>
-</dl>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="function">
@@ -1720,35 +1670,15 @@ refine_selection (flex.siz_t): of all ncs related copies and</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.get_ncs_groups_centers">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">get_ncs_groups_centers</code><span class="sig-paren">(</span><em>xray_structure</em>, <em>ncs_restraints_group_list</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_ncs_groups_centers" title="Permalink to this definition">¶</a></dt>
-<dd><p>calculate the center of coordinate for the master of each ncs copy</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>xray_structure
-ncs_restraints_group_list</dd>
-<dt>Returns:</dt>
-<dd>shifts (list): [mu_1, mu_1, mu_2...] where the mu stands
-for the shift of the master copy to the coordinate center mu is (dx,dy,dz)</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.get_ncs_related_selection">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">get_ncs_related_selection</code><span class="sig-paren">(</span><em>ncs_restraints_group_list</em>, <em>asu_size</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_ncs_related_selection" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Args:</dt>
-<dd>ncs_restraints_group_list (list): list of ncs_restraint_group objects
-asu_size (int): the total size of the ASU</dd>
-<dt>Returns:</dt>
-<dd>selection (flex.bool): selection of all ncs related atom in the ASU</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.get_ncs_sites_cart">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">get_ncs_sites_cart</code><span class="sig-paren">(</span><em>ncs_obj=None</em>, <em>fmodel=None</em>, <em>xray_structure=None</em>, <em>sites_cart=None</em>, <em>extended_ncs_selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_ncs_sites_cart" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>XXX The same name of the function as in cctbx/maptbx/segment_and_split_map.py
+XXX The only call is from minimization_ncs_constraints.py, passing whole
+XXX lbfgs class as &#8216;ncs_obj&#8217;!
+XXX TODO: remove ncs_obj parameter, pass everything needed explicitly
+XXX not yet clear the goal of this func
+XXX</p>
+<dl class="docutils">
 <dt>Args::</dt>
 <dd><dl class="first last docutils">
 <dt>ncs_obj: an object that contains fmodel, sites_cart or xray_structure</dt>
@@ -1769,7 +1699,12 @@ asu_size (int): the total size of the ASU</dd>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.get_rotation_translation_as_list">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">get_rotation_translation_as_list</code><span class="sig-paren">(</span><em>transforms_obj=None</em>, <em>ncs_restraints_group_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_rotation_translation_as_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get rotations and translations vectors from ncs_restraints_group_list or
+<dd><p>XXX
+XXX Consider deletion. Used only in tests tst_minimization_ncs_constraints_real_space.py,
+XXX tst_ncs_utils.py
+XXX Alternatively, make it method of class_ncs_restraints_group_list
+XXX</p>
+<p>Get rotations and translations vectors from ncs_restraints_group_list or
 transforms_obj</p>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -1824,38 +1759,12 @@ refine_selection=refine_selection)</dd>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.iselection_asu_to_ncs">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">iselection_asu_to_ncs</code><span class="sig-paren">(</span><em>iselection_asu</em>, <em>ncs_chain_id</em>, <em>hierarchy_asu</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.iselection_asu_to_ncs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert iselection of NCS related atoms in the NCS copy to the ASU iselection</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ncs_chain_id (str)
-iselection_asu (flex.size_t)
-hierarchy_ncs (hierarchy object)</dd>
-<dt>Returns:</dt>
-<dd>iselection_ncs (flex.size_t)</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.iselection_ncs_to_asu">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">iselection_ncs_to_asu</code><span class="sig-paren">(</span><em>iselection_ncs</em>, <em>ncs_chain_id</em>, <em>hierarchy_asu</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.iselection_ncs_to_asu" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert iselection of NCS related atoms in the NCS copy to the ASU iselection</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ncs_len (int)
-ncs_chain_id (str)
-iselection_ncs (flex.size_t)
-hierarchy_asu hierarchy object)</dd>
-<dt>Returns:</dt>
-<dd>iselection_asu (flex.size_t)</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.make_unique_chain_names">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">make_unique_chain_names</code><span class="sig-paren">(</span><em>unique_chain_names</em>, <em>number_of_names=1</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.make_unique_chain_names" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produce a sorted list of new unique chain names.
+<dd><p>XXX
+XXX Consider removing, unifying with iotbx.pdb.utils.all_chain_ids
+XXX</p>
+<p>Produce a sorted list of new unique chain names.
 Chain names are strings of one or two characters long.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1867,22 +1776,13 @@ number_of_names (int): number of new names</dd>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.ncs_group_iselection">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">ncs_group_iselection</code><span class="sig-paren">(</span><em>ncs_restraints_group_list</em>, <em>group_num</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.ncs_group_iselection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collects and returns iselection of all related atoms in NCS group</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ncs_restraints_group_list : list of ncs restraints group objects
-group_num (int): the group number in the list (first group is 0)</dd>
-<dt>Returns:</dt>
-<dd>isel (flex.size_t): complete NCS group selection</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.ncs_groups_selection">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">ncs_groups_selection</code><span class="sig-paren">(</span><em>ncs_restraints_group_list</em>, <em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.ncs_groups_selection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Modifies the selections of master and copies according the &#8220;selection&#8221;
+<dd><p>XXX
+XXX Move to iotbx/ncs/__init__.py, member func of class_ncs_restraints_group_list()
+XXX Figure out difference between this and def select() there.
+XXX</p>
+<p>Modifies the selections of master and copies according the &#8220;selection&#8221;
 - Keep the order of selected atoms
 - Keep only atoms that appear in master and ALL copies
 Also modify &#8220;selection&#8221; to include ncs related atoms only if selected in
@@ -1894,31 +1794,6 @@ current version)</p>
 selection (flex.bool or flex.size_t): atom selection</dd>
 <dt>Returns:</dt>
 <dd>new_nrg_list (list): list of modified ncs_restraints_group objects</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.ncs_restraints_group_list_copy">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">ncs_restraints_group_list_copy</code><span class="sig-paren">(</span><em>ncs_restraints_group_list</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.ncs_restraints_group_list_copy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deep copy of ncs_restraints_group_list</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ncs_restraints_group_list: list of ncs_restraint_group</dd>
-<dt>Returns:</dt>
-<dd>new_list: a deep copy of ncs_restraints_group_list</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.recalculate_ncs_transforms">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">recalculate_ncs_transforms</code><span class="sig-paren">(</span><em>ncs_restraints_group_list</em>, <em>asu_site_cart</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.recalculate_ncs_transforms" title="Permalink to this definition">¶</a></dt>
-<dd><p>Re-evaluate the rotation and translation in the ncs groups list, base on
-the ncs groups selection and the atoms location.
-Updates the ncs_restraints_group_list object</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ncs_restraints_group_list: list of ncs restraints group objects
-asu_site_cart (flex.vec_3): the complete ASU sites cart (coordinates)</dd>
 </dl>
 </dd></dl>
 
@@ -1984,7 +1859,11 @@ positions (set or list): the allowed positions in the selections</dd>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.shake_transformations">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">shake_transformations</code><span class="sig-paren">(</span><em>x</em>, <em>shake_angles_sigma=0.035</em>, <em>shake_translation_sigma=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.shake_transformations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shake rotation matrices and translation vectors of a rotation matrices and
+<dd><p>XXX
+XXX Used here in get_weight().
+XXX Not clear what relation MTRIX have to this function at all...
+XXX</p>
+<p>Shake rotation matrices and translation vectors of a rotation matrices and
 translation vectors from the MTRIX records in a PDB file.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2003,42 +1882,6 @@ shake_angles_sigma (float): the sigma (in radians) of the random gaussian</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.shift_translation_back_to_place">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">shift_translation_back_to_place</code><span class="sig-paren">(</span><em>shifts</em>, <em>ncs_restraints_group_list</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.shift_translation_back_to_place" title="Permalink to this definition">¶</a></dt>
-<dd><p>shifts to the translation component of ncs_restraints_group_list from the
-center of coordinates back to place</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first docutils">
-<dt>shifts (list): [mu_1, mu_1, mu_2...] where the mu stands</dt>
-<dd>for the shift of the master copy to the coordinate center mu is (dx,dy,dz)</dd>
-</dl>
-<p class="last">ncs_restraints_group_list: ncs_restraints_group_list</p>
-</dd>
-<dt>Returns:</dt>
-<dd>new_list (list): list of ncs_restraints_group objects</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.shift_translation_to_center">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">shift_translation_to_center</code><span class="sig-paren">(</span><em>shifts</em>, <em>ncs_restraints_group_list</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.shift_translation_to_center" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add shifts to the translation component of ncs_restraints_group_list
-towards the center of coordinates</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first docutils">
-<dt>shifts (list): [mu_1, mu_1, mu_2...] where the mu stands</dt>
-<dd>for the shift of the master copy to the coordinate center mu is (dx,dy,dz)</dd>
-</dl>
-<p class="last">ncs_restraints_group_list (list): ncs_restraints_group_list</p>
-</dd>
-<dt>Returns:</dt>
-<dd>ncs_restraints_group_list (list):</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.update_ncs_restraints_group_list">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">update_ncs_restraints_group_list</code><span class="sig-paren">(</span><em>ncs_restraints_group_list</em>, <em>rm</em>, <em>tv</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.update_ncs_restraints_group_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update ncs_restraints_group_list with the rotation matrices (rm) and
@@ -2048,7 +1891,11 @@ translation vectors (tv)</p>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.update_rot_tran">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">update_rot_tran</code><span class="sig-paren">(</span><em>x</em>, <em>transforms_obj=None</em>, <em>ncs_restraints_group_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.update_rot_tran" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert the refinable parameters, rotations angles and
+<dd><p>XXX
+XXX Make it method of class_ncs_restraints_group_list
+XXX Remove transforms_obj parameter.
+XXX</p>
+<p>Convert the refinable parameters, rotations angles and
 scaled translations, back to rotation matrices and translation vectors and
 updates the transforms_obj (ncs_restraints_group_list)</p>
 <dl class="docutils">
@@ -2072,7 +1919,11 @@ transformations.</dd>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.update_transforms">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">update_transforms</code><span class="sig-paren">(</span><em>transforms_obj</em>, <em>rm</em>, <em>tv</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.update_transforms" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update transforms_obj with the rotation matrices (rm) and translation
+<dd><p>XXX
+XXX Consider removing it. Only used in
+XXX mmtbx/regression/ncs/tst_minimization_ncs_constraints_real_space.py
+XXX</p>
+<p>Update transforms_obj with the rotation matrices (rm) and translation
 vectors (tv)</p>
 </dd></dl>
 

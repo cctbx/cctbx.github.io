@@ -1622,29 +1622,6 @@ theta_n,psi_n,phi_n,tx_n/s,ty_n/s,tz_n/s)</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.concatenate_rot_tran">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">concatenate_rot_tran</code><span class="sig-paren">(</span><em>transforms_obj=None</em>, <em>ncs_restraints_group_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.concatenate_rot_tran" title="Permalink to this definition">¶</a></dt>
-<dd><p>XXX
-XXX Remove transforms_obj parameter
-XXX Make it method of class_ncs_restraints_group_list
-XXX</p>
-<p>Concatenate rotation angles, corresponding to the rotation
-matrices and scaled translation vectors to a single long flex.double object</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first docutils">
-<dt>transforms_obj</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">(mmtbx.refinement.minimization_ncs_constraints</span><dd>ncs_group_object) containing information on Rotation matrices (lists of
-objects matrix.rec) and Translation vectors (lists of objects matrix.rec)</dd>
-</dl>
-<p class="last">ncs_restraints_group_list : a list of ncs_restraint_group objects</p>
-</dd>
-<dt>Returns:</dt>
-<dd>flex.double : [(alpha_1,beta_1,gamma_1,Tx_1,Ty_1,Tz_1)...]</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.flip_atoms_in_ncs_groups">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">flip_atoms_in_ncs_groups</code><span class="sig-paren">(</span><em>hierarchy</em>, <em>ncs_restraints_group_list</em>, <em>mon_lib_srv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.flip_atoms_in_ncs_groups" title="Permalink to this definition">¶</a></dt>
 <dd><p>XXX
@@ -1694,23 +1671,6 @@ XXX</p>
 <dt id="mmtbx.ncs.ncs_utils.get_refine_selection">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">get_refine_selection</code><span class="sig-paren">(</span><em>refine_selection=None</em>, <em>number_of_atoms=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_refine_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>populate refine_selection with all atoms if no selection is given</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.get_rotation_translation_as_list">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">get_rotation_translation_as_list</code><span class="sig-paren">(</span><em>transforms_obj=None</em>, <em>ncs_restraints_group_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_rotation_translation_as_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>XXX
-XXX Consider deletion. Used only in tests tst_minimization_ncs_constraints_real_space.py,
-XXX tst_ncs_utils.py
-XXX Alternatively, make it method of class_ncs_restraints_group_list
-XXX</p>
-<p>Get rotations and translations vectors from ncs_restraints_group_list or
-transforms_obj</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>r (list): list of rotation matrices
-t (list): list of translation vectors</dd>
-</dl>
 </dd></dl>
 
 <dl class="function">
@@ -1882,46 +1842,12 @@ shake_angles_sigma (float): the sigma (in radians) of the random gaussian</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.update_ncs_restraints_group_list">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">update_ncs_restraints_group_list</code><span class="sig-paren">(</span><em>ncs_restraints_group_list</em>, <em>rm</em>, <em>tv</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.update_ncs_restraints_group_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update ncs_restraints_group_list with the rotation matrices (rm) and
-translation vectors (tv)</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.update_rot_tran">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">update_rot_tran</code><span class="sig-paren">(</span><em>x</em>, <em>transforms_obj=None</em>, <em>ncs_restraints_group_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.update_rot_tran" title="Permalink to this definition">¶</a></dt>
-<dd><p>XXX
-XXX Make it method of class_ncs_restraints_group_list
-XXX Remove transforms_obj parameter.
-XXX</p>
-<p>Convert the refinable parameters, rotations angles and
-scaled translations, back to rotation matrices and translation vectors and
-updates the transforms_obj (ncs_restraints_group_list)</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>x</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">a flex.double of the form (theta_1,psi_1,phi_1,tx_1,ty_1,tz_1,..</span><dd>theta_n,psi_n,phi_n,tx_n/s,ty_n/s,tz_n/s). where n is the number of
-transformations.</dd>
-<dt>transforms_obj</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">(ncs_group_object) containing information on Rotation</span><dd>matrices, Translation vectors and NCS</dd>
-</dl>
-</dd>
-</dl>
-<p>ncs_restraints_group_list : a list of ncs_restraint_group objects</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>The same type of input object with converted transforms</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.update_transforms">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">update_transforms</code><span class="sig-paren">(</span><em>transforms_obj</em>, <em>rm</em>, <em>tv</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.update_transforms" title="Permalink to this definition">¶</a></dt>
 <dd><p>XXX
 XXX Consider removing it. Only used in
 XXX mmtbx/regression/ncs/tst_minimization_ncs_constraints_real_space.py
+XXX Warning: transforms_obj here is iotbx.ncs.input() class
 XXX</p>
 <p>Update transforms_obj with the rotation matrices (rm) and translation
 vectors (tv)</p>

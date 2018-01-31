@@ -531,10 +531,13 @@ other ligand copies if meeting cutoff criteria.</p>
 <tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.save_oper" title="mmtbx.ncs.ncs.ncs.save_oper"><code class="xref py py-obj docutils literal"><span class="pre">save_oper</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.set_unit_ncs" title="mmtbx.ncs.ncs.ncs.set_unit_ncs"><code class="xref py py-obj docutils literal"><span class="pre">set_unit_ncs</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.select_first_ncs_group" title="mmtbx.ncs.ncs.ncs.select_first_ncs_group"><code class="xref py py-obj docutils literal"><span class="pre">select_first_ncs_group</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.sort_by_z_translation" title="mmtbx.ncs.ncs.ncs.sort_by_z_translation"><code class="xref py py-obj docutils literal"><span class="pre">sort_by_z_translation</span></code></a>([tol_z])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.set_unit_ncs" title="mmtbx.ncs.ncs.ncs.set_unit_ncs"><code class="xref py py-obj docutils literal"><span class="pre">set_unit_ncs</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.sort_by_z_translation" title="mmtbx.ncs.ncs.ncs.sort_by_z_translation"><code class="xref py py-obj docutils literal"><span class="pre">sort_by_z_translation</span></code></a>([tol_z])</td>
 <td></td>
 </tr>
 </tbody>
@@ -754,6 +757,11 @@ residue level selection.</p>
 <dl class="method">
 <dt id="mmtbx.ncs.ncs.ncs.save_oper">
 <code class="descname">save_oper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.save_oper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs.select_first_ncs_group">
+<code class="descname">select_first_ncs_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.select_first_ncs_group" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1268,24 +1276,6 @@ values: NCS_groups_container objects</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_search.find_same_transform">
-<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">find_same_transform</code><span class="sig-paren">(</span><em>r</em>, <em>t</em>, <em>transforms</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_same_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Not used.</p>
-<p>Check if the rotation r and translation t exist in the transform dictionary.
-Note that there can be both inverse and regular match. Return the
-non-transpose if exist.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>r (matrix.sqr): rotation
-t (matrix.col): translation
-transforms (dict): dictionary of all transforms</dd>
-<dt>Returns:</dt>
-<dd>tr_num: (str) transform serial number
-is_transpose: (bool) True if the matching transform is transpose</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_search.get_bool_selection_to_keep">
 <code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">get_bool_selection_to_keep</code><span class="sig-paren">(</span><em>big_selection</em>, <em>small_selection</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_bool_selection_to_keep" title="Permalink to this definition">¶</a></dt>
 <dd><p>given 2 iselections (they are sorted), returns bool selection of size
@@ -1711,28 +1701,6 @@ Chain names are strings of one or two characters long.</p>
 number_of_names (int): number of new names</dd>
 <dt>Returns:</dt>
 <dd>new_names_list (list): sorted list on new names</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.ncs_groups_selection">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">ncs_groups_selection</code><span class="sig-paren">(</span><em>ncs_restraints_group_list</em>, <em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.ncs_groups_selection" title="Permalink to this definition">¶</a></dt>
-<dd><p>XXX
-XXX Move to iotbx/ncs/__init__.py, member func of class_ncs_restraints_group_list()
-XXX Figure out difference between this and def select() there.
-XXX</p>
-<p>Modifies the selections of master and copies according the &#8220;selection&#8221;
-- Keep the order of selected atoms
-- Keep only atoms that appear in master and ALL copies
-Also modify &#8220;selection&#8221; to include ncs related atoms only if selected in
-both master and ALL ncs copies (The modified selection is not returned in
-current version)</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ncs_restraints_group_list (list): list of ncs_restraints_group objects
-selection (flex.bool or flex.size_t): atom selection</dd>
-<dt>Returns:</dt>
-<dd>new_nrg_list (list): list of modified ncs_restraints_group objects</dd>
 </dl>
 </dd></dl>
 

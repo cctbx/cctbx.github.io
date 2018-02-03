@@ -569,7 +569,7 @@ other ligand copies if meeting cutoff criteria.</p>
 
 <dl class="method">
 <dt id="mmtbx.ncs.ncs.ncs.deep_copy">
-<code class="descname">deep_copy</code><span class="sig-paren">(</span><em>change_of_basis_operator=None</em>, <em>unit_cell=None</em>, <em>coordinate_offset=None</em>, <em>scale_factor=None</em>, <em>new_unit_cell=None</em>, <em>ops_to_keep=None</em>, <em>hierarchy_to_match_order=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.deep_copy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">deep_copy</code><span class="sig-paren">(</span><em>change_of_basis_operator=None</em>, <em>unit_cell=None</em>, <em>coordinate_offset=None</em>, <em>scale_factor=None</em>, <em>new_unit_cell=None</em>, <em>ops_to_keep=None</em>, <em>extract_point_group_symmetry=None</em>, <em>hierarchy_to_match_order=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.deep_copy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -837,106 +837,109 @@ residue level selection.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.extend_helix_operators" title="mmtbx.ncs.ncs.ncs_group.extend_helix_operators"><code class="xref py py-obj docutils literal"><span class="pre">extend_helix_operators</span></code></a>([z_range,&nbsp;tol_z,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_for_phenix_refine" title="mmtbx.ncs.ncs.ncs_group.format_for_phenix_refine"><code class="xref py py-obj docutils literal"><span class="pre">format_for_phenix_refine</span></code></a>([prefix])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.extract_point_group_symmetry" title="mmtbx.ncs.ncs.ncs_group.extract_point_group_symmetry"><code class="xref py py-obj docutils literal"><span class="pre">extract_point_group_symmetry</span></code></a>([tol_r,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_for_resolve" title="mmtbx.ncs.ncs.ncs_group.format_for_resolve"><code class="xref py py-obj docutils literal"><span class="pre">format_for_resolve</span></code></a>([crystal_number,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_for_phenix_refine" title="mmtbx.ncs.ncs.ncs_group.format_for_phenix_refine"><code class="xref py py-obj docutils literal"><span class="pre">format_for_phenix_refine</span></code></a>([prefix])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_group_specification" title="mmtbx.ncs.ncs.ncs_group.format_group_specification"><code class="xref py py-obj docutils literal"><span class="pre">format_group_specification</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_for_resolve" title="mmtbx.ncs.ncs.ncs_group.format_for_resolve"><code class="xref py py-obj docutils literal"><span class="pre">format_for_resolve</span></code></a>([crystal_number,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_forwards_reverse_helix" title="mmtbx.ncs.ncs.ncs_group.get_forwards_reverse_helix"><code class="xref py py-obj docutils literal"><span class="pre">get_forwards_reverse_helix</span></code></a>([r1,&nbsp;t1,&nbsp;r2,&nbsp;t2])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_group_specification" title="mmtbx.ncs.ncs.ncs_group.format_group_specification"><code class="xref py py-obj docutils literal"><span class="pre">format_group_specification</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_helix_parameters" title="mmtbx.ncs.ncs.ncs_group.get_helix_parameters"><code class="xref py py-obj docutils literal"><span class="pre">get_helix_parameters</span></code></a>([tol_z])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_forwards_reverse_helix" title="mmtbx.ncs.ncs.ncs_group.get_forwards_reverse_helix"><code class="xref py py-obj docutils literal"><span class="pre">get_forwards_reverse_helix</span></code></a>([r1,&nbsp;t1,&nbsp;r2,&nbsp;t2])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_helix_theta" title="mmtbx.ncs.ncs.ncs_group.get_helix_theta"><code class="xref py py-obj docutils literal"><span class="pre">get_helix_theta</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_helix_parameters" title="mmtbx.ncs.ncs.ncs_group.get_helix_parameters"><code class="xref py py-obj docutils literal"><span class="pre">get_helix_parameters</span></code></a>([tol_z])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_helix_z_translation" title="mmtbx.ncs.ncs.ncs_group.get_helix_z_translation"><code class="xref py py-obj docutils literal"><span class="pre">get_helix_z_translation</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_helix_theta" title="mmtbx.ncs.ncs.ncs_group.get_helix_theta"><code class="xref py py-obj docutils literal"><span class="pre">get_helix_theta</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_inverses" title="mmtbx.ncs.ncs.ncs_group.get_inverses"><code class="xref py py-obj docutils literal"><span class="pre">get_inverses</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_helix_z_translation" title="mmtbx.ncs.ncs.ncs_group.get_helix_z_translation"><code class="xref py py-obj docutils literal"><span class="pre">get_helix_z_translation</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_new_group" title="mmtbx.ncs.ncs.ncs_group.get_new_group"><code class="xref py py-obj docutils literal"><span class="pre">get_new_group</span></code></a>([hierarchy_to_match_order])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_inverses" title="mmtbx.ncs.ncs.ncs_group.get_inverses"><code class="xref py py-obj docutils literal"><span class="pre">get_inverses</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_order_dict" title="mmtbx.ncs.ncs.ncs_group.get_order_dict"><code class="xref py py-obj docutils literal"><span class="pre">get_order_dict</span></code></a>([hierarchy_to_match_order])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_new_group" title="mmtbx.ncs.ncs.ncs_group.get_new_group"><code class="xref py py-obj docutils literal"><span class="pre">get_new_group</span></code></a>([hierarchy_to_match_order])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_theta_along_z" title="mmtbx.ncs.ncs.ncs_group.get_theta_along_z"><code class="xref py py-obj docutils literal"><span class="pre">get_theta_along_z</span></code></a>(m0,&nbsp;m1)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_order_dict" title="mmtbx.ncs.ncs.ncs_group.get_order_dict"><code class="xref py py-obj docutils literal"><span class="pre">get_order_dict</span></code></a>([hierarchy_to_match_order])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_trans_along_z" title="mmtbx.ncs.ncs.ncs_group.get_trans_along_z"><code class="xref py py-obj docutils literal"><span class="pre">get_trans_along_z</span></code></a>(t0,&nbsp;t1)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_theta_along_z" title="mmtbx.ncs.ncs.ncs_group.get_theta_along_z"><code class="xref py py-obj docutils literal"><span class="pre">get_theta_along_z</span></code></a>(m0,&nbsp;m1)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.helix_rt_forwards" title="mmtbx.ncs.ncs.ncs_group.helix_rt_forwards"><code class="xref py py-obj docutils literal"><span class="pre">helix_rt_forwards</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_trans_along_z" title="mmtbx.ncs.ncs.ncs_group.get_trans_along_z"><code class="xref py py-obj docutils literal"><span class="pre">get_trans_along_z</span></code></a>(t0,&nbsp;t1)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.helix_rt_reverse" title="mmtbx.ncs.ncs.ncs_group.helix_rt_reverse"><code class="xref py py-obj docutils literal"><span class="pre">helix_rt_reverse</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.helix_rt_forwards" title="mmtbx.ncs.ncs.ncs_group.helix_rt_forwards"><code class="xref py py-obj docutils literal"><span class="pre">helix_rt_forwards</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.identity_op_id" title="mmtbx.ncs.ncs.ncs_group.identity_op_id"><code class="xref py py-obj docutils literal"><span class="pre">identity_op_id</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.helix_rt_reverse" title="mmtbx.ncs.ncs.ncs_group.helix_rt_reverse"><code class="xref py py-obj docutils literal"><span class="pre">helix_rt_reverse</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.invert_matrices" title="mmtbx.ncs.ncs.ncs_group.invert_matrices"><code class="xref py py-obj docutils literal"><span class="pre">invert_matrices</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.identity_op_id" title="mmtbx.ncs.ncs.ncs_group.identity_op_id"><code class="xref py py-obj docutils literal"><span class="pre">identity_op_id</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.is_helical_along_z" title="mmtbx.ncs.ncs.ncs_group.is_helical_along_z"><code class="xref py py-obj docutils literal"><span class="pre">is_helical_along_z</span></code></a>([tol_z,&nbsp;tol_r,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.invert_matrices" title="mmtbx.ncs.ncs.ncs_group.invert_matrices"><code class="xref py py-obj docutils literal"><span class="pre">invert_matrices</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.is_point_group_symmetry" title="mmtbx.ncs.ncs.ncs_group.is_point_group_symmetry"><code class="xref py py-obj docutils literal"><span class="pre">is_point_group_symmetry</span></code></a>([tol_r,&nbsp;abs_tol_t,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.is_helical_along_z" title="mmtbx.ncs.ncs.ncs_group.is_helical_along_z"><code class="xref py py-obj docutils literal"><span class="pre">is_helical_along_z</span></code></a>([tol_z,&nbsp;tol_r,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.map_inside_unit_cell" title="mmtbx.ncs.ncs.ncs_group.map_inside_unit_cell"><code class="xref py py-obj docutils literal"><span class="pre">map_inside_unit_cell</span></code></a>([unit_cell])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.is_point_group_symmetry" title="mmtbx.ncs.ncs.ncs_group.is_point_group_symmetry"><code class="xref py py-obj docutils literal"><span class="pre">is_point_group_symmetry</span></code></a>([tol_r,&nbsp;abs_tol_t,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.n_ncs_oper" title="mmtbx.ncs.ncs.ncs_group.n_ncs_oper"><code class="xref py py-obj docutils literal"><span class="pre">n_ncs_oper</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.map_inside_unit_cell" title="mmtbx.ncs.ncs.ncs_group.map_inside_unit_cell"><code class="xref py py-obj docutils literal"><span class="pre">map_inside_unit_cell</span></code></a>([unit_cell])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.ncs_domain_pdb" title="mmtbx.ncs.ncs.ncs_group.ncs_domain_pdb"><code class="xref py py-obj docutils literal"><span class="pre">ncs_domain_pdb</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.n_ncs_oper" title="mmtbx.ncs.ncs.ncs_group.n_ncs_oper"><code class="xref py py-obj docutils literal"><span class="pre">n_ncs_oper</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.oper_adds_offset" title="mmtbx.ncs.ncs.ncs_group.oper_adds_offset"><code class="xref py py-obj docutils literal"><span class="pre">oper_adds_offset</span></code></a>(i1[,&nbsp;tol_r,&nbsp;abs_tol_t,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.ncs_domain_pdb" title="mmtbx.ncs.ncs.ncs_group.ncs_domain_pdb"><code class="xref py py-obj docutils literal"><span class="pre">ncs_domain_pdb</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.print_list" title="mmtbx.ncs.ncs.ncs_group.print_list"><code class="xref py py-obj docutils literal"><span class="pre">print_list</span></code></a>(list_of_real)</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.oper_adds_offset" title="mmtbx.ncs.ncs.ncs_group.oper_adds_offset"><code class="xref py py-obj docutils literal"><span class="pre">oper_adds_offset</span></code></a>(i1[,&nbsp;tol_r,&nbsp;abs_tol_t,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.residues_in_common_list" title="mmtbx.ncs.ncs.ncs_group.residues_in_common_list"><code class="xref py py-obj docutils literal"><span class="pre">residues_in_common_list</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.print_list" title="mmtbx.ncs.ncs.ncs_group.print_list"><code class="xref py py-obj docutils literal"><span class="pre">print_list</span></code></a>(list_of_real)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rmsd_list" title="mmtbx.ncs.ncs.ncs_group.rmsd_list"><code class="xref py py-obj docutils literal"><span class="pre">rmsd_list</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.residues_in_common_list" title="mmtbx.ncs.ncs.ncs_group.residues_in_common_list"><code class="xref py py-obj docutils literal"><span class="pre">residues_in_common_list</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rota_matrices" title="mmtbx.ncs.ncs.ncs_group.rota_matrices"><code class="xref py py-obj docutils literal"><span class="pre">rota_matrices</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rmsd_list" title="mmtbx.ncs.ncs.ncs_group.rmsd_list"><code class="xref py py-obj docutils literal"><span class="pre">rmsd_list</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rota_matrices_inv" title="mmtbx.ncs.ncs.ncs_group.rota_matrices_inv"><code class="xref py py-obj docutils literal"><span class="pre">rota_matrices_inv</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rota_matrices" title="mmtbx.ncs.ncs.ncs_group.rota_matrices"><code class="xref py py-obj docutils literal"><span class="pre">rota_matrices</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rotate_matrices" title="mmtbx.ncs.ncs.ncs_group.rotate_matrices"><code class="xref py py-obj docutils literal"><span class="pre">rotate_matrices</span></code></a>([rot])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rota_matrices_inv" title="mmtbx.ncs.ncs.ncs_group.rota_matrices_inv"><code class="xref py py-obj docutils literal"><span class="pre">rota_matrices_inv</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rotations_translations_forward_euler" title="mmtbx.ncs.ncs.ncs_group.rotations_translations_forward_euler"><code class="xref py py-obj docutils literal"><span class="pre">rotations_translations_forward_euler</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rotate_matrices" title="mmtbx.ncs.ncs.ncs_group.rotate_matrices"><code class="xref py py-obj docutils literal"><span class="pre">rotate_matrices</span></code></a>([rot])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.round" title="mmtbx.ncs.ncs.ncs_group.round"><code class="xref py py-obj docutils literal"><span class="pre">round</span></code></a>(value,&nbsp;n_digit)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rotations_translations_forward_euler" title="mmtbx.ncs.ncs.ncs_group.rotations_translations_forward_euler"><code class="xref py py-obj docutils literal"><span class="pre">rotations_translations_forward_euler</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.sort_by_z_translation" title="mmtbx.ncs.ncs.ncs_group.sort_by_z_translation"><code class="xref py py-obj docutils literal"><span class="pre">sort_by_z_translation</span></code></a>([tol_z])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.round" title="mmtbx.ncs.ncs.ncs_group.round"><code class="xref py py-obj docutils literal"><span class="pre">round</span></code></a>(value,&nbsp;n_digit)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.source_of_ncs_info" title="mmtbx.ncs.ncs.ncs_group.source_of_ncs_info"><code class="xref py py-obj docutils literal"><span class="pre">source_of_ncs_info</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.sort_by_z_translation" title="mmtbx.ncs.ncs.ncs_group.sort_by_z_translation"><code class="xref py py-obj docutils literal"><span class="pre">sort_by_z_translation</span></code></a>([tol_z])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.translations_orth" title="mmtbx.ncs.ncs.ncs_group.translations_orth"><code class="xref py py-obj docutils literal"><span class="pre">translations_orth</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.source_of_ncs_info" title="mmtbx.ncs.ncs.ncs_group.source_of_ncs_info"><code class="xref py py-obj docutils literal"><span class="pre">source_of_ncs_info</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.translations_orth_inv" title="mmtbx.ncs.ncs.ncs_group.translations_orth_inv"><code class="xref py py-obj docutils literal"><span class="pre">translations_orth_inv</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.translations_orth" title="mmtbx.ncs.ncs.ncs_group.translations_orth"><code class="xref py py-obj docutils literal"><span class="pre">translations_orth</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.translations_orth_inv" title="mmtbx.ncs.ncs.ncs_group.translations_orth_inv"><code class="xref py py-obj docutils literal"><span class="pre">translations_orth_inv</span></code></a>()</td>
 <td></td>
 </tr>
 </tbody>
@@ -998,7 +1001,7 @@ residue level selection.</p>
 
 <dl class="method">
 <dt id="mmtbx.ncs.ncs.ncs_group.deep_copy">
-<code class="descname">deep_copy</code><span class="sig-paren">(</span><em>change_of_basis_operator=None</em>, <em>unit_cell=None</em>, <em>coordinate_offset=None</em>, <em>new_unit_cell=None</em>, <em>scale_factor=None</em>, <em>ops_to_keep=None</em>, <em>hierarchy_to_match_order=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.deep_copy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">deep_copy</code><span class="sig-paren">(</span><em>change_of_basis_operator=None</em>, <em>unit_cell=None</em>, <em>coordinate_offset=None</em>, <em>new_unit_cell=None</em>, <em>scale_factor=None</em>, <em>extract_point_group_symmetry=None</em>, <em>ops_to_keep=None</em>, <em>hierarchy_to_match_order=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.deep_copy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1024,6 +1027,11 @@ residue level selection.</p>
 <dl class="method">
 <dt id="mmtbx.ncs.ncs.ncs_group.extend_helix_operators">
 <code class="descname">extend_helix_operators</code><span class="sig-paren">(</span><em>z_range=None</em>, <em>tol_z=0.01</em>, <em>max_operators=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.extend_helix_operators" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.ncs.ncs.ncs_group.extract_point_group_symmetry">
+<code class="descname">extract_point_group_symmetry</code><span class="sig-paren">(</span><em>tol_r=None</em>, <em>abs_tol_t=None</em>, <em>rel_tol_t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.extract_point_group_symmetry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1113,7 +1121,7 @@ residue level selection.</p>
 
 <dl class="method">
 <dt id="mmtbx.ncs.ncs.ncs_group.is_point_group_symmetry">
-<code class="descname">is_point_group_symmetry</code><span class="sig-paren">(</span><em>tol_r=0.02</em>, <em>abs_tol_t=2.0</em>, <em>rel_tol_t=0.05</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.is_point_group_symmetry" title="Permalink to this definition">¶</a></dt>
+<code class="descname">is_point_group_symmetry</code><span class="sig-paren">(</span><em>tol_r=0.02</em>, <em>abs_tol_t=2.0</em>, <em>rel_tol_t=0.05</em>, <em>symmetry_to_match=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.is_point_group_symmetry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1367,36 +1375,6 @@ water molecules</p>
 <dt>Returns:</dt>
 <dd>res_list_new (list of str): list of residues names
 resid_list_new (list of str): list of residues number</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_search.get_rot_trans">
-<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">get_rot_trans</code><span class="sig-paren">(</span><em>ph</em>, <em>asc</em>, <em>master_selection</em>, <em>copy_selection</em>, <em>chain_max_rmsd=0.02</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rot_trans" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get rotation and translation using superpose.</p>
-<p>This function is used only when phil parameters are provided. In this case
-we require the selection of NCS master and copies to be correct.
-Correct means:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li>residue sequence in master and copies is exactly the same</li>
-<li>the number of atoms in master and copies is exactly the same</li>
-</ol>
-</div></blockquote>
-<p>One can get exact selection strings by ncs_object.show(verbose=True)</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">ph : pdb.hierarchy
-master/copy_selection (str): master and copy selection strings
-chain_max_rmsd (float): limit of rms difference between chains to be considered</p>
-<blockquote class="last">
-<div>as copies</div></blockquote>
-</dd>
-<dt>Returns:</dt>
-<dd>r: rotation matrix
-t: translation vector
-rmsd (float): RMSD between master and copy
-msg (str): error messages</dd>
 </dl>
 </dd></dl>
 

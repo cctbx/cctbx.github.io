@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mmtbx.ncs &mdash; CCTBX None documentation</title>
+    <title>mmtbx.ncs &mdash; CCTBX Developer documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="CCTBX None documentation" href="../index.html" />
+    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
     <link rel="up" title="mmtbx - macromolecular crystallography" href="mmtbx.html" /> 
   </head>
   <body role="document">
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &raquo;</li> 
       </ul>
     </div>  
@@ -1239,24 +1239,6 @@ residue level selection.</p>
 <p>Container for hierarchy analysis</p>
 </dd></dl>
 
-<dl class="class">
-<dt id="mmtbx.ncs.ncs_search.NCS_groups_container">
-<em class="property">class </em><code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">NCS_groups_container</code><a class="headerlink" href="#mmtbx.ncs.ncs_search.NCS_groups_container" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="mmtbx.ncs.ncs_search.Transform">
-<em class="property">class </em><code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">Transform</code><span class="sig-paren">(</span><em>rotation=None</em>, <em>translation=None</em>, <em>serial_num=None</em>, <em>coordinates_present=None</em>, <em>ncs_group_id=None</em>, <em>rmsd=0</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.Transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_search.angle_between_rotations">
-<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">angle_between_rotations</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.angle_between_rotations" title="Permalink to this definition">¶</a></dt>
-<dd><p>get angle between two vectors</p>
-</dd></dl>
-
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_search.find_ncs_in_hierarchy">
 <code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">find_ncs_in_hierarchy</code><span class="sig-paren">(</span><em>ph</em>, <em>chains_info=None</em>, <em>chain_max_rmsd=5.0</em>, <em>log=None</em>, <em>chain_similarity_threshold=0.85</em>, <em>residue_match_radius=4.0</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_ncs_in_hierarchy" title="Permalink to this definition">¶</a></dt>
@@ -1274,12 +1256,7 @@ residue_match_radius (float): max allow distance difference between pairs of mat
 <p class="last">chain_similarity_threshold (float): min similarity between matching chains</p>
 </dd>
 <dt>Return:</dt>
-<dd><p class="first">groups_list (list of NCS_groups_container objects)
-group_dict (dict):</p>
-<blockquote class="last">
-<div>keys: tuple of master chain IDs
-values: NCS_groups_container objects</div></blockquote>
-</dd>
+<dd>groups_list - class_ncs_restraints_group_list</dd>
 </dl>
 </dd></dl>
 
@@ -1365,55 +1342,9 @@ msg (str): message regarding matching residues with different atom number</dd>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_search.get_residue_sequence">
-<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">get_residue_sequence</code><span class="sig-paren">(</span><em>ph</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_residue_sequence" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a list of residues numbers and names from hierarchy &#8220;ph&#8221;, excluding
-water molecules</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ph (hierarchy): hierarchy of a single chain</dd>
-<dt>Returns:</dt>
-<dd>res_list_new (list of str): list of residues names
-resid_list_new (list of str): list of residues number</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_search.get_rotation_vec">
-<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">get_rotation_vec</code><span class="sig-paren">(</span><em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_rotation_vec" title="Permalink to this definition">¶</a></dt>
-<dd><p>get the eigen vector associated with the eigen value 1</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_search.get_sequence_from_array">
-<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">get_sequence_from_array</code><span class="sig-paren">(</span><em>arr</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_sequence_from_array" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_search.inverse_transform">
-<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">inverse_transform</code><span class="sig-paren">(</span><em>r</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.inverse_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>inverse rotation and translation</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_search.is_same_transform">
-<code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">is_same_transform</code><span class="sig-paren">(</span><em>r1</em>, <em>t1</em>, <em>r2</em>, <em>t2</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.is_same_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if transform is the same by comparing rotations and the result of
-applying rotation and translation on
-a test vector</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>r1, r2: Rotation matrices
-t1, t2: Translation vectors</dd>
-<dt>Returns:</dt>
-<dd>(bool,bool) (is_the_same, is_transpose)</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_search.make_flips_if_necessary_torsion">
 <code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">make_flips_if_necessary_torsion</code><span class="sig-paren">(</span><em>const_h</em>, <em>flip_h</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.make_flips_if_necessary_torsion" title="Permalink to this definition">¶</a></dt>
-<dd><p>3 times faster than other procedure.</p>
+<dd><p>3 times faster than other (removed) procedure.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1453,8 +1384,7 @@ master/copy_selection: master and copy iselections</dd>
 <code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">ncs_grouping_and_group_dict</code><span class="sig-paren">(</span><em>match_dict</em>, <em>hierarchy</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.ncs_grouping_and_group_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>The implementation of simplest way to do NCS grouping. Maximum one chain
 in selection.
-Do the job of minimal_master_ncs_grouping/minimal_ncs_operators_grouping
-and build_group_dict.</p>
+Do the job of minimal_master_ncs_grouping/minimal_ncs_operators_grouping.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1594,27 +1524,6 @@ Will make all copies consistent with master.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.get_ncs_sites_cart">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">get_ncs_sites_cart</code><span class="sig-paren">(</span><em>ncs_obj=None</em>, <em>fmodel=None</em>, <em>xray_structure=None</em>, <em>sites_cart=None</em>, <em>extended_ncs_selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_ncs_sites_cart" title="Permalink to this definition">¶</a></dt>
-<dd><p>XXX The same name of the function as in cctbx/maptbx/segment_and_split_map.py
-XXX The only call is from minimization_ncs_constraints.py, passing whole
-XXX lbfgs class as &#8216;ncs_obj&#8217;!
-XXX TODO: remove ncs_obj parameter, pass everything needed explicitly
-XXX not yet clear the goal of this func
-XXX</p>
-<dl class="docutils">
-<dt>Args::</dt>
-<dd><dl class="first last docutils">
-<dt>ncs_obj: an object that contains fmodel, sites_cart or xray_structure</dt>
-<dd>and an atom selection flags for a single NCS copy.</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd>(flex.vec3): coordinate sites cart of the single NCS copy</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.get_refine_selection">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">get_refine_selection</code><span class="sig-paren">(</span><em>refine_selection=None</em>, <em>number_of_atoms=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_refine_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>populate refine_selection with all atoms if no selection is given</p>
@@ -1662,23 +1571,6 @@ transformations=transformations,
 u_iso=u_iso,
 ncs_restraints_group_list=ncs_restraints_group_list,
 refine_selection=refine_selection)</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="mmtbx.ncs.ncs_utils.make_unique_chain_names">
-<code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">make_unique_chain_names</code><span class="sig-paren">(</span><em>unique_chain_names</em>, <em>number_of_names=1</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.make_unique_chain_names" title="Permalink to this definition">¶</a></dt>
-<dd><p>XXX
-XXX Consider removing, unifying with iotbx.pdb.utils.all_chain_ids
-XXX</p>
-<p>Produce a sorted list of new unique chain names.
-Chain names are strings of one or two characters long.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>unique_chain_names (set): Current names
-number_of_names (int): number of new names</dd>
-<dt>Returns:</dt>
-<dd>new_names_list (list): sorted list on new names</dd>
 </dl>
 </dd></dl>
 
@@ -1876,7 +1768,7 @@ and NCS transformations. Limitations:</p>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX None documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &raquo;</li> 
       </ul>
     </div>

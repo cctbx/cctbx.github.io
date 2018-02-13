@@ -584,7 +584,7 @@ deposit the modified data).</p>
 
 <dl class="class">
 <dt id="mmtbx.scaling.data_statistics.anomalous">
-<em class="property">class </em><code class="descclassname">mmtbx.scaling.data_statistics.</code><code class="descname">anomalous</code><span class="sig-paren">(</span><em>miller_array</em>, <em>merging_stats=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.scaling.data_statistics.anomalous" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.scaling.data_statistics.</code><code class="descname">anomalous</code><span class="sig-paren">(</span><em>miller_array</em>, <em>merging_stats=None</em>, <em>plan_sad_experiment_stats=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.scaling.data_statistics.anomalous" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#mmtbx.scaling.xtriage_analysis" title="mmtbx.scaling.xtriage_analysis"><code class="xref py py-class docutils literal"><span class="pre">mmtbx.scaling.xtriage_analysis</span></code></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -3267,16 +3267,14 @@ reference datasets.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>miller_obs</strong> &#8211; array of observed data, should be intensity or amplitude</li>
 <li><strong>miller_calc</strong> &#8211; array of calculated data</li>
 <li><strong>miller_ref</strong> &#8211; array with &#8216;reference&#8217; data, for instance a data set with
 an alternative indexing scheme</li>
 <li><strong>text_out</strong> &#8211; A filehandle or other object with a write method</li>
+<li><strong>params</strong> &#8211; An extracted PHIL parameter block, derived from master_params</li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Parma params:</th><td class="field-body"><p class="first last">An extracted PHIL parameter block, derived from master_params</p>
 </td>
 </tr>
 </tbody>
@@ -3318,7 +3316,10 @@ an alternative indexing scheme</li>
 <tr class="row-even"><td><a class="reference internal" href="#mmtbx.scaling.xtriage.xtriage_analyses.number_of_wilson_outliers" title="mmtbx.scaling.xtriage.xtriage_analyses.number_of_wilson_outliers"><code class="xref py py-obj docutils literal"><span class="pre">number_of_wilson_outliers</span></code></a></td>
 <td>Number of centric and acentric outliers flagged by Wilson plot analysis.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.scaling.xtriage.xtriage_analyses.patterson_verdict" title="mmtbx.scaling.xtriage.xtriage_analyses.patterson_verdict"><code class="xref py py-obj docutils literal"><span class="pre">patterson_verdict</span></code></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.scaling.xtriage.xtriage_analyses.overall_i_sig_i" title="mmtbx.scaling.xtriage.xtriage_analyses.overall_i_sig_i"><code class="xref py py-obj docutils literal"><span class="pre">overall_i_sig_i</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.scaling.xtriage.xtriage_analyses.patterson_verdict" title="mmtbx.scaling.xtriage.xtriage_analyses.patterson_verdict"><code class="xref py py-obj docutils literal"><span class="pre">patterson_verdict</span></code></a></td>
 <td>Plain-English explanation of Patterson analysis for TNCS detection.</td>
 </tr>
 </tbody>
@@ -3444,6 +3445,11 @@ validation server.</p>
 <dd><p>Number of centric and acentric outliers flagged by Wilson plot analysis.
 Used in PDB validation server.</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.scaling.xtriage.xtriage_analyses.overall_i_sig_i">
+<code class="descname">overall_i_sig_i</code><a class="headerlink" href="#mmtbx.scaling.xtriage.xtriage_analyses.overall_i_sig_i" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.scaling.xtriage.xtriage_analyses.patterson_verdict">

@@ -2913,7 +2913,7 @@ crystal_symmetry : must provide crystal symmetry when using pdb_hierarchy</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.clashscore.clashscore">
-<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">clashscore</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>keep_hydrogens=True</em>, <em>nuclear=False</em>, <em>force_unique_chain_ids=False</em>, <em>time_limit=120</em>, <em>b_factor_cutoff=None</em>, <em>save_probe_unformatted_file=None</em>, <em>save_modified_hierarchy=False</em>, <em>verbose=False</em>, <em>do_flips=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">clashscore</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>keep_hydrogens=True</em>, <em>nuclear=False</em>, <em>force_unique_chain_ids=False</em>, <em>time_limit=120</em>, <em>b_factor_cutoff=None</em>, <em>save_modified_hierarchy=False</em>, <em>verbose=False</em>, <em>do_flips=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.validation" title="mmtbx.validation.validation"><code class="xref py py-class docutils literal"><span class="pre">mmtbx.validation.validation</span></code></a></p>
 <p class="rubric">Attributes</p>
 <table border="1" class="longtable docutils">
@@ -3074,6 +3074,11 @@ crystal_symmetry : must provide crystal symmetry when using pdb_hierarchy</p>
 <dl class="method">
 <dt id="mmtbx.validation.clashscore.clashscore.print_clashlist_old">
 <code class="descname">print_clashlist_old</code><span class="sig-paren">(</span><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.print_clashlist_old" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.clashscore.clashscore.probe_clashscore_manager">
+<code class="descname">probe_clashscore_manager</code><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.probe_clashscore_manager" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -3335,7 +3340,7 @@ network optimization.</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.clashscore.probe_clashscore_manager">
-<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">probe_clashscore_manager</code><span class="sig-paren">(</span><em>h_pdb_string</em>, <em>nuclear=False</em>, <em>largest_occupancy=10</em>, <em>b_factor_cutoff=None</em>, <em>use_segids=False</em>, <em>verbose=False</em>, <em>printable_probe_output=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_clashscore_manager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">probe_clashscore_manager</code><span class="sig-paren">(</span><em>h_pdb_string</em>, <em>nuclear=False</em>, <em>largest_occupancy=10</em>, <em>b_factor_cutoff=None</em>, <em>use_segids=False</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_clashscore_manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -3353,7 +3358,7 @@ network optimization.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#mmtbx.validation.clashscore.probe_clashscore_manager.put_group_into_dict" title="mmtbx.validation.clashscore.probe_clashscore_manager.put_group_into_dict"><code class="xref py py-obj docutils literal"><span class="pre">put_group_into_dict</span></code></a>(line_info,&nbsp;clash_hash,&nbsp;...)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.clashscore.probe_clashscore_manager.run_probe_clashscore" title="mmtbx.validation.clashscore.probe_clashscore_manager.run_probe_clashscore"><code class="xref py py-obj docutils literal"><span class="pre">run_probe_clashscore</span></code></a>(pdb_string[,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="#mmtbx.validation.clashscore.probe_clashscore_manager.run_probe_clashscore" title="mmtbx.validation.clashscore.probe_clashscore_manager.run_probe_clashscore"><code class="xref py py-obj docutils literal"><span class="pre">run_probe_clashscore</span></code></a>(pdb_string)</td>
 <td></td>
 </tr>
 </tbody>
@@ -3375,7 +3380,7 @@ network optimization.</p>
 
 <dl class="method">
 <dt id="mmtbx.validation.clashscore.probe_clashscore_manager.run_probe_clashscore">
-<code class="descname">run_probe_clashscore</code><span class="sig-paren">(</span><em>pdb_string</em>, <em>printable_probe_output=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_clashscore_manager.run_probe_clashscore" title="Permalink to this definition">¶</a></dt>
+<code class="descname">run_probe_clashscore</code><span class="sig-paren">(</span><em>pdb_string</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_clashscore_manager.run_probe_clashscore" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

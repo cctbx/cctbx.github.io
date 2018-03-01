@@ -126,37 +126,40 @@ cluster.lst file:</p>
 <tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.from_files" title="xfel.clustering.cluster.Cluster.from_files"><code class="xref py py-obj docutils literal"><span class="pre">from_files</span></code></a>([raw_input,&nbsp;pickle_list,&nbsp;...])</td>
 <td>Constructor to get a cluster from a list of individual files.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.from_list" title="xfel.clustering.cluster.Cluster.from_list"><code class="xref py py-obj docutils literal"><span class="pre">from_list</span></code></a>(file_name[,&nbsp;raw_input,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.from_iterable" title="xfel.clustering.cluster.Cluster.from_iterable"><code class="xref py py-obj docutils literal"><span class="pre">from_iterable</span></code></a>(iterable[,&nbsp;_prefix,&nbsp;_message])</td>
+<td>Constructor to get a cluster from an iterable (a list or tuple).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.from_list" title="xfel.clustering.cluster.Cluster.from_list"><code class="xref py py-obj docutils literal"><span class="pre">from_list</span></code></a>(file_name[,&nbsp;raw_input,&nbsp;...])</td>
 <td>Constructor to get a cluster from a single file.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.intensity_statistics" title="xfel.clustering.cluster.Cluster.intensity_statistics"><code class="xref py py-obj docutils literal"><span class="pre">intensity_statistics</span></code></a>([ax])</td>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.intensity_statistics" title="xfel.clustering.cluster.Cluster.intensity_statistics"><code class="xref py py-obj docutils literal"><span class="pre">intensity_statistics</span></code></a>([ax])</td>
 <td>Uses the per-frame B and G fits (gradient and intercept of the ln(i) vs (sin(theta)/lambda)**2 plot) to create three agregate plots: 1) histogram of standard errors on the per-frame fits 2) histogram of B factors 3) scatter  plot of intercept vs.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.make_sub_cluster" title="xfel.clustering.cluster.Cluster.make_sub_cluster"><code class="xref py py-obj docutils literal"><span class="pre">make_sub_cluster</span></code></a>(new_members,&nbsp;new_prefix,&nbsp;...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.make_sub_cluster" title="xfel.clustering.cluster.Cluster.make_sub_cluster"><code class="xref py py-obj docutils literal"><span class="pre">make_sub_cluster</span></code></a>(new_members,&nbsp;new_prefix,&nbsp;...)</td>
 <td>Make a sub-cluster from a list of SingleFrame objects from the old SingleFrame array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.merge_dict" title="xfel.clustering.cluster.Cluster.merge_dict"><code class="xref py py-obj docutils literal"><span class="pre">merge_dict</span></code></a>([use_fullies])</td>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.merge_dict" title="xfel.clustering.cluster.Cluster.merge_dict"><code class="xref py py-obj docutils literal"><span class="pre">merge_dict</span></code></a>([use_fullies])</td>
 <td>Make a dict of Miller indices with  ([list of intensities], resolution) value tuples for each miller index.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.point_group_filter" title="xfel.clustering.cluster.Cluster.point_group_filter"><code class="xref py py-obj docutils literal"><span class="pre">point_group_filter</span></code></a>(point_group)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.point_group_filter" title="xfel.clustering.cluster.Cluster.point_group_filter"><code class="xref py py-obj docutils literal"><span class="pre">point_group_filter</span></code></a>(point_group)</td>
 <td>Return all the SingleFrames that have a given pointgroup.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.prime_postrefine" title="xfel.clustering.cluster.Cluster.prime_postrefine"><code class="xref py py-obj docutils literal"><span class="pre">prime_postrefine</span></code></a>(inputfile)</td>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.prime_postrefine" title="xfel.clustering.cluster.Cluster.prime_postrefine"><code class="xref py py-obj docutils literal"><span class="pre">prime_postrefine</span></code></a>(inputfile)</td>
 <td>Run postrefinement from Prime on a cluster.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.print_ucs" title="xfel.clustering.cluster.Cluster.print_ucs"><code class="xref py py-obj docutils literal"><span class="pre">print_ucs</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.print_ucs" title="xfel.clustering.cluster.Cluster.print_ucs"><code class="xref py py-obj docutils literal"><span class="pre">print_ucs</span></code></a>()</td>
 <td>Prints a list of all the unit cells in the cluster to CSV.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.to_pandas" title="xfel.clustering.cluster.Cluster.to_pandas"><code class="xref py py-obj docutils literal"><span class="pre">to_pandas</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.to_pandas" title="xfel.clustering.cluster.Cluster.to_pandas"><code class="xref py py-obj docutils literal"><span class="pre">to_pandas</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.total_intensity_filter" title="xfel.clustering.cluster.Cluster.total_intensity_filter"><code class="xref py py-obj docutils literal"><span class="pre">total_intensity_filter</span></code></a>([res,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.total_intensity_filter" title="xfel.clustering.cluster.Cluster.total_intensity_filter"><code class="xref py py-obj docutils literal"><span class="pre">total_intensity_filter</span></code></a>([res,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.uc_feature_vector" title="xfel.clustering.cluster.Cluster.uc_feature_vector"><code class="xref py py-obj docutils literal"><span class="pre">uc_feature_vector</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.uc_feature_vector" title="xfel.clustering.cluster.Cluster.uc_feature_vector"><code class="xref py py-obj docutils literal"><span class="pre">uc_feature_vector</span></code></a>()</td>
 <td>Return a len(cluster) * 6 numpy array of features for use in ML algos</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.visualise_orientational_distribution" title="xfel.clustering.cluster.Cluster.visualise_orientational_distribution"><code class="xref py py-obj docutils literal"><span class="pre">visualise_orientational_distribution</span></code></a>([...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#xfel.clustering.cluster.Cluster.visualise_orientational_distribution" title="xfel.clustering.cluster.Cluster.visualise_orientational_distribution"><code class="xref py py-obj docutils literal"><span class="pre">visualise_orientational_distribution</span></code></a>([...])</td>
 <td>Creates a plot of the orientational distribution of the unit cells.</td>
 </tr>
 </tbody>
@@ -314,6 +317,15 @@ mean intensity scalling.</p>
 :param dials: use the dials_refls and dials_expts arguments to construct the clusters (default: False)
 :param use_b: Boolean. If True, intialise Scale and B. If False, use only
 mean intensity scalling.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="xfel.clustering.cluster.Cluster.from_iterable">
+<em class="property">classmethod </em><code class="descname">from_iterable</code><span class="sig-paren">(</span><em>iterable</em>, <em>_prefix='cluster_from_iterable'</em>, <em>_message='Made from list of individual cells'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.from_iterable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor to get a cluster from an iterable (a list or tuple).  The
+file must list unit cell a,b,c,alpha,beta,gamma and space_group_type,
+each as a single token.
+:param iterable: a list or a tuple</p>
 </dd></dl>
 
 <dl class="classmethod">

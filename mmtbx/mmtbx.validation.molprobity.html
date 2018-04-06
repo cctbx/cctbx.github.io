@@ -109,7 +109,7 @@ test cases with just .pdb, without arguments, etc.</p>
 mmtbx.validation, which use the same APIs for storing and displaying results.</p>
 <dl class="class">
 <dt id="mmtbx.validation.molprobity.molprobity">
-<em class="property">class </em><code class="descclassname">mmtbx.validation.molprobity.</code><code class="descname">molprobity</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>model=None</em>, <em>xray_structure=None</em>, <em>fmodel=None</em>, <em>fmodel_neutron=None</em>, <em>geometry_restraints_manager=None</em>, <em>crystal_symmetry=None</em>, <em>sequences=None</em>, <em>flags=None</em>, <em>header_info=None</em>, <em>raw_data=None</em>, <em>unmerged_data=None</em>, <em>all_chain_proxies=None</em>, <em>keep_hydrogens=True</em>, <em>nuclear=False</em>, <em>save_probe_unformatted_file=None</em>, <em>show_hydrogen_outliers=False</em>, <em>min_cc_two_fofc=0.8</em>, <em>n_bins_data=10</em>, <em>count_anomalous_pairs_separately=False</em>, <em>use_internal_variance=True</em>, <em>outliers_only=True</em>, <em>use_pdb_header_resolution_cutoffs=False</em>, <em>file_name=None</em>, <em>ligand_selection=None</em>, <em>rotamer_library='8000'</em>, <em>map_params=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.molprobity" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.validation.molprobity.</code><code class="descname">molprobity</code><span class="sig-paren">(</span><em>model</em>, <em>pdb_hierarchy=None</em>, <em>fmodel=None</em>, <em>fmodel_neutron=None</em>, <em>sequences=None</em>, <em>flags=None</em>, <em>header_info=None</em>, <em>raw_data=None</em>, <em>unmerged_data=None</em>, <em>keep_hydrogens=True</em>, <em>nuclear=False</em>, <em>save_probe_unformatted_file=None</em>, <em>show_hydrogen_outliers=False</em>, <em>min_cc_two_fofc=0.8</em>, <em>n_bins_data=10</em>, <em>count_anomalous_pairs_separately=False</em>, <em>use_internal_variance=True</em>, <em>outliers_only=True</em>, <em>use_pdb_header_resolution_cutoffs=False</em>, <em>file_name=None</em>, <em>ligand_selection=None</em>, <em>rotamer_library='8000'</em>, <em>map_params=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.molprobity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate" title="libtbx.slots_getstate_setstate"><code class="xref py py-class docutils literal"><span class="pre">libtbx.slots_getstate_setstate</span></code></a></p>
 <p>Comprehensive validation.  At a minimum this performs the standard MolProbity
 analyses (ramalyze, rotalyze, cbetadev, clashscore).  If a geometry
@@ -121,14 +121,11 @@ re-calculation of R-factors and real-space correlation.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pdb_hierarchy</strong> &#8211; model PDB hierarchy (required)</li>
-<li><strong>xray_structure</strong> &#8211; model X-ray scatterers</li>
+<li><strong>model</strong> &#8211; model object (required)</li>
 <li><strong>fmodel</strong> &#8211; mmtbx.f_model.manager object, after bulk solvent/scaling</li>
 <li><strong>fmodel_neutron</strong> &#8211; separate Fmodel manager for neutron data (used in
 phenix.refine for join X/N refinement)</li>
-<li><strong>geometry_restraints_manager</strong> &#8211; geometry restraints extracted by                                       mmtbx.monomer_library.pdb_interpretation</li>
 <li><strong>sequences</strong> &#8211; parsed sequence objects (from iotbx.bioinformatics)</li>
-<li><strong>crystal_symmetry</strong> &#8211; cctbx.crystal.symmetry object</li>
 <li><strong>flags</strong> &#8211; object containing boolean flags for analyses to perform</li>
 <li><strong>header_info</strong> &#8211; extracted statistics from PDB file header</li>
 <li><strong>raw_data</strong> &#8211; input data before French-Wilson treatment, etc.</li>
@@ -374,6 +371,11 @@ routines in wxtbx.plots.</p>
 <dl class="attribute">
 <dt id="mmtbx.validation.molprobity.molprobity.missing_atoms">
 <code class="descname">missing_atoms</code><a class="headerlink" href="#mmtbx.validation.molprobity.molprobity.missing_atoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.molprobity.molprobity.model">
+<code class="descname">model</code><a class="headerlink" href="#mmtbx.validation.molprobity.molprobity.model" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">

@@ -1,34 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>mmtbx - macromolecular crystallography &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="next" title="mmtbx.building package" href="mmtbx.building.html" /> 
-  </head>
-  <body role="document">
+    <link rel="next" title="mmtbx.building package" href="mmtbx.building.html" />
+    <link rel="prev" title="cctbx.xray.weighting_schemes module" href="../cctbx/cctbx.xray.weighting_schemes.html" /> 
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -41,6 +31,9 @@
         <li class="right" >
           <a href="mmtbx.building.html" title="mmtbx.building package"
              accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../cctbx/cctbx.xray.weighting_schemes.html" title="cctbx.xray.weighting_schemes module"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -52,7 +45,7 @@
             
   <div class="section" id="mmtbx-macromolecular-crystallography">
 <h1>mmtbx - macromolecular crystallography<a class="headerlink" href="#mmtbx-macromolecular-crystallography" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="#module-mmtbx" title="mmtbx"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx</span></code></a> module has two purposes: firstly, it introduces additional
+<p>The <a class="reference internal" href="#module-mmtbx" title="mmtbx"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx</span></code></a> module has two purposes: firstly, it introduces additional
 crystallographic algorithms that are traditionally specific to macromolecular
 structures, such as bulk-solvent correction, absolute scaling, maximum
 likelihood targets, non-crystallographic symmetry, weighted maps, and
@@ -61,36 +54,36 @@ higher-level classes for querying and manipulating molecular structures and
 writing full-featured macromolecular crystallography applications.  Most of the
 core functions of the program <a class="reference external" href="http://www.phenix-online.org/documentation/reference/refinement.html">phenix.refine</a> are
 part of mmtbx, and the module also includes the complete code for the
-programs <code class="docutils literal"><span class="pre">phenix.xtriage</span></code>, <code class="docutils literal"><span class="pre">phenix.maps</span></code>, <code class="docutils literal"><span class="pre">phenix.ensemble_refinement</span></code>,
-<code class="docutils literal"><span class="pre">phenix.model_vs_data</span></code>, and <code class="docutils literal"><span class="pre">phenix.pdbtools</span></code>, plus the backend logic for
+programs <code class="docutils literal notranslate"><span class="pre">phenix.xtriage</span></code>, <code class="docutils literal notranslate"><span class="pre">phenix.maps</span></code>, <code class="docutils literal notranslate"><span class="pre">phenix.ensemble_refinement</span></code>,
+<code class="docutils literal notranslate"><span class="pre">phenix.model_vs_data</span></code>, and <code class="docutils literal notranslate"><span class="pre">phenix.pdbtools</span></code>, plus the backend logic for
 the <a class="reference external" href="http://molprobity.biochem.duke.edu">MolProbity server</a>.</p>
-<p>For new developers, the module <a class="reference internal" href="mmtbx.command_line.html#module-mmtbx.command_line" title="mmtbx.command_line"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx.command_line</span></code></a> provides a
+<p>For new developers, the module <a class="reference internal" href="mmtbx.command_line.html#module-mmtbx.command_line" title="mmtbx.command_line"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.command_line</span></code></a> provides a
 simplified frontend for running routine setup tasks (such as bulk solvent
 correction or geometry restraints interpretation) and populating many of the
 standard data structures.  (The source code also provides a suitable example
 should you wish to instantiate these objects yourself.)  However, since the
 resulting objects tend to be especially complex, some knowledge of their
 internals and purpose is helpful.</p>
-<p>The most important modules in <a class="reference internal" href="#module-mmtbx" title="mmtbx"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx</span></code></a> can be summarized as follows:</p>
+<p>The most important modules in <a class="reference internal" href="#module-mmtbx" title="mmtbx"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx</span></code></a> can be summarized as follows:</p>
 <ul class="simple">
-<li><a class="reference internal" href="mmtbx.f_model.html#module-mmtbx.f_model" title="mmtbx.f_model"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx.f_model</span></code></a>: encapsulates most functionality for calculating
+<li><a class="reference internal" href="mmtbx.f_model.html#module-mmtbx.f_model" title="mmtbx.f_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.f_model</span></code></a>: encapsulates most functionality for calculating
 F(model) (i.e. F(calc)) and comparing it against experimental data.  The
 calculation of weighted electron density maps usually starts from this
 point.</li>
-<li><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.pdb_interpretation" title="mmtbx.monomer_library.pdb_interpretation"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx.monomer_library.pdb_interpretation</span></code></a>: processing of models
+<li><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.pdb_interpretation" title="mmtbx.monomer_library.pdb_interpretation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.monomer_library.pdb_interpretation</span></code></a>: processing of models
 (in PDB or mmCIF format) and interpretation with respect to a library of
 geometry restraints (provided as part of Phenix, but the CCP4 Monomer
 Library may also be used).</li>
-<li><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling" title="mmtbx.scaling"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx.scaling</span></code></a>: absolute scaling routines plus analyses of
+<li><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling" title="mmtbx.scaling"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.scaling</span></code></a>: absolute scaling routines plus analyses of
 experimental data to assess quality and detect possible pathologies such as
 twinning.  This module is slightly misnamed, since it is primarily used as
-the backend for <code class="docutils literal"><span class="pre">Xtriage</span></code>.</li>
-<li><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation" title="mmtbx.validation"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx.validation</span></code></a>: tools for assessing model quality, based either
-on geometric criteria or fit to data.  Also see <a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer" title="mmtbx.rotamer"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx.rotamer</span></code></a>, the
+the backend for <code class="docutils literal notranslate"><span class="pre">Xtriage</span></code>.</li>
+<li><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation" title="mmtbx.validation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.validation</span></code></a>: tools for assessing model quality, based either
+on geometric criteria or fit to data.  Also see <a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer" title="mmtbx.rotamer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.rotamer</span></code></a>, the
 lower-level code for analyzing conformation.</li>
-<li><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement" title="mmtbx.refinement"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx.refinement</span></code></a>: routines for model optimization against either
+<li><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement" title="mmtbx.refinement"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.refinement</span></code></a>: routines for model optimization against either
 reciprocal space or real-space (i.e. electron density map) data.</li>
-<li><code class="xref py py-mod docutils literal"><span class="pre">mmtbx.pdbtools</span></code>: a small library (as well as a standalone program)
+<li><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.pdbtools</span></code>: a small library (as well as a standalone program)
 for various common model manipulations.</li>
 </ul>
 <div class="section" id="subpackages">
@@ -101,39 +94,23 @@ for various common model manipulations.</li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.building.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.building.alternate_conformations.html">mmtbx.building.alternate_conformations package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mmtbx.building.alternate_conformations.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.building.alternate_conformations.html#module-mmtbx.building.alternate_conformations.altloc_labeling">mmtbx.building.alternate_conformations.altloc_labeling module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.building.alternate_conformations.html#module-mmtbx.building.alternate_conformations.single_residue">mmtbx.building.alternate_conformations.single_residue module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.building.alternate_conformations.html#module-mmtbx.building.alternate_conformations">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.building.alternate_conformations.html#module-mmtbx.building.alternate_conformations.altloc_labeling">mmtbx.building.alternate_conformations.altloc_labeling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.building.alternate_conformations.html#module-mmtbx.building.alternate_conformations.single_residue">mmtbx.building.alternate_conformations.single_residue module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.building.alternate_conformations.html#module-mmtbx.building.alternate_conformations">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.building.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.building.html#module-mmtbx.building.extend_sidechains">mmtbx.building.extend_sidechains module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.building.html#module-mmtbx.building.make_library">mmtbx.building.make_library module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.building.html#module-mmtbx.building">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.building.html#module-mmtbx.building.extend_sidechains">mmtbx.building.extend_sidechains module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.building.html#module-mmtbx.building.make_library">mmtbx.building.make_library module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.building.html#module-mmtbx.building">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.bulk_solvent.html">mmtbx.bulk_solvent package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.bulk_solvent.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.bulk_solvent.html#module-mmtbx.bulk_solvent.bulk_solvent_and_scaling">mmtbx.bulk_solvent.bulk_solvent_and_scaling module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.bulk_solvent.html#module-mmtbx.bulk_solvent.scaler">mmtbx.bulk_solvent.scaler module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.bulk_solvent.html#module-mmtbx.bulk_solvent.bulk_solvent_and_scaling">mmtbx.bulk_solvent.bulk_solvent_and_scaling module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.bulk_solvent.html#module-mmtbx.bulk_solvent.scaler">mmtbx.bulk_solvent.scaler module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.bulk_solvent.html#module-mmtbx.bulk_solvent">Module contents</a></li>
 </ul>
 </li>
@@ -152,20 +129,12 @@ for various common model manipulations.</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam.cablam_align">mmtbx.cablam.cablam_align module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam.cablam_fingerprints">mmtbx.cablam.cablam_fingerprints module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam.cablam_align">mmtbx.cablam.cablam_align module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam.cablam_fingerprints">mmtbx.cablam.cablam_fingerprints module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam.cablam_math">mmtbx.cablam.cablam_math module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam.cablam_res">mmtbx.cablam.cablam_res module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam.cablam_res">mmtbx.cablam.cablam_res module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam.cablam_training">mmtbx.cablam.cablam_training module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam.cablam_validate">mmtbx.cablam.cablam_validate module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam.cablam_validate">mmtbx.cablam.cablam_validate module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.cablam.html#module-mmtbx.cablam">Module contents</a></li>
 </ul>
 </li>
@@ -176,20 +145,14 @@ for various common model manipulations.</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.command_line.html">mmtbx.command_line package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.command_line.html#module-mmtbx.command_line">API documentation</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.command_line.html#module-mmtbx.command_line">API documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.conformation_dependent_library.html">mmtbx.conformation_dependent_library package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.conformation_dependent_library.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.conformation_dependent_library.html#module-mmtbx.conformation_dependent_library.altloc_weighting">mmtbx.conformation_dependent_library.altloc_weighting module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.conformation_dependent_library.html#module-mmtbx.conformation_dependent_library.bond_angle_registry">mmtbx.conformation_dependent_library.bond_angle_registry module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.conformation_dependent_library.html#module-mmtbx.conformation_dependent_library.cdl_database">mmtbx.conformation_dependent_library.cdl_database module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.conformation_dependent_library.html#module-mmtbx.conformation_dependent_library.bond_angle_registry">mmtbx.conformation_dependent_library.bond_angle_registry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.conformation_dependent_library.html#module-mmtbx.conformation_dependent_library.cdl_database">mmtbx.conformation_dependent_library.cdl_database module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.conformation_dependent_library.html#module-mmtbx.conformation_dependent_library.rdl_database">mmtbx.conformation_dependent_library.rdl_database module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.conformation_dependent_library.html#mmtbx-conformation-dependent-library-rotamers-module">mmtbx.conformation_dependent_library.rotamers module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.conformation_dependent_library.html#module-mmtbx.conformation_dependent_library.test_cdl">mmtbx.conformation_dependent_library.test_cdl module</a></li>
@@ -202,32 +165,20 @@ for various common model manipulations.</li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.den.html">mmtbx.den package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.den.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.den.html#module-mmtbx.den.plot_weights">mmtbx.den.plot_weights module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.den.html#module-mmtbx.den.refinement">mmtbx.den.refinement module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.den.html#module-mmtbx.den">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.den.html#module-mmtbx.den.refinement">mmtbx.den.refinement module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.den.html#module-mmtbx.den">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.density_modification.html">mmtbx.density_modification package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.density_modification.html#module-mmtbx.density_modification">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.density_modification.html#module-mmtbx.density_modification">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.dynamics.html">mmtbx.dynamics package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.dynamics.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.dynamics.html#module-mmtbx.dynamics.cartesian_dynamics">mmtbx.dynamics.cartesian_dynamics module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.dynamics.html#module-mmtbx.dynamics.cartesian_dynamics">mmtbx.dynamics.cartesian_dynamics module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.dynamics.html#module-mmtbx.dynamics.constants">mmtbx.dynamics.constants module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.dynamics.html#module-mmtbx.dynamics.ensemble_cd">mmtbx.dynamics.ensemble_cd module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.dynamics.html#module-mmtbx.dynamics.simulated_annealing">mmtbx.dynamics.simulated_annealing module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.dynamics.html#module-mmtbx.dynamics.ensemble_cd">mmtbx.dynamics.ensemble_cd module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.dynamics.html#module-mmtbx.dynamics.simulated_annealing">mmtbx.dynamics.simulated_annealing module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.dynamics.html#module-mmtbx.dynamics">Module contents</a></li>
 </ul>
 </li>
@@ -237,24 +188,14 @@ for various common model manipulations.</li>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.geometry.html">mmtbx.geometry package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.altloc">mmtbx.geometry.altloc module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.asa">mmtbx.geometry.asa module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.clash">mmtbx.geometry.clash module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.indexing">mmtbx.geometry.indexing module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.altloc">mmtbx.geometry.altloc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.asa">mmtbx.geometry.asa module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.clash">mmtbx.geometry.clash module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.indexing">mmtbx.geometry.indexing module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#mmtbx-geometry-primitive-module">mmtbx.geometry.primitive module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.shared_types">mmtbx.geometry.shared_types module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.sphere_surface_sampling">mmtbx.geometry.sphere_surface_sampling module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.topology">mmtbx.geometry.topology module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry.topology">mmtbx.geometry.topology module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#mmtbx-geometry-volume-module">mmtbx.geometry.volume module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry.html#module-mmtbx.geometry">Module contents</a></li>
 </ul>
@@ -265,9 +206,7 @@ for various common model manipulations.</li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry_restraints.html#module-mmtbx.geometry_restraints.external">mmtbx.geometry_restraints.external module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry_restraints.html#mmtbx-geometry-restraints-flags-module">mmtbx.geometry_restraints.flags module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry_restraints.html#mmtbx-geometry-restraints-hbond-module">mmtbx.geometry_restraints.hbond module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry_restraints.html#module-mmtbx.geometry_restraints.ramachandran">mmtbx.geometry_restraints.ramachandran module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry_restraints.html#module-mmtbx.geometry_restraints.ramachandran">mmtbx.geometry_restraints.ramachandran module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry_restraints.html#module-mmtbx.geometry_restraints.reference">mmtbx.geometry_restraints.reference module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry_restraints.html#mmtbx-geometry-restraints-rotamer-module">mmtbx.geometry_restraints.rotamer module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.geometry_restraints.html#module-mmtbx.geometry_restraints">Module contents</a></li>
@@ -281,9 +220,7 @@ for various common model manipulations.</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.ias.html">mmtbx.ias package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.ias.html#module-mmtbx.ias">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.ias.html#module-mmtbx.ias">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.ions.html">mmtbx.ions package</a><ul>
@@ -294,35 +231,21 @@ for various common model manipulations.</li>
 <li class="toctree-l5"><a class="reference internal" href="mmtbx.ions.svm.utils.html">mmtbx.ions.svm.utils module</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.ions.svm.html#module-mmtbx.ions.svm">Module contents</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="mmtbx.ions.svm.html#see-also">See Also</a><ul class="simple">
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.ions.svm.html#module-mmtbx.ions.svm">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.ions.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.ions.build.html">mmtbx.ions.build module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mmtbx.ions.environment.html">mmtbx.ions.environment module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="mmtbx.ions.environment.html">mmtbx.ions.environment module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.ions.geometry.html">mmtbx.ions.geometry module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.ions.halides.html">mmtbx.ions.halides module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mmtbx.ions.identify.html">mmtbx.ions.identify module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="mmtbx.ions.identify.html">mmtbx.ions.identify module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.ions.utils.html">mmtbx.ions.utils module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.ions.html#module-mmtbx.ions">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mmtbx.ions.html#notes">Notes</a><ul class="simple">
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.ions.html#module-mmtbx.ions">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.kinemage.html">mmtbx.kinemage package</a><ul>
@@ -333,43 +256,23 @@ for various common model manipulations.</li>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.maps.html">mmtbx.maps package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.composite_omit_map">mmtbx.maps.composite_omit_map module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.fem">mmtbx.maps.fem module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.fobs_minus_fobs_map">mmtbx.maps.fobs_minus_fobs_map module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.kick">mmtbx.maps.kick module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.superpose">mmtbx.maps.superpose module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.utils">mmtbx.maps.utils module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.composite_omit_map">mmtbx.maps.composite_omit_map module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.fem">mmtbx.maps.fem module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.fobs_minus_fobs_map">mmtbx.maps.fobs_minus_fobs_map module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.kick">mmtbx.maps.kick module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.superpose">mmtbx.maps.superpose module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps.utils">mmtbx.maps.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.maps.html#module-mmtbx.maps">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.masks.html">mmtbx.masks package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.masks.html#module-mmtbx.masks">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.masks.html#module-mmtbx.masks">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.max_lik.html">mmtbx.max_lik package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.max_lik.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.max_lik.html#module-mmtbx.max_lik.max_like_non_uniform">mmtbx.max_lik.max_like_non_uniform module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.max_lik.html#module-mmtbx.max_lik.maxlik">mmtbx.max_lik.maxlik module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.max_lik.html#module-mmtbx.max_lik.max_like_non_uniform">mmtbx.max_lik.max_like_non_uniform module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.max_lik.html#module-mmtbx.max_lik.maxlik">mmtbx.max_lik.maxlik module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.max_lik.html#module-mmtbx.max_lik">Module contents</a></li>
 </ul>
 </li>
@@ -377,48 +280,28 @@ for various common model manipulations.</li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.bondlength_defaults">mmtbx.monomer_library.bondlength_defaults module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.cif_triage">mmtbx.monomer_library.cif_triage module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.cif_types">mmtbx.monomer_library.cif_types module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.conformation_dependent_restraints">mmtbx.monomer_library.conformation_dependent_restraints module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.cif_types">mmtbx.monomer_library.cif_types module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.conformation_dependent_restraints">mmtbx.monomer_library.conformation_dependent_restraints module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.conv_v2_v3">mmtbx.monomer_library.conv_v2_v3 module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.correct_hydrogen_geometries">mmtbx.monomer_library.correct_hydrogen_geometries module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.glyco_chiral_values">mmtbx.monomer_library.glyco_chiral_values module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.glyco_utils">mmtbx.monomer_library.glyco_utils module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.glyco_utils">mmtbx.monomer_library.glyco_utils module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.hydrogen_restrictions">mmtbx.monomer_library.hydrogen_restrictions module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.idealized_aa">mmtbx.monomer_library.idealized_aa module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.linking_mixins">mmtbx.monomer_library.linking_mixins module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.linking_mixins">mmtbx.monomer_library.linking_mixins module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.linking_setup">mmtbx.monomer_library.linking_setup module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.linking_utils">mmtbx.monomer_library.linking_utils module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.pdb_interpretation">mmtbx.monomer_library.pdb_interpretation module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.rna_sugar_pucker_analysis">mmtbx.monomer_library.rna_sugar_pucker_analysis module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.rotamer_utils">mmtbx.monomer_library.rotamer_utils module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.server">mmtbx.monomer_library.server module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.pdb_interpretation">mmtbx.monomer_library.pdb_interpretation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.rna_sugar_pucker_analysis">mmtbx.monomer_library.rna_sugar_pucker_analysis module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.rotamer_utils">mmtbx.monomer_library.rotamer_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.server">mmtbx.monomer_library.server module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.ncs.html">mmtbx.ncs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.ncs.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.ncs.html#module-mmtbx.ncs.ligands">mmtbx.ncs.ligands module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.ncs.html#module-mmtbx.ncs.ncs">mmtbx.ncs.ncs module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.ncs.html#module-mmtbx.ncs.ligands">mmtbx.ncs.ligands module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.ncs.html#module-mmtbx.ncs.ncs">mmtbx.ncs.ncs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.ncs.html#mmtbx-ncs-restraints-module">mmtbx.ncs.restraints module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.ncs.html#module-mmtbx.ncs.ncs_search">mmtbx.ncs.ncs_search module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.ncs.html#module-mmtbx.ncs.ncs_utils">mmtbx.ncs.ncs_utils module</a></li>
@@ -431,125 +314,65 @@ for various common model manipulations.</li>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.polygon.html">mmtbx.polygon package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.polygon.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.polygon.html#module-mmtbx.polygon.output">mmtbx.polygon.output module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.polygon.html#module-mmtbx.polygon.output">mmtbx.polygon.output module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.polygon.html#module-mmtbx.polygon">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.real_space.html">mmtbx.real_space package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.real_space.html#module-mmtbx.real_space">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.real_space.html#module-mmtbx.real_space">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.refinement.html">mmtbx.refinement package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.ensemble_refinement.html">mmtbx.refinement.ensemble_refinement package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.ensemble_refinement.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.ensemble_refinement.html#module-mmtbx.refinement.ensemble_refinement.ensemble_utils">mmtbx.refinement.ensemble_refinement.ensemble_utils module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.ensemble_refinement.html#module-mmtbx.refinement.ensemble_refinement">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.ensemble_refinement.html#module-mmtbx.refinement.ensemble_refinement.ensemble_utils">mmtbx.refinement.ensemble_refinement.ensemble_utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.ensemble_refinement.html#module-mmtbx.refinement.ensemble_refinement">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html">mmtbx.refinement.real_space package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.fit_residue">mmtbx.refinement.real_space.fit_residue module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.fit_residues">mmtbx.refinement.real_space.fit_residues module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.fit_residue">mmtbx.refinement.real_space.fit_residue module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.fit_residues">mmtbx.refinement.real_space.fit_residues module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.fit_water">mmtbx.refinement.real_space.fit_water module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.individual_sites">mmtbx.refinement.real_space.individual_sites module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.rigid_body">mmtbx.refinement.real_space.rigid_body module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.weight">mmtbx.refinement.real_space.weight module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.individual_sites">mmtbx.refinement.real_space.individual_sites module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.rigid_body">mmtbx.refinement.real_space.rigid_body module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.weight">mmtbx.refinement.real_space.weight module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.adp_refinement">mmtbx.refinement.adp_refinement module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.anomalous_scatterer_groups">mmtbx.refinement.anomalous_scatterer_groups module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.adp_refinement">mmtbx.refinement.adp_refinement module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.anomalous_scatterer_groups">mmtbx.refinement.anomalous_scatterer_groups module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#mmtbx-refinement-fit-rotamers-module">mmtbx.refinement.fit_rotamers module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#mmtbx-refinement-flip-peptides-module">mmtbx.refinement.flip_peptides module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.geometry_minimization">mmtbx.refinement.geometry_minimization module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.group">mmtbx.refinement.group module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.geometry_minimization">mmtbx.refinement.geometry_minimization module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.group">mmtbx.refinement.group module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.inspect_tardy_trajectory">mmtbx.refinement.inspect_tardy_trajectory module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.minimization">mmtbx.refinement.minimization module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.minimization_ncs_constraints">mmtbx.refinement.minimization_ncs_constraints module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.occupancies">mmtbx.refinement.occupancies module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.orca">mmtbx.refinement.orca module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.print_statistics">mmtbx.refinement.print_statistics module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.refinement_flags">mmtbx.refinement.refinement_flags module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.rigid_body">mmtbx.refinement.rigid_body module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.select_best_starting_model">mmtbx.refinement.select_best_starting_model module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.tardy">mmtbx.refinement.tardy module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.targets">mmtbx.refinement.targets module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.minimization">mmtbx.refinement.minimization module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.minimization_ncs_constraints">mmtbx.refinement.minimization_ncs_constraints module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.occupancies">mmtbx.refinement.occupancies module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.orca">mmtbx.refinement.orca module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.print_statistics">mmtbx.refinement.print_statistics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.refinement_flags">mmtbx.refinement.refinement_flags module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.rigid_body">mmtbx.refinement.rigid_body module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.select_best_starting_model">mmtbx.refinement.select_best_starting_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.tardy">mmtbx.refinement.tardy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.targets">mmtbx.refinement.targets module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement.weights_params">mmtbx.refinement.weights_params module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#mmtbx-refinement-wx-tardy-pdb-module">mmtbx.refinement.wx_tardy_pdb module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.rotamer.html">mmtbx.rotamer package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer.graphics">mmtbx.rotamer.graphics module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer.n_dim_table">mmtbx.rotamer.n_dim_table module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer.ramachandran_eval">mmtbx.rotamer.ramachandran_eval module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer.rotamer_eval">mmtbx.rotamer.rotamer_eval module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer.sidechain_angles">mmtbx.rotamer.sidechain_angles module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer.graphics">mmtbx.rotamer.graphics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer.n_dim_table">mmtbx.rotamer.n_dim_table module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer.ramachandran_eval">mmtbx.rotamer.ramachandran_eval module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer.rotamer_eval">mmtbx.rotamer.rotamer_eval module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer.sidechain_angles">mmtbx.rotamer.sidechain_angles module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer">Module contents</a></li>
 </ul>
 </li>
@@ -560,68 +383,34 @@ for various common model manipulations.</li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.scaling.html">mmtbx.scaling package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.absence_likelihood">mmtbx.scaling.absence_likelihood module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.absences">mmtbx.scaling.absences module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.absolute_scaling">mmtbx.scaling.absolute_scaling module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.absences">mmtbx.scaling.absences module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.absolute_scaling">mmtbx.scaling.absolute_scaling module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.basic_analyses">mmtbx.scaling.basic_analyses module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.data_statistics">mmtbx.scaling.data_statistics module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.fa_estimation">mmtbx.scaling.fa_estimation module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.data_statistics">mmtbx.scaling.data_statistics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.fa_estimation">mmtbx.scaling.fa_estimation module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.fest">mmtbx.scaling.fest module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.make_param">mmtbx.scaling.make_param module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.massage_twin_detwin_data">mmtbx.scaling.massage_twin_detwin_data module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.matthews">mmtbx.scaling.matthews module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.make_param">mmtbx.scaling.make_param module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.massage_twin_detwin_data">mmtbx.scaling.massage_twin_detwin_data module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.matthews">mmtbx.scaling.matthews module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.outlier_plots">mmtbx.scaling.outlier_plots module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.outlier_rejection">mmtbx.scaling.outlier_rejection module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.pair_analyses">mmtbx.scaling.pair_analyses module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.outlier_rejection">mmtbx.scaling.outlier_rejection module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.pair_analyses">mmtbx.scaling.pair_analyses module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.pre_scale">mmtbx.scaling.pre_scale module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.random_omit">mmtbx.scaling.random_omit module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.relative_scaling">mmtbx.scaling.relative_scaling module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.relative_wilson">mmtbx.scaling.relative_wilson module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.random_omit">mmtbx.scaling.random_omit module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.relative_scaling">mmtbx.scaling.relative_scaling module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.relative_wilson">mmtbx.scaling.relative_wilson module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.remove_outliers">mmtbx.scaling.remove_outliers module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.rip_scale">mmtbx.scaling.rip_scale module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.sad_scale">mmtbx.scaling.sad_scale module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.sigmaa_estimation">mmtbx.scaling.sigmaa_estimation module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.sigmaa_estimation">mmtbx.scaling.sigmaa_estimation module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.sir_scale">mmtbx.scaling.sir_scale module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.siras_scale">mmtbx.scaling.siras_scale module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.ta_alpha_beta_calc">mmtbx.scaling.ta_alpha_beta_calc module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.ta_alpha_beta_calc">mmtbx.scaling.ta_alpha_beta_calc module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.thorough_outlier_test">mmtbx.scaling.thorough_outlier_test module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.twin_analyses">mmtbx.scaling.twin_analyses module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.twin_analyses">mmtbx.scaling.twin_analyses module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.twmad_scale">mmtbx.scaling.twmad_scale module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.xtriage">mmtbx.scaling.xtriage module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling.xtriage">mmtbx.scaling.xtriage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.secondary_structure.html">mmtbx.secondary_structure package</a><ul>
@@ -634,26 +423,16 @@ for various common model manipulations.</li>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.secondary_structure.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.secondary_structure.html#mmtbx-secondary-structure-base-pairing-module">mmtbx.secondary_structure.base_pairing module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.secondary_structure.html#module-mmtbx.secondary_structure.dssp">mmtbx.secondary_structure.dssp module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.secondary_structure.html#module-mmtbx.secondary_structure.proteins">mmtbx.secondary_structure.proteins module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.secondary_structure.html#module-mmtbx.secondary_structure.dssp">mmtbx.secondary_structure.dssp module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.secondary_structure.html#module-mmtbx.secondary_structure.proteins">mmtbx.secondary_structure.proteins module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.secondary_structure.html#module-mmtbx.secondary_structure.utils">mmtbx.secondary_structure.utils module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.secondary_structure.html#module-mmtbx.secondary_structure">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.secondary_structure.html#module-mmtbx.secondary_structure">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.solvent.html">mmtbx.solvent package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.solvent.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.solvent.html#module-mmtbx.solvent.ensemble_ordered_solvent">mmtbx.solvent.ensemble_ordered_solvent module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.solvent.html#module-mmtbx.solvent.ordered_solvent">mmtbx.solvent.ordered_solvent module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.solvent.html#module-mmtbx.solvent.ensemble_ordered_solvent">mmtbx.solvent.ensemble_ordered_solvent module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.solvent.html#module-mmtbx.solvent.ordered_solvent">mmtbx.solvent.ordered_solvent module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.solvent.html#module-mmtbx.solvent">Module contents</a></li>
 </ul>
 </li>
@@ -661,20 +440,14 @@ for various common model manipulations.</li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.tls.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.tls.html#module-mmtbx.tls.command_line">mmtbx.tls.command_line module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.tls.html#module-mmtbx.tls.ladp">mmtbx.tls.ladp module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.tls.html#module-mmtbx.tls.tls_as_xyz">mmtbx.tls.tls_as_xyz module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.tls.html#module-mmtbx.tls.tools">mmtbx.tls.tools module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.tls.html#module-mmtbx.tls.tls_as_xyz">mmtbx.tls.tls_as_xyz module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.tls.html#module-mmtbx.tls.tools">mmtbx.tls.tools module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.tls.html#module-mmtbx.tls">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.ligands.html">mmtbx.ligands package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.ligands.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.ligands.html#module-mmtbx.ligands.xtal_screens">mmtbx.ligands.xtal_screens module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.ligands.html#module-mmtbx.ligands.xtal_screens">mmtbx.ligands.xtal_screens module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.ligands.html#module-mmtbx.ligands">Module contents</a></li>
 </ul>
 </li>
@@ -689,24 +462,16 @@ for various common model manipulations.</li>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.twinning.html">mmtbx.twinning package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.twinning.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.twinning.html#module-mmtbx.twinning.probabalistic_detwinning">mmtbx.twinning.probabalistic_detwinning module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.twinning.html#module-mmtbx.twinning.twin_f_model">mmtbx.twinning.twin_f_model module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.twinning.html#module-mmtbx.twinning.probabalistic_detwinning">mmtbx.twinning.probabalistic_detwinning module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.twinning.html#module-mmtbx.twinning.twin_f_model">mmtbx.twinning.twin_f_model module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.twinning.html#module-mmtbx.twinning.twin_map_utils">mmtbx.twinning.twin_map_utils module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.twinning.html#module-mmtbx.twinning">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.utils.html">mmtbx.utils package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.utils.html#module-mmtbx.utils">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.utils.html#module-mmtbx.utils">Module contents</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.utils.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.utils.html#module-mmtbx.utils.fab_elbow_angle">mmtbx.utils.fab_elbow_angle module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.utils.html#module-mmtbx.utils.fab_elbow_angle">mmtbx.utils.fab_elbow_angle module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.utils.html#mmtbx-utils-ncs-utils-module">mmtbx.utils.ncs_utils module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.utils.html#module-mmtbx.utils.rotatable_bonds">mmtbx.utils.rotatable_bonds module</a></li>
 </ul>
@@ -718,9 +483,7 @@ for various common model manipulations.</li>
 <li class="toctree-l5"><a class="reference internal" href="mmtbx.validation.molprobity.html#submodules">Submodules</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mmtbx.validation.molprobity.html#module-mmtbx.validation.molprobity.mp_geo">mmtbx.validation.molprobity.mp_geo module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="mmtbx.validation.molprobity.html#module-mmtbx.validation.molprobity.nqh_minimize">mmtbx.validation.molprobity.nqh_minimize module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="mmtbx.validation.molprobity.html#module-mmtbx.validation.molprobity">Module contents</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l5"><a class="reference internal" href="mmtbx.validation.molprobity.html#module-mmtbx.validation.molprobity">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -728,64 +491,34 @@ for various common model manipulations.</li>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.validation.html#submodules">Submodules</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#rotalyze-protein-sidechain-rotamer-analysis">Rotalyze - protein sidechain rotamer analysis</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#ramalyze-ramachandran-plot-analysis">Ramalyze - Ramachandran plot analysis</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#clashscore-all-atom-contacts-using-reduce-and-probe">Clashscore - all-atom contacts using Reduce and Probe</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#c-beta-deviations">C-beta deviations</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.restraints">mmtbx.validation.restraints module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.rna_validate">mmtbx.validation.rna_validate module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#rotalyze-protein-sidechain-rotamer-analysis">Rotalyze - protein sidechain rotamer analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#ramalyze-ramachandran-plot-analysis">Ramalyze - Ramachandran plot analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#clashscore-all-atom-contacts-using-reduce-and-probe">Clashscore - all-atom contacts using Reduce and Probe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#c-beta-deviations">C-beta deviations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.restraints">mmtbx.validation.restraints module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.rna_validate">mmtbx.validation.rna_validate module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.analyze_peptides">mmtbx.validation.analyze_peptides module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.experimental">mmtbx.validation.experimental module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.graphics">mmtbx.validation.graphics module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.ligands">mmtbx.validation.ligands module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.model_properties">mmtbx.validation.model_properties module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.sequence">mmtbx.validation.sequence module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.experimental">mmtbx.validation.experimental module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.graphics">mmtbx.validation.graphics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.ligands">mmtbx.validation.ligands module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.model_properties">mmtbx.validation.model_properties module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.sequence">mmtbx.validation.sequence module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.utils">mmtbx.validation.utils module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.waters">mmtbx.validation.waters module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation.waters">mmtbx.validation.waters module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.wwpdb.html">mmtbx.wwpdb package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.wwpdb.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.wwpdb.html#module-mmtbx.wwpdb.rcsb_web_services">mmtbx.wwpdb.rcsb_web_services module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.wwpdb.html#module-mmtbx.wwpdb.standard_geometry_cif">mmtbx.wwpdb.standard_geometry_cif module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.wwpdb.html#module-mmtbx.wwpdb.standard_geometry_cif">mmtbx.wwpdb.standard_geometry_cif module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.wwpdb.html#module-mmtbx.wwpdb.utils">mmtbx.wwpdb.utils module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.wwpdb.html#module-mmtbx.wwpdb">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mmtbx.disorder.html">mmtbx.disorder package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.disorder.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.disorder.html#module-mmtbx.disorder.analyze_model">mmtbx.disorder.analyze_model module</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.disorder.html#module-mmtbx.disorder.backbone">mmtbx.disorder.backbone module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.disorder.html#module-mmtbx.disorder.analyze_model">mmtbx.disorder.analyze_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.disorder.html#module-mmtbx.disorder.backbone">mmtbx.disorder.backbone module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.disorder.html#module-mmtbx.disorder">Module contents</a></li>
 </ul>
 </li>
@@ -802,114 +535,60 @@ for various common model manipulations.</li>
 <dl class="class">
 <dt id="mmtbx.fmodels">
 <em class="property">class </em><code class="descclassname">mmtbx.</code><code class="descname">fmodels</code><span class="sig-paren">(</span><em>fmodel_xray=None</em>, <em>fmodel_neutron=None</em>, <em>xray_scattering_dict=None</em>, <em>neutron_scattering_dict=None</em>, <em>neutron_refinement=None</em>, <em>twin_law=None</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Container object for F_model values used during refinement.</p>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="71%" />
-<col width="29%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>fmodel_xray :</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>fmodel_neutron :</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>xray_scattering_dict :</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>neutron_scattering_dict :</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>neutron_refinement :</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>twin_law :</td>
-<td>&nbsp;</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.fmodels.create_target_functors" title="mmtbx.fmodels.create_target_functors"><code class="xref py py-obj docutils literal"><span class="pre">create_target_functors</span></code></a>([alpha_beta])</td>
-<td>...</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.fmodels.fmodel_neutron" title="mmtbx.fmodels.fmodel_neutron"><code class="xref py py-obj docutils literal"><span class="pre">fmodel_neutron</span></code></a>([xray_structure])</td>
-<td>...</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.fmodels.fmodel_xray" title="mmtbx.fmodels.fmodel_xray"><code class="xref py py-obj docutils literal"><span class="pre">fmodel_xray</span></code></a>([xray_structure])</td>
-<td>...</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.fmodels.prepare_target_functors_for_minimization" title="mmtbx.fmodels.prepare_target_functors_for_minimization"><code class="xref py py-obj docutils literal"><span class="pre">prepare_target_functors_for_minimization</span></code></a>()</td>
-<td>...</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.fmodels.pseudo_deep_copy" title="mmtbx.fmodels.pseudo_deep_copy"><code class="xref py py-obj docutils literal"><span class="pre">pseudo_deep_copy</span></code></a>()</td>
-<td>Makes a deep copy of self.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.fmodels.resolution_filter" title="mmtbx.fmodels.resolution_filter"><code class="xref py py-obj docutils literal"><span class="pre">resolution_filter</span></code></a>(d_min)</td>
-<td>Returns a copy of self with a resolution filter applied to the x-ray and neutron maps above a given resolution.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.fmodels.show_comprehensive" title="mmtbx.fmodels.show_comprehensive"><code class="xref py py-obj docutils literal"><span class="pre">show_comprehensive</span></code></a>([message])</td>
-<td>...</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.fmodels.show_short" title="mmtbx.fmodels.show_short"><code class="xref py py-obj docutils literal"><span class="pre">show_short</span></code></a>([log])</td>
-<td>...</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.fmodels.show_targets" title="mmtbx.fmodels.show_targets"><code class="xref py py-obj docutils literal"><span class="pre">show_targets</span></code></a>(log[,&nbsp;text])</td>
-<td>...</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.fmodels.target_and_gradients" title="mmtbx.fmodels.target_and_gradients"><code class="xref py py-obj docutils literal"><span class="pre">target_and_gradients</span></code></a>(compute_gradients[,&nbsp;...])</td>
-<td>...</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.fmodels.target_functions_are_invariant_under_allowed_origin_shifts" title="mmtbx.fmodels.target_functions_are_invariant_under_allowed_origin_shifts"><code class="xref py py-obj docutils literal"><span class="pre">target_functions_are_invariant_under_allowed_origin_shifts</span></code></a>()</td>
-<td>...</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.fmodels.target_functor_result_neutron" title="mmtbx.fmodels.target_functor_result_neutron"><code class="xref py py-obj docutils literal"><span class="pre">target_functor_result_neutron</span></code></a>(compute_gradients)</td>
-<td>...</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.fmodels.target_functor_result_xray" title="mmtbx.fmodels.target_functor_result_xray"><code class="xref py py-obj docutils literal"><span class="pre">target_functor_result_xray</span></code></a>(compute_gradients)</td>
-<td>...</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.fmodels.update" title="mmtbx.fmodels.update"><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></a>([target_name])</td>
-<td>...</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.fmodels.update_all_scales" title="mmtbx.fmodels.update_all_scales"><code class="xref py py-obj docutils literal"><span class="pre">update_all_scales</span></code></a>(update_f_part1[,&nbsp;...])</td>
-<td>...</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.fmodels.update_xray_structure" title="mmtbx.fmodels.update_xray_structure"><code class="xref py py-obj docutils literal"><span class="pre">update_xray_structure</span></code></a>([xray_structure,&nbsp;...])</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
+<dl class="attribute">
+<dt id="mmtbx.fmodels.fmodel_xray">
+<code class="descname">fmodel_xray</code><a class="headerlink" href="#mmtbx.fmodels.fmodel_xray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.fmodels.fmodel_neutron">
+<code class="descname">fmodel_neutron</code><a class="headerlink" href="#mmtbx.fmodels.fmodel_neutron" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.fmodels.xray_scattering_dict">
+<code class="descname">xray_scattering_dict</code><a class="headerlink" href="#mmtbx.fmodels.xray_scattering_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.fmodels.neutron_scattering_dict">
+<code class="descname">neutron_scattering_dict</code><a class="headerlink" href="#mmtbx.fmodels.neutron_scattering_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.fmodels.neutron_refinement">
+<code class="descname">neutron_refinement</code><a class="headerlink" href="#mmtbx.fmodels.neutron_refinement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.fmodels.twin_law">
+<code class="descname">twin_law</code><a class="headerlink" href="#mmtbx.fmodels.twin_law" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="mmtbx.fmodels.create_target_functors">
 <code class="descname">create_target_functors</code><span class="sig-paren">(</span><em>alpha_beta=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.create_target_functors" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mmtbx.fmodels.fmodel_neutron">
-<code class="descname">fmodel_neutron</code><span class="sig-paren">(</span><em>xray_structure=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.fmodel_neutron" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dt>
+<code class="descname">fmodel_neutron</code><span class="sig-paren">(</span><em>xray_structure=None</em><span class="sig-paren">)</span></dt>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mmtbx.fmodels.fmodel_xray">
-<code class="descname">fmodel_xray</code><span class="sig-paren">(</span><em>xray_structure=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.fmodel_xray" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dt>
+<code class="descname">fmodel_xray</code><span class="sig-paren">(</span><em>xray_structure=None</em><span class="sig-paren">)</span></dt>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.prepare_target_functors_for_minimization">
 <code class="descname">prepare_target_functors_for_minimization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.prepare_target_functors_for_minimization" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
@@ -920,7 +599,9 @@ for various common model manipulations.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">mmtbx.fmodels</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#mmtbx.fmodels" title="mmtbx.fmodels">mmtbx.fmodels</a></td>
 </tr>
 </tbody>
 </table>
@@ -935,81 +616,78 @@ neutron maps above a given resolution.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>d_min</strong> : float</p>
-<blockquote>
-<div><p>Reflections with resolutions &lt;= d_min are removed.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – Reflections with resolutions &lt;= d_min are removed.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">mmtbx.fmodels</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#mmtbx.fmodels" title="mmtbx.fmodels">mmtbx.fmodels</a></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">mmtbx.f_model.manager.resolution_filter</span></code></p>
+<p class="last"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mmtbx.f_model.manager.resolution_filter()</span></code></p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.show_comprehensive">
 <code class="descname">show_comprehensive</code><span class="sig-paren">(</span><em>message=''</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.show_comprehensive" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.show_short">
 <code class="descname">show_short</code><span class="sig-paren">(</span><em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.show_short" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.show_targets">
 <code class="descname">show_targets</code><span class="sig-paren">(</span><em>log</em>, <em>text=''</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.show_targets" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.target_and_gradients">
 <code class="descname">target_and_gradients</code><span class="sig-paren">(</span><em>compute_gradients</em>, <em>weights=None</em>, <em>u_iso_refinable_params=None</em>, <em>occupancy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_and_gradients" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.target_functions_are_invariant_under_allowed_origin_shifts">
 <code class="descname">target_functions_are_invariant_under_allowed_origin_shifts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_functions_are_invariant_under_allowed_origin_shifts" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.target_functor_result_neutron">
 <code class="descname">target_functor_result_neutron</code><span class="sig-paren">(</span><em>compute_gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_functor_result_neutron" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.target_functor_result_xray">
 <code class="descname">target_functor_result_xray</code><span class="sig-paren">(</span><em>compute_gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_functor_result_xray" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.update">
 <code class="descname">update</code><span class="sig-paren">(</span><em>target_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.update_all_scales">
 <code class="descname">update_all_scales</code><span class="sig-paren">(</span><em>update_f_part1</em>, <em>remove_outliers=True</em>, <em>params=None</em>, <em>optimize_mask=False</em>, <em>force_update_f_mask=False</em>, <em>nproc=1</em>, <em>log=None</em>, <em>apply_back_trace=False</em>, <em>refine_hd_scattering=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.update_all_scales" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.fmodels.update_xray_structure">
 <code class="descname">update_xray_structure</code><span class="sig-paren">(</span><em>xray_structure=None</em>, <em>update_f_calc=None</em>, <em>update_f_mask=None</em>, <em>force_update_f_mask=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.update_xray_structure" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dd><p>…</p>
 </dd></dl>
 
 </dd></dl>
@@ -1017,53 +695,50 @@ neutron maps above a given resolution.</p>
 <dl class="class">
 <dt id="mmtbx.map_names">
 <em class="property">class </em><code class="descclassname">mmtbx.</code><code class="descname">map_names</code><span class="sig-paren">(</span><em>map_name_string</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.map_names" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Class used for parsing and external display of map&#8217;s name.</p>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="41%" />
-<col width="59%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>k</td>
-<td>(float) Scale for F_obs.</td>
-</tr>
-<tr class="row-even"><td>n</td>
-<td>(float) Scale for F_model.</td>
-</tr>
-<tr class="row-odd"><td>ml_map</td>
-<td>(bool)</td>
-</tr>
-<tr class="row-even"><td>anomalous</td>
-<td>(bool)</td>
-</tr>
-<tr class="row-odd"><td>anomalous_residual</td>
-<td>(bool)</td>
-</tr>
-<tr class="row-even"><td>phaser_sad_llg</td>
-<td>(bool)</td>
-</tr>
-<tr class="row-odd"><td>f_obs_filled</td>
-<td>(bool)</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.map_names.error" title="mmtbx.map_names.error"><code class="xref py py-obj docutils literal"><span class="pre">error</span></code></a>(s)</td>
-<td>Raises an exception for bad map names.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.map_names.format" title="mmtbx.map_names.format"><code class="xref py py-obj docutils literal"><span class="pre">format</span></code></a>()</td>
-<td>Formats a map name for external display.</td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Class used for parsing and external display of map’s name.</p>
+<dl class="attribute">
+<dt id="mmtbx.map_names.k">
+<code class="descname">k</code><a class="headerlink" href="#mmtbx.map_names.k" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – Scale for F_obs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.map_names.n">
+<code class="descname">n</code><a class="headerlink" href="#mmtbx.map_names.n" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – Scale for F_model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.map_names.ml_map">
+<code class="descname">ml_map</code><a class="headerlink" href="#mmtbx.map_names.ml_map" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.map_names.anomalous">
+<code class="descname">anomalous</code><a class="headerlink" href="#mmtbx.map_names.anomalous" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.map_names.anomalous_residual">
+<code class="descname">anomalous_residual</code><a class="headerlink" href="#mmtbx.map_names.anomalous_residual" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.map_names.phaser_sad_llg">
+<code class="descname">phaser_sad_llg</code><a class="headerlink" href="#mmtbx.map_names.phaser_sad_llg" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.map_names.f_obs_filled">
+<code class="descname">f_obs_filled</code><a class="headerlink" href="#mmtbx.map_names.f_obs_filled" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em></p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="mmtbx.map_names.DFC">
 <code class="descname">DFC</code><em class="property"> = ['dfcalc', 'dfcal', 'dfc', 'dfmodel', 'dfmod', 'dfm']</em><a class="headerlink" href="#mmtbx.map_names.DFC" title="Permalink to this definition">¶</a></dt>
@@ -1100,7 +775,7 @@ neutron maps above a given resolution.</p>
 <code class="descname">format</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.map_names.format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Formats a map name for external display.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">map_names</span><span class="p">(</span><span class="n">map_name_string</span><span class="o">=</span><span class="s2">&quot;mFo-DFc &quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">map_names</span><span class="p">(</span><span class="n">map_name_string</span><span class="o">=</span><span class="s2">&quot;mFo-DFc &quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">r</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
 <span class="go">mFobs-DFmodel</span>
 </pre></div>
@@ -1123,31 +798,34 @@ neutron maps above a given resolution.</p>
 <li><a class="reference internal" href="#">mmtbx - macromolecular crystallography</a><ul>
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx">Module contents</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-mmtbx">Module contents</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../cctbx/cctbx.xray.weighting_schemes.html"
+                        title="previous chapter">cctbx.xray.weighting_schemes module</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="mmtbx.building.html"
                         title="next chapter">mmtbx.building package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/mmtbx/mmtbx.txt"
+      <li><a href="../_sources/mmtbx/mmtbx.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -1166,12 +844,15 @@ neutron maps above a given resolution.</p>
         <li class="right" >
           <a href="mmtbx.building.html" title="mmtbx.building package"
              >next</a> |</li>
+        <li class="right" >
+          <a href="../cctbx/cctbx.xray.weighting_schemes.html" title="cctbx.xray.weighting_schemes module"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

@@ -1,35 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>iotbx.file_reader - generic file input &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="iotbx - file readers and writers" href="index.html" />
+    <link rel="next" title="iotbx.cif" href="iotbx.cif.html" />
     <link rel="prev" title="iotbx - file readers and writers" href="index.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -39,6 +28,9 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="iotbx.cif.html" title="iotbx.cif"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="iotbx - file readers and writers"
              accesskey="P">previous</a> |</li>
@@ -54,7 +46,7 @@
             
   <div class="section" id="iotbx-file-reader-generic-file-input">
 <h1>iotbx.file_reader - generic file input<a class="headerlink" href="#iotbx-file-reader-generic-file-input" title="Permalink to this headline">¶</a></h1>
-<p>The <code class="docutils literal"><span class="pre">iotbx.file_reader</span></code> module is intended to provide a single entry point
+<p>The <code class="docutils literal notranslate"><span class="pre">iotbx.file_reader</span></code> module is intended to provide a single entry point
 for reading most common crystallographic file formats.  This allows the
 programmer to use the underlying input functions without needing to know the
 specific APIs in detail, although the resulting objects will still be
@@ -62,10 +54,10 @@ format-specific.  It is also designed to support automatic file type
 determination, first by guessing the format based on the file extension, then
 by trying a succession of input methods until one finishes without an error.
 This facility is used both for processing command-line arguments (especially
-via the <code class="xref py py-mod docutils literal"><span class="pre">iotbx.phil</span></code> extensions), and for handling file input in the
+via the <code class="xref py py-mod docutils literal notranslate"><span class="pre">iotbx.phil</span></code> extensions), and for handling file input in the
 Phenix GUI.</p>
 <p>In the simplest case, reading a file requires only a single method:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.file_reader</span> <span class="k">import</span> <span class="n">any_file</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.file_reader</span> <span class="k">import</span> <span class="n">any_file</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">input_file</span> <span class="o">=</span> <span class="n">any_file</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">file_data</span> <span class="o">=</span> <span class="n">input_file</span><span class="o">.</span><span class="n">file_object</span>
 </pre></div>
@@ -75,7 +67,7 @@ if parsing using the appropriate module fails due to corrupted file data, this
 may be more inefficient than explicitly specifying the file
 type, and should be used only when the format is not known in advance.  You
 can alternately specify which input module to use:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pdb_in</span> <span class="o">=</span> <span class="n">any_file</span><span class="p">(</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">,</span> <span class="n">force_type</span><span class="o">=</span><span class="s2">&quot;pdb&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pdb_in</span> <span class="o">=</span> <span class="n">any_file</span><span class="p">(</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">,</span> <span class="n">force_type</span><span class="o">=</span><span class="s2">&quot;pdb&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pdb_in</span><span class="o">.</span><span class="n">assert_file_type</span><span class="p">(</span><span class="s2">&quot;pdb&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hierarchy</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">file_object</span><span class="o">.</span><span class="n">construct_hierarchy</span><span class="p">()</span>
 
@@ -85,9 +77,9 @@ can alternately specify which input module to use:</p>
 </div>
 <p>This will skip the automatic format detection and only try the specified
 input method.  Several options are available for error handling; the default
-behavior when <code class="docutils literal"><span class="pre">force_type</span></code> is set is to pass through any exceptions
+behavior when <code class="docutils literal notranslate"><span class="pre">force_type</span></code> is set is to pass through any exceptions
 encountered when calling the underlying input method:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.file_reader</span> <span class="k">import</span> <span class="n">any_file</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.file_reader</span> <span class="k">import</span> <span class="n">any_file</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">any_file</span><span class="p">(</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">,</span> <span class="n">force_type</span><span class="o">=</span><span class="s2">&quot;hkl&quot;</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
@@ -102,15 +94,15 @@ encountered when calling the underlying input method:</p>
 </div>
 <p>This is fine for internal use when an unexpected file parsing error is likely
 to be a bug in the code, but less suitable when processing user input.
-Alternately, a <code class="xref py py-class docutils literal"><span class="pre">libtbx.utils.Sorry</span></code> exception may be raised instead:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">any_file</span><span class="p">(</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">,</span> <span class="n">force_type</span><span class="o">=</span><span class="s2">&quot;hkl&quot;</span><span class="p">,</span> <span class="n">raise_sorry_if_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+Alternately, a <code class="xref py py-class docutils literal notranslate"><span class="pre">libtbx.utils.Sorry</span></code> exception may be raised instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">any_file</span><span class="p">(</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">,</span> <span class="n">force_type</span><span class="o">=</span><span class="s2">&quot;hkl&quot;</span><span class="p">,</span> <span class="n">raise_sorry_if_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="go">Sorry: Couldn&#39;t read &#39;model.pdb&#39; as file type &#39;hkl&#39;: Not a valid reflections file.</span>
 </pre></div>
 </div>
 <p>For PDB, MTZ, and CIF files (the most commonly used formats in macromolecular
 crystallograph), it is also possible to get similar behavior by treating the
-file extension as an implicit replacement for <code class="docutils literal"><span class="pre">force_type</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.file_reader</span> <span class="k">import</span> <span class="n">any_file</span>
+file extension as an implicit replacement for <code class="docutils literal notranslate"><span class="pre">force_type</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.file_reader</span> <span class="k">import</span> <span class="n">any_file</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">any_file</span><span class="p">(</span><span class="s2">&quot;model.sca&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">f</span><span class="o">.</span><span class="n">file_type</span>
 <span class="go">pdb</span>
@@ -120,7 +112,7 @@ file extension as an implicit replacement for <code class="docutils literal"><sp
 </pre></div>
 </div>
 <p>The allowed file types are specified in the module:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">standard_file_descriptions</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">standard_file_descriptions</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">&#39;pdb&#39;</span>  <span class="p">:</span> <span class="s2">&quot;Model&quot;</span><span class="p">,</span>
   <span class="s1">&#39;hkl&#39;</span>  <span class="p">:</span> <span class="s2">&quot;Reflections&quot;</span><span class="p">,</span>
   <span class="s1">&#39;cif&#39;</span>  <span class="p">:</span> <span class="s2">&quot;Restraints&quot;</span><span class="p">,</span>
@@ -144,7 +136,7 @@ file extension as an implicit replacement for <code class="docutils literal"><sp
 <dl class="exception">
 <dt id="iotbx.file_reader.FormatError">
 <em class="property">exception </em><code class="descclassname">iotbx.file_reader.</code><code class="descname">FormatError</code><a class="headerlink" href="#iotbx.file_reader.FormatError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Sorry</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">exceptions.Sorry</span></code></p>
 </dd></dl>
 
 <dl class="function">
@@ -156,16 +148,16 @@ file extension as an implicit replacement for <code class="docutils literal"><sp
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>file_name</strong> &#8211; path to file (relative or absolute)</li>
-<li><strong>get_processed_file</strong> &#8211; TODO</li>
-<li><strong>valid_types</strong> &#8211; file types to consider</li>
-<li><strong>allow_directories</strong> &#8211; process directory if given as file_name</li>
-<li><strong>force_type</strong> &#8211; read as this format, don&#8217;t try any others</li>
-<li><strong>input_class</strong> &#8211; optional substitute for any_file_input, with additional
+<li><strong>file_name</strong> – path to file (relative or absolute)</li>
+<li><strong>get_processed_file</strong> – TODO</li>
+<li><strong>valid_types</strong> – file types to consider</li>
+<li><strong>allow_directories</strong> – process directory if given as file_name</li>
+<li><strong>force_type</strong> – read as this format, don’t try any others</li>
+<li><strong>input_class</strong> – optional substitute for any_file_input, with additional
 parsers</li>
-<li><strong>raise_sorry_if_errors</strong> &#8211; raise a Sorry exception if parsing fails (used
+<li><strong>raise_sorry_if_errors</strong> – raise a Sorry exception if parsing fails (used
 with force_type)</li>
-<li><strong>raise_sorry_if_not_expected_format</strong> &#8211; raise a Sorry exception if the
+<li><strong>raise_sorry_if_not_expected_format</strong> – raise a Sorry exception if the
 file extension does not match the parsed file type</li>
 </ul>
 </td>
@@ -188,69 +180,15 @@ relatively safe; for files of unknown provenance it is less effective.</p>
 <dl class="class">
 <dt id="iotbx.file_reader.any_file_fast_input">
 <em class="property">class </em><code class="descclassname">iotbx.file_reader.</code><code class="descname">any_file_fast_input</code><span class="sig-paren">(</span><em>file_name</em>, <em>valid_types</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.file_reader.any_file_fast_input" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="iotbx.file_reader.any_file_input">
 <em class="property">class </em><code class="descclassname">iotbx.file_reader.</code><code class="descname">any_file_input</code><span class="sig-paren">(</span><em>file_name</em>, <em>get_processed_file</em>, <em>valid_types</em>, <em>force_type</em>, <em>raise_sorry_if_errors=False</em>, <em>raise_sorry_if_not_expected_format=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.file_reader.any_file_input" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Container for file data of any supported type.  Usually obtained via the
 any_file() function rather than being instantiated directly.</p>
-<p class="rubric">Attributes</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_content" title="iotbx.file_reader.any_file_input.file_content"><code class="xref py py-obj docutils literal"><span class="pre">file_content</span></code></a></td>
-<td>Return the underlying format-specific object containing file data.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_name" title="iotbx.file_reader.any_file_input.file_name"><code class="xref py py-obj docutils literal"><span class="pre">file_name</span></code></a></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_object" title="iotbx.file_reader.any_file_input.file_object"><code class="xref py py-obj docutils literal"><span class="pre">file_object</span></code></a></td>
-<td>Synonym for file_content()</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_server" title="iotbx.file_reader.any_file_input.file_server"><code class="xref py py-obj docutils literal"><span class="pre">file_server</span></code></a></td>
-<td>For reflection files only, returns an <code class="xref py py-class docutils literal"><span class="pre">iotbx.reflection_file_utils.reflection_file_server</span></code> object containing the extracted Miller arrays.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_type" title="iotbx.file_reader.any_file_input.file_type"><code class="xref py py-obj docutils literal"><span class="pre">file_type</span></code></a></td>
-<td>Return a string representing the generic data type, for example &#8216;pdb&#8217; or &#8216;hkl&#8217;.</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.assert_file_type" title="iotbx.file_reader.any_file_input.assert_file_type"><code class="xref py py-obj docutils literal"><span class="pre">assert_file_type</span></code></a>(expected_type)</td>
-<td>Verify that the automatically determined file type is the expected format.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.check_file_type" title="iotbx.file_reader.any_file_input.check_file_type"><code class="xref py py-obj docutils literal"><span class="pre">check_file_type</span></code></a>([expected_type,&nbsp;...])</td>
-<td>Verify that the automatically determined file type is the expected format, with the option to consider multiple formats.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.crystal_symmetry" title="iotbx.file_reader.any_file_input.crystal_symmetry"><code class="xref py py-obj docutils literal"><span class="pre">crystal_symmetry</span></code></a>()</td>
-<td>Extract the crystal symmetry (if any).</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_info" title="iotbx.file_reader.any_file_input.file_info"><code class="xref py py-obj docutils literal"><span class="pre">file_info</span></code></a>([show_file_size])</td>
-<td>Format a string containing the file type and size.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.set_file_type" title="iotbx.file_reader.any_file_input.set_file_type"><code class="xref py py-obj docutils literal"><span class="pre">set_file_type</span></code></a>(file_type)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.show_summary" title="iotbx.file_reader.any_file_input.show_summary"><code class="xref py py-obj docutils literal"><span class="pre">show_summary</span></code></a>([out])</td>
-<td>Print out some basic information about the file.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.file_reader.any_file_input.try_all_types" title="iotbx.file_reader.any_file_input.try_all_types"><code class="xref py py-obj docutils literal"><span class="pre">try_all_types</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="iotbx.file_reader.any_file_input.assert_file_type">
 <code class="descname">assert_file_type</code><span class="sig-paren">(</span><em>expected_type</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.file_reader.any_file_input.assert_file_type" title="Permalink to this definition">¶</a></dt>
@@ -298,7 +236,7 @@ and reflection files.</p>
 <dt id="iotbx.file_reader.any_file_input.file_server">
 <code class="descname">file_server</code><a class="headerlink" href="#iotbx.file_reader.any_file_input.file_server" title="Permalink to this definition">¶</a></dt>
 <dd><p>For reflection files only, returns an
-<code class="xref py py-class docutils literal"><span class="pre">iotbx.reflection_file_utils.reflection_file_server</span></code> object
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iotbx.reflection_file_utils.reflection_file_server</span></code> object
 containing the extracted Miller arrays.  Note that this will implicitly
 merge any non-unique observations.</p>
 </dd></dl>
@@ -306,9 +244,9 @@ merge any non-unique observations.</p>
 <dl class="attribute">
 <dt id="iotbx.file_reader.any_file_input.file_type">
 <code class="descname">file_type</code><a class="headerlink" href="#iotbx.file_reader.any_file_input.file_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a string representing the generic data type, for example &#8216;pdb&#8217; or
-&#8216;hkl&#8217;.  Note that this is not necessarily the same as the underlying
-format, for example &#8216;pdb&#8217; can mean either PDB or mmCIF format, and &#8216;hkl&#8217;
+<dd><p>Return a string representing the generic data type, for example ‘pdb’ or
+‘hkl’.  Note that this is not necessarily the same as the underlying
+format, for example ‘pdb’ can mean either PDB or mmCIF format, and ‘hkl’
 could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
 </dd></dl>
 
@@ -333,19 +271,7 @@ could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
 <dl class="class">
 <dt id="iotbx.file_reader.directory_input">
 <em class="property">class </em><code class="descclassname">iotbx.file_reader.</code><code class="descname">directory_input</code><span class="sig-paren">(</span><em>dir_name</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.file_reader.directory_input" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#iotbx.file_reader.directory_input.file_info" title="iotbx.file_reader.directory_input.file_info"><code class="xref py py-obj docutils literal"><span class="pre">file_info</span></code></a>([show_file_size])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="iotbx.file_reader.directory_input.file_info">
 <code class="descname">file_info</code><span class="sig-paren">(</span><em>show_file_size=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.file_reader.directory_input.file_info" title="Permalink to this definition">¶</a></dt>
@@ -371,12 +297,12 @@ could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
 <dl class="class">
 <dt id="iotbx.file_reader.group_files">
 <em class="property">class </em><code class="descclassname">iotbx.file_reader.</code><code class="descname">group_files</code><span class="sig-paren">(</span><em>file_names</em>, <em>template_format='pdb'</em>, <em>group_by_directory=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.file_reader.group_files" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="function">
 <dt id="iotbx.file_reader.guess_file_type">
-<code class="descclassname">iotbx.file_reader.</code><code class="descname">guess_file_type</code><span class="sig-paren">(</span><em>file_name, extensions={'xml': ['xml'], 'map': ['xplor', 'map', 'ccp4'], 'ncs': ['ncs', 'ncs_spec'], 'cif': ['cif', 'mmcif'], 'seq': ['fa', 'faa', 'seq', 'pir', 'dat', 'fasta'], 'hhr': ['hhr'], 'phil': ['params', 'eff', 'def', 'phil', 'param'], 'smi': ['smi'], 'ccp4_map': ['ccp4', 'map', 'mrc'], 'mtz': ['mtz'], 'img': ['img', 'osc', 'mccd', 'cbf'], 'sdf': ['sdf'], 'rosetta': ['gz'], 'hkl': ['mtz', 'hkl', 'sca', 'cns', 'xplor', 'cv', 'ref', 'fobs'], 'aln': ['aln', 'ali', 'clustal'], 'txt': ['txt', 'log', 'html', 'geo'], 'pdb': ['pdb', 'ent'], 'pkl': ['pickle', 'pkl'], 'xplor_map': ['xplor', 'map']}</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.file_reader.guess_file_type" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">iotbx.file_reader.</code><code class="descname">guess_file_type</code><span class="sig-paren">(</span><em>file_name, extensions={'aln': ['aln', 'ali', 'clustal'], 'ccp4_map': ['ccp4', 'map', 'mrc'], 'cif': ['cif', 'mmcif'], 'hhr': ['hhr'], 'hkl': ['mtz', 'hkl', 'sca', 'cns', 'xplor', 'cv', 'ref', 'fobs'], 'img': ['img', 'osc', 'mccd', 'cbf'], 'map': ['xplor', 'map', 'ccp4'], 'mtz': ['mtz'], 'ncs': ['ncs', 'ncs_spec'], 'pdb': ['pdb', 'ent'], 'phil': ['params', 'eff', 'def', 'phil', 'param'], 'pkl': ['pickle', 'pkl'], 'rosetta': ['gz'], 'sdf': ['sdf'], 'seq': ['fa', 'faa', 'seq', 'pir', 'dat', 'fasta'], 'smi': ['smi'], 'txt': ['txt', 'log', 'html', 'geo'], 'xml': ['xml'], 'xplor_map': ['xplor', 'map']}</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.file_reader.guess_file_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -406,9 +332,7 @@ could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">iotbx.file_reader - generic file input</a><ul>
-<li><a class="reference internal" href="#module-iotbx.file_reader">API documentation</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-iotbx.file_reader">API documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -416,21 +340,26 @@ could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">iotbx - file readers and writers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="iotbx.cif.html"
+                        title="next chapter">iotbx.cif</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/iotbx/iotbx.file_reader.txt"
+      <li><a href="../_sources/iotbx/iotbx.file_reader.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -447,6 +376,9 @@ could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
+          <a href="iotbx.cif.html" title="iotbx.cif"
+             >next</a> |</li>
+        <li class="right" >
           <a href="index.html" title="iotbx - file readers and writers"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
@@ -455,7 +387,7 @@ could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

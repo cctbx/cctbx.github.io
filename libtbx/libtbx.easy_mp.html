@@ -1,35 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>libtbx.easy_mp: functions for painless parallelization of Python code &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="libtbx - low-level utilities and infrastructure for CCTBX" href="index.html" />
-    <link rel="next" title="libtbx.program_template: Standard Program Template for CCTBX Programs" href="libtbx.program_template.html" /> 
-  </head>
-  <body role="document">
+    <link rel="next" title="libtbx.program_template: Standard Program Template for CCTBX Programs" href="libtbx.program_template.html" />
+    <link rel="prev" title="libtbx.phil - Python-based hierarchical interchange language" href="libtbx.phil.html" /> 
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -42,6 +31,9 @@
         <li class="right" >
           <a href="libtbx.program_template.html" title="libtbx.program_template: Standard Program Template for CCTBX Programs"
              accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="libtbx.phil.html" title="libtbx.phil - Python-based hierarchical interchange language"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">libtbx - low-level utilities and infrastructure for CCTBX</a> &#187;</li> 
       </ul>
@@ -56,25 +48,25 @@
 <h1>libtbx.easy_mp: functions for painless parallelization of Python code<a class="headerlink" href="#libtbx-easy-mp-functions-for-painless-parallelization-of-python-code" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="pool-map-parallel-map-function-for-unix-linux-systems">
 <h2>pool_map: parallel map() function for Unix/Linux systems<a class="headerlink" href="#pool-map-parallel-map-function-for-unix-linux-systems" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">pool_map</span></code> is essentially a simple replacement for the built-in map function, and is fast enough to be suitable for parallelization across arbitrarily large
+<p><code class="docutils literal notranslate"><span class="pre">pool_map</span></code> is essentially a simple replacement for the built-in map function, and is fast enough to be suitable for parallelization across arbitrarily large
 shared-memory systems even for relatively short-running methods.  Although it
-is based on the <code class="docutils literal"><span class="pre">map</span></code> method of the <code class="docutils literal"><span class="pre">multiprocessing.Pool</span></code> class, the
+is based on the <code class="docutils literal notranslate"><span class="pre">map</span></code> method of the <code class="docutils literal notranslate"><span class="pre">multiprocessing.Pool</span></code> class, the
 underlying implementation has been modified to take advantage of the internal
-behavior.  On systems that support the <code class="docutils literal"><span class="pre">os.fork()</span></code> call, it can embed a
-reference to a &#8220;fixed&#8221; function that is preserved in the child processes,
-bypassing all <code class="docutils literal"><span class="pre">pickle</span></code> calls.  This means that unpickleable objects can be
-embedded in a callable which is given as the <code class="docutils literal"><span class="pre">fixed_func</span></code> argument.
-<code class="docutils literal"><span class="pre">easy_mp</span></code> is therefore suitable for parallelizing existing code that would
+behavior.  On systems that support the <code class="docutils literal notranslate"><span class="pre">os.fork()</span></code> call, it can embed a
+reference to a “fixed” function that is preserved in the child processes,
+bypassing all <code class="docutils literal notranslate"><span class="pre">pickle</span></code> calls.  This means that unpickleable objects can be
+embedded in a callable which is given as the <code class="docutils literal notranslate"><span class="pre">fixed_func</span></code> argument.
+<code class="docutils literal notranslate"><span class="pre">easy_mp</span></code> is therefore suitable for parallelizing existing code that would
 otherwise require extensive refactoring (for instance, the weight optimization
 in phenix.refine).</p>
-<p>Note that since <code class="docutils literal"><span class="pre">pool_map</span></code> depends on <code class="docutils literal"><span class="pre">os.fork()</span></code>, it does not support
+<p>Note that since <code class="docutils literal notranslate"><span class="pre">pool_map</span></code> depends on <code class="docutils literal notranslate"><span class="pre">os.fork()</span></code>, it does not support
 parallelization on Windows systems.  However, it will simply run in serial on
 Windows, allowing it to be used in a platform-independent manner.</p>
 <dl class="function">
 <dt id="libtbx.easy_mp.pool_map">
 <code class="descclassname">libtbx.easy_mp.</code><code class="descname">pool_map</code><span class="sig-paren">(</span><em>processes=None</em>, <em>initializer=None</em>, <em>initargs=()</em>, <em>maxtasksperchild=&lt;libtbx.AutoType object&gt;</em>, <em>func=None</em>, <em>fixed_func=None</em>, <em>iterable=None</em>, <em>args=None</em>, <em>chunksize=&lt;libtbx.AutoType object&gt;</em>, <em>func_wrapper='simple'</em>, <em>index_args=True</em>, <em>log=None</em>, <em>call_back_for_serial_run=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.pool_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallelized map() using subclassed multiprocessing.Pool.  If func is not
-None, this function essentially calls the Pool&#8217;s own map method; this means
+None, this function essentially calls the Pool’s own map method; this means
 that both func and iterable/args must be pickle-able.  If fixed_func is not
 None, it will not be pickled but instead saved as an attribute of the Pool,
 which will be preserved after the fork() call.  Additional features include
@@ -86,21 +78,21 @@ on Windows, regardless of how many processors are available.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>processes</strong> &#8211; number of processes to spawn; if None or Auto, the
+<li><strong>processes</strong> – number of processes to spawn; if None or Auto, the
 get_processes() function will be used.</li>
-<li><strong>func</strong> &#8211; target function (will be pickled)</li>
-<li><strong>fixed_func</strong> &#8211; &#8220;fixed&#8221; target function, which will be be propagated to
+<li><strong>func</strong> – target function (will be pickled)</li>
+<li><strong>fixed_func</strong> – “fixed” target function, which will be be propagated to
 the child process when forked (instead of pickling)</li>
-<li><strong>iterable</strong> &#8211; argument list</li>
-<li><strong>args</strong> &#8211; same as iterable (alternate keyword)</li>
-<li><strong>chunksize</strong> &#8211; number of arguments to process at once</li>
+<li><strong>iterable</strong> – argument list</li>
+<li><strong>args</strong> – same as iterable (alternate keyword)</li>
+<li><strong>chunksize</strong> – number of arguments to process at once</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
 <span class="gp">... </span>  <span class="k">return</span> <span class="n">some_long_running_method</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
@@ -112,7 +104,7 @@ the child process when forked (instead of pickling)</li>
 <span class="gp">... </span><span class="mi">1000</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">f_caller</span> <span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">f_caller</span> <span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
 <span class="gp">... </span>  <span class="k">def</span> <span class="nf">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">non_pickleable_object</span><span class="p">)</span> <span class="p">:</span>
 <span class="gp">... </span>    <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span> <span class="o">=</span> <span class="n">non_pickleable_object</span>
 <span class="gp">... </span>  <span class="k">def</span> <span class="nf">__call__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="p">:</span>
@@ -144,7 +136,7 @@ Windows, it will be reset to 1.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nproc</strong> &#8211; default number of processors to use</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nproc</strong> – default number of processors to use</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">number of processors to use (None or Auto means automatic)</td>
 </tr>
@@ -161,7 +153,7 @@ load average (with a minimum of 1).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>processes</strong> &#8211; default number of processes (may be None or Auto)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>processes</strong> – default number of processes (may be None or Auto)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">actual number of processes to use</td>
 </tr>
@@ -172,7 +164,7 @@ load average (with a minimum of 1).</p>
 </div>
 <div class="section" id="parallel-map-parallel-map-function-for-multiple-architectures">
 <h2>parallel_map: parallel map() function for multiple architectures<a class="headerlink" href="#parallel-map-parallel-map-function-for-multiple-architectures" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">parallel_map</span></code> is a more general replacement for <code class="docutils literal"><span class="pre">map()</span></code>, and supports
+<p><code class="docutils literal notranslate"><span class="pre">parallel_map</span></code> is a more general replacement for <code class="docutils literal notranslate"><span class="pre">map()</span></code>, and supports
 Windows systems in addition to Unix/Linux.  It also enables use of managed
 clusters via several common queuing systems such as Sun Grid Engine or PBS.
 Because of the higher overhead involved, it is more suitable for functions
@@ -198,13 +190,13 @@ the underlying method.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>func</strong> &#8211; target function (must be pickleable)</li>
-<li><strong>iterable</strong> &#8211; list of arguments for func</li>
-<li><strong>processes</strong> &#8211; number of processes/threads to start</li>
-<li><strong>method</strong> &#8211; parallelization method (multiprocessing|threading|sge|lsf|pbs)</li>
-<li><strong>qsub_command</strong> &#8211; command to submit queue jobs (optional)</li>
-<li><strong>asynchronous</strong> &#8211; run queue jobs asynchronously</li>
-<li><strong>preserve_exception_message</strong> &#8211; keeps original exception message</li>
+<li><strong>func</strong> – target function (must be pickleable)</li>
+<li><strong>iterable</strong> – list of arguments for func</li>
+<li><strong>processes</strong> – number of processes/threads to start</li>
+<li><strong>method</strong> – parallelization method (multiprocessing|threading|sge|lsf|pbs)</li>
+<li><strong>qsub_command</strong> – command to submit queue jobs (optional)</li>
+<li><strong>asynchronous</strong> – run queue jobs asynchronously</li>
+<li><strong>preserve_exception_message</strong> – keeps original exception message</li>
 </ul>
 </td>
 </tr>
@@ -233,24 +225,29 @@ the underlying method.</p>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="libtbx.phil.html"
+                        title="previous chapter">libtbx.phil - Python-based hierarchical interchange language</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="libtbx.program_template.html"
                         title="next chapter">libtbx.program_template: Standard Program Template for CCTBX Programs</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/libtbx/libtbx.easy_mp.txt"
+      <li><a href="../_sources/libtbx/libtbx.easy_mp.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -269,13 +266,16 @@ the underlying method.</p>
         <li class="right" >
           <a href="libtbx.program_template.html" title="libtbx.program_template: Standard Program Template for CCTBX Programs"
              >next</a> |</li>
+        <li class="right" >
+          <a href="libtbx.phil.html" title="libtbx.phil - Python-based hierarchical interchange language"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >libtbx - low-level utilities and infrastructure for CCTBX</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

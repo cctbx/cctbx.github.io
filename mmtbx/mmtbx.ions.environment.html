@@ -1,35 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>mmtbx.ions.environment module &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="mmtbx.ions package" href="mmtbx.ions.html" />
+    <link rel="next" title="mmtbx.ions.geometry module" href="mmtbx.ions.geometry.html" />
     <link rel="prev" title="mmtbx.ions.build module" href="mmtbx.ions.build.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -39,6 +28,9 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.ions.geometry.html" title="mmtbx.ions.geometry module"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="mmtbx.ions.build.html" title="mmtbx.ions.build module"
              accesskey="P">previous</a> |</li>
@@ -60,67 +52,61 @@ chemical environments.</p>
 <dl class="class">
 <dt id="mmtbx.ions.environment.ChemicalEnvironment">
 <em class="property">class </em><code class="descclassname">mmtbx.ions.environment.</code><code class="descname">ChemicalEnvironment</code><span class="sig-paren">(</span><em>i_seq</em>, <em>contacts</em>, <em>manager</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.environment.ChemicalEnvironment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate" title="libtbx.slots_getstate_setstate"><code class="xref py py-class docutils literal"><span class="pre">libtbx.slots_getstate_setstate</span></code></a></p>
-<p>Container for information summarizing a site&#8217;s chemical environment.</p>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="26%" />
-<col width="74%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>atom</td>
-<td>(iotbx.pdb.hierarchy.atom)</td>
-</tr>
-<tr class="row-even"><td>contacts</td>
-<td>(list of mmtbx.ions.environment.atom_contact)</td>
-</tr>
-<tr class="row-odd"><td>contacts_no_alts</td>
-<td>(list of mmtbx.ions.environment.atom_contact)</td>
-</tr>
-<tr class="row-even"><td>chemistry</td>
-<td>(collections.Counter of int, int)</td>
-</tr>
-<tr class="row-odd"><td>geometry</td>
-<td>(list of tuples of str, float)</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.environment.ChemicalEnvironment.get_valence" title="mmtbx.ions.environment.ChemicalEnvironment.get_valence"><code class="xref py py-obj docutils literal"><span class="pre">get_valence</span></code></a>(element[,&nbsp;charge])</td>
-<td>Calculates the BVS and VECSUM for a given element / charge identity.</td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate" title="libtbx.slots_getstate_setstate"><code class="xref py py-class docutils literal notranslate"><span class="pre">libtbx.slots_getstate_setstate</span></code></a></p>
+<p>Container for information summarizing a site’s chemical environment.</p>
 <dl class="attribute">
 <dt id="mmtbx.ions.environment.ChemicalEnvironment.atom">
 <code class="descname">atom</code><a class="headerlink" href="#mmtbx.ions.environment.ChemicalEnvironment.atom" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="mmtbx.ions.environment.ChemicalEnvironment.chemistry">
-<code class="descname">chemistry</code><a class="headerlink" href="#mmtbx.ions.environment.ChemicalEnvironment.chemistry" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p><em>iotbx.pdb.hierarchy.atom</em></p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.ions.environment.ChemicalEnvironment.contacts">
 <code class="descname">contacts</code><a class="headerlink" href="#mmtbx.ions.environment.ChemicalEnvironment.contacts" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p><em>list of mmtbx.ions.environment.atom_contact</em></p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.ions.environment.ChemicalEnvironment.contacts_no_alts">
 <code class="descname">contacts_no_alts</code><a class="headerlink" href="#mmtbx.ions.environment.ChemicalEnvironment.contacts_no_alts" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p><em>list of mmtbx.ions.environment.atom_contact</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.ChemicalEnvironment.chemistry">
+<code class="descname">chemistry</code><a class="headerlink" href="#mmtbx.ions.environment.ChemicalEnvironment.chemistry" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>collections.Counter of int, int</em></p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.ions.environment.ChemicalEnvironment.geometry">
 <code class="descname">geometry</code><a class="headerlink" href="#mmtbx.ions.environment.ChemicalEnvironment.geometry" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list of tuples of str, float</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">atom</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">chemistry</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">contacts</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">contacts_no_alts</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">geometry</code></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -131,33 +117,26 @@ chemical environments.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>element</strong> : str</p>
-<blockquote>
-<div><p>The element identity to calculate valences for.</p>
-</div></blockquote>
-<p><strong>charge</strong> : int, optional</p>
-<blockquote>
-<div><p>The charge to calculate valences for.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>element</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – The element identity to calculate valences for.</li>
+<li><strong>charge</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a><em>, </em><em>optional</em>) – The charge to calculate valences for.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">float</p>
-<blockquote>
-<div><p>Bond-valence sum (BVS).</p>
-</div></blockquote>
-<p>float</p>
-<blockquote class="last">
-<div><p>Vector sum (VECSUM).</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><em>float</em> – Bond-valence sum (BVS).</li>
+<li><em>float</em> – Vector sum (VECSUM).</li>
+</ul>
+</p>
 </td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<table class="docutils citation" frame="void" id="r2" rules="none">
+<table class="docutils footnote" frame="void" id="id1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R2]</td><td>Müller, P., Köpke, S. &amp; Sheldrick, G. M. Is the bond-valence method
+<tr><td class="label">[1]</td><td>Müller, P., Köpke, S. &amp; Sheldrick, G. M. Is the bond-valence method
 able to identify metal atoms in protein structures? Acta
 Crystallogr. D. Biol. Crystallogr. 59, 32–7 (2003).</td></tr>
 </tbody>
@@ -169,73 +148,97 @@ Crystallogr. D. Biol. Crystallogr. 59, 32–7 (2003).</td></tr>
 <dl class="class">
 <dt id="mmtbx.ions.environment.ScatteringEnvironment">
 <em class="property">class </em><code class="descclassname">mmtbx.ions.environment.</code><code class="descname">ScatteringEnvironment</code><span class="sig-paren">(</span><em>i_seq</em>, <em>manager</em>, <em>fo_map=None</em>, <em>fofc_map=None</em>, <em>anom_map=None</em>, <em>fo_density=None</em>, <em>fofc_density=None</em>, <em>anom_density=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate" title="libtbx.slots_getstate_setstate"><code class="xref py py-class docutils literal"><span class="pre">libtbx.slots_getstate_setstate</span></code></a></p>
-<p>Container for information summarizing a site&#8217;s scattering environment.</p>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="17%" />
-<col width="83%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>d_min</td>
-<td>(float)</td>
-</tr>
-<tr class="row-even"><td>wavelengeth</td>
-<td>(float)</td>
-</tr>
-<tr class="row-odd"><td>fp</td>
-<td>(float)</td>
-</tr>
-<tr class="row-even"><td>fpp</td>
-<td>(float)</td>
-</tr>
-<tr class="row-odd"><td>b_iso</td>
-<td>(float)</td>
-</tr>
-<tr class="row-even"><td>b_mean_hoh</td>
-<td>(float)</td>
-</tr>
-<tr class="row-odd"><td>occ</td>
-<td>(float)</td>
-</tr>
-<tr class="row-even"><td>fo_density</td>
-<td>(tuple of float, float)</td>
-</tr>
-<tr class="row-odd"><td>fofo_density</td>
-<td>(tuple of float, float)</td>
-</tr>
-<tr class="row-even"><td>anom_density</td>
-<td>(tuple of float, float)</td>
-</tr>
-<tr class="row-odd"><td>pai</td>
-<td>(float) Principal axes of inertia at site, currently unused.</td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate" title="libtbx.slots_getstate_setstate"><code class="xref py py-class docutils literal notranslate"><span class="pre">libtbx.slots_getstate_setstate</span></code></a></p>
+<p>Container for information summarizing a site’s scattering environment.</p>
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.ScatteringEnvironment.anom_density">
-<code class="descname">anom_density</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.anom_density" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="mmtbx.ions.environment.ScatteringEnvironment.d_min">
+<code class="descname">d_min</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.d_min" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.ScatteringEnvironment.wavelengeth">
+<code class="descname">wavelengeth</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.wavelengeth" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.ScatteringEnvironment.fp">
+<code class="descname">fp</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.fp" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.ScatteringEnvironment.fpp">
+<code class="descname">fpp</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.fpp" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em></p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.ions.environment.ScatteringEnvironment.b_iso">
 <code class="descname">b_iso</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.b_iso" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p><em>float</em></p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.ions.environment.ScatteringEnvironment.b_mean_hoh">
 <code class="descname">b_mean_hoh</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.b_mean_hoh" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p><em>float</em></p>
+</dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.ScatteringEnvironment.d_min">
-<code class="descname">d_min</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.d_min" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="mmtbx.ions.environment.ScatteringEnvironment.occ">
+<code class="descname">occ</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.occ" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em></p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="mmtbx.ions.environment.ScatteringEnvironment.fo_density">
 <code class="descname">fo_density</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.fo_density" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple of float, float</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.ScatteringEnvironment.fofo_density">
+<code class="descname">fofo_density</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.fofo_density" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple of float, float</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.ScatteringEnvironment.anom_density">
+<code class="descname">anom_density</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.anom_density" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple of float, float</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.ScatteringEnvironment.pai">
+<code class="descname">pai</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.pai" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>float</em> – Principal axes of inertia at site, currently unused.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">anom_density</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">b_iso</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">b_mean_hoh</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">d_min</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">fo_density</code></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -244,23 +247,23 @@ Crystallogr. D. Biol. Crystallogr. 59, 32–7 (2003).</td></tr>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.ScatteringEnvironment.fp">
-<code class="descname">fp</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.fp" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">fp</code></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.ScatteringEnvironment.fpp">
-<code class="descname">fpp</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.fpp" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">fpp</code></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.ScatteringEnvironment.occ">
-<code class="descname">occ</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.occ" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">occ</code></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.ScatteringEnvironment.pai">
-<code class="descname">pai</code><a class="headerlink" href="#mmtbx.ions.environment.ScatteringEnvironment.pai" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">pai</code></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -273,70 +276,46 @@ Crystallogr. D. Biol. Crystallogr. 59, 32–7 (2003).</td></tr>
 <dl class="class">
 <dt id="mmtbx.ions.environment.atom_contact">
 <em class="property">class </em><code class="descclassname">mmtbx.ions.environment.</code><code class="descname">atom_contact</code><span class="sig-paren">(</span><em>atom</em>, <em>vector</em>, <em>site_cart</em>, <em>rt_mx</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.environment.atom_contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate" title="libtbx.slots_getstate_setstate"><code class="xref py py-class docutils literal"><span class="pre">libtbx.slots_getstate_setstate</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../libtbx/index.html#libtbx.slots_getstate_setstate" title="libtbx.slots_getstate_setstate"><code class="xref py py-class docutils literal notranslate"><span class="pre">libtbx.slots_getstate_setstate</span></code></a></p>
 <p>Container for information about an interacting atom.  Most of the methods
 are simply wrappers for frequently called operations on the atom object, but
 symmetry-aware.</p>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="23%" />
-<col width="77%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>atom</td>
-<td>(iotbx.pdb.hierarchy.atom)</td>
-</tr>
-<tr class="row-even"><td>charge</td>
-<td>(int)</td>
-</tr>
-<tr class="row-odd"><td>element</td>
-<td>(str)</td>
-</tr>
-<tr class="row-even"><td>rt_mx</td>
-<td>(cctbx.sgtbx.rt_mx)</td>
-</tr>
-<tr class="row-odd"><td>site_cart</td>
-<td>(tuple of float, float, float)</td>
-</tr>
-<tr class="row-even"><td>vector</td>
-<td>(scitbx.matrix.rec)</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.environment.atom_contact.altloc" title="mmtbx.ions.environment.atom_contact.altloc"><code class="xref py py-obj docutils literal"><span class="pre">altloc</span></code></a>()</td>
-<td>Retrieves the alternate conformation label, if any, of the coordinating atom.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.environment.atom_contact.atom_i_seq" title="mmtbx.ions.environment.atom_contact.atom_i_seq"><code class="xref py py-obj docutils literal"><span class="pre">atom_i_seq</span></code></a>()</td>
-<td>Retrieves the sequence ID of the coordinating atom.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.environment.atom_contact.atom_id_no_altloc" title="mmtbx.ions.environment.atom_contact.atom_id_no_altloc"><code class="xref py py-obj docutils literal"><span class="pre">atom_id_no_altloc</span></code></a>([suppress_rt_mx])</td>
-<td>Unique identifier for an atom, ignoring the altloc but taking the symmetry operator (if any) into account.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.environment.atom_contact.atom_name" title="mmtbx.ions.environment.atom_contact.atom_name"><code class="xref py py-obj docutils literal"><span class="pre">atom_name</span></code></a>()</td>
-<td>Retrieves the coordinating atom&#8217;s name (i.e.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.environment.atom_contact.distance" title="mmtbx.ions.environment.atom_contact.distance"><code class="xref py py-obj docutils literal"><span class="pre">distance</span></code></a>()</td>
-<td>Actual distance from target atom.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.environment.atom_contact.distance_from" title="mmtbx.ions.environment.atom_contact.distance_from"><code class="xref py py-obj docutils literal"><span class="pre">distance_from</span></code></a>(other)</td>
-<td>Distance from another coordinating atom.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.environment.atom_contact.id_str" title="mmtbx.ions.environment.atom_contact.id_str"><code class="xref py py-obj docutils literal"><span class="pre">id_str</span></code></a>([suppress_rt_mx])</td>
-<td>Creates a string from the atom&#8217;s id string and the symmetry operator associated with that site.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.environment.atom_contact.resname" title="mmtbx.ions.environment.atom_contact.resname"><code class="xref py py-obj docutils literal"><span class="pre">resname</span></code></a>()</td>
-<td>Retrieves the residue name associated with te coordinating atom (i.e.</td>
-</tr>
-</tbody>
-</table>
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.atom_contact.atom">
+<code class="descname">atom</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.atom" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>iotbx.pdb.hierarchy.atom</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.atom_contact.charge">
+<code class="descname">charge</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.charge" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.atom_contact.element">
+<code class="descname">element</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.element" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.atom_contact.rt_mx">
+<code class="descname">rt_mx</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.rt_mx" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>cctbx.sgtbx.rt_mx</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.atom_contact.site_cart">
+<code class="descname">site_cart</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.site_cart" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple of float, float, float</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.ions.environment.atom_contact.vector">
+<code class="descname">vector</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.vector" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>scitbx.matrix.rec</em></p>
+</dd></dl>
+
 <dl class="method">
 <dt id="mmtbx.ions.environment.atom_contact.altloc">
 <code class="descname">altloc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.altloc" title="Permalink to this definition">¶</a></dt>
@@ -346,15 +325,17 @@ atom.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">str</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)">str</a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.atom_contact.atom">
-<code class="descname">atom</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.atom" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">atom</code></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -365,7 +346,9 @@ atom.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">int</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a></td>
 </tr>
 </tbody>
 </table>
@@ -380,9 +363,11 @@ operator (if any) into account.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>suppress_rt_mx</strong> : bool, optional</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>suppress_rt_mx</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">str</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)">str</a></td>
 </tr>
 </tbody>
 </table>
@@ -391,20 +376,22 @@ operator (if any) into account.</p>
 <dl class="method">
 <dt id="mmtbx.ions.environment.atom_contact.atom_name">
 <code class="descname">atom_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.atom_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves the coordinating atom&#8217;s name (i.e. &#8220;OX1&#8221;)</p>
+<dd><p>Retrieves the coordinating atom’s name (i.e. “OX1”)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">str</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)">str</a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.atom_contact.charge">
-<code class="descname">charge</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.charge" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">charge</code></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -415,11 +402,9 @@ operator (if any) into account.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">float</p>
-<blockquote class="last">
-<div><p>Distance, in angstroms.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Distance, in angstroms.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
 </tr>
 </tbody>
 </table>
@@ -433,41 +418,35 @@ operator (if any) into account.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>other</strong> : mmtbx.ions.environment.atom_contact</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> (<a class="reference internal" href="#mmtbx.ions.environment.atom_contact" title="mmtbx.ions.environment.atom_contact"><em>mmtbx.ions.environment.atom_contact</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">float</p>
-<blockquote class="last">
-<div><p>Distance, in angstroms.</p>
-</div></blockquote>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Distance, in angstroms.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.atom_contact.element">
-<code class="descname">element</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.element" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">element</code></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.ions.environment.atom_contact.id_str">
 <code class="descname">id_str</code><span class="sig-paren">(</span><em>suppress_rt_mx=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.id_str" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a string from the atom&#8217;s id string and the symmetry operator
+<dd><p>Creates a string from the atom’s id string and the symmetry operator
 associated with that site.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>suppress_rt_mx</strong> : bool, optional</p>
-<blockquote>
-<div><p>Don&#8217;t include symmetry operator information in the string.</p>
-</div></blockquote>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>suppress_rt_mx</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – Don’t include symmetry operator information in the string.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">str</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)">str</a></td>
 </tr>
 </tbody>
 </table>
@@ -486,7 +465,9 @@ associated with that site.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">float</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
 </tr>
 </tbody>
 </table>
@@ -495,30 +476,32 @@ associated with that site.</p>
 <dl class="method">
 <dt id="mmtbx.ions.environment.atom_contact.resname">
 <code class="descname">resname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.resname" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves the residue name associated with te coordinating atom (i.e. &#8220;ARG&#8221;)</p>
+<dd><p>Retrieves the residue name associated with te coordinating atom (i.e. “ARG”)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">str</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)">str</a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.atom_contact.rt_mx">
-<code class="descname">rt_mx</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.rt_mx" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">rt_mx</code></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.atom_contact.site_cart">
-<code class="descname">site_cart</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.site_cart" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">site_cart</code></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="mmtbx.ions.environment.atom_contact.vector">
-<code class="descname">vector</code><a class="headerlink" href="#mmtbx.ions.environment.atom_contact.vector" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descname">vector</code></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -527,24 +510,29 @@ associated with that site.</p>
 <dt id="mmtbx.ions.environment.find_nearby_atoms">
 <code class="descclassname">mmtbx.ions.environment.</code><code class="descname">find_nearby_atoms</code><span class="sig-paren">(</span><em>i_seq</em>, <em>xray_structure</em>, <em>pdb_atoms</em>, <em>asu_mappings</em>, <em>asu_table</em>, <em>connectivity</em>, <em>far_distance_cutoff=3.0</em>, <em>near_distance_cutoff=1.5</em>, <em>filter_by_bonding=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.environment.find_nearby_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given site in the structure, return a list of nearby atoms with the
-supplied cutoff, and the vectors between them and the atom&#8217;s site. Takes
+supplied cutoff, and the vectors between them and the atom’s site. Takes
 into account symmetry operations when finding nearby sites.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>i_seq</strong> : int</p>
-<p><strong>xray_structure</strong> : cctbx.xray.structure.structure</p>
-<p><strong>pdb_atoms</strong> : iotbx.pdb.hierarchy.af_shared_atom</p>
-<p><strong>asu_mappings</strong> : cctbx.crystal.direct_space_asu.asu_mappings</p>
-<p><strong>asu_table</strong> : cctbx.crystal.pair_tables.pair_asu_table</p>
-<p><strong>connectivity</strong> : scitbx.array_family.shared.stl_set_unsigned</p>
-<p><strong>far_distance_cutoff</strong> : float, optional</p>
-<p><strong>near_distance_cutoff</strong> : float, optional</p>
-<p><strong>filter_by_bonding</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </li>
+<li><strong>xray_structure</strong> (<a class="reference internal" href="../cctbx/cctbx.xray.structure.html#cctbx.xray.structure.structure" title="cctbx.xray.structure.structure"><em>cctbx.xray.structure.structure</em></a>) – </li>
+<li><strong>pdb_atoms</strong> (<a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.af_shared_atom" title="iotbx.pdb.hierarchy.af_shared_atom"><em>iotbx.pdb.hierarchy.af_shared_atom</em></a>) – </li>
+<li><strong>asu_mappings</strong> (<em>cctbx.crystal.direct_space_asu.asu_mappings</em>) – </li>
+<li><strong>asu_table</strong> (<em>cctbx.crystal.pair_tables.pair_asu_table</em>) – </li>
+<li><strong>connectivity</strong> (<em>scitbx.array_family.shared.stl_set_unsigned</em>) – </li>
+<li><strong>far_distance_cutoff</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>near_distance_cutoff</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>filter_by_bonding</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of mmtbx.ions.environment.atom_contact</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of mmtbx.ions.environment.atom_contact</p>
 </td>
 </tr>
 </tbody>
@@ -562,21 +550,26 @@ into account symmetry operations when finding nearby sites.</p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="mmtbx.ions.build.html"
                         title="previous chapter">mmtbx.ions.build module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mmtbx.ions.geometry.html"
+                        title="next chapter">mmtbx.ions.geometry module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/mmtbx/mmtbx.ions.environment.txt"
+      <li><a href="../_sources/mmtbx/mmtbx.ions.environment.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -593,6 +586,9 @@ into account symmetry operations when finding nearby sites.</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
+          <a href="mmtbx.ions.geometry.html" title="mmtbx.ions.geometry module"
+             >next</a> |</li>
+        <li class="right" >
           <a href="mmtbx.ions.build.html" title="mmtbx.ions.build module"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
@@ -602,7 +598,7 @@ into account symmetry operations when finding nearby sites.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

@@ -1,34 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>mmtbx.ncs &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="mmtbx - macromolecular crystallography" href="mmtbx.html" /> 
-  </head>
-  <body role="document">
+    <link rel="next" title="mmtbx.pdbtools - model manipulation utilities" href="mmtbx.pdbtools.html" />
+    <link rel="prev" title="mmtbx.monomer_library package" href="mmtbx.monomer_library.html" /> 
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -38,6 +28,12 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.pdbtools.html" title="mmtbx.pdbtools - model manipulation utilities"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.monomer_library.html" title="mmtbx.monomer_library package"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &#187;</li> 
       </ul>
@@ -81,7 +77,7 @@ is sufficiently good.</p>
 <dl class="class">
 <dt id="mmtbx.ncs.ligands.apply_ligand_ncs">
 <em class="property">class </em><code class="descclassname">mmtbx.ncs.ligands.</code><code class="descname">apply_ligand_ncs</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>fmodel</em>, <em>ligand_code</em>, <em>params</em>, <em>atom_selection=None</em>, <em>add_new_ligands_to_pdb=False</em>, <em>only_segid=None</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ligands.apply_ligand_ncs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Wrapper class; this should be the primary entry point for external calling
 routines.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -89,46 +85,19 @@ routines.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pdb_hierarchy</strong> &#8211; initial model with one or more copies of the target
+<li><strong>pdb_hierarchy</strong> – initial model with one or more copies of the target
 ligand</li>
-<li><strong>fmodel</strong> &#8211; mmtbx.f_model.manager object corresponding to the model</li>
-<li><strong>ligand_code</strong> &#8211; three-letter residue name of ligand</li>
-<li><strong>params</strong> &#8211; phil scope_extract object for ncs_ligand_phil</li>
-<li><strong>atom_selection</strong> &#8211; selection for reference ligand (default: search for
+<li><strong>fmodel</strong> – mmtbx.f_model.manager object corresponding to the model</li>
+<li><strong>ligand_code</strong> – three-letter residue name of ligand</li>
+<li><strong>params</strong> – phil scope_extract object for ncs_ligand_phil</li>
+<li><strong>atom_selection</strong> – selection for reference ligand (default: search for
 all copies and pick one with the best CC)</li>
-<li><strong>add_new_ligands_to_pdb</strong> &#8211; generate combined PDB hierarchy and fmodel
+<li><strong>add_new_ligands_to_pdb</strong> – generate combined PDB hierarchy and fmodel
 with new ligands incorporated</li>
-<li><strong>only_segid</strong> &#8211; </li>
-<li><strong>log</strong> &#8211; filehandle-like object</li>
+<li><strong>only_segid</strong> – </li>
+<li><strong>log</strong> – filehandle-like object</li>
 </ul>
 </td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Attributes</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.apply_ligand_ncs.n_ligands" title="mmtbx.ncs.ligands.apply_ligand_ncs.n_ligands"><code class="xref py py-obj docutils literal"><span class="pre">n_ligands</span></code></a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.apply_ligand_ncs.write_maps" title="mmtbx.ncs.ligands.apply_ligand_ncs.write_maps"><code class="xref py py-obj docutils literal"><span class="pre">write_maps</span></code></a>(file_name)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ligands.apply_ligand_ncs.write_pdb" title="mmtbx.ncs.ligands.apply_ligand_ncs.write_pdb"><code class="xref py py-obj docutils literal"><span class="pre">write_pdb</span></code></a>(file_name)</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -163,11 +132,11 @@ with new ligands incorporated</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>pdb_hierarchy</strong> &#8211; input model</li>
-<li><strong>ligand_code</strong> &#8211; 3-letter residue ID</li>
-<li><strong>atom_selection</strong> &#8211; optional flex.bool object specifying ligand selection
+<li><strong>pdb_hierarchy</strong> – input model</li>
+<li><strong>ligand_code</strong> – 3-letter residue ID</li>
+<li><strong>atom_selection</strong> – optional flex.bool object specifying ligand selection
 to use</li>
-<li><strong>only_segid</strong> &#8211; optional segid which ligand(s) must match</li>
+<li><strong>only_segid</strong> – optional segid which ligand(s) must match</li>
 </ul>
 </td>
 </tr>
@@ -189,11 +158,11 @@ multiple sets of operators but these will eventually become a flat list.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>max_rmsd</strong> &#8211; maximum allowable RMSD between NCS-related chains for use
+<li><strong>max_rmsd</strong> – maximum allowable RMSD between NCS-related chains for use
 in ligand superposition</li>
-<li><strong>try_sieve_fit</strong> &#8211; also perform a sieve fit between chains and use the
+<li><strong>try_sieve_fit</strong> – also perform a sieve fit between chains and use the
 resulting operator if the RMSD is lower than the global fit</li>
-<li><strong>log</strong> &#8211; filehandle-like object</li>
+<li><strong>log</strong> – filehandle-like object</li>
 </ul>
 </td>
 </tr>
@@ -207,19 +176,7 @@ resulting operator if the RMSD is lower than the global fit</li>
 <dl class="class">
 <dt id="mmtbx.ncs.ligands.get_final_maps_and_cc">
 <em class="property">class </em><code class="descclassname">mmtbx.ncs.ligands.</code><code class="descname">get_final_maps_and_cc</code><span class="sig-paren">(</span><em>fmodel</em>, <em>ligands</em>, <em>params</em>, <em>log</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ligands.get_final_maps_and_cc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.get_final_maps_and_cc.write_maps" title="mmtbx.ncs.ligands.get_final_maps_and_cc.write_maps"><code class="xref py py-obj docutils literal"><span class="pre">write_maps</span></code></a>(file_name)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.ncs.ligands.get_final_maps_and_cc.write_maps">
 <code class="descname">write_maps</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ligands.get_final_maps_and_cc.write_maps" title="Permalink to this definition">¶</a></dt>
@@ -230,29 +187,11 @@ resulting operator if the RMSD is lower than the global fit</li>
 <dl class="class">
 <dt id="mmtbx.ncs.ligands.group_operators">
 <em class="property">class </em><code class="descclassname">mmtbx.ncs.ligands.</code><code class="descname">group_operators</code><span class="sig-paren">(</span><em>selection</em>, <em>sele_str</em>, <em>sites_cart</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ligands.group_operators" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Object for storing information about NCS relationships relative to an
 atom selection, i.e. given four identical chains A, B, C, and D, this might
 store information about chain B and the NCS operators for approximate
 superpositioning on chains A, C, and D.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.group_operators.add_operator" title="mmtbx.ncs.ligands.group_operators.add_operator"><code class="xref py py-obj docutils literal"><span class="pre">add_operator</span></code></a>(ops,&nbsp;sele_str)</td>
-<td>Save an NCS operator and corresponding atom selection.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ligands.group_operators.distance_from_center" title="mmtbx.ncs.ligands.group_operators.distance_from_center"><code class="xref py py-obj docutils literal"><span class="pre">distance_from_center</span></code></a>(sites)</td>
-<td>Compute the distance between centers-of-mass of this selection and the given sites.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.group_operators.show_summary" title="mmtbx.ncs.ligands.group_operators.show_summary"><code class="xref py py-obj docutils literal"><span class="pre">show_summary</span></code></a>([out,&nbsp;prefix])</td>
-<td>Print out selections and NCS operators.</td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="mmtbx.ncs.ligands.group_operators.add_operator">
 <code class="descname">add_operator</code><span class="sig-paren">(</span><em>ops</em>, <em>sele_str</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ligands.group_operators.add_operator" title="Permalink to this definition">¶</a></dt>
@@ -289,28 +228,10 @@ atoms, these need to be deleted if we are confident about the new positions.</p>
 <dl class="class">
 <dt id="mmtbx.ncs.ligands.sample_operators">
 <em class="property">class </em><code class="descclassname">mmtbx.ncs.ligands.</code><code class="descname">sample_operators</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>fmodel</em>, <em>ncs_operators</em>, <em>ligands</em>, <em>params</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ligands.sample_operators" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Determines an appropriate &#8220;reference&#8221; ligand, and samples the density around
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Determines an appropriate “reference” ligand, and samples the density around
 sites transformed by each operator, applying the best operator to the
 other ligand copies if meeting cutoff criteria.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.sample_operators.get_new_fcalc_map" title="mmtbx.ncs.ligands.sample_operators.get_new_fcalc_map"><code class="xref py py-obj docutils literal"><span class="pre">get_new_fcalc_map</span></code></a>(sites_new,&nbsp;i_seqs)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ligands.sample_operators.get_sites_cc" title="mmtbx.ncs.ligands.sample_operators.get_sites_cc"><code class="xref py py-obj docutils literal"><span class="pre">get_sites_cc</span></code></a>(atoms[,&nbsp;sites])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ligands.sample_operators.setup_maps" title="mmtbx.ncs.ligands.sample_operators.setup_maps"><code class="xref py py-obj docutils literal"><span class="pre">setup_maps</span></code></a>()</td>
-<td>Create 2mFo-DFc, mFo-DFc, and Fc maps.</td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="mmtbx.ncs.ligands.sample_operators.get_new_fcalc_map">
 <code class="descname">get_new_fcalc_map</code><span class="sig-paren">(</span><em>sites_new</em>, <em>i_seqs</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ligands.sample_operators.get_new_fcalc_map" title="Permalink to this definition">¶</a></dt>
@@ -400,160 +321,7 @@ other ligand copies if meeting cutoff criteria.</p>
 <dl class="class">
 <dt id="mmtbx.ncs.ncs.ncs">
 <em class="property">class </em><code class="descclassname">mmtbx.ncs.ncs.</code><code class="descname">ncs</code><span class="sig-paren">(</span><em>exclude_h=None</em>, <em>exclude_d=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.add_cc_list" title="mmtbx.ncs.ncs.ncs.add_cc_list"><code class="xref py py-obj docutils literal"><span class="pre">add_cc_list</span></code></a>(cc_list)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.add_identity_op" title="mmtbx.ncs.ncs.ncs.add_identity_op"><code class="xref py py-obj docutils literal"><span class="pre">add_identity_op</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.add_source_info" title="mmtbx.ncs.ncs.ncs.add_source_info"><code class="xref py py-obj docutils literal"><span class="pre">add_source_info</span></code></a>(source_info)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.adjust_magnification" title="mmtbx.ncs.ncs.ncs.adjust_magnification"><code class="xref py py-obj docutils literal"><span class="pre">adjust_magnification</span></code></a>([magnification])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.change_of_basis" title="mmtbx.ncs.ncs.ncs.change_of_basis"><code class="xref py py-obj docutils literal"><span class="pre">change_of_basis</span></code></a>([change_of_basis_operator,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.coordinate_offset" title="mmtbx.ncs.ncs.ncs.coordinate_offset"><code class="xref py py-obj docutils literal"><span class="pre">coordinate_offset</span></code></a>([coordinate_offset,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.deep_copy" title="mmtbx.ncs.ncs.ncs.deep_copy"><code class="xref py py-obj docutils literal"><span class="pre">deep_copy</span></code></a>([change_of_basis_operator,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.display_all" title="mmtbx.ncs.ncs.ncs.display_all"><code class="xref py py-obj docutils literal"><span class="pre">display_all</span></code></a>([verbose,&nbsp;log])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.extend_helix_operators" title="mmtbx.ncs.ncs.ncs.extend_helix_operators"><code class="xref py py-obj docutils literal"><span class="pre">extend_helix_operators</span></code></a>([z_range,&nbsp;tol_z,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.format_all_for_group_specification" title="mmtbx.ncs.ncs.ncs.format_all_for_group_specification"><code class="xref py py-obj docutils literal"><span class="pre">format_all_for_group_specification</span></code></a>([log,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.format_all_for_phenix_refine" title="mmtbx.ncs.ncs.ncs.format_all_for_phenix_refine"><code class="xref py py-obj docutils literal"><span class="pre">format_all_for_phenix_refine</span></code></a>([quiet,&nbsp;out,&nbsp;...])</td>
-<td>This function is an older version of creating phil for phenix refine, it is modified to replicate a new phil parameters that can handle selection to the level of atoms, &#8220;format_phil_for_phenix_refine&#8221;.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.format_all_for_resolve" title="mmtbx.ncs.ncs.ncs.format_all_for_resolve"><code class="xref py py-obj docutils literal"><span class="pre">format_all_for_resolve</span></code></a>([log,&nbsp;quiet,&nbsp;out,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.format_phil_for_ncs" title="mmtbx.ncs.ncs.ncs.format_phil_for_ncs"><code class="xref py py-obj docutils literal"><span class="pre">format_phil_for_ncs</span></code></a>([log,&nbsp;quiet,&nbsp;out])</td>
-<td>Writes NCS phil selection in NCS format</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.format_phil_for_phenix_refine" title="mmtbx.ncs.ncs.ncs.format_phil_for_phenix_refine"><code class="xref py py-obj docutils literal"><span class="pre">format_phil_for_phenix_refine</span></code></a>([log,&nbsp;quiet,&nbsp;out])</td>
-<td>Writes NCS phil selection in phenix_refine format</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.get_1_char_after_key" title="mmtbx.ncs.ncs.ncs.get_1_char_after_key"><code class="xref py py-obj docutils literal"><span class="pre">get_1_char_after_key</span></code></a>(line)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.get_1_value_after_key" title="mmtbx.ncs.ncs.ncs.get_1_value_after_key"><code class="xref py py-obj docutils literal"><span class="pre">get_1_value_after_key</span></code></a>(line)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.get_3_values_after_key" title="mmtbx.ncs.ncs.ncs.get_3_values_after_key"><code class="xref py py-obj docutils literal"><span class="pre">get_3_values_after_key</span></code></a>(line)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.get_helix_parameters" title="mmtbx.ncs.ncs.ncs.get_helix_parameters"><code class="xref py py-obj docutils literal"><span class="pre">get_helix_parameters</span></code></a>([z_range,&nbsp;tol_z,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.get_res_range_after_key" title="mmtbx.ncs.ncs.ncs.get_res_range_after_key"><code class="xref py py-obj docutils literal"><span class="pre">get_res_range_after_key</span></code></a>(line)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.identity_op_id_in_first_group" title="mmtbx.ncs.ncs.ncs.identity_op_id_in_first_group"><code class="xref py py-obj docutils literal"><span class="pre">identity_op_id_in_first_group</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.import_ncs_group" title="mmtbx.ncs.ncs.ncs.import_ncs_group"><code class="xref py py-obj docutils literal"><span class="pre">import_ncs_group</span></code></a>([ncs_rota_matr,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.init_ncs_group" title="mmtbx.ncs.ncs.ncs.init_ncs_group"><code class="xref py py-obj docutils literal"><span class="pre">init_ncs_group</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.init_oper" title="mmtbx.ncs.ncs.ncs.init_oper"><code class="xref py py-obj docutils literal"><span class="pre">init_oper</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.invert_matrices" title="mmtbx.ncs.ncs.ncs.invert_matrices"><code class="xref py py-obj docutils literal"><span class="pre">invert_matrices</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.is_helical_along_z" title="mmtbx.ncs.ncs.ncs.is_helical_along_z"><code class="xref py py-obj docutils literal"><span class="pre">is_helical_along_z</span></code></a>([tol_r,&nbsp;abs_tol_t,&nbsp;rel_tol_t])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.is_point_group_symmetry" title="mmtbx.ncs.ncs.ncs.is_point_group_symmetry"><code class="xref py py-obj docutils literal"><span class="pre">is_point_group_symmetry</span></code></a>([tol_r,&nbsp;abs_tol_t,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.magnification" title="mmtbx.ncs.ncs.ncs.magnification"><code class="xref py py-obj docutils literal"><span class="pre">magnification</span></code></a>([scale_factor])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.map_inside_unit_cell" title="mmtbx.ncs.ncs.ncs.map_inside_unit_cell"><code class="xref py py-obj docutils literal"><span class="pre">map_inside_unit_cell</span></code></a>([unit_cell])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.max_operators" title="mmtbx.ncs.ncs.ncs.max_operators"><code class="xref py py-obj docutils literal"><span class="pre">max_operators</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.ncs_from_import" title="mmtbx.ncs.ncs.ncs.ncs_from_import"><code class="xref py py-obj docutils literal"><span class="pre">ncs_from_import</span></code></a>([rot_list,&nbsp;trans_list,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.ncs_from_pdb_input_BIOMT" title="mmtbx.ncs.ncs.ncs.ncs_from_pdb_input_BIOMT"><code class="xref py py-obj docutils literal"><span class="pre">ncs_from_pdb_input_BIOMT</span></code></a>([pdb_inp,&nbsp;log,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.ncs_groups" title="mmtbx.ncs.ncs.ncs.ncs_groups"><code class="xref py py-obj docutils literal"><span class="pre">ncs_groups</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.ncs_oper_in_first_group" title="mmtbx.ncs.ncs.ncs.ncs_oper_in_first_group"><code class="xref py py-obj docutils literal"><span class="pre">ncs_oper_in_first_group</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.ncs_read" title="mmtbx.ncs.ncs.ncs.ncs_read"><code class="xref py py-obj docutils literal"><span class="pre">ncs_read</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.overall_cc" title="mmtbx.ncs.ncs.ncs.overall_cc"><code class="xref py py-obj docutils literal"><span class="pre">overall_cc</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.overall_note" title="mmtbx.ncs.ncs.ncs.overall_note"><code class="xref py py-obj docutils literal"><span class="pre">overall_note</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.overall_rmsd" title="mmtbx.ncs.ncs.ncs.overall_rmsd"><code class="xref py py-obj docutils literal"><span class="pre">overall_rmsd</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.read_ncs" title="mmtbx.ncs.ncs.ncs.read_ncs"><code class="xref py py-obj docutils literal"><span class="pre">read_ncs</span></code></a>([file_name,&nbsp;lines,&nbsp;source_info,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.rotate_about_y" title="mmtbx.ncs.ncs.ncs.rotate_about_y"><code class="xref py py-obj docutils literal"><span class="pre">rotate_about_y</span></code></a>([rot_deg,&nbsp;invert_matrices])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.rotate_about_z" title="mmtbx.ncs.ncs.ncs.rotate_about_z"><code class="xref py py-obj docutils literal"><span class="pre">rotate_about_z</span></code></a>([rot_deg,&nbsp;invert_matrices])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.rotate_matrices" title="mmtbx.ncs.ncs.ncs.rotate_matrices"><code class="xref py py-obj docutils literal"><span class="pre">rotate_matrices</span></code></a>([rot])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.save_existing_group_info" title="mmtbx.ncs.ncs.ncs.save_existing_group_info"><code class="xref py py-obj docutils literal"><span class="pre">save_existing_group_info</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.save_ncs_group" title="mmtbx.ncs.ncs.ncs.save_ncs_group"><code class="xref py py-obj docutils literal"><span class="pre">save_ncs_group</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.save_oper" title="mmtbx.ncs.ncs.ncs.save_oper"><code class="xref py py-obj docutils literal"><span class="pre">save_oper</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.select_first_ncs_group" title="mmtbx.ncs.ncs.ncs.select_first_ncs_group"><code class="xref py py-obj docutils literal"><span class="pre">select_first_ncs_group</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.select_first_ncs_operator" title="mmtbx.ncs.ncs.ncs.select_first_ncs_operator"><code class="xref py py-obj docutils literal"><span class="pre">select_first_ncs_operator</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.set_unit_ncs" title="mmtbx.ncs.ncs.ncs.set_unit_ncs"><code class="xref py py-obj docutils literal"><span class="pre">set_unit_ncs</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs.sort_by_z_translation" title="mmtbx.ncs.ncs.ncs.sort_by_z_translation"><code class="xref py py-obj docutils literal"><span class="pre">sort_by_z_translation</span></code></a>([tol_z])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
+<dd><dl class="method">
 <dt id="mmtbx.ncs.ncs.ncs.add_cc_list">
 <code class="descname">add_cc_list</code><span class="sig-paren">(</span><em>cc_list</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.add_cc_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -608,7 +376,7 @@ other ligand copies if meeting cutoff criteria.</p>
 <code class="descname">format_all_for_phenix_refine</code><span class="sig-paren">(</span><em>quiet=False</em>, <em>out=None</em>, <em>prefix='refinement.pdb_interpretation.ncs_group'</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.format_all_for_phenix_refine" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is an older version of creating phil for phenix refine,
 it is modified to replicate a new phil parameters that can handle
-selection to the level of atoms, &#8220;format_phil_for_phenix_refine&#8221;.</p>
+selection to the level of atoms, “format_phil_for_phenix_refine”.</p>
 <p>When it will still can be used in the older form, which allows only
 residue level selection.</p>
 </dd></dl>
@@ -805,181 +573,7 @@ residue level selection.</p>
 <dl class="class">
 <dt id="mmtbx.ncs.ncs.ncs_group">
 <em class="property">class </em><code class="descclassname">mmtbx.ncs.ncs.</code><code class="descname">ncs_group</code><span class="sig-paren">(</span><em>ncs_rota_matr=None</em>, <em>center_orth=None</em>, <em>trans_orth=None</em>, <em>chain_residue_id=None</em>, <em>source_of_ncs_info=None</em>, <em>rmsd_list=None</em>, <em>ncs_domain_pdb=None</em>, <em>residues_in_common_list=None</em>, <em>cc=None</em>, <em>note=None</em>, <em>exclude_h=None</em>, <em>exclude_d=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.add_cc" title="mmtbx.ncs.ncs.ncs_group.add_cc"><code class="xref py py-obj docutils literal"><span class="pre">add_cc</span></code></a>(cc)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.add_chain_residue_id" title="mmtbx.ncs.ncs.ncs_group.add_chain_residue_id"><code class="xref py py-obj docutils literal"><span class="pre">add_chain_residue_id</span></code></a>(chain_residue_id)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.add_identity_op" title="mmtbx.ncs.ncs.ncs_group.add_identity_op"><code class="xref py py-obj docutils literal"><span class="pre">add_identity_op</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.add_note" title="mmtbx.ncs.ncs.ncs_group.add_note"><code class="xref py py-obj docutils literal"><span class="pre">add_note</span></code></a>(note)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.add_residues_in_common_list" title="mmtbx.ncs.ncs.ncs_group.add_residues_in_common_list"><code class="xref py py-obj docutils literal"><span class="pre">add_residues_in_common_list</span></code></a>(...)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.add_rmsd_list" title="mmtbx.ncs.ncs.ncs_group.add_rmsd_list"><code class="xref py py-obj docutils literal"><span class="pre">add_rmsd_list</span></code></a>(rmsd_list)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.adjust_magnification" title="mmtbx.ncs.ncs.ncs_group.adjust_magnification"><code class="xref py py-obj docutils literal"><span class="pre">adjust_magnification</span></code></a>([magnification])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.apply_cob_to_vector" title="mmtbx.ncs.ncs.ncs_group.apply_cob_to_vector"><code class="xref py py-obj docutils literal"><span class="pre">apply_cob_to_vector</span></code></a>([vector,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.cc" title="mmtbx.ncs.ncs.ncs_group.cc"><code class="xref py py-obj docutils literal"><span class="pre">cc</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.centers" title="mmtbx.ncs.ncs.ncs_group.centers"><code class="xref py py-obj docutils literal"><span class="pre">centers</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.chain_residue_id" title="mmtbx.ncs.ncs.ncs_group.chain_residue_id"><code class="xref py py-obj docutils literal"><span class="pre">chain_residue_id</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.copy_rot_trans" title="mmtbx.ncs.ncs.ncs_group.copy_rot_trans"><code class="xref py py-obj docutils literal"><span class="pre">copy_rot_trans</span></code></a>(list_of_matrices,&nbsp;...[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.copy_vector_list" title="mmtbx.ncs.ncs.ncs_group.copy_vector_list"><code class="xref py py-obj docutils literal"><span class="pre">copy_vector_list</span></code></a>(list_of_vectors[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.deep_copy" title="mmtbx.ncs.ncs.ncs_group.deep_copy"><code class="xref py py-obj docutils literal"><span class="pre">deep_copy</span></code></a>([change_of_basis_operator,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.deep_copy_ops_to_keep" title="mmtbx.ncs.ncs.ncs_group.deep_copy_ops_to_keep"><code class="xref py py-obj docutils literal"><span class="pre">deep_copy_ops_to_keep</span></code></a>([ops_to_keep])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.deep_copy_order" title="mmtbx.ncs.ncs.ncs_group.deep_copy_order"><code class="xref py py-obj docutils literal"><span class="pre">deep_copy_order</span></code></a>([hierarchy_to_match_order])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.delete_inv" title="mmtbx.ncs.ncs.ncs_group.delete_inv"><code class="xref py py-obj docutils literal"><span class="pre">delete_inv</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.display_summary" title="mmtbx.ncs.ncs.ncs_group.display_summary"><code class="xref py py-obj docutils literal"><span class="pre">display_summary</span></code></a>([verbose])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.extend_helix_operators" title="mmtbx.ncs.ncs.ncs_group.extend_helix_operators"><code class="xref py py-obj docutils literal"><span class="pre">extend_helix_operators</span></code></a>([z_range,&nbsp;tol_z,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.extract_point_group_symmetry" title="mmtbx.ncs.ncs.ncs_group.extract_point_group_symmetry"><code class="xref py py-obj docutils literal"><span class="pre">extract_point_group_symmetry</span></code></a>([tol_r,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_for_phenix_refine" title="mmtbx.ncs.ncs.ncs_group.format_for_phenix_refine"><code class="xref py py-obj docutils literal"><span class="pre">format_for_phenix_refine</span></code></a>([prefix])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_for_resolve" title="mmtbx.ncs.ncs.ncs_group.format_for_resolve"><code class="xref py py-obj docutils literal"><span class="pre">format_for_resolve</span></code></a>([crystal_number,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.format_group_specification" title="mmtbx.ncs.ncs.ncs_group.format_group_specification"><code class="xref py py-obj docutils literal"><span class="pre">format_group_specification</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_forwards_reverse_helix" title="mmtbx.ncs.ncs.ncs_group.get_forwards_reverse_helix"><code class="xref py py-obj docutils literal"><span class="pre">get_forwards_reverse_helix</span></code></a>([r1,&nbsp;t1,&nbsp;r2,&nbsp;t2])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_helix_parameters" title="mmtbx.ncs.ncs.ncs_group.get_helix_parameters"><code class="xref py py-obj docutils literal"><span class="pre">get_helix_parameters</span></code></a>([tol_z])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_helix_theta" title="mmtbx.ncs.ncs.ncs_group.get_helix_theta"><code class="xref py py-obj docutils literal"><span class="pre">get_helix_theta</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_helix_z_translation" title="mmtbx.ncs.ncs.ncs_group.get_helix_z_translation"><code class="xref py py-obj docutils literal"><span class="pre">get_helix_z_translation</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_inverses" title="mmtbx.ncs.ncs.ncs_group.get_inverses"><code class="xref py py-obj docutils literal"><span class="pre">get_inverses</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_new_group" title="mmtbx.ncs.ncs.ncs_group.get_new_group"><code class="xref py py-obj docutils literal"><span class="pre">get_new_group</span></code></a>([hierarchy_to_match_order])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_order_dict" title="mmtbx.ncs.ncs.ncs_group.get_order_dict"><code class="xref py py-obj docutils literal"><span class="pre">get_order_dict</span></code></a>([hierarchy_to_match_order])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_theta_along_z" title="mmtbx.ncs.ncs.ncs_group.get_theta_along_z"><code class="xref py py-obj docutils literal"><span class="pre">get_theta_along_z</span></code></a>(m0,&nbsp;m1)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.get_trans_along_z" title="mmtbx.ncs.ncs.ncs_group.get_trans_along_z"><code class="xref py py-obj docutils literal"><span class="pre">get_trans_along_z</span></code></a>(t0,&nbsp;t1)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.helix_rt_forwards" title="mmtbx.ncs.ncs.ncs_group.helix_rt_forwards"><code class="xref py py-obj docutils literal"><span class="pre">helix_rt_forwards</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.helix_rt_reverse" title="mmtbx.ncs.ncs.ncs_group.helix_rt_reverse"><code class="xref py py-obj docutils literal"><span class="pre">helix_rt_reverse</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.identity_op_id" title="mmtbx.ncs.ncs.ncs_group.identity_op_id"><code class="xref py py-obj docutils literal"><span class="pre">identity_op_id</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.invert_matrices" title="mmtbx.ncs.ncs.ncs_group.invert_matrices"><code class="xref py py-obj docutils literal"><span class="pre">invert_matrices</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.is_helical_along_z" title="mmtbx.ncs.ncs.ncs_group.is_helical_along_z"><code class="xref py py-obj docutils literal"><span class="pre">is_helical_along_z</span></code></a>([tol_z,&nbsp;tol_r,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.is_point_group_symmetry" title="mmtbx.ncs.ncs.ncs_group.is_point_group_symmetry"><code class="xref py py-obj docutils literal"><span class="pre">is_point_group_symmetry</span></code></a>([tol_r,&nbsp;abs_tol_t,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.map_inside_unit_cell" title="mmtbx.ncs.ncs.ncs_group.map_inside_unit_cell"><code class="xref py py-obj docutils literal"><span class="pre">map_inside_unit_cell</span></code></a>([unit_cell])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.n_ncs_oper" title="mmtbx.ncs.ncs.ncs_group.n_ncs_oper"><code class="xref py py-obj docutils literal"><span class="pre">n_ncs_oper</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.ncs_domain_pdb" title="mmtbx.ncs.ncs.ncs_group.ncs_domain_pdb"><code class="xref py py-obj docutils literal"><span class="pre">ncs_domain_pdb</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.note" title="mmtbx.ncs.ncs.ncs_group.note"><code class="xref py py-obj docutils literal"><span class="pre">note</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.oper_adds_offset" title="mmtbx.ncs.ncs.ncs_group.oper_adds_offset"><code class="xref py py-obj docutils literal"><span class="pre">oper_adds_offset</span></code></a>(i1[,&nbsp;tol_r,&nbsp;abs_tol_t,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.print_list" title="mmtbx.ncs.ncs.ncs_group.print_list"><code class="xref py py-obj docutils literal"><span class="pre">print_list</span></code></a>(list_of_real)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.residues_in_common_list" title="mmtbx.ncs.ncs.ncs_group.residues_in_common_list"><code class="xref py py-obj docutils literal"><span class="pre">residues_in_common_list</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rmsd_list" title="mmtbx.ncs.ncs.ncs_group.rmsd_list"><code class="xref py py-obj docutils literal"><span class="pre">rmsd_list</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rota_matrices" title="mmtbx.ncs.ncs.ncs_group.rota_matrices"><code class="xref py py-obj docutils literal"><span class="pre">rota_matrices</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rota_matrices_inv" title="mmtbx.ncs.ncs.ncs_group.rota_matrices_inv"><code class="xref py py-obj docutils literal"><span class="pre">rota_matrices_inv</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rotate_matrices" title="mmtbx.ncs.ncs.ncs_group.rotate_matrices"><code class="xref py py-obj docutils literal"><span class="pre">rotate_matrices</span></code></a>([rot])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.rotations_translations_forward_euler" title="mmtbx.ncs.ncs.ncs_group.rotations_translations_forward_euler"><code class="xref py py-obj docutils literal"><span class="pre">rotations_translations_forward_euler</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.round" title="mmtbx.ncs.ncs.ncs_group.round"><code class="xref py py-obj docutils literal"><span class="pre">round</span></code></a>(value,&nbsp;n_digit)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.sort_by_z_translation" title="mmtbx.ncs.ncs.ncs_group.sort_by_z_translation"><code class="xref py py-obj docutils literal"><span class="pre">sort_by_z_translation</span></code></a>([tol_z])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.source_of_ncs_info" title="mmtbx.ncs.ncs.ncs_group.source_of_ncs_info"><code class="xref py py-obj docutils literal"><span class="pre">source_of_ncs_info</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.translations_orth" title="mmtbx.ncs.ncs.ncs_group.translations_orth"><code class="xref py py-obj docutils literal"><span class="pre">translations_orth</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ncs.ncs.ncs_group.translations_orth_inv" title="mmtbx.ncs.ncs.ncs_group.translations_orth_inv"><code class="xref py py-obj docutils literal"><span class="pre">translations_orth_inv</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
+<dd><dl class="method">
 <dt id="mmtbx.ncs.ncs.ncs_group.add_cc">
 <code class="descname">add_cc</code><span class="sig-paren">(</span><em>cc</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.add_cc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1285,7 +879,7 @@ residue level selection.</p>
 <dl class="class">
 <dt id="mmtbx.ncs.ncs_search.Chains_info">
 <em class="property">class </em><code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">Chains_info</code><a class="headerlink" href="#mmtbx.ncs.ncs_search.Chains_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Container for hierarchy analysis</p>
 </dd></dl>
 
@@ -1293,21 +887,26 @@ residue level selection.</p>
 <dt id="mmtbx.ncs.ncs_search.find_ncs_in_hierarchy">
 <code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">find_ncs_in_hierarchy</code><span class="sig-paren">(</span><em>ph</em>, <em>chains_info=None</em>, <em>chain_max_rmsd=5.0</em>, <em>log=None</em>, <em>chain_similarity_threshold=0.85</em>, <em>residue_match_radius=4.0</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.find_ncs_in_hierarchy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find NCS relation in hierarchy</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">ph (object): hierarchy
-use_minimal_master_ncs (bool): use maximal or minimal common chains</p>
-<blockquote>
-<div>in master ncs groups</div></blockquote>
-<p>chain_max_rmsd (float): limit of rms difference chains when aligned together
-residue_match_radius (float): max allow distance difference between pairs of matching</p>
-<blockquote>
-<div>atoms of two residues</div></blockquote>
-<p class="last">chain_similarity_threshold (float): min similarity between matching chains</p>
-</dd>
-<dt>Return:</dt>
-<dd>groups_list - class_ncs_restraints_group_list</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><em>object</em></a>) – hierarchy</li>
+<li><strong>use_minimal_master_ncs</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a>) – use maximal or minimal common chains
+in master ncs groups</li>
+<li><strong>chain_max_rmsd</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – limit of rms difference chains when aligned together</li>
+<li><strong>residue_match_radius</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – max allow distance difference between pairs of matching
+atoms of two residues</li>
+<li><strong>chain_similarity_threshold</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – min similarity between matching chains</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">groups_list - class_ncs_restraints_group_list</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1331,12 +930,14 @@ O(n+m), where n,m - sizes of selections</p>
 selection strings
 Exclude water atoms
 When there are alternate conformations, we use the first one</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ph : pdb_hierarchy</dd>
-<dt>Returns:</dt>
-<dd><dl class="first docutils">
-<dt>chains_info (dict): values are object containing</dt>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ph</strong> – pdb_hierarchy</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>values are object containing</dt>
 <dd>chains (str): chain IDs OR selections string
 res_name (list of str): list of residues names
 resid (list of str): list of residues sequence number, resid
@@ -1344,9 +945,13 @@ atom_names (list of list of str): list of atoms in residues
 atom_selection (list of list of list of int): the location of atoms in ph
 chains_atom_number (list of int): list of number of atoms in each chain</dd>
 </dl>
-<p class="last">exclude_water (bool): exclude water</p>
-</dd>
-</dl>
+<p>exclude_water (bool): exclude water</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">chains_info (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)">dict</a>)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1370,25 +975,33 @@ chains_atom_number (list of int): list of number of atoms in each chain</dd>
 <dd><p>Get selection of matching chains, match residues atoms
 We keep only residues with continuous matching atoms</p>
 <p>Residues with alternative locations and of different size are excluded</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first docutils">
-<dt>chains_info (object): object containing</dt>
-<dd>chains (str): chain IDs or selections string
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>chains_info</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><em>object</em></a>) – object containing
+chains (str): chain IDs or selections string
 res_name (list of str): list of residues names
 resid (list of str): list of residues sequence number, resid
 atom_names (list of list of str): list of atoms in residues
 atom_selection (list of list of list of int): the location of atoms in ph
-chains_atom_number (list of int): list of number of atoms in each chain</dd>
-</dl>
-<p class="last">a_id,b_id (str): Chain IDs
-res_num_a/b (list of int): indices of matching residues position</p>
-</dd>
-<dt>Returns:</dt>
-<dd>sel_a/b (list of lists): matching atoms selection
+chains_atom_number (list of int): list of number of atoms in each chain</li>
+<li><strong>a_id</strong><strong>,</strong><strong>b_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Chain IDs</li>
+<li><strong>res_num_a/b</strong> (<em>list of int</em>) – indices of matching residues position</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">matching atoms selection
 res_num_a/b (list of int): updated res_num_a/b
-msg (str): message regarding matching residues with different atom number</dd>
-</dl>
+msg (str): message regarding matching residues with different atom number</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">sel_a/b (list of lists)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1421,11 +1034,18 @@ Correct means:</p>
 </ol>
 </div></blockquote>
 <p>One can get exact selection strings by ncs_object.show(verbose=True)</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>ph : hierarchy
-master/copy_selection: master and copy iselections</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ph</strong> – hierarchy</li>
+<li><strong>master/copy_selection</strong> – master and copy iselections</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1450,21 +1070,28 @@ perpendicular to each other rather than being close to parallel.</p>
 <p>The criteria used:
 For each matching residues, the difference between distance of farthest
 matching atoms pair and the distance of closest pair mast be &lt; residue_match_radius</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>list_a, list_a (list of list): list of residues atoms
-res_list_a,res_list_b (list): list of residues in chains
-ref_sites,other_sites (flex.vec3): atoms coordinates
-residue_match_radius (float): max allow distance difference</dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>Updated arguments:</dt>
-<dd>sel_a,sel_b,
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>list_a</strong> (<em>list_a</em><em>,</em>) – list of residues atoms</li>
+<li><strong>res_list_a</strong><strong>,</strong><strong>res_list_b</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – list of residues in chains</li>
+<li><strong>ref_sites</strong><strong>,</strong><strong>other_sites</strong> (<em>flex.vec3</em>) – atoms coordinates</li>
+<li><strong>residue_match_radius</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – max allow distance difference</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">sel_a,sel_b,
 res_list_a_new,res_list_b_new,
-ref_sites_new,other_sites_new</dd>
-</dl>
-</dd>
-</dl>
+ref_sites_new,other_sites_new</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Updated arguments</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1472,29 +1099,39 @@ ref_sites_new,other_sites_new</dd>
 <code class="descclassname">mmtbx.ncs.ncs_search.</code><code class="descname">search_ncs_relations</code><span class="sig-paren">(</span><em>ph=None</em>, <em>chains_info=None</em>, <em>chain_similarity_threshold=0.85</em>, <em>chain_max_rmsd=2.0</em>, <em>residue_match_radius=4</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.search_ncs_relations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search for NCS relations between chains or parts of chains, in a protein
 hierarchy</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">ph (object): hierarchy
-chains_info (dict): values are object containing</p>
-<blockquote class="last">
-<div>chains (str): chain IDs OR selections string
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><em>object</em></a>) – hierarchy</li>
+<li><strong>chains_info</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><em>dict</em></a>) – values are object containing
+chains (str): chain IDs OR selections string
 res_name (list of str): list of residues names
 resid (list of str): list of residues sequence number, resid
 atom_names (list of list of str): list of atoms in residues
 atom_selection (list of list of list of int): the location of atoms in ph
-chains_atom_number (list of int): list of number of atoms in each chain</div></blockquote>
-</dd>
-<dt>Returns:</dt>
-<dd><p class="first">msg (str): message regarding matching residues with different atom number
+chains_atom_number (list of int): list of number of atoms in each chain</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>message regarding matching residues with different atom number
 match_dict(dict): key:(chains_id_a,chains_id_b)</p>
-<blockquote class="last">
+<blockquote>
 <div><dl class="docutils">
 <dt>val:[selection_a,selection_b,</dt>
-<dd>res_list_a,res_list_b,rot,trans,rmsd]</dd>
-</dl>
-</div></blockquote>
+<dd><p class="first last">res_list_a,res_list_b,rot,trans,rmsd]</p>
 </dd>
 </dl>
+</div></blockquote>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">msg (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)">str</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1513,25 +1150,33 @@ to find identical chains with 0 rmsd between them.</p>
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">apply_transforms</code><span class="sig-paren">(</span><em>ncs_coordinates</em>, <em>ncs_restraints_group_list</em>, <em>total_asu_length</em>, <em>extended_ncs_selection</em>, <em>round_coordinates=True</em>, <em>center_of_coordinates=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.apply_transforms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply transformation to ncs_coordinates,
 and round the results if round_coordinates is True</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">ncs_coordinates (flex.vec3): master ncs coordinates
-ncs_restraints_group_list: list of ncs_restraint_group objects
-total_asu_length (int): Complete ASU length</p>
-<blockquote>
-<div>extended_ncs_selection (flex.size_t): master ncs and non-ncs related parts</div></blockquote>
-<dl class="last docutils">
-<dt>center_of_coordinates</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">when not None, contains the center of coordinate of</span><dd>the master for each ncs copy</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ncs_coordinates</strong> (<em>flex.vec3</em>) – master ncs coordinates</li>
+<li><strong>ncs_restraints_group_list</strong> – list of ncs_restraint_group objects</li>
+<li><strong>total_asu_length</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – Complete ASU length
+extended_ncs_selection (flex.size_t): master ncs and non-ncs related parts</li>
+<li><strong>center_of_coordinates</strong> – when not None, contains the center of coordinate of
+the master for each ncs copy</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Asymmetric or biological unit parts that are related via</dt>
+<dd><p class="first last">ncs operations</p>
 </dd>
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>(flex.vec3_double): Asymmetric or biological unit parts that are related via</dt>
-<dd>ncs operations</dd>
 </dl>
-</dd>
-</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.vec3_double" title="scitbx.array_family.flex.vec3_double">flex.vec3_double</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1542,22 +1187,30 @@ XXX Consider making it method of class_ncs_restraints_group_list
 XXX</p>
 <p>Compute gradient in respect to the rotation angles and the translation
 vectors. R = Rx(the)Ry(psi)Rz(phi)</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">grad_wrt_xyz (flex.double): gradients with respect to xyz.
-ncs_restraints_group_list: list containing ncs_restraint_group objects
-transforms_obj (ncs_group_object): containing information in rotation</p>
-<blockquote>
-<div>matrices and to which chains they apply</div></blockquote>
-<p>xyz_asu (flex.vec3): The coordinates sites cart of the complete ASU
-x (flex double): The angles, in the form</p>
-<blockquote class="last">
-<div>(theta_1,psi_1,phi_1,tx_1,ty_1,tz_1,..
-theta_n,psi_n,phi_n,tx_n/s,ty_n/s,tz_n/s)</div></blockquote>
-</dd>
-<dt>Returns:</dt>
-<dd>g (flex.double): the gradient</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>grad_wrt_xyz</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double"><em>flex.double</em></a>) – gradients with respect to xyz.</li>
+<li><strong>ncs_restraints_group_list</strong> – list containing ncs_restraint_group objects</li>
+<li><strong>transforms_obj</strong> (<em>ncs_group_object</em>) – containing information in rotation
+matrices and to which chains they apply</li>
+<li><strong>xyz_asu</strong> (<em>flex.vec3</em>) – The coordinates sites cart of the complete ASU</li>
+<li><strong>x</strong> (<em>flex double</em>) – The angles, in the form
+(theta_1,psi_1,phi_1,tx_1,ty_1,tz_1,..
+theta_n,psi_n,phi_n,tx_n/s,ty_n/s,tz_n/s)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the gradient</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">g (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double">flex.double</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1575,14 +1228,20 @@ Will make all copies consistent with master.</p>
 <dt id="mmtbx.ncs.ncs_utils.get_list_of_best_ncs_copy_map_correlation">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">get_list_of_best_ncs_copy_map_correlation</code><span class="sig-paren">(</span><em>ncs_groups</em>, <em>xray_structure=None</em>, <em>fmodel=None</em>, <em>map_data=None</em>, <em>d_min=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.get_list_of_best_ncs_copy_map_correlation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the copy with best map correlation in each ncs group</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd><dl class="first last docutils">
-<dt>best_list (list of int): list of the copy with the best map correlation.</dt>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>list of the copy with the best map correlation.</dt>
 <dd>(the master copy is 0)</dd>
 </dl>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">best_list (list of int)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -1598,30 +1257,36 @@ Will make all copies consistent with master.</p>
 parameters and taking the ratio:
 (restraint manager grad norm / parameters gradient norm)</p>
 <p>When calling this function during refinement macro cycle, the minimized
-object, &#8220;minimized_obj&#8221; , may contains fmodel, restraints_manager,
+object, “minimized_obj” , may contains fmodel, restraints_manager,
 refinement type info (sites, transformations, u_iso) and
 ncs_restraints_group_list.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">fmodel : F-model object
-restraints_manager: Restraints manager object
-sites (bool): Refine by sites
-u_iso (bool): Refine using u_iso
-transformations (bool): Refine using transformations</p>
-<blockquote>
-<div>rotations, translations (matrix objects):</div></blockquote>
-<p>ncs_restraints_group_list: list of ncs_restraint_group objects
-refine_selection (flex.size_t): selection of all ncs related copies and</p>
-<blockquote>
-<div>non ncs related parts to be included in selection (to be refined)</div></blockquote>
-<dl class="last docutils">
-<dt>minimized_obj:Minimization object containing all the other</dt>
-<dd>parameters above</dd>
-</dl>
-</dd>
-<dt>Returns:</dt>
-<dd>weight (int):</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fmodel</strong> – F-model object</li>
+<li><strong>restraints_manager</strong> – Restraints manager object</li>
+<li><strong>sites</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a>) – Refine by sites</li>
+<li><strong>u_iso</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a>) – Refine using u_iso</li>
+<li><strong>transformations</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a>) – Refine using transformations
+rotations, translations (matrix objects):</li>
+<li><strong>ncs_restraints_group_list</strong> – list of ncs_restraint_group objects</li>
+<li><strong>refine_selection</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t"><em>flex.size_t</em></a>) – selection of all ncs related copies and
+non ncs related parts to be included in selection (to be refined)</li>
+<li><strong>minimized_obj</strong> – Minimization object containing all the other
+parameters above</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">weight (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
 <p>Example:
 &gt;&gt;&gt;get_weight(minimized_obj=minimized_obj)</p>
 <p>or</p>
@@ -1639,13 +1304,26 @@ refine_selection=refine_selection)</dd>
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.remove_items_from_selection">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">remove_items_from_selection</code><span class="sig-paren">(</span><em>selection</em>, <em>remove</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.remove_items_from_selection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove a set of atoms from &#8220;selection&#8221;</p>
+<dd><p>Remove a set of atoms from “selection”</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>selection</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t"><em>flex.size_t</em></a>) – atom selection</li>
+<li><strong>remove</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t"><em>flex.size_t</em></a>) – atoms to remove from selection</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">modified atom selection</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t">flex.size_t</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="docutils">
-<dt>Args:</dt>
-<dd>selection (flex.size_t): atom selection
-remove (flex.size_t): atoms to remove from selection</dd>
-<dt>Returns:</dt>
-<dd>(flex.size_t): modified atom selection</dd>
 <dt>Examples::</dt>
 <dd>&gt;&gt;&gt;a = flex.size_t([1,2,5,6,4])
 &gt;&gt;&gt;r = flex.size_t([2,5])
@@ -1664,26 +1342,50 @@ Those angles are the Tait-Bryan angles form of Euler angles</p>
 <p>Note that typically there are two solutions, and this function will return
 only one. In the case that cos(beta) == 0 there are infinite number of
 solutions, the function returns the one where gamma = 0</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>r : (flex.double) of the form (Rxx,Rxy,Rxz,Ryx,Ryy,Ryz,Rzx,Rzy,Rzz)
-deg : When False use radians, when True use degrees</dd>
-<dt>Returns:</dt>
-<dd>angles (flex.double): (alpha, beta, gamma) rotation angles around the x,y,z</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> – (flex.double) of the form (Rxx,Rxy,Rxz,Ryx,Ryy,Ryz,Rzx,Rzy,Rzz)</li>
+<li><strong>deg</strong> – When False use radians, when True use degrees</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">(alpha, beta, gamma) rotation angles around the x,y,z</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="mmtbx.validation.html#mmtbx.validation.restraints.angles" title="mmtbx.validation.restraints.angles">angles</a> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double">flex.double</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="mmtbx.ncs.ncs_utils.selected_positions">
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">selected_positions</code><span class="sig-paren">(</span><em>selection</em>, <em>positions</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.selected_positions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns only the selected indices in the positions specified in &#8220;positions&#8221;
+<dd><p>Returns only the selected indices in the positions specified in “positions”
 keeping the order</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>selection</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t"><em>flex.size_t</em></a>) – Atoms selection</li>
+<li><strong>positions</strong> (<a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.set" title="cctbx.miller.set"><em>set</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – the allowed positions in the selections</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">(selected atoms, atoms, not selected)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t">flex.size_t</a>, <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t">flex.size_t</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="docutils">
-<dt>Args:</dt>
-<dd>selection (flex.size_t): Atoms selection
-positions (set or list): the allowed positions in the selections</dd>
-<dt>Returns:</dt>
-<dd>(flex.size_t, flex.size_t): (selected atoms, atoms, not selected)</dd>
 <dt>Examples::</dt>
 <dd>&gt;&gt;&gt;a = flex.size_t([1,2,5,6,4])
 &gt;&gt;&gt;pos = {0,3,4}
@@ -1700,24 +1402,31 @@ positions (set or list): the allowed positions in the selections</dd>
 <code class="descclassname">mmtbx.ncs.ncs_utils.</code><code class="descname">shake_transformations</code><span class="sig-paren">(</span><em>x</em>, <em>shake_angles_sigma=0.035</em>, <em>shake_translation_sigma=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_utils.shake_transformations" title="Permalink to this definition">¶</a></dt>
 <dd><p>XXX
 XXX Used here in get_weight().
-XXX Not clear what relation MTRIX have to this function at all...
+XXX Not clear what relation MTRIX have to this function at all…
 XXX</p>
 <p>Shake rotation matrices and translation vectors of a rotation matrices and
 translation vectors from the MTRIX records in a PDB file.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><p class="first">x (flex.double): [(alpha_1,beta_1,gamma_1,Tx_1/s,Ty_1/s,Tz_1/s)...]
-shake_angles_sigma (float): the sigma (in radians) of the random gaussian</p>
-<blockquote>
-<div>shaking of the rotation angles</div></blockquote>
-<dl class="last docutils">
-<dt>shake_translation_sigma (float): the sigma (in angstrom) of the random</dt>
-<dd>gaussian shaking of the translation</dd>
-</dl>
-</dd>
-<dt>Return:</dt>
-<dd>new_x (flex.double): The shaken x</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double"><em>flex.double</em></a>) – [(alpha_1,beta_1,gamma_1,Tx_1/s,Ty_1/s,Tz_1/s)…]</li>
+<li><strong>shake_angles_sigma</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – the sigma (in radians) of the random gaussian
+shaking of the rotation angles</li>
+<li><strong>shake_translation_sigma</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – the sigma (in angstrom) of the random
+gaussian shaking of the translation</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The shaken x</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">new_x (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double">flex.double</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -1736,12 +1445,8 @@ shake_angles_sigma (float): the sigma (in radians) of the random gaussian</p>
   <ul>
 <li><a class="reference internal" href="#">mmtbx.ncs</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.ncs.ligands">mmtbx.ncs.ligands module</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-mmtbx.ncs.ncs">mmtbx.ncs.ncs module</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.ligands">mmtbx.ncs.ligands module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ncs.ncs">mmtbx.ncs.ncs module</a></li>
 <li><a class="reference internal" href="#mmtbx-ncs-restraints-module">mmtbx.ncs.restraints module</a></li>
 <li><a class="reference internal" href="#module-mmtbx.ncs.ncs_search">mmtbx.ncs.ncs_search module</a></li>
 <li><a class="reference internal" href="#module-mmtbx.ncs.ncs_utils">mmtbx.ncs.ncs_utils module</a></li>
@@ -1750,21 +1455,29 @@ shake_angles_sigma (float): the sigma (in radians) of the random gaussian</p>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mmtbx.monomer_library.html"
+                        title="previous chapter">mmtbx.monomer_library package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mmtbx.pdbtools.html"
+                        title="next chapter">mmtbx.pdbtools - model manipulation utilities</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/mmtbx/mmtbx.ncs.txt"
+      <li><a href="../_sources/mmtbx/mmtbx.ncs.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -1780,13 +1493,19 @@ shake_angles_sigma (float): the sigma (in radians) of the random gaussian</p>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.pdbtools.html" title="mmtbx.pdbtools - model manipulation utilities"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.monomer_library.html" title="mmtbx.monomer_library package"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

@@ -1,35 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>cctbx.maptbx package &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="cctbx - core crystallographic objects and functions" href="cctbx.html" />
-    <link rel="next" title="cctbx.maptbx.mem module" href="cctbx.maptbx.mem.html" /> 
-  </head>
-  <body role="document">
+    <link rel="next" title="cctbx.maptbx.mem module" href="cctbx.maptbx.mem.html" />
+    <link rel="prev" title="cctbx.macro_mol.rotation_parameters module" href="cctbx.macro_mol.rotation_parameters.html" /> 
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -42,6 +31,9 @@
         <li class="right" >
           <a href="cctbx.maptbx.mem.html" title="cctbx.maptbx.mem module"
              accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cctbx.macro_mol.rotation_parameters.html" title="cctbx.macro_mol.rotation_parameters module"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="cctbx.html" accesskey="U">cctbx - core crystallographic objects and functions</a> &#187;</li> 
       </ul>
@@ -58,13 +50,9 @@
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="cctbx.maptbx.mem.html">cctbx.maptbx.mem module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.maptbx.mem.html">cctbx.maptbx.mem module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cctbx.maptbx.real_space_refinement.html">cctbx.maptbx.real_space_refinement module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cctbx.maptbx.real_space_refinement_simple.html">cctbx.maptbx.real_space_refinement_simple module</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="cctbx.maptbx.real_space_refinement_simple.html">cctbx.maptbx.real_space_refinement_simple module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cctbx.maptbx.real_space_target_and_gradients.html">cctbx.maptbx.real_space_target_and_gradients module</a></li>
 </ul>
 </div>
@@ -84,39 +72,9 @@
 <dl class="class">
 <dt id="cctbx.maptbx.atom_curves">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">atom_curves</code><span class="sig-paren">(</span><em>scattering_type</em>, <em>scattering_table='wk1995'</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.atom_curves" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Class-toolkit to compute various 1-atom 1D curves: exact electron density,
 Fourier image of specified resolution, etc.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.atom_curves.exact_density" title="cctbx.maptbx.atom_curves.exact_density"><code class="xref py py-obj docutils literal"><span class="pre">exact_density</span></code></a>(b_iso[,&nbsp;radius_max,&nbsp;radius_step])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.atom_curves.exact_density_at_r" title="cctbx.maptbx.atom_curves.exact_density_at_r"><code class="xref py py-obj docutils literal"><span class="pre">exact_density_at_r</span></code></a>(r,&nbsp;b_iso)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.atom_curves.exact_gradient_at_r" title="cctbx.maptbx.atom_curves.exact_gradient_at_r"><code class="xref py py-obj docutils literal"><span class="pre">exact_gradient_at_r</span></code></a>(r,&nbsp;t,&nbsp;t0,&nbsp;b_iso)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.atom_curves.form_factor" title="cctbx.maptbx.atom_curves.form_factor"><code class="xref py py-obj docutils literal"><span class="pre">form_factor</span></code></a>(ss,&nbsp;b_iso)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.atom_curves.get_xray_structure" title="cctbx.maptbx.atom_curves.get_xray_structure"><code class="xref py py-obj docutils literal"><span class="pre">get_xray_structure</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.atom_curves.image" title="cctbx.maptbx.atom_curves.image"><code class="xref py py-obj docutils literal"><span class="pre">image</span></code></a>(d_min,&nbsp;b_iso[,&nbsp;d_max,&nbsp;radius_max,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.atom_curves.integrand" title="cctbx.maptbx.atom_curves.integrand"><code class="xref py py-obj docutils literal"><span class="pre">integrand</span></code></a>(r,&nbsp;b_iso)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="cctbx.maptbx.atom_curves.exact_density">
 <code class="descname">exact_density</code><span class="sig-paren">(</span><em>b_iso</em>, <em>radius_max=5.0</em>, <em>radius_step=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.atom_curves.exact_density" title="Permalink to this definition">¶</a></dt>
@@ -163,7 +121,7 @@ Fourier image of specified resolution, etc.</p>
 <dl class="class">
 <dt id="cctbx.maptbx.boxes">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">boxes</code><span class="sig-paren">(</span><em>n_real</em>, <em>fraction=None</em>, <em>log=None</em>, <em>max_boxes=2000</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.boxes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Split box defined by n_real into boxes where each box is a fraction of the
 whole box.</p>
 </dd></dl>
@@ -171,7 +129,7 @@ whole box.</p>
 <dl class="class">
 <dt id="cctbx.maptbx.boxes_by_dimension">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">boxes_by_dimension</code><span class="sig-paren">(</span><em>n_real</em>, <em>abc</em>, <em>dim</em>, <em>log=None</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.boxes_by_dimension" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="function">
@@ -193,61 +151,13 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</dd
 <dl class="class">
 <dt id="cctbx.maptbx.cluster_site_info">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">cluster_site_info</code><span class="sig-paren">(</span><em>peak_list_index</em>, <em>grid_index</em>, <em>grid_height</em>, <em>site</em>, <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.cluster_site_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cctbx.maptbx.crystal_gridding">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">crystal_gridding</code><span class="sig-paren">(</span><em>unit_cell</em>, <em>d_min=None</em>, <em>resolution_factor=None</em>, <em>step=None</em>, <em>symmetry_flags=None</em>, <em>space_group_info=None</em>, <em>mandatory_factors=None</em>, <em>max_prime=5</em>, <em>assert_shannon_sampling=True</em>, <em>pre_determined_n_real=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.crystal_gridding" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.change_space_group" title="cctbx.maptbx.crystal_gridding.change_space_group"><code class="xref py py-obj docutils literal"><span class="pre">change_space_group</span></code></a>(space_group_info)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.crystal_symmetry" title="cctbx.maptbx.crystal_gridding.crystal_symmetry"><code class="xref py py-obj docutils literal"><span class="pre">crystal_symmetry</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.d_min" title="cctbx.maptbx.crystal_gridding.d_min"><code class="xref py py-obj docutils literal"><span class="pre">d_min</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.mandatory_factors" title="cctbx.maptbx.crystal_gridding.mandatory_factors"><code class="xref py py-obj docutils literal"><span class="pre">mandatory_factors</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.max_prime" title="cctbx.maptbx.crystal_gridding.max_prime"><code class="xref py py-obj docutils literal"><span class="pre">max_prime</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.n_grid_points" title="cctbx.maptbx.crystal_gridding.n_grid_points"><code class="xref py py-obj docutils literal"><span class="pre">n_grid_points</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.n_real" title="cctbx.maptbx.crystal_gridding.n_real"><code class="xref py py-obj docutils literal"><span class="pre">n_real</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.resolution_factor" title="cctbx.maptbx.crystal_gridding.resolution_factor"><code class="xref py py-obj docutils literal"><span class="pre">resolution_factor</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.space_group" title="cctbx.maptbx.crystal_gridding.space_group"><code class="xref py py-obj docutils literal"><span class="pre">space_group</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.space_group_info" title="cctbx.maptbx.crystal_gridding.space_group_info"><code class="xref py py-obj docutils literal"><span class="pre">space_group_info</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.symmetry_flags" title="cctbx.maptbx.crystal_gridding.symmetry_flags"><code class="xref py py-obj docutils literal"><span class="pre">symmetry_flags</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.tags" title="cctbx.maptbx.crystal_gridding.tags"><code class="xref py py-obj docutils literal"><span class="pre">tags</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding.unit_cell" title="cctbx.maptbx.crystal_gridding.unit_cell"><code class="xref py py-obj docutils literal"><span class="pre">unit_cell</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.maptbx.crystal_gridding.change_space_group">
 <code class="descname">change_space_group</code><span class="sig-paren">(</span><em>space_group_info</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.crystal_gridding.change_space_group" title="Permalink to this definition">¶</a></dt>
@@ -318,58 +228,7 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</dd
 <dl class="class">
 <dt id="cctbx.maptbx.crystal_gridding_tags">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">crystal_gridding_tags</code><span class="sig-paren">(</span><em>gridding</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.crystal_gridding_tags" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cctbx.maptbx.crystal_gridding" title="cctbx.maptbx.crystal_gridding"><code class="xref py py-class docutils literal"><span class="pre">cctbx.maptbx.crystal_gridding</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">change_space_group</span></code>(space_group_info)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">crystal_symmetry</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">d_min</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">mandatory_factors</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">max_prime</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">n_grid_points</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">n_real</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding_tags.peak_search" title="cctbx.maptbx.crystal_gridding_tags.peak_search"><code class="xref py py-obj docutils literal"><span class="pre">peak_search</span></code></a>(parameters,&nbsp;map[,&nbsp;verify_symmetry])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">resolution_factor</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">space_group</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">space_group_info</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">symmetry_flags</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.crystal_gridding_tags.tags" title="cctbx.maptbx.crystal_gridding_tags.tags"><code class="xref py py-obj docutils literal"><span class="pre">tags</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">unit_cell</span></code>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.maptbx.crystal_gridding" title="cctbx.maptbx.crystal_gridding"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.maptbx.crystal_gridding</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.maptbx.crystal_gridding_tags.peak_search">
 <code class="descname">peak_search</code><span class="sig-paren">(</span><em>parameters</em>, <em>map</em>, <em>verify_symmetry=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.crystal_gridding_tags.peak_search" title="Permalink to this definition">¶</a></dt>
@@ -385,19 +244,7 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</dd
 <dl class="class">
 <dt id="cctbx.maptbx.d99">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">d99</code><span class="sig-paren">(</span><em>map=None</em>, <em>f_map=None</em>, <em>crystal_symmetry=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.d99" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.d99.show" title="cctbx.maptbx.d99.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>(log)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.maptbx.d99.show">
 <code class="descname">show</code><span class="sig-paren">(</span><em>log</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.d99.show" title="Permalink to this definition">¶</a></dt>
@@ -423,7 +270,7 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</dd
 <dl class="class">
 <dt id="cctbx.maptbx.local_scale">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">local_scale</code><span class="sig-paren">(</span><em>crystal_gridding</em>, <em>crystal_symmetry</em>, <em>f_map=None</em>, <em>map_data=None</em>, <em>miller_array=None</em>, <em>d_min=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.local_scale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="function">
@@ -453,82 +300,7 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</dd
 <dl class="class">
 <dt id="cctbx.maptbx.peak_cluster_analysis">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">peak_cluster_analysis</code><span class="sig-paren">(</span><em>peak_list</em>, <em>special_position_settings</em>, <em>general_positions_only=False</em>, <em>effective_resolution=None</em>, <em>significant_height_fraction=None</em>, <em>cluster_height_fraction=None</em>, <em>min_cross_distance=None</em>, <em>max_clusters=None</em>, <em>min_cubicle_edge=5</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.peak_cluster_analysis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.all" title="cctbx.maptbx.peak_cluster_analysis.all"><code class="xref py py-obj docutils literal"><span class="pre">all</span></code></a>([max_clusters])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.all_site_cluster_analysis" title="cctbx.maptbx.peak_cluster_analysis.all_site_cluster_analysis"><code class="xref py py-obj docutils literal"><span class="pre">all_site_cluster_analysis</span></code></a>([max_clusters])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.all_with_effective_resolution" title="cctbx.maptbx.peak_cluster_analysis.all_with_effective_resolution"><code class="xref py py-obj docutils literal"><span class="pre">all_with_effective_resolution</span></code></a>([max_clusters])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.append_fixed_site" title="cctbx.maptbx.peak_cluster_analysis.append_fixed_site"><code class="xref py py-obj docutils literal"><span class="pre">append_fixed_site</span></code></a>(site[,&nbsp;height])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.cluster_height_fraction" title="cctbx.maptbx.peak_cluster_analysis.cluster_height_fraction"><code class="xref py py-obj docutils literal"><span class="pre">cluster_height_fraction</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.discard_last" title="cctbx.maptbx.peak_cluster_analysis.discard_last"><code class="xref py py-obj docutils literal"><span class="pre">discard_last</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.effective_resolution" title="cctbx.maptbx.peak_cluster_analysis.effective_resolution"><code class="xref py py-obj docutils literal"><span class="pre">effective_resolution</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.fixed_site_indices" title="cctbx.maptbx.peak_cluster_analysis.fixed_site_indices"><code class="xref py py-obj docutils literal"><span class="pre">fixed_site_indices</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.general_positions_only" title="cctbx.maptbx.peak_cluster_analysis.general_positions_only"><code class="xref py py-obj docutils literal"><span class="pre">general_positions_only</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.heights" title="cctbx.maptbx.peak_cluster_analysis.heights"><code class="xref py py-obj docutils literal"><span class="pre">heights</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.max_clusters" title="cctbx.maptbx.peak_cluster_analysis.max_clusters"><code class="xref py py-obj docutils literal"><span class="pre">max_clusters</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.max_grid_height" title="cctbx.maptbx.peak_cluster_analysis.max_grid_height"><code class="xref py py-obj docutils literal"><span class="pre">max_grid_height</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.min_cross_distance" title="cctbx.maptbx.peak_cluster_analysis.min_cross_distance"><code class="xref py py-obj docutils literal"><span class="pre">min_cross_distance</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.next" title="cctbx.maptbx.peak_cluster_analysis.next"><code class="xref py py-obj docutils literal"><span class="pre">next</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.next_site_cluster_analysis" title="cctbx.maptbx.peak_cluster_analysis.next_site_cluster_analysis"><code class="xref py py-obj docutils literal"><span class="pre">next_site_cluster_analysis</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.next_with_effective_resolution" title="cctbx.maptbx.peak_cluster_analysis.next_with_effective_resolution"><code class="xref py py-obj docutils literal"><span class="pre">next_with_effective_resolution</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.peak_list" title="cctbx.maptbx.peak_cluster_analysis.peak_list"><code class="xref py py-obj docutils literal"><span class="pre">peak_list</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.peak_list_indices" title="cctbx.maptbx.peak_cluster_analysis.peak_list_indices"><code class="xref py py-obj docutils literal"><span class="pre">peak_list_indices</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.significant_height_fraction" title="cctbx.maptbx.peak_cluster_analysis.significant_height_fraction"><code class="xref py py-obj docutils literal"><span class="pre">significant_height_fraction</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.site_cluster_analysis" title="cctbx.maptbx.peak_cluster_analysis.site_cluster_analysis"><code class="xref py py-obj docutils literal"><span class="pre">site_cluster_analysis</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.sites" title="cctbx.maptbx.peak_cluster_analysis.sites"><code class="xref py py-obj docutils literal"><span class="pre">sites</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_cluster_analysis.special_position_settings" title="cctbx.maptbx.peak_cluster_analysis.special_position_settings"><code class="xref py py-obj docutils literal"><span class="pre">special_position_settings</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.maptbx.peak_cluster_analysis.all">
 <code class="descname">all</code><span class="sig-paren">(</span><em>max_clusters=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.peak_cluster_analysis.all" title="Permalink to this definition">¶</a></dt>
@@ -644,85 +416,13 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</dd
 <dl class="class">
 <dt id="cctbx.maptbx.peak_list">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">peak_list</code><span class="sig-paren">(</span><em>data</em>, <em>tags</em>, <em>peak_search_level=1</em>, <em>max_peaks=0</em>, <em>peak_cutoff=None</em>, <em>interpolate=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.peak_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">cctbx_maptbx_ext.peak_list</span></code></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">grid_heights</span></code>((&nbsp;(peak_list)arg1)&nbsp;-&gt;&nbsp;double&nbsp;:)</td>
-<td>C++ signature :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">grid_indices</span></code>((&nbsp;(peak_list)arg1,&nbsp;...)</td>
-<td>C++ signature :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">gridding</span></code>((&nbsp;(peak_list)arg1)&nbsp;-&gt;&nbsp;tuple&nbsp;:)</td>
-<td>C++ signature :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">heights</span></code>((&nbsp;(peak_list)arg1)&nbsp;-&gt;&nbsp;double&nbsp;:)</td>
-<td>C++ signature :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sites</span></code>((&nbsp;(peak_list)arg1)&nbsp;-&gt;&nbsp;vec3_double&nbsp;:)</td>
-<td>C++ signature :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">size</span></code>((&nbsp;(peak_list)arg1)&nbsp;-&gt;&nbsp;int&nbsp;:)</td>
-<td>C++ signature :</td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx_maptbx_ext.peak_list</span></code></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cctbx.maptbx.peak_search_parameters">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">peak_search_parameters</code><span class="sig-paren">(</span><em>peak_search_level=1</em>, <em>max_peaks=0</em>, <em>peak_cutoff=None</em>, <em>interpolate=True</em>, <em>min_distance_sym_equiv=None</em>, <em>general_positions_only=False</em>, <em>effective_resolution=None</em>, <em>significant_height_fraction=None</em>, <em>cluster_height_fraction=None</em>, <em>min_cross_distance=None</em>, <em>max_clusters=None</em>, <em>min_cubicle_edge=5</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.peak_search_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.cluster_height_fraction" title="cctbx.maptbx.peak_search_parameters.cluster_height_fraction"><code class="xref py py-obj docutils literal"><span class="pre">cluster_height_fraction</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.effective_resolution" title="cctbx.maptbx.peak_search_parameters.effective_resolution"><code class="xref py py-obj docutils literal"><span class="pre">effective_resolution</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.general_positions_only" title="cctbx.maptbx.peak_search_parameters.general_positions_only"><code class="xref py py-obj docutils literal"><span class="pre">general_positions_only</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.interpolate" title="cctbx.maptbx.peak_search_parameters.interpolate"><code class="xref py py-obj docutils literal"><span class="pre">interpolate</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.max_clusters" title="cctbx.maptbx.peak_search_parameters.max_clusters"><code class="xref py py-obj docutils literal"><span class="pre">max_clusters</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.max_peaks" title="cctbx.maptbx.peak_search_parameters.max_peaks"><code class="xref py py-obj docutils literal"><span class="pre">max_peaks</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.min_cross_distance" title="cctbx.maptbx.peak_search_parameters.min_cross_distance"><code class="xref py py-obj docutils literal"><span class="pre">min_cross_distance</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.min_cubicle_edge" title="cctbx.maptbx.peak_search_parameters.min_cubicle_edge"><code class="xref py py-obj docutils literal"><span class="pre">min_cubicle_edge</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.min_distance_sym_equiv" title="cctbx.maptbx.peak_search_parameters.min_distance_sym_equiv"><code class="xref py py-obj docutils literal"><span class="pre">min_distance_sym_equiv</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.peak_cutoff" title="cctbx.maptbx.peak_search_parameters.peak_cutoff"><code class="xref py py-obj docutils literal"><span class="pre">peak_cutoff</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.peak_search_level" title="cctbx.maptbx.peak_search_parameters.peak_search_level"><code class="xref py py-obj docutils literal"><span class="pre">peak_search_level</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.maptbx.peak_search_parameters.significant_height_fraction" title="cctbx.maptbx.peak_search_parameters.significant_height_fraction"><code class="xref py py-obj docutils literal"><span class="pre">significant_height_fraction</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.maptbx.peak_search_parameters.cluster_height_fraction">
 <code class="descname">cluster_height_fraction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.peak_search_parameters.cluster_height_fraction" title="Permalink to this definition">¶</a></dt>
@@ -793,19 +493,7 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</dd
 <dl class="class">
 <dt id="cctbx.maptbx.positivity_constrained_density_modification">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">positivity_constrained_density_modification</code><span class="sig-paren">(</span><em>f</em>, <em>f_000</em>, <em>n_cycles=100</em>, <em>resolution_factor=0.25</em>, <em>d_min=None</em>, <em>crystal_gridding=None</em>, <em>complete_set=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.positivity_constrained_density_modification" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.positivity_constrained_density_modification.assert_equal" title="cctbx.maptbx.positivity_constrained_density_modification.assert_equal"><code class="xref py py-obj docutils literal"><span class="pre">assert_equal</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.maptbx.positivity_constrained_density_modification.assert_equal">
 <code class="descname">assert_equal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.positivity_constrained_density_modification.assert_equal" title="Permalink to this definition">¶</a></dt>
@@ -841,19 +529,7 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</dd
 <dl class="class">
 <dt id="cctbx.maptbx.spherical_variance_around_point">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">spherical_variance_around_point</code><span class="sig-paren">(</span><em>real_map</em>, <em>unit_cell</em>, <em>site_cart</em>, <em>radius</em>, <em>n_points=40</em>, <em>spline_interpolation=True</em>, <em>write_sphere_points_to_pdb_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.spherical_variance_around_point" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.maptbx.spherical_variance_around_point.show" title="cctbx.maptbx.spherical_variance_around_point.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>([out,&nbsp;prefix])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.maptbx.spherical_variance_around_point.show">
 <code class="descname">show</code><span class="sig-paren">(</span><em>out=None</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.spherical_variance_around_point.show" title="Permalink to this definition">¶</a></dt>
@@ -864,34 +540,7 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</dd
 <dl class="class">
 <dt id="cctbx.maptbx.statistics">
 <em class="property">class </em><code class="descclassname">cctbx.maptbx.</code><code class="descname">statistics</code><span class="sig-paren">(</span><em>map</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.statistics" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">cctbx_maptbx_ext.statistics</span></code></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">max</span></code>((&nbsp;(statistics)arg1)&nbsp;-&gt;&nbsp;float&nbsp;:)</td>
-<td>C++ signature :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">mean</span></code>((&nbsp;(statistics)arg1)&nbsp;-&gt;&nbsp;float&nbsp;:)</td>
-<td>C++ signature :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">mean_sq</span></code>((&nbsp;(statistics)arg1)&nbsp;-&gt;&nbsp;float&nbsp;:)</td>
-<td>C++ signature :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">min</span></code>((&nbsp;(statistics)arg1)&nbsp;-&gt;&nbsp;float&nbsp;:)</td>
-<td>C++ signature :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">show_summary</span></code>([f,&nbsp;prefix])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">sigma</span></code>((&nbsp;(statistics)arg1)&nbsp;-&gt;&nbsp;float&nbsp;:)</td>
-<td>C++ signature :</td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx_maptbx_ext.statistics</span></code></p>
 </dd></dl>
 
 <dl class="function">
@@ -921,31 +570,34 @@ right out of FT).</p>
   <ul>
 <li><a class="reference internal" href="#">cctbx.maptbx package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-cctbx.maptbx">Module contents</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-cctbx.maptbx">Module contents</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cctbx.macro_mol.rotation_parameters.html"
+                        title="previous chapter">cctbx.macro_mol.rotation_parameters module</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="cctbx.maptbx.mem.html"
                         title="next chapter">cctbx.maptbx.mem module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cctbx/cctbx.maptbx.txt"
+      <li><a href="../_sources/cctbx/cctbx.maptbx.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -964,13 +616,16 @@ right out of FT).</p>
         <li class="right" >
           <a href="cctbx.maptbx.mem.html" title="cctbx.maptbx.mem module"
              >next</a> |</li>
+        <li class="right" >
+          <a href="cctbx.macro_mol.rotation_parameters.html" title="cctbx.macro_mol.rotation_parameters module"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

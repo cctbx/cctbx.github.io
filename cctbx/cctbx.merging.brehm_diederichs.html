@@ -1,35 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>cctbx.merging.brehm_diederichs module &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="cctbx.merging package" href="cctbx.merging.html" />
+    <link rel="next" title="cctbx.miller package" href="cctbx.miller.html" />
     <link rel="prev" title="cctbx.merging package" href="cctbx.merging.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -39,6 +28,9 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="cctbx.miller.html" title="cctbx.miller package"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="cctbx.merging.html" title="cctbx.merging package"
              accesskey="P">previous</a> |</li>
@@ -58,37 +50,7 @@
 <dl class="class">
 <dt id="cctbx.merging.brehm_diederichs.algorithm2">
 <em class="property">class </em><code class="descclassname">cctbx.merging.brehm_diederichs.</code><code class="descname">algorithm2</code><span class="sig-paren">(</span><em>data</em>, <em>lattice_id</em>, <em>resort=False</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.merging.brehm_diederichs.algorithm2" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">__call__</span></code>(input_queue,&nbsp;\*args,&nbsp;\*\*kwargs)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.algorithm2.generate_comparison_selections" title="cctbx.merging.brehm_diederichs.algorithm2.generate_comparison_selections"><code class="xref py py-obj docutils literal"><span class="pre">generate_comparison_selections</span></code></a>([nproc])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.algorithm2.generate_reindex_sets" title="cctbx.merging.brehm_diederichs.algorithm2.generate_reindex_sets"><code class="xref py py-obj docutils literal"><span class="pre">generate_reindex_sets</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.algorithm2.generate_twin_operators" title="cctbx.merging.brehm_diederichs.algorithm2.generate_twin_operators"><code class="xref py py-obj docutils literal"><span class="pre">generate_twin_operators</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.algorithm2.one_lattice_slice" title="cctbx.merging.brehm_diederichs.algorithm2.one_lattice_slice"><code class="xref py py-obj docutils literal"><span class="pre">one_lattice_slice</span></code></a>(indices,&nbsp;lattice_id)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.algorithm2.report" title="cctbx.merging.brehm_diederichs.algorithm2.report"><code class="xref py py-obj docutils literal"><span class="pre">report</span></code></a>(millerlookups)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.algorithm2.run_core_algorithm" title="cctbx.merging.brehm_diederichs.algorithm2.run_core_algorithm"><code class="xref py py-obj docutils literal"><span class="pre">run_core_algorithm</span></code></a>(group,&nbsp;alternates,&nbsp;...[,&nbsp;...])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
+<dd><dl class="method">
 <dt id="cctbx.merging.brehm_diederichs.algorithm2.generate_comparison_selections">
 <code class="descname">generate_comparison_selections</code><span class="sig-paren">(</span><em>nproc=1</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.merging.brehm_diederichs.algorithm2.generate_comparison_selections" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -123,25 +85,7 @@
 <dl class="class">
 <dt id="cctbx.merging.brehm_diederichs.minimize">
 <em class="property">class </em><code class="descclassname">cctbx.merging.brehm_diederichs.</code><code class="descname">minimize</code><span class="sig-paren">(</span><em>xcoord</em>, <em>ycoord</em>, <em>rij_matrix</em>, <em>wij_matrix</em>, <em>verbose</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.merging.brehm_diederichs.minimize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">scitbx.lbfgs.tst_curvatures.lbfgs_with_curvatures_mix_in</span></code></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">__call__</span></code>(requests_f_and_g,&nbsp;requests_diag)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.minimize.compute_functional_and_gradients" title="cctbx.merging.brehm_diederichs.minimize.compute_functional_and_gradients"><code class="xref py py-obj docutils literal"><span class="pre">compute_functional_and_gradients</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.minimize.curvatures" title="cctbx.merging.brehm_diederichs.minimize.curvatures"><code class="xref py py-obj docutils literal"><span class="pre">curvatures</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">scitbx.lbfgs.tst_curvatures.lbfgs_with_curvatures_mix_in</span></code></p>
 <dl class="method">
 <dt id="cctbx.merging.brehm_diederichs.minimize.compute_functional_and_gradients">
 <code class="descname">compute_functional_and_gradients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.merging.brehm_diederichs.minimize.compute_functional_and_gradients" title="Permalink to this definition">¶</a></dt>
@@ -157,28 +101,7 @@
 <dl class="class">
 <dt id="cctbx.merging.brehm_diederichs.minimize_divide">
 <em class="property">class </em><code class="descclassname">cctbx.merging.brehm_diederichs.</code><code class="descname">minimize_divide</code><span class="sig-paren">(</span><em>xcoord</em>, <em>ycoord</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.merging.brehm_diederichs.minimize_divide" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">scitbx.lbfgs.tst_curvatures.lbfgs_with_curvatures_mix_in</span></code></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">__call__</span></code>(requests_f_and_g,&nbsp;requests_diag)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.minimize_divide.compute_functional_and_gradients" title="cctbx.merging.brehm_diederichs.minimize_divide.compute_functional_and_gradients"><code class="xref py py-obj docutils literal"><span class="pre">compute_functional_and_gradients</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.minimize_divide.functional_only" title="cctbx.merging.brehm_diederichs.minimize_divide.functional_only"><code class="xref py py-obj docutils literal"><span class="pre">functional_only</span></code></a>(theta)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.merging.brehm_diederichs.minimize_divide.plus_minus" title="cctbx.merging.brehm_diederichs.minimize_divide.plus_minus"><code class="xref py py-obj docutils literal"><span class="pre">plus_minus</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">scitbx.lbfgs.tst_curvatures.lbfgs_with_curvatures_mix_in</span></code></p>
 <dl class="method">
 <dt id="cctbx.merging.brehm_diederichs.minimize_divide.compute_functional_and_gradients">
 <code class="descname">compute_functional_and_gradients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.merging.brehm_diederichs.minimize_divide.compute_functional_and_gradients" title="Permalink to this definition">¶</a></dt>
@@ -232,21 +155,26 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="cctbx.merging.html"
                         title="previous chapter">cctbx.merging package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cctbx.miller.html"
+                        title="next chapter">cctbx.miller package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cctbx/cctbx.merging.brehm_diederichs.txt"
+      <li><a href="../_sources/cctbx/cctbx.merging.brehm_diederichs.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -263,6 +191,9 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
+          <a href="cctbx.miller.html" title="cctbx.miller package"
+             >next</a> |</li>
+        <li class="right" >
           <a href="cctbx.merging.html" title="cctbx.merging package"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
@@ -272,7 +203,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

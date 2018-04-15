@@ -1,35 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>cctbx.xray.minimization module &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="cctbx.xray package" href="cctbx.xray.html" />
+    <link rel="next" title="cctbx.xray.observation_types module" href="cctbx.xray.observation_types.html" />
     <link rel="prev" title="cctbx.xray.ext module" href="cctbx.xray.ext.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -39,6 +28,9 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="cctbx.xray.observation_types.html" title="cctbx.xray.observation_types module"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="cctbx.xray.ext.html" title="cctbx.xray.ext module"
              accesskey="P">previous</a> |</li>
@@ -63,7 +55,7 @@
 <dl class="class">
 <dt id="cctbx.xray.minimization.lbfgs">
 <em class="property">class </em><code class="descclassname">cctbx.xray.minimization.</code><code class="descname">lbfgs</code><span class="sig-paren">(</span><em>target_functor</em>, <em>xray_structure</em>, <em>occupancy_penalty=None</em>, <em>lbfgs_termination_params=None</em>, <em>lbfgs_core_params=None</em>, <em>correct_special_position_tolerance=0.01</em>, <em>cos_sin_table=True</em>, <em>structure_factor_algorithm=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A minimisation of a function of the free parameters of a X-ray structure,
 relying on the LBFGS algorithm.</p>
 <p>That function is represented by a functor object f which should abide to the
@@ -76,27 +68,6 @@ following interface</p>
 </div></blockquote>
 <p>in the manner of <cite>cctbx.xray.target_functors.least_squares_residual</cite>
 or <cite>cctbx.xray.target_functors.intensity_correlation</cite></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.xray.minimization.lbfgs.apply_shifts" title="cctbx.xray.minimization.lbfgs.apply_shifts"><code class="xref py py-obj docutils literal"><span class="pre">apply_shifts</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.xray.minimization.lbfgs.callback_after_step" title="cctbx.xray.minimization.lbfgs.callback_after_step"><code class="xref py py-obj docutils literal"><span class="pre">callback_after_step</span></code></a>(minimizer)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.xray.minimization.lbfgs.compute_functional_and_gradients" title="cctbx.xray.minimization.lbfgs.compute_functional_and_gradients"><code class="xref py py-obj docutils literal"><span class="pre">compute_functional_and_gradients</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.xray.minimization.lbfgs.compute_target" title="cctbx.xray.minimization.lbfgs.compute_target"><code class="xref py py-obj docutils literal"><span class="pre">compute_target</span></code></a>(compute_gradients)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="cctbx.xray.minimization.lbfgs.apply_shifts">
 <code class="descname">apply_shifts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs.apply_shifts" title="Permalink to this definition">¶</a></dt>
@@ -122,22 +93,7 @@ or <cite>cctbx.xray.target_functors.intensity_correlation</cite></p>
 <dl class="class">
 <dt id="cctbx.xray.minimization.occupancy_penalty_exp">
 <em class="property">class </em><code class="descclassname">cctbx.xray.minimization.</code><code class="descname">occupancy_penalty_exp</code><span class="sig-paren">(</span><em>penalty_factor=1</em>, <em>penalty_scale=100</em>, <em>min_functional=1e-10</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.occupancy_penalty_exp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.xray.minimization.occupancy_penalty_exp.functional" title="cctbx.xray.minimization.occupancy_penalty_exp.functional"><code class="xref py py-obj docutils literal"><span class="pre">functional</span></code></a>(occupancy)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.xray.minimization.occupancy_penalty_exp.gradient" title="cctbx.xray.minimization.occupancy_penalty_exp.gradient"><code class="xref py py-obj docutils literal"><span class="pre">gradient</span></code></a>(occupancy)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.xray.minimization.occupancy_penalty_exp.functional">
 <code class="descname">functional</code><span class="sig-paren">(</span><em>occupancy</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.occupancy_penalty_exp.functional" title="Permalink to this definition">¶</a></dt>
@@ -161,21 +117,26 @@ or <cite>cctbx.xray.target_functors.intensity_correlation</cite></p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="cctbx.xray.ext.html"
                         title="previous chapter">cctbx.xray.ext module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cctbx.xray.observation_types.html"
+                        title="next chapter">cctbx.xray.observation_types module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cctbx/cctbx.xray.minimization.txt"
+      <li><a href="../_sources/cctbx/cctbx.xray.minimization.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -192,6 +153,9 @@ or <cite>cctbx.xray.target_functors.intensity_correlation</cite></p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
+          <a href="cctbx.xray.observation_types.html" title="cctbx.xray.observation_types module"
+             >next</a> |</li>
+        <li class="right" >
           <a href="cctbx.xray.ext.html" title="cctbx.xray.ext module"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
@@ -201,7 +165,7 @@ or <cite>cctbx.xray.target_functors.intensity_correlation</cite></p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

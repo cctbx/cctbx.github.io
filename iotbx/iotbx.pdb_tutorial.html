@@ -1,33 +1,22 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>iotbx.pdb tutorial: pdb_truncate_to_ala &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" /> 
-  </head>
-  <body role="document">
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -47,14 +36,14 @@
           <div class="body" role="main">
             
   <div class="section" id="iotbx-pdb-tutorial-pdb-truncate-to-ala">
-<h1>iotbx.pdb tutorial: <code class="docutils literal"><span class="pre">pdb_truncate_to_ala</span></code><a class="headerlink" href="#iotbx-pdb-tutorial-pdb-truncate-to-ala" title="Permalink to this headline">¶</a></h1>
+<h1>iotbx.pdb tutorial: <code class="docutils literal notranslate"><span class="pre">pdb_truncate_to_ala</span></code><a class="headerlink" href="#iotbx-pdb-tutorial-pdb-truncate-to-ala" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial was written by Ralf Grosse-Kunstleve for the 2008
 <a class="reference external" href="http://www.sbgrid.org">SBGrid</a> meeting.  It is designed for novices to
 CCTBX (or programming in general), but gives a good practical overview of how
-the <code class="xref py py-mod docutils literal"><span class="pre">iotbx.pdb</span></code> facilities may be used.</p>
+the <code class="xref py py-mod docutils literal notranslate"><span class="pre">iotbx.pdb</span></code> facilities may be used.</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">pdb_truncate_to_ala</span></code> tutorial shows how to use the <code class="docutils literal"><span class="pre">iotbx.pdb</span></code>
+<p>The <code class="docutils literal notranslate"><span class="pre">pdb_truncate_to_ala</span></code> tutorial shows how to use the <code class="docutils literal notranslate"><span class="pre">iotbx.pdb</span></code>
 module to truncate the amino-acid residues in a PDB file to alanine
 (e.g. in preparation for molecular replacement). The tutorial consists
 of five scripts with increasing sophistication:</p>
@@ -103,22 +92,22 @@ residue names.</p>
 <p>Before you study any of the scripts below, install the CCTBX.
 This will enable you to run the scripts. Use the
 PDB files in the <a href="#id6"><span class="problematic" id="id7">`Tutorial directory`_</span></a> as inputs, or any other PDB file
-you may have. While analyzing a script, insert <code class="docutils literal"><span class="pre">print</span></code> statements
+you may have. While analyzing a script, insert <code class="docutils literal notranslate"><span class="pre">print</span></code> statements
 and run the script to find out more about the objects. It may also
-be useful to insert <code class="docutils literal"><span class="pre">help(obj)</span></code> to see the attributes and methods of
-<code class="docutils literal"><span class="pre">obj</span></code>, where <code class="docutils literal"><span class="pre">obj</span></code> can be any of the objects created in the script.</p>
-<p>If you don&#8217;t know what an object is: <em>thing</em> is a pretty good
+be useful to insert <code class="docutils literal notranslate"><span class="pre">help(obj)</span></code> to see the attributes and methods of
+<code class="docutils literal notranslate"><span class="pre">obj</span></code>, where <code class="docutils literal notranslate"><span class="pre">obj</span></code> can be any of the objects created in the script.</p>
+<p>If you don’t know what an object is: <em>thing</em> is a pretty good
 approximation.</p>
 </div>
 <div class="section" id="v0-getting-started-py">
-<h2><code class="docutils literal"><span class="pre">v0_getting_started.py</span></code><a class="headerlink" href="#v0-getting-started-py" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">iotbx.pdb</span></code> module implements highly efficient procedures for:</p>
+<h2><code class="docutils literal notranslate"><span class="pre">v0_getting_started.py</span></code><a class="headerlink" href="#v0-getting-started-py" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">iotbx.pdb</span></code> module implements highly efficient procedures for:</p>
 <ul>
 <li><p class="first">Processing the records (i.e. lines) in a PDB file.</p>
 </li>
 <li><p class="first">Constructing a <em>hierarchy</em> object. This is a five-deep nested
 data structure:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">model</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span>
   <span class="n">chain</span>
     <span class="n">residue_group</span>
       <span class="n">atom_group</span>
@@ -127,9 +116,9 @@ data structure:</p>
 </div>
 </li>
 </ul>
-<p><code class="docutils literal"><span class="pre">v0_getting_started.py</span></code> is a complete Python script for executing
+<p><code class="docutils literal notranslate"><span class="pre">v0_getting_started.py</span></code> is a complete Python script for executing
 these steps:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iotbx.pdb</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iotbx.pdb</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
@@ -145,14 +134,14 @@ these steps:</p>
 </div>
 <p>Most of this script is so called <em>boilerplate</em> code, i.e. code that in
 some form or shape is found in most Python scripts. At the beginning of
-the script are <code class="docutils literal"><span class="pre">import</span></code> statements. These import the modules needed
+the script are <code class="docutils literal notranslate"><span class="pre">import</span></code> statements. These import the modules needed
 for a task. The bottom lines represent best practice. They enable
 the script to be imported and used from other Python scripts. The
-first two lines of the <code class="docutils literal"><span class="pre">run()</span></code> function are a minimalistic - but
+first two lines of the <code class="docutils literal notranslate"><span class="pre">run()</span></code> function are a minimalistic - but
 often sufficient - way to give users a hint how to use the script. It
 works both for someone reading the source code of the script, and a
 user running the script without arguments. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v0_getting_started</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v0_getting_started</span><span class="o">.</span><span class="n">py</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
   <span class="n">File</span> <span class="s2">&quot;v0_getting_started.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">12</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
     <span class="n">run</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
@@ -164,14 +153,14 @@ user running the script without arguments. For example:</p>
 <p>In addition to showing the error message, Python is so friendly show
 us exactly where the error originates. This is often extremely helpful.</p>
 <p>The meat of the script is in these two lines:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
 <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The first line executes the two steps outline above. This is really
 all we need, but the second line produces output that is useful to
 give the user a quick overview of what is in the PDB file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v0_getting_started</span><span class="o">.</span><span class="n">py</span> <span class="n">crambin_pieces</span><span class="o">.</span><span class="n">pdb</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v0_getting_started</span><span class="o">.</span><span class="n">py</span> <span class="n">crambin_pieces</span><span class="o">.</span><span class="n">pdb</span>
 <span class="n">total</span> <span class="n">number</span> <span class="n">of</span><span class="p">:</span>
   <span class="n">models</span><span class="p">:</span>      <span class="mi">1</span>
   <span class="n">chains</span><span class="p">:</span>      <span class="mi">2</span>
@@ -210,10 +199,10 @@ give the user a quick overview of what is in the PDB file:</p>
 </div>
 </div>
 <div class="section" id="v1-loop-over-atoms-py">
-<h2><code class="docutils literal"><span class="pre">v1_loop_over_atoms.py</span></code><a class="headerlink" href="#v1-loop-over-atoms-py" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">model</span></code>, <code class="docutils literal"><span class="pre">chain</span></code>, and <code class="docutils literal"><span class="pre">atom</span></code> levels of the hierarchy
+<h2><code class="docutils literal notranslate"><span class="pre">v1_loop_over_atoms.py</span></code><a class="headerlink" href="#v1-loop-over-atoms-py" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">model</span></code>, <code class="docutils literal notranslate"><span class="pre">chain</span></code>, and <code class="docutils literal notranslate"><span class="pre">atom</span></code> levels of the hierarchy
 object are probably immediately obvious to someone familiar with
-the content of PDB files. The <code class="docutils literal"><span class="pre">residue_group</span></code> and <code class="docutils literal"><span class="pre">atom_group</span></code>
+the content of PDB files. The <code class="docutils literal notranslate"><span class="pre">residue_group</span></code> and <code class="docutils literal notranslate"><span class="pre">atom_group</span></code>
 levels are more complex. This complexity is related to <em>alternative
 conformations</em>. If there are no alternative conformations in
 a PDB file, all residue groups contain exactly one atom group,
@@ -226,7 +215,7 @@ in the PDB database contain alternative conformations).</p>
 residues are amino-acids, and the atom names. A more detailed
 presentation of the hierarchy object shows where we can find this
 information:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">model</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span>
   <span class="nb">id</span>
   <span class="n">chain</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="nb">id</span>
@@ -247,9 +236,9 @@ information:</p>
           <span class="n">hetero</span>
 </pre></div>
 </div>
-<p>We don&#8217;t need all this information for the truncation procedure,
+<p>We don’t need all this information for the truncation procedure,
 just this subset of the hierarchy:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">model</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span>
   <span class="n">chain</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="n">residue_group</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
       <span class="n">resid</span>
@@ -261,7 +250,7 @@ just this subset of the hierarchy:</p>
 </div>
 <p>This presentation translates directly into Python code,
 as found in <a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v1_loop_over_atoms.py">v1_loop_over_atoms.py</a>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
 <span class="kn">import</span> <span class="nn">iotbx.pdb</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -285,21 +274,21 @@ as found in <a class="reference external" href="http://cctbx.sourceforge.net/sbg
 </pre></div>
 </div>
 <p>The script contains interleaved print statements. The output of:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v1_loop_over_atoms</span><span class="o">.</span><span class="n">py</span> <span class="n">crambin_pieces</span><span class="o">.</span><span class="n">pdb</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v1_loop_over_atoms</span><span class="o">.</span><span class="n">py</span> <span class="n">crambin_pieces</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
 <p>can be found here:
 <a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v1_loop_over_atoms_crambin_pieces.out">http://cctbx.sourceforge.net/sbgrid2008/v1_loop_over_atoms_crambin_pieces.out</a></p>
 </div>
 <div class="section" id="v2-simple-py">
-<h2><code class="docutils literal"><span class="pre">v2_simple.py</span></code><a class="headerlink" href="#v2-simple-py" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">v2_simple.py</span></code><a class="headerlink" href="#v2-simple-py" title="Permalink to this headline">¶</a></h2>
 <p>We have residue names and atom names now, but we still need the
 information to decide what residues are amino acids, and what atom
 names we want to keep.</p>
-<p>The <code class="docutils literal"><span class="pre">iotbx.pdb</span></code> module contains a sub-module <code class="docutils literal"><span class="pre">amino_acid_codes</span></code>.
+<p>The <code class="docutils literal notranslate"><span class="pre">iotbx.pdb</span></code> module contains a sub-module <code class="docutils literal notranslate"><span class="pre">amino_acid_codes</span></code>.
 This sub-module contains two Python dictionaries, one of which is
 (shortened):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">one_letter_given_three_letter</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">one_letter_given_three_letter</span> <span class="o">=</span> <span class="p">{</span>
 <span class="s2">&quot;ALA&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
 <span class="s2">&quot;ARG&quot;</span><span class="p">:</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span>
 <span class="o">...</span>
@@ -307,48 +296,48 @@ This sub-module contains two Python dictionaries, one of which is
 <span class="s2">&quot;VAL&quot;</span><span class="p">:</span> <span class="s2">&quot;V&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>We don&#8217;t need the one-letter codes, but we can re-use the keys of
+<p>We don’t need the one-letter codes, but we can re-use the keys of
 this dictionary to efficently decide if a residue name corresponds
 to an amino acid. The relevant lines in <a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v2_simple.py">v2_simple.py</a> are:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iotbx.pdb.amino_acid_codes</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iotbx.pdb.amino_acid_codes</span>
 <span class="o">...</span>
   <span class="n">aa_resnames</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">amino_acid_codes</span><span class="o">.</span><span class="n">one_letter_given_three_letter</span>
 <span class="o">...</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">ag</span><span class="o">.</span><span class="n">resname</span> <span class="ow">in</span> <span class="n">aa_resnames</span><span class="p">):</span>
 </pre></div>
 </div>
-<p>For the atom names, we use a Python <code class="docutils literal"><span class="pre">set</span></code>. The relevant lines
+<p>For the atom names, we use a Python <code class="docutils literal notranslate"><span class="pre">set</span></code>. The relevant lines
 in <a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v2_simple.py">v2_simple.py</a> are:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ala_atom_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot; N  &quot;</span><span class="p">,</span> <span class="s2">&quot; CA &quot;</span><span class="p">,</span> <span class="s2">&quot; C  &quot;</span><span class="p">,</span> <span class="s2">&quot; O  &quot;</span><span class="p">,</span> <span class="s2">&quot; CB &quot;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ala_atom_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot; N  &quot;</span><span class="p">,</span> <span class="s2">&quot; CA &quot;</span><span class="p">,</span> <span class="s2">&quot; C  &quot;</span><span class="p">,</span> <span class="s2">&quot; O  &quot;</span><span class="p">,</span> <span class="s2">&quot; CB &quot;</span><span class="p">])</span>
 <span class="o">...</span>
               <span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ala_atom_names</span><span class="p">):</span>
 </pre></div>
 </div>
-<p>We use a Python <code class="docutils literal"><span class="pre">set</span></code> because it uses hashing techniques for element
-lookup when processing the <code class="docutils literal"><span class="pre">in</span></code> in the <code class="docutils literal"><span class="pre">if</span></code> statement. For a
-small list like here it doesn&#8217;t really matter, but in Python it is
+<p>We use a Python <code class="docutils literal notranslate"><span class="pre">set</span></code> because it uses hashing techniques for element
+lookup when processing the <code class="docutils literal notranslate"><span class="pre">in</span></code> in the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. For a
+small list like here it doesn’t really matter, but in Python it is
 so easy to use advanced hashing techniques, simply by converting the
-<code class="docutils literal"><span class="pre">list</span></code> of atom names to a <code class="docutils literal"><span class="pre">set</span></code>, there is no reason not to take
+<code class="docutils literal notranslate"><span class="pre">list</span></code> of atom names to a <code class="docutils literal notranslate"><span class="pre">set</span></code>, there is no reason not to take
 advantage of them.</p>
 <p>Now that we know which residues we want to truncate, and which atom
 names we want to keep, we just need one more line to remove the
 side chain atoms:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ag</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="n">atom</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ag</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="n">atom</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This removes the atom from the atom group. The only thing left to
 do once the nested loops over the hierarchy are finished, is to
 write the modified hierarchy to a file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">output_pdb</span> <span class="o">=</span> <span class="s2">&quot;v2_truncated_to_ala_&quot;</span><span class="o">+</span><span class="n">file_name</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output_pdb</span> <span class="o">=</span> <span class="s2">&quot;v2_truncated_to_ala_&quot;</span><span class="o">+</span><span class="n">file_name</span>
 <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">write_pdb_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">output_pdb</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The first line builds the output file name by concatenating two
-strings with the <code class="docutils literal"><span class="pre">+</span></code> operator. In the second line the
-<code class="docutils literal"><span class="pre">.write_pdb_file()</span></code> method of the hierarchy object is used
+strings with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator. In the second line the
+<code class="docutils literal notranslate"><span class="pre">.write_pdb_file()</span></code> method of the hierarchy object is used
 to write the file to disk.</p>
 <p>The complete source for this script:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
 <span class="kn">import</span> <span class="nn">iotbx.pdb</span>
 <span class="kn">import</span> <span class="nn">iotbx.pdb.amino_acid_codes</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -377,20 +366,20 @@ to write the file to disk.</p>
 </pre></div>
 </div>
 <p>The output PDB file of:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v2_simple</span><span class="o">.</span><span class="n">py</span> <span class="n">crambin_pieces</span><span class="o">.</span><span class="n">pdb</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v2_simple</span><span class="o">.</span><span class="n">py</span> <span class="n">crambin_pieces</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
 <p>can be found here:
 <a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v2_truncated_to_ala_crambin_pieces.pdb">http://cctbx.sourceforge.net/sbgrid2008/v2_truncated_to_ala_crambin_pieces.pdb</a></p>
 </div>
 <div class="section" id="v3-better-py">
-<h2><code class="docutils literal"><span class="pre">v3_better.py</span></code><a class="headerlink" href="#v3-better-py" title="Permalink to this headline">¶</a></h2>
-<p>For most practical purposes, the <code class="docutils literal"><span class="pre">v2_simple.py</span></code> script is completely
+<h2><code class="docutils literal notranslate"><span class="pre">v3_better.py</span></code><a class="headerlink" href="#v3-better-py" title="Permalink to this headline">¶</a></h2>
+<p>For most practical purposes, the <code class="docutils literal notranslate"><span class="pre">v2_simple.py</span></code> script is completely
 sufficient. However, there are currently 16 files in the PDB (of 50623
 total, as of Apr 30, 2008) for which this is not true. One example is
-the structure with the PDB ID <code class="docutils literal"><span class="pre">1ysl</span></code>. The file <a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/resname_mix.pdb">resname_mix.pdb</a>
+the structure with the PDB ID <code class="docutils literal notranslate"><span class="pre">1ysl</span></code>. The file <a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/resname_mix.pdb">resname_mix.pdb</a>
 contains the problematic residue:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HETATM</span> <span class="mi">3907</span>  <span class="n">N</span>  <span class="n">ACSD</span> <span class="n">B</span> <span class="mi">111</span>      <span class="mf">25.006</span>  <span class="mf">36.731</span>  <span class="mf">16.222</span>  <span class="mf">0.50</span> <span class="mf">18.83</span>           <span class="n">N</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HETATM</span> <span class="mi">3907</span>  <span class="n">N</span>  <span class="n">ACSD</span> <span class="n">B</span> <span class="mi">111</span>      <span class="mf">25.006</span>  <span class="mf">36.731</span>  <span class="mf">16.222</span>  <span class="mf">0.50</span> <span class="mf">18.83</span>           <span class="n">N</span>
 <span class="n">HETATM</span> <span class="mi">3908</span>  <span class="n">CA</span> <span class="n">ACSD</span> <span class="n">B</span> <span class="mi">111</span>      <span class="mf">25.536</span>  <span class="mf">35.903</span>  <span class="mf">15.152</span>  <span class="mf">0.50</span> <span class="mf">19.90</span>           <span class="n">C</span>
 <span class="n">HETATM</span> <span class="mi">3909</span>  <span class="n">CB</span> <span class="n">ACSD</span> <span class="n">B</span> <span class="mi">111</span>      <span class="mf">25.931</span>  <span class="mf">36.658</span>  <span class="mf">13.876</span>  <span class="mf">0.50</span> <span class="mf">21.09</span>           <span class="n">C</span>
 <span class="n">HETATM</span> <span class="mi">3910</span>  <span class="n">SG</span> <span class="n">ACSD</span> <span class="n">B</span> <span class="mi">111</span>      <span class="mf">25.414</span>  <span class="mf">38.295</span>  <span class="mf">13.671</span>  <span class="mf">0.50</span> <span class="mf">26.29</span>           <span class="n">S</span>
@@ -407,32 +396,32 @@ contains the problematic residue:</p>
 </pre></div>
 </div>
 <p>Rare cases like this are the very reason why we need the
-<code class="docutils literal"><span class="pre">residue_group</span></code> and <code class="docutils literal"><span class="pre">atom_group</span></code> levels in the hierarchy. Here
+<code class="docutils literal notranslate"><span class="pre">residue_group</span></code> and <code class="docutils literal notranslate"><span class="pre">atom_group</span></code> levels in the hierarchy. Here
 we have two different residue names for the same member of a
 chain. Even though this sitution is rare (there are only 37 additional
 non-amino-acid instances in the PDB), they are entirely plausible and
 valid, and a comprehensive PDB processing library has to be able to
 handle them.</p>
-<p>The <code class="docutils literal"><span class="pre">v2_simple.py</span></code> script will only truncate the <code class="docutils literal"><span class="pre">CYS</span></code> residue
+<p>The <code class="docutils literal notranslate"><span class="pre">v2_simple.py</span></code> script will only truncate the <code class="docutils literal notranslate"><span class="pre">CYS</span></code> residue
 above:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v2_simple</span><span class="o">.</span><span class="n">py</span> <span class="n">resname_mix</span><span class="o">.</span><span class="n">pdb</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v2_simple</span><span class="o">.</span><span class="n">py</span> <span class="n">resname_mix</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
 <p>Output:
 <a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v2_truncated_to_ala_resname_mix.pdb">http://cctbx.sourceforge.net/sbgrid2008/v2_truncated_to_ala_resname_mix.pdb</a></p>
-<p>It would be better if it also truncated the non-standard <code class="docutils literal"><span class="pre">CSD</span></code>
-residue in the <code class="docutils literal"><span class="pre">A</span></code> alternative conformation. Let&#8217;s find out what
+<p>It would be better if it also truncated the non-standard <code class="docutils literal notranslate"><span class="pre">CSD</span></code>
+residue in the <code class="docutils literal notranslate"><span class="pre">A</span></code> alternative conformation. Let’s find out what
 it takes to achieve this.</p>
 <p>The basic idea is to check if there is at least one amino acid in a
 residue group, and if so, apply the truncation to all residues in the
-group, even if they don&#8217;t have a standard residue name. This means,
+group, even if they don’t have a standard residue name. This means,
 for each residue group we have to loop over the atom groups twice,
 first to scan for at least one standard amino-acid residue name,
 and if there is one, a second time to do the truncation.
 The bad news is, to achieve this, we have to double our effort.
 The good news is, the extra effort is only five lines.</p>
-<p>This is the part of <code class="docutils literal"><span class="pre">v2_simple.py</span></code> we have to work on:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">rg</span><span class="o">.</span><span class="n">atom_groups</span><span class="p">():</span>
+<p>This is the part of <code class="docutils literal notranslate"><span class="pre">v2_simple.py</span></code> we have to work on:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">rg</span><span class="o">.</span><span class="n">atom_groups</span><span class="p">():</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">ag</span><span class="o">.</span><span class="n">resname</span> <span class="ow">in</span> <span class="n">aa_resnames</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">ag</span><span class="o">.</span><span class="n">atoms</span><span class="p">():</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ala_atom_names</span><span class="p">):</span>
@@ -441,30 +430,30 @@ The good news is, the extra effort is only five lines.</p>
 </div>
 <p>The extra effort goes into finding out if there is at least
 one amino acid in the residue group:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">have_amino_acid</span><span class="p">():</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">have_amino_acid</span><span class="p">():</span>
   <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">rg</span><span class="o">.</span><span class="n">atom_groups</span><span class="p">():</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">ag</span><span class="o">.</span><span class="n">resname</span> <span class="ow">in</span> <span class="n">aa_resnames</span><span class="p">):</span>
       <span class="k">return</span> <span class="kc">True</span>
   <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
 </div>
-<p>Once that&#8217;s settled, we can move the
-<code class="docutils literal"><span class="pre">if</span> <span class="pre">(ag.resname</span> <span class="pre">in</span> <span class="pre">aa_resnames)</span></code> test outside the loop
-over the atom groups and replace it with <code class="docutils literal"><span class="pre">if</span> <span class="pre">(have_amino_acid())</span></code>.
+<p>Once that’s settled, we can move the
+<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(ag.resname</span> <span class="pre">in</span> <span class="pre">aa_resnames)</span></code> test outside the loop
+over the atom groups and replace it with <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(have_amino_acid())</span></code>.
 The rest of the v2 code is unchanged:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">have_amino_acid</span><span class="p">()):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">have_amino_acid</span><span class="p">()):</span>
   <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">rg</span><span class="o">.</span><span class="n">atom_groups</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">ag</span><span class="o">.</span><span class="n">atoms</span><span class="p">():</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ala_atom_names</span><span class="p">):</span>
         <span class="n">ag</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="n">atom</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that <code class="docutils literal"><span class="pre">have_amino_acid()</span></code> is a nested function. Nested functions
+<p>Note that <code class="docutils literal notranslate"><span class="pre">have_amino_acid()</span></code> is a nested function. Nested functions
 are often very useful to centralize small sub-tasks without taking
 them completely out of context. Since our nested function is aware
-of the context, we don&#8217;t need to pass any arguments.</p>
+of the context, we don’t need to pass any arguments.</p>
 <p>The complete source for this script:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
 <span class="kn">import</span> <span class="nn">iotbx.pdb</span>
 <span class="kn">import</span> <span class="nn">iotbx.pdb.amino_acid_codes</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -498,42 +487,42 @@ of the context, we don&#8217;t need to pass any arguments.</p>
 </pre></div>
 </div>
 <p>The output PDB file of:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v3_better</span><span class="o">.</span><span class="n">py</span> <span class="n">resname_mix</span><span class="o">.</span><span class="n">pdb</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">python</span> <span class="n">v3_better</span><span class="o">.</span><span class="n">py</span> <span class="n">resname_mix</span><span class="o">.</span><span class="n">pdb</span>
 </pre></div>
 </div>
 <p>can be found here:
 <a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v3_truncated_to_ala_resname_mix.pdb">http://cctbx.sourceforge.net/sbgrid2008/v3_truncated_to_ala_resname_mix.pdb</a></p>
 </div>
 <div class="section" id="v4-with-bells-and-whistles-py">
-<h2><code class="docutils literal"><span class="pre">v4_with_bells_and_whistles.py</span></code><a class="headerlink" href="#v4-with-bells-and-whistles-py" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">v3_better.py</span></code> script does a comprehensive job, but it
-doesn&#8217;t tell the user anything about the manipulations. It would
+<h2><code class="docutils literal notranslate"><span class="pre">v4_with_bells_and_whistles.py</span></code><a class="headerlink" href="#v4-with-bells-and-whistles-py" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">v3_better.py</span></code> script does a comprehensive job, but it
+doesn’t tell the user anything about the manipulations. It would
 be interesting to know how many atoms were deleted, how many
 residue are affected, and how many residue are unchanged. The
-<code class="docutils literal"><span class="pre">v4_with_bells_and_whistles.py</span></code> script produces this information.</p>
+<code class="docutils literal notranslate"><span class="pre">v4_with_bells_and_whistles.py</span></code> script produces this information.</p>
 <p>To get the desired counts, we need counters, and we need to initialize
 them before we enter the nested loops over the hierarchy:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">n_amino_acid_residues</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_amino_acid_residues</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">n_other_residues</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">n_atoms_removed</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>Here <code class="docutils literal"><span class="pre">n</span></code> is a shorthand for <em>number of</em>.
+<p>Here <code class="docutils literal notranslate"><span class="pre">n</span></code> is a shorthand for <em>number of</em>.
 Inside the loop over the residue groups, we keep track of the
 amino-acid counts:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">have_amino_acid</span><span class="p">()):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">have_amino_acid</span><span class="p">()):</span>
   <span class="n">n_other_residues</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="k">else</span><span class="p">:</span>
   <span class="n">n_amino_acid_residues</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>And instead of just removing the atoms, we remove and count:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ag</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="n">atom</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ag</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="n">atom</span><span class="p">)</span>
 <span class="n">n_atoms_removed</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>When the loops over the hierarchy are finished, we print the counts:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Number of amino acid residues:&quot;</span><span class="p">,</span> <span class="n">n_amino_acid_residues</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Number of amino acid residues:&quot;</span><span class="p">,</span> <span class="n">n_amino_acid_residues</span>
 <span class="nb">print</span> <span class="s2">&quot;Number of other residues:&quot;</span><span class="p">,</span> <span class="n">n_other_residues</span>
 <span class="nb">print</span> <span class="s2">&quot;Number of atoms removed:&quot;</span><span class="p">,</span> <span class="n">n_atoms_removed</span>
 </pre></div>
@@ -541,7 +530,7 @@ amino-acid counts:</p>
 <p>Since we can now easily find out if no atoms were removed (e.g. because
 someone passed in a DNA model), we should take advantage of it and
 write the output PDB file only if there are changes:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">n_atoms_removed</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">n_atoms_removed</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
   <span class="n">output_pdb</span> <span class="o">=</span> <span class="s2">&quot;v4_truncated_to_ala_&quot;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">output_pdb</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.gz&quot;</span><span class="p">)):</span> <span class="n">output_pdb</span> <span class="o">=</span> <span class="n">output_pdb</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
   <span class="nb">print</span> <span class="s2">&quot;Writing file:&quot;</span><span class="p">,</span> <span class="n">output_pdb</span>
@@ -552,29 +541,29 @@ write the output PDB file only if there are changes:</p>
 </pre></div>
 </div>
 <p>There are three more small enhancements compared to the
-<code class="docutils literal"><span class="pre">v3_better.py</span></code> script:</p>
+<code class="docutils literal notranslate"><span class="pre">v3_better.py</span></code> script:</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">os.path.basename()</span></code> is used to remove any directory name
+<li><code class="docutils literal notranslate"><span class="pre">os.path.basename()</span></code> is used to remove any directory name
 component from the input file name, if present. With this,
 it is certain that the output file is written in the current
 working directory, not the directory of the input file (which
-may be in another user&#8217;s directory or a system directory)</li>
-<li><code class="docutils literal"><span class="pre">iotbx.pdb.hierarchy.input</span></code> is able to open <cite>.gz</cite> files
+may be in another user’s directory or a system directory)</li>
+<li><code class="docutils literal notranslate"><span class="pre">iotbx.pdb.hierarchy.input</span></code> is able to open <cite>.gz</cite> files
 directly (e.g. compressed files as downloaded from the PDB).
-However, the <code class="docutils literal"><span class="pre">.write_pdb_file()</span></code> method always writes plain
-(non-compressed) files. Therefore the <code class="docutils literal"><span class="pre">.gz</span></code> extension has to be
-removed, if present. The string method <code class="docutils literal"><span class="pre">.endswith()</span></code> is used to
-detect the extension, and string slicing (<code class="docutils literal"><span class="pre">[:-3]</span></code>) to remove it.</li>
+However, the <code class="docutils literal notranslate"><span class="pre">.write_pdb_file()</span></code> method always writes plain
+(non-compressed) files. Therefore the <code class="docutils literal notranslate"><span class="pre">.gz</span></code> extension has to be
+removed, if present. The string method <code class="docutils literal notranslate"><span class="pre">.endswith()</span></code> is used to
+detect the extension, and string slicing (<code class="docutils literal notranslate"><span class="pre">[:-3]</span></code>) to remove it.</li>
 <li>The input crystal symmetry information (unit cell and space group)
-is passed to the <code class="docutils literal"><span class="pre">.write_pdb_file()</span></code> method, which then
+is passed to the <code class="docutils literal notranslate"><span class="pre">.write_pdb_file()</span></code> method, which then
 writes CRYST1 and SCALE records to the output file. In addtion,
-the optional <code class="docutils literal"><span class="pre">append_end</span></code> argument is used to request that
+the optional <code class="docutils literal notranslate"><span class="pre">append_end</span></code> argument is used to request that
 an END record is written at the end of the output file.</li>
 </ul>
 </div></blockquote>
 <p>Full source:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
 <span class="kn">import</span> <span class="nn">iotbx.pdb</span>
 <span class="kn">import</span> <span class="nn">iotbx.pdb.amino_acid_codes</span>
 <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
@@ -638,14 +627,14 @@ an END record is written at the end of the output file.</li>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">iotbx.pdb tutorial: <code class="docutils literal"><span class="pre">pdb_truncate_to_ala</span></code></a><ul>
+<li><a class="reference internal" href="#">iotbx.pdb tutorial: <code class="docutils literal notranslate"><span class="pre">pdb_truncate_to_ala</span></code></a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
 <li><a class="reference internal" href="#use-print-and-help">Use print and help()!</a></li>
-<li><a class="reference internal" href="#v0-getting-started-py"><code class="docutils literal"><span class="pre">v0_getting_started.py</span></code></a></li>
-<li><a class="reference internal" href="#v1-loop-over-atoms-py"><code class="docutils literal"><span class="pre">v1_loop_over_atoms.py</span></code></a></li>
-<li><a class="reference internal" href="#v2-simple-py"><code class="docutils literal"><span class="pre">v2_simple.py</span></code></a></li>
-<li><a class="reference internal" href="#v3-better-py"><code class="docutils literal"><span class="pre">v3_better.py</span></code></a></li>
-<li><a class="reference internal" href="#v4-with-bells-and-whistles-py"><code class="docutils literal"><span class="pre">v4_with_bells_and_whistles.py</span></code></a></li>
+<li><a class="reference internal" href="#v0-getting-started-py"><code class="docutils literal notranslate"><span class="pre">v0_getting_started.py</span></code></a></li>
+<li><a class="reference internal" href="#v1-loop-over-atoms-py"><code class="docutils literal notranslate"><span class="pre">v1_loop_over_atoms.py</span></code></a></li>
+<li><a class="reference internal" href="#v2-simple-py"><code class="docutils literal notranslate"><span class="pre">v2_simple.py</span></code></a></li>
+<li><a class="reference internal" href="#v3-better-py"><code class="docutils literal notranslate"><span class="pre">v3_better.py</span></code></a></li>
+<li><a class="reference internal" href="#v4-with-bells-and-whistles-py"><code class="docutils literal notranslate"><span class="pre">v4_with_bells_and_whistles.py</span></code></a></li>
 <li><a class="reference internal" href="#source-and-pdb-files">Source and PDB files</a></li>
 </ul>
 </li>
@@ -654,18 +643,20 @@ an END record is written at the end of the output file.</li>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/iotbx/iotbx.pdb_tutorial.txt"
+      <li><a href="../_sources/iotbx/iotbx.pdb_tutorial.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -686,7 +677,7 @@ an END record is written at the end of the output file.</li>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

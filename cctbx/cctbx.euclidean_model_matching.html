@@ -1,35 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>cctbx.euclidean_model_matching module &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="cctbx - core crystallographic objects and functions" href="cctbx.html" />
+    <link rel="next" title="cctbx.french_wilson module" href="cctbx.french_wilson.html" />
     <link rel="prev" title="cctbx.eltbx.wavelengths module" href="cctbx.eltbx.wavelengths.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -39,6 +28,9 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="cctbx.french_wilson.html" title="cctbx.french_wilson module"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="cctbx.eltbx.wavelengths.html" title="cctbx.eltbx.wavelengths module"
              accesskey="P">previous</a> |</li>
@@ -62,41 +54,20 @@
 <dl class="class">
 <dt id="cctbx.euclidean_model_matching.delegating_model_matches">
 <em class="property">class </em><code class="descclassname">cctbx.euclidean_model_matching.</code><code class="descname">delegating_model_matches</code><span class="sig-paren">(</span><em>model1</em>, <em>model2</em>, <em>tolerance=1.0</em>, <em>models_are_diffraction_index_equivalent=False</em>, <em>shall_break=None</em>, <em>rms_penalty_per_site=0.05</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>emma loops over all pairs of sites from the first and second structure.
 If a pair is closer than tolerance (under Euclidean symmetry) it
-initiates a &#8220;match and refine&#8221; procedure which incrementally adds the
-&#8220;next closest&#8221; pair, with a distance below 2*tolerance. Each time
+initiates a “match and refine” procedure which incrementally adds the
+“next closest” pair, with a distance below 2*tolerance. Each time
 a pair is added the allowed origin shifts (if any) are refined to
 minimize the rmsd of all the pairs matched so far. When there are
-no more pairs to add, emma goes into a &#8220;weeding&#8221; procedure. This
+no more pairs to add, emma goes into a “weeding” procedure. This
 procedure sorts the pairs by distance. If there are distances above
 tolerance, the worst pair is removed, followed by the same allowed
 origin shift refinement as before. The weeding is repeated until
 there are no pairs above tolerance.</p>
 <p>emma was written with substructures in mind, which usually have a few
 (by macromolecular standards) sites placed far apart in space.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches.consensus_model" title="cctbx.euclidean_model_matching.delegating_model_matches.consensus_model"><code class="xref py py-obj docutils literal"><span class="pre">consensus_model</span></code></a>([i_model,&nbsp;i_refined_matches])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches.n_matches" title="cctbx.euclidean_model_matching.delegating_model_matches.n_matches"><code class="xref py py-obj docutils literal"><span class="pre">n_matches</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches.n_pairs_best_match" title="cctbx.euclidean_model_matching.delegating_model_matches.n_pairs_best_match"><code class="xref py py-obj docutils literal"><span class="pre">n_pairs_best_match</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches.transform_model" title="cctbx.euclidean_model_matching.delegating_model_matches.transform_model"><code class="xref py py-obj docutils literal"><span class="pre">transform_model</span></code></a>(i_model[,&nbsp;i_refined_matches])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="cctbx.euclidean_model_matching.delegating_model_matches.consensus_model">
 <code class="descname">consensus_model</code><span class="sig-paren">(</span><em>i_model=1</em>, <em>i_refined_matches=0</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches.consensus_model" title="Permalink to this definition">¶</a></dt>
@@ -122,22 +93,7 @@ there are no pairs above tolerance.</p>
 <dl class="class">
 <dt id="cctbx.euclidean_model_matching.euclidean_match_symmetry">
 <em class="property">class </em><code class="descclassname">cctbx.euclidean_model_matching.</code><code class="descname">euclidean_match_symmetry</code><span class="sig-paren">(</span><em>space_group_info</em>, <em>use_k2l</em>, <em>use_l2n</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry.filter_shift" title="cctbx.euclidean_model_matching.euclidean_match_symmetry.filter_shift"><code class="xref py py-obj docutils literal"><span class="pre">filter_shift</span></code></a>(shift[,&nbsp;selector])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry.show" title="cctbx.euclidean_model_matching.euclidean_match_symmetry.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>([title,&nbsp;f])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.euclidean_model_matching.euclidean_match_symmetry.filter_shift">
 <code class="descname">filter_shift</code><span class="sig-paren">(</span><em>shift</em>, <em>selector=1</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry.filter_shift" title="Permalink to this definition">¶</a></dt>
@@ -168,49 +124,7 @@ there are no pairs above tolerance.</p>
 <dl class="class">
 <dt id="cctbx.euclidean_model_matching.match_refine">
 <em class="property">class </em><code class="descclassname">cctbx.euclidean_model_matching.</code><code class="descname">match_refine</code><span class="sig-paren">(</span><em>tolerance</em>, <em>ref_model1</em>, <em>ref_model2</em>, <em>match_symmetry</em>, <em>add_pair_ext</em>, <em>i_pivot1</em>, <em>i_pivot2</em>, <em>eucl_symop</em>, <em>initial_shift</em>, <em>times=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.add_pairs" title="cctbx.euclidean_model_matching.match_refine.add_pairs"><code class="xref py py-obj docutils literal"><span class="pre">add_pairs</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.apply_eucl_ops" title="cctbx.euclidean_model_matching.match_refine.apply_eucl_ops"><code class="xref py py-obj docutils literal"><span class="pre">apply_eucl_ops</span></code></a>(i_model2)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.calculate_rms" title="cctbx.euclidean_model_matching.match_refine.calculate_rms"><code class="xref py py-obj docutils literal"><span class="pre">calculate_rms</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_diff" title="cctbx.euclidean_model_matching.match_refine.calculate_shortest_diff"><code class="xref py py-obj docutils literal"><span class="pre">calculate_shortest_diff</span></code></a>(pair)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_diffs" title="cctbx.euclidean_model_matching.match_refine.calculate_shortest_diffs"><code class="xref py py-obj docutils literal"><span class="pre">calculate_shortest_diffs</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_dist" title="cctbx.euclidean_model_matching.match_refine.calculate_shortest_dist"><code class="xref py py-obj docutils literal"><span class="pre">calculate_shortest_dist</span></code></a>(pair)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.eliminate_weak_pairs" title="cctbx.euclidean_model_matching.match_refine.eliminate_weak_pairs"><code class="xref py py-obj docutils literal"><span class="pre">eliminate_weak_pairs</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.exclude_pairs" title="cctbx.euclidean_model_matching.match_refine.exclude_pairs"><code class="xref py py-obj docutils literal"><span class="pre">exclude_pairs</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.get_transformed_model2" title="cctbx.euclidean_model_matching.match_refine.get_transformed_model2"><code class="xref py py-obj docutils literal"><span class="pre">get_transformed_model2</span></code></a>([output_pdb,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.refine_adjusted_shift" title="cctbx.euclidean_model_matching.match_refine.refine_adjusted_shift"><code class="xref py py-obj docutils literal"><span class="pre">refine_adjusted_shift</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.show" title="cctbx.euclidean_model_matching.match_refine.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>([f,&nbsp;truncate_singles,&nbsp;singles_per_line])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.euclidean_model_matching.match_refine.add_pairs">
 <code class="descname">add_pairs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.add_pairs" title="Permalink to this definition">¶</a></dt>
@@ -286,205 +200,7 @@ there are no pairs above tolerance.</p>
 <dl class="class">
 <dt id="cctbx.euclidean_model_matching.model">
 <em class="property">class </em><code class="descclassname">cctbx.euclidean_model_matching.</code><code class="descname">model</code><span class="sig-paren">(</span><em>special_position_settings</em>, <em>positions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cctbx.crystal.html#cctbx.crystal.special_position_settings" title="cctbx.crystal.special_position_settings"><code class="xref py py-class docutils literal"><span class="pre">cctbx.crystal.special_position_settings</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.add_position" title="cctbx.euclidean_model_matching.model.add_position"><code class="xref py py-obj docutils literal"><span class="pre">add_position</span></code></a>(pos)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.add_positions" title="cctbx.euclidean_model_matching.model.add_positions"><code class="xref py py-obj docutils literal"><span class="pre">add_positions</span></code></a>(positions)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">as_cif_block</span></code>([cell_covariance_matrix,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">as_pdb_remark_290</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">as_py_code</span></code>([indent])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">as_reference_setting</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.as_xray_structure" title="cctbx.euclidean_model_matching.model.as_xray_structure"><code class="xref py py-obj docutils literal"><span class="pre">as_xray_structure</span></code></a>([scatterer])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">assert_min_distance_sym_equiv</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">asu_mappings</span></code>(buffer_thickness[,&nbsp;sites_frac,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">average_b_cart</span></code>(b_cart)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">average_u_cart</span></code>(u_cart)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">best_cell</span></code>([angular_tolerance])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.best_superpositions_on_other" title="cctbx.euclidean_model_matching.model.best_superpositions_on_other"><code class="xref py py-obj docutils literal"><span class="pre">best_superpositions_on_other</span></code></a>(other_model[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">build_miller_set</span></code>(anomalous_flag,&nbsp;d_min[,&nbsp;d_max])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.cb_op" title="cctbx.euclidean_model_matching.model.cb_op"><code class="xref py py-obj docutils literal"><span class="pre">cb_op</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">cell_equivalent_p1</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.change_basis" title="cctbx.euclidean_model_matching.model.change_basis"><code class="xref py py-obj docutils literal"><span class="pre">change_basis</span></code></a>(cb_op)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.change_hand" title="cctbx.euclidean_model_matching.model.change_hand"><code class="xref py py-obj docutils literal"><span class="pre">change_hand</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">change_of_basis_op_to_best_cell</span></code>([...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">change_of_basis_op_to_inverse_hand</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">change_of_basis_op_to_minimum_cell</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">change_of_basis_op_to_niggli_cell</span></code>([...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">change_of_basis_op_to_primitive_setting</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">change_of_basis_op_to_reference_setting</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.combine_with_other" title="cctbx.euclidean_model_matching.model.combine_with_other"><code class="xref py py-obj docutils literal"><span class="pre">combine_with_other</span></code></a>(other_model[,&nbsp;tolerance,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">customized_copy</span></code>([unit_cell,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">direct_space_asu</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.expand_to_p1" title="cctbx.euclidean_model_matching.model.expand_to_p1"><code class="xref py py-obj docutils literal"><span class="pre">expand_to_p1</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">gridding</span></code>([d_min,&nbsp;resolution_factor,&nbsp;step,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">incremental_pairs</span></code>(distance_cutoff[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">inverse_hand</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">is_compatible_unit_cell</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">is_empty</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">is_nonsence</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">is_patterson_symmetry</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">is_similar_symmetry</span></code>(other[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">join_symmetry</span></code>(other_symmetry[,&nbsp;force,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">miller_set</span></code>(indices,&nbsp;anomalous_flag)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">min_distance_sym_equiv</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">minimum_cell</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">niggli_cell</span></code>([relative_epsilon,&nbsp;iteration_limit])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">pair_asu_table</span></code>(distance_cutoff[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">pair_generator</span></code>(distance_cutoff[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">patterson_symmetry</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.positions" title="cctbx.euclidean_model_matching.model.positions"><code class="xref py py-obj docutils literal"><span class="pre">positions</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">primitive_setting</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reflection_intensity_symmetry</span></code>(anomalous_flag)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.reset_cb_op" title="cctbx.euclidean_model_matching.model.reset_cb_op"><code class="xref py py-obj docutils literal"><span class="pre">reset_cb_op</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.show" title="cctbx.euclidean_model_matching.model.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>(title[,&nbsp;f])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">show_summary</span></code>([f,&nbsp;prefix])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">site_cluster_analysis</span></code>([min_distance,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">site_symmetry</span></code>([site,&nbsp;site_cart])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">site_symmetry_table</span></code>([sites_frac,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.size" title="cctbx.euclidean_model_matching.model.size"><code class="xref py py-obj docutils literal"><span class="pre">size</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">space_group</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">space_group_info</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">special_position_settings</span></code>([...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">subtract_continuous_allowed_origin_shifts</span></code>(...)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">sym_equiv_sites</span></code>(site)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#cctbx.euclidean_model_matching.model.transform_to_reference_setting" title="cctbx.euclidean_model_matching.model.transform_to_reference_setting"><code class="xref py py-obj docutils literal"><span class="pre">transform_to_reference_setting</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">u_star_tolerance</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">unit_cell</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">xray_structure</span></code>([scatterers])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference internal" href="cctbx.crystal.html#cctbx.crystal.special_position_settings" title="cctbx.crystal.special_position_settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.crystal.special_position_settings</span></code></a></p>
 <dl class="method">
 <dt id="cctbx.euclidean_model_matching.model.add_position">
 <code class="descname">add_position</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.add_position" title="Permalink to this definition">¶</a></dt>
@@ -560,28 +276,7 @@ there are no pairs above tolerance.</p>
 <dl class="class">
 <dt id="cctbx.euclidean_model_matching.model_matches">
 <em class="property">class </em><code class="descclassname">cctbx.euclidean_model_matching.</code><code class="descname">model_matches</code><span class="sig-paren">(</span><em>model1</em>, <em>model2</em>, <em>tolerance=1.0</em>, <em>models_are_diffraction_index_equivalent=False</em>, <em>break_if_match_with_no_singles=False</em>, <em>rms_penalty_per_site=0.05</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model_matches" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches" title="cctbx.euclidean_model_matching.delegating_model_matches"><code class="xref py py-class docutils literal"><span class="pre">cctbx.euclidean_model_matching.delegating_model_matches</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">consensus_model</span></code>([i_model,&nbsp;i_refined_matches])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">n_matches</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">n_pairs_best_match</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">transform_model</span></code>(i_model[,&nbsp;i_refined_matches])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches" title="cctbx.euclidean_model_matching.delegating_model_matches"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.euclidean_model_matching.delegating_model_matches</span></code></a></p>
 </dd></dl>
 
 <dl class="function">
@@ -592,7 +287,7 @@ there are no pairs above tolerance.</p>
 <dl class="class">
 <dt id="cctbx.euclidean_model_matching.position">
 <em class="property">class </em><code class="descclassname">cctbx.euclidean_model_matching.</code><code class="descname">position</code><span class="sig-paren">(</span><em>label</em>, <em>site</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="function">
@@ -616,21 +311,26 @@ there are no pairs above tolerance.</p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="cctbx.eltbx.wavelengths.html"
                         title="previous chapter">cctbx.eltbx.wavelengths module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cctbx.french_wilson.html"
+                        title="next chapter">cctbx.french_wilson module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cctbx/cctbx.euclidean_model_matching.txt"
+      <li><a href="../_sources/cctbx/cctbx.euclidean_model_matching.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -647,6 +347,9 @@ there are no pairs above tolerance.</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
+          <a href="cctbx.french_wilson.html" title="cctbx.french_wilson module"
+             >next</a> |</li>
+        <li class="right" >
           <a href="cctbx.eltbx.wavelengths.html" title="cctbx.eltbx.wavelengths module"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
@@ -655,7 +358,7 @@ there are no pairs above tolerance.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

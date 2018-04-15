@@ -1,33 +1,22 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>xfel.cftbx.detector package &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" /> 
-  </head>
-  <body role="document">
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -56,7 +45,7 @@
 <dl class="function">
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.add_frame_specific_cbf_tables">
 <code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">add_frame_specific_cbf_tables</code><span class="sig-paren">(</span><em>cbf</em>, <em>wavelength</em>, <em>timestamp</em>, <em>trusted_ranges</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.add_frame_specific_cbf_tables" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds tables to cbf handle that won&#8217;t already exsist if the cbf file is just a header
+<dd><p>Adds tables to cbf handle that won’t already exsist if the cbf file is just a header
 &#64; param wavelength Wavelength in angstroms
 &#64; param timestamp String formatted timestamp for the image
 &#64; param trusted_ranges Array of trusted range tuples (min, max), one for each element</p>
@@ -78,20 +67,8 @@
 <dl class="class">
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.basis">
 <em class="property">class </em><code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">basis</code><span class="sig-paren">(</span><em>orientation=None</em>, <em>translation=None</em>, <em>panelgroup=None</em>, <em>homogenous_transformation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.basis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Bucket for detector element information</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_cbf_tbx.basis.as_homogenous_transformation" title="xfel.cftbx.detector.cspad_cbf_tbx.basis.as_homogenous_transformation"><code class="xref py py-obj docutils literal"><span class="pre">as_homogenous_transformation</span></code></a>()</td>
-<td>Returns this basis change as a 4x4 transformation matrix in homogenous coordinates</td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.basis.as_homogenous_transformation">
 <code class="descname">as_homogenous_transformation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.basis.as_homogenous_transformation" title="Permalink to this definition">¶</a></dt>
@@ -117,617 +94,8 @@ read_optical_metrology_from_flat_file
 <dl class="class">
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper">
 <em class="property">class </em><code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">cbf_wrapper</code><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxtbx.format.FormatCBFMultiTile.cbf_wrapper</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dxtbx.format.FormatCBFMultiTile.cbf_wrapper</span></code></p>
 <p>Wrapper class that provides convenience functions for working with cbflib</p>
-<p class="rubric">Attributes</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">node</span></code></td>
-<td>cbf_handle_struct_node_get(cbf_handle_struct self) -&gt; cbf_node *</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">row</span></code></td>
-<td>cbf_handle_struct_row_get(cbf_handle_struct self) -&gt; int</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">search_row</span></code></td>
-<td>cbf_handle_struct_search_row_get(cbf_handle_struct self) -&gt; int</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">add_category</span></code>(name,&nbsp;columns)</td>
-<td>Create a new category and populate it with column names</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper.add_frame_shift" title="xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper.add_frame_shift"><code class="xref py py-obj docutils literal"><span class="pre">add_frame_shift</span></code></a>(basis,&nbsp;axis_settings)</td>
-<td>Add an axis representing a frame shift (a rotation axis with an offset)</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">add_row</span></code>(data)</td>
-<td>Add a row to the current category.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">category_name</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">column_name</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">construct_detector</span></code>(element_number)</td>
-<td>Returns : pycbf detector object</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">construct_goniometer</span></code>()</td>
-<td>Returns : pycbf goniometer object</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">construct_positioner</span></code>(axis_id)</td>
-<td>Returns : pycbf positioner object</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">construct_reference_detector</span></code>(element_number)</td>
-<td>Returns : pycbf detector object</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">construct_reference_positioner</span></code>(axis_id)</td>
-<td>Returns : pycbf positioner object</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">count_axis_ancestors</span></code>(axis_id)</td>
-<td>Returns : Integer</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">count_categories</span></code>()</td>
-<td>Returns : Integer</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">count_columns</span></code>()</td>
-<td>Returns : Integer</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">count_datablocks</span></code>()</td>
-<td>Returns : Integer</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">count_elements</span></code>()</td>
-<td>Returns : Integer</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">count_rows</span></code>()</td>
-<td>Returns : Integer</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">datablock_name</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">delete_row</span></code>(arg)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">find_category</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">find_category_root</span></code>(categoryname)</td>
-<td>Returns : String categoryroot</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">find_column</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">find_datablock</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">find_nextrow</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">find_row</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">find_tag_category</span></code>(tagname)</td>
-<td>Returns : String categoryname</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">find_tag_root</span></code>(tagname)</td>
-<td>Returns : String tagroot</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">force_new_category</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">force_new_datablock</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">force_new_saveframe</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_3d_image_as_string</span></code>(element_number,&nbsp;...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_3d_image_fs_as_string</span></code>(element_number,&nbsp;...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_3d_image_sf_as_string</span></code>(element_number,&nbsp;...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_3d_image_size</span></code>(element_number)</td>
-<td>Returns : size_t ndimslow,size_t ndimmid,size_t ndimfast</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_3d_image_size_fs</span></code>(cbf_handle_struct&nbsp;self,&nbsp;...)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_3d_image_size_sf</span></code>(element_number)</td>
-<td>Returns : size_t ndimslow,size_t ndimmid,size_t ndimfast</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_ancestor</span></code>(axis_id,&nbsp;ancestor_index)</td>
-<td>Returns : String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_depends_on</span></code>(axis_id)</td>
-<td>Returns : String</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_equipment</span></code>(axis_id)</td>
-<td>Returns : String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_equipment_component</span></code>(axis_id)</td>
-<td>Returns : String</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_offset</span></code>(axis_id)</td>
-<td>Returns : Float offset1,Float offset2,Float offset3</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_poise</span></code>(ratio,&nbsp;axis_id,&nbsp;frame_id)</td>
-<td>Returns : Float vector1,Float vector2,Float vector3,Float offset1,Float offset2,</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_reference_poise</span></code>(axis_id)</td>
-<td>Returns : Float vector1,Float vector2,Float vector3,Float offset1,Float offset2,</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_rotation</span></code>(axis_id)</td>
-<td>Returns : Float</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_rotation_axis</span></code>(axis_id)</td>
-<td>Returns : String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_setting</span></code>(axis_id)</td>
-<td>Returns : Float start,Float increment</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_type</span></code>(axis_id)</td>
-<td>Returns : String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_axis_vector</span></code>(axis_id)</td>
-<td>Returns : Float vector1,Float vector2,Float vector3</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_bin_sizes</span></code>(element_number)</td>
-<td>Returns : Float slowbinsize,Float fastbinsize</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_crystal_id</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_datestamp</span></code>()</td>
-<td>Returns : int year,int month,int day,int hour,int minute,double second,</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_dictionary</span></code>()</td>
-<td>Returns : CBFHandle dictionary</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_diffrn_id</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_divergence</span></code>()</td>
-<td>Returns : Float div_x_source,Float div_y_source,Float div_x_y_source</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_doublevalue</span></code>()</td>
-<td>Returns : double</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_element_id</span></code>(element_number)</td>
-<td>Returns : String</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_element_number</span></code>(cbf_handle_struct&nbsp;self)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_gain</span></code>(element_number)</td>
-<td>Returns : Float gain,Float gain_esd</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_image_as_string</span></code>(element_number,&nbsp;elsize,&nbsp;...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_image_fs_as_string</span></code>(element_number,&nbsp;...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_image_sf_as_string</span></code>(element_number,&nbsp;...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_image_size</span></code>(element_number)</td>
-<td>Returns : size_t ndim1,size_t ndim2</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_image_size_fs</span></code>(element_number)</td>
-<td>Returns : size_t ndimfast,size_t ndimslow</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_image_size_sf</span></code>(element_number)</td>
-<td>Returns : size_t ndimslow,size_t ndimfast</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_integerarray_as_string</span></code>()</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_integerarrayparameters</span></code>()</td>
-<td>Returns : int compression,int binary_id,int elsize,int elsigned,int elunsigned,</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_integerarrayparameters_wdims</span></code>()</td>
-<td>Returns : int compression,int binary_id,int elsize,int elsigned,int elunsigned,</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_integerarrayparameters_wdims_fs</span></code>()</td>
-<td>Returns : int compression,int binary_id,int elsize,int elsigned,int elunsigned,</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_integerarrayparameters_wdims_sf</span></code>()</td>
-<td>Returns : int compression,int binary_id,int elsize,int elsigned,int elunsigned,</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_integervalue</span></code>()</td>
-<td>Returns : int</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_integration_time</span></code>()</td>
-<td>Returns : Float time</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_orientation_matrix</span></code>()</td>
-<td>Returns : Float matrix_0,Float matrix_1,Float matrix_2,Float matrix_3,</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_overload</span></code>(element_number)</td>
-<td>Returns : Float overload</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_pixel_size</span></code>(element_number,&nbsp;axis_number)</td>
-<td>Returns : Float pixel_size</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_pixel_size_fs</span></code>(element_number,&nbsp;axis_number)</td>
-<td>Returns : Float pixel_size</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_pixel_size_sf</span></code>(element_number,&nbsp;axis_number)</td>
-<td>Returns : Float pixel_size</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_polarization</span></code>()</td>
-<td>Returns : float polarizn_source_ratio,float polarizn_source_norm</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_real_3d_image_as_string</span></code>(element_number,&nbsp;...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_real_3d_image_fs_as_string</span></code>(...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_real_3d_image_sf_as_string</span></code>(...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_real_image_as_string</span></code>(element_number,&nbsp;...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_real_image_fs_as_string</span></code>(element_number,&nbsp;...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_real_image_sf_as_string</span></code>(element_number,&nbsp;...)</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_realarray_as_string</span></code>()</td>
-<td>Returns : (Binary)String</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_realarrayparameters</span></code>()</td>
-<td>Returns : int compression,int binary_id,int elsize,int elements</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_realarrayparameters_wdims</span></code>()</td>
-<td>Returns : int compression,int binary_id,int elsize,int elements,char <a href="#id1"><span class="problematic" id="id2">**</span></a>bo,</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_realarrayparameters_wdims_fs</span></code>()</td>
-<td>Returns : int compression,int binary_id,int elsize,int elements,char <a href="#id3"><span class="problematic" id="id4">**</span></a>bo,</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_realarrayparameters_wdims_sf</span></code>()</td>
-<td>Returns : int compression,int binary_id,int elsize,int elements,char <a href="#id5"><span class="problematic" id="id6">**</span></a>bo,</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_reciprocal_cell</span></code>()</td>
-<td>Returns : Float astar,Float bstar,Float cstar,Float alphastar,Float betastar,</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_reciprocal_cell_esd</span></code>(cbf_handle_struct&nbsp;self)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_timestamp</span></code>()</td>
-<td>Returns : Float time,Integer timezone</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_typeofvalue</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_unit_cell</span></code>()</td>
-<td>Returns : Float a,Float b,Float c,Float alpha,Float beta,Float gamma</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_unit_cell_esd</span></code>(cbf_handle_struct&nbsp;self)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_value</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_wavelength</span></code>()</td>
-<td>Returns : double</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">has_sections</span></code>()</td>
-<td>True if the cbf has the array_structure_list_section table, which</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">insert_row</span></code>(arg)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">new_category</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">new_column</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">new_datablock</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">new_row</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">new_saveframe</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">next_category</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">next_column</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">next_datablock</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">next_row</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">read_file</span></code>(filename,&nbsp;headers)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">read_template</span></code>(filename)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">read_widefile</span></code>(filename,&nbsp;headers)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">remove_category</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">remove_column</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">remove_datablock</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">remove_row</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">remove_saveframe</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">require_category</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">require_category_root</span></code>(...)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">require_column</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">require_column_doublevalue</span></code>(columnname,&nbsp;...)</td>
-<td>Returns : Float defaultvalue</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">require_column_integervalue</span></code>(columnname,&nbsp;...)</td>
-<td>Returns : Int Value</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">require_column_value</span></code>(columnname,&nbsp;defaultvalue)</td>
-<td>Returns : String Name</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">require_datablock</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">require_doublevalue</span></code>(defaultvalue)</td>
-<td>Returns : Float Number</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">require_integervalue</span></code>(thedefault)</td>
-<td>Returns : Int number</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">require_reference_detector</span></code>(element_number)</td>
-<td>Returns : pycbf detector object</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">require_tag_root</span></code>(tagname)</td>
-<td>Returns : String tagroot</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">require_value</span></code>(defaultvalue)</td>
-<td>Returns : String Value</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reset_category</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">reset_datablock</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">reset_datablocks</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">reset_saveframe</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">rewind_blockitem</span></code>()</td>
-<td>Returns : CBF_NODETYPE</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">rewind_category</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">rewind_column</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">rewind_datablock</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">rewind_row</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">rewind_saveframe</span></code>()</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">row_number</span></code>()</td>
-<td>Returns : Integer</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">select_category</span></code>(arg)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">select_column</span></code>(arg)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">select_datablock</span></code>(arg)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">select_row</span></code>(arg)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_3d_image</span></code>(element_number,&nbsp;compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_3d_image_fs</span></code>(element_number,&nbsp;compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_3d_image_sf</span></code>(element_number,&nbsp;compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_axis_setting</span></code>(axis_id,&nbsp;start,&nbsp;increment)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_bin_sizes</span></code>(element_number,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_category_root</span></code>(categoryname,&nbsp;categoryroot)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_crystal_id</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_current_timestamp</span></code>(timezone)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_datablockname</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_datestamp</span></code>(year,&nbsp;month,&nbsp;day,&nbsp;hour,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_dictionary</span></code>(other)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_diffrn_id</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_divergence</span></code>(div_x_source,&nbsp;div_y_source,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_doublevalue</span></code>(format,&nbsp;number)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_gain</span></code>(element_number,&nbsp;gain,&nbsp;gain_esd)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_image</span></code>(element_number,&nbsp;compression,&nbsp;data,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_image_fs</span></code>(element_number,&nbsp;compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_image_sf</span></code>(element_number,&nbsp;compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_integerarray</span></code>(compression,&nbsp;binary_id,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_integerarray_wdims</span></code>(compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_integerarray_wdims_fs</span></code>(compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_integerarray_wdims_sf</span></code>(compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_integervalue</span></code>(number)</td>
-<td>Returns : int number</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_integration_time</span></code>(time)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_orientation_matrix</span></code>(m0,&nbsp;m1,&nbsp;m2,&nbsp;m3,&nbsp;m4,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_overload</span></code>(element_number,&nbsp;overload)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_pixel_size</span></code>(element_number,&nbsp;axis_number,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_pixel_size_fs</span></code>(element_number,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_pixel_size_sf</span></code>(element_number,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_polarization</span></code>(polarizn_source_ratio,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_real_3d_image</span></code>(element_number,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_real_3d_image_fs</span></code>(element_number,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_real_3d_image_sf</span></code>(element_number,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_real_image</span></code>(element_number,&nbsp;compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_real_image_fs</span></code>(element_number,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_real_image_sf</span></code>(element_number,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_realarray</span></code>(compression,&nbsp;binary_id,&nbsp;data,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_realarray_wdims</span></code>(compression,&nbsp;binary_id,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_realarray_wdims_fs</span></code>(compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_realarray_wdims_sf</span></code>(compression,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_reciprocal_cell</span></code>(cell)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_reciprocal_cell_esd</span></code>(cell_esd)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_saveframename</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_tag_category</span></code>(tagname,&nbsp;categoryname_in)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_tag_root</span></code>(tagname,&nbsp;tagroot_in)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_timestamp</span></code>(time,&nbsp;timezone,&nbsp;precision)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_typeofvalue</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_unit_cell</span></code>(cell)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_unit_cell_esd</span></code>(cell_esd)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">set_value</span></code>(arg)</td>
-<td>Returns : string</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">set_wavelength</span></code>(wavelength)</td>
-<td>Returns : double wavelength</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">write_file</span></code>(filename,&nbsp;ciforcbf,&nbsp;headers,&nbsp;encoding)</td>
-<td>Returns :</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">write_widefile</span></code>(filename,&nbsp;ciforcbf,&nbsp;headers,&nbsp;...)</td>
-<td>Returns :</td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper.add_frame_shift">
 <code class="descname">add_frame_shift</code><span class="sig-paren">(</span><em>basis</em>, <em>axis_settings</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper.add_frame_shift" title="Permalink to this definition">¶</a></dt>
@@ -748,7 +116,7 @@ read_optical_metrology_from_flat_file
 <code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">copy_cbf_header</code><span class="sig-paren">(</span><em>src_cbf</em>, <em>skip_sections=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.copy_cbf_header" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a cbf handle, copy the header tables only to a new cbf handle instance
 &#64;param src_cbf cbf_handle instance that has the header information
-&#64;param skip_sections If True, don&#8217;t copy array array_structure_list_section,
+&#64;param skip_sections If True, don’t copy array array_structure_list_section,
 which may not always be present
 &#64;return cbf_wrapper instance with the header information from the source</p>
 </dd></dl>
@@ -757,7 +125,7 @@ which may not always be present
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.env_dxtbx_from_slac_metrology">
 <code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">env_dxtbx_from_slac_metrology</code><span class="sig-paren">(</span><em>run</em>, <em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.env_dxtbx_from_slac_metrology" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a dxtbx cspad cbf header only object from the metrology path stored
-in a psana run object&#8217;s calibration store
+in a psana run object’s calibration store
 &#64;param env psana run object
 &#64;param address address string for a detector</p>
 </dd></dl>
@@ -779,7 +147,7 @@ and set the distance.
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.get_calib_file_path">
 <code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">get_calib_file_path</code><span class="sig-paren">(</span><em>env</em>, <em>address</em>, <em>run</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.get_calib_file_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Findes the path to the SLAC metrology file stored in a psana environment
-object&#8217;s calibration store
+object’s calibration store
 &#64;param env psana environment object
 &#64;param address address string for a detector
 &#64;param run psana run object or run number</p>
@@ -855,78 +223,15 @@ file and the metrology in the given directory
 <dl class="class">
 <dt id="xfel.cftbx.detector.cspad_detector.CSPadDetector">
 <em class="property">class </em><code class="descclassname">xfel.cftbx.detector.cspad_detector.</code><code class="descname">CSPadDetector</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector" title="xfel.cftbx.detector.generic_detector.GenericDetector"><code class="xref py py-class docutils literal"><span class="pre">xfel.cftbx.detector.generic_detector.GenericDetector</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.apply_metrology_from_matrices" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.apply_metrology_from_matrices"><code class="xref py py-obj docutils literal"><span class="pre">apply_metrology_from_matrices</span></code></a>(matrices)</td>
-<td>The apply_metrology_from_matrices() function replaces the current set of transformation matrices with that given in the dictionary &#64;p matrices.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.bounding_box_mm" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.bounding_box_mm"><code class="xref py py-obj docutils literal"><span class="pre">bounding_box_mm</span></code></a>()</td>
-<td>Calculate the extent of this tiled detector image in mm.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">detector_coords_as_image_coords</span></code>(x,&nbsp;y)</td>
-<td>Convert absolute detector position (in mm) to integer-value image pixel coordinates.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.detector_coords_as_image_coords_float" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.detector_coords_as_image_coords_float"><code class="xref py py-obj docutils literal"><span class="pre">detector_coords_as_image_coords_float</span></code></a>(x,&nbsp;y)</td>
-<td>Convert absolute detector position (in mm) to floating-value image pixel coordinates.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.displace_panel_fast_slow" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.displace_panel_fast_slow"><code class="xref py py-obj docutils literal"><span class="pre">displace_panel_fast_slow</span></code></a>(serial,&nbsp;fast,&nbsp;slow)</td>
-<td>Displace all ASICS:s in the panel with serial &#64;p serial such that their new average position becomes &#64;p fast, &#64;p slow.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">get_beam_center_mm</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">get_beam_center_pixels_fast_slow</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.get_flex_image" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.get_flex_image"><code class="xref py py-obj docutils literal"><span class="pre">get_flex_image</span></code></a>(brightness,&nbsp;\*\*kwargs)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.get_panel_fast_slow" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.get_panel_fast_slow"><code class="xref py py-obj docutils literal"><span class="pre">get_panel_fast_slow</span></code></a>(serial)</td>
-<td>Get the average x- and y-coordinates of all the ASIC:s in the panel with serial &#64;p serial.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.get_pixel_intensity" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.get_pixel_intensity"><code class="xref py py-obj docutils literal"><span class="pre">get_pixel_intensity</span></code></a>(coords)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.get_raw_data" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.get_raw_data"><code class="xref py py-obj docutils literal"><span class="pre">get_raw_data</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.image_coords_as_detector_coords" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.image_coords_as_detector_coords"><code class="xref py py-obj docutils literal"><span class="pre">image_coords_as_detector_coords</span></code></a>(x,&nbsp;y[,&nbsp;readout])</td>
-<td>Convert image pixel coordinates to absolute position on the detector (in mm).</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">initialize_viewer_properties</span></code>(dummy_params)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.read" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.read"><code class="xref py py-obj docutils literal"><span class="pre">read</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.readHeader" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.readHeader"><code class="xref py py-obj docutils literal"><span class="pre">readHeader</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.readout_coords_as_detector_coords" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.readout_coords_as_detector_coords"><code class="xref py py-obj docutils literal"><span class="pre">readout_coords_as_detector_coords</span></code></a>(coords)</td>
-<td>Convert a 3 tuple coordinates from readout space (x, y, tile number)</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.show_header" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.show_header"><code class="xref py py-obj docutils literal"><span class="pre">show_header</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.transformation_matrices_as_metrology" title="xfel.cftbx.detector.cspad_detector.CSPadDetector.transformation_matrices_as_metrology"><code class="xref py py-obj docutils literal"><span class="pre">transformation_matrices_as_metrology</span></code></a>()</td>
-<td>The transformation_matrices_as_metrology() function regularizes the the transformation matrices and converts them to a phil object.</td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector" title="xfel.cftbx.detector.generic_detector.GenericDetector"><code class="xref py py-class docutils literal notranslate"><span class="pre">xfel.cftbx.detector.generic_detector.GenericDetector</span></code></a></p>
 <dl class="method">
 <dt id="xfel.cftbx.detector.cspad_detector.CSPadDetector.apply_metrology_from_matrices">
 <code class="descname">apply_metrology_from_matrices</code><span class="sig-paren">(</span><em>matrices</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.apply_metrology_from_matrices" title="Permalink to this definition">¶</a></dt>
 <dd><p>The apply_metrology_from_matrices() function replaces the
 current set of transformation matrices with that given in the
 dictionary &#64;p matrices.</p>
-<p>XXX Could implement metrology &#8220;adjustment&#8221; as opposed metrology
-&#8220;replacement&#8221;.</p>
+<p>XXX Could implement metrology “adjustment” as opposed metrology
+“replacement”.</p>
 </dd></dl>
 
 <dl class="method">
@@ -961,7 +266,7 @@ function returns the updated transformation matrices.</p>
 <code class="descname">get_panel_fast_slow</code><span class="sig-paren">(</span><em>serial</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_detector.CSPadDetector.get_panel_fast_slow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the average x- and y-coordinates of all the ASIC:s in the
 panel with serial &#64;p serial.  This is done by back-transforming
-the centre&#8217;s of each ASIC to the screen (sort of) coordinate
+the centre’s of each ASIC to the screen (sort of) coordinate
 system.  This is more robust than getting the panel positions
 directly.</p>
 </dd></dl>
@@ -1021,49 +326,7 @@ object.</p>
 <dl class="class">
 <dt id="xfel.cftbx.detector.generic_detector.GenericDetector">
 <em class="property">class </em><code class="descclassname">xfel.cftbx.detector.generic_detector.</code><code class="descname">GenericDetector</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.generic_detector.GenericDetector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.detector_coords_as_image_coords" title="xfel.cftbx.detector.generic_detector.GenericDetector.detector_coords_as_image_coords"><code class="xref py py-obj docutils literal"><span class="pre">detector_coords_as_image_coords</span></code></a>(x,&nbsp;y)</td>
-<td>Convert absolute detector position (in mm) to integer-value image pixel coordinates.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.detector_coords_as_image_coords_float" title="xfel.cftbx.detector.generic_detector.GenericDetector.detector_coords_as_image_coords_float"><code class="xref py py-obj docutils literal"><span class="pre">detector_coords_as_image_coords_float</span></code></a>(x,&nbsp;y)</td>
-<td>Convert absolute detector position (in mm) to floating-value image pixel coordinates.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.get_beam_center_mm" title="xfel.cftbx.detector.generic_detector.GenericDetector.get_beam_center_mm"><code class="xref py py-obj docutils literal"><span class="pre">get_beam_center_mm</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.get_beam_center_pixels_fast_slow" title="xfel.cftbx.detector.generic_detector.GenericDetector.get_beam_center_pixels_fast_slow"><code class="xref py py-obj docutils literal"><span class="pre">get_beam_center_pixels_fast_slow</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.get_flex_image" title="xfel.cftbx.detector.generic_detector.GenericDetector.get_flex_image"><code class="xref py py-obj docutils literal"><span class="pre">get_flex_image</span></code></a>(brightness,&nbsp;\*\*kwargs)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.get_pixel_intensity" title="xfel.cftbx.detector.generic_detector.GenericDetector.get_pixel_intensity"><code class="xref py py-obj docutils literal"><span class="pre">get_pixel_intensity</span></code></a>(coords)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.image_coords_as_detector_coords" title="xfel.cftbx.detector.generic_detector.GenericDetector.image_coords_as_detector_coords"><code class="xref py py-obj docutils literal"><span class="pre">image_coords_as_detector_coords</span></code></a>(x,&nbsp;y[,&nbsp;readout])</td>
-<td>Convert image pixel coordinates to absolute position on the detector (in mm).</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.initialize_viewer_properties" title="xfel.cftbx.detector.generic_detector.GenericDetector.initialize_viewer_properties"><code class="xref py py-obj docutils literal"><span class="pre">initialize_viewer_properties</span></code></a>(dummy_params)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.read" title="xfel.cftbx.detector.generic_detector.GenericDetector.read"><code class="xref py py-obj docutils literal"><span class="pre">read</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.readHeader" title="xfel.cftbx.detector.generic_detector.GenericDetector.readHeader"><code class="xref py py-obj docutils literal"><span class="pre">readHeader</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#xfel.cftbx.detector.generic_detector.GenericDetector.show_header" title="xfel.cftbx.detector.generic_detector.GenericDetector.show_header"><code class="xref py py-obj docutils literal"><span class="pre">show_header</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="xfel.cftbx.detector.generic_detector.GenericDetector.detector_coords_as_image_coords">
 <code class="descname">detector_coords_as_image_coords</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.generic_detector.GenericDetector.detector_coords_as_image_coords" title="Permalink to this definition">¶</a></dt>
@@ -1162,10 +425,10 @@ readout_height_in_pixels + 1).</dd>
 from the parent)?  XXX What if two elements are overlapping?
 Implement bounding boxes (only needed for transformation/projection
 from eye to ASIC).  XXX Projections implemented elsewhere.</p>
-<p>XXX Should probably be something like &#8220;phil_to_matrix_dict&#8221; and put
+<p>XXX Should probably be something like “phil_to_matrix_dict” and put
 the metrology2phil() function here, too!</p>
 <p>XXX It was not such a great idea to include the final projection
-here&#8211;it made it impossible to recover z!</p>
+here–it made it impossible to recover z!</p>
 <p>XXX Normalisation of orientation may be necessary to guarantee that
 rotation matrices are orthogonal if the serialisation truncated the
 numbers.</p>
@@ -1217,9 +480,7 @@ thing, I guess).</p>
   <ul>
 <li><a class="reference internal" href="#">xfel.cftbx.detector package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-xfel.cftbx.detector.cspad_cbf_tbx">xfel.cftbx.detector.cspad_cbf_tbx module</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-xfel.cftbx.detector.cspad_cbf_tbx">xfel.cftbx.detector.cspad_cbf_tbx module</a></li>
 <li><a class="reference internal" href="#module-xfel.cftbx.detector.cspad_detector">xfel.cftbx.detector.cspad_detector module</a></li>
 <li><a class="reference internal" href="#module-xfel.cftbx.detector.generic_detector">xfel.cftbx.detector.generic_detector module</a></li>
 <li><a class="reference internal" href="#module-xfel.cftbx.detector.metrology">xfel.cftbx.detector.metrology module</a></li>
@@ -1232,18 +493,20 @@ thing, I guess).</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/xfel/xfel.cftbx.detector.txt"
+      <li><a href="../_sources/xfel/xfel.cftbx.detector.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -1264,7 +527,7 @@ thing, I guess).</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

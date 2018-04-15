@@ -1,35 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>mmtbx.ions.identify module &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="mmtbx.ions package" href="mmtbx.ions.html" />
+    <link rel="next" title="mmtbx.ions.utils module" href="mmtbx.ions.utils.html" />
     <link rel="prev" title="mmtbx.ions.halides module" href="mmtbx.ions.halides.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -39,6 +28,9 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.ions.utils.html" title="mmtbx.ions.utils module"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="mmtbx.ions.halides.html" title="mmtbx.ions.halides module"
              accesskey="P">previous</a> |</li>
@@ -64,63 +56,9 @@ handles ion identification, but only prints out messages to a log.</p>
 <dl class="class">
 <dt id="mmtbx.ions.identify.AtomProperties">
 <em class="property">class </em><code class="descclassname">mmtbx.ions.identify.</code><code class="descname">AtomProperties</code><span class="sig-paren">(</span><em>i_seq</em>, <em>manager</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Collect physical attributes of an atom, including B, occupancy, and map
 statistics, and track those which are at odds with its chemical identity.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.atom_weight" title="mmtbx.ions.identify.AtomProperties.atom_weight"><code class="xref py py-obj docutils literal"><span class="pre">atom_weight</span></code></a>(manager)</td>
-<td>Evaluates whether factors indicate that the atom is lighter, heavier, or isoelectric to what it is currently identified as.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.check_fpp_ratio" title="mmtbx.ions.identify.AtomProperties.check_fpp_ratio"><code class="xref py py-obj docutils literal"><span class="pre">check_fpp_ratio</span></code></a>(ion_params,&nbsp;wavelength[,&nbsp;...])</td>
-<td>Compare the refined and theoretical f&#8217;&#8217; values if available.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.check_ion_environment" title="mmtbx.ions.identify.AtomProperties.check_ion_environment"><code class="xref py py-obj docutils literal"><span class="pre">check_ion_environment</span></code></a>(ion_params[,&nbsp;...])</td>
-<td>Checks whether or not the specified ion satisfies the metal-coordination parameters, specified by ion_params, such as valence sum, geometry, etc.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.get_atom_type" title="mmtbx.ions.identify.AtomProperties.get_atom_type"><code class="xref py py-obj docutils literal"><span class="pre">get_atom_type</span></code></a>(params[,&nbsp;aggressive])</td>
-<td>Checks the atom characteristics against what we would expect for a water.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.has_compatible_ligands" title="mmtbx.ions.identify.AtomProperties.has_compatible_ligands"><code class="xref py py-obj docutils literal"><span class="pre">has_compatible_ligands</span></code></a>(identity)</td>
-<td>Indicates whether the coordinating atoms are of the allowed type (e.g.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.identity" title="mmtbx.ions.identify.AtomProperties.identity"><code class="xref py py-obj docutils literal"><span class="pre">identity</span></code></a>([ion])</td>
-<td>Covers an atom into a string representing its element and charge.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.is_compatible_anomalous_scattering" title="mmtbx.ions.identify.AtomProperties.is_compatible_anomalous_scattering"><code class="xref py py-obj docutils literal"><span class="pre">is_compatible_anomalous_scattering</span></code></a>(ion_params)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.is_compatible_site" title="mmtbx.ions.identify.AtomProperties.is_compatible_site"><code class="xref py py-obj docutils literal"><span class="pre">is_compatible_site</span></code></a>(ion_params[,&nbsp;...])</td>
-<td>More minimal criteria for determining whether a site is chemically compatible, allowing for incomplete coordination shells.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.is_correctly_identified" title="mmtbx.ions.identify.AtomProperties.is_correctly_identified"><code class="xref py py-obj docutils literal"><span class="pre">is_correctly_identified</span></code></a>([identity])</td>
-<td>Calculates whether factors indicate that the atom was correctly identified.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.looks_like_nucleotide_phosphate_site" title="mmtbx.ions.identify.AtomProperties.looks_like_nucleotide_phosphate_site"><code class="xref py py-obj docutils literal"><span class="pre">looks_like_nucleotide_phosphate_site</span></code></a>([...])</td>
-<td>Decide whether the atom is coordinating phosphate oxygens from a nucleotide, based on common atom names.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.number_of_atoms_within_radius" title="mmtbx.ions.identify.AtomProperties.number_of_atoms_within_radius"><code class="xref py py-obj docutils literal"><span class="pre">number_of_atoms_within_radius</span></code></a>(distance_cutoff)</td>
-<td>Counts the number of coordinating atoms within a given radius.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.number_of_backbone_oxygens" title="mmtbx.ions.identify.AtomProperties.number_of_backbone_oxygens"><code class="xref py py-obj docutils literal"><span class="pre">number_of_backbone_oxygens</span></code></a>([distance_cutoff])</td>
-<td>Counts the number of backbone oxygens coordinating a site.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.number_of_favored_ligand_residues" title="mmtbx.ions.identify.AtomProperties.number_of_favored_ligand_residues"><code class="xref py py-obj docutils literal"><span class="pre">number_of_favored_ligand_residues</span></code></a>(ion_params)</td>
-<td>Counts the number of preferred residues coordinating the atom.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.show_ion_results" title="mmtbx.ions.identify.AtomProperties.show_ion_results"><code class="xref py py-obj docutils literal"><span class="pre">show_ion_results</span></code></a>([identity,&nbsp;out,&nbsp;confirmed,&nbsp;...])</td>
-<td>Show statistics for a proposed element identity.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.show_properties" title="mmtbx.ions.identify.AtomProperties.show_properties"><code class="xref py py-obj docutils literal"><span class="pre">show_properties</span></code></a>(identity[,&nbsp;out])</td>
-<td>Show atomic properties that are independent of the suspected identity.</td>
-</tr>
-</tbody>
-</table>
 <dl class="attribute">
 <dt id="mmtbx.ions.identify.AtomProperties.ANOM_PEAK">
 <code class="descname">ANOM_PEAK</code><em class="property"> = 7</em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.ANOM_PEAK" title="Permalink to this definition">¶</a></dt>
@@ -255,14 +193,11 @@ isoelectric to what it is currently identified as.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>manager</strong> : mmtbx.ions.identify.manager</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>manager</strong> (<a class="reference internal" href="#mmtbx.ions.identify.manager" title="mmtbx.ions.identify.manager"><em>mmtbx.ions.identify.manager</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">int</p>
-<blockquote class="last">
-<div><p>-1 if lighter, 0 if isoelectronic, and 1 if heavier.</p>
-</div></blockquote>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">-1 if lighter, 0 if isoelectronic, and 1 if heavier.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a></td>
 </tr>
 </tbody>
 </table>
@@ -271,21 +206,23 @@ isoelectric to what it is currently identified as.</p>
 <dl class="method">
 <dt id="mmtbx.ions.identify.AtomProperties.check_fpp_ratio">
 <code class="descname">check_fpp_ratio</code><span class="sig-paren">(</span><em>ion_params</em>, <em>wavelength</em>, <em>fpp_ratio_min=0.3</em>, <em>fpp_ratio_max=1.05</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.check_fpp_ratio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compare the refined and theoretical f&#8217;&#8217; values if available.</p>
+<dd><p>Compare the refined and theoretical f’’ values if available.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ion_params</strong> : mmtbx.ions.metal_parameters</p>
-<p><strong>wavelength</strong> : float</p>
-<p><strong>fpp_ratio_min</strong> : float, optional</p>
-<p><strong>fpp_ratio_max</strong> : float, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ion_params</strong> (<a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters"><em>mmtbx.ions.metal_parameters</em></a>) – </li>
+<li><strong>wavelength</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – </li>
+<li><strong>fpp_ratio_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>fpp_ratio_max</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">float</p>
-<blockquote class="last">
-<div><p>f&#8217;&#8217; / f&#8217;&#8216;_expected</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">f’’ / f’‘_expected</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
 </td>
 </tr>
 </tbody>
@@ -303,9 +240,11 @@ saved for later if we want to use looser critera.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ion_params</strong> : mmtbx.ions.metal_parameters</p>
-<p><strong>wavelength</strong> : float, optional</p>
-<p class="last"><strong>require_valence</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ion_params</strong> (<a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters"><em>mmtbx.ions.metal_parameters</em></a>) – </li>
+<li><strong>wavelength</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>require_valence</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -328,14 +267,16 @@ NA/MG, as these often have mFo-DFc peaks at high resolution.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>params</strong> : libtbx.phil.scope_extract</p>
-<p><strong>aggressive</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>params</strong> (<em>libtbx.phil.scope_extract</em>) – </li>
+<li><strong>aggressive</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">int</p>
-<blockquote class="last">
-<div><p>One of WATER, WATER_POOR, HEAVY_ION, LIGHT_ION</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">One of WATER, WATER_POOR, HEAVY_ION, LIGHT_ION</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a></p>
 </td>
 </tr>
 </tbody>
@@ -352,9 +293,11 @@ appropriate ligand for ZN).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identity</strong> : mmtbx.ions.metal_parameters</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identity</strong> (<a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters"><em>mmtbx.ions.metal_parameters</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></td>
 </tr>
 </tbody>
 </table>
@@ -368,9 +311,11 @@ appropriate ligand for ZN).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ion</strong> : iotbx.pdb.hierarchy.atom, optional</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ion</strong> (<a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.atom" title="iotbx.pdb.hierarchy.atom"><em>iotbx.pdb.hierarchy.atom</em></a><em>, </em><em>optional</em>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">str</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)">str</a></td>
 </tr>
 </tbody>
 </table>
@@ -390,12 +335,17 @@ compatible, allowing for incomplete coordination shells.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ion_params</strong> : mmtbx.ions.metal_parameters</p>
-<p><strong>require_anom</strong> : bool, optional</p>
-<p><strong>ignore_valence</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ion_params</strong> (<a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters"><em>mmtbx.ions.metal_parameters</em></a>) – </li>
+<li><strong>require_anom</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>ignore_valence</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bool</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></p>
 </td>
 </tr>
 </tbody>
@@ -410,9 +360,11 @@ compatible, allowing for incomplete coordination shells.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identity</strong> : mmtbx.ions.metal_parameters</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identity</strong> (<a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters"><em>mmtbx.ions.metal_parameters</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></td>
 </tr>
 </tbody>
 </table>
@@ -427,11 +379,16 @@ nucleotide, based on common atom names.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>min_phosphate_oxygen_atoms</strong> : int, optional</p>
-<p><strong>distance_cutoff</strong> : float, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>min_phosphate_oxygen_atoms</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>distance_cutoff</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bool</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></p>
 </td>
 </tr>
 </tbody>
@@ -446,9 +403,11 @@ nucleotide, based on common atom names.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>float</strong></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>float</strong> – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">int</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a></td>
 </tr>
 </tbody>
 </table>
@@ -462,9 +421,11 @@ nucleotide, based on common atom names.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>distance_cutoff</strong> : float, optional</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>distance_cutoff</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">int</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a></td>
 </tr>
 </tbody>
 </table>
@@ -479,12 +440,17 @@ approximate detection of transition-metal binding sites.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ion_params</strong> : mmtbx.ions.metal_parameters</p>
-<p><strong>distance</strong> : float, optional</p>
-<p><strong>exclude_atoms</strong> : tuple of ...</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ion_params</strong> (<a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters"><em>mmtbx.ions.metal_parameters</em></a>) – </li>
+<li><strong>distance</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>exclude_atoms</strong> (<em>tuple of ...</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">int</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a></p>
 </td>
 </tr>
 </tbody>
@@ -499,10 +465,12 @@ approximate detection of transition-metal binding sites.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>identity</strong> : mmtbx.ions.metal_parameters</p>
-<p><strong>out</strong> : file, optional</p>
-<p><strong>confirmed</strong> : bool, optional</p>
-<p class="last"><strong>valence_used</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>identity</strong> (<a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters"><em>mmtbx.ions.metal_parameters</em></a>) – </li>
+<li><strong>out</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
+<li><strong>confirmed</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>valence_used</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -517,8 +485,10 @@ approximate detection of transition-metal binding sites.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>identity</strong> : mmtbx.ions.metal_parameters</p>
-<p class="last"><strong>out</strong> : file, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>identity</strong> (<a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters"><em>mmtbx.ions.metal_parameters</em></a>) – </li>
+<li><strong>out</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -536,19 +506,24 @@ connectivity and xray_structure from fmodel automatically.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>pdb_hierarchy</strong> : iotbx.pdb.hierarchy.root</p>
-<p><strong>geometry_restraints_manager</strong> : cctbx.geometry_restraints.manager.manager</p>
-<p><strong>fmodel</strong> : mmtbx.f_model.manager</p>
-<p><strong>wavelength</strong> : float</p>
-<p><strong>params</strong> : libtbx.phil.scope_extract</p>
-<p><strong>resolution_factor</strong> : float, optional</p>
-<p><strong>nproc</strong> : int, optional</p>
-<p><strong>verbose</strong> : bool, optional</p>
-<p><strong>log</strong> : file, optional</p>
-<p><strong>manager_class</strong> : class, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pdb_hierarchy</strong> (<a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root"><em>iotbx.pdb.hierarchy.root</em></a>) – </li>
+<li><strong>geometry_restraints_manager</strong> (<a class="reference internal" href="../cctbx/cctbx.geometry_restraints.manager.html#cctbx.geometry_restraints.manager.manager" title="cctbx.geometry_restraints.manager.manager"><em>cctbx.geometry_restraints.manager.manager</em></a>) – </li>
+<li><strong>fmodel</strong> (<em>mmtbx.f_model.manager</em>) – </li>
+<li><strong>wavelength</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – </li>
+<li><strong>params</strong> (<em>libtbx.phil.scope_extract</em>) – </li>
+<li><strong>resolution_factor</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>nproc</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>verbose</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>log</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
+<li><strong>manager_class</strong> (<em>class</em><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">mmtbx.ions.identify.manager or mmtbx.ions.svm.manager</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#mmtbx.ions.identify.manager" title="mmtbx.ions.identify.manager">mmtbx.ions.identify.manager</a> or <a class="reference internal" href="mmtbx.ions.svm.html#mmtbx.ions.svm.manager" title="mmtbx.ions.svm.manager">mmtbx.ions.svm.manager</a></p>
 </td>
 </tr>
 </tbody>
@@ -570,70 +545,10 @@ available and configured.</p>
 <dl class="class">
 <dt id="mmtbx.ions.identify.ion_result">
 <em class="property">class </em><code class="descclassname">mmtbx.ions.identify.</code><code class="descname">ion_result</code><span class="sig-paren">(</span><em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.ion_result" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="mmtbx.validation.html#mmtbx.validation.atom" title="mmtbx.validation.atom"><code class="xref py py-class docutils literal"><span class="pre">mmtbx.validation.atom</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="mmtbx.validation.html#mmtbx.validation.atom" title="mmtbx.validation.atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">mmtbx.validation.atom</span></code></a></p>
 <p>Class for validation results for an ion site. This includes information about
 both the atom modeled at that site as well as its chemical and scattering
 environment.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">as_kinemage</span></code>()</td>
-<td>Returns a kinemage string for displaying an outlier.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">as_list</span></code>()</td>
-<td>Optional; returns old format used by some tools in mmtbx.validation.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">as_selection_string</span></code>()</td>
-<td>Returns PDB atom selection string for the atom(s) involved.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">as_string</span></code>([prefix])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">as_table_row_molprobity</span></code>()</td>
-<td>Returns a list of formatted table cells for display by MolProbity.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">as_table_row_phenix</span></code>()</td>
-<td>Returns a list of formatted table cells for display by Phenix.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">atom_group_id_str</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">format_old</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">format_score</span></code>([replace_none_with])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">header</span></code>()</td>
-<td>Format for header in result listings.</td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">id_str</span></code>([ignore_altloc,&nbsp;ignore_segid])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">is_outlier</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">is_single_residue_object</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">residue_group_id_str</span></code>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.ion_result.show" title="mmtbx.ions.identify.ion_result.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>([out,&nbsp;prefix])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.ion_result.show_brief" title="mmtbx.ions.identify.ion_result.show_brief"><code class="xref py py-obj docutils literal"><span class="pre">show_brief</span></code></a>([out,&nbsp;prefix])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">zoom_info</span></code>()</td>
-<td>Returns data needed to zoom/recenter the graphics programs from the Phenix GUI.</td>
-</tr>
-</tbody>
-</table>
 <dl class="attribute">
 <dt id="mmtbx.ions.identify.ion_result.altloc">
 <code class="descname">altloc</code><a class="headerlink" href="#mmtbx.ions.identify.ion_result.altloc" title="Permalink to this definition">¶</a></dt>
@@ -734,90 +649,9 @@ environment.</p>
 <dl class="class">
 <dt id="mmtbx.ions.identify.manager">
 <em class="property">class </em><code class="descclassname">mmtbx.ions.identify.</code><code class="descname">manager</code><span class="sig-paren">(</span><em>fmodel</em>, <em>pdb_hierarchy</em>, <em>xray_structure</em>, <em>params=None</em>, <em>wavelength=None</em>, <em>connectivity=None</em>, <em>nproc=1</em>, <em>verbose=False</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Wrapper object for extracting local environment and adding or modifying
 scatterers.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.analyze_substructure" title="mmtbx.ions.identify.manager.analyze_substructure"><code class="xref py py-obj docutils literal"><span class="pre">analyze_substructure</span></code></a>([log,&nbsp;verbose])</td>
-<td>Given a list of AX pseudo-atoms placed by Phaser, finds the nearest real atoms, and if possible determines their equivalence.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.analyze_water" title="mmtbx.ions.identify.manager.analyze_water"><code class="xref py py-obj docutils literal"><span class="pre">analyze_water</span></code></a>(i_seq[,&nbsp;debug,&nbsp;candidates,&nbsp;...])</td>
-<td>Examines the environment around a single atom to determine if it is actually a misidentified metal ion.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.analyze_waters" title="mmtbx.ions.identify.manager.analyze_waters"><code class="xref py py-obj docutils literal"><span class="pre">analyze_waters</span></code></a>([out,&nbsp;debug,&nbsp;candidates])</td>
-<td>Iterates through all of the waters in a model, examining the maps and local environment to check their identity and suggest likely ions where appropriate.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.find_nearby_atoms" title="mmtbx.ions.identify.manager.find_nearby_atoms"><code class="xref py py-obj docutils literal"><span class="pre">find_nearby_atoms</span></code></a>(i_seq[,&nbsp;...])</td>
-<td>Given site in the structure, return a list of contacts, optionally filtering by connectivity and 2mFo-DFc map level.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.get_b_iso" title="mmtbx.ions.identify.manager.get_b_iso"><code class="xref py py-obj docutils literal"><span class="pre">get_b_iso</span></code></a>(i_seq)</td>
-<td>Calculates the isotropic b-factor of a site.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.get_fp" title="mmtbx.ions.identify.manager.get_fp"><code class="xref py py-obj docutils literal"><span class="pre">get_fp</span></code></a>(i_seq)</td>
-<td>Retrieve the refined f&#8217; for a site.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.get_fpp" title="mmtbx.ions.identify.manager.get_fpp"><code class="xref py py-obj docutils literal"><span class="pre">get_fpp</span></code></a>(i_seq)</td>
-<td>Retrieve the refined f&#8217;&#8217; for a site.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.get_initial_b_iso" title="mmtbx.ions.identify.manager.get_initial_b_iso"><code class="xref py py-obj docutils literal"><span class="pre">get_initial_b_iso</span></code></a>()</td>
-<td>Calculates the isotropic b-factor to assign to newly labeled ions during the building process.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.get_map" title="mmtbx.ions.identify.manager.get_map"><code class="xref py py-obj docutils literal"><span class="pre">get_map</span></code></a>(map_type)</td>
-<td>Creates the real-space version of a given map type.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.get_map_gaussian_fit" title="mmtbx.ions.identify.manager.get_map_gaussian_fit"><code class="xref py py-obj docutils literal"><span class="pre">get_map_gaussian_fit</span></code></a>(map_type,&nbsp;i_seq)</td>
-<td>Retrieves the two parameters of a gaussian function, fit to a given map at a site.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.get_map_sphere_variance" title="mmtbx.ions.identify.manager.get_map_sphere_variance"><code class="xref py py-obj docutils literal"><span class="pre">get_map_sphere_variance</span></code></a>(i_seq)</td>
-<td>Calculate the density levels for points on a sphere around a given point.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.get_strict_valence_flag" title="mmtbx.ions.identify.manager.get_strict_valence_flag"><code class="xref py py-obj docutils literal"><span class="pre">get_strict_valence_flag</span></code></a>()</td>
-<td>Checks whether the resolution of a model is high enough to use more strict thresholds for ion valences.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.guess_b_iso_real" title="mmtbx.ions.identify.manager.guess_b_iso_real"><code class="xref py py-obj docutils literal"><span class="pre">guess_b_iso_real</span></code></a>(i_seq)</td>
-<td>Guess an approximate B_iso for an atom by averaging the values for coordinating atoms.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.guess_molecular_weight" title="mmtbx.ions.identify.manager.guess_molecular_weight"><code class="xref py py-obj docutils literal"><span class="pre">guess_molecular_weight</span></code></a>(i_seq)</td>
-<td>Guesses the molecular weight of a site by scaling the signal from the mFo map by the average signal from carbon atoms.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.looks_like_halide_ion" title="mmtbx.ions.identify.manager.looks_like_halide_ion"><code class="xref py py-obj docutils literal"><span class="pre">looks_like_halide_ion</span></code></a>(i_seq[,&nbsp;element,&nbsp;...])</td>
-<td>Given a site, analyze the nearby atoms (taking geometry into account) to guess whether it might be a halide ion.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.map_stats" title="mmtbx.ions.identify.manager.map_stats"><code class="xref py py-obj docutils literal"><span class="pre">map_stats</span></code></a>(i_seq)</td>
-<td>Given a site in the structure, find the signal of the 2FoFc, FoFc, and anomalous map (When available).</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.principal_axes_of_inertia" title="mmtbx.ions.identify.manager.principal_axes_of_inertia"><code class="xref py py-obj docutils literal"><span class="pre">principal_axes_of_inertia</span></code></a>(i_seq)</td>
-<td>Extracts the map grid points around a site, and calculates the axes of inertia (using the density values as weights).</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.refine_anomalous_substructure" title="mmtbx.ions.identify.manager.refine_anomalous_substructure"><code class="xref py py-obj docutils literal"><span class="pre">refine_anomalous_substructure</span></code></a>(log)</td>
-<td>Run simple &#8220;substructure completion&#8221; implemented using CCTBX tools (the command-line equivalent is mmtbx.refine_anomalous_substructure).</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.show_current_scattering_statistics" title="mmtbx.ions.identify.manager.show_current_scattering_statistics"><code class="xref py py-obj docutils literal"><span class="pre">show_current_scattering_statistics</span></code></a>([out])</td>
-<td>Prints out information about an entire model&#8217;s scattering statistics, such as mean map heights and b-factors for carbons and waters.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.update_maps" title="mmtbx.ions.identify.manager.update_maps"><code class="xref py py-obj docutils literal"><span class="pre">update_maps</span></code></a>()</td>
-<td>Generate new maps for the current structure, including anomalous map if data are anomalous.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.update_structure" title="mmtbx.ions.identify.manager.update_structure"><code class="xref py py-obj docutils literal"><span class="pre">update_structure</span></code></a>(pdb_hierarchy,&nbsp;xray_structure)</td>
-<td>Set the current atomic data: PDB hierarchy, Xray structure, and simple connectivity list.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.validate_ion" title="mmtbx.ions.identify.manager.validate_ion"><code class="xref py py-obj docutils literal"><span class="pre">validate_ion</span></code></a>(i_seq[,&nbsp;out,&nbsp;debug])</td>
-<td>Examines one site in the model and determines if it was correctly modelled, returning a boolean indicating correctness.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.validate_ions" title="mmtbx.ions.identify.manager.validate_ions"><code class="xref py py-obj docutils literal"><span class="pre">validate_ions</span></code></a>([out,&nbsp;debug,&nbsp;segid])</td>
-<td>Iterate over all the ions built into the model by this module and double check their correctness.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.ions.identify.manager.water_selection" title="mmtbx.ions.identify.manager.water_selection"><code class="xref py py-obj docutils literal"><span class="pre">water_selection</span></code></a>()</td>
-<td>Fetchs the selection for all waters in the model.</td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="mmtbx.ions.identify.manager.analyze_substructure">
 <code class="descname">analyze_substructure</code><span class="sig-paren">(</span><em>log=None</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.analyze_substructure" title="Permalink to this definition">¶</a></dt>
@@ -827,8 +661,10 @@ atoms, and if possible determines their equivalence.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>log</strong> : file, optional</p>
-<p class="last"><strong>verbose</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>log</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
+<li><strong>verbose</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -847,14 +683,19 @@ candidates appear to probable ion identities.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>i_seq</strong> : int</p>
-<p><strong>debug</strong> : bool, optional</p>
-<p><strong>candidates</strong> : list of str, optional</p>
-<p><strong>no_file</strong> : bool, optional</p>
-<p><strong>out</strong> : file, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </li>
+<li><strong>debug</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>candidates</strong> (<em>list of str</em><em>, </em><em>optional</em>) – </li>
+<li><strong>no_file</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>out</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">mmtbx.ions.identify.water_result</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#mmtbx.ions.identify.water_result" title="mmtbx.ions.identify.water_result">mmtbx.ions.identify.water_result</a></p>
 </td>
 </tr>
 </tbody>
@@ -871,16 +712,18 @@ appropriate.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>out</strong> : file, otpional</p>
-<p><strong>debug</strong> : bool, optional</p>
-<p><strong>candidates</strong> : list of str, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>out</strong> (<em>file</em><em>, </em><em>otpional</em>) – </li>
+<li><strong>debug</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>candidates</strong> (<em>list of str</em><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of tuple of int, mmtbx.ions.metal_parameters</p>
-<blockquote class="last">
-<div><p>i_seq and metal parameters which indicate that waters of i_seq would be
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">i_seq and metal parameters which indicate that waters of i_seq would be
 better changed to that new metal identity.</p>
-</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of tuple of int, <a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters">mmtbx.ions.metal_parameters</a></p>
 </td>
 </tr>
 </tbody>
@@ -896,14 +739,19 @@ filtering by connectivity and 2mFo-DFc map level.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>i_seq</strong> : int</p>
-<p><strong>far_distance_cutoff</strong> : float, optional</p>
-<p><strong>near_distance_cutoff</strong> : float, optional</p>
-<p><strong>filter_by_bonding</strong> : bool, optional</p>
-<p><strong>fitler_by_two_fofc</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </li>
+<li><strong>far_distance_cutoff</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>near_distance_cutoff</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>filter_by_bonding</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>fitler_by_two_fofc</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of mmtbx.ions.environment.atom_contact</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of mmtbx.ions.environment.atom_contact</p>
 </td>
 </tr>
 </tbody>
@@ -918,9 +766,11 @@ filtering by connectivity and 2mFo-DFc map level.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> : int</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
 </tr>
 </tbody>
 </table>
@@ -929,14 +779,16 @@ filtering by connectivity and 2mFo-DFc map level.</p>
 <dl class="method">
 <dt id="mmtbx.ions.identify.manager.get_fp">
 <code class="descname">get_fp</code><span class="sig-paren">(</span><em>i_seq</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_fp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve the refined f&#8217; for a site.</p>
+<dd><p>Retrieve the refined f’ for a site.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> : int</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float or None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a> or None</td>
 </tr>
 </tbody>
 </table>
@@ -945,16 +797,18 @@ filtering by connectivity and 2mFo-DFc map level.</p>
 <dl class="method">
 <dt id="mmtbx.ions.identify.manager.get_fpp">
 <code class="descname">get_fpp</code><span class="sig-paren">(</span><em>i_seq</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_fpp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve the refined f&#8217;&#8217; for a site.  Because this can come from either the
+<dd><p>Retrieve the refined f’’ for a site.  Because this can come from either the
 built-in anomalous refinement or Phaser, it is handled differently than
-the f&#8217; retrieval.</p>
+the f’ retrieval.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> : int</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float or None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a> or None</td>
 </tr>
 </tbody>
 </table>
@@ -970,7 +824,9 @@ the former is unavailable.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">float</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
 </tr>
 </tbody>
 </table>
@@ -984,9 +840,11 @@ the former is unavailable.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>map_type</strong> : str</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>map_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">scitbx.array_family.flex.double</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double">scitbx.array_family.flex.double</a></td>
 </tr>
 </tbody>
 </table>
@@ -1001,11 +859,16 @@ a site.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>map_type</strong> : str</p>
-<p><strong>i_seq</strong> : int</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>map_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – </li>
+<li><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(tuple of float, float) or None</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(tuple of float, <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a>) or None</p>
 </td>
 </tr>
 </tbody>
@@ -1022,9 +885,11 @@ expected manner around a single atom.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> : int</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
 </tr>
 </tbody>
 </table>
@@ -1039,7 +904,9 @@ thresholds for ion valences.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></td>
 </tr>
 </tbody>
 </table>
@@ -1056,9 +923,11 @@ occupancy refinement more accurate.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> : int</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
 </tr>
 </tbody>
 </table>
@@ -1073,9 +942,11 @@ the mFo map by the average signal from carbon atoms.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> : int</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
 </tr>
 </tbody>
 </table>
@@ -1094,12 +965,17 @@ the electron count (map, occ, b) is absolutely essential.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>i_seq</strong> : int</p>
-<p><strong>element</strong> : str</p>
-<p><strong>assume_hydrogens_all_missing</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </li>
+<li><strong>element</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – </li>
+<li><strong>assume_hydrogens_all_missing</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bool</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></p>
 </td>
 </tr>
 </tbody>
@@ -1115,15 +991,12 @@ anomalous map (When available).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>i_seq</strong> : int</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">group_args</p>
-<blockquote class="last">
-<div><p>Object with .two_fofc, .fofc, and .anom properties for the associated
-signals in each map.</p>
-</div></blockquote>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Object with .two_fofc, .fofc, and .anom properties for the associated
+signals in each map.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../libtbx/index.html#libtbx.group_args" title="libtbx.group_args">group_args</a></td>
 </tr>
 </tbody>
 </table>
@@ -1139,9 +1012,11 @@ the sphericity of the blob of density around a site.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> : int</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">...</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">…</td>
 </tr>
 </tbody>
 </table>
@@ -1150,14 +1025,14 @@ the sphericity of the blob of density around a site.</p>
 <dl class="method">
 <dt id="mmtbx.ions.identify.manager.refine_anomalous_substructure">
 <code class="descname">refine_anomalous_substructure</code><span class="sig-paren">(</span><em>log</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.refine_anomalous_substructure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run simple &#8220;substructure completion&#8221; implemented using CCTBX tools (the
+<dd><p>Run simple “substructure completion” implemented using CCTBX tools (the
 command-line equivalent is mmtbx.refine_anomalous_substructure).  A faster
 alternative to Phaser, but not clear how effective this is at the moment.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>log</strong> : file</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>log</strong> (<em>file</em>) – </td>
 </tr>
 </tbody>
 </table>
@@ -1166,13 +1041,13 @@ alternative to Phaser, but not clear how effective this is at the moment.</p>
 <dl class="method">
 <dt id="mmtbx.ions.identify.manager.show_current_scattering_statistics">
 <code class="descname">show_current_scattering_statistics</code><span class="sig-paren">(</span><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.show_current_scattering_statistics" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prints out information about an entire model&#8217;s scattering statistics, such
+<dd><p>Prints out information about an entire model’s scattering statistics, such
 as mean map heights and b-factors for carbons and waters.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>out</strong> : file, optional</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>out</strong> (<em>file</em><em>, </em><em>optional</em>) – </td>
 </tr>
 </tbody>
 </table>
@@ -1198,11 +1073,13 @@ connectivity list.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>pdb_hierarchy</strong> : iotbx.pdb.hierarchy.root</p>
-<p><strong>xray_structure</strong> : cctbx.xray.structure.structure</p>
-<p><strong>connectivity</strong> : ...</p>
-<p><strong>log</strong> : file, optional</p>
-<p class="last"><strong>refine_if_necessary</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pdb_hierarchy</strong> (<a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root"><em>iotbx.pdb.hierarchy.root</em></a>) – </li>
+<li><strong>xray_structure</strong> (<a class="reference internal" href="../cctbx/cctbx.xray.structure.html#cctbx.xray.structure.structure" title="cctbx.xray.structure.structure"><em>cctbx.xray.structure.structure</em></a>) – </li>
+<li><strong>connectivity</strong> – </li>
+<li><strong>log</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
+<li><strong>refine_if_necessary</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -1218,9 +1095,11 @@ returning a boolean indicating correctness.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>i_seq</strong> : int</p>
-<p><strong>out</strong> : file, optional</p>
-<p class="last"><strong>debug</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </li>
+<li><strong>out</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
+<li><strong>debug</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -1235,17 +1114,16 @@ check their correctness. Looks for tell-tale signs such as negative peaks
 in the mFo-DFc and anomalous difference maps, abnormal b-factor, and
 disallowed chemical environments.</p>
 <p>Prints out a table of bad ions and their information and returns a list of
-their sites&#8217; i_seqs.</p>
+their sites’ i_seqs.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>out</strong> : file, optional</p>
-<p><strong>debug</strong> : bool, optional</p>
-<p><strong>segid</strong> : str, optional</p>
-<blockquote class="last">
-<div><p>If present, only validate ions with this segid.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>out</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
+<li><strong>debug</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>segid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>, </em><em>optional</em>) – If present, only validate ions with this segid.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -1260,7 +1138,9 @@ their sites&#8217; i_seqs.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">scitbx.array_family.flex.size_t</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t">scitbx.array_family.flex.size_t</a></td>
 </tr>
 </tbody>
 </table>
@@ -1271,31 +1151,21 @@ their sites&#8217; i_seqs.</p>
 <dl class="class">
 <dt id="mmtbx.ions.identify.water_result">
 <em class="property">class </em><code class="descclassname">mmtbx.ions.identify.</code><code class="descname">water_result</code><span class="sig-paren">(</span><em>atom_props</em>, <em>filtered_candidates</em>, <em>matching_candidates</em>, <em>rejected_candidates</em>, <em>nuc_phosphate_site</em>, <em>atom_type</em>, <em>looks_like_halide</em>, <em>ambiguous_valence_cutoff</em>, <em>valence_used</em>, <em>final_choice</em>, <em>wavelength=None</em>, <em>no_final=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.water_result" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Container for storing the results of manager.analyze_water for later display
 and retrieval.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.ions.identify.water_result.show_summary" title="mmtbx.ions.identify.water_result.show_summary"><code class="xref py py-obj docutils literal"><span class="pre">show_summary</span></code></a>([out,&nbsp;debug])</td>
-<td>Prints out a summary of a site&#8217;s chemical and scattering environment.</td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="mmtbx.ions.identify.water_result.show_summary">
 <code class="descname">show_summary</code><span class="sig-paren">(</span><em>out=None</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.water_result.show_summary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prints out a summary of a site&#8217;s chemical and scattering environment.</p>
+<dd><p>Prints out a summary of a site’s chemical and scattering environment.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>out</strong> : file, optional</p>
-<p class="last"><strong>debug</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>out</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
+<li><strong>debug</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -1315,21 +1185,26 @@ and retrieval.</p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="mmtbx.ions.halides.html"
                         title="previous chapter">mmtbx.ions.halides module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mmtbx.ions.utils.html"
+                        title="next chapter">mmtbx.ions.utils module</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/mmtbx/mmtbx.ions.identify.txt"
+      <li><a href="../_sources/mmtbx/mmtbx.ions.identify.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -1346,6 +1221,9 @@ and retrieval.</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
+          <a href="mmtbx.ions.utils.html" title="mmtbx.ions.utils module"
+             >next</a> |</li>
+        <li class="right" >
           <a href="mmtbx.ions.halides.html" title="mmtbx.ions.halides module"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
@@ -1355,7 +1233,7 @@ and retrieval.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

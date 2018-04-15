@@ -1,34 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>mmtbx.wwpdb package &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="mmtbx - macromolecular crystallography" href="mmtbx.html" /> 
-  </head>
-  <body role="document">
+    <link rel="next" title="mmtbx.disorder package" href="mmtbx.disorder.html" />
+    <link rel="prev" title="mmtbx.validation.molprobity package" href="mmtbx.validation.molprobity.html" /> 
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -38,6 +28,12 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.disorder.html" title="mmtbx.disorder package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.validation.molprobity.html" title="mmtbx.validation.molprobity package"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &#187;</li> 
       </ul>
@@ -68,17 +64,16 @@ pipelines.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>resname</strong> : str</p>
-<p><strong>kwds</strong> : dict</p>
-<blockquote class="last">
-<div><p>Keyword arguments passed to post_query.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – </li>
+<li><strong>kwds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.6)"><em>dict</em></a>) – Keyword arguments passed to post_query.</li>
+</ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mmtbx.wwpdb.rcsb_web_services</span> <span class="k">import</span> <span class="n">chemical_id_search</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mmtbx.wwpdb.rcsb_web_services</span> <span class="k">import</span> <span class="n">chemical_id_search</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">chemical_id_search</span><span class="p">(</span><span class="s2">&quot;ZN&quot;</span><span class="p">,</span> <span class="n">data_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">identity_cutoff</span><span class="o">=</span><span class="mi">70</span><span class="p">))</span>
 <span class="go">2874</span>
 </pre></div>
@@ -109,24 +104,23 @@ SMILES strings.</p>
 <code class="descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="descname">post_query</code><span class="sig-paren">(</span><em>query_xml</em>, <em>xray_only=True</em>, <em>d_max=None</em>, <em>d_min=None</em>, <em>protein_only=False</em>, <em>data_only=False</em>, <em>identity_cutoff=None</em>, <em>log=None</em>, <em>sort_by_resolution=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.post_query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the full XML for a multi-part query with generic search options,
 starting from the basic query passed by another function, post it to the
-RCSB&#8217;s web service, and return a list of matching PDB IDs.</p>
+RCSB’s web service, and return a list of matching PDB IDs.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>query_xml</strong> : str or None</p>
-<p><strong>xray_only</strong> : bool, optional</p>
-<p><strong>d_max</strong> : float, optional</p>
-<p><strong>d_min</strong> : float, optional</p>
-<p><strong>protein_only</strong> : bool, optional</p>
-<p><strong>data_only</strong> : bool, optional</p>
-<p><strong>identity_cutoff</strong> : int, optional</p>
-<blockquote>
-<div><p>Apply sequence filtering to remove structures with greater than this
-percentage sequence identity. Must be one of 100, 95, 90, 70, 50, 40, 30.</p>
-</div></blockquote>
-<p><strong>log</strong> : file, optional</p>
-<p class="last"><strong>sort_by_resolution</strong> : bool, optional</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>query_xml</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em> or </em><em>None</em>) – </li>
+<li><strong>xray_only</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>d_max</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>d_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>protein_only</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>data_only</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<li><strong>identity_cutoff</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a><em>, </em><em>optional</em>) – Apply sequence filtering to remove structures with greater than this
+percentage sequence identity. Must be one of 100, 95, 90, 70, 50, 40, 30.</li>
+<li><strong>log</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
+<li><strong>sort_by_resolution</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -141,24 +135,12 @@ percentage sequence identity. Must be one of 100, 95, 90, 70, 50, 40, 30.</p>
 </div>
 <div class="section" id="module-mmtbx.wwpdb.standard_geometry_cif">
 <span id="mmtbx-wwpdb-standard-geometry-cif-module"></span><h2>mmtbx.wwpdb.standard_geometry_cif module<a class="headerlink" href="#module-mmtbx.wwpdb.standard_geometry_cif" title="Permalink to this headline">¶</a></h2>
-<p>Parser for Kim Henrick&#8217;s standard_geometry.cif file:
+<p>Parser for Kim Henrick’s standard_geometry.cif file:
 <a class="reference external" href="http://www.ebi.ac.uk/~henrick/newpdb/standard_geometry.cif">http://www.ebi.ac.uk/~henrick/newpdb/standard_geometry.cif</a></p>
 <dl class="class">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom">
 <em class="property">class </em><code class="descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="descname">chem_comp_atom</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.site_ideal" title="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.site_ideal"><code class="xref py py-obj docutils literal"><span class="pre">site_ideal</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.alt_atom_id">
 <code class="descname">alt_atom_id</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.alt_atom_id" title="Permalink to this definition">¶</a></dt>
@@ -264,19 +246,7 @@ percentage sequence identity. Must be one of 100, 95, 90, 70, 50, 40, 30.</p>
 <dl class="class">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer">
 <em class="property">class </em><code class="descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="descname">process_chem_comp_atom_buffer</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.count_non_hydrogen_atoms" title="mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.count_non_hydrogen_atoms"><code class="xref py py-obj docutils literal"><span class="pre">count_non_hydrogen_atoms</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.atoms">
 <code class="descname">atoms</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.atoms" title="Permalink to this definition">¶</a></dt>
@@ -322,7 +292,7 @@ from the PDB, and run cif_as_mtz.</p>
 <dl class="class">
 <dt id="mmtbx.wwpdb.utils.filter_pdb_file">
 <em class="property">class </em><code class="descclassname">mmtbx.wwpdb.utils.</code><code class="descname">filter_pdb_file</code><span class="sig-paren">(</span><em>pdb_file</em>, <em>output_file=None</em>, <em>log=None</em>, <em>quiet=False</em>, <em>set_se_occ=True</em>, <em>remove_atoms_with_zero_occupancy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.filter_pdb_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Processing of PDB files to remove common pathologies and enable automatic
 refinement behavior.  In particular, delete unknown atoms and ligands,
 reduce the occupancy of Se atoms from 1 to trigger occupancy refinement,
@@ -358,30 +328,36 @@ Hendrickson-Lattman coefficients and R-free flags if present.</p>
 <li><a class="reference internal" href="#">mmtbx.wwpdb package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-mmtbx.wwpdb.rcsb_web_services">mmtbx.wwpdb.rcsb_web_services module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.wwpdb.standard_geometry_cif">mmtbx.wwpdb.standard_geometry_cif module</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-mmtbx.wwpdb.standard_geometry_cif">mmtbx.wwpdb.standard_geometry_cif module</a></li>
 <li><a class="reference internal" href="#module-mmtbx.wwpdb.utils">mmtbx.wwpdb.utils module</a></li>
 <li><a class="reference internal" href="#module-mmtbx.wwpdb">Module contents</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mmtbx.validation.molprobity.html"
+                        title="previous chapter">mmtbx.validation.molprobity package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mmtbx.disorder.html"
+                        title="next chapter">mmtbx.disorder package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/mmtbx/mmtbx.wwpdb.txt"
+      <li><a href="../_sources/mmtbx/mmtbx.wwpdb.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -397,13 +373,19 @@ Hendrickson-Lattman coefficients and R-free flags if present.</p>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.disorder.html" title="mmtbx.disorder package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.validation.molprobity.html" title="mmtbx.validation.molprobity package"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

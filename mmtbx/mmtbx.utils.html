@@ -1,34 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>mmtbx.utils package &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="../index.html" />
-    <link rel="up" title="mmtbx - macromolecular crystallography" href="mmtbx.html" /> 
-  </head>
-  <body role="document">
+    <link rel="next" title="mmtbx.validation package" href="mmtbx.validation.html" />
+    <link rel="prev" title="mmtbx.twinning package" href="mmtbx.twinning.html" /> 
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -38,6 +28,12 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.validation.html" title="mmtbx.validation package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.twinning.html" title="mmtbx.twinning package"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &#187;</li> 
       </ul>
@@ -57,8 +53,8 @@ This contains a number of routines used in phenix.refine and related programs,
 mainly concerned with the repetitive process of loading model and data files
 and initializing the appropriate objects.  Note that if you are writing a
 program that uses similar inputs, it may be significantly easier to use the
-unified input handling encapsulated in <a class="reference internal" href="mmtbx.command_line.html#module-mmtbx.command_line" title="mmtbx.command_line"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx.command_line</span></code></a>, which
-wraps much of the functionality in <a class="reference internal" href="#module-mmtbx.utils" title="mmtbx.utils"><code class="xref py py-mod docutils literal"><span class="pre">mmtbx.utils</span></code></a> while hiding the
+unified input handling encapsulated in <a class="reference internal" href="mmtbx.command_line.html#module-mmtbx.command_line" title="mmtbx.command_line"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.command_line</span></code></a>, which
+wraps much of the functionality in <a class="reference internal" href="#module-mmtbx.utils" title="mmtbx.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.utils</span></code></a> while hiding the
 messy details.</p>
 <dl class="function">
 <dt id="mmtbx.utils.assert_model_is_consistent">
@@ -98,7 +94,7 @@ messy details.</p>
 <dl class="class">
 <dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">detect_hydrogen_nomenclature_problem</code><span class="sig-paren">(</span><em>pdb_file</em>, <em>cif_files=()</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This allows us to avoid the following problems:
 1) a bug in automatic linking which deletes the monomer library definition</p>
 <blockquote>
@@ -107,65 +103,41 @@ by a sugar link.</div></blockquote>
 <ol class="arabic simple" start="2">
 <li>general issues with hydrogen nomenclature</li>
 </ol>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="87%" />
-<col width="13%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>bad_hydrogens: a list of problematic atom ID strings</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>n_asn_hd22: number of inappropriate ASN HD22 atoms</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>n_hydrogen: number of hydrogens missing geometry restraints</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>n_other: number of non-hydrogen atoms missing geometry restraints</td>
-<td>&nbsp;</td>
-</tr>
-</tbody>
-</table>
+<dl class="attribute">
+<dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem.bad_hydrogens">
+<code class="descname">bad_hydrogens</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.bad_hydrogens" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>a list of problematic atom ID strings</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem.n_asn_hd22">
+<code class="descname">n_asn_hd22</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_asn_hd22" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number of inappropriate ASN HD22 atoms</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem.n_hydrogen">
+<code class="descname">n_hydrogen</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_hydrogen" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number of hydrogens missing geometry restraints</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem.n_other">
+<code class="descname">n_other</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_other" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>number of non-hydrogen atoms missing geometry restraints</em></p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="mmtbx.utils.determine_data_and_flags">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">determine_data_and_flags</code><span class="sig-paren">(</span><em>reflection_file_server</em>, <em>parameters=None</em>, <em>data_parameter_scope=''</em>, <em>flags_parameter_scope=''</em>, <em>data_description=None</em>, <em>working_point_group=None</em>, <em>symmetry_safety_check=None</em>, <em>remark_r_free_flags_md5_hexdigest=None</em>, <em>extract_r_free_flags=True</em>, <em>keep_going=False</em>, <em>log=None</em>, <em>prefer_anomalous=None</em>, <em>force_non_anomalous=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Encapsulates logic for extracting experimental amplitudes and R-free flags
 from the given input file(s).  This expects that the standard parameter block
 is being used.  Determination of appropriate data labels will be as automatic
 as possible, or will give clear feedback when ambiguity exists.  If not
 found in the inputs, the R-free flags can be created if desired.</p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.determine_data_and_flags.data_as_f_obs" title="mmtbx.utils.determine_data_and_flags.data_as_f_obs"><code class="xref py py-obj docutils literal"><span class="pre">data_as_f_obs</span></code></a>(f_obs)</td>
-<td>Convert input data array to amplitudes, adjusting the data type and applying additional filters if necessary.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.determine_data_and_flags.extract_data" title="mmtbx.utils.determine_data_and_flags.extract_data"><code class="xref py py-obj docutils literal"><span class="pre">extract_data</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.determine_data_and_flags.extract_flags" title="mmtbx.utils.determine_data_and_flags.extract_flags"><code class="xref py py-obj docutils literal"><span class="pre">extract_flags</span></code></a>(data[,&nbsp;data_description])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.determine_data_and_flags.flags_as_r_free_flags" title="mmtbx.utils.determine_data_and_flags.flags_as_r_free_flags"><code class="xref py py-obj docutils literal"><span class="pre">flags_as_r_free_flags</span></code></a>(f_obs,&nbsp;r_free_flags[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.determine_data_and_flags.get_r_free_flags" title="mmtbx.utils.determine_data_and_flags.get_r_free_flags"><code class="xref py py-obj docutils literal"><span class="pre">get_r_free_flags</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.determine_data_and_flags.verify_r_free_flags_md5_hexdigest" title="mmtbx.utils.determine_data_and_flags.verify_r_free_flags_md5_hexdigest"><code class="xref py py-obj docutils literal"><span class="pre">verify_r_free_flags_md5_hexdigest</span></code></a>(...)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
 <dt id="mmtbx.utils.determine_data_and_flags.data_as_f_obs">
 <code class="descname">data_as_f_obs</code><span class="sig-paren">(</span><em>f_obs</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.data_as_f_obs" title="Permalink to this definition">¶</a></dt>
@@ -175,9 +147,9 @@ applying additional filters if necessary.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f_obs</strong> &#8211; selected input data</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f_obs</strong> – selected input data</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal"><span class="pre">cctbx.miller.array</span></code></a> of real numbers with observation
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.miller.array</span></code></a> of real numbers with observation
 type set to amplitudes</td>
 </tr>
 </tbody>
@@ -226,34 +198,7 @@ if not found.</p>
 <dl class="class">
 <dt id="mmtbx.utils.experimental_data_target_and_gradients">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">experimental_data_target_and_gradients</code><span class="sig-paren">(</span><em>fmodel</em>, <em>alpha_beta=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.grad_occ" title="mmtbx.utils.experimental_data_target_and_gradients.grad_occ"><code class="xref py py-obj docutils literal"><span class="pre">grad_occ</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.grad_sites_cart" title="mmtbx.utils.experimental_data_target_and_gradients.grad_sites_cart"><code class="xref py py-obj docutils literal"><span class="pre">grad_sites_cart</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.group_occupancy_grads" title="mmtbx.utils.experimental_data_target_and_gradients.group_occupancy_grads"><code class="xref py py-obj docutils literal"><span class="pre">group_occupancy_grads</span></code></a>([pdb_hierarchy,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.show" title="mmtbx.utils.experimental_data_target_and_gradients.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>([log])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.target" title="mmtbx.utils.experimental_data_target_and_gradients.target"><code class="xref py py-obj docutils literal"><span class="pre">target</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.update_xray_structure" title="mmtbx.utils.experimental_data_target_and_gradients.update_xray_structure"><code class="xref py py-obj docutils literal"><span class="pre">update_xray_structure</span></code></a>(xray_structure[,&nbsp;...])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.utils.experimental_data_target_and_gradients.grad_occ">
 <code class="descname">grad_occ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.grad_occ" title="Permalink to this definition">¶</a></dt>
@@ -294,49 +239,7 @@ if not found.</p>
 <dl class="class">
 <dt id="mmtbx.utils.extract_box_around_model_and_map">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">extract_box_around_model_and_map</code><span class="sig-paren">(</span><em>xray_structure</em>, <em>map_data</em>, <em>box_cushion</em>, <em>selection=None</em>, <em>density_select=None</em>, <em>threshold=None</em>, <em>get_half_height_width=None</em>, <em>soft_mask=False</em>, <em>soft_mask_radius=None</em>, <em>mask_atoms=False</em>, <em>mask_atoms_atom_radius=3.0</em>, <em>value_outside_atoms=None</em>, <em>keep_map_size=False</em>, <em>restrict_map_size=False</em>, <em>lower_bounds=None</em>, <em>upper_bounds=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients" title="mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients"><code class="xref py py-obj docutils literal"><span class="pre">box_map_coefficients</span></code></a>(d_min)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients_as_fft_map" title="mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients_as_fft_map"><code class="xref py py-obj docutils literal"><span class="pre">box_map_coefficients_as_fft_map</span></code></a>(d_min,&nbsp;...)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.cut_and_copy_map" title="mmtbx.utils.extract_box_around_model_and_map.cut_and_copy_map"><code class="xref py py-obj docutils literal"><span class="pre">cut_and_copy_map</span></code></a>([map_data])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.get_original_cs" title="mmtbx.utils.extract_box_around_model_and_map.get_original_cs"><code class="xref py py-obj docutils literal"><span class="pre">get_original_cs</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.get_range" title="mmtbx.utils.extract_box_around_model_and_map.get_range"><code class="xref py py-obj docutils literal"><span class="pre">get_range</span></code></a>(value_list[,&nbsp;threshold,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.get_shifted_cs" title="mmtbx.utils.extract_box_around_model_and_map.get_shifted_cs"><code class="xref py py-obj docutils literal"><span class="pre">get_shifted_cs</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.map_coefficients" title="mmtbx.utils.extract_box_around_model_and_map.map_coefficients"><code class="xref py py-obj docutils literal"><span class="pre">map_coefficients</span></code></a>(d_min,&nbsp;resolution_factor[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.select_box" title="mmtbx.utils.extract_box_around_model_and_map.select_box"><code class="xref py py-obj docutils literal"><span class="pre">select_box</span></code></a>(threshold[,&nbsp;xrs,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.shift_back" title="mmtbx.utils.extract_box_around_model_and_map.shift_back"><code class="xref py py-obj docutils literal"><span class="pre">shift_back</span></code></a>(pdb_hierarchy)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.write_ccp4_map" title="mmtbx.utils.extract_box_around_model_and_map.write_ccp4_map"><code class="xref py py-obj docutils literal"><span class="pre">write_ccp4_map</span></code></a>([file_name])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.write_xplor_map" title="mmtbx.utils.extract_box_around_model_and_map.write_xplor_map"><code class="xref py py-obj docutils literal"><span class="pre">write_xplor_map</span></code></a>([file_name])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients">
 <code class="descname">box_map_coefficients</code><span class="sig-paren">(</span><em>d_min</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients" title="Permalink to this definition">¶</a></dt>
@@ -402,13 +305,13 @@ if not found.</p>
 <dl class="class">
 <dt id="mmtbx.utils.f_000">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">f_000</code><span class="sig-paren">(</span><em>xray_structure=None</em>, <em>unit_cell_volume=None</em>, <em>solvent_fraction=None</em>, <em>mean_solvent_density=0.35</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.f_000" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="function">
 <dt id="mmtbx.utils.find_overlapping_selections">
 <code class="descclassname">mmtbx.utils.</code><code class="descname">find_overlapping_selections</code><span class="sig-paren">(</span><em>selections</em>, <em>selection_strings</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.find_overlapping_selections" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a list of atom selections (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><code class="xref py py-class docutils literal"><span class="pre">scitbx.array_family.flex.bool</span></code></a>
+<dd><p>Given a list of atom selections (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><code class="xref py py-class docutils literal notranslate"><span class="pre">scitbx.array_family.flex.bool</span></code></a>
 arrays) and corresponding selection strings, inspect the selections to
 determine whether any two arrays overlap.  Returns a tuple of the first pair
 of selection strings found to overlap, or None if all selections are unique.</p>
@@ -417,22 +320,7 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="class">
 <dt id="mmtbx.utils.fmodel_from_xray_structure">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">fmodel_from_xray_structure</code><span class="sig-paren">(</span><em>xray_structure</em>, <em>f_obs=None</em>, <em>params=None</em>, <em>r_free_flags_fraction=None</em>, <em>add_sigmas=False</em>, <em>twin_law=None</em>, <em>twin_fraction=None</em>, <em>target='ml'</em>, <em>out=None</em>, <em>merge_r_free_flags=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_from_xray_structure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.fmodel_from_xray_structure.Sorry_high_resolution_is_not_defined" title="mmtbx.utils.fmodel_from_xray_structure.Sorry_high_resolution_is_not_defined"><code class="xref py py-obj docutils literal"><span class="pre">Sorry_high_resolution_is_not_defined</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.fmodel_from_xray_structure.write_to_file" title="mmtbx.utils.fmodel_from_xray_structure.write_to_file"><code class="xref py py-obj docutils literal"><span class="pre">write_to_file</span></code></a>(file_name[,&nbsp;obs_type])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.utils.fmodel_from_xray_structure.Sorry_high_resolution_is_not_defined">
 <code class="descname">Sorry_high_resolution_is_not_defined</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_from_xray_structure.Sorry_high_resolution_is_not_defined" title="Permalink to this definition">¶</a></dt>
@@ -468,25 +356,7 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="class">
 <dt id="mmtbx.utils.guess_observation_type">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">guess_observation_type</code><span class="sig-paren">(</span><em>f_obs</em>, <em>label</em>, <em>xray_structure</em>, <em>r_free_flags=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.guess_observation_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.guess_observation_type.find_best" title="mmtbx.utils.guess_observation_type.find_best"><code class="xref py py-obj docutils literal"><span class="pre">find_best</span></code></a>(results)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.guess_observation_type.get_r_factor" title="mmtbx.utils.guess_observation_type.get_r_factor"><code class="xref py py-obj docutils literal"><span class="pre">get_r_factor</span></code></a>(f_obs,&nbsp;f_calc,&nbsp;...)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.guess_observation_type.mtz_object" title="mmtbx.utils.guess_observation_type.mtz_object"><code class="xref py py-obj docutils literal"><span class="pre">mtz_object</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="attribute">
 <dt id="mmtbx.utils.guess_observation_type.data_size">
 <code class="descname">data_size</code><em class="property"> = 500</em><a class="headerlink" href="#mmtbx.utils.guess_observation_type.data_size" title="Permalink to this definition">¶</a></dt>
@@ -537,19 +407,7 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="class">
 <dt id="mmtbx.utils.process_command_line_args">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">process_command_line_args</code><span class="sig-paren">(</span><em>args</em>, <em>cmd_cs=None</em>, <em>master_params=None</em>, <em>log=None</em>, <em>home_scope=None</em>, <em>absolute_angle_tolerance=0.01</em>, <em>absolute_length_tolerance=0.01</em>, <em>suppress_symmetry_related_errors=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_command_line_args" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.process_command_line_args.get_reflection_file_server" title="mmtbx.utils.process_command_line_args.get_reflection_file_server"><code class="xref py py-obj docutils literal"><span class="pre">get_reflection_file_server</span></code></a>()</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.utils.process_command_line_args.get_reflection_file_server">
 <code class="descname">get_reflection_file_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_command_line_args.get_reflection_file_server" title="Permalink to this definition">¶</a></dt>
@@ -560,19 +418,7 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="class">
 <dt id="mmtbx.utils.process_pdb_file_srv">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">process_pdb_file_srv</code><span class="sig-paren">(</span><em>crystal_symmetry=None</em>, <em>pdb_parameters=None</em>, <em>pdb_interpretation_params=None</em>, <em>stop_for_unknowns=None</em>, <em>log=None</em>, <em>cif_objects=None</em>, <em>cif_parameters=None</em>, <em>mon_lib_srv=None</em>, <em>ener_lib=None</em>, <em>use_neutron_distances=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_pdb_file_srv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.process_pdb_file_srv.process_pdb_files" title="mmtbx.utils.process_pdb_file_srv.process_pdb_files"><code class="xref py py-obj docutils literal"><span class="pre">process_pdb_files</span></code></a>([pdb_file_names,&nbsp;...])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.utils.process_pdb_file_srv.process_pdb_files">
 <code class="descname">process_pdb_files</code><span class="sig-paren">(</span><em>pdb_file_names=None</em>, <em>raw_records=None</em>, <em>pdb_inp=None</em>, <em>hierarchy=None</em>, <em>allow_missing_symmetry=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_pdb_file_srv.process_pdb_files" title="Permalink to this definition">¶</a></dt>
@@ -598,19 +444,7 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="class">
 <dt id="mmtbx.utils.set_map_to_value">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">set_map_to_value</code><span class="sig-paren">(</span><em>map_data</em>, <em>xray_structure</em>, <em>atom_radius</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.set_map_to_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.set_map_to_value.write_xplor_map" title="mmtbx.utils.set_map_to_value.write_xplor_map"><code class="xref py py-obj docutils literal"><span class="pre">write_xplor_map</span></code></a>(file_name)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.utils.set_map_to_value.write_xplor_map">
 <code class="descname">write_xplor_map</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.set_map_to_value.write_xplor_map" title="Permalink to this definition">¶</a></dt>
@@ -626,28 +460,7 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="class">
 <dt id="mmtbx.utils.shift_origin">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">shift_origin</code><span class="sig-paren">(</span><em>map_data</em>, <em>pdb_hierarchy=None</em>, <em>xray_structure=None</em>, <em>crystal_symmetry=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.shift_origin.get_original_cs" title="mmtbx.utils.shift_origin.get_original_cs"><code class="xref py py-obj docutils literal"><span class="pre">get_original_cs</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.shift_origin.shift_back" title="mmtbx.utils.shift_origin.shift_back"><code class="xref py py-obj docutils literal"><span class="pre">shift_back</span></code></a>(pdb_hierarchy)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.shift_origin.write_map_file" title="mmtbx.utils.shift_origin.write_map_file"><code class="xref py py-obj docutils literal"><span class="pre">write_map_file</span></code></a>(file_name)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.shift_origin.write_model_file" title="mmtbx.utils.shift_origin.write_model_file"><code class="xref py py-obj docutils literal"><span class="pre">write_model_file</span></code></a>(file_name)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.utils.shift_origin.get_original_cs">
 <code class="descname">get_original_cs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin.get_original_cs" title="Permalink to this definition">¶</a></dt>
@@ -673,22 +486,7 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="class">
 <dt id="mmtbx.utils.states">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">states</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>xray_structure=None</em>, <em>counter=0</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.states" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.states.add" title="mmtbx.utils.states.add"><code class="xref py py-obj docutils literal"><span class="pre">add</span></code></a>(sites_cart)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.states.write" title="mmtbx.utils.states.write"><code class="xref py py-obj docutils literal"><span class="pre">write</span></code></a>(file_name[,&nbsp;crystal_symmetry])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.utils.states.add">
 <code class="descname">add</code><span class="sig-paren">(</span><em>sites_cart</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.states.add" title="Permalink to this definition">¶</a></dt>
@@ -709,7 +507,7 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="class">
 <dt id="mmtbx.utils.xray_structures_from_processed_pdb_file">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">xray_structures_from_processed_pdb_file</code><span class="sig-paren">(</span><em>processed_pdb_file</em>, <em>scattering_table</em>, <em>d_min</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.xray_structures_from_processed_pdb_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 </div>
@@ -721,37 +519,7 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="class">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle">
 <em class="property">class </em><code class="descclassname">mmtbx.utils.fab_elbow_angle.</code><code class="descname">fab_elbow_angle</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>chain_id_light='L'</em>, <em>chain_id_heavy='H'</em>, <em>limit_light=107</em>, <em>limit_heavy=113</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.cross_product_as_unit_axis" title="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.cross_product_as_unit_axis"><code class="xref py py-obj docutils literal"><span class="pre">cross_product_as_unit_axis</span></code></a>(a,&nbsp;b)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_angle" title="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_angle"><code class="xref py py-obj docutils literal"><span class="pre">get_angle</span></code></a>(vec1,&nbsp;vec2[,&nbsp;larger])</td>
-<td>retrun the larger angle between vec1 and vec2</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_eigenvector" title="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_eigenvector"><code class="xref py py-obj docutils literal"><span class="pre">get_eigenvector</span></code></a>(eigen)</td>
-<td>Get the eigen vector for eigen value 1 and normalize it</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_pdb_chains" title="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_pdb_chains"><code class="xref py py-obj docutils literal"><span class="pre">get_pdb_chains</span></code></a>()</td>
-<td>Create seperate pdb hierarchy for each on the chains we want to align</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_transformation" title="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_transformation"><code class="xref py py-obj docutils literal"><span class="pre">get_transformation</span></code></a>(fixed_selection,&nbsp;...)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.norm_vec" title="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.norm_vec"><code class="xref py py-obj docutils literal"><span class="pre">norm_vec</span></code></a>(start,&nbsp;end)</td>
-<td>retruns normalized vector that starts at &#8220;stat&#8221; and ends at &#8220;end&#8221;</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.select_str" title="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.select_str"><code class="xref py py-obj docutils literal"><span class="pre">select_str</span></code></a>(chain_ID_H,&nbsp;limit_H,&nbsp;chain_ID_L,&nbsp;...)</td>
-<td>create selection strings for the heavy and light chains</td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.cross_product_as_unit_axis">
 <code class="descname">cross_product_as_unit_axis</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.cross_product_as_unit_axis" title="Permalink to this definition">¶</a></dt>
@@ -783,7 +551,7 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="method">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.norm_vec">
 <code class="descname">norm_vec</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.norm_vec" title="Permalink to this definition">¶</a></dt>
-<dd><p>retruns normalized vector that starts at &#8220;stat&#8221; and ends at &#8220;end&#8221;</p>
+<dd><p>retruns normalized vector that starts at “stat” and ends at “end”</p>
 </dd></dl>
 
 <dl class="method">
@@ -823,9 +591,7 @@ separating the variable and constant parts of the chains</p>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">mmtbx.utils package</a><ul>
-<li><a class="reference internal" href="#module-mmtbx.utils">Module contents</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#module-mmtbx.utils">Module contents</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-mmtbx.utils.fab_elbow_angle">mmtbx.utils.fab_elbow_angle module</a></li>
 <li><a class="reference internal" href="#mmtbx-utils-ncs-utils-module">mmtbx.utils.ncs_utils module</a></li>
@@ -834,21 +600,29 @@ separating the variable and constant parts of the chains</p>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mmtbx.twinning.html"
+                        title="previous chapter">mmtbx.twinning package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mmtbx.validation.html"
+                        title="next chapter">mmtbx.validation package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/mmtbx/mmtbx.utils.txt"
+      <li><a href="../_sources/mmtbx/mmtbx.utils.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -864,13 +638,19 @@ separating the variable and constant parts of the chains</p>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.validation.html" title="mmtbx.validation package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mmtbx.twinning.html" title="mmtbx.twinning package"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

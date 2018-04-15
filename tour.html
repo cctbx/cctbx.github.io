@@ -1,35 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Tour of the cctbx &#8212; CCTBX Developer documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     'None',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="CCTBX Developer documentation" href="index.html" />
     <link rel="next" title="SCons - the backbone of the cctbx build system" href="build_system.html" />
     <link rel="prev" title="Installation overview" href="installation.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -62,8 +51,8 @@
 <li><a class="reference internal" href="#tour-of-the-cctbx" id="id1">Tour of the cctbx</a><ul>
 <li><a class="reference internal" href="#the-beach-in-the-box" id="id2">The beach in the box</a></li>
 <li><a class="reference internal" href="#at-the-very-bottom" id="id3">At the very bottom</a></li>
-<li><a class="reference internal" href="#scitbx-array-family-flex" id="id4"><code class="docutils literal"><span class="pre">scitbx.array_family.flex</span></code></a></li>
-<li><a class="reference internal" href="#cctbx-array-family-flex" id="id5"><code class="docutils literal"><span class="pre">cctbx.array_family.flex</span></code></a></li>
+<li><a class="reference internal" href="#scitbx-array-family-flex" id="id4"><code class="docutils literal notranslate"><span class="pre">scitbx.array_family.flex</span></code></a></li>
+<li><a class="reference internal" href="#cctbx-array-family-flex" id="id5"><code class="docutils literal notranslate"><span class="pre">cctbx.array_family.flex</span></code></a></li>
 <li><a class="reference internal" href="#a-balancing-act" id="id6">A balancing act</a></li>
 <li><a class="reference internal" href="#hybrid-systems" id="id7">Hybrid systems</a></li>
 <li><a class="reference internal" href="#building-bridges" id="id8">Building bridges</a></li>
@@ -77,7 +66,7 @@
 <p>If you go to the beach you will find massive amounts of a material known
 to crystallographers as quartz, which in this case is just a fancy word
 for sand. As an example here is the cctbx way of playing in the sandbox:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">xray</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">xray</span>
 <span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">crystal</span>
 <span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="k">import</span> <span class="n">flex</span>
 
@@ -100,7 +89,7 @@ for sand. As an example here is the cctbx way of playing in the sandbox:</p>
 </pre></div>
 </div>
 <p>Running this script with <a class="reference external" href="http://www.python.org/">Python</a> produces the output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Number</span> <span class="n">of</span> <span class="n">scatterers</span><span class="p">:</span> <span class="mi">2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Number</span> <span class="n">of</span> <span class="n">scatterers</span><span class="p">:</span> <span class="mi">2</span>
 <span class="n">It</span> <span class="n">special</span> <span class="n">positions</span><span class="p">:</span> <span class="mi">2</span>
 <span class="n">Unit</span> <span class="n">cell</span><span class="p">:</span> <span class="p">(</span><span class="mf">5.01</span><span class="p">,</span> <span class="mf">5.01</span><span class="p">,</span> <span class="mf">5.47</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
 <span class="n">Space</span> <span class="n">group</span><span class="p">:</span> <span class="n">P</span> <span class="mi">62</span> <span class="mi">2</span> <span class="mi">2</span> <span class="p">(</span><span class="n">No</span><span class="o">.</span> <span class="mi">180</span><span class="p">)</span>
@@ -111,39 +100,39 @@ for sand. As an example here is the cctbx way of playing in the sandbox:</p>
 </div>
 <p>Note that the script is pure Python, even though at first sight the
 format might appear to be specifically designed for crystallographic
-data. Now let&#8217;s give the <code class="docutils literal"><span class="pre">quartz_structure</span></code> a rest break at the
+data. Now let’s give the <code class="docutils literal notranslate"><span class="pre">quartz_structure</span></code> a rest break at the
 beach:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="k">import</span> <span class="n">easy_pickle</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="k">import</span> <span class="n">easy_pickle</span>
 <span class="n">easy_pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">&quot;beach&quot;</span><span class="p">,</span> <span class="n">quartz_structure</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This creates a file with the name <code class="docutils literal"><span class="pre">beach</span></code> containing all the
-information required for restoring the <code class="docutils literal"><span class="pre">quartz_structure</span></code> <strong>object</strong>,
+<p>This creates a file with the name <code class="docutils literal notranslate"><span class="pre">beach</span></code> containing all the
+information required for restoring the <code class="docutils literal notranslate"><span class="pre">quartz_structure</span></code> <strong>object</strong>,
 which is the technical term for the entire hierarchy of data
-referenced by the <code class="docutils literal"><span class="pre">quartz_structure</span></code> identifier in the Python
-script. A very important point to notice is that the <code class="docutils literal"><span class="pre">easy_pickle</span></code>
-module used for storing the <code class="docutils literal"><span class="pre">quartz_structure</span></code> is not specific to our
-object. <code class="docutils literal"><span class="pre">easy_pickle</span></code> will store and restore (almost) any
+referenced by the <code class="docutils literal notranslate"><span class="pre">quartz_structure</span></code> identifier in the Python
+script. A very important point to notice is that the <code class="docutils literal notranslate"><span class="pre">easy_pickle</span></code>
+module used for storing the <code class="docutils literal notranslate"><span class="pre">quartz_structure</span></code> is not specific to our
+object. <code class="docutils literal notranslate"><span class="pre">easy_pickle</span></code> will store and restore (almost) any
 user-defined Python object.</p>
-<p>Being automatically generated, the <code class="docutils literal"><span class="pre">beach</span></code> file is not pretty to look
+<p>Being automatically generated, the <code class="docutils literal notranslate"><span class="pre">beach</span></code> file is not pretty to look
 at, but this is not important because we can easily resurrect the
 original object to extract any information that we might be interested
 in. In a potentially <em>different script</em> on a potentially <em>different
 computer</em> with a potentially <em>different operating system</em>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="k">import</span> <span class="n">easy_pickle</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="k">import</span> <span class="n">easy_pickle</span>
 <span class="n">quartz_structure</span> <span class="o">=</span> <span class="n">easy_pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;beach&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note that it is not necessary to explicitly import the relevant cctbx
-modules in this script. Python&#8217;s <code class="docutils literal"><span class="pre">pickle</span></code> module does it for us
-automatically after inspecting the <code class="docutils literal"><span class="pre">beach</span></code> file.</p>
-<p>In practice a &#8220;live object&#8221; in memory is much more valuable than
+modules in this script. Python’s <code class="docutils literal notranslate"><span class="pre">pickle</span></code> module does it for us
+automatically after inspecting the <code class="docutils literal notranslate"><span class="pre">beach</span></code> file.</p>
+<p>In practice a “live object” in memory is much more valuable than
 information stored in a good-old file format because there are often
 many different questions one can ask about particular real-world
 objects. For example, we could ask: What are the site symmetries of the
-atoms in the <code class="docutils literal"><span class="pre">quartz_structure</span></code>? Here is how we ask that question in
-Python&#8217;s language:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">scatterer</span> <span class="ow">in</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">scatterers</span><span class="p">():</span>
+atoms in the <code class="docutils literal notranslate"><span class="pre">quartz_structure</span></code>? Here is how we ask that question in
+Python’s language:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">scatterer</span> <span class="ow">in</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">scatterers</span><span class="p">():</span>
   <span class="nb">print</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">:&quot;</span> <span class="o">%</span> <span class="n">scatterer</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%8.4f</span><span class="s2"> </span><span class="si">%8.4f</span><span class="s2"> </span><span class="si">%8.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">scatterer</span><span class="o">.</span><span class="n">site</span>
   <span class="n">site_symmetry</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">site_symmetry</span><span class="p">(</span><span class="n">scatterer</span><span class="o">.</span><span class="n">site</span><span class="p">)</span>
   <span class="nb">print</span> <span class="s2">&quot;  point group type:&quot;</span><span class="p">,</span> <span class="n">site_symmetry</span><span class="o">.</span><span class="n">point_group_type</span><span class="p">()</span>
@@ -151,7 +140,7 @@ Python&#8217;s language:</p>
 </pre></div>
 </div>
 <p>Answer:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Si</span><span class="p">:</span>   <span class="mf">0.5000</span>   <span class="mf">0.5000</span>   <span class="mf">0.3333</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Si</span><span class="p">:</span>   <span class="mf">0.5000</span>   <span class="mf">0.5000</span>   <span class="mf">0.3333</span>
   <span class="n">point</span> <span class="n">group</span> <span class="nb">type</span><span class="p">:</span> <span class="mi">222</span>
   <span class="n">special</span> <span class="n">position</span> <span class="n">operator</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span>
 <span class="n">O</span><span class="p">:</span>   <span class="mf">0.1970</span>  <span class="o">-</span><span class="mf">0.1970</span>   <span class="mf">0.8333</span>
@@ -161,12 +150,12 @@ Python&#8217;s language:</p>
 </div>
 <p>Another question we could ask: What are the structure factors up to
 a resolution of d_min=2 Angstrom?</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f_calc</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">structure_factors</span><span class="p">(</span><span class="n">d_min</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">f_calc</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f_calc</span> <span class="o">=</span> <span class="n">quartz_structure</span><span class="o">.</span><span class="n">structure_factors</span><span class="p">(</span><span class="n">d_min</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">f_calc</span><span class="p">()</span>
 <span class="n">f_calc</span><span class="o">.</span><span class="n">show_summary</span><span class="p">()</span><span class="o">.</span><span class="n">show_array</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Answer:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Miller</span> <span class="n">array</span> <span class="n">info</span><span class="p">:</span> <span class="kc">None</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Miller</span> <span class="n">array</span> <span class="n">info</span><span class="p">:</span> <span class="kc">None</span>
 <span class="n">Type</span> <span class="n">of</span> <span class="n">data</span><span class="p">:</span> <span class="n">complex_double</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">7</span>
 <span class="n">Type</span> <span class="n">of</span> <span class="n">sigmas</span><span class="p">:</span> <span class="kc">None</span>
 <span class="n">Number</span> <span class="n">of</span> <span class="n">Miller</span> <span class="n">indices</span><span class="p">:</span> <span class="mi">7</span>
@@ -182,13 +171,13 @@ a resolution of d_min=2 Angstrom?</p>
 <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="mf">4.95031293935</span><span class="o">+</span><span class="mf">8.57419352432</span><span class="n">j</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now we could turn our attention to the new <code class="docutils literal"><span class="pre">f_calc</span></code> object and start
+<p>Now we could turn our attention to the new <code class="docutils literal notranslate"><span class="pre">f_calc</span></code> object and start
 asking different questions. For example: What are the d-spacings?</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f_calc</span><span class="o">.</span><span class="n">d_spacings</span><span class="p">()</span><span class="o">.</span><span class="n">show_array</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f_calc</span><span class="o">.</span><span class="n">d_spacings</span><span class="p">()</span><span class="o">.</span><span class="n">show_array</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Answer:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="mf">4.33878727296</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="mf">4.33878727296</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="mf">3.39927502294</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="mf">2.31368408207</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="mf">2.505</span>
@@ -199,12 +188,12 @@ asking different questions. For example: What are the d-spacings?</p>
 </div>
 <p>Sometimes questions alone are not enough. We actually want to do
 something.  For example select only low-resolution intensities:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">low_resolution_only</span> <span class="o">=</span> <span class="n">f_calc</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f_calc</span><span class="o">.</span><span class="n">d_spacings</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">2.5</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">low_resolution_only</span> <span class="o">=</span> <span class="n">f_calc</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f_calc</span><span class="o">.</span><span class="n">d_spacings</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">2.5</span><span class="p">)</span>
 <span class="n">low_resolution_only</span><span class="o">.</span><span class="n">show_array</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Answer:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mf">11.3483432953</span><span class="o">-</span><span class="mf">3.90019504038e-16</span><span class="n">j</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mf">11.3483432953</span><span class="o">-</span><span class="mf">3.90019504038e-16</span><span class="n">j</span><span class="p">)</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mf">14.9620947104</span><span class="o">-</span><span class="mf">25.915108226</span><span class="n">j</span><span class="p">)</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="mf">12.8387095938</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span>
 </pre></div>
@@ -215,7 +204,7 @@ Python based system, the cctbx does lend itself to being extended and
 embedded in order to form answers to questions that one might come
 across. The cctbx has now reached a degree of completeness where this
 can quite often be done without venturing into the deeper and darker
-layers, the C++ core that we haven&#8217;t so far presented.</p>
+layers, the C++ core that we haven’t so far presented.</p>
 </div>
 <div class="section" id="at-the-very-bottom">
 <h2><a class="toc-backref" href="#id3">At the very bottom</a><a class="headerlink" href="#at-the-very-bottom" title="Permalink to this headline">¶</a></h2>
@@ -227,15 +216,15 @@ direction). Certainly, future generations will pity us for having to
 resort to counting bits and bytes in order to get our work done
 (imagine yourself with a set of <a class="reference external" href="http://bca.cryst.bbk.ac.uk/bca/CNews/1998/Dec98/strips.html">Beevers-Lipson strips</a> getting ready
 for a structure factor calculation).</p>
-<p>Some core components of the cctbx started out as &#8216;C&#8217; libraries (SgInfo,
-AtomInfo). Moving from &#8216;C&#8217; to C++ including the Standard Template
+<p>Some core components of the cctbx started out as ‘C’ libraries (SgInfo,
+AtomInfo). Moving from ‘C’ to C++ including the Standard Template
 Library (STL) was a major step away from the bits-and-bytes counting
 era. For example, switching to C++ exception handling for dealing with
 errors reduced the source code size significantly and resulted in much
-improved readability. Equally important, using <code class="docutils literal"><span class="pre">std::vector</span></code> for
+improved readability. Equally important, using <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> for
 managing dynamically allocated memory was a huge improvement over using
-&#8216;C&#8217; style raw memory allocation functions (<code class="docutils literal"><span class="pre">malloc()</span></code> and <code class="docutils literal"><span class="pre">free()</span></code>).
-However, the idea of using <code class="docutils literal"><span class="pre">std::vector</span></code> throughout the cctbx wasn&#8217;t
+‘C’ style raw memory allocation functions (<code class="docutils literal notranslate"><span class="pre">malloc()</span></code> and <code class="docutils literal notranslate"><span class="pre">free()</span></code>).
+However, the idea of using <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> throughout the cctbx wasn’t
 very satisfactory: for small arrays such as 3x3 rotation matrices the
 dynamic memory allocation overhead can become a rate-limiting factor,
 and for large arrays the copy-semantics enforce a coding style that
@@ -243,16 +232,16 @@ is difficult to follow. For example, consider a member function of a
 space group class that computes an array of multiplicities given an
 array of Miller indices. The scalar version of this function would
 certainly look like this:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">multiplicity</span><span class="p">(</span><span class="n">miller</span><span class="p">::</span><span class="n">index</span><span class="o">&lt;&gt;</span> <span class="n">const</span><span class="o">&amp;</span> <span class="n">h</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">multiplicity</span><span class="p">(</span><span class="n">miller</span><span class="p">::</span><span class="n">index</span><span class="o">&lt;&gt;</span> <span class="n">const</span><span class="o">&amp;</span> <span class="n">h</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Here is the direct translation to a vector version:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">multiplicity</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">miller</span><span class="p">::</span><span class="n">index</span><span class="o">&lt;&gt;</span> <span class="o">&gt;</span> <span class="n">const</span><span class="o">&amp;</span> <span class="n">h</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">multiplicity</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">miller</span><span class="p">::</span><span class="n">index</span><span class="o">&lt;&gt;</span> <span class="o">&gt;</span> <span class="n">const</span><span class="o">&amp;</span> <span class="n">h</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>However, <code class="docutils literal"><span class="pre">std::vector</span></code> has deep-copy semantics (the same is true for
-<code class="docutils literal"><span class="pre">std::valarray</span></code>). This results in the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>std::vector&lt;int&gt; multiplicity(std::vector&lt;miller::index&lt;&gt; &gt; const&amp; h)
+<p>However, <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> has deep-copy semantics (the same is true for
+<code class="docutils literal notranslate"><span class="pre">std::valarray</span></code>). This results in the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>std::vector&lt;int&gt; multiplicity(std::vector&lt;miller::index&lt;&gt; &gt; const&amp; h)
 {
   std::vector&lt;int&gt; result; // Constructs the array.
   result.reserve(h.size()); // Optional, but improves performance.
@@ -263,19 +252,19 @@ certainly look like this:</p>
 }
 </pre></div>
 </div>
-<p>&#8220;Ouch&#8221; indicates that the <em>entire array</em> is copied when the function
+<p>“Ouch” indicates that the <em>entire array</em> is copied when the function
 returns!  While this might still be acceptable for arrays of Miller
 indices which are mostly of moderate size, it becomes a real burden
 when dealing with large maps. But returning to the example, in order to
 avoid the copying overhead the function above could be coded as:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">multiplicity</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">miller</span><span class="p">::</span><span class="n">index</span><span class="o">&lt;&gt;</span> <span class="o">&gt;</span> <span class="n">const</span><span class="o">&amp;</span> <span class="n">h</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">multiplicity</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">miller</span><span class="p">::</span><span class="n">index</span><span class="o">&lt;&gt;</span> <span class="o">&gt;</span> <span class="n">const</span><span class="o">&amp;</span> <span class="n">h</span><span class="p">,</span>
                   <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;&amp;</span> <span class="n">result</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Unfortunately this is not only harder to read, but also more difficult
 to use because the result has to be instantiated before the function
 is called. This prevents convenient chaining of the type used in the
-<code class="docutils literal"><span class="pre">quartz_structure</span></code> examples above.</p>
+<code class="docutils literal notranslate"><span class="pre">quartz_structure</span></code> examples above.</p>
 <p>Other major problems are the absence of a multi-dimensional array
 type in the STL and limited support for algebraic array operations. We
 considered using <a class="reference external" href="http://www.oonumerics.org/blitz/">Blitz++</a>, and <a class="reference external" href="http://www.boost.org/libs/multi_array/doc/">boost::multi_array</a>, but these do only
@@ -287,7 +276,7 @@ implementing a family of small and large array types that address all
 our requirements and are as uniform as possible: the scitbx array family.</p>
 </div>
 <div class="section" id="scitbx-array-family-flex">
-<h2><a class="toc-backref" href="#id4"><code class="docutils literal"><span class="pre">scitbx.array_family.flex</span></code></a><a class="headerlink" href="#scitbx-array-family-flex" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4"><code class="docutils literal notranslate"><span class="pre">scitbx.array_family.flex</span></code></a><a class="headerlink" href="#scitbx-array-family-flex" title="Permalink to this headline">¶</a></h2>
 <p>The scitbx array family forms the backbone of the cctbx project. Viewed
 from the C++ side the family is quite big and diverse, but viewed from
 the Python side things are a lot simpler, as usual. All small C++ array
@@ -295,14 +284,14 @@ types are transparently mapped to standard Python tuples. This gives
 immediate access to the rich and familiar set of standard tools for
 manipulating tuples. All large array types are transparently and
 uniformly mapped to a group of Python types in the
-<code class="docutils literal"><span class="pre">scitbx.array_family.flex</span></code> module. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scitbx.array_family</span> <span class="k">import</span> <span class="n">flex</span>
+<code class="docutils literal notranslate"><span class="pre">scitbx.array_family.flex</span></code> module. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scitbx.array_family</span> <span class="k">import</span> <span class="n">flex</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># a 1-dimensional array of 30 double-precision values</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">int</span><span class="p">(</span><span class="n">flex</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># a 2-dimensional array of 2x3 integer values</span>
 </pre></div>
 </div>
-<p>For numeric element types the <code class="docutils literal"><span class="pre">flex</span></code> type supports algebraic operations:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">flex</span><span class="o">.</span><span class="n">double</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<p>For numeric element types the <code class="docutils literal notranslate"><span class="pre">flex</span></code> type supports algebraic operations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">flex</span><span class="o">.</span><span class="n">double</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">flex</span><span class="o">.</span><span class="n">double</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
 <span class="go">(4.0, 4.0, 4.0)</span>
@@ -310,33 +299,33 @@ uniformly mapped to a group of Python types in the
 <span class="go">(2.0, 2.0, 2.0)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">flex</span></code> type also supports a large number of other functions
-(<code class="docutils literal"><span class="pre">abs</span></code>, <code class="docutils literal"><span class="pre">sin</span></code>, <code class="docutils literal"><span class="pre">pow</span></code>, etc.), slicing, and as seen in the
-<code class="docutils literal"><span class="pre">quartz_structure</span></code> example above, pickling.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">flex</span></code> type also supports a large number of other functions
+(<code class="docutils literal notranslate"><span class="pre">abs</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">pow</span></code>, etc.), slicing, and as seen in the
+<code class="docutils literal notranslate"><span class="pre">quartz_structure</span></code> example above, pickling.</p>
 <p>If all this looks similar to the popular <a class="reference external" href="http://numeric.scipy.org/">Numeric</a> module: it is at the
 surface. However, there are two very important differences:</p>
 <ul class="simple">
-<li>Under the hood the <code class="docutils literal"><span class="pre">flex</span></code> types are instantiations of a C++ array type
+<li>Under the hood the <code class="docutils literal notranslate"><span class="pre">flex</span></code> types are instantiations of a C++ array type
 that resembles familiar STL container types as much as possible.
-In contrast Numeric presents itself with a raw &#8216;C&#8217; API.</li>
-<li>It is straightforward to implement other <code class="docutils literal"><span class="pre">flex</span></code> types with custom
+In contrast Numeric presents itself with a raw ‘C’ API.</li>
+<li>It is straightforward to implement other <code class="docutils literal notranslate"><span class="pre">flex</span></code> types with custom
 user-defined element types, even outside the scitbx module. This
 would be extremely difficult to do with Numeric, and is virtually
 impossible if the user-defined types are implemented in C++.</li>
 </ul>
 </div>
 <div class="section" id="cctbx-array-family-flex">
-<h2><a class="toc-backref" href="#id5"><code class="docutils literal"><span class="pre">cctbx.array_family.flex</span></code></a><a class="headerlink" href="#cctbx-array-family-flex" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">cctbx.array_family.flex</span></code> inherits all <code class="docutils literal"><span class="pre">flex</span></code> types from the
-<code class="docutils literal"><span class="pre">scitbx.array_family.flex</span></code> module and adds a few types specific to
+<h2><a class="toc-backref" href="#id5"><code class="docutils literal notranslate"><span class="pre">cctbx.array_family.flex</span></code></a><a class="headerlink" href="#cctbx-array-family-flex" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">cctbx.array_family.flex</span></code> inherits all <code class="docutils literal notranslate"><span class="pre">flex</span></code> types from the
+<code class="docutils literal notranslate"><span class="pre">scitbx.array_family.flex</span></code> module and adds a few types specific to
 the cctbx module, for example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="k">import</span> <span class="n">flex</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="k">import</span> <span class="n">flex</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">miller_index</span><span class="p">(((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">hendrickson_lattman</span><span class="p">(((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p>Another example is <code class="docutils literal"><span class="pre">flex.xray_scatterer</span></code> used in the
-<code class="docutils literal"><span class="pre">quartz_structure</span></code> above.  The cctbx specific C++ code for
+<p>Another example is <code class="docutils literal notranslate"><span class="pre">flex.xray_scatterer</span></code> used in the
+<code class="docutils literal notranslate"><span class="pre">quartz_structure</span></code> above.  The cctbx specific C++ code for
 establishing these Python types is fairly minimal (about 470 lines for
 exposing 6 types, including full pickle support and all copyright
 statements). This approach can therefore be easily adopted for
@@ -344,15 +333,15 @@ user-defined types in other modules.</p>
 </div>
 <div class="section" id="a-balancing-act">
 <h2><a class="toc-backref" href="#id6">A balancing act</a><a class="headerlink" href="#a-balancing-act" title="Permalink to this headline">¶</a></h2>
-<p>Python&#8217;s <strong>convenience of use</strong> is directly related to the way the
+<p>Python’s <strong>convenience of use</strong> is directly related to the way the
 Python type system works: all type information is evaluated at runtime.
 For example consider this trivial function:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
 <p>It works instantly for many different argument types:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># integer values</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># integer values</span>
 <span class="go">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plus</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="n">j</span><span class="p">)</span> <span class="c1"># complex values</span>
 <span class="go">(3+5j)</span>
@@ -360,15 +349,15 @@ For example consider this trivial function:</p>
 <span class="go">[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</span>
 </pre></div>
 </div>
-<p>It works because the meaning of <code class="docutils literal"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> is determined at runtime
-based on the actual types of <code class="docutils literal"><span class="pre">a</span></code> and <code class="docutils literal"><span class="pre">b</span></code>.</p>
+<p>It works because the meaning of <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> is determined at runtime
+based on the actual types of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
 <p>The <strong>runtime efficiency</strong> of C++ code is directly related to the way
 the C++ type system works: type information is usually evaluated at
 compile-time (virtual functions are an exception which we will not
 consider here). Fortunately C++ has a very powerful mechanism that
 helps us avoid explicitly coding polymorphic functions over and over
 again:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">&lt;</span><span class="n">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="n">T</span> <span class="n">plus</span><span class="p">(</span><span class="n">T</span> <span class="n">const</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">const</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
@@ -376,8 +365,8 @@ again:</p>
 </pre></div>
 </div>
 <p>This template function is automatically <em>instantiated</em> for a given type
-<code class="docutils literal"><span class="pre">T</span></code> as used:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<code class="docutils literal notranslate"><span class="pre">T</span></code> as used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="nb">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="nb">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">plus</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="o">//</span> <span class="n">implicitly</span> <span class="n">instantiates</span> <span class="n">plus</span> <span class="k">with</span> <span class="n">T</span><span class="o">==</span><span class="nb">int</span>
 </pre></div>
@@ -393,7 +382,7 @@ copy of the corresponding machine language instructions tailored for
 the specific types involved. This point may seem subtle at first, but
 being overly generous with the use of C++ compile-time polymorphism can
 lead to very large executable sizes and excessive compile times.</p>
-<p>A comparison of the <code class="docutils literal"><span class="pre">plus</span></code> Python function and its C++ counterpart
+<p>A comparison of the <code class="docutils literal notranslate"><span class="pre">plus</span></code> Python function and its C++ counterpart
 shows that the notational overhead of the C++ syntax can easily double
 the size of the source code. Therefore a programmer, given the choice,
 will naturally lean towards the Python solution until the runtime
@@ -406,7 +395,7 @@ important to carefully consider the best balance.</p>
 <h2><a class="toc-backref" href="#id7">Hybrid systems</a><a class="headerlink" href="#hybrid-systems" title="Permalink to this headline">¶</a></h2>
 <p>Considerations of the type discussed in the previous section directly
 lead to the following situation:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">flex</span><span class="o">.</span><span class="n">int</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">flex</span><span class="o">.</span><span class="n">int</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">flex</span><span class="o">.</span><span class="n">double</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
 <span class="go">TypeError: unsupported operand type(s) for *:</span>
@@ -416,22 +405,22 @@ lead to the following situation:</p>
 </div>
 <p>In passing we note that there is a simple solution which will produce
 the desired result:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">as_double</span><span class="p">()</span> <span class="o">*</span> <span class="n">b</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">as_double</span><span class="p">()</span> <span class="o">*</span> <span class="n">b</span>
 </pre></div>
 </div>
-<p>However, for the purpose of this discussion let&#8217;s pretend that this
+<p>However, for the purpose of this discussion let’s pretend that this
 solution does not exist. Of course the first question is: what is
 the reason for the apparently stupid limitation?</p>
-<p>As mentioned before, the Python <code class="docutils literal"><span class="pre">flex</span></code> types are implemented as
+<p>As mentioned before, the Python <code class="docutils literal notranslate"><span class="pre">flex</span></code> types are implemented as
 instantiations of C++ class templates. This ensures that all array
 operations are very fast. However, from the discussion in the previous
 section it follows that exposing the full class with its many member
-functions to Python <strong>for each element type</strong> (<code class="docutils literal"><span class="pre">int</span></code>, <code class="docutils literal"><span class="pre">double</span></code>,
-<code class="docutils literal"><span class="pre">miller::index&lt;&gt;</span></code>, etc.) creates very sizable object files. If only
-<em>homogeneous</em> operators (<code class="docutils literal"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">int</span></code>, <code class="docutils literal"><span class="pre">double</span> <span class="pre">*</span> <span class="pre">double</span></code>, etc.) are
+functions to Python <strong>for each element type</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>,
+<code class="docutils literal notranslate"><span class="pre">miller::index&lt;&gt;</span></code>, etc.) creates very sizable object files. If only
+<em>homogeneous</em> operators (<code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">*</span> <span class="pre">double</span></code>, etc.) are
 used the combined size of the object files scales linearly with the
 number of element types involved. However, if the library is expanded
-to support <em>heterogeneous</em> operators (<code class="docutils literal"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">double</span></code>, <code class="docutils literal"><span class="pre">double</span> <span class="pre">*</span>
+to support <em>heterogeneous</em> operators (<code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">*</span> <span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">*</span>
 <span class="pre">int</span></code>, etc.) the combined object files grow proportional to the square
 of the number of array element types involved! With current technology
 this is simply prohibitive.</p>
@@ -451,7 +440,7 @@ section.</p>
 All Python/C++ bindings in the cctbx project are implemented using this
 library. Here is a simplified example of how it works in practice:</p>
 <p>This is the C++ class that we want to use from Python:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>//! Parallelepiped that contains an asymmetric unit.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>//! Parallelepiped that contains an asymmetric unit.
 class brick
 {
   public:
@@ -472,7 +461,7 @@ class brick
 </pre></div>
 </div>
 <p>These are the corresponding Boost.Python bindings:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">class_</span><span class="o">&lt;</span><span class="n">brick</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;brick&quot;</span><span class="p">,</span> <span class="n">no_init</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">class_</span><span class="o">&lt;</span><span class="n">brick</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;brick&quot;</span><span class="p">,</span> <span class="n">no_init</span><span class="p">)</span>
   <span class="o">.</span><span class="n">def</span><span class="p">(</span><span class="n">init</span><span class="o">&lt;</span><span class="n">space_group_type</span> <span class="n">const</span><span class="o">&amp;&gt;</span><span class="p">())</span>
   <span class="o">.</span><span class="n">def</span><span class="p">(</span><span class="s2">&quot;__str__&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">brick</span><span class="p">::</span><span class="n">as_string</span><span class="p">)</span>
   <span class="o">.</span><span class="n">def</span><span class="p">(</span><span class="s2">&quot;is_inside&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">brick</span><span class="p">::</span><span class="n">is_inside</span><span class="p">)</span>
@@ -480,7 +469,7 @@ class brick
 </pre></div>
 </div>
 <p>And here is how the class is used in Python:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">sgtbx</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">sgtbx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">brick</span> <span class="o">=</span> <span class="n">sgtbx</span><span class="o">.</span><span class="n">brick</span><span class="p">(</span><span class="n">sgtbx</span><span class="o">.</span><span class="n">space_group_type</span><span class="p">(</span><span class="s2">&quot;I a -3 d&quot;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">brick</span>
 <span class="go">0&lt;=x&lt;=1/8; -1/8&lt;=y&lt;=0; 1/8&lt;z&lt;7/8</span>
@@ -495,7 +484,7 @@ spent on the Python bindings is in general negligible.</p>
 </div>
 <div class="section" id="thinking-hybrid">
 <h2><a class="toc-backref" href="#id9">Thinking hybrid</a><a class="headerlink" href="#thinking-hybrid" title="Permalink to this headline">¶</a></h2>
-<p>Boost.Python&#8217;s ease of use enables us to <em>think hybrid</em> when developing
+<p>Boost.Python’s ease of use enables us to <em>think hybrid</em> when developing
 new algorithms. We can conveniently start with a Python
 implementation. The rich set of precompiled tools included in the
 scitbx and the cctbx gives us a head start because many operations are
@@ -507,7 +496,7 @@ bindings needed to tie them back into the existing higher-level
 procedure.</p>
 <p>To give an example, this approach was used in the development of the
 <em>Euclidean model matching algorithm</em> found in the cctbx
-(<code class="docutils literal"><span class="pre">cctbx/euclidean_model_matching.py</span></code>). This algorithm is used to
+(<code class="docutils literal notranslate"><span class="pre">cctbx/euclidean_model_matching.py</span></code>). This algorithm is used to
 compare heavy-atom substructures or anomalously scattering
 substructures from isomorphous replacement or anomalous diffraction
 experiments. The algorithm was first implemented in about 300 lines of
@@ -533,7 +522,7 @@ language for teaching programming. Amazingly this heritage is still
 preserved even though Python has grown to be a very richly featured
 language.</p>
 <p>Looking back, the cctbx started out mainly as a library of C++ classes
-with &#8216;C&#8217; heritage, and for a while the growth was mainly concentrated
+with ‘C’ heritage, and for a while the growth was mainly concentrated
 on the C++ parts. However, a very important difference between the 1.0
 release and the upcoming 2.0 release is that the Python parts now
 constitute a much more significant fraction of the total sources. We
@@ -570,8 +559,8 @@ incompatible crystallographic applications.</p>
 <li><a class="reference internal" href="#">Tour of the cctbx</a><ul>
 <li><a class="reference internal" href="#the-beach-in-the-box">The beach in the box</a></li>
 <li><a class="reference internal" href="#at-the-very-bottom">At the very bottom</a></li>
-<li><a class="reference internal" href="#scitbx-array-family-flex"><code class="docutils literal"><span class="pre">scitbx.array_family.flex</span></code></a></li>
-<li><a class="reference internal" href="#cctbx-array-family-flex"><code class="docutils literal"><span class="pre">cctbx.array_family.flex</span></code></a></li>
+<li><a class="reference internal" href="#scitbx-array-family-flex"><code class="docutils literal notranslate"><span class="pre">scitbx.array_family.flex</span></code></a></li>
+<li><a class="reference internal" href="#cctbx-array-family-flex"><code class="docutils literal notranslate"><span class="pre">cctbx.array_family.flex</span></code></a></li>
 <li><a class="reference internal" href="#a-balancing-act">A balancing act</a></li>
 <li><a class="reference internal" href="#hybrid-systems">Hybrid systems</a></li>
 <li><a class="reference internal" href="#building-bridges">Building bridges</a></li>
@@ -589,18 +578,20 @@ incompatible crystallographic applications.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/tour.txt"
+      <li><a href="_sources/tour.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -627,7 +618,7 @@ incompatible crystallographic applications.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

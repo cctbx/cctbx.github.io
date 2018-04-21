@@ -60,7 +60,7 @@
 <dl class="class">
 <dt id="cctbx.geometry_restraints.manager.manager">
 <em class="property">class </em><code class="descclassname">cctbx.geometry_restraints.manager.</code><code class="descname">manager</code><span class="sig-paren">(</span><em>crystal_symmetry=None</em>, <em>model_indices=None</em>, <em>conformer_indices=None</em>, <em>sym_excl_indices=None</em>, <em>site_symmetry_table=None</em>, <em>donor_acceptor_excl_groups=None</em>, <em>bond_params_table=None</em>, <em>shell_sym_tables=None</em>, <em>nonbonded_params=None</em>, <em>nonbonded_types=None</em>, <em>nonbonded_charges=None</em>, <em>nonbonded_function=None</em>, <em>nonbonded_distance_cutoff=None</em>, <em>nonbonded_buffer=1</em>, <em>angle_proxies=None</em>, <em>dihedral_proxies=None</em>, <em>reference_coordinate_proxies=None</em>, <em>reference_dihedral_manager=None</em>, <em>ncs_dihedral_manager=None</em>, <em>den_manager=None</em>, <em>chirality_proxies=None</em>, <em>planarity_proxies=None</em>, <em>parallelity_proxies=None</em>, <em>ramachandran_manager=None</em>, <em>external_energy_function=None</em>, <em>plain_pairs_radius=None</em>, <em>max_reasonable_bond_distance=None</em>, <em>min_cubicle_edge=5</em>, <em>log=&lt;StringIO.StringIO instance&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.geometry_restraints.base_geometry.Base_geometry</span></code></p>
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.add_angles_in_place">
 <code class="descname">add_angles_in_place</code><span class="sig-paren">(</span><em>additional_angle_proxies</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.add_angles_in_place" title="Permalink to this definition">¶</a></dt>
@@ -144,7 +144,9 @@ anything.</p>
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.energies_sites">
 <code class="descname">energies_sites</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>flags=None</em>, <em>custom_nonbonded_function=None</em>, <em>compute_gradients=False</em>, <em>gradients=None</em>, <em>disable_asu_cache=False</em>, <em>normalization=False</em>, <em>external_energy_function=None</em>, <em>extension_objects=[]</em>, <em>site_labels=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.energies_sites" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Crucial function to override in child. Maybe we should put some info
+here later.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.get_all_angle_proxies">
@@ -282,11 +284,6 @@ anything.</p>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cctbx.geometry_restraints.manager.manager.get_source">
-<code class="descname">get_source</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_source" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.get_user_supplied_restraints">
 <code class="descname">get_user_supplied_restraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.get_user_supplied_restraints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -294,7 +291,8 @@ anything.</p>
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.harmonic_restraints">
 <code class="descname">harmonic_restraints</code><span class="sig-paren">(</span><em>variables</em>, <em>type_indices</em>, <em>type_weights</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.harmonic_restraints" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Not clear what it is</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.is_bonded_atoms">
@@ -430,7 +428,9 @@ and rather complicated.</p>
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.select">
 <code class="descname">select</code><span class="sig-paren">(</span><em>selection=None</em>, <em>iselection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.select" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>This is cruicial function and should be defined in child.
+Given selection return manager only with selected atoms and restraints</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.set_external_energy_function">
@@ -448,14 +448,10 @@ and rather complicated.</p>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cctbx.geometry_restraints.manager.manager.set_source">
-<code class="descname">set_source</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.set_source" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.show_sorted">
 <code class="descname">show_sorted</code><span class="sig-paren">(</span><em>flags=None</em>, <em>sites_cart=None</em>, <em>site_labels=None</em>, <em>f=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.show_sorted" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Similar to geo file</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.simple_edge_list">
@@ -475,7 +471,8 @@ and rather complicated.</p>
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.ta_harmonic_restraints">
 <code class="descname">ta_harmonic_restraints</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>ta_harmonic_restraint_info</em>, <em>weight=0.001</em>, <em>slack=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.ta_harmonic_restraints" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Not clear what it is</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.update_atom_nonbonded_type">
@@ -500,7 +497,8 @@ and rather complicated.</p>
 <dl class="method">
 <dt id="cctbx.geometry_restraints.manager.manager.write_geo_file">
 <code class="descname">write_geo_file</code><span class="sig-paren">(</span><em>sites_cart=None</em>, <em>site_labels=None</em>, <em>file_name=None</em>, <em>file_descriptor=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em>, <em>header='# Geometry restraints\n'</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.manager.manager.write_geo_file" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Define this if you want the .geo file</p>
+</dd></dl>
 
 </dd></dl>
 

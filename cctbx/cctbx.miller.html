@@ -2599,6 +2599,20 @@ Ref: J. Appl. Cryst. (2008). 41, 975-984</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cctbx.miller.array.translational_shift">
+<code class="descname">translational_shift</code><span class="sig-paren">(</span><em>shift_frac</em>, <em>deg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.miller.array.translational_shift" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Adjust a complex array (map coefficients) or phase array</dt>
+<dd>corresponding to a shift of all coordinates by
+new_xyz_frac = old_xyz_frac + shift_frac.</dd>
+</dl>
+<p>If a phase array, must specify whether it is in degrees.
+Only makes sense in P1</p>
+<p>F’=exp( i 2 pi h.(x+shift_frac)) -&gt; F’ = F exp ( i 2 pi h.shift_frac)
+phase_shift = 2 * pi * h . shift_frac</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="cctbx.miller.array.twin_data">
 <code class="descname">twin_data</code><span class="sig-paren">(</span><em>twin_law</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.miller.array.twin_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a twin law to the data, returning an array of the same original type.</p>

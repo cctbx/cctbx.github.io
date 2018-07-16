@@ -69,7 +69,7 @@
 
 <dl class="class">
 <dt id="mmtbx.refinement.real_space.fit_residue.run">
-<em class="property">class </em><code class="descclassname">mmtbx.refinement.real_space.fit_residue.</code><code class="descname">run</code><span class="sig-paren">(</span><em>residue</em>, <em>mon_lib_srv</em>, <em>rotamer_manager</em>, <em>sin_cos_table</em>, <em>target_map=None</em>, <em>target_map_for_cb=None</em>, <em>unit_cell=None</em>, <em>backbone_sample=True</em>, <em>accept_only_if_max_shift_is_smaller_than=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.refinement.real_space.fit_residue.</code><code class="descname">run</code><span class="sig-paren">(</span><em>residue</em>, <em>vdw_radii</em>, <em>mon_lib_srv</em>, <em>rotamer_manager</em>, <em>sin_cos_table</em>, <em>xyzrad_bumpers=None</em>, <em>target_map=None</em>, <em>target_map_for_cb=None</em>, <em>unit_cell=None</em>, <em>backbone_sample=True</em>, <em>accept_only_if_max_shift_is_smaller_than=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.refinement.real_space.fit_residue.run.fit_c_beta">
@@ -90,7 +90,7 @@
 
 <dl class="class">
 <dt id="mmtbx.refinement.real_space.fit_residue.run_with_minimization">
-<em class="property">class </em><code class="descclassname">mmtbx.refinement.real_space.fit_residue.</code><code class="descname">run_with_minimization</code><span class="sig-paren">(</span><em>target_map</em>, <em>residue</em>, <em>xray_structure</em>, <em>mon_lib_srv</em>, <em>rotamer_manager</em>, <em>geometry_restraints_manager</em>, <em>real_space_gradients_delta</em>, <em>selection_radius=5</em>, <em>rms_bonds_limit=0.03</em>, <em>rms_angles_limit=3.0</em>, <em>backbone_sample_angle=None</em>, <em>allow_modified_residues=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.refinement.real_space.fit_residue.</code><code class="descname">run_with_minimization</code><span class="sig-paren">(</span><em>target_map</em>, <em>residue</em>, <em>vdw_radii</em>, <em>xray_structure</em>, <em>mon_lib_srv</em>, <em>rotamer_manager</em>, <em>geometry_restraints_manager</em>, <em>real_space_gradients_delta</em>, <em>selection_radius=5</em>, <em>rms_bonds_limit=0.03</em>, <em>rms_angles_limit=3.0</em>, <em>backbone_sample_angle=None</em>, <em>allow_modified_residues=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_backbone">
@@ -131,16 +131,16 @@
 
 <dl class="class">
 <dt id="mmtbx.refinement.real_space.fit_residues.run">
-<em class="property">class </em><code class="descclassname">mmtbx.refinement.real_space.fit_residues.</code><code class="descname">run</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>map_data</em>, <em>crystal_symmetry</em>, <em>rotamer_manager</em>, <em>sin_cos_table</em>, <em>mon_lib_srv</em>, <em>do_all=False</em>, <em>backbone_sample=True</em>, <em>diff_map_data=None</em>, <em>massage_map=True</em>, <em>tune_up_only=False</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.run" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.refinement.real_space.fit_residues.</code><code class="descname">run</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>crystal_symmetry</em>, <em>rotamer_manager</em>, <em>sin_cos_table</em>, <em>mon_lib_srv</em>, <em>map_data=None</em>, <em>vdw_radii=None</em>, <em>do_all=False</em>, <em>backbone_sample=True</em>, <em>diff_map_data=None</em>, <em>massage_map=True</em>, <em>tune_up_only=False</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="method">
-<dt id="mmtbx.refinement.real_space.fit_residues.run.compute_negate_mask">
-<code class="descname">compute_negate_mask</code><span class="sig-paren">(</span><em>residue</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.run.compute_negate_mask" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="mmtbx.refinement.real_space.fit_residues.run.count_outliers">
 <code class="descname">count_outliers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.run.count_outliers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.refinement.real_space.fit_residues.run.get_nonbonded_bumpers">
+<code class="descname">get_nonbonded_bumpers</code><span class="sig-paren">(</span><em>residue</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.fit_residues.run.get_nonbonded_bumpers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -335,6 +335,11 @@ group.</p>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.check_sites_match">
+<code class="descclassname">mmtbx.refinement.real_space.</code><code class="descname">check_sites_match</code><span class="sig-paren">(</span><em>ph_answer</em>, <em>ph_refined</em>, <em>tol</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.check_sites_match" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="class">
 <dt id="mmtbx.refinement.real_space.cluster">
 <em class="property">class </em><code class="descclassname">mmtbx.refinement.real_space.</code><code class="descname">cluster</code><span class="sig-paren">(</span><em>axis</em>, <em>atoms_to_rotate</em>, <em>atom_names=None</em>, <em>vector=None</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.cluster" title="Permalink to this definition">¶</a></dt>
@@ -455,6 +460,11 @@ group.</p>
 <dl class="function">
 <dt id="mmtbx.refinement.real_space.selection_around_to_negate">
 <code class="descclassname">mmtbx.refinement.real_space.</code><code class="descname">selection_around_to_negate</code><span class="sig-paren">(</span><em>xray_structure</em>, <em>selection_within_radius</em>, <em>iselection</em>, <em>selection_good=None</em>, <em>iselection_backbone=None</em>, <em>iselection_n_external=None</em>, <em>iselection_c_external=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.selection_around_to_negate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.refinement.real_space.setup_test">
+<code class="descclassname">mmtbx.refinement.real_space.</code><code class="descname">setup_test</code><span class="sig-paren">(</span><em>pdb_answer</em>, <em>pdb_poor</em>, <em>i_pdb</em>, <em>d_min</em>, <em>resolution_factor</em>, <em>pdb_for_map=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.real_space.setup_test" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="class">

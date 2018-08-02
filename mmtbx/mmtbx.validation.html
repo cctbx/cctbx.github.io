@@ -1828,7 +1828,7 @@ entity being validation, independent of the analysis type.</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.clashscore.clashscore">
-<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">clashscore</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>fast=False</em>, <em>keep_hydrogens=True</em>, <em>nuclear=False</em>, <em>force_unique_chain_ids=False</em>, <em>time_limit=120</em>, <em>b_factor_cutoff=None</em>, <em>save_modified_hierarchy=False</em>, <em>verbose=False</em>, <em>do_flips=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">clashscore</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>fast=False</em>, <em>condensed_probe=False</em>, <em>keep_hydrogens=True</em>, <em>nuclear=False</em>, <em>force_unique_chain_ids=False</em>, <em>time_limit=120</em>, <em>b_factor_cutoff=None</em>, <em>save_modified_hierarchy=False</em>, <em>verbose=False</em>, <em>do_flips=False</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.validation" title="mmtbx.validation.validation"><code class="xref py py-class docutils literal notranslate"><span class="pre">mmtbx.validation.validation</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.validation.clashscore.clashscore.as_coot_data">
@@ -1859,6 +1859,11 @@ entity being validation, independent of the analysis type.</p>
 <dl class="attribute">
 <dt id="mmtbx.validation.clashscore.clashscore.clashscore_b_cutoff">
 <code class="descname">clashscore_b_cutoff</code><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.clashscore_b_cutoff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mmtbx.validation.clashscore.clashscore.condensed_probe">
+<code class="descname">condensed_probe</code><a class="headerlink" href="#mmtbx.validation.clashscore.clashscore.condensed_probe" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1955,6 +1960,12 @@ entity being validation, independent of the analysis type.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="mmtbx.validation.clashscore.condensed_probe_line_info">
+<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">condensed_probe_line_info</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.condensed_probe_line_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.clashscore.probe_line_info" title="mmtbx.validation.clashscore.probe_line_info"><code class="xref py py-class docutils literal notranslate"><span class="pre">mmtbx.validation.clashscore.probe_line_info</span></code></a></p>
+</dd></dl>
+
 <dl class="function">
 <dt id="mmtbx.validation.clashscore.decode_atom_string">
 <code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">decode_atom_string</code><span class="sig-paren">(</span><em>atom_str</em>, <em>use_segids=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.decode_atom_string" title="Permalink to this definition">¶</a></dt>
@@ -2020,7 +2031,7 @@ entity being validation, independent of the analysis type.</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.clashscore.probe_clashscore_manager">
-<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">probe_clashscore_manager</code><span class="sig-paren">(</span><em>h_pdb_string</em>, <em>fast=False</em>, <em>nuclear=False</em>, <em>largest_occupancy=10</em>, <em>b_factor_cutoff=None</em>, <em>use_segids=False</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_clashscore_manager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">probe_clashscore_manager</code><span class="sig-paren">(</span><em>h_pdb_string</em>, <em>fast=False</em>, <em>condensed_probe=False</em>, <em>nuclear=False</em>, <em>largest_occupancy=10</em>, <em>b_factor_cutoff=None</em>, <em>use_segids=False</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_clashscore_manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.validation.clashscore.probe_clashscore_manager.filter_dicts">
@@ -2028,8 +2039,8 @@ entity being validation, independent of the analysis type.</p>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="mmtbx.validation.clashscore.probe_clashscore_manager.get_condenced_clashes">
-<code class="descname">get_condenced_clashes</code><span class="sig-paren">(</span><em>lines</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_clashscore_manager.get_condenced_clashes" title="Permalink to this definition">¶</a></dt>
+<dt id="mmtbx.validation.clashscore.probe_clashscore_manager.get_condensed_clashes">
+<code class="descname">get_condensed_clashes</code><span class="sig-paren">(</span><em>lines</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_clashscore_manager.get_condensed_clashes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2050,19 +2061,25 @@ entity being validation, independent of the analysis type.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="mmtbx.validation.clashscore.probe_line_info_storage">
-<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">probe_line_info_storage</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_line_info_storage" title="Permalink to this definition">¶</a></dt>
+<dt id="mmtbx.validation.clashscore.probe_line_info">
+<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">probe_line_info</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_line_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
-<dt id="mmtbx.validation.clashscore.probe_line_info_storage.as_clash_obj">
-<code class="descname">as_clash_obj</code><span class="sig-paren">(</span><em>use_segids</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_line_info_storage.as_clash_obj" title="Permalink to this definition">¶</a></dt>
+<dt id="mmtbx.validation.clashscore.probe_line_info.as_clash_obj">
+<code class="descname">as_clash_obj</code><span class="sig-paren">(</span><em>use_segids</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_line_info.as_clash_obj" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="mmtbx.validation.clashscore.probe_line_info_storage.is_similar">
-<code class="descname">is_similar</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_line_info_storage.is_similar" title="Permalink to this definition">¶</a></dt>
+<dt id="mmtbx.validation.clashscore.probe_line_info.is_similar">
+<code class="descname">is_similar</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.probe_line_info.is_similar" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.validation.clashscore.raw_probe_line_info">
+<em class="property">class </em><code class="descclassname">mmtbx.validation.clashscore.</code><code class="descname">raw_probe_line_info</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.clashscore.raw_probe_line_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mmtbx.validation.clashscore.probe_line_info" title="mmtbx.validation.clashscore.probe_line_info"><code class="xref py py-class docutils literal notranslate"><span class="pre">mmtbx.validation.clashscore.probe_line_info</span></code></a></p>
 </dd></dl>
 
 </div>

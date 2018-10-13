@@ -104,17 +104,23 @@ test cases with just .pdb, without arguments, etc.</p>
 <p>Classes for MolProbity validation, combining all other analyses in
 mmtbx.validation, which use the same APIs for storing and displaying results.</p>
 <dl class="class">
-<dt id="mmtbx.validation.molprobity.ProgramTemplate">
-<em class="property">class </em><code class="descclassname">mmtbx.validation.molprobity.</code><code class="descname">ProgramTemplate</code><span class="sig-paren">(</span><em>data_manager</em>, <em>params</em>, <em>master_phil=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.ProgramTemplate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../libtbx/libtbx.program_template.html#libtbx.program_template.ProgramTemplate" title="libtbx.program_template.ProgramTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">libtbx.program_template.ProgramTemplate</span></code></a></p>
+<dt id="mmtbx.validation.molprobity.MolProbityParser">
+<em class="property">class </em><code class="descclassname">mmtbx.validation.molprobity.</code><code class="descname">MolProbityParser</code><span class="sig-paren">(</span><em>program_class</em>, <em>custom_process_arguments=None</em>, <em>logger=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.MolProbityParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iotbx.cli_parser.CCTBXParser</span></code></p>
 <dl class="method">
-<dt id="mmtbx.validation.molprobity.ProgramTemplate.get_results_as_JSON">
-<code class="descname">get_results_as_JSON</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.ProgramTemplate.get_results_as_JSON" title="Permalink to this definition">¶</a></dt>
+<dt id="mmtbx.validation.molprobity.MolProbityParser.add_default_options">
+<code class="descname">add_default_options</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.MolProbityParser.add_default_options" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="mmtbx.validation.molprobity.MolProbityTemplate">
+<em class="property">class </em><code class="descclassname">mmtbx.validation.molprobity.</code><code class="descname">MolProbityTemplate</code><span class="sig-paren">(</span><em>data_manager</em>, <em>params</em>, <em>master_phil=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.MolProbityTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../libtbx/libtbx.program_template.html#libtbx.program_template.ProgramTemplate" title="libtbx.program_template.ProgramTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">libtbx.program_template.ProgramTemplate</span></code></a></p>
 <dl class="method">
-<dt id="mmtbx.validation.molprobity.ProgramTemplate.get_results_as_PDB_JSON">
-<code class="descname">get_results_as_PDB_JSON</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.ProgramTemplate.get_results_as_PDB_JSON" title="Permalink to this definition">¶</a></dt>
+<dt id="mmtbx.validation.molprobity.MolProbityTemplate.get_results_as_PDB_JSON">
+<code class="descname">get_results_as_PDB_JSON</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.MolProbityTemplate.get_results_as_PDB_JSON" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -705,6 +711,29 @@ residue is technically an outlier or not.</p>
 <code class="descname">xyz</code><a class="headerlink" href="#mmtbx.validation.molprobity.residue_multi_criterion.xyz" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="function">
+<dt id="mmtbx.validation.molprobity.run_molprobity_program">
+<code class="descclassname">mmtbx.validation.molprobity.</code><code class="descname">run_molprobity_program</code><span class="sig-paren">(</span><em>program_class=None</em>, <em>custom_process_arguments=None</em>, <em>args=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.run_molprobity_program" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for running programs using CCTBXParser and the program template</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>program_class</strong> – ProgramTemplate type (required)</li>
+<li><strong>custom_process_arguments</strong> – Custom function to parse unknown arguments (optional)</li>
+<li><strong>args</strong> – list of command-line arguments (optional)</li>
+<li><strong>logger</strong> – logger (e.g. multi_out) for output (optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">whatever is returned from program_class.get_results()</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="class">

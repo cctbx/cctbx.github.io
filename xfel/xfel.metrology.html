@@ -9,7 +9,7 @@
     <title>xfel.metrology package &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -200,7 +200,7 @@ metrology and crystal orientation.</p>
 
 <dl class="staticmethod">
 <dt id="xfel.metrology.mark0.correction_vectors.standalone_check">
-<em class="property">static </em><code class="descname">standalone_check</code><span class="sig-paren">(</span><em>setting_id</em>, <em>entry</em>, <em>d</em>, <em>cutoff</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.metrology.mark0.correction_vectors.standalone_check" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">standalone_check</code><span class="sig-paren">(</span><em>self</em>, <em>setting_id</em>, <em>entry</em>, <em>d</em>, <em>cutoff</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.metrology.mark0.correction_vectors.standalone_check" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -279,30 +279,22 @@ metrology and crystal orientation.</p>
 <dl class="attribute">
 <dt id="xfel.metrology.mark10.fit_translation4.jacobian_frame_rotx">
 <code class="descname">jacobian_frame_rotx</code><em class="property"> = None</em><a class="headerlink" href="#xfel.metrology.mark10.fit_translation4.jacobian_frame_rotx" title="Permalink to this definition">¶</a></dt>
-<dd><ol class="arabic" start="0">
-<li><p class="first">Read in only 500 frames, refine only 20</p>
-</li>
-<li><p class="first">Define the new parameter here.</p>
-</li>
-<li><p class="first">Define its new behavior in parameter_based_function()</p>
-</li>
-<li><p class="first">set use_curvatures=False</p>
-</li>
+<dd><ol class="arabic simple" start="0">
+<li>Read in only 500 frames, refine only 20</li>
+<li>Define the new parameter here.</li>
+<li>Define its new behavior in parameter_based_function()</li>
+<li>set use_curvatures=False</li>
 <li><dl class="first docutils">
 <dt>implement refinement with finite differences:</dt>
-<dd><p class="first last">include the array name in setting compute_finite_difference_gradients_if_requested()
+<dd>include the array name in setting compute_finite_difference_gradients_if_requested()
 fix the requirement for “zip”
 verify fd_gradients go to zero upon convergence
-verify parameter vector has reasonable values</p>
-</dd>
+verify parameter vector has reasonable values</dd>
 </dl>
 </li>
-<li><p class="first">implement analytic gradients, list out comparison columns</p>
-</li>
-<li><p class="first">document the gradients in a tex file</p>
-</li>
-<li><p class="first">implement curvatures &amp; flag them in here</p>
-</li>
+<li>implement analytic gradients, list out comparison columns</li>
+<li>document the gradients in a tex file</li>
+<li>implement curvatures &amp; flag them in here</li>
 </ol>
 </dd></dl>
 
@@ -328,7 +320,7 @@ verify parameter vector has reasonable values</p>
 
 <dl class="staticmethod">
 <dt id="xfel.metrology.mark10.fit_translation4.print_unit_translations">
-<em class="property">static </em><code class="descname">print_unit_translations</code><span class="sig-paren">(</span><em>params</em>, <em>optional</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.metrology.mark10.fit_translation4.print_unit_translations" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">print_unit_translations</code><span class="sig-paren">(</span><em>data</em>, <em>params</em>, <em>optional</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.metrology.mark10.fit_translation4.print_unit_translations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -492,7 +484,7 @@ verify parameter vector has reasonable values</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.7.
     </div>
   </body>
 </html>

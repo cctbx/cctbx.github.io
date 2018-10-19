@@ -9,7 +9,7 @@
     <title>dxtbx.model &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -62,7 +62,7 @@ other cases assumptions will be made about the experiment configuration.
 In all cases information is provided in the CBF coordinate frame.</p>
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.complex">
-<em class="property">static </em><code class="descname">complex</code><span class="sig-paren">(</span><em>origin</em>, <em>fast</em>, <em>slow</em>, <em>pixel</em>, <em>size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>mask=[]</em>, <em>px_mm=None</em>, <em>mu=0.0</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.complex" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">complex</code><span class="sig-paren">(</span><em>sensor</em>, <em>origin</em>, <em>fast</em>, <em>slow</em>, <em>pixel</em>, <em>size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>mask=[]</em>, <em>px_mm=None</em>, <em>mu=0.0</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.complex" title="Permalink to this definition">¶</a></dt>
 <dd><p>A complex detector model, where you know exactly where everything
 is. This is useful for implementation of the Rigaku Saturn header
 format, as that is exactly what is in there. Origin, fast and slow are
@@ -72,7 +72,7 @@ as is size.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.from_dict">
-<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em>, <em>t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the dictionary to a detector model</p>
 <dl class="docutils">
 <dt>Params:</dt>
@@ -91,44 +91,44 @@ t The template dictionary to use</dd>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.from_phil">
-<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>reference=None</em>, <em>beam=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.from_phil" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em>, <em>beam=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.from_phil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert phil parameters into detector model</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.generate_from_phil">
-<em class="property">static </em><code class="descname">generate_from_phil</code><span class="sig-paren">(</span><em>beam=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.generate_from_phil" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">generate_from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>beam=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.generate_from_phil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new detector model from phil parameters</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.imgCIF">
-<em class="property">static </em><code class="descname">imgCIF</code><span class="sig-paren">(</span><em>sensor</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.imgCIF" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">imgCIF</code><span class="sig-paren">(</span><em>cif_file</em>, <em>sensor</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.imgCIF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a detector model from an imgCIF file.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.imgCIF_H">
-<em class="property">static </em><code class="descname">imgCIF_H</code><span class="sig-paren">(</span><em>sensor</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.imgCIF_H" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">imgCIF_H</code><span class="sig-paren">(</span><em>cbf_handle</em>, <em>sensor</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.imgCIF_H" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a detector model from an imgCIF file handle, where it
 is assumed that the file has already been read.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.make_detector">
-<em class="property">static </em><code class="descname">make_detector</code><span class="sig-paren">(</span><em>fast_axis</em>, <em>slow_axis</em>, <em>origin</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em>, <em>name='Panel'</em>, <em>thickness=0.0</em>, <em>material=''</em>, <em>mu=0.0</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.make_detector" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">make_detector</code><span class="sig-paren">(</span><em>stype</em>, <em>fast_axis</em>, <em>slow_axis</em>, <em>origin</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>px_mm=None</em>, <em>name='Panel'</em>, <em>thickness=0.0</em>, <em>material=''</em>, <em>mu=0.0</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.make_detector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensure all types are correct before creating c++ detector class.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.overwrite_from_phil">
-<em class="property">static </em><code class="descname">overwrite_from_phil</code><span class="sig-paren">(</span><em>detector</em>, <em>beam=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.overwrite_from_phil" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">overwrite_from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>detector</em>, <em>beam=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.overwrite_from_phil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Overwrite from phil parameters</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.sensor">
-<em class="property">static </em><code class="descname">sensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.sensor" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">sensor</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.sensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the correct sensor token for a given name, for example:</p>
 <p>ccd, CCD
 image_plate, IMAGE_PLATE
@@ -139,7 +139,7 @@ everywhere else in this. Also allow existing token to be passed in.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.simple">
-<em class="property">static </em><code class="descname">simple</code><span class="sig-paren">(</span><em>distance</em>, <em>beam_centre</em>, <em>fast_direction</em>, <em>slow_direction</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>mask=[]</em>, <em>px_mm=None</em>, <em>mu=0.0</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.simple" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">simple</code><span class="sig-paren">(</span><em>sensor</em>, <em>distance</em>, <em>beam_centre</em>, <em>fast_direction</em>, <em>slow_direction</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>mask=[]</em>, <em>px_mm=None</em>, <em>mu=0.0</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.simple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a simple detector at a given distance from the sample
 along the direct beam presumed to be aligned with -z, offset by the
 beam centre - the directions of which are given by the fast and slow
@@ -151,7 +151,7 @@ for the main reference frame.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.detector.DetectorFactory.two_theta">
-<em class="property">static </em><code class="descname">two_theta</code><span class="sig-paren">(</span><em>distance</em>, <em>beam_centre</em>, <em>fast_direction</em>, <em>slow_direction</em>, <em>two_theta_direction</em>, <em>two_theta_angle</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>mask=[]</em>, <em>px_mm=None</em>, <em>mu=0.0</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.two_theta" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">two_theta</code><span class="sig-paren">(</span><em>sensor</em>, <em>distance</em>, <em>beam_centre</em>, <em>fast_direction</em>, <em>slow_direction</em>, <em>two_theta_direction</em>, <em>two_theta_angle</em>, <em>pixel_size</em>, <em>image_size</em>, <em>trusted_range=(0.0</em>, <em>0.0)</em>, <em>mask=[]</em>, <em>px_mm=None</em>, <em>mu=0.0</em>, <em>gain=None</em>, <em>identifier=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.detector.DetectorFactory.two_theta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a simple detector at a given distance from the sample
 along the direct beam presumed to be aligned with -z, offset by the
 beam centre - the directions of which are given by the fast and slow
@@ -176,14 +176,14 @@ models. In cases where a full cbf description is available this
 will be used, otherwise simplified descriptions can be applied.</p>
 <dl class="staticmethod">
 <dt id="dxtbx.model.beam.BeamFactory.complex">
-<em class="property">static </em><code class="descname">complex</code><span class="sig-paren">(</span><em>polarization_fraction</em>, <em>polarization_plane_normal</em>, <em>wavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.complex" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">complex</code><span class="sig-paren">(</span><em>sample_to_source</em>, <em>polarization_fraction</em>, <em>polarization_plane_normal</em>, <em>wavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.complex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Full access to the constructor for cases where we do know everything
 that we need…</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.beam.BeamFactory.from_dict">
-<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em>, <em>t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the dictionary to a beam model</p>
 <dl class="docutils">
 <dt>Params:</dt>
@@ -202,13 +202,13 @@ t The template dictionary to use</dd>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.beam.BeamFactory.from_phil">
-<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.from_phil" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.from_phil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the phil parameters into a beam model</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.beam.BeamFactory.imgCIF">
-<em class="property">static </em><code class="descname">imgCIF</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.imgCIF" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">imgCIF</code><span class="sig-paren">(</span><em>cif_file</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.imgCIF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a detector model from an imgCIF file. N.B. the
 definition of the polarization plane is not completely helpful
 in this - it is the angle between the polarization plane and the
@@ -217,7 +217,7 @@ in this - it is the angle between the polarization plane and the
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.beam.BeamFactory.imgCIF_H">
-<em class="property">static </em><code class="descname">imgCIF_H</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.imgCIF_H" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">imgCIF_H</code><span class="sig-paren">(</span><em>cbf_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.imgCIF_H" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a detector model from an imgCIF file. N.B. the
 definition of the polarization plane is not completely helpful
 in this - it is the angle between the polarization plane and the
@@ -227,17 +227,17 @@ which is already configured.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.beam.BeamFactory.make_beam">
-<em class="property">static </em><code class="descname">make_beam</code><span class="sig-paren">(</span><em>wavelength=None</em>, <em>s0=None</em>, <em>unit_s0=None</em>, <em>divergence=None</em>, <em>sigma_divergence=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.make_beam" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">make_beam</code><span class="sig-paren">(</span><em>sample_to_source=None</em>, <em>wavelength=None</em>, <em>s0=None</em>, <em>unit_s0=None</em>, <em>divergence=None</em>, <em>sigma_divergence=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.make_beam" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.beam.BeamFactory.make_polarized_beam">
-<em class="property">static </em><code class="descname">make_polarized_beam</code><span class="sig-paren">(</span><em>wavelength=None</em>, <em>s0=None</em>, <em>unit_s0=None</em>, <em>polarization=None</em>, <em>polarization_fraction=None</em>, <em>divergence=None</em>, <em>sigma_divergence=None</em>, <em>flux=None</em>, <em>transmission=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.make_polarized_beam" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">make_polarized_beam</code><span class="sig-paren">(</span><em>sample_to_source=None</em>, <em>wavelength=None</em>, <em>s0=None</em>, <em>unit_s0=None</em>, <em>polarization=None</em>, <em>polarization_fraction=None</em>, <em>divergence=None</em>, <em>sigma_divergence=None</em>, <em>flux=None</em>, <em>transmission=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.make_polarized_beam" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.beam.BeamFactory.simple">
-<em class="property">static </em><code class="descname">simple</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.simple" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">simple</code><span class="sig-paren">(</span><em>wavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.simple" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a beam object on the principle that the beam is aligned
 with the +z axis, as is quite normal. Also assume the beam has
 polarization fraction 0.999 and is polarized in the x-z plane.</p>
@@ -245,7 +245,7 @@ polarization fraction 0.999 and is polarized in the x-z plane.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.beam.BeamFactory.simple_directional">
-<em class="property">static </em><code class="descname">simple_directional</code><span class="sig-paren">(</span><em>wavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.simple_directional" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">simple_directional</code><span class="sig-paren">(</span><em>sample_to_source</em>, <em>wavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.beam.BeamFactory.simple_directional" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a beam with direction and wavelength.</p>
 </dd></dl>
 
@@ -261,14 +261,14 @@ polarization fraction 0.999 and is polarized in the x-z plane.</p>
 in a set of common circumstances.</p>
 <dl class="staticmethod">
 <dt id="dxtbx.model.scan.ScanFactory.add">
-<em class="property">static </em><code class="descname">add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.add" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">add</code><span class="sig-paren">(</span><em>scans</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sum a list of scans wrapping the sligtly clumsy idiomatic method:
 sum(scans[1:], scans[0]).</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.scan.ScanFactory.format">
-<em class="property">static </em><code class="descname">format</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.format" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">format</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the correct format token for a given name, for example:</p>
 <p>cbf, CBF
 smv, SMV
@@ -281,7 +281,7 @@ everywhere else in this.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.scan.ScanFactory.from_dict">
-<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em>, <em>t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the dictionary to a scan model</p>
 <dl class="docutils">
 <dt>Params:</dt>
@@ -300,31 +300,31 @@ t The template dictionary to use</dd>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.scan.ScanFactory.from_phil">
-<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.from_phil" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.from_phil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a scan model from phil parameters</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.scan.ScanFactory.imgCIF">
-<em class="property">static </em><code class="descname">imgCIF</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.imgCIF" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">imgCIF</code><span class="sig-paren">(</span><em>cif_file</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.imgCIF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a scan model from an imgCIF file.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.scan.ScanFactory.imgCIF_H">
-<em class="property">static </em><code class="descname">imgCIF_H</code><span class="sig-paren">(</span><em>cbf_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.imgCIF_H" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">imgCIF_H</code><span class="sig-paren">(</span><em>cif_file</em>, <em>cbf_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.imgCIF_H" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a scan model from an imgCIF file handle, where it is
 assumed that the file has already been read.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.scan.ScanFactory.make_scan">
-<em class="property">static </em><code class="descname">make_scan</code><span class="sig-paren">(</span><em>exposure_times</em>, <em>oscillation</em>, <em>epochs</em>, <em>batch_offset=0</em>, <em>deg=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.make_scan" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">make_scan</code><span class="sig-paren">(</span><em>image_range</em>, <em>exposure_times</em>, <em>oscillation</em>, <em>epochs</em>, <em>batch_offset=0</em>, <em>deg=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.make_scan" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.scan.ScanFactory.search">
-<em class="property">static </em><code class="descname">search</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.search" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">search</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of files which appear to match the template and
 directory implied by the input filename. This could well be used
 to get a list of image headers to read and hence construct scans
@@ -333,7 +333,7 @@ from.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.scan.ScanFactory.single">
-<em class="property">static </em><code class="descname">single</code><span class="sig-paren">(</span><em>format</em>, <em>exposure_times</em>, <em>osc_start</em>, <em>osc_width</em>, <em>epoch</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.single" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">single</code><span class="sig-paren">(</span><em>filename</em>, <em>format</em>, <em>exposure_times</em>, <em>osc_start</em>, <em>osc_width</em>, <em>epoch</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.scan.ScanFactory.single" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct an scan instance for a single image.</p>
 </dd></dl>
 
@@ -352,7 +352,7 @@ When we have a CBF just use that factory method and everything will be
 peachy.</p>
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.from_dict">
-<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em>, <em>t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the dictionary to a goniometer model</p>
 <dl class="docutils">
 <dt>Params:</dt>
@@ -371,26 +371,26 @@ t The template dictionary to use</dd>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.from_phil">
-<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.from_phil" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.from_phil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the phil parameters into a beam model</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.imgCIF">
-<em class="property">static </em><code class="descname">imgCIF</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.imgCIF" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">imgCIF</code><span class="sig-paren">(</span><em>cif_file</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.imgCIF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a goniometer model from an imgCIF file.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.imgCIF_H">
-<em class="property">static </em><code class="descname">imgCIF_H</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.imgCIF_H" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">imgCIF_H</code><span class="sig-paren">(</span><em>cbf_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.imgCIF_H" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize a goniometer model from an imgCIF file handle, where
 it is assumed that the file has already been read.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.kappa">
-<em class="property">static </em><code class="descname">kappa</code><span class="sig-paren">(</span><em>omega</em>, <em>kappa</em>, <em>phi</em>, <em>direction</em>, <em>scan_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.kappa" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">kappa</code><span class="sig-paren">(</span><em>alpha</em>, <em>omega</em>, <em>kappa</em>, <em>phi</em>, <em>direction</em>, <em>scan_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.kappa" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a kappa goniometer where omega is the primary axis (i,e.
 aligned with X in the CBF coordinate frame) and has the kappa arm
 with angle alpha attached to it, aligned with -z, +y, +z or -y at
@@ -404,34 +404,34 @@ component of the rotation.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.known_axis">
-<em class="property">static </em><code class="descname">known_axis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.known_axis" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">known_axis</code><span class="sig-paren">(</span><em>axis</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.known_axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an goniometer instance for a known rotation axis, assuming
 that nothing is known about the fixed element of the rotation axis.</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.make_goniometer">
-<em class="property">static </em><code class="descname">make_goniometer</code><span class="sig-paren">(</span><em>fixed_rotation</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.make_goniometer" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">make_goniometer</code><span class="sig-paren">(</span><em>rotation_axis</em>, <em>fixed_rotation</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.make_goniometer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.make_kappa_goniometer">
-<em class="property">static </em><code class="descname">make_kappa_goniometer</code><span class="sig-paren">(</span><em>omega</em>, <em>kappa</em>, <em>phi</em>, <em>direction</em>, <em>scan_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.make_kappa_goniometer" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">make_kappa_goniometer</code><span class="sig-paren">(</span><em>alpha</em>, <em>omega</em>, <em>kappa</em>, <em>phi</em>, <em>direction</em>, <em>scan_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.make_kappa_goniometer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.make_multi_axis_goniometer">
-<em class="property">static </em><code class="descname">make_multi_axis_goniometer</code><span class="sig-paren">(</span><em>angles</em>, <em>names</em>, <em>scan_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.make_multi_axis_goniometer" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">make_multi_axis_goniometer</code><span class="sig-paren">(</span><em>axes</em>, <em>angles</em>, <em>names</em>, <em>scan_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.make_multi_axis_goniometer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.multi_axis">
-<em class="property">static </em><code class="descname">multi_axis</code><span class="sig-paren">(</span><em>angles</em>, <em>names</em>, <em>scan_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.multi_axis" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">multi_axis</code><span class="sig-paren">(</span><em>axes</em>, <em>angles</em>, <em>names</em>, <em>scan_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.multi_axis" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.multi_axis_goniometer_from_phil">
-<em class="property">static </em><code class="descname">multi_axis_goniometer_from_phil</code><span class="sig-paren">(</span><em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.multi_axis_goniometer_from_phil" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">multi_axis_goniometer_from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.multi_axis_goniometer_from_phil" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
@@ -443,7 +443,7 @@ CBF reference frame.</p>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.goniometer.GoniometerFactory.single_axis_goniometer_from_phil">
-<em class="property">static </em><code class="descname">single_axis_goniometer_from_phil</code><span class="sig-paren">(</span><em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis_goniometer_from_phil" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">single_axis_goniometer_from_phil</code><span class="sig-paren">(</span><em>params</em>, <em>reference=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis_goniometer_from_phil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate or overwrite a single axis goniometer</p>
 </dd></dl>
 
@@ -465,7 +465,7 @@ CBF reference frame, but reversed in rotation.</p>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="staticmethod">
 <dt id="dxtbx.model.crystal.CrystalFactory.from_dict">
-<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.crystal.CrystalFactory.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>d</em>, <em>t=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.crystal.CrystalFactory.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert the dictionary to a crystal model</p>
 <dl class="docutils">
 <dt>Params:</dt>
@@ -484,7 +484,7 @@ t The template dictionary to use</dd>
 
 <dl class="staticmethod">
 <dt id="dxtbx.model.crystal.CrystalFactory.from_mosflm_matrix">
-<em class="property">static </em><code class="descname">from_mosflm_matrix</code><span class="sig-paren">(</span><em>unit_cell=None</em>, <em>wavelength=None</em>, <em>space_group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.crystal.CrystalFactory.from_mosflm_matrix" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">from_mosflm_matrix</code><span class="sig-paren">(</span><em>mosflm_A_matrix</em>, <em>unit_cell=None</em>, <em>wavelength=None</em>, <em>space_group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dxtbx.model.crystal.CrystalFactory.from_mosflm_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a crystal_model from a Mosflm A matrix (a*, b*, c*); N.B. assumes
 the mosflm coordinate frame:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                                   /!
@@ -593,7 +593,7 @@ be assigned as P1</li>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.7.
     </div>
   </body>
 </html>

@@ -9,7 +9,7 @@
     <title>cctbx.miller package &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -1369,7 +1369,7 @@ optionally SIGDANO as sigmas.</p>
 <dt id="cctbx.miller.array.anomalous_signal">
 <code class="descname">anomalous_signal</code><span class="sig-paren">(</span><em>use_binning=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.miller.array.anomalous_signal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the anomalous signal according to this formula:</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\sqrt{\dfrac{&lt;||F(+)|-|F(-)||^2&gt;}{\frac{1}{2} (&lt;|F(+)|&gt;^2 + &lt;|F(-)|&gt;^2)}}\]</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2135,8 +2135,8 @@ downstream steps.</p>
 <dt id="cctbx.miller.array.measurability">
 <code class="descname">measurability</code><span class="sig-paren">(</span><em>use_binning=False</em>, <em>cutoff=3.0</em>, <em>return_fail=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.miller.array.measurability" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fraction of reflections for which
-(<span class="math notranslate">\(\dfrac{|\Delta I|}{\sigma_{dI}}\)</span> &gt; cutoff and
-<span class="math notranslate">\(min(\dfrac{I_{+}}{\sigma_{+}},\dfrac{I_{-}}{\sigma_{-}})\)</span> &gt; cutoff</p>
+(<span class="math notranslate nohighlight">\(\dfrac{|\Delta I|}{\sigma_{dI}}\)</span> &gt; cutoff and
+<span class="math notranslate nohighlight">\(min(\dfrac{I_{+}}{\sigma_{+}},\dfrac{I_{-}}{\sigma_{-}})\)</span> &gt; cutoff</p>
 </dd></dl>
 
 <dl class="method">
@@ -2284,7 +2284,7 @@ phases are determined on the fly using the given step size.</p>
 <dt id="cctbx.miller.array.r1_factor">
 <code class="descname">r1_factor</code><span class="sig-paren">(</span><em>other</em>, <em>scale_factor=None</em>, <em>assume_index_matching=False</em>, <em>use_binning=False</em>, <em>emulate_sftools=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.miller.array.r1_factor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the R1 factor according to this formula</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[R1 = \dfrac{\sum{||F| - k|F'||}}{\sum{|F|}}\]</div>
 <p>where F is self.data() and F’ is other.data() and
 k is the factor to put F’ on the same scale as F</p>
@@ -2317,7 +2317,7 @@ other.data())</li>
 <dd><p>Calculate R_anom, which measures the agreement between Friedel mates.
 Unlike CC_anom and various other R-factors (such as R_pim, which it is
 usually compared to), this requires merged data.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[R_{anom} = \dfrac{\sum_{hkl}{|I_{hkl} - I_{-h,-k,-l}|}}{\sum_{hkl}{\left \langle I_{hkl} \right \rangle}}\]</div>
 </dd></dl>
 
@@ -2693,7 +2693,7 @@ instead obtained by calling array.merge_equivalents(…).</p>
 <code class="descname">r_meas</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.miller.merge_equivalents.r_meas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alternate metric of dataset internal consistency.  Explained in detail in
 Diederichs K &amp; Karplus PA (1997) Nature Structural Biology 4:269-275.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[R_{meas} = \dfrac{\sum_{hkl}{ {\left \{ N(hkl) / [N(hkl) - 1] \right \} }^{1/2} \times \sum_{i}{|I_{i}(hkl) - \left \langle I_{i}(hkl) \right \rangle|}}}{\sum_{hkl}{\sum_{i}{I_{i}(hkl)}}}\]</div>
 </dd></dl>
 
@@ -2701,7 +2701,7 @@ Diederichs K &amp; Karplus PA (1997) Nature Structural Biology 4:269-275.</p>
 <dt id="cctbx.miller.merge_equivalents.r_merge">
 <code class="descname">r_merge</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.miller.merge_equivalents.r_merge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Standard (but flawed) metric of dataset internal consistency.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[R_{merge} = \dfrac{\sum_{hkl}{\sum_{i}{|I_{i}(hkl) - \left \langle I_{i}(hkl) \right \rangle|}}}{\sum_{hkl}{\sum_{i}{I_{i}(hkl)}}}\]</div>
 </dd></dl>
 
@@ -2710,7 +2710,7 @@ Diederichs K &amp; Karplus PA (1997) Nature Structural Biology 4:269-275.</p>
 <code class="descname">r_pim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.miller.merge_equivalents.r_pim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alternate metric of dataset internal consistency or quality.  Explained in
 detail in Weiss MS (2001) J Appl Cryst 34:130-135.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[R_{meas} = \dfrac{\sum_{hkl}{ {\left \{ 1 / [N(hkl) - 1] \right \} }^{1/2} \times \sum_{i}{|I_{i}(hkl) - \left \langle I_{i}(hkl) \right \rangle|}}}{\sum_{hkl}{\sum_{i}{I_{i}(hkl)}}}\]</div>
 </dd></dl>
 
@@ -2851,7 +2851,7 @@ read from a data file.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.7.
     </div>
   </body>
 </html>

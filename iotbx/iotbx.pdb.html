@@ -9,11 +9,14 @@
     <title>iotbx.pdb &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="iotbx.shelx" href="iotbx.shelx.html" />
@@ -692,13 +695,27 @@ propagated to the individual atoms.  You can reset the <code class="docutils lit
 <dl class="attribute">
 <dt id="iotbx.pdb.hierarchy.input.input">
 <code class="descname">input</code><a class="headerlink" href="#iotbx.pdb.hierarchy.input.input" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>iotbx.pdb.pdb_input_from_any</em></p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">iotbx.pdb.pdb_input_from_any</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="iotbx.pdb.hierarchy.input.hierarchy">
 <code class="descname">hierarchy</code><a class="headerlink" href="#iotbx.pdb.hierarchy.input.hierarchy" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>iotbx.pdb.hierarchy.root</em></p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root">iotbx.pdb.hierarchy.root</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <p class="rubric">Examples</p>
@@ -742,6 +759,414 @@ the actual format and return the appropriate data type.</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="class">
+<dt id="iotbx.pdb.ext.input">
+<em class="property">class </em><code class="descclassname">iotbx.pdb.ext.</code><code class="descname">input</code><a class="headerlink" href="#iotbx.pdb.ext.input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Boost.Python.instance</span></code></p>
+<p>This class parses PDB format, including non-ATOM records.  Atom objects will
+be created as part of the parsing, but the full PDB hierarchy object requires
+calling the construct_hierarchy() method.</p>
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.as_pdb_string">
+<code class="descname">as_pdb_string</code><span class="sig-paren">(</span><em>crystal_symmetry=&lt;libtbx.AutoType object&gt;</em>, <em>cryst1_z=&lt;libtbx.AutoType object&gt;</em>, <em>write_scale_records=True</em>, <em>append_end=False</em>, <em>atom_hetatm=True</em>, <em>sigatm=True</em>, <em>anisou=True</em>, <em>siguij=True</em>, <em>cstringio=None</em>, <em>link_records=&lt;libtbx.AutoType object&gt;</em>, <em>return_cstringio=&lt;libtbx.AutoType object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.as_pdb_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate standard PDB format.  Will use built-in crystal symmetry if
+available.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.atoms">
+<code class="descname">atoms</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; af_shared_atom :<a class="headerlink" href="#iotbx.pdb.ext.input.atoms" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;iotbx::pdb::hierarchy::atom&gt; atoms(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.atoms_with_labels">
+<code class="descname">atoms_with_labels</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; af_shared_atom_with_labels :<a class="headerlink" href="#iotbx.pdb.ext.input.atoms_with_labels" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;iotbx::pdb::hierarchy::atom_with_labels&gt; atoms_with_labels(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.bookkeeping_section">
+<code class="descname">bookkeeping_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.bookkeeping_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; bookkeeping_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.break_indices">
+<code class="descname">break_indices</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; size_t :<a class="headerlink" href="#iotbx.pdb.ext.input.break_indices" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;unsigned long&gt; break_indices(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.chain_indices">
+<code class="descname">chain_indices</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; stl_vector_unsigned :<a class="headerlink" href="#iotbx.pdb.ext.input.chain_indices" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::vector&lt;unsigned int, std::allocator&lt;unsigned int&gt; &gt; &gt; chain_indices(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.connectivity_annotation_section">
+<code class="descname">connectivity_annotation_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.connectivity_annotation_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; connectivity_annotation_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.connectivity_section">
+<code class="descname">connectivity_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.connectivity_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; connectivity_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.construct_hierarchy">
+<code class="descname">construct_hierarchy</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="optional">[</span>, <em>(bool)residue_group_post_processing=True</em><span class="optional">[</span>, <em>(bool)set_atom_i_seq=True</em><span class="optional">[</span>, <em>(bool)sort_atoms=True</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; root :<a class="headerlink" href="#iotbx.pdb.ext.input.construct_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>iotbx::pdb::hierarchy::root construct_hierarchy(iotbx::pdb::input {lvalue} [,bool=True [,bool=True [,bool=True]]])</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.construct_hierarchy_BIOMT_expanded">
+<code class="descname">construct_hierarchy_BIOMT_expanded</code><span class="sig-paren">(</span><em>sort_atoms=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.construct_hierarchy_BIOMT_expanded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.construct_hierarchy_MTRIX_expanded">
+<code class="descname">construct_hierarchy_MTRIX_expanded</code><span class="sig-paren">(</span><em>sort_atoms=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.construct_hierarchy_MTRIX_expanded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.crystal_symmetry">
+<code class="descname">crystal_symmetry</code><span class="sig-paren">(</span><em>crystal_symmetry=None</em>, <em>weak_symmetry=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.crystal_symmetry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.crystal_symmetry_from_cryst1">
+<code class="descname">crystal_symmetry_from_cryst1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.crystal_symmetry_from_cryst1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.crystallographic_section">
+<code class="descname">crystallographic_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.crystallographic_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; crystallographic_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.deposition_date">
+<code class="descname">deposition_date</code><span class="sig-paren">(</span><em>us_style=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.deposition_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Placeholder to match mmCIF functionality. Probably could parse
+REVDAT.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.experiment_type_electron_microscopy">
+<code class="descname">experiment_type_electron_microscopy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.experiment_type_electron_microscopy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.extract_LINK_records">
+<code class="descname">extract_LINK_records</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.extract_LINK_records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect link records from PDB file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.extract_authors">
+<code class="descname">extract_authors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.extract_authors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.extract_connectivity">
+<code class="descname">extract_connectivity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.extract_connectivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse CONECT records and extract the indices of bonded atoms.  Returns
+a scitbx.array_family.shared.stl_set_unsigned object corresponding to the
+atoms array, with each element being the list of indices of bonded atoms
+(if any).  If no CONECT records are found, returns None.</p>
+<p>Note that the ordering of atoms may be altered by construct_hierarchy(), so
+this method should probably be called after the hierarchy is made.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.extract_cryst1_z_columns">
+<code class="descname">extract_cryst1_z_columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.extract_cryst1_z_columns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.extract_f_model_core_constants">
+<code class="descname">extract_f_model_core_constants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.extract_f_model_core_constants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.extract_header_year">
+<code class="descname">extract_header_year</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.extract_header_year" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.extract_remark_iii_records">
+<code class="descname">extract_remark_iii_records</code><span class="sig-paren">(</span><em>iii</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.extract_remark_iii_records" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.extract_secondary_structure">
+<code class="descname">extract_secondary_structure</code><span class="sig-paren">(</span><em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.extract_secondary_structure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.extract_tls_params">
+<code class="descname">extract_tls_params</code><span class="sig-paren">(</span><em>pdb_hierarchy</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.extract_tls_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.extract_wavelength">
+<code class="descname">extract_wavelength</code><span class="sig-paren">(</span><em>first_only=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.extract_wavelength" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.file_type">
+<code class="descname">file_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.file_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.get_experiment_type">
+<code class="descname">get_experiment_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.get_experiment_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.get_link_records">
+<code class="descname">get_link_records</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.get_link_records" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.get_matthews_coeff">
+<code class="descname">get_matthews_coeff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.get_matthews_coeff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.get_program_name">
+<code class="descname">get_program_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.get_program_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.get_r_rfree_sigma">
+<code class="descname">get_r_rfree_sigma</code><span class="sig-paren">(</span><em>file_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.get_r_rfree_sigma" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.get_restraints_used">
+<code class="descname">get_restraints_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.get_restraints_used" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.get_solvent_content">
+<code class="descname">get_solvent_content</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.get_solvent_content" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.heterogen_section">
+<code class="descname">heterogen_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.heterogen_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; heterogen_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.miscellaneous_features_section">
+<code class="descname">miscellaneous_features_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.miscellaneous_features_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; miscellaneous_features_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.model_atom_counts">
+<code class="descname">model_atom_counts</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; size_t :<a class="headerlink" href="#iotbx.pdb.ext.input.model_atom_counts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;unsigned long&gt; model_atom_counts(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.model_ids">
+<code class="descname">model_ids</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.model_ids" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; model_ids(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.model_indices">
+<code class="descname">model_indices</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; size_t :<a class="headerlink" href="#iotbx.pdb.ext.input.model_indices" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;unsigned long&gt; model_indices(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.primary_structure_section">
+<code class="descname">primary_structure_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.primary_structure_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; primary_structure_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.process_BIOMT_records">
+<code class="descname">process_BIOMT_records</code><span class="sig-paren">(</span><em>error_handle=True</em>, <em>eps=0.0001</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.process_BIOMT_records" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.process_MTRIX_records">
+<code class="descname">process_MTRIX_records</code><span class="sig-paren">(</span><em>eps=0.0001</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.process_MTRIX_records" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.record_type_counts">
+<code class="descname">record_type_counts</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; dict :<a class="headerlink" href="#iotbx.pdb.ext.input.record_type_counts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>boost::python::dict record_type_counts(iotbx::pdb::input)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.remark_section">
+<code class="descname">remark_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.remark_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; remark_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.resolution">
+<code class="descname">resolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.resolution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.scale_matrix">
+<code class="descname">scale_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.scale_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.secondary_structure_section">
+<code class="descname">secondary_structure_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.secondary_structure_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; secondary_structure_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.sequence_from_SEQRES">
+<code class="descname">sequence_from_SEQRES</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.sequence_from_SEQRES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.source_info">
+<code class="descname">source_info</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; str :<a class="headerlink" href="#iotbx.pdb.ext.input.source_info" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>std::string source_info(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.special_position_settings">
+<code class="descname">special_position_settings</code><span class="sig-paren">(</span><em>special_position_settings=None</em>, <em>weak_symmetry=False</em>, <em>min_distance_sym_equiv=0.5</em>, <em>u_star_tolerance=0</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.special_position_settings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.ter_indices">
+<code class="descname">ter_indices</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; size_t :<a class="headerlink" href="#iotbx.pdb.ext.input.ter_indices" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;unsigned long&gt; ter_indices(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.title_section">
+<code class="descname">title_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.title_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; title_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.unknown_section">
+<code class="descname">unknown_section</code><span class="sig-paren">(</span><em>(input)arg1</em><span class="sig-paren">)</span> &#x2192; std_string :<a class="headerlink" href="#iotbx.pdb.ext.input.unknown_section" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>scitbx::af::shared&lt;std::string&gt; unknown_section(iotbx::pdb::input {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.used_amber_restraints">
+<code class="descname">used_amber_restraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.used_amber_restraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.used_cdl_restraints">
+<code class="descname">used_cdl_restraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.used_cdl_restraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.used_omega_cdl_restraints">
+<code class="descname">used_omega_cdl_restraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.used_omega_cdl_restraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.write_pdb_file">
+<code class="descname">write_pdb_file</code><span class="sig-paren">(</span><em>file_name</em>, <em>open_append=False</em>, <em>crystal_symmetry=&lt;libtbx.AutoType object&gt;</em>, <em>cryst1_z=&lt;libtbx.AutoType object&gt;</em>, <em>write_scale_records=True</em>, <em>append_end=False</em>, <em>atom_hetatm=True</em>, <em>sigatm=True</em>, <em>anisou=True</em>, <em>siguij=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.write_pdb_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.xray_structure_simple">
+<code class="descname">xray_structure_simple</code><span class="sig-paren">(</span><em>crystal_symmetry=None, weak_symmetry=False, cryst1_substitution_buffer_layer=None, unit_cube_pseudo_crystal=False, fractional_coordinates=False, use_scale_matrix_if_available=True, min_distance_sym_equiv=0.5, non_unit_occupancy_implies_min_distance_sym_equiv_zero=True, scattering_type_exact=False, enable_scattering_type_unknown=False, atom_names_scattering_type_const=['PEAK', 'SITE']</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.xray_structure_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a single cctbx.xray.structure object from the atom records, using
+only the first model found.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iotbx.pdb.ext.input.xray_structures_simple">
+<code class="descname">xray_structures_simple</code><span class="sig-paren">(</span><em>one_structure_for_each_model=True, crystal_symmetry=None, weak_symmetry=False, cryst1_substitution_buffer_layer=None, unit_cube_pseudo_crystal=False, fractional_coordinates=False, min_distance_sym_equiv=0.5, non_unit_occupancy_implies_min_distance_sym_equiv_zero=True, use_scale_matrix_if_available=True, scattering_type_exact=False, enable_scattering_type_unknown=False, atom_names_scattering_type_const=['PEAK', 'SITE']</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.ext.input.xray_structures_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a list of cctbx.xray.structure objects, one per model in the
+input file.  Note that for most single-model structures (i.e. nearly all
+crystal structures), this will be a single-item list.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -3846,7 +4271,7 @@ chain.residue_groups() instead.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">iotbx.pdb</a><ul>
 <li><a class="reference internal" href="#quick-overview">Quick overview</a></li>
@@ -3925,7 +4350,7 @@ chain.residue_groups() instead.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.7.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
     </div>
   </body>
 </html>

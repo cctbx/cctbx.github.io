@@ -4835,16 +4835,11 @@ monomer sequence file, the ASU contains 8 copies of the sequence(s).</p>
 
 <dl class="class">
 <dt id="mmtbx.validation.sequence.validation">
-<em class="property">class </em><code class="descclassname">mmtbx.validation.sequence.</code><code class="descname">validation</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>sequences</em>, <em>params=None</em>, <em>log=None</em>, <em>nproc=&lt;libtbx.AutoType object&gt;</em>, <em>include_secondary_structure=False</em>, <em>extract_coordinates=False</em>, <em>extract_residue_groups=False</em>, <em>minimum_identity=0</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.sequence.validation" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.validation.sequence.</code><code class="descname">validation</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>sequences</em>, <em>params=None</em>, <em>log=None</em>, <em>nproc=&lt;libtbx.AutoType object&gt;</em>, <em>include_secondary_structure=False</em>, <em>extract_coordinates=False</em>, <em>extract_residue_groups=False</em>, <em>minimum_identity=0</em>, <em>custom_residues=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.sequence.validation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
 <dt id="mmtbx.validation.sequence.validation.align_chain">
 <code class="descname">align_chain</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.sequence.validation.align_chain" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="mmtbx.validation.sequence.validation.as_cif_block">
-<code class="descname">as_cif_block</code><span class="sig-paren">(</span><em>cif_block=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.sequence.validation.as_cif_block" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -4867,6 +4862,27 @@ considered, and sequences which are non-unique will have a copy number of
 <dt id="mmtbx.validation.sequence.validation.get_table_data">
 <code class="descname">get_table_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.sequence.validation.get_table_data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="mmtbx.validation.sequence.validation.sequence_as_cif_block">
+<code class="descname">sequence_as_cif_block</code><span class="sig-paren">(</span><em>custom_residues=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.sequence.validation.sequence_as_cif_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export sequence information as mmCIF block
+Version 5.0 of mmCIF/PDBx dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>custom_residues</strong> (<em>list of str</em>) – List of custom 3-letter residues to keep in pdbx_one_letter_sequence
+The 3-letter residue must exist in the model. If None, the value
+from self.custom_residues is used.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>cif_block</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../iotbx/iotbx.cif.html#iotbx.cif.model.block" title="iotbx.cif.model.block">iotbx.cif.model.block</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="mmtbx.validation.sequence.validation.show">

@@ -136,6 +136,28 @@ file extension as an implicit replacement for <code class="docutils literal notr
 <p>However, in most cases only a subset of these will be tried automatically.</p>
 <div class="section" id="module-iotbx.file_reader">
 <span id="api-documentation"></span><h2>API documentation<a class="headerlink" href="#module-iotbx.file_reader" title="Permalink to this headline">¶</a></h2>
+<p>Generic file input module, used in Phenix GUI and elsewhere.  This trades some
+loss of efficiency for a simplified API for loading any file type more or less
+automatically.  It will first try to guess the format based on the extension;
+if this fails, it will then try other formats.  This is used on the command
+line and the Phenix GUI to process bulk file input.  In most other cases a
+specific file type is desired, and the force_type argument will ensure that
+only this format is attempted.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.file_reader</span> <span class="k">import</span> <span class="n">any_file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">input_file</span> <span class="o">=</span> <span class="n">any_file</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">file_data</span> <span class="o">=</span> <span class="n">input_file</span><span class="o">.</span><span class="n">file_object</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pdb_in</span> <span class="o">=</span> <span class="n">any_file</span><span class="p">(</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">,</span> <span class="n">force_type</span><span class="o">=</span><span class="s2">&quot;pdb&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pdb_in</span><span class="o">.</span><span class="n">assert_file_type</span><span class="p">(</span><span class="s2">&quot;pdb&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hierarchy</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">file_object</span><span class="o">.</span><span class="n">hierarchy</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mtz_in</span> <span class="o">=</span> <span class="n">any_file</span><span class="p">(</span><span class="s2">&quot;data.mtz&quot;</span><span class="p">,</span> <span class="n">force_type</span><span class="o">=</span><span class="s2">&quot;hkl&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">miller_arrays</span> <span class="o">=</span> <span class="n">mtz_in</span><span class="o">.</span><span class="n">file_server</span><span class="o">.</span><span class="n">miller_arrays</span>
+</pre></div>
+</div>
 <dl class="exception">
 <dt id="iotbx.file_reader.FormatError">
 <em class="property">exception </em><code class="descclassname">iotbx.file_reader.</code><code class="descname">FormatError</code><a class="headerlink" href="#iotbx.file_reader.FormatError" title="Permalink to this definition">¶</a></dt>

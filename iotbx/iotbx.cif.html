@@ -346,7 +346,7 @@ with minimal dependencies into any C++ software. For further details see the
 <dl class="class">
 <dt id="iotbx.cif.model.cif">
 <em class="property">class </em><code class="descclassname">iotbx.cif.model.</code><code class="descname">cif</code><span class="sig-paren">(</span><em>blocks=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserDict.DictMixin</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_abcoll.MutableMapping</span></code></p>
 <dl class="method">
 <dt id="iotbx.cif.model.cif.copy">
 <code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.copy" title="Permalink to this definition">¶</a></dt>
@@ -359,7 +359,7 @@ with minimal dependencies into any C++ software. For further details see the
 
 <dl class="method">
 <dt id="iotbx.cif.model.cif.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.get" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; D[k] if k in D, else d.  d defaults to None.<a class="headerlink" href="#iotbx.cif.model.cif.get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -369,7 +369,7 @@ with minimal dependencies into any C++ software. For further details see the
 
 <dl class="method">
 <dt id="iotbx.cif.model.cif.keys">
-<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.cif.keys" title="Permalink to this definition">¶</a></dt>
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list of D's keys<a class="headerlink" href="#iotbx.cif.model.cif.keys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -406,7 +406,7 @@ with minimal dependencies into any C++ software. For further details see the
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iotbx.cif.model.block_base</span></code></p>
 <dl class="method">
 <dt id="iotbx.cif.model.block.keys">
-<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.block.keys" title="Permalink to this definition">¶</a></dt>
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list of D's keys<a class="headerlink" href="#iotbx.cif.model.block.keys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -421,15 +421,18 @@ with minimal dependencies into any C++ software. For further details see the
 
 <dl class="method">
 <dt id="iotbx.cif.model.block.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>other=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.block.update" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">update</code><span class="sig-paren">(</span><span class="optional">[</span><em>E</em>, <span class="optional">]</span><em>**F</em><span class="sig-paren">)</span> &#x2192; None.  Update D from mapping/iterable E and F.<a class="headerlink" href="#iotbx.cif.model.block.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>If E present and has a .keys() method, does:     for k in E: D[k] = E[k]
+If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = v
+In either case, this is followed by: for k, v in F.items(): D[k] = v</p>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="iotbx.cif.model.loop">
 <em class="property">class </em><code class="descclassname">iotbx.cif.model.</code><code class="descname">loop</code><span class="sig-paren">(</span><em>header=None</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserDict.DictMixin</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_abcoll.MutableMapping</span></code></p>
 <dl class="method">
 <dt id="iotbx.cif.model.loop.add_column">
 <code class="descname">add_column</code><span class="sig-paren">(</span><em>key</em>, <em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.add_column" title="Permalink to this definition">¶</a></dt>
@@ -473,7 +476,7 @@ with minimal dependencies into any C++ software. For further details see the
 
 <dl class="method">
 <dt id="iotbx.cif.model.loop.keys">
-<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.cif.model.loop.keys" title="Permalink to this definition">¶</a></dt>
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list of D's keys<a class="headerlink" href="#iotbx.cif.model.loop.keys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

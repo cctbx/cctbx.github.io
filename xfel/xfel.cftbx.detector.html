@@ -163,7 +163,7 @@ object’s calibration store
 
 <dl class="function">
 <dt id="xfel.cftbx.detector.cspad_cbf_tbx.get_psana_corrected_data">
-<code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">get_psana_corrected_data</code><span class="sig-paren">(</span><em>psana_det</em>, <em>evt</em>, <em>use_default=False</em>, <em>dark=True</em>, <em>common_mode=None</em>, <em>apply_gain_mask=True</em>, <em>gain_mask_value=None</em>, <em>per_pixel_gain=False</em>, <em>gain_mask=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.get_psana_corrected_data" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">xfel.cftbx.detector.cspad_cbf_tbx.</code><code class="descname">get_psana_corrected_data</code><span class="sig-paren">(</span><em>psana_det</em>, <em>evt</em>, <em>use_default=False</em>, <em>dark=True</em>, <em>common_mode=None</em>, <em>apply_gain_mask=True</em>, <em>gain_mask_value=None</em>, <em>per_pixel_gain=False</em>, <em>gain_mask=None</em>, <em>additional_gain_factor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.get_psana_corrected_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a psana Detector object, apply corrections as appropriate and return the data from the event
 &#64;param psana_det psana Detector object
 &#64;param evt psana event
@@ -175,7 +175,9 @@ in the calib folder. Otherwise should be a list as specified by the psana docume
 &#64;param apply_gain_mask Whether to apply the common mode gain mask correction
 &#64;param gain_mask_value Multiplier to apply to the pixels, according to the gain mask
 &#64;param per_pixel_gain If available, use the per pixel gain deployed to the calibration folder
-&#64;param, gain_mask, gain mask showing which pixels to apply gain mask value
+&#64;param gain_mask gain mask showing which pixels to apply gain mask value
+&#64;param additional_gain_factor Additional gain factor. Pixels counts are divided by this number after all other
+corrections.
 &#64;return Numpy array corrected as specified.</p>
 </dd></dl>
 

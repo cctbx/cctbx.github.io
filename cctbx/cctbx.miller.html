@@ -95,8 +95,8 @@ reading from a file, or from a <a class="reference internal" href="cctbx.xray.st
 practice, the latter two options almost always return an array object rather
 than a set.)  Programmatic creation can be done directly, or through the
 convenience method <a class="reference internal" href="#cctbx.miller.build_set" title="cctbx.miller.build_set"><code class="xref py py-func docutils literal notranslate"><span class="pre">cctbx.miller.build_set()</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">miller</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">crystal</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="kn">import</span> <span class="n">miller</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="kn">import</span> <span class="n">crystal</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ms</span> <span class="o">=</span> <span class="n">miller</span><span class="o">.</span><span class="n">build_set</span><span class="p">(</span>
 <span class="gp">... </span>  <span class="n">crystal_symmetry</span><span class="o">=</span><span class="n">crystal</span><span class="o">.</span><span class="n">symmetry</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">space_group_symbol</span><span class="o">=</span><span class="s2">&quot;P212121&quot;</span><span class="p">,</span>
@@ -112,9 +112,9 @@ convenience method <a class="reference internal" href="#cctbx.miller.build_set" 
 </pre></div>
 </div>
 <p>The same set, instantiated directly:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">miller</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">crystal</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="k">import</span> <span class="n">flex</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="kn">import</span> <span class="n">miller</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="kn">import</span> <span class="n">crystal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="kn">import</span> <span class="n">flex</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ms</span> <span class="o">=</span> <span class="n">miller</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
 <span class="gp">... </span>  <span class="n">crystal_symmetry</span><span class="o">=</span><span class="n">crystal</span><span class="o">.</span><span class="n">symmetry</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">space_group_symbol</span><span class="o">=</span><span class="s2">&quot;P212121&quot;</span><span class="p">,</span>
@@ -127,7 +127,7 @@ convenience method <a class="reference internal" href="#cctbx.miller.build_set" 
 <p>From here we can retrieve a variety of information, even before we have
 experimental data.  For instance, exploring systematic absences (starting
 from the above example):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">sgtbx</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="kn">import</span> <span class="n">sgtbx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">point_group</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">space_group</span><span class="p">()</span><span class="o">.</span><span class="n">build_derived_point_group</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ms_base</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">customized_copy</span><span class="p">(</span><span class="n">space_group</span><span class="o">=</span><span class="n">point_group</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ms_all</span> <span class="o">=</span> <span class="n">ms_base</span><span class="o">.</span><span class="n">complete_set</span><span class="p">()</span>
@@ -211,7 +211,7 @@ additional APIs are required.  Methods for reading input files are covered in
 more detail in the documentation for <a class="reference internal" href="../iotbx/iotbx.reflection_file_reader.html#module-iotbx.reflection_file_reader" title="iotbx.reflection_file_reader"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iotbx.reflection_file_reader</span></code></a>
 and <a class="reference internal" href="../iotbx/iotbx.file_reader.html#module-iotbx.file_reader" title="iotbx.file_reader"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iotbx.file_reader</span></code></a>, but in the simplest case we can obtain
 experimental data in just a couple of lines of code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="kn">import</span> <span class="n">any_reflection_file</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hkl_in</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;data.sca&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">miller_arrays</span> <span class="o">=</span> <span class="n">hkl_in</span><span class="o">.</span><span class="n">as_miller_arrays</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i_obs</span> <span class="o">=</span> <span class="n">miller_arrays</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -301,7 +301,7 @@ actions will behave sensibly: we must make sure that the input data are of
 the correct type, symmetry-unique, using conventional indices, and consistent
 with the R-free flags; we also want to use the R-free flags to separate out
 “working” and “test” arrays.  To begin with, we read in the data:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="kn">import</span> <span class="n">any_reflection_file</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hkl_in</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;data.mtz&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">miller_arrays</span> <span class="o">=</span> <span class="n">hkl_in</span><span class="o">.</span><span class="n">as_miller_arrays</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">i_obs</span> <span class="o">=</span> <span class="n">miller_arrays</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -425,7 +425,7 @@ in the same ASU, but normally this would be taken care of by previous routines.<
 <code class="docutils literal notranslate"><span class="pre">cctbx.miller</span></code>, here is a complete six-line script to convert all sets of map
 coefficients in an MTZ file to sigma-scaled CCP4-format map files (covering the
 unit cell):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="k">import</span> <span class="n">any_reflection_file</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.reflection_file_reader</span> <span class="kn">import</span> <span class="n">any_reflection_file</span>
 <span class="n">hkl_in</span> <span class="o">=</span> <span class="n">any_reflection_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;map_coeffs.mtz&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i_map</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hkl_in</span><span class="o">.</span><span class="n">as_miller_arrays</span><span class="p">())</span> <span class="p">:</span>
   <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">is_complex_array</span><span class="p">()</span> <span class="p">:</span>

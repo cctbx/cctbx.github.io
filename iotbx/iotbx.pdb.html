@@ -71,7 +71,7 @@ well.</p>
 <h2>Quick overview<a class="headerlink" href="#quick-overview" title="Permalink to this headline">¶</a></h2>
 <p>Here is a simple example of reading in a single-model PDB (or mmCIF) model and
 traversing the hierarchy, deleting any zinc atoms:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="k">import</span> <span class="n">hierarchy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="kn">import</span> <span class="n">hierarchy</span>
 <span class="n">pdb_in</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">only_model</span><span class="p">()</span><span class="o">.</span><span class="n">chains</span><span class="p">()</span> <span class="p">:</span>
   <span class="k">for</span> <span class="n">residue_group</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">residue_groups</span><span class="p">()</span> <span class="p">:</span>
@@ -101,7 +101,7 @@ the same operation with much less code:</p>
 structure in place.</p>
 <p>For applications that deal with actual crystal scattering, in addition to the
 PDB hierarchy we also need the corresponding X-ray structure:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="k">import</span> <span class="n">hierarchy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="kn">import</span> <span class="n">hierarchy</span>
 <span class="n">pdb_in</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">)</span>
 <span class="n">xray_structure</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">xray_structure_simple</span><span class="p">()</span>
 </pre></div>
@@ -525,7 +525,7 @@ residue number, chain ID, or B-factor, which can be combined by the use of
 simple boolean statements (<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, or <code class="docutils literal notranslate"><span class="pre">not</span></code>).  The class
 <code class="xref py py-class docutils literal notranslate"><span class="pre">iotbx.pdb.atom_selection.cache</span></code> implements these selections, and
 is created directly by the hierarchy object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="k">import</span> <span class="n">hierarchy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iotbx.pdb</span> <span class="kn">import</span> <span class="n">hierarchy</span>
 <span class="n">pdb_in</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">)</span>
 <span class="n">pdb_atoms</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">atoms</span><span class="p">()</span>
 <span class="n">xray_structure</span> <span class="o">=</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">xray_structure_simple</span><span class="p">()</span>

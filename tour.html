@@ -69,9 +69,9 @@
 <p>If you go to the beach you will find massive amounts of a material known
 to crystallographers as quartz, which in this case is just a fancy word
 for sand. As an example here is the cctbx way of playing in the sandbox:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">xray</span>
-<span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">crystal</span>
-<span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="k">import</span> <span class="n">flex</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="kn">import</span> <span class="n">xray</span>
+<span class="kn">from</span> <span class="nn">cctbx</span> <span class="kn">import</span> <span class="n">crystal</span>
+<span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="kn">import</span> <span class="n">flex</span>
 
 <span class="n">quartz_structure</span> <span class="o">=</span> <span class="n">xray</span><span class="o">.</span><span class="n">structure</span><span class="p">(</span>
   <span class="n">special_position_settings</span><span class="o">=</span><span class="n">crystal</span><span class="o">.</span><span class="n">special_position_settings</span><span class="p">(</span>
@@ -105,7 +105,7 @@ for sand. As an example here is the cctbx way of playing in the sandbox:</p>
 format might appear to be specifically designed for crystallographic
 data. Now let’s give the <code class="docutils literal notranslate"><span class="pre">quartz_structure</span></code> a rest break at the
 beach:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="k">import</span> <span class="n">easy_pickle</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="kn">import</span> <span class="n">easy_pickle</span>
 <span class="n">easy_pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">&quot;beach&quot;</span><span class="p">,</span> <span class="n">quartz_structure</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -122,7 +122,7 @@ at, but this is not important because we can easily resurrect the
 original object to extract any information that we might be interested
 in. In a potentially <em>different script</em> on a potentially <em>different
 computer</em> with a potentially <em>different operating system</em>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="k">import</span> <span class="n">easy_pickle</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="kn">import</span> <span class="n">easy_pickle</span>
 <span class="n">quartz_structure</span> <span class="o">=</span> <span class="n">easy_pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;beach&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -288,7 +288,7 @@ immediate access to the rich and familiar set of standard tools for
 manipulating tuples. All large array types are transparently and
 uniformly mapped to a group of Python types in the
 <code class="docutils literal notranslate"><span class="pre">scitbx.array_family.flex</span></code> module. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scitbx.array_family</span> <span class="k">import</span> <span class="n">flex</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scitbx.array_family</span> <span class="kn">import</span> <span class="n">flex</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># a 1-dimensional array of 30 double-precision values</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">int</span><span class="p">(</span><span class="n">flex</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># a 2-dimensional array of 2x3 integer values</span>
 </pre></div>
@@ -322,7 +322,7 @@ impossible if the user-defined types are implemented in C++.</li>
 <p>The <code class="docutils literal notranslate"><span class="pre">cctbx.array_family.flex</span></code> inherits all <code class="docutils literal notranslate"><span class="pre">flex</span></code> types from the
 <code class="docutils literal notranslate"><span class="pre">scitbx.array_family.flex</span></code> module and adds a few types specific to
 the cctbx module, for example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="k">import</span> <span class="n">flex</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cctbx.array_family</span> <span class="kn">import</span> <span class="n">flex</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">miller_index</span><span class="p">(((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
 <span class="n">flex</span><span class="o">.</span><span class="n">hendrickson_lattman</span><span class="p">(((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span>
 </pre></div>
@@ -472,7 +472,7 @@ class brick
 </pre></div>
 </div>
 <p>And here is how the class is used in Python:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="k">import</span> <span class="n">sgtbx</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cctbx</span> <span class="kn">import</span> <span class="n">sgtbx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">brick</span> <span class="o">=</span> <span class="n">sgtbx</span><span class="o">.</span><span class="n">brick</span><span class="p">(</span><span class="n">sgtbx</span><span class="o">.</span><span class="n">space_group_type</span><span class="p">(</span><span class="s2">&quot;I a -3 d&quot;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">brick</span>
 <span class="go">0&lt;=x&lt;=1/8; -1/8&lt;=y&lt;=0; 1/8&lt;z&lt;7/8</span>

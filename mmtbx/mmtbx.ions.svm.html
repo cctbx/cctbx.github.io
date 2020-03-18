@@ -74,7 +74,7 @@ details.</p>
 <dt id="mmtbx.ions.svm.ion_anomalous_vector">
 <code class="descclassname">mmtbx.ions.svm.</code><code class="descname">ion_anomalous_vector</code><span class="sig-paren">(</span><em>scatter_env</em>, <em>elements=None</em>, <em>ratios=True</em>, <em>anom_peak=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.svm.ion_anomalous_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a vector of the anomalous features of a site. These can either include
-the f’’ / f’‘_expected for a variety of ion identities or the exact anomalous
+the f’’ / f’’_expected for a variety of ion identities or the exact anomalous
 peak height.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -83,10 +83,10 @@ peak height.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>scatter_env</strong> (<a class="reference internal" href="mmtbx.ions.environment.html#mmtbx.ions.environment.ScatteringEnvironment" title="mmtbx.ions.environment.ScatteringEnvironment"><em>mmtbx.ions.environment.ScatteringEnvironment</em></a>) – An object containing information about the scattering environment at a
 site.</li>
-<li><strong>elements</strong> (<em>list of str</em><em>, </em><em>optional</em>) – List of elements to include when calculating f’‘_expected values. If
+<li><strong>elements</strong> (<em>list of str</em><em>, </em><em>optional</em>) – List of elements to include when calculating f’’_expected values. If
 unset, takes the list from mmtbx.ions.ALLOWED_IONS.</li>
 <li><strong>ratios</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – If False, instead of calculating ratios, just return a vector of the
-wavelength, f’, and f’‘.</li>
+wavelength, f’, and f’’.</li>
 <li><strong>anom_peak</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to use the actual height of the anomalous map instead of the
 calculated f’’ values.</li>
 </ul>
@@ -286,7 +286,7 @@ b-factor of solvent molecules in the structure.</li>
 <li><strong>diff_peak</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – Include the difference map peak height.</li>
 <li><strong>geometry</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – Include information about the presence of various geometries.</li>
 <li><strong>elements</strong> (<em>list of str</em><em>, </em><em>optional</em>) – <dl class="docutils">
-<dt>List of elements to include when calculating BVS, VECSUM, and f’‘_expected</dt>
+<dt>List of elements to include when calculating BVS, VECSUM, and f’’_expected</dt>
 <dd>values. If unset, takes the list from mmtbx.ions.ALLOWED_IONS.</dd>
 </dl>
 </li>
@@ -345,7 +345,7 @@ as an ion.</p>
 
 <dl class="method">
 <dt id="mmtbx.ions.svm.manager.analyze_waters">
-<code class="descname">analyze_waters</code><span class="sig-paren">(</span><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em>, <em>debug=True</em>, <em>candidates=&lt;libtbx.AutoType object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.svm.manager.analyze_waters" title="Permalink to this definition">¶</a></dt>
+<code class="descname">analyze_waters</code><span class="sig-paren">(</span><em>out=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em>, <em>debug=True</em>, <em>candidates=&lt;libtbx.AutoType object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.svm.manager.analyze_waters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uses a SVM to analyze all of a model’s water sites and decide whether to
 re-assign them as ions.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -537,7 +537,7 @@ each or None if the trained classifier cannot be loaded.</p>
 
 <dl class="method">
 <dt id="mmtbx.ions.svm.svm_prediction.show">
-<code class="descname">show</code><span class="sig-paren">(</span><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.svm.svm_prediction.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><em>out=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.svm.svm_prediction.show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shows information about a SVM’s prediction of a site’s identity.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -555,7 +555,7 @@ each or None if the trained classifier cannot be loaded.</p>
 
 <dl class="method">
 <dt id="mmtbx.ions.svm.svm_prediction.show_brief">
-<code class="descname">show_brief</code><span class="sig-paren">(</span><em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w'&gt;</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.svm.svm_prediction.show_brief" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_brief</code><span class="sig-paren">(</span><em>out=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.svm.svm_prediction.show_brief" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shows a brief description of a SVM’s prediction of a site’s identity, for
 use in output as a table.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -643,7 +643,7 @@ use in output as a table.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

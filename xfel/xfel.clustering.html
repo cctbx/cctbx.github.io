@@ -53,7 +53,8 @@ on an existing cluster, e.g. to plot the unit cell distributions.</p>
 <dl class="class">
 <dt id="xfel.clustering.cluster.Cluster">
 <em class="property">class </em><code class="descclassname">xfel.clustering.cluster.</code><code class="descname">Cluster</code><span class="sig-paren">(</span><em>data</em>, <em>cname='cluster'</em>, <em>info=''</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class for operation on groups of single XFEL images (here described by
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Class for operation on groups of single XFEL images (here described by
 SingleFrame objects) as cluster objects.</p>
 <p>Objects can be created directily using the __init__ method, or by using a
 classmethod e.g. to create an object from a folder full of integration
@@ -84,6 +85,11 @@ cluster.lst file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; prime.postrefine params.phil $(cat cluster.lst)
 </pre></div>
 </div>
+<dl class="attribute">
+<dt id="xfel.clustering.cluster.Cluster.__dict__">
+<code class="descname">__dict__</code><em class="property"> = mappingproxy({'__module__': 'xfel.clustering.cluster', '__doc__': 'Class for operation on groups of single XFEL images (here described by\n  SingleFrame objects) as cluster objects.\n\n  Objects can be created directily using the __init__ method, or by using a\n  classmethod e.g. to create an object from a folder full of integration\n  pickles. Whenever a method can plot, there is the option of\n  passing it an appropriate number of matplotlib axes objects, which will then\n  get returned for use in composite plots. See cluster.42 for an example.\n  If no axes are passed, the methods will just plot the result to the screen.\n  Clustering filters can act on these to break them up into cluster objects with\n  different members. A \'filter\' is just a clustering procedure that puts the\n  passes and fails into different clusters. This is acheived through the\n  make_sub_cluster() method. This also keeps track of a sub-clusters heritage\n  through the .info string, which is appended to. The idea is to be able to\n  write filter scripts for each data.\n  e.g ::\n\n      &gt;&gt;&gt; test_cluster = Cluster.from_directories([&quot;~/test_data&quot;],\n      ...                                        \'test_script\')\n      &gt;&gt;&gt; P3_only = test_cluster.point_group_filer(\'P3\')\n      &gt;&gt;&gt; sub_clusters = P3_only.ab_cluster(1200)\n      &gt;&gt;&gt; big_cluster = max(sub_clusters, key=lambda x: len(x.members))\n      &gt;&gt;&gt; best_data = big_cluster.total_intensity_filter(res=6.5,\n      ...                                               completeness_threshold=0.1,\n      ...                                               plot=False)\n      &gt;&gt;&gt; print best_data.info\n\n  Subsequent postrefinenment/merging programs can be called on an output\n  cluster.lst file::\n      &gt;&gt;&gt; prime.postrefine params.phil $(cat cluster.lst)\n  ', '__init__': &lt;function Cluster.__init__&gt;, 'from_directories': &lt;classmethod object&gt;, 'from_crystal_symmetries': &lt;classmethod object&gt;, 'from_list': &lt;classmethod object&gt;, 'from_iterable': &lt;classmethod object&gt;, 'from_files': &lt;classmethod object&gt;, 'from_expts': &lt;classmethod object&gt;, 'make_sub_cluster': &lt;function Cluster.make_sub_cluster&gt;, 'best_by_CC': &lt;function Cluster.best_by_CC&gt;, 'print_ucs': &lt;function Cluster.print_ucs&gt;, 'point_group_filter': &lt;function Cluster.point_group_filter&gt;, 'total_intensity_filter': &lt;function Cluster.total_intensity_filter&gt;, 'ab_cluster': &lt;function Cluster.ab_cluster&gt;, 'dump_file_list': &lt;function Cluster.dump_file_list&gt;, 'visualise_orientational_distribution': &lt;function Cluster.visualise_orientational_distribution&gt;, 'intensity_statistics': &lt;function Cluster.intensity_statistics&gt;, 'all_frames_intensity_stats': &lt;function Cluster.all_frames_intensity_stats&gt;, 'merge_dict': &lt;function Cluster.merge_dict&gt;, '__len__': &lt;function Cluster.__len__&gt;, 'dump_as_mtz': &lt;function Cluster.dump_as_mtz&gt;, 'to_pandas': &lt;function Cluster.to_pandas&gt;, 'uc_feature_vector': &lt;function Cluster.uc_feature_vector&gt;, 'prime_postrefine': &lt;function Cluster.prime_postrefine&gt;, '__dict__': &lt;attribute '__dict__' of 'Cluster' objects&gt;, '__weakref__': &lt;attribute '__weakref__' of 'Cluster' objects&gt;})</em><a class="headerlink" href="#xfel.clustering.cluster.Cluster.__dict__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="xfel.clustering.cluster.Cluster.__init__">
 <code class="descname">__init__</code><span class="sig-paren">(</span><em>data</em>, <em>cname='cluster'</em>, <em>info=''</em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.__init__" title="Permalink to this definition">¶</a></dt>
@@ -114,6 +120,12 @@ about these as a cluster (e.g. mean unit cell).</p>
 <dt id="xfel.clustering.cluster.Cluster.__module__">
 <code class="descname">__module__</code><em class="property"> = 'xfel.clustering.cluster'</em><a class="headerlink" href="#xfel.clustering.cluster.Cluster.__module__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="attribute">
+<dt id="xfel.clustering.cluster.Cluster.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#xfel.clustering.cluster.Cluster.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="xfel.clustering.cluster.Cluster.ab_cluster">
@@ -632,7 +644,7 @@ Changes the object in place.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

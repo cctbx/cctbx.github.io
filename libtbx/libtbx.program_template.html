@@ -1,21 +1,20 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>libtbx.program_template: Standard Program Template for CCTBX Programs &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,7 +37,8 @@
           <a href="libtbx.easy_mp.html" title="libtbx.easy_mp: functions for painless parallelization of Python code"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">libtbx - low-level utilities and infrastructure for CCTBX</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">libtbx - low-level utilities and infrastructure for CCTBX</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">libtbx.program_template: Standard Program Template for CCTBX Programs</a></li> 
       </ul>
     </div>  
 
@@ -57,82 +57,75 @@ The user interfaces (command-line and graphical) build the “data_manager” an
 “params” handles all the program settings.</p>
 <p>The required methods break up the calling order into discrete phases</p>
 <ul class="simple">
-<li>constructor: minimal set up</li>
-<li>validate: check that the inputs (files and parameters) are valid and consistent</li>
-<li>run: run the actual task</li>
-<li>get_results: return the desired output from the program</li>
+<li><p>constructor: minimal set up</p></li>
+<li><p>validate: check that the inputs (files and parameters) are valid and consistent</p></li>
+<li><p>run: run the actual task</p></li>
+<li><p>get_results: return the desired output from the program</p></li>
 </ul>
 <p>The optional methods provide some extra tweaking</p>
 <ul class="simple">
-<li>custom_init: called at the end of the constructor, additional initialization</li>
-<li><dl class="first docutils">
-<dt>clean_up: if temporary files are written in the course of running the program,</dt>
-<dd>this step should remove those files.</dd>
+<li><p>custom_init: called at the end of the constructor, additional initialization</p></li>
+<li><dl class="simple">
+<dt>clean_up: if temporary files are written in the course of running the program,</dt><dd><p>this step should remove those files.</p>
+</dd>
 </dl>
 </li>
 </ul>
-<dl class="class">
+<dl class="py class">
 <dt id="libtbx.program_template.ProgramTemplate">
-<em class="property">class </em><code class="descclassname">libtbx.program_template.</code><code class="descname">ProgramTemplate</code><span class="sig-paren">(</span><em>data_manager</em>, <em>params</em>, <em>master_phil=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<em class="property">class </em><code class="sig-prename descclassname">libtbx.program_template.</code><code class="sig-name descname">ProgramTemplate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_manager</span></em>, <em class="sig-param"><span class="n">params</span></em>, <em class="sig-param"><span class="n">master_phil</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
 <dt id="libtbx.program_template.ProgramTemplate.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>data_manager</em>, <em>params</em>, <em>master_phil=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_manager</span></em>, <em class="sig-param"><span class="n">params</span></em>, <em class="sig-param"><span class="n">master_phil</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Common constructor for all programs</p>
 <p>This is supposed to be lightweight. Custom initialization, if necessary,
 should be handled by the custom_init function. Developers should not need to
 override this function.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>data_manager</strong> – An instance of the DataManager (libtbx/data_manager.py) class containing
-data structures from file input</li>
-<li><strong>params</strong> – An instance of PHIL</li>
-<li><strong>logger</strong> – Standard Python logger (from logging module), optional. A logger will be
-created if it is not provided.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_manager</strong> – An instance of the DataManager (libtbx/data_manager.py) class containing
+data structures from file input</p></li>
+<li><p><strong>params</strong> – An instance of PHIL</p></li>
+<li><p><strong>logger</strong> – Standard Python logger (from logging module), optional. A logger will be
+created if it is not provided.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="libtbx.program_template.ProgramTemplate.clean_up">
-<code class="descname">clean_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.clean_up" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">clean_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.clean_up" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="libtbx.program_template.ProgramTemplate.custom_init">
-<code class="descname">custom_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.custom_init" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">custom_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.custom_init" title="Permalink to this definition">¶</a></dt>
 <dd><p>Optional initialization step</p>
 <p>Developers should override this function if additional initialization is
 needed. There should be no arguments because all necessary information
 should be in self.data_manager (file input) and self.params (phil parameters)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>None</strong> – </td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="libtbx.program_template.ProgramTemplate.get_results">
-<code class="descname">get_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.get_results" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.get_results" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="libtbx.program_template.ProgramTemplate.run">
-<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.run" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="libtbx.program_template.ProgramTemplate.validate">
-<code class="descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.validate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.program_template.ProgramTemplate.validate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -141,6 +134,7 @@ should be in self.data_manager (file input) and self.params (phil parameters)</p
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -168,17 +162,15 @@ should be in self.data_manager (file input) and self.params (phil parameters)</p
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -199,12 +191,13 @@ should be in self.data_manager (file input) and self.params (phil parameters)</p
           <a href="libtbx.easy_mp.html" title="libtbx.easy_mp: functions for painless parallelization of Python code"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >libtbx - low-level utilities and infrastructure for CCTBX</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >libtbx - low-level utilities and infrastructure for CCTBX</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">libtbx.program_template: Standard Program Template for CCTBX Programs</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
     </div>
   </body>
 </html>

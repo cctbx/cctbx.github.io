@@ -1,21 +1,20 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mmtbx - macromolecular crystallography &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +36,8 @@
         <li class="right" >
           <a href="../cctbx/cctbx.xray.weighting_schemes.html" title="cctbx.xray.weighting_schemes module"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mmtbx - macromolecular crystallography</a></li> 
       </ul>
     </div>  
 
@@ -69,25 +69,25 @@ resulting objects tend to be especially complex, some knowledge of their
 internals and purpose is helpful.</p>
 <p>The most important modules in <a class="reference internal" href="#module-mmtbx" title="mmtbx"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx</span></code></a> can be summarized as follows:</p>
 <ul class="simple">
-<li><a class="reference internal" href="mmtbx.f_model.html#module-mmtbx.f_model" title="mmtbx.f_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.f_model</span></code></a>: encapsulates most functionality for calculating
+<li><p><a class="reference internal" href="mmtbx.f_model.html#module-mmtbx.f_model" title="mmtbx.f_model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.f_model</span></code></a>: encapsulates most functionality for calculating
 F(model) (i.e. F(calc)) and comparing it against experimental data.  The
 calculation of weighted electron density maps usually starts from this
-point.</li>
-<li><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.pdb_interpretation" title="mmtbx.monomer_library.pdb_interpretation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.monomer_library.pdb_interpretation</span></code></a>: processing of models
+point.</p></li>
+<li><p><a class="reference internal" href="mmtbx.monomer_library.html#module-mmtbx.monomer_library.pdb_interpretation" title="mmtbx.monomer_library.pdb_interpretation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.monomer_library.pdb_interpretation</span></code></a>: processing of models
 (in PDB or mmCIF format) and interpretation with respect to a library of
 geometry restraints (provided as part of Phenix, but the CCP4 Monomer
-Library may also be used).</li>
-<li><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling" title="mmtbx.scaling"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.scaling</span></code></a>: absolute scaling routines plus analyses of
+Library may also be used).</p></li>
+<li><p><a class="reference internal" href="mmtbx.scaling.html#module-mmtbx.scaling" title="mmtbx.scaling"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.scaling</span></code></a>: absolute scaling routines plus analyses of
 experimental data to assess quality and detect possible pathologies such as
 twinning.  This module is slightly misnamed, since it is primarily used as
-the backend for <code class="docutils literal notranslate"><span class="pre">Xtriage</span></code>.</li>
-<li><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation" title="mmtbx.validation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.validation</span></code></a>: tools for assessing model quality, based either
+the backend for <code class="docutils literal notranslate"><span class="pre">Xtriage</span></code>.</p></li>
+<li><p><a class="reference internal" href="mmtbx.validation.html#module-mmtbx.validation" title="mmtbx.validation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.validation</span></code></a>: tools for assessing model quality, based either
 on geometric criteria or fit to data.  Also see <a class="reference internal" href="mmtbx.rotamer.html#module-mmtbx.rotamer" title="mmtbx.rotamer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.rotamer</span></code></a>, the
-lower-level code for analyzing conformation.</li>
-<li><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement" title="mmtbx.refinement"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.refinement</span></code></a>: routines for model optimization against either
-reciprocal space or real-space (i.e. electron density map) data.</li>
-<li><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.pdbtools</span></code>: a small library (as well as a standalone program)
-for various common model manipulations.</li>
+lower-level code for analyzing conformation.</p></li>
+<li><p><a class="reference internal" href="mmtbx.refinement.html#module-mmtbx.refinement" title="mmtbx.refinement"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.refinement</span></code></a>: routines for model optimization against either
+reciprocal space or real-space (i.e. electron density map) data.</p></li>
+<li><p><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.pdbtools</span></code>: a small library (as well as a standalone program)
+for various common model manipulations.</p></li>
 </ul>
 <div class="section" id="subpackages">
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
@@ -535,301 +535,277 @@ for various common model manipulations.</li>
 </div>
 <div class="section" id="module-mmtbx">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mmtbx" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="mmtbx.fmodels">
-<em class="property">class </em><code class="descclassname">mmtbx.</code><code class="descname">fmodels</code><span class="sig-paren">(</span><em>fmodel_xray=None</em>, <em>fmodel_neutron=None</em>, <em>xray_scattering_dict=None</em>, <em>neutron_scattering_dict=None</em>, <em>neutron_refinement=None</em>, <em>twin_law=None</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">mmtbx.</code><code class="sig-name descname">fmodels</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fmodel_xray</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fmodel_neutron</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xray_scattering_dict</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">neutron_scattering_dict</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">neutron_refinement</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">twin_law</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Container object for F_model values used during refinement.</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.fmodels.fmodel_xray">
-<code class="descname">fmodel_xray</code><a class="headerlink" href="#mmtbx.fmodels.fmodel_xray" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fmodel_xray</code><a class="headerlink" href="#mmtbx.fmodels.fmodel_xray" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.fmodels.fmodel_neutron">
-<code class="descname">fmodel_neutron</code><a class="headerlink" href="#mmtbx.fmodels.fmodel_neutron" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fmodel_neutron</code><a class="headerlink" href="#mmtbx.fmodels.fmodel_neutron" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.fmodels.xray_scattering_dict">
-<code class="descname">xray_scattering_dict</code><a class="headerlink" href="#mmtbx.fmodels.xray_scattering_dict" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xray_scattering_dict</code><a class="headerlink" href="#mmtbx.fmodels.xray_scattering_dict" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.fmodels.neutron_scattering_dict">
-<code class="descname">neutron_scattering_dict</code><a class="headerlink" href="#mmtbx.fmodels.neutron_scattering_dict" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">neutron_scattering_dict</code><a class="headerlink" href="#mmtbx.fmodels.neutron_scattering_dict" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.fmodels.neutron_refinement">
-<code class="descname">neutron_refinement</code><a class="headerlink" href="#mmtbx.fmodels.neutron_refinement" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">neutron_refinement</code><a class="headerlink" href="#mmtbx.fmodels.neutron_refinement" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.fmodels.twin_law">
-<code class="descname">twin_law</code><a class="headerlink" href="#mmtbx.fmodels.twin_law" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">twin_law</code><a class="headerlink" href="#mmtbx.fmodels.twin_law" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.create_target_functors">
-<code class="descname">create_target_functors</code><span class="sig-paren">(</span><em>alpha_beta=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.create_target_functors" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_target_functors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">alpha_beta</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.create_target_functors" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
-<dt>
-<code class="descname">fmodel_neutron</code><span class="sig-paren">(</span><em>xray_structure=None</em><span class="sig-paren">)</span></dt>
+<dl class="py method">
+<dt id="id0">
+<code class="sig-name descname">fmodel_neutron</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xray_structure</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
-<dt>
-<code class="descname">fmodel_xray</code><span class="sig-paren">(</span><em>xray_structure=None</em><span class="sig-paren">)</span></dt>
+<dl class="py method">
+<dt id="id1">
+<code class="sig-name descname">fmodel_xray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xray_structure</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.prepare_target_functors_for_minimization">
-<code class="descname">prepare_target_functors_for_minimization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.prepare_target_functors_for_minimization" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">prepare_target_functors_for_minimization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.prepare_target_functors_for_minimization" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.pseudo_deep_copy">
-<code class="descname">pseudo_deep_copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.pseudo_deep_copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pseudo_deep_copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.pseudo_deep_copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes a deep copy of self.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#mmtbx.fmodels" title="mmtbx.fmodels">mmtbx.fmodels</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mmtbx.fmodels" title="mmtbx.fmodels">mmtbx.fmodels</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.resolution_filter">
-<code class="descname">resolution_filter</code><span class="sig-paren">(</span><em>d_min</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.resolution_filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">resolution_filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d_min</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.resolution_filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a copy of self with a resolution filter applied to the x-ray and
 neutron maps above a given resolution.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – Reflections with resolutions &lt;= d_min are removed.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#mmtbx.fmodels" title="mmtbx.fmodels">mmtbx.fmodels</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>d_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – Reflections with resolutions &lt;= d_min are removed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mmtbx.fmodels" title="mmtbx.fmodels">mmtbx.fmodels</a></p>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mmtbx.f_model.manager.resolution_filter()</span></code></p>
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">mmtbx.f_model.manager.resolution_filter()</span></code></p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.show_comprehensive">
-<code class="descname">show_comprehensive</code><span class="sig-paren">(</span><em>message=''</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.show_comprehensive" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">show_comprehensive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">message</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.show_comprehensive" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.show_short">
-<code class="descname">show_short</code><span class="sig-paren">(</span><em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.show_short" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">show_short</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.show_short" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.show_targets">
-<code class="descname">show_targets</code><span class="sig-paren">(</span><em>log</em>, <em>text=''</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.show_targets" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">show_targets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log</span></em>, <em class="sig-param"><span class="n">text</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.show_targets" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.target_and_gradients">
-<code class="descname">target_and_gradients</code><span class="sig-paren">(</span><em>compute_gradients</em>, <em>weights=None</em>, <em>u_iso_refinable_params=None</em>, <em>occupancy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_and_gradients" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">target_and_gradients</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">compute_gradients</span></em>, <em class="sig-param"><span class="n">weights</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">u_iso_refinable_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">occupancy</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_and_gradients" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.target_functions_are_invariant_under_allowed_origin_shifts">
-<code class="descname">target_functions_are_invariant_under_allowed_origin_shifts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_functions_are_invariant_under_allowed_origin_shifts" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">target_functions_are_invariant_under_allowed_origin_shifts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_functions_are_invariant_under_allowed_origin_shifts" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.target_functor_result_neutron">
-<code class="descname">target_functor_result_neutron</code><span class="sig-paren">(</span><em>compute_gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_functor_result_neutron" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">target_functor_result_neutron</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">compute_gradients</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_functor_result_neutron" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.target_functor_result_xray">
-<code class="descname">target_functor_result_xray</code><span class="sig-paren">(</span><em>compute_gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_functor_result_xray" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">target_functor_result_xray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">compute_gradients</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.target_functor_result_xray" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>target_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.update_all_scales">
-<code class="descname">update_all_scales</code><span class="sig-paren">(</span><em>update_f_part1</em>, <em>remove_outliers=True</em>, <em>params=None</em>, <em>optimize_mask=False</em>, <em>force_update_f_mask=False</em>, <em>nproc=1</em>, <em>log=None</em>, <em>apply_back_trace=False</em>, <em>refine_hd_scattering=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.update_all_scales" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update_all_scales</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">update_f_part1</span></em>, <em class="sig-param"><span class="n">remove_outliers</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">optimize_mask</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">force_update_f_mask</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">nproc</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">apply_back_trace</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">refine_hd_scattering</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.update_all_scales" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.fmodels.update_xray_structure">
-<code class="descname">update_xray_structure</code><span class="sig-paren">(</span><em>xray_structure=None</em>, <em>update_f_calc=None</em>, <em>update_f_mask=None</em>, <em>force_update_f_mask=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.update_xray_structure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update_xray_structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xray_structure</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">update_f_calc</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">update_f_mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">force_update_f_mask</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.fmodels.update_xray_structure" title="Permalink to this definition">¶</a></dt>
 <dd><p>…</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="mmtbx.map_names">
-<em class="property">class </em><code class="descclassname">mmtbx.</code><code class="descname">map_names</code><span class="sig-paren">(</span><em>map_name_string</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.map_names" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">mmtbx.</code><code class="sig-name descname">map_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_name_string</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.map_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Class used for parsing and external display of map’s name.</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.k">
-<code class="descname">k</code><a class="headerlink" href="#mmtbx.map_names.k" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">k</code><a class="headerlink" href="#mmtbx.map_names.k" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scale for F_obs.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.n">
-<code class="descname">n</code><a class="headerlink" href="#mmtbx.map_names.n" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">n</code><a class="headerlink" href="#mmtbx.map_names.n" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scale for F_model.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.ml_map">
-<code class="descname">ml_map</code><a class="headerlink" href="#mmtbx.map_names.ml_map" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">ml_map</code><a class="headerlink" href="#mmtbx.map_names.ml_map" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.anomalous">
-<code class="descname">anomalous</code><a class="headerlink" href="#mmtbx.map_names.anomalous" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">anomalous</code><a class="headerlink" href="#mmtbx.map_names.anomalous" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.anomalous_residual">
-<code class="descname">anomalous_residual</code><a class="headerlink" href="#mmtbx.map_names.anomalous_residual" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">anomalous_residual</code><a class="headerlink" href="#mmtbx.map_names.anomalous_residual" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.phaser_sad_llg">
-<code class="descname">phaser_sad_llg</code><a class="headerlink" href="#mmtbx.map_names.phaser_sad_llg" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">phaser_sad_llg</code><a class="headerlink" href="#mmtbx.map_names.phaser_sad_llg" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.f_obs_filled">
-<code class="descname">f_obs_filled</code><a class="headerlink" href="#mmtbx.map_names.f_obs_filled" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">f_obs_filled</code><a class="headerlink" href="#mmtbx.map_names.f_obs_filled" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.DFC">
-<code class="descname">DFC</code><em class="property"> = ['dfcalc', 'dfcal', 'dfc', 'dfmodel', 'dfmod', 'dfm']</em><a class="headerlink" href="#mmtbx.map_names.DFC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">DFC</code><em class="property"> = ['dfcalc', 'dfcal', 'dfc', 'dfmodel', 'dfmod', 'dfm']</em><a class="headerlink" href="#mmtbx.map_names.DFC" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.FC">
-<code class="descname">FC</code><em class="property"> = ['fcalc', 'fcal', 'fc', 'fmodel', 'fmod', 'fm']</em><a class="headerlink" href="#mmtbx.map_names.FC" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">FC</code><em class="property"> = ['fcalc', 'fcal', 'fc', 'fmodel', 'fmod', 'fm']</em><a class="headerlink" href="#mmtbx.map_names.FC" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.FILLED">
-<code class="descname">FILLED</code><em class="property"> = ['+filled', '-filled', 'filled', '+fill', '-fill', 'fill']</em><a class="headerlink" href="#mmtbx.map_names.FILLED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">FILLED</code><em class="property"> = ['+filled', '-filled', 'filled', '+fill', '-fill', 'fill']</em><a class="headerlink" href="#mmtbx.map_names.FILLED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.FO">
-<code class="descname">FO</code><em class="property"> = ['fobs', 'fob', 'fo']</em><a class="headerlink" href="#mmtbx.map_names.FO" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">FO</code><em class="property"> = ['fobs', 'fob', 'fo']</em><a class="headerlink" href="#mmtbx.map_names.FO" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.map_names.MFO">
-<code class="descname">MFO</code><em class="property"> = ['mfobs', 'mfob', 'mfo']</em><a class="headerlink" href="#mmtbx.map_names.MFO" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">MFO</code><em class="property"> = ['mfobs', 'mfob', 'mfo']</em><a class="headerlink" href="#mmtbx.map_names.MFO" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.map_names.error">
-<code class="descname">error</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.map_names.error" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.map_names.error" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises an exception for bad map names.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.map_names.format">
-<code class="descname">format</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.map_names.format" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.map_names.format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Formats a map name for external display.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">map_names</span><span class="p">(</span><span class="n">map_name_string</span><span class="o">=</span><span class="s2">&quot;mFo-DFc &quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">map_names</span><span class="p">(</span><span class="n">map_name_string</span><span class="o">=</span><span class="s2">&quot;mFo-DFc &quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">r</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
 <span class="go">mFobs-DFmodel</span>
 </pre></div>
@@ -842,6 +818,7 @@ neutron maps above a given resolution.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -871,17 +848,15 @@ neutron maps above a given resolution.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -901,12 +876,13 @@ neutron maps above a given resolution.</p>
         <li class="right" >
           <a href="../cctbx/cctbx.xray.weighting_schemes.html" title="cctbx.xray.weighting_schemes module"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mmtbx - macromolecular crystallography</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
     </div>
   </body>
 </html>

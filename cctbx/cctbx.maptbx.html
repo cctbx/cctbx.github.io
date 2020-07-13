@@ -286,8 +286,82 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</p>
 <dd></dd></dl>
 
 <dl class="py function">
+<dt id="cctbx.maptbx.get_diff_score_towards_periodic">
+<code class="sig-prename descclassname">cctbx.maptbx.</code><code class="sig-name descname">get_diff_score_towards_periodic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span></em>, <em class="sig-param"><span class="n">minimum_fraction_data_points</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.get_diff_score_towards_periodic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate consistency of high-pass filtered difference map analysis
+with that expected for a map that is periodic.</p>
+<p>The difference map is difference between the map and the map lacking high-
+resolution terms.  This difference map shows only high-frequency
+information</p>
+<p>A map that is periodic should give a difference map that is more or less
+uniform everywhere.  A non-periodic map should have a discontinuity at the
+borders and have high variation in the difference map at the edges.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cctbx.maptbx.get_edge_score_towards_periodic">
+<code class="sig-prename descclassname">cctbx.maptbx.</code><code class="sig-name descname">get_edge_score_towards_periodic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span></em>, <em class="sig-param"><span class="n">use_minimum</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.get_edge_score_towards_periodic" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Measure of whether facing edges have correlated data with correlation</p>
+</div></blockquote>
+<p>similar to that found for adjacent planes and different than randomly
+chosen points</p>
+<p>If use_minimum is set, take minimum of values on all pairs of faces</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cctbx.maptbx.get_relative_cc">
+<code class="sig-prename descclassname">cctbx.maptbx.</code><code class="sig-name descname">get_relative_cc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">boundary_zero_data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">boundary_one_data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">one_data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.get_relative_cc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cctbx.maptbx.get_resolution_where_significant_data_present">
+<code class="sig-prename descclassname">cctbx.maptbx.</code><code class="sig-name descname">get_resolution_where_significant_data_present</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ma</span></em>, <em class="sig-param"><span class="n">minimum_fraction_data_points</span><span class="o">=</span><span class="default_value">0.1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.get_resolution_where_significant_data_present" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cctbx.maptbx.is_bounded_by_constant">
+<code class="sig-prename descclassname">cctbx.maptbx.</code><code class="sig-name descname">is_bounded_by_constant</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span></em>, <em class="sig-param"><span class="n">relative_sd_tol</span><span class="o">=</span><span class="default_value">0.1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.is_bounded_by_constant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this map is bounded on all sides by values that are
+zero or a constant, within relative tolerance of relative_sd_tol to
+the SD of the map as a whole</p>
+<dl class="simple">
+<dt>Returns True if map boundary values are nearly constant,</dt><dd><p>and False if they vary</p>
+</dd>
+</dl>
+<p>Requires that map is at origin (0,0,0)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cctbx.maptbx.is_periodic">
+<code class="sig-prename descclassname">cctbx.maptbx.</code><code class="sig-name descname">is_periodic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span></em>, <em class="sig-param"><span class="n">minimum_fraction_data_points</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">high_confidence_delta</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">medium_confidence_delta</span><span class="o">=</span><span class="default_value">0.25</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.is_periodic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if this map is periodic.  If values on opposite faces are
+about as similar as values on adjacent planes, it is probably periodic.</p>
+<dl class="simple">
+<dt>Two tests are used: (1) correlation of facing edges of map and</dt><dd><p>(2) test whether difference map between original and map without
+high resolution data shows most variation at edges (due to mismatch
+of edge data at facing edges of map).</p>
+</dd>
+</dl>
+<p>Map edge correlation score:
+Normally values on adjacent planes are very highly correlated (&gt; 0.9)
+and random points in a map have very low correlation (&lt; 0.1). This
+allows a test based on correlation of facing edges of a map and comparison
+to random pairs of points in map.</p>
+<p>Difference map score:
+If a map is boxed then if it is treated as a periodic map, there will
+be a discontinuity at the edges of the map.  This can be detected by
+calculating the Fourier transform of the high-resolution map coefficients
+for the map and detecting if this high-pass filtered map is dominated by
+features at the edge of the map.</p>
+<p>Returns True if periodic, False if not, and None if map gridding is
+too small (too few planes) or sampling is insufficiently fine to tell.</p>
+<p>Requires that map is at origin (0,0,0)</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="cctbx.maptbx.loc_res">
-<code class="sig-prename descclassname">cctbx.maptbx.</code><code class="sig-name descname">loc_res</code><span class="sig-paren">(</span><em class="sig-param">map</em>, <em class="sig-param">model</em>, <em class="sig-param">crystal_symmetry</em>, <em class="sig-param">chunk_size=10</em>, <em class="sig-param">soft_mask_radius=3.0</em>, <em class="sig-param">method='fsc'</em>, <em class="sig-param">hard_d_min=1.5</em>, <em class="sig-param">b_range_low=-200</em>, <em class="sig-param">b_range_high=500</em>, <em class="sig-param">fsc_cutoff=0.143</em>, <em class="sig-param">verbose=False</em>, <em class="sig-param">log=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.loc_res" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.maptbx.</code><code class="sig-name descname">loc_res</code><span class="sig-paren">(</span><em class="sig-param">map</em>, <em class="sig-param">model</em>, <em class="sig-param">crystal_symmetry</em>, <em class="sig-param">chunk_size=10</em>, <em class="sig-param">soft_mask_radius=3.0</em>, <em class="sig-param">method='fsc'</em>, <em class="sig-param">hard_d_min=1.5</em>, <em class="sig-param">b_range_low=-200</em>, <em class="sig-param">b_range_high=500</em>, <em class="sig-param">fsc_cutoff=0.143</em>, <em class="sig-param">wrapping=False</em>, <em class="sig-param">verbose=False</em>, <em class="sig-param">log=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.loc_res" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -538,6 +612,13 @@ A. Urzhumtsev, P. V. Afonine, V. Y. Lunin, T. C. Terwilliger and P. D. Adams</p>
 <dt id="cctbx.maptbx.region_density_correlation">
 <code class="sig-prename descclassname">cctbx.maptbx.</code><code class="sig-name descname">region_density_correlation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">large_unit_cell</span></em>, <em class="sig-param"><span class="n">large_d_min</span></em>, <em class="sig-param"><span class="n">large_density_map</span></em>, <em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">site_radii</span></em>, <em class="sig-param"><span class="n">work_scatterers</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.region_density_correlation" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt id="cctbx.maptbx.relative_sd_on_edges">
+<code class="sig-prename descclassname">cctbx.maptbx.</code><code class="sig-name descname">relative_sd_on_edges</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span></em>, <em class="sig-param"><span class="n">skip_if_greater_than</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">use_maximum</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.relative_sd_on_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine relative SD of values on edges to the map as a whole</p>
+<p>Requires that map is at origin (0,0,0)</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="cctbx.maptbx.sharpen2">

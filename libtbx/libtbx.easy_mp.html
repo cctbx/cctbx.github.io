@@ -167,7 +167,7 @@ that take minutes or longer to run, but the use of cluster resources means that
 it can handle much larger operations efficiently.</p>
 <dl class="py function">
 <dt id="libtbx.easy_mp.parallel_map">
-<code class="sig-prename descclassname">libtbx.easy_mp.</code><code class="sig-name descname">parallel_map</code><span class="sig-paren">(</span><em class="sig-param">func</em>, <em class="sig-param">iterable</em>, <em class="sig-param">iterable_type=&lt;function single_argument&gt;</em>, <em class="sig-param">params=None</em>, <em class="sig-param">processes=1</em>, <em class="sig-param">method='multiprocessing'</em>, <em class="sig-param">qsub_command=None</em>, <em class="sig-param">asynchronous=True</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">preserve_order=True</em>, <em class="sig-param">preserve_exception_message=False</em>, <em class="sig-param">use_manager=False</em>, <em class="sig-param">stacktrace_handling='ignore'</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.parallel_map" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">libtbx.easy_mp.</code><code class="sig-name descname">parallel_map</code><span class="sig-paren">(</span><em class="sig-param">func</em>, <em class="sig-param">iterable</em>, <em class="sig-param">iterable_type=&lt;function single_argument&gt;</em>, <em class="sig-param">params=None</em>, <em class="sig-param">processes=1</em>, <em class="sig-param">method='multiprocessing'</em>, <em class="sig-param">qsub_command=None</em>, <em class="sig-param">asynchronous=True</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">preserve_order=True</em>, <em class="sig-param">preserve_exception_message=False</em>, <em class="sig-param">use_manager=False</em>, <em class="sig-param">stacktrace_handling='ignore'</em>, <em class="sig-param">break_condition=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.parallel_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generic parallel map() implementation for a variety of platforms, including
 the multiprocessing module and supported queuing systems, via the module
 libtbx.queuing_system_utils.scheduling.  This is less flexible than pool_map
@@ -190,6 +190,8 @@ the underlying method.</p>
 <li><p><strong>qsub_command</strong> – command to submit queue jobs (optional)</p></li>
 <li><p><strong>asynchronous</strong> – run queue jobs asynchronously</p></li>
 <li><p><strong>preserve_exception_message</strong> – keeps original exception message</p></li>
+<li><p><strong>preserve_order</strong> – keeps original order of results</p></li>
+<li><p><strong>break_condition</strong> – if break_condition(result) is True, break</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

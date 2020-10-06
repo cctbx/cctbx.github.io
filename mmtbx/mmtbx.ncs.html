@@ -245,7 +245,7 @@ other ligand copies if meeting cutoff criteria.</p>
 
 <dl class="py function">
 <dt id="mmtbx.ncs.ncs.generate_ncs_ops">
-<code class="sig-prename descclassname">mmtbx.ncs.ncs.</code><code class="sig-name descname">generate_ncs_ops</code><span class="sig-paren">(</span><em class="sig-param">symmetry=None</em>, <em class="sig-param">helical_rot_deg=None</em>, <em class="sig-param">helical_trans_z_angstrom=None</em>, <em class="sig-param">op_max=None</em>, <em class="sig-param">two_fold_along_x=None</em>, <em class="sig-param">include_helical_symmetry=None</em>, <em class="sig-param">max_helical_ops_to_check=None</em>, <em class="sig-param">require_helical_or_point_group_symmetry=None</em>, <em class="sig-param">out=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.generate_ncs_ops" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.ncs.ncs.</code><code class="sig-name descname">generate_ncs_ops</code><span class="sig-paren">(</span><em class="sig-param">symmetry=None</em>, <em class="sig-param">must_be_consistent_with_space_group_number=None</em>, <em class="sig-param">helical_rot_deg=None</em>, <em class="sig-param">helical_trans_z_angstrom=None</em>, <em class="sig-param">op_max=None</em>, <em class="sig-param">two_fold_along_x=None</em>, <em class="sig-param">include_helical_symmetry=None</em>, <em class="sig-param">max_helical_ops_to_check=None</em>, <em class="sig-param">require_helical_or_point_group_symmetry=None</em>, <em class="sig-param">out=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.generate_ncs_ops" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -315,6 +315,11 @@ other ligand copies if meeting cutoff criteria.</p>
 <dl class="py method">
 <dt id="mmtbx.ncs.ncs.ncs.adjust_magnification">
 <code class="sig-name descname">adjust_magnification</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">magnification</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.adjust_magnification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="mmtbx.ncs.ncs.ncs.apply_ncs_to_sites">
+<code class="sig-name descname">apply_ncs_to_sites</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ncs_obj</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">exclude_identity</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">ncs_id</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.apply_ncs_to_sites" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -452,7 +457,7 @@ residue level selection.</p>
 
 <dl class="py method">
 <dt id="mmtbx.ncs.ncs.ncs.is_similar_ncs_object">
-<code class="sig-name descname">is_similar_ncs_object</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">tol_r</span><span class="o">=</span><span class="default_value">0.02</span></em>, <em class="sig-param"><span class="n">abs_tol_t</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">rel_tol_t</span><span class="o">=</span><span class="default_value">0.05</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.is_similar_ncs_object" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_similar_ncs_object</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">tol_r</span><span class="o">=</span><span class="default_value">0.02</span></em>, <em class="sig-param"><span class="n">abs_tol_t</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">rel_tol_t</span><span class="o">=</span><span class="default_value">0.05</span></em>, <em class="sig-param"><span class="n">allow_self_contained_in_other</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs.is_similar_ncs_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine if self and other are similar ncs objects
 ncs groups do not have to be in same order</p>
 </dd></dl>
@@ -790,7 +795,7 @@ ncs groups do not have to be in same order</p>
 
 <dl class="py method">
 <dt id="mmtbx.ncs.ncs.ncs_group.is_similar_ncs_group">
-<code class="sig-name descname">is_similar_ncs_group</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">tol_r</span><span class="o">=</span><span class="default_value">0.02</span></em>, <em class="sig-param"><span class="n">abs_tol_t</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">rel_tol_t</span><span class="o">=</span><span class="default_value">0.05</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.is_similar_ncs_group" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_similar_ncs_group</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">tol_r</span><span class="o">=</span><span class="default_value">0.02</span></em>, <em class="sig-param"><span class="n">abs_tol_t</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">rel_tol_t</span><span class="o">=</span><span class="default_value">0.05</span></em>, <em class="sig-param"><span class="n">allow_self_contained_in_other</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.ncs_group.is_similar_ncs_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>return True if all operations of self match one of other</p>
 </dd></dl>
 
@@ -895,6 +900,16 @@ ncs groups do not have to be in same order</p>
 <dt id="mmtbx.ncs.ncs.remove_extra">
 <code class="sig-prename descclassname">mmtbx.ncs.ncs.</code><code class="sig-name descname">remove_extra</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.remove_extra" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt id="mmtbx.ncs.ncs.remove_ncs_not_consistent_with_space_group_number">
+<code class="sig-prename descclassname">mmtbx.ncs.ncs.</code><code class="sig-name descname">remove_ncs_not_consistent_with_space_group_number</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sg_number</span></em>, <em class="sig-param"><span class="n">ncs_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs.remove_ncs_not_consistent_with_space_group_number" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>remove ncs ojbect that are not consistent with space_group number</dt><dd><p>sg_number</p>
+</dd>
+</dl>
+<p>NOTE: allows ncs that has higher symmetry than sg_number</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="mmtbx.ncs.ncs.remove_quotes_from_chain_id">

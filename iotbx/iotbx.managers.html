@@ -548,9 +548,14 @@ Optionally include/exclude ends.</p>
 <code class="sig-name descname">is_compatible_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">require_match_unit_cell_crystal_symmetry</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">absolute_angle_tolerance</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">absolute_length_tolerance</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">shift_tol</span><span class="o">=</span><span class="default_value">0.001</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.is_compatible_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Model is compatible with this map_manager if it is not specified as being
 different.</p>
-<dl class="simple">
+<dl>
 <dt>They are different if:</dt><dd><ol class="arabic simple">
-<li><p>original and current symmetries are present and do not match</p></li>
+<li><p>original and current symmetries are present and different from each</p></li>
+</ol>
+<blockquote>
+<div><p>other and do not match</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
 <li><p>model current symmetry does not match map original or current</p></li>
 <li><p>model has a shift_cart (shift applied) different than map shift_cart</p></li>
 </ol>

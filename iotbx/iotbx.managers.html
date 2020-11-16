@@ -264,9 +264,13 @@ i_maps = 1    i_maps_np = 0</p>
 </dl>
 <dl class="py method">
 <dt id="iotbx.map_manager.map_manager.absolute_center_cart">
-<code class="sig-name descname">absolute_center_cart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.absolute_center_cart" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">absolute_center_cart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">use_assumed_end</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.absolute_center_cart" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return center of map (absolute position) in Cartesian coordinates
 A little tricky because for example the map goes from 0 to nx-1, not nx</p>
+<blockquote>
+<div><p>If use_assumed_end, go to nx</p>
+</div></blockquote>
+<p>Also map could start at non-zero origin</p>
 </dd></dl>
 
 <dl class="py method">
@@ -500,7 +504,7 @@ Changes and overwrites contents of this map_manager.</p>
 
 <dl class="py method">
 <dt id="iotbx.map_manager.map_manager.get_boxes_to_tile_map">
-<code class="sig-name descname">get_boxes_to_tile_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target_for_boxes</span><span class="o">=</span><span class="default_value">24</span></em>, <em class="sig-param"><span class="n">box_cushion</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">get_unique_set_for_boxes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">do_not_go_over_target</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">target_xyz_center_list</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.get_boxes_to_tile_map" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_boxes_to_tile_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target_for_boxes</span><span class="o">=</span><span class="default_value">24</span></em>, <em class="sig-param"><span class="n">box_cushion</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">get_unique_set_for_boxes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dist_min</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">do_not_go_over_target</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">target_xyz_center_list</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.get_boxes_to_tile_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a group_args object with a list of lower_bounds and upper_bounds
 corresponding to a set of boxes that tiles the part of the map that is
 present.  The boxes may not be the same size but will tile to exactly

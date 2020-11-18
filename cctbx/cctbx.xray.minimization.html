@@ -1,20 +1,21 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>cctbx.xray.minimization module &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,8 +39,7 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="cctbx.xray.html" accesskey="U">cctbx.xray package</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">cctbx.xray.minimization module</a></li> 
+          <li class="nav-item nav-item-2"><a href="cctbx.xray.html" accesskey="U">cctbx.xray package</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -50,14 +50,14 @@
             
   <div class="section" id="module-cctbx.xray.minimization">
 <span id="cctbx-xray-minimization-module"></span><h1>cctbx.xray.minimization module<a class="headerlink" href="#module-cctbx.xray.minimization" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
+<dl class="function">
 <dt id="cctbx.xray.minimization.add_gradients">
-<code class="sig-prename descclassname">cctbx.xray.minimization.</code><code class="sig-name descname">add_gradients</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scatterers</span></em>, <em class="sig-param"><span class="n">xray_gradients</span></em>, <em class="sig-param"><span class="n">site_gradients</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">u_iso_gradients</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">u_aniso_gradients</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">occupancy_gradients</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.add_gradients" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">cctbx.xray.minimization.</code><code class="descname">add_gradients</code><span class="sig-paren">(</span><em>scatterers</em>, <em>xray_gradients</em>, <em>site_gradients=None</em>, <em>u_iso_gradients=None</em>, <em>u_aniso_gradients=None</em>, <em>occupancy_gradients=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.add_gradients" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="cctbx.xray.minimization.lbfgs">
-<em class="property">class </em><code class="sig-prename descclassname">cctbx.xray.minimization.</code><code class="sig-name descname">lbfgs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target_functor</span></em>, <em class="sig-param"><span class="n">xray_structure</span></em>, <em class="sig-param"><span class="n">occupancy_penalty</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lbfgs_termination_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lbfgs_core_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">correct_special_position_tolerance</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">cos_sin_table</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">structure_factor_algorithm</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cctbx.xray.minimization.</code><code class="descname">lbfgs</code><span class="sig-paren">(</span><em>target_functor</em>, <em>xray_structure</em>, <em>occupancy_penalty=None</em>, <em>lbfgs_termination_params=None</em>, <em>lbfgs_core_params=None</em>, <em>correct_special_position_tolerance=0.01</em>, <em>cos_sin_table=True</em>, <em>structure_factor_algorithm=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A minimisation of a function of the free parameters of a X-ray structure,
 relying on the LBFGS algorithm.</p>
@@ -65,46 +65,46 @@ relying on the LBFGS algorithm.</p>
 following interface</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>B{f.f_obs()}</p></li>
-<li><p>B{f(f_calc, compute_derivatives)}</p></li>
+<li>B{f.f_obs()}</li>
+<li>B{f(f_calc, compute_derivatives)}</li>
 </ul>
 </div></blockquote>
 <p>in the manner of <cite>cctbx.xray.target_functors.least_squares_residual</cite>
 or <cite>cctbx.xray.target_functors.intensity_correlation</cite></p>
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.minimization.lbfgs.apply_shifts">
-<code class="sig-name descname">apply_shifts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs.apply_shifts" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_shifts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs.apply_shifts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.minimization.lbfgs.callback_after_step">
-<code class="sig-name descname">callback_after_step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">minimizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs.callback_after_step" title="Permalink to this definition">¶</a></dt>
+<code class="descname">callback_after_step</code><span class="sig-paren">(</span><em>minimizer</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs.callback_after_step" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.minimization.lbfgs.compute_functional_and_gradients">
-<code class="sig-name descname">compute_functional_and_gradients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs.compute_functional_and_gradients" title="Permalink to this definition">¶</a></dt>
+<code class="descname">compute_functional_and_gradients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs.compute_functional_and_gradients" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.minimization.lbfgs.compute_target">
-<code class="sig-name descname">compute_target</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">compute_gradients</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs.compute_target" title="Permalink to this definition">¶</a></dt>
+<code class="descname">compute_target</code><span class="sig-paren">(</span><em>compute_gradients</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.lbfgs.compute_target" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="cctbx.xray.minimization.occupancy_penalty_exp">
-<em class="property">class </em><code class="sig-prename descclassname">cctbx.xray.minimization.</code><code class="sig-name descname">occupancy_penalty_exp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">penalty_factor</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">penalty_scale</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">min_functional</span><span class="o">=</span><span class="default_value">1e-10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.occupancy_penalty_exp" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cctbx.xray.minimization.</code><code class="descname">occupancy_penalty_exp</code><span class="sig-paren">(</span><em>penalty_factor=1</em>, <em>penalty_scale=100</em>, <em>min_functional=1e-10</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.occupancy_penalty_exp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.minimization.occupancy_penalty_exp.functional">
-<code class="sig-name descname">functional</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">occupancy</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.occupancy_penalty_exp.functional" title="Permalink to this definition">¶</a></dt>
+<code class="descname">functional</code><span class="sig-paren">(</span><em>occupancy</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.occupancy_penalty_exp.functional" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.minimization.occupancy_penalty_exp.gradient">
-<code class="sig-name descname">gradient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">occupancy</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.occupancy_penalty_exp.gradient" title="Permalink to this definition">¶</a></dt>
+<code class="descname">gradient</code><span class="sig-paren">(</span><em>occupancy</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.minimization.occupancy_penalty_exp.gradient" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -112,7 +112,6 @@ or <cite>cctbx.xray.target_functors.intensity_correlation</cite></p>
 </div>
 
 
-            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -132,15 +131,17 @@ or <cite>cctbx.xray.target_functors.intensity_correlation</cite></p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -162,13 +163,12 @@ or <cite>cctbx.xray.target_functors.intensity_correlation</cite></p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="cctbx.xray.html" >cctbx.xray package</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">cctbx.xray.minimization module</a></li> 
+          <li class="nav-item nav-item-2"><a href="cctbx.xray.html" >cctbx.xray package</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

@@ -1,20 +1,21 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>scitbx.matrix &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,8 +38,7 @@
           <a href="scitbx.array_family.html" title="scitbx.array_family.flex"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">scitbx - general-purpose scientific programming infrastructure</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">scitbx.matrix</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">scitbx - general-purpose scientific programming infrastructure</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -58,12 +58,12 @@ used only if compactness is not affected. The scitbx/math module
 provides faster C++ alternatives to some algorithms included here.</p>
 <div class="section" id="api-documentation">
 <h2>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
+<dl class="class">
 <dt id="scitbx.matrix.rec">
-<em class="property">class </em><code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">rec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elems</span></em>, <em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">scitbx.matrix.</code><code class="descname">rec</code><span class="sig-paren">(</span><em>elems</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base rectangle object, used to store 2-dimensional data.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scitbx.matix</span> <span class="kn">import</span> <span class="n">rec</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scitbx.matix</span> <span class="kn">import</span> <span class="n">rec</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">rec</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">m</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span>
 <span class="go">5</span>
@@ -72,365 +72,370 @@ provides faster C++ alternatives to some algorithms included here.</p>
 <span class="go">10</span>
 </pre></div>
 </div>
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.accute_angle">
-<code class="sig-name descname">accute_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">value_if_undefined</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.accute_angle" title="Permalink to this definition">¶</a></dt>
+<code class="descname">accute_angle</code><span class="sig-paren">(</span><em>other</em>, <em>value_if_undefined=None</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.accute_angle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.angle">
-<code class="sig-name descname">angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">value_if_undefined</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.angle" title="Permalink to this definition">¶</a></dt>
+<code class="descname">angle</code><span class="sig-paren">(</span><em>other</em>, <em>value_if_undefined=None</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.angle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.as_boost_rational">
-<code class="sig-name descname">as_boost_rational</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_boost_rational" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_boost_rational</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_boost_rational" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.as_flex_double_matrix">
-<code class="sig-name descname">as_flex_double_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_flex_double_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_flex_double_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_flex_double_matrix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.as_flex_int_matrix">
-<code class="sig-name descname">as_flex_int_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_flex_int_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_flex_int_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_flex_int_matrix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.as_float">
-<code class="sig-name descname">as_float</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_float" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_float</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_float" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.as_int">
-<code class="sig-name descname">as_int</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rounding</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_int" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_int</code><span class="sig-paren">(</span><em>rounding=True</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_int" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.as_list_of_lists">
-<code class="sig-name descname">as_list_of_lists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_list_of_lists" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_list_of_lists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_list_of_lists" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.as_mat3">
-<code class="sig-name descname">as_mat3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_mat3" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_mat3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_mat3" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.as_numpy_array">
-<code class="sig-name descname">as_numpy_array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_numpy_array" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_numpy_array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_numpy_array" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.as_sym_mat3">
-<code class="sig-name descname">as_sym_mat3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_sym_mat3" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_sym_mat3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.as_sym_mat3" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.axis_and_angle_as_r3_derivative_wrt_angle">
-<code class="sig-name descname">axis_and_angle_as_r3_derivative_wrt_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.axis_and_angle_as_r3_derivative_wrt_angle" title="Permalink to this definition">¶</a></dt>
+<code class="descname">axis_and_angle_as_r3_derivative_wrt_angle</code><span class="sig-paren">(</span><em>angle</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.axis_and_angle_as_r3_derivative_wrt_angle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.axis_and_angle_as_r3_rotation_matrix">
-<code class="sig-name descname">axis_and_angle_as_r3_rotation_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.axis_and_angle_as_r3_rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="descname">axis_and_angle_as_r3_rotation_matrix</code><span class="sig-paren">(</span><em>angle</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.axis_and_angle_as_r3_rotation_matrix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.axis_and_angle_as_unit_quaternion">
-<code class="sig-name descname">axis_and_angle_as_unit_quaternion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.axis_and_angle_as_unit_quaternion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">axis_and_angle_as_unit_quaternion</code><span class="sig-paren">(</span><em>angle</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.axis_and_angle_as_unit_quaternion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.co_factor_matrix_transposed">
-<code class="sig-name descname">co_factor_matrix_transposed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.co_factor_matrix_transposed" title="Permalink to this definition">¶</a></dt>
+<code class="descname">co_factor_matrix_transposed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.co_factor_matrix_transposed" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
+<dl class="attribute">
 <dt id="scitbx.matrix.rec.container_type">
-<code class="sig-name descname">container_type</code><a class="headerlink" href="#scitbx.matrix.rec.container_type" title="Permalink to this definition">¶</a></dt>
+<code class="descname">container_type</code><a class="headerlink" href="#scitbx.matrix.rec.container_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.tuple</span></code></p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.cos_angle">
-<code class="sig-name descname">cos_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">value_if_undefined</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.cos_angle" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cos_angle</code><span class="sig-paren">(</span><em>other</em>, <em>value_if_undefined=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.cos_angle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.cross">
-<code class="sig-name descname">cross</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.cross" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cross</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.cross" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.determinant">
-<code class="sig-name descname">determinant</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.determinant" title="Permalink to this definition">¶</a></dt>
+<code class="descname">determinant</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.determinant" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.dot">
-<code class="sig-name descname">dot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.dot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dot</code><span class="sig-paren">(</span><em>other=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.dot" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.each_abs">
-<code class="sig-name descname">each_abs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.each_abs" title="Permalink to this definition">¶</a></dt>
+<code class="descname">each_abs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.each_abs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.each_mod_short">
-<code class="sig-name descname">each_mod_short</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">period</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.each_mod_short" title="Permalink to this definition">¶</a></dt>
+<code class="descname">each_mod_short</code><span class="sig-paren">(</span><em>period=1</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.each_mod_short" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.extract_block">
-<code class="sig-name descname">extract_block</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">start</span><span class="o">=</span><span class="default_value">0, 0</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">1, 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.extract_block" title="Permalink to this definition">¶</a></dt>
+<code class="descname">extract_block</code><span class="sig-paren">(</span><em>stop</em>, <em>start=(0</em>, <em>0)</em>, <em>step=(1</em>, <em>1)</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.extract_block" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.inverse">
-<code class="sig-name descname">inverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.inverse" title="Permalink to this definition">¶</a></dt>
+<code class="descname">inverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.inverse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.is_approx_zero">
-<code class="sig-name descname">is_approx_zero</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eps</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_approx_zero" title="Permalink to this definition">¶</a></dt>
+<code class="descname">is_approx_zero</code><span class="sig-paren">(</span><em>eps</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_approx_zero" title="Permalink to this definition">¶</a></dt>
 <dd><p>Are all elements zero</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.is_col_zero">
-<code class="sig-name descname">is_col_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_col_zero" title="Permalink to this definition">¶</a></dt>
+<code class="descname">is_col_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_col_zero" title="Permalink to this definition">¶</a></dt>
 <dd><p>Is the translation vector zero</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.is_r3_identity_matrix">
-<code class="sig-name descname">is_r3_identity_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_r3_identity_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="descname">is_r3_identity_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_r3_identity_matrix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.is_r3_rotation_matrix">
-<code class="sig-name descname">is_r3_rotation_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rms_tolerance</span><span class="o">=</span><span class="default_value">1e-08</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_r3_rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="descname">is_r3_rotation_matrix</code><span class="sig-paren">(</span><em>rms_tolerance=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_r3_rotation_matrix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.is_r3_rotation_matrix_rms">
-<code class="sig-name descname">is_r3_rotation_matrix_rms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_r3_rotation_matrix_rms" title="Permalink to this definition">¶</a></dt>
+<code class="descname">is_r3_rotation_matrix_rms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_r3_rotation_matrix_rms" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.is_square">
-<code class="sig-name descname">is_square</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_square" title="Permalink to this definition">¶</a></dt>
+<code class="descname">is_square</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_square" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.is_zero">
-<code class="sig-name descname">is_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_zero" title="Permalink to this definition">¶</a></dt>
+<code class="descname">is_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.is_zero" title="Permalink to this definition">¶</a></dt>
 <dd><p>Are all elements zero</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.length">
-<code class="sig-name descname">length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.length" title="Permalink to this definition">¶</a></dt>
+<code class="descname">length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.length" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.length_sq">
-<code class="sig-name descname">length_sq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.length_sq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">length_sq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.length_sq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.mathematica_form">
-<code class="sig-name descname">mathematica_form</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">one_row_per_line</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">matrix_form</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.mathematica_form" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mathematica_form</code><span class="sig-paren">(</span><em>label=''</em>, <em>one_row_per_line=False</em>, <em>format=None</em>, <em>prefix=''</em>, <em>matrix_form=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.mathematica_form" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.matlab_form">
-<code class="sig-name descname">matlab_form</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">one_row_per_line</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.matlab_form" title="Permalink to this definition">¶</a></dt>
+<code class="descname">matlab_form</code><span class="sig-paren">(</span><em>label=''</em>, <em>one_row_per_line=False</em>, <em>format=None</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.matlab_form" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.max">
-<code class="sig-name descname">max</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.max" title="Permalink to this definition">¶</a></dt>
+<code class="descname">max</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.max" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.max_index">
-<code class="sig-name descname">max_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.max_index" title="Permalink to this definition">¶</a></dt>
+<code class="descname">max_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.max_index" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.min">
-<code class="sig-name descname">min</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.min" title="Permalink to this definition">¶</a></dt>
+<code class="descname">min</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.min" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.min_index">
-<code class="sig-name descname">min_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.min_index" title="Permalink to this definition">¶</a></dt>
+<code class="descname">min_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.min_index" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.n_columns">
-<code class="sig-name descname">n_columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.n_columns" title="Permalink to this definition">¶</a></dt>
+<code class="descname">n_columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.n_columns" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.n_rows">
-<code class="sig-name descname">n_rows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.n_rows" title="Permalink to this definition">¶</a></dt>
+<code class="descname">n_rows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.n_rows" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.norm_sq">
-<code class="sig-name descname">norm_sq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.norm_sq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">norm_sq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.norm_sq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.normalize">
-<code class="sig-name descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.normalize" title="Permalink to this definition">¶</a></dt>
+<code class="descname">normalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.normalize" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.ortho">
-<code class="sig-name descname">ortho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.ortho" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ortho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.ortho" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.outer_product">
-<code class="sig-name descname">outer_product</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.outer_product" title="Permalink to this definition">¶</a></dt>
+<code class="descname">outer_product</code><span class="sig-paren">(</span><em>other=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.outer_product" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.product">
-<code class="sig-name descname">product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.product" title="Permalink to this definition">¶</a></dt>
+<code class="descname">product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.product" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.quaternion_inverse">
-<code class="sig-name descname">quaternion_inverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.quaternion_inverse" title="Permalink to this definition">¶</a></dt>
+<code class="descname">quaternion_inverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.quaternion_inverse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.r3_rotation_matrix_as_unit_quaternion">
-<code class="sig-name descname">r3_rotation_matrix_as_unit_quaternion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.r3_rotation_matrix_as_unit_quaternion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">r3_rotation_matrix_as_unit_quaternion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.r3_rotation_matrix_as_unit_quaternion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.r3_rotation_matrix_as_x_y_z_angles">
-<code class="sig-name descname">r3_rotation_matrix_as_x_y_z_angles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">alternate_solution</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.r3_rotation_matrix_as_x_y_z_angles" title="Permalink to this definition">¶</a></dt>
+<code class="descname">r3_rotation_matrix_as_x_y_z_angles</code><span class="sig-paren">(</span><em>deg=False</em>, <em>alternate_solution=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.r3_rotation_matrix_as_x_y_z_angles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the rotation angles around the axis x,y,z for rotation r
 Such that r = Rx*Ry*Rz
 Those angles are the Tait-Bryan angles form of Euler angles</p>
 <p>Note that typically there are two solutions, and this function will return
 only one. In the case that cos(beta) == 0 there are infinite number of
 solutions, the function returns the one where gamma = 0</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>deg</strong> – When False use radians, when True use degrees</p></li>
-<li><p><strong>alternate_solution</strong> – return the alternate solution for the angles</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>deg</strong> – When False use radians, when True use degrees</li>
+<li><strong>alternate_solution</strong> – return the alternate solution for the angles</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>containing rotation angles in the form</dt><dd><p>(rotx, roty, rotz)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>containing rotation angles in the form</dt>
+<dd><p class="first last">(rotx, roty, rotz)</p>
 </dd>
 </dl>
 </p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../mmtbx/mmtbx.validation.html#mmtbx.validation.restraints.angles" title="mmtbx.validation.restraints.angles">angles</a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../mmtbx/mmtbx.validation.html#mmtbx.validation.restraints.angles" title="mmtbx.validation.restraints.angles">angles</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.resolve_partitions">
-<code class="sig-name descname">resolve_partitions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.resolve_partitions" title="Permalink to this definition">¶</a></dt>
+<code class="descname">resolve_partitions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.resolve_partitions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.rotate">
-<code class="sig-name descname">rotate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">axis</span></em>, <em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.rotate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rotate</code><span class="sig-paren">(</span><em>axis</em>, <em>angle</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.rotate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.rotate_2d">
-<code class="sig-name descname">rotate_2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.rotate_2d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rotate_2d</code><span class="sig-paren">(</span><em>angle</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.rotate_2d" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.rotate_around_origin">
-<code class="sig-name descname">rotate_around_origin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">axis</span></em>, <em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.rotate_around_origin" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rotate_around_origin</code><span class="sig-paren">(</span><em>axis</em>, <em>angle</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.rotate_around_origin" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.rotation_angle">
-<code class="sig-name descname">rotation_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eps</span><span class="o">=</span><span class="default_value">1e-06</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.rotation_angle" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rotation_angle</code><span class="sig-paren">(</span><em>eps=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.rotation_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assuming it is a rotation matrix, tr(m) = 1+2*cos(alpha)</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.round">
-<code class="sig-name descname">round</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">digits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.round" title="Permalink to this definition">¶</a></dt>
+<code class="descname">round</code><span class="sig-paren">(</span><em>digits</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.round" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.rt_for_rotation_around_axis_through">
-<code class="sig-name descname">rt_for_rotation_around_axis_through</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">point</span></em>, <em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.rt_for_rotation_around_axis_through" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rt_for_rotation_around_axis_through</code><span class="sig-paren">(</span><em>point</em>, <em>angle</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.rt_for_rotation_around_axis_through" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.sum">
-<code class="sig-name descname">sum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.sum" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.sum" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.trace">
-<code class="sig-name descname">trace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.trace" title="Permalink to this definition">¶</a></dt>
+<code class="descname">trace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.trace" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.transpose">
-<code class="sig-name descname">transpose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.transpose" title="Permalink to this definition">¶</a></dt>
+<code class="descname">transpose</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.transpose" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.transpose_multiply">
-<code class="sig-name descname">transpose_multiply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.transpose_multiply" title="Permalink to this definition">¶</a></dt>
+<code class="descname">transpose_multiply</code><span class="sig-paren">(</span><em>other=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.transpose_multiply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.unit_quaternion_as_axis_and_angle">
-<code class="sig-name descname">unit_quaternion_as_axis_and_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.unit_quaternion_as_axis_and_angle" title="Permalink to this definition">¶</a></dt>
+<code class="descname">unit_quaternion_as_axis_and_angle</code><span class="sig-paren">(</span><em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.unit_quaternion_as_axis_and_angle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.unit_quaternion_as_r3_rotation_matrix">
-<code class="sig-name descname">unit_quaternion_as_r3_rotation_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.unit_quaternion_as_r3_rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="descname">unit_quaternion_as_r3_rotation_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.unit_quaternion_as_r3_rotation_matrix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.unit_quaternion_product">
-<code class="sig-name descname">unit_quaternion_product</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.unit_quaternion_product" title="Permalink to this definition">¶</a></dt>
+<code class="descname">unit_quaternion_product</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.unit_quaternion_product" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="scitbx.matrix.rec.vector_to_001_rotation">
-<code class="sig-name descname">vector_to_001_rotation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sin_angle_is_zero_threshold</span><span class="o">=</span><span class="default_value">1e-10</span></em>, <em class="sig-param"><span class="n">is_normal_vector_threshold</span><span class="o">=</span><span class="default_value">1e-10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.vector_to_001_rotation" title="Permalink to this definition">¶</a></dt>
+<code class="descname">vector_to_001_rotation</code><span class="sig-paren">(</span><em>sin_angle_is_zero_threshold=1e-10</em>, <em>is_normal_vector_threshold=1e-10</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rec.vector_to_001_rotation" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="scitbx.matrix.col">
-<em class="property">class </em><code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">col</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elems</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.col" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">scitbx.matrix.</code><code class="descname">col</code><span class="sig-paren">(</span><em>elems</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.col" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class type built on top of rec and col_mixin, allows for single-dimensional
 vectors.  This is especially convenient when working with 3D coordinate
 data in Python.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scitbx.matrix</span> <span class="kn">import</span> <span class="n">col</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scitbx.matrix</span> <span class="kn">import</span> <span class="n">col</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vector</span> <span class="o">=</span> <span class="n">col</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="nb">abs</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
 <span class="go">5.0</span>
@@ -438,34 +443,34 @@ data in Python.</p>
 </div>
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="scitbx.matrix.sqr">
-<em class="property">class </em><code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">sqr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elems</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.sqr" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">scitbx.matrix.</code><code class="descname">sqr</code><span class="sig-paren">(</span><em>elems</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.sqr" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="scitbx.matrix.diag">
-<em class="property">class </em><code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">diag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">diag_elems</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.diag" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">scitbx.matrix.</code><code class="descname">diag</code><span class="sig-paren">(</span><em>diag_elems</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.diag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="scitbx.matrix.identity">
-<em class="property">class </em><code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">identity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.identity" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">scitbx.matrix.</code><code class="descname">identity</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.identity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="scitbx.matrix.inversion">
-<em class="property">class </em><code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">inversion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.inversion" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">scitbx.matrix.</code><code class="descname">inversion</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.inversion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="scitbx.matrix.sym">
-<em class="property">class </em><code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">sym</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elems</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sym_mat3</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.sym" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">scitbx.matrix.</code><code class="descname">sym</code><span class="sig-paren">(</span><em>elems=None</em>, <em>sym_mat3=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.sym" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="scitbx.matrix.rt">
-<em class="property">class </em><code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">rt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tuple_r_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rt" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">scitbx.matrix.</code><code class="descname">rt</code><span class="sig-paren">(</span><em>tuple_r_t</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Object for representing associated rotation and translation matrices.  These
 will usually be a 3x3 matrix and a 1x3 matrix, internally represented by
 objects of type <a class="reference internal" href="#scitbx.matrix.sqr" title="scitbx.matrix.sqr"><code class="xref py py-class docutils literal notranslate"><span class="pre">scitbx.matrix.sqr</span></code></a> and
@@ -473,7 +478,7 @@ objects of type <a class="reference internal" href="#scitbx.matrix.sqr" title="s
 <a class="reference internal" href="scitbx.array_family.html#module-scitbx.array_family.flex" title="scitbx.array_family.flex"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scitbx.array_family.flex</span></code></a> arrays using the overloaded
 multiplication operator.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scitbx.matrix</span> <span class="kn">import</span> <span class="n">rt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scitbx.matrix</span> <span class="kn">import</span> <span class="n">rt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">symop</span> <span class="o">=</span> <span class="n">rt</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># P21 symop</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scitbx.array_family</span> <span class="kn">import</span> <span class="n">flex</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sites_frac</span> <span class="o">=</span> <span class="n">flex</span><span class="o">.</span><span class="n">vec3_double</span><span class="p">([(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">)])</span>
@@ -484,62 +489,65 @@ multiplication operator.</p>
 </div>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="scitbx.matrix.sum">
-<code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">sum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iterable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.sum" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">scitbx.matrix.</code><code class="descname">sum</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.sum" title="Permalink to this definition">¶</a></dt>
 <dd><p>The sum of the given sequence of matrices</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="scitbx.matrix.cross_product_matrix">
-<code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">cross_product_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vvv</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.cross_product_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>Matrix associated with vector cross product:</dt><dd><p>a.cross(b) is equivalent to cross_product_matrix(a) * b</p>
-</dd>
+<code class="descclassname">scitbx.matrix.</code><code class="descname">cross_product_matrix</code><span class="sig-paren">(</span><em>vvv</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.cross_product_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Matrix associated with vector cross product:</dt>
+<dd>a.cross(b) is equivalent to cross_product_matrix(a) * b</dd>
 </dl>
 <p>Useful for simplification of equations. Used frequently in
 robotics and classical mechanics literature.</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="scitbx.matrix.rotate_point_around_axis">
-<code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">rotate_point_around_axis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">axis_point_1</span></em>, <em class="sig-param"><span class="n">axis_point_2</span></em>, <em class="sig-param"><span class="n">point</span></em>, <em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rotate_point_around_axis" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">scitbx.matrix.</code><code class="descname">rotate_point_around_axis</code><span class="sig-paren">(</span><em>axis_point_1</em>, <em>axis_point_2</em>, <em>point</em>, <em>angle</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.rotate_point_around_axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate a 3D coordinate about a given arbitrary axis by the specified angle.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>axis_point_1</strong> – tuple representing 3D coordinate at one end of the axis</p></li>
-<li><p><strong>axis_point_2</strong> – tuple representing 3D coordinate at other end of the axis</p></li>
-<li><p><strong>point</strong> – tuple representing 3D coordinate of starting point to rotate</p></li>
-<li><p><strong>angle</strong> – rotation angle (defaults to radians)</p></li>
-<li><p><strong>deg</strong> – Python boolean (default=False), specifies whether the angle is
-in degrees</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>axis_point_1</strong> – tuple representing 3D coordinate at one end of the axis</li>
+<li><strong>axis_point_2</strong> – tuple representing 3D coordinate at other end of the axis</li>
+<li><strong>point</strong> – tuple representing 3D coordinate of starting point to rotate</li>
+<li><strong>angle</strong> – rotation angle (defaults to radians)</li>
+<li><strong>deg</strong> – Python boolean (default=False), specifies whether the angle is
+in degrees</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Python tuple (len=3) of rotated point</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Python tuple (len=3) of rotated point</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="scitbx.matrix.distance_from_plane">
-<code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">distance_from_plane</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xyz</span></em>, <em class="sig-param"><span class="n">points</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.distance_from_plane" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">scitbx.matrix.</code><code class="descname">distance_from_plane</code><span class="sig-paren">(</span><em>xyz</em>, <em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.distance_from_plane" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="http://mathworld.wolfram.com/Point-PlaneDistance.html">http://mathworld.wolfram.com/Point-PlaneDistance.html</a>
 Given three points describing a plane and a fourth point outside the plane,
 return the distance from the fourth point to the plane.</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="scitbx.matrix.dihedral_angle">
-<code class="sig-prename descclassname">scitbx.matrix.</code><code class="sig-name descname">dihedral_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites</span></em>, <em class="sig-param"><span class="n">deg</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.dihedral_angle" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">scitbx.matrix.</code><code class="descname">dihedral_angle</code><span class="sig-paren">(</span><em>sites</em>, <em>deg=False</em><span class="sig-paren">)</span><a class="headerlink" href="#scitbx.matrix.dihedral_angle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 </div>
 
 
-            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -567,15 +575,17 @@ return the distance from the fourth point to the plane.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -596,13 +606,12 @@ return the distance from the fourth point to the plane.</p>
           <a href="scitbx.array_family.html" title="scitbx.array_family.flex"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >scitbx - general-purpose scientific programming infrastructure</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">scitbx.matrix</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >scitbx - general-purpose scientific programming infrastructure</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

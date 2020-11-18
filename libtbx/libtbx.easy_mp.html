@@ -1,20 +1,21 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>libtbx.easy_mp: functions for painless parallelization of Python code &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,8 +38,7 @@
           <a href="libtbx.phil.html" title="libtbx.phil - Python-based hierarchical interchange language"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">libtbx - low-level utilities and infrastructure for CCTBX</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">libtbx.easy_mp: functions for painless parallelization of Python code</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">libtbx - low-level utilities and infrastructure for CCTBX</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -65,9 +65,9 @@ in phenix.refine).</p>
 <p>Note that since <code class="docutils literal notranslate"><span class="pre">pool_map</span></code> depends on <code class="docutils literal notranslate"><span class="pre">os.fork()</span></code>, it does not support
 parallelization on Windows systems.  However, it will simply run in serial on
 Windows, allowing it to be used in a platform-independent manner.</p>
-<dl class="py function">
+<dl class="function">
 <dt id="libtbx.easy_mp.pool_map">
-<code class="sig-prename descclassname">libtbx.easy_mp.</code><code class="sig-name descname">pool_map</code><span class="sig-paren">(</span><em class="sig-param">processes=None</em>, <em class="sig-param">initializer=None</em>, <em class="sig-param">initargs=()</em>, <em class="sig-param">maxtasksperchild=&lt;libtbx.AutoType object&gt;</em>, <em class="sig-param">func=None</em>, <em class="sig-param">fixed_func=None</em>, <em class="sig-param">iterable=None</em>, <em class="sig-param">args=None</em>, <em class="sig-param">chunksize=&lt;libtbx.AutoType object&gt;</em>, <em class="sig-param">func_wrapper='simple'</em>, <em class="sig-param">index_args=True</em>, <em class="sig-param">log=None</em>, <em class="sig-param">call_back_for_serial_run=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.pool_map" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.easy_mp.</code><code class="descname">pool_map</code><span class="sig-paren">(</span><em>processes=None</em>, <em>initializer=None</em>, <em>initargs=()</em>, <em>maxtasksperchild=&lt;libtbx.AutoType object&gt;</em>, <em>func=None</em>, <em>fixed_func=None</em>, <em>iterable=None</em>, <em>args=None</em>, <em>chunksize=&lt;libtbx.AutoType object&gt;</em>, <em>func_wrapper='simple'</em>, <em>index_args=True</em>, <em>log=None</em>, <em>call_back_for_serial_run=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.pool_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallelized map() using subclassed multiprocessing.Pool.  If func is not
 None, this function essentially calls the Pool’s own map method; this means
 that both func and iterable/args must be pickle-able.  If fixed_func is not
@@ -76,22 +76,26 @@ which will be preserved after the fork() call.  Additional features include
 optional redirection of output and automatic process number determination.</p>
 <p>Note that because of the reliance on fork(), this function will run in serial
 on Windows, regardless of how many processors are available.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>processes</strong> – number of processes to spawn; if None or Auto, the
-get_processes() function will be used.</p></li>
-<li><p><strong>func</strong> – target function (will be pickled)</p></li>
-<li><p><strong>fixed_func</strong> – “fixed” target function, which will be be propagated to
-the child process when forked (instead of pickling)</p></li>
-<li><p><strong>iterable</strong> – argument list</p></li>
-<li><p><strong>args</strong> – same as iterable (alternate keyword)</p></li>
-<li><p><strong>chunksize</strong> – number of arguments to process at once</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>processes</strong> – number of processes to spawn; if None or Auto, the
+get_processes() function will be used.</li>
+<li><strong>func</strong> – target function (will be pickled)</li>
+<li><strong>fixed_func</strong> – “fixed” target function, which will be be propagated to
+the child process when forked (instead of pickling)</li>
+<li><strong>iterable</strong> – argument list</li>
+<li><strong>args</strong> – same as iterable (alternate keyword)</li>
+<li><strong>chunksize</strong> – number of arguments to process at once</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="k">return</span> <span class="n">some_long_running_method</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
@@ -103,7 +107,7 @@ the child process when forked (instead of pickling)</p></li>
 <span class="gp">... </span><span class="mi">1000</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">f_caller</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">f_caller</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">non_pickleable_object</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span> <span class="o">=</span> <span class="n">non_pickleable_object</span>
 <span class="gp">... </span>  <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
@@ -119,41 +123,45 @@ the child process when forked (instead of pickling)</p></li>
 </div>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="libtbx.easy_mp.detect_problem">
-<code class="sig-prename descclassname">libtbx.easy_mp.</code><code class="sig-name descname">detect_problem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.detect_problem" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.easy_mp.</code><code class="descname">detect_problem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.detect_problem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify situations where multiprocessing will not work as required.</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="libtbx.easy_mp.enable_multiprocessing_if_possible">
-<code class="sig-prename descclassname">libtbx.easy_mp.</code><code class="sig-name descname">enable_multiprocessing_if_possible</code><span class="sig-paren">(</span><em class="sig-param">nproc=&lt;libtbx.AutoType object&gt;</em>, <em class="sig-param">log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.enable_multiprocessing_if_possible" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.easy_mp.</code><code class="descname">enable_multiprocessing_if_possible</code><span class="sig-paren">(</span><em>nproc=&lt;libtbx.AutoType object&gt;</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.enable_multiprocessing_if_possible" title="Permalink to this definition">¶</a></dt>
 <dd><p>Switch for using multiple CPUs with the pool_map function, usually called at
 the beginning of an app.  If nproc is Auto or None and we are running
 Windows, it will be reset to 1.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>nproc</strong> – default number of processors to use</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>number of processors to use (None or Auto means automatic)</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nproc</strong> – default number of processors to use</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">number of processors to use (None or Auto means automatic)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="libtbx.easy_mp.get_processes">
-<code class="sig-prename descclassname">libtbx.easy_mp.</code><code class="sig-name descname">get_processes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">processes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.get_processes" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.easy_mp.</code><code class="descname">get_processes</code><span class="sig-paren">(</span><em>processes</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.get_processes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine number of processes dynamically: number of CPUs minus the current
 load average (with a minimum of 1).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>processes</strong> – default number of processes (may be None or Auto)</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>actual number of processes to use</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>processes</strong> – default number of processes (may be None or Auto)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">actual number of processes to use</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -165,9 +173,9 @@ clusters via several common queuing systems such as Sun Grid Engine or PBS.
 Because of the higher overhead involved, it is more suitable for functions
 that take minutes or longer to run, but the use of cluster resources means that
 it can handle much larger operations efficiently.</p>
-<dl class="py function">
+<dl class="function">
 <dt id="libtbx.easy_mp.parallel_map">
-<code class="sig-prename descclassname">libtbx.easy_mp.</code><code class="sig-name descname">parallel_map</code><span class="sig-paren">(</span><em class="sig-param">func</em>, <em class="sig-param">iterable</em>, <em class="sig-param">iterable_type=&lt;function single_argument&gt;</em>, <em class="sig-param">params=None</em>, <em class="sig-param">processes=1</em>, <em class="sig-param">method='multiprocessing'</em>, <em class="sig-param">qsub_command=None</em>, <em class="sig-param">asynchronous=True</em>, <em class="sig-param">callback=None</em>, <em class="sig-param">preserve_order=True</em>, <em class="sig-param">preserve_exception_message=False</em>, <em class="sig-param">use_manager=False</em>, <em class="sig-param">stacktrace_handling='ignore'</em>, <em class="sig-param">break_condition=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.parallel_map" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.easy_mp.</code><code class="descname">parallel_map</code><span class="sig-paren">(</span><em>func</em>, <em>iterable</em>, <em>iterable_type=&lt;function single_argument&gt;</em>, <em>params=None</em>, <em>processes=1</em>, <em>method='multiprocessing'</em>, <em>qsub_command=None</em>, <em>asynchronous=True</em>, <em>callback=None</em>, <em>preserve_order=True</em>, <em>preserve_exception_message=False</em>, <em>use_manager=False</em>, <em>stacktrace_handling='ignore'</em>, <em>break_condition=None</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.easy_mp.parallel_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generic parallel map() implementation for a variety of platforms, including
 the multiprocessing module and supported queuing systems, via the module
 libtbx.queuing_system_utils.scheduling.  This is less flexible than pool_map
@@ -180,31 +188,34 @@ by the Global Interpreter Lock, therefore multiprocessing is prefered for
 parallelizing across a single multi-core system.</p>
 <p>See Computational Crystallography Newsletter 3:37-42 (2012) for details of
 the underlying method.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>func</strong> – target function (must be pickleable)</p></li>
-<li><p><strong>iterable</strong> – list of arguments for func</p></li>
-<li><p><strong>processes</strong> – number of processes/threads to start</p></li>
-<li><p><strong>method</strong> – parallelization method (multiprocessing|threading|sge|lsf|pbs)</p></li>
-<li><p><strong>qsub_command</strong> – command to submit queue jobs (optional)</p></li>
-<li><p><strong>asynchronous</strong> – run queue jobs asynchronously</p></li>
-<li><p><strong>preserve_exception_message</strong> – keeps original exception message</p></li>
-<li><p><strong>preserve_order</strong> – keeps original order of results</p></li>
-<li><p><strong>break_condition</strong> – if break_condition(result) is True, break</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>func</strong> – target function (must be pickleable)</li>
+<li><strong>iterable</strong> – list of arguments for func</li>
+<li><strong>processes</strong> – number of processes/threads to start</li>
+<li><strong>method</strong> – parallelization method (multiprocessing|threading|sge|lsf|pbs)</li>
+<li><strong>qsub_command</strong> – command to submit queue jobs (optional)</li>
+<li><strong>asynchronous</strong> – run queue jobs asynchronously</li>
+<li><strong>preserve_exception_message</strong> – keeps original exception message</li>
+<li><strong>preserve_order</strong> – keeps original order of results</li>
+<li><strong>break_condition</strong> – if break_condition(result) is True, break</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a list of result objects</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a list of result objects</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
 </div>
 
 
-            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -233,15 +244,17 @@ the underlying method.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -262,13 +275,12 @@ the underlying method.</p>
           <a href="libtbx.phil.html" title="libtbx.phil - Python-based hierarchical interchange language"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >libtbx - low-level utilities and infrastructure for CCTBX</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">libtbx.easy_mp: functions for painless parallelization of Python code</a></li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >libtbx - low-level utilities and infrastructure for CCTBX</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

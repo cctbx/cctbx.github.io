@@ -1,20 +1,21 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>libtbx - low-level utilities and infrastructure for CCTBX &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -36,8 +37,7 @@
         <li class="right" >
           <a href="../history.html" title="CCTBX development history"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">libtbx - low-level utilities and infrastructure for CCTBX</a></li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -65,14 +65,14 @@ and build system configuration.</p>
 <h2>Basic functionality<a class="headerlink" href="#basic-functionality" title="Permalink to this headline">¶</a></h2>
 <p>The base <code class="docutils literal notranslate"><span class="pre">libtbx</span></code> module contains several convenience tools for simplifying
 other modules.</p>
-<span class="target" id="module-libtbx"></span><dl class="py class">
+<span class="target" id="module-libtbx"></span><dl class="class">
 <dt id="libtbx.AutoType">
-<em class="property">class </em><code class="sig-prename descclassname">libtbx.</code><code class="sig-name descname">AutoType</code><a class="headerlink" href="#libtbx.AutoType" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">AutoType</code><a class="headerlink" href="#libtbx.AutoType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for creating the Auto instance, which mimics the behavior of None
 with respect to the ‘is’ and ‘==’ operators; this is used throughout
 CCTBX to indicate parameters that should be determined automatically.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">optional</span><span class="o">=</span><span class="n">libtbx</span><span class="o">.</span><span class="n">Auto</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">optional</span><span class="o">=</span><span class="n">libtbx</span><span class="o">.</span><span class="n">Auto</span><span class="p">)</span>
 <span class="gp">... </span>   <span class="k">if</span> <span class="n">optional</span> <span class="ow">is</span> <span class="n">libtbx</span><span class="o">.</span><span class="n">Auto</span><span class="p">:</span>
 <span class="gp">... </span>       <span class="n">optional</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">... </span>   <span class="k">return</span> <span class="n">optional</span>
@@ -85,24 +85,28 @@ CCTBX to indicate parameters that should be determined automatically.</p>
 </div>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="libtbx.adopt_init_args">
-<code class="sig-prename descclassname">libtbx.</code><code class="sig-name descname">adopt_init_args</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">args</span></em>, <em class="sig-param"><span class="n">exclude</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">hide</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.adopt_init_args" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.</code><code class="descname">adopt_init_args</code><span class="sig-paren">(</span><em>obj</em>, <em>args</em>, <em>exclude=()</em>, <em>hide=False</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.adopt_init_args" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adopts the initial arguments passed to an object, allowing developers to skip
 the tedious task of assigning each attribute of an instance in its __init__
 method.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><em>object</em></a>) – </p></li>
-<li><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – </p></li>
-<li><p><strong>exclude</strong> (<em>list of str</em>) – </p></li>
-<li><p><strong>hide</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><em>object</em></a>) – </li>
+<li><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – </li>
+<li><strong>exclude</strong> (<em>list of str</em>) – </li>
+<li><strong>hide</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="n">adopt_init_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
 <span class="gp">...</span>
@@ -114,21 +118,25 @@ method.</p>
 </div>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="libtbx.adopt_optional_init_args">
-<code class="sig-prename descclassname">libtbx.</code><code class="sig-name descname">adopt_optional_init_args</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.adopt_optional_init_args" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">libtbx.</code><code class="descname">adopt_optional_init_args</code><span class="sig-paren">(</span><em>obj</em>, <em>kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.adopt_optional_init_args" title="Permalink to this definition">¶</a></dt>
 <dd><p>Easy management of long list of arguments with default value
 passed to __init__.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><em>object</em></a>) – </p></li>
-<li><p><strong>kwds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – </p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><em>object</em></a>) – </li>
+<li><strong>kwds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – </li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
 <span class="gp">... </span>      <span class="n">libtbx</span><span class="o">.</span><span class="n">adopt_optional_init_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
@@ -141,17 +149,17 @@ passed to __init__.</p>
 </div>
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="libtbx.dict_with_default_0">
-<em class="property">class </em><code class="sig-prename descclassname">libtbx.</code><code class="sig-name descname">dict_with_default_0</code><a class="headerlink" href="#libtbx.dict_with_default_0" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">dict_with_default_0</code><a class="headerlink" href="#libtbx.dict_with_default_0" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="libtbx.group_args">
-<em class="property">class </em><code class="sig-prename descclassname">libtbx.</code><code class="sig-name descname">group_args</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">keyword_arguments</span></em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.group_args" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">group_args</code><span class="sig-paren">(</span><em>**keyword_arguments</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.group_args" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to build an arbitrary object from a list of keyword arguments.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="kn">import</span> <span class="n">group_args</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">libtbx</span> <span class="kn">import</span> <span class="n">group_args</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">group_args</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
 <span class="go">1 2 3</span>
@@ -161,27 +169,27 @@ passed to __init__.</p>
 possible, that is this:</p>
 <p>obj.tmp=10</p>
 <p>will fail.</p>
-<dl class="py method">
+<dl class="method">
 <dt id="libtbx.group_args.merge">
-<code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.group_args.merge" title="Permalink to this definition">¶</a></dt>
+<code class="descname">merge</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.group_args.merge" title="Permalink to this definition">¶</a></dt>
 <dd><p>To merge other group_args into self.
 Overwrites matching fields!!!</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="libtbx.mutable">
-<em class="property">class </em><code class="sig-prename descclassname">libtbx.</code><code class="sig-name descname">mutable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.mutable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">mutable</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.mutable" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="libtbx.slots_getstate_setstate">
-<em class="property">class </em><code class="sig-prename descclassname">libtbx.</code><code class="sig-name descname">slots_getstate_setstate</code><a class="headerlink" href="#libtbx.slots_getstate_setstate" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">slots_getstate_setstate</code><a class="headerlink" href="#libtbx.slots_getstate_setstate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implements getstate and setstate for classes with __slots__ defined. Allows an
 object to easily pickle only certain attributes.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">sym_pair</span><span class="p">(</span><span class="n">libtbx</span><span class="o">.</span><span class="n">slots_getstate_setstate</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">sym_pair</span><span class="p">(</span><span class="n">libtbx</span><span class="o">.</span><span class="n">slots_getstate_setstate</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;i_seq&quot;</span><span class="p">,</span> <span class="s2">&quot;j_seq&quot;</span><span class="p">]</span>
 <span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i_seq</span><span class="p">,</span> <span class="n">j_seq</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">i_seq</span> <span class="o">=</span> <span class="n">i_seq</span>
@@ -191,13 +199,13 @@ object to easily pickle only certain attributes.</p>
 </div>
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="libtbx.slots_getstate_setstate_default_initializer">
-<em class="property">class </em><code class="sig-prename descclassname">libtbx.</code><code class="sig-name descname">slots_getstate_setstate_default_initializer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.slots_getstate_setstate_default_initializer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">slots_getstate_setstate_default_initializer</code><span class="sig-paren">(</span><em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#libtbx.slots_getstate_setstate_default_initializer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges together functionality from slots_getstate_setstate with
 adopt_optional_init_args.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">sym_pair</span><span class="p">(</span><span class="n">libtbx</span><span class="o">.</span><span class="n">slots_getstate_setstate_default_initializer</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">sym_pair</span><span class="p">(</span><span class="n">libtbx</span><span class="o">.</span><span class="n">slots_getstate_setstate_default_initializer</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;i_seq&quot;</span><span class="p">,</span> <span class="s2">&quot;j_seq&quot;</span><span class="p">]</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">svm_pair</span><span class="p">(</span><span class="n">i_seq</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">j_seq</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -207,9 +215,9 @@ adopt_optional_init_args.</p>
 </div>
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="libtbx.unpicklable">
-<em class="property">class </em><code class="sig-prename descclassname">libtbx.</code><code class="sig-name descname">unpicklable</code><a class="headerlink" href="#libtbx.unpicklable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">libtbx.</code><code class="descname">unpicklable</code><a class="headerlink" href="#libtbx.unpicklable" title="Permalink to this definition">¶</a></dt>
 <dd><p>An inheritable class that raises a runtime exception that an object is
 unpicklable.</p>
 </dd></dl>
@@ -218,7 +226,6 @@ unpicklable.</p>
 </div>
 
 
-            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -247,15 +254,17 @@ unpicklable.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -275,13 +284,12 @@ unpicklable.</p>
         <li class="right" >
           <a href="../history.html" title="CCTBX development history"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">libtbx - low-level utilities and infrastructure for CCTBX</a></li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

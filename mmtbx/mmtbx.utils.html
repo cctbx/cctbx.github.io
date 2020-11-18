@@ -1,20 +1,21 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>mmtbx.utils package &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,8 +38,7 @@
           <a href="mmtbx.twinning.html" title="mmtbx.twinning package"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">mmtbx.utils package</a></li> 
+          <li class="nav-item nav-item-1"><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -59,498 +59,511 @@ program that uses similar inputs, it may be significantly easier to use the
 unified input handling encapsulated in <a class="reference internal" href="mmtbx.command_line.html#module-mmtbx.command_line" title="mmtbx.command_line"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.command_line</span></code></a>, which
 wraps much of the functionality in <a class="reference internal" href="#module-mmtbx.utils" title="mmtbx.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.utils</span></code></a> while hiding the
 messy details.</p>
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.assert_model_is_consistent">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">assert_model_is_consistent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.assert_model_is_consistent" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">assert_model_is_consistent</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.assert_model_is_consistent" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.assert_water_is_consistent">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">assert_water_is_consistent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.assert_water_is_consistent" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">assert_water_is_consistent</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.assert_water_is_consistent" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.assert_xray_structures_equal">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">assert_xray_structures_equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span></em>, <em class="sig-param"><span class="n">x2</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sites</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">adp</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">occupancies</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">elements</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">scattering_types</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">eps</span><span class="o">=</span><span class="default_value">1e-06</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.assert_xray_structures_equal" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">assert_xray_structures_equal</code><span class="sig-paren">(</span><em>x1</em>, <em>x2</em>, <em>selection=None</em>, <em>sites=True</em>, <em>adp=True</em>, <em>occupancies=True</em>, <em>elements=True</em>, <em>scattering_types=True</em>, <em>eps=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.assert_xray_structures_equal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.atom_selection">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">atom_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">allow_empty_selection</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.atom_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">atom_selection</code><span class="sig-paren">(</span><em>model</em>, <em>string</em>, <em>allow_empty_selection=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.atom_selection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.check_and_set_crystal_symmetry">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">check_and_set_crystal_symmetry</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">map_inps</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">miller_arrays</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">crystal_symmetry</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ignore_symmetry_conflicts</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">absolute_angle_tolerance</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">absolute_length_tolerance</span><span class="o">=</span><span class="default_value">0.01</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.check_and_set_crystal_symmetry" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">check_and_set_crystal_symmetry</code><span class="sig-paren">(</span><em>models=[]</em>, <em>map_inps=[]</em>, <em>miller_arrays=[]</em>, <em>crystal_symmetry=None</em>, <em>ignore_symmetry_conflicts=False</em>, <em>absolute_angle_tolerance=0.01</em>, <em>absolute_length_tolerance=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.check_and_set_crystal_symmetry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.combine_hd_exchangable">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">combine_hd_exchangable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hierarchy</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.combine_hd_exchangable" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">combine_hd_exchangable</code><span class="sig-paren">(</span><em>hierarchy</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.combine_hd_exchangable" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.compare_hierarchy">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">compare_hierarchy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hierarchy</span></em>, <em class="sig-param"><span class="n">scatterers</span></em>, <em class="sig-param"><span class="n">cell</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.compare_hierarchy" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">compare_hierarchy</code><span class="sig-paren">(</span><em>hierarchy</em>, <em>scatterers</em>, <em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.compare_hierarchy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.data_and_flags_master_params">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">data_and_flags_master_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">master_scope_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.data_and_flags_master_params" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">data_and_flags_master_params</code><span class="sig-paren">(</span><em>master_scope_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.data_and_flags_master_params" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">detect_hydrogen_nomenclature_problem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_file</span></em>, <em class="sig-param"><span class="n">cif_files</span><span class="o">=</span><span class="default_value">()</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">detect_hydrogen_nomenclature_problem</code><span class="sig-paren">(</span><em>pdb_file</em>, <em>cif_files=()</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This allows us to avoid the following problems:
 1) a bug in automatic linking which deletes the monomer library definition</p>
 <blockquote>
-<div><p>for HD22 for an N-linked Asn, even though it may not actually be replaced
-by a sugar link.</p>
-</div></blockquote>
+<div>for HD22 for an N-linked Asn, even though it may not actually be replaced
+by a sugar link.</div></blockquote>
 <ol class="arabic simple" start="2">
-<li><p>general issues with hydrogen nomenclature</p></li>
+<li>general issues with hydrogen nomenclature</li>
 </ol>
-<dl class="py attribute">
+<dl class="attribute">
 <dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem.bad_hydrogens">
-<code class="sig-name descname">bad_hydrogens</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.bad_hydrogens" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>a list of problematic atom ID strings</p>
-</dd>
-</dl>
+<code class="descname">bad_hydrogens</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.bad_hydrogens" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">a list of problematic atom ID strings</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py attribute">
+<dl class="attribute">
 <dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem.n_asn_hd22">
-<code class="sig-name descname">n_asn_hd22</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_asn_hd22" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>number of inappropriate ASN HD22 atoms</p>
-</dd>
-</dl>
+<code class="descname">n_asn_hd22</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_asn_hd22" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number of inappropriate ASN HD22 atoms</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py attribute">
+<dl class="attribute">
 <dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem.n_hydrogen">
-<code class="sig-name descname">n_hydrogen</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_hydrogen" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>number of hydrogens missing geometry restraints</p>
-</dd>
-</dl>
+<code class="descname">n_hydrogen</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_hydrogen" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number of hydrogens missing geometry restraints</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py attribute">
+<dl class="attribute">
 <dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem.n_other">
-<code class="sig-name descname">n_other</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_other" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>number of non-hydrogen atoms missing geometry restraints</p>
-</dd>
-</dl>
+<code class="descname">n_other</code><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_other" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number of non-hydrogen atoms missing geometry restraints</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.determine_data_and_flags">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">determine_data_and_flags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reflection_file_server</span></em>, <em class="sig-param"><span class="n">parameters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data_parameter_scope</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">flags_parameter_scope</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">data_description</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">working_point_group</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">symmetry_safety_check</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">remark_r_free_flags_md5_hexdigest</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">extract_r_free_flags</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">keep_going</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prefer_anomalous</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">force_non_anomalous</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">determine_data_and_flags</code><span class="sig-paren">(</span><em>reflection_file_server</em>, <em>parameters=None</em>, <em>data_parameter_scope=''</em>, <em>flags_parameter_scope=''</em>, <em>data_description=None</em>, <em>working_point_group=None</em>, <em>symmetry_safety_check=None</em>, <em>remark_r_free_flags_md5_hexdigest=None</em>, <em>extract_r_free_flags=True</em>, <em>keep_going=False</em>, <em>log=None</em>, <em>prefer_anomalous=None</em>, <em>force_non_anomalous=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Encapsulates logic for extracting experimental amplitudes and R-free flags
 from the given input file(s).  This expects that the standard parameter block
 is being used.  Determination of appropriate data labels will be as automatic
 as possible, or will give clear feedback when ambiguity exists.  If not
 found in the inputs, the R-free flags can be created if desired.</p>
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.determine_data_and_flags.data_as_f_obs">
-<code class="sig-name descname">data_as_f_obs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_obs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.data_as_f_obs" title="Permalink to this definition">¶</a></dt>
+<code class="descname">data_as_f_obs</code><span class="sig-paren">(</span><em>f_obs</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.data_as_f_obs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert input data array to amplitudes, adjusting the data type and
 applying additional filters if necessary.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>f_obs</strong> – selected input data</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.miller.array</span></code></a> of real numbers with observation
-type set to amplitudes</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>f_obs</strong> – selected input data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.miller.array</span></code></a> of real numbers with observation
+type set to amplitudes</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.determine_data_and_flags.extract_data">
-<code class="sig-name descname">extract_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.extract_data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">extract_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.extract_data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.determine_data_and_flags.extract_flags">
-<code class="sig-name descname">extract_flags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">data_description</span><span class="o">=</span><span class="default_value">'R-free flags'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.extract_flags" title="Permalink to this definition">¶</a></dt>
+<code class="descname">extract_flags</code><span class="sig-paren">(</span><em>data</em>, <em>data_description='R-free flags'</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.extract_flags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.determine_data_and_flags.flags_as_r_free_flags">
-<code class="sig-name descname">flags_as_r_free_flags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_obs</span></em>, <em class="sig-param"><span class="n">r_free_flags</span></em>, <em class="sig-param"><span class="n">missing_show_max_lines</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.flags_as_r_free_flags" title="Permalink to this definition">¶</a></dt>
+<code class="descname">flags_as_r_free_flags</code><span class="sig-paren">(</span><em>f_obs</em>, <em>r_free_flags</em>, <em>missing_show_max_lines=10</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.flags_as_r_free_flags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.determine_data_and_flags.get_r_free_flags">
-<code class="sig-name descname">get_r_free_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.get_r_free_flags" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_r_free_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.get_r_free_flags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.determine_data_and_flags.verify_r_free_flags_md5_hexdigest">
-<code class="sig-name descname">verify_r_free_flags_md5_hexdigest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ignore_pdb_hexdigest</span></em>, <em class="sig-param"><span class="n">current</span></em>, <em class="sig-param"><span class="n">records</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.verify_r_free_flags_md5_hexdigest" title="Permalink to this definition">¶</a></dt>
+<code class="descname">verify_r_free_flags_md5_hexdigest</code><span class="sig-paren">(</span><em>ignore_pdb_hexdigest</em>, <em>current</em>, <em>records</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.verify_r_free_flags_md5_hexdigest" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.determine_experimental_phases">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">determine_experimental_phases</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">reflection_file_server</span></em>, <em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">log</span></em>, <em class="sig-param"><span class="n">parameter_scope</span></em>, <em class="sig-param"><span class="n">working_point_group</span></em>, <em class="sig-param"><span class="n">symmetry_safety_check</span></em>, <em class="sig-param"><span class="n">ignore_all_zeros</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_experimental_phases" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">determine_experimental_phases</code><span class="sig-paren">(</span><em>reflection_file_server</em>, <em>parameters</em>, <em>log</em>, <em>parameter_scope</em>, <em>working_point_group</em>, <em>symmetry_safety_check</em>, <em>ignore_all_zeros=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_experimental_phases" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract experimental phases from the given inputs if possible.  Returns None
 if not found.</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.equivalent_sigma_from_cumulative_histogram_match">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">equivalent_sigma_from_cumulative_histogram_match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_1</span></em>, <em class="sig-param"><span class="n">map_2</span></em>, <em class="sig-param"><span class="n">sigma_1</span></em>, <em class="sig-param"><span class="n">tail_cutoff</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.equivalent_sigma_from_cumulative_histogram_match" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">equivalent_sigma_from_cumulative_histogram_match</code><span class="sig-paren">(</span><em>map_1</em>, <em>map_2</em>, <em>sigma_1</em>, <em>tail_cutoff=3</em>, <em>step=1</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.equivalent_sigma_from_cumulative_histogram_match" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.experimental_data_target_and_gradients">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">experimental_data_target_and_gradients</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fmodel</span></em>, <em class="sig-param"><span class="n">alpha_beta</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">experimental_data_target_and_gradients</code><span class="sig-paren">(</span><em>fmodel</em>, <em>alpha_beta=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.experimental_data_target_and_gradients.grad_occ">
-<code class="sig-name descname">grad_occ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.grad_occ" title="Permalink to this definition">¶</a></dt>
+<code class="descname">grad_occ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.grad_occ" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.experimental_data_target_and_gradients.grad_sites_cart">
-<code class="sig-name descname">grad_sites_cart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.grad_sites_cart" title="Permalink to this definition">¶</a></dt>
+<code class="descname">grad_sites_cart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.grad_sites_cart" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.experimental_data_target_and_gradients.group_occupancy_grads">
-<code class="sig-name descname">group_occupancy_grads</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_hierarchy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">residues_per_window</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">selections</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.group_occupancy_grads" title="Permalink to this definition">¶</a></dt>
+<code class="descname">group_occupancy_grads</code><span class="sig-paren">(</span><em>pdb_hierarchy=None</em>, <em>residues_per_window=None</em>, <em>selections=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.group_occupancy_grads" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.experimental_data_target_and_gradients.show">
-<code class="sig-name descname">show</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.experimental_data_target_and_gradients.target">
-<code class="sig-name descname">target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.target" title="Permalink to this definition">¶</a></dt>
+<code class="descname">target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.target" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.experimental_data_target_and_gradients.update_xray_structure">
-<code class="sig-name descname">update_xray_structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xray_structure</span></em>, <em class="sig-param"><span class="n">alpha_beta</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.update_xray_structure" title="Permalink to this definition">¶</a></dt>
+<code class="descname">update_xray_structure</code><span class="sig-paren">(</span><em>xray_structure</em>, <em>alpha_beta=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.experimental_data_target_and_gradients.update_xray_structure" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.explain_how_to_generate_array_of_r_free_flags">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">explain_how_to_generate_array_of_r_free_flags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log</span></em>, <em class="sig-param"><span class="n">flags_parameter_scope</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.explain_how_to_generate_array_of_r_free_flags" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">explain_how_to_generate_array_of_r_free_flags</code><span class="sig-paren">(</span><em>log</em>, <em>flags_parameter_scope</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.explain_how_to_generate_array_of_r_free_flags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.extract_box_around_model_and_map">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">extract_box_around_model_and_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xray_structure</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">map_data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">box_cushion</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">extract_box_around_model_and_map</code><span class="sig-paren">(</span><em>xray_structure=None</em>, <em>map_data=None</em>, <em>box_cushion=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients">
-<code class="sig-name descname">box_map_coefficients</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d_min</span></em>, <em class="sig-param"><span class="n">shift_back</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients" title="Permalink to this definition">¶</a></dt>
+<code class="descname">box_map_coefficients</code><span class="sig-paren">(</span><em>d_min</em>, <em>shift_back=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients_as_fft_map">
-<code class="sig-name descname">box_map_coefficients_as_fft_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d_min</span></em>, <em class="sig-param"><span class="n">resolution_factor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients_as_fft_map" title="Permalink to this definition">¶</a></dt>
+<code class="descname">box_map_coefficients_as_fft_map</code><span class="sig-paren">(</span><em>d_min</em>, <em>resolution_factor</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients_as_fft_map" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.cut_and_copy_map">
-<code class="sig-name descname">cut_and_copy_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.cut_and_copy_map" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cut_and_copy_map</code><span class="sig-paren">(</span><em>map_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.cut_and_copy_map" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.get_original_cs">
-<code class="sig-name descname">get_original_cs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.get_original_cs" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_original_cs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.get_original_cs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.get_shifted_cs">
-<code class="sig-name descname">get_shifted_cs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.get_shifted_cs" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_shifted_cs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.get_shifted_cs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.get_solvent_content">
-<code class="sig-name descname">get_solvent_content</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.get_solvent_content" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_solvent_content</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.get_solvent_content" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.map_coefficients">
-<code class="sig-name descname">map_coefficients</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d_min</span></em>, <em class="sig-param"><span class="n">resolution_factor</span></em>, <em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">'box.mtz'</span></em>, <em class="sig-param"><span class="n">scale_max</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">shift_back</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.map_coefficients" title="Permalink to this definition">¶</a></dt>
+<code class="descname">map_coefficients</code><span class="sig-paren">(</span><em>d_min</em>, <em>resolution_factor</em>, <em>file_name='box.mtz'</em>, <em>scale_max=None</em>, <em>shift_back=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.map_coefficients" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.origin_shift_grid_units">
-<code class="sig-name descname">origin_shift_grid_units</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit_cell</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reverse</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.origin_shift_grid_units" title="Permalink to this definition">¶</a></dt>
+<code class="descname">origin_shift_grid_units</code><span class="sig-paren">(</span><em>unit_cell=None</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.origin_shift_grid_units" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.shift_back">
-<code class="sig-name descname">shift_back</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_hierarchy</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.shift_back" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shift_back</code><span class="sig-paren">(</span><em>pdb_hierarchy</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.shift_back" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.shift_map_back">
-<code class="sig-name descname">shift_map_back</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.shift_map_back" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shift_map_back</code><span class="sig-paren">(</span><em>map_data</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.shift_map_back" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.shift_map_coeffs_back">
-<code class="sig-name descname">shift_map_coeffs_back</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_coeffs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.shift_map_coeffs_back" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shift_map_coeffs_back</code><span class="sig-paren">(</span><em>map_coeffs</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.shift_map_coeffs_back" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.shift_sites_cart_back">
-<code class="sig-name descname">shift_sites_cart_back</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.shift_sites_cart_back" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shift_sites_cart_back</code><span class="sig-paren">(</span><em>sites_cart</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.shift_sites_cart_back" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.extract_box_around_model_and_map.write_xplor_map">
-<code class="sig-name descname">write_xplor_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.write_xplor_map" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_xplor_map</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_box_around_model_and_map.write_xplor_map" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.extract_tls_and_u_total_from_pdb">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">extract_tls_and_u_total_from_pdb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_obs</span></em>, <em class="sig-param"><span class="n">r_free_flags</span></em>, <em class="sig-param"><span class="n">xray_structure</span></em>, <em class="sig-param"><span class="n">tls_selections</span></em>, <em class="sig-param"><span class="n">tls_groups</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_tls_and_u_total_from_pdb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">extract_tls_and_u_total_from_pdb</code><span class="sig-paren">(</span><em>f_obs</em>, <em>r_free_flags</em>, <em>xray_structure</em>, <em>tls_selections</em>, <em>tls_groups</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.extract_tls_and_u_total_from_pdb" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.f_000">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">f_000</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xray_structure</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">unit_cell_volume</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">solvent_fraction</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mean_solvent_density</span><span class="o">=</span><span class="default_value">0.35</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.f_000" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">f_000</code><span class="sig-paren">(</span><em>xray_structure=None</em>, <em>unit_cell_volume=None</em>, <em>solvent_fraction=None</em>, <em>mean_solvent_density=0.35</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.f_000" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.find_overlapping_selections">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">find_overlapping_selections</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selections</span></em>, <em class="sig-param"><span class="n">selection_strings</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.find_overlapping_selections" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">find_overlapping_selections</code><span class="sig-paren">(</span><em>selections</em>, <em>selection_strings</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.find_overlapping_selections" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a list of atom selections (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><code class="xref py py-class docutils literal notranslate"><span class="pre">scitbx.array_family.flex.bool</span></code></a>
 arrays) and corresponding selection strings, inspect the selections to
 determine whether any two arrays overlap.  Returns a tuple of the first pair
 of selection strings found to overlap, or None if all selections are unique.</p>
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.fmodel_from_xray_structure">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">fmodel_from_xray_structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xray_structure</span></em>, <em class="sig-param"><span class="n">f_obs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">r_free_flags_fraction</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">add_sigmas</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">twin_law</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">twin_fraction</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">target</span><span class="o">=</span><span class="default_value">'ml'</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">merge_r_free_flags</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_from_xray_structure" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">fmodel_from_xray_structure</code><span class="sig-paren">(</span><em>xray_structure</em>, <em>f_obs=None</em>, <em>params=None</em>, <em>r_free_flags_fraction=None</em>, <em>add_sigmas=False</em>, <em>twin_law=None</em>, <em>twin_fraction=None</em>, <em>target='ml'</em>, <em>out=None</em>, <em>merge_r_free_flags=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_from_xray_structure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.fmodel_from_xray_structure.Sorry_high_resolution_is_not_defined">
-<code class="sig-name descname">Sorry_high_resolution_is_not_defined</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_from_xray_structure.Sorry_high_resolution_is_not_defined" title="Permalink to this definition">¶</a></dt>
+<code class="descname">Sorry_high_resolution_is_not_defined</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_from_xray_structure.Sorry_high_resolution_is_not_defined" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.fmodel_from_xray_structure.write_to_file">
-<code class="sig-name descname">write_to_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">obs_type</span><span class="o">=</span><span class="default_value">'amplitudes'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_from_xray_structure.write_to_file" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_to_file</code><span class="sig-paren">(</span><em>file_name</em>, <em>obs_type='amplitudes'</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_from_xray_structure.write_to_file" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.fmodel_manager">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">fmodel_manager</code><span class="sig-paren">(</span><em class="sig-param">f_obs</em>, <em class="sig-param">xray_structure=None</em>, <em class="sig-param">r_free_flags=None</em>, <em class="sig-param">f_mask=None</em>, <em class="sig-param">f_calc=None</em>, <em class="sig-param">ignore_r_free_flags=False</em>, <em class="sig-param">target_name='ml'</em>, <em class="sig-param">k_mask=None</em>, <em class="sig-param">k_anisotropic=None</em>, <em class="sig-param">hl_coeff=None</em>, <em class="sig-param">epsilons=None</em>, <em class="sig-param">use_f_model_scaled=False</em>, <em class="sig-param">twin_law=None</em>, <em class="sig-param">detwin_mode=None</em>, <em class="sig-param">detwin_map_types=None</em>, <em class="sig-param">alpha_beta_params=None</em>, <em class="sig-param">sf_and_grads_accuracy_params=&lt;libtbx.phil.scope_extract object&gt;</em>, <em class="sig-param">mask_params=None</em>, <em class="sig-param">max_number_of_resolution_bins=None</em>, <em class="sig-param">n_resolution_bins_output=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_manager" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">fmodel_manager</code><span class="sig-paren">(</span><em>f_obs</em>, <em>xray_structure=None</em>, <em>r_free_flags=None</em>, <em>f_mask=None</em>, <em>f_calc=None</em>, <em>ignore_r_free_flags=False</em>, <em>target_name='ml'</em>, <em>k_mask=None</em>, <em>k_anisotropic=None</em>, <em>hl_coeff=None</em>, <em>epsilons=None</em>, <em>use_f_model_scaled=False</em>, <em>twin_law=None</em>, <em>detwin_mode=None</em>, <em>detwin_map_types=None</em>, <em>alpha_beta_params=None</em>, <em>sf_and_grads_accuracy_params=&lt;libtbx.phil.scope_extract object&gt;</em>, <em>mask_params=None</em>, <em>max_number_of_resolution_bins=None</em>, <em>n_resolution_bins_output=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_manager" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.fmodel_simple">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">fmodel_simple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_obs</span></em>, <em class="sig-param"><span class="n">xray_structures</span></em>, <em class="sig-param"><span class="n">scattering_table</span></em>, <em class="sig-param"><span class="n">r_free_flags</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">target_name</span><span class="o">=</span><span class="default_value">'ml'</span></em>, <em class="sig-param"><span class="n">bulk_solvent_and_scaling</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">bss_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">twin_laws</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">skip_twin_detection</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">twin_switch_tolerance</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">outliers_rejection</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">bulk_solvent_correction</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">anisotropic_scaling</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_simple" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">fmodel_simple</code><span class="sig-paren">(</span><em>f_obs</em>, <em>xray_structures</em>, <em>scattering_table</em>, <em>r_free_flags=None</em>, <em>target_name='ml'</em>, <em>bulk_solvent_and_scaling=True</em>, <em>bss_params=None</em>, <em>mask_params=None</em>, <em>twin_laws=None</em>, <em>skip_twin_detection=False</em>, <em>twin_switch_tolerance=2.0</em>, <em>outliers_rejection=True</em>, <em>bulk_solvent_correction=True</em>, <em>anisotropic_scaling=True</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fmodel_simple" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.get_atom_selection">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">get_atom_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_file_name</span></em>, <em class="sig-param"><span class="n">selection_string</span></em>, <em class="sig-param"><span class="n">iselection</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.get_atom_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">get_atom_selection</code><span class="sig-paren">(</span><em>pdb_file_name</em>, <em>selection_string</em>, <em>iselection=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.get_atom_selection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.get_atom_selections">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">get_atom_selections</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">selection_strings</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">iselection</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">one_group_per_residue</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">allow_empty_selection</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">hydrogens_only</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">one_selection_array</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">parameter_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.get_atom_selections" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">get_atom_selections</code><span class="sig-paren">(</span><em>model=None</em>, <em>selection_strings=None</em>, <em>iselection=True</em>, <em>one_group_per_residue=False</em>, <em>allow_empty_selection=False</em>, <em>hydrogens_only=False</em>, <em>one_selection_array=False</em>, <em>parameter_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.get_atom_selections" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.guess_observation_type">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">guess_observation_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_obs</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">xray_structure</span></em>, <em class="sig-param"><span class="n">r_free_flags</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.guess_observation_type" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">guess_observation_type</code><span class="sig-paren">(</span><em>f_obs</em>, <em>label</em>, <em>xray_structure</em>, <em>r_free_flags=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.guess_observation_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py attribute">
+<dl class="attribute">
 <dt id="mmtbx.utils.guess_observation_type.data_size">
-<code class="sig-name descname">data_size</code><em class="property"> = 500</em><a class="headerlink" href="#mmtbx.utils.guess_observation_type.data_size" title="Permalink to this definition">¶</a></dt>
+<code class="descname">data_size</code><em class="property"> = 500</em><a class="headerlink" href="#mmtbx.utils.guess_observation_type.data_size" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.guess_observation_type.find_best">
-<code class="sig-name descname">find_best</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.guess_observation_type.find_best" title="Permalink to this definition">¶</a></dt>
+<code class="descname">find_best</code><span class="sig-paren">(</span><em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.guess_observation_type.find_best" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.guess_observation_type.get_r_factor">
-<code class="sig-name descname">get_r_factor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_obs</span></em>, <em class="sig-param"><span class="n">f_calc</span></em>, <em class="sig-param"><span class="n">scattering_table</span></em>, <em class="sig-param"><span class="n">xray_structure</span></em>, <em class="sig-param"><span class="n">twin_switch_tolerance</span></em>, <em class="sig-param"><span class="n">skip_twin_detection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.guess_observation_type.get_r_factor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_r_factor</code><span class="sig-paren">(</span><em>f_obs</em>, <em>f_calc</em>, <em>scattering_table</em>, <em>xray_structure</em>, <em>twin_switch_tolerance</em>, <em>skip_twin_detection</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.guess_observation_type.get_r_factor" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.guess_observation_type.mtz_object">
-<code class="sig-name descname">mtz_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.guess_observation_type.mtz_object" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mtz_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.guess_observation_type.mtz_object" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.limit_frac_min_frac_max">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">limit_frac_min_frac_max</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frac_min</span></em>, <em class="sig-param"><span class="n">frac_max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.limit_frac_min_frac_max" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">limit_frac_min_frac_max</code><span class="sig-paren">(</span><em>frac_min</em>, <em>frac_max</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.limit_frac_min_frac_max" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.miller_array_symmetry_safety_check">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">miller_array_symmetry_safety_check</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">miller_array</span></em>, <em class="sig-param"><span class="n">data_description</span></em>, <em class="sig-param"><span class="n">working_point_group</span></em>, <em class="sig-param"><span class="n">symmetry_safety_check</span></em>, <em class="sig-param"><span class="n">log</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.miller_array_symmetry_safety_check" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">miller_array_symmetry_safety_check</code><span class="sig-paren">(</span><em>miller_array</em>, <em>data_description</em>, <em>working_point_group</em>, <em>symmetry_safety_check</em>, <em>log</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.miller_array_symmetry_safety_check" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.model_from_sites_cart">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">model_from_sites_cart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">atom_name</span><span class="o">=</span><span class="default_value">'CA'</span></em>, <em class="sig-param"><span class="n">resname</span><span class="o">=</span><span class="default_value">'GLY'</span></em>, <em class="sig-param"><span class="n">chain_id</span><span class="o">=</span><span class="default_value">'A'</span></em>, <em class="sig-param"><span class="n">b_iso</span><span class="o">=</span><span class="default_value">30.0</span></em>, <em class="sig-param"><span class="n">occ</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">scatterer</span><span class="o">=</span><span class="default_value">'C'</span></em>, <em class="sig-param"><span class="n">crystal_symmetry</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.model_from_sites_cart" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">model_from_sites_cart</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>atom_name='CA'</em>, <em>resname='GLY'</em>, <em>chain_id='A'</em>, <em>b_iso=30.0</em>, <em>occ=1.0</em>, <em>scatterer='C'</em>, <em>crystal_symmetry=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.model_from_sites_cart" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.optimize_h">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">optimize_h</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fmodel</span></em>, <em class="sig-param"><span class="n">mon_lib_srv</span></em>, <em class="sig-param"><span class="n">pdb_hierarchy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.optimize_h" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">optimize_h</code><span class="sig-paren">(</span><em>fmodel</em>, <em>mon_lib_srv</em>, <em>pdb_hierarchy=None</em>, <em>model=None</em>, <em>log=None</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.optimize_h" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.pdb_inp_from_multiple_files">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">pdb_inp_from_multiple_files</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_files</span></em>, <em class="sig-param"><span class="n">log</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.pdb_inp_from_multiple_files" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">pdb_inp_from_multiple_files</code><span class="sig-paren">(</span><em>pdb_files</em>, <em>log</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.pdb_inp_from_multiple_files" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.print_header">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">print_header</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">line</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.print_header" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">print_header</code><span class="sig-paren">(</span><em>line</em>, <em>out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.print_header" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.print_programs_start_header">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">print_programs_start_header</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log</span></em>, <em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.print_programs_start_header" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">print_programs_start_header</code><span class="sig-paren">(</span><em>log</em>, <em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.print_programs_start_header" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.process_command_line_args">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">process_command_line_args</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span></em>, <em class="sig-param"><span class="n">cmd_cs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">master_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">home_scope</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">absolute_angle_tolerance</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">absolute_length_tolerance</span><span class="o">=</span><span class="default_value">0.01</span></em>, <em class="sig-param"><span class="n">suppress_symmetry_related_errors</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_command_line_args" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">process_command_line_args</code><span class="sig-paren">(</span><em>args</em>, <em>cmd_cs=None</em>, <em>master_params=None</em>, <em>log=None</em>, <em>home_scope=None</em>, <em>absolute_angle_tolerance=0.01</em>, <em>absolute_length_tolerance=0.01</em>, <em>suppress_symmetry_related_errors=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_command_line_args" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.process_command_line_args.get_reflection_file_server">
-<code class="sig-name descname">get_reflection_file_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_command_line_args.get_reflection_file_server" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_reflection_file_server</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_command_line_args.get_reflection_file_server" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.process_pdb_file_srv">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">process_pdb_file_srv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">crystal_symmetry</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pdb_parameters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pdb_interpretation_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stop_for_unknowns</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cif_objects</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cif_parameters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mon_lib_srv</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ener_lib</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">use_neutron_distances</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_pdb_file_srv" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">process_pdb_file_srv</code><span class="sig-paren">(</span><em>crystal_symmetry=None</em>, <em>pdb_parameters=None</em>, <em>pdb_interpretation_params=None</em>, <em>stop_for_unknowns=None</em>, <em>log=None</em>, <em>cif_objects=None</em>, <em>cif_parameters=None</em>, <em>mon_lib_srv=None</em>, <em>ener_lib=None</em>, <em>use_neutron_distances=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_pdb_file_srv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.process_pdb_file_srv.process_pdb_files">
-<code class="sig-name descname">process_pdb_files</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_file_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">raw_records</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pdb_inp</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hierarchy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">allow_missing_symmetry</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_pdb_file_srv.process_pdb_files" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process_pdb_files</code><span class="sig-paren">(</span><em>pdb_file_names=None</em>, <em>raw_records=None</em>, <em>pdb_inp=None</em>, <em>hierarchy=None</em>, <em>allow_missing_symmetry=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.process_pdb_file_srv.process_pdb_files" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.remove_selections">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">remove_selections</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selection</span></em>, <em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.remove_selections" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">remove_selections</code><span class="sig-paren">(</span><em>selection</em>, <em>other</em>, <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.remove_selections" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.run_reduce_with_timeout">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">run_reduce_with_timeout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stdin_lines</span></em>, <em class="sig-param"><span class="n">parameters</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">override_auto_timeout_with</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">join_stdout_stderr</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">stdout_splitlines</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">bufsize</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.run_reduce_with_timeout" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">run_reduce_with_timeout</code><span class="sig-paren">(</span><em>stdin_lines</em>, <em>parameters=''</em>, <em>file_name=None</em>, <em>override_auto_timeout_with=None</em>, <em>join_stdout_stderr=False</em>, <em>stdout_splitlines=True</em>, <em>bufsize=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.run_reduce_with_timeout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">libtbx.easy_run.fully_buffered_subprocess</span></code></p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.set_log">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">set_log</code><span class="sig-paren">(</span><em class="sig-param">args</em>, <em class="sig-param">out=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em>, <em class="sig-param">replace_stderr=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.set_log" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">set_log</code><span class="sig-paren">(</span><em>args</em>, <em>out=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em>, <em>replace_stderr=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.set_log" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.set_map_to_value">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">set_map_to_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span></em>, <em class="sig-param"><span class="n">xray_structure</span></em>, <em class="sig-param"><span class="n">atom_radius</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.set_map_to_value" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">set_map_to_value</code><span class="sig-paren">(</span><em>map_data</em>, <em>xray_structure</em>, <em>atom_radius</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.set_map_to_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.set_map_to_value.write_xplor_map">
-<code class="sig-name descname">write_xplor_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.set_map_to_value.write_xplor_map" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_xplor_map</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.set_map_to_value.write_xplor_map" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.setup_scattering_dictionaries">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">setup_scattering_dictionaries</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scattering_table</span></em>, <em class="sig-param"><span class="n">xray_structure</span></em>, <em class="sig-param"><span class="n">d_min</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">all_chain_proxies</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.setup_scattering_dictionaries" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">setup_scattering_dictionaries</code><span class="sig-paren">(</span><em>scattering_table</em>, <em>xray_structure</em>, <em>d_min</em>, <em>log=None</em>, <em>all_chain_proxies=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.setup_scattering_dictionaries" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.shift_origin">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">shift_origin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pdb_hierarchy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xray_structure</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">crystal_symmetry</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ncs_object</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">origin_grid_units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_xyz</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">shift_origin</code><span class="sig-paren">(</span><em>map_data=None</em>, <em>pdb_hierarchy=None</em>, <em>xray_structure=None</em>, <em>crystal_symmetry=None</em>, <em>ncs_object=None</em>, <em>origin_grid_units=None</em>, <em>n_xyz=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.shift_origin.get_original_cs">
-<code class="sig-name descname">get_original_cs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin.get_original_cs" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_original_cs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin.get_original_cs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.shift_origin.shift_back">
-<code class="sig-name descname">shift_back</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_hierarchy</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin.shift_back" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shift_back</code><span class="sig-paren">(</span><em>pdb_hierarchy</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin.shift_back" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.shift_origin.write_map_file">
-<code class="sig-name descname">write_map_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin.write_map_file" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_map_file</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin.write_map_file" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.shift_origin.write_model_file">
-<code class="sig-name descname">write_model_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin.write_model_file" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_model_file</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.shift_origin.write_model_file" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.states">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">states</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_hierarchy</span></em>, <em class="sig-param"><span class="n">xray_structure</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">counter</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.states" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">states</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>xray_structure=None</em>, <em>counter=0</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.states" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.states.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hierarchy</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.states.add" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add</code><span class="sig-paren">(</span><em>sites_cart=None</em>, <em>hierarchy=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.states.add" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.states.write">
-<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">crystal_symmetry</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.states.write" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write</code><span class="sig-paren">(</span><em>file_name</em>, <em>crystal_symmetry=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.states.write" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.switch_rotamers">
-<code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">switch_rotamers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_hierarchy</span></em>, <em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">accept_allowed</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mon_lib_srv</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rotamer_manager</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.switch_rotamers" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.</code><code class="descname">switch_rotamers</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>mode</em>, <em>accept_allowed=True</em>, <em>selection=None</em>, <em>mon_lib_srv=None</em>, <em>rotamer_manager=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.switch_rotamers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.xray_structures_from_processed_pdb_file">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.</code><code class="sig-name descname">xray_structures_from_processed_pdb_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">processed_pdb_file</span></em>, <em class="sig-param"><span class="n">scattering_table</span></em>, <em class="sig-param"><span class="n">d_min</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.xray_structures_from_processed_pdb_file" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.</code><code class="descname">xray_structures_from_processed_pdb_file</code><span class="sig-paren">(</span><em>processed_pdb_file</em>, <em>scattering_table</em>, <em>d_min</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.xray_structures_from_processed_pdb_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
@@ -560,47 +573,47 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 </div>
 <div class="section" id="module-mmtbx.utils.fab_elbow_angle">
 <span id="mmtbx-utils-fab-elbow-angle-module"></span><h2>mmtbx.utils.fab_elbow_angle module<a class="headerlink" href="#module-mmtbx.utils.fab_elbow_angle" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
+<dl class="class">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle">
-<em class="property">class </em><code class="sig-prename descclassname">mmtbx.utils.fab_elbow_angle.</code><code class="sig-name descname">fab_elbow_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_hierarchy</span></em>, <em class="sig-param"><span class="n">chain_id_light</span><span class="o">=</span><span class="default_value">'L'</span></em>, <em class="sig-param"><span class="n">chain_id_heavy</span><span class="o">=</span><span class="default_value">'H'</span></em>, <em class="sig-param"><span class="n">limit_light</span><span class="o">=</span><span class="default_value">107</span></em>, <em class="sig-param"><span class="n">limit_heavy</span><span class="o">=</span><span class="default_value">113</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">mmtbx.utils.fab_elbow_angle.</code><code class="descname">fab_elbow_angle</code><span class="sig-paren">(</span><em>pdb_hierarchy</em>, <em>chain_id_light='L'</em>, <em>chain_id_heavy='H'</em>, <em>limit_light=107</em>, <em>limit_heavy=113</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.cross_product_as_unit_axis">
-<code class="sig-name descname">cross_product_as_unit_axis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.cross_product_as_unit_axis" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cross_product_as_unit_axis</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.cross_product_as_unit_axis" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_angle">
-<code class="sig-name descname">get_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vec1</span></em>, <em class="sig-param"><span class="n">vec2</span></em>, <em class="sig-param"><span class="n">larger</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_angle" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_angle</code><span class="sig-paren">(</span><em>vec1</em>, <em>vec2</em>, <em>larger=True</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>retrun the larger angle between vec1 and vec2</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_eigenvector">
-<code class="sig-name descname">get_eigenvector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eigen</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_eigenvector" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_eigenvector</code><span class="sig-paren">(</span><em>eigen</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_eigenvector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the eigen vector for eigen value 1 and normalize it</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_pdb_chains">
-<code class="sig-name descname">get_pdb_chains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_pdb_chains" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_pdb_chains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_pdb_chains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create seperate pdb hierarchy for each on the chains we want to align</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_transformation">
-<code class="sig-name descname">get_transformation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fixed_selection</span></em>, <em class="sig-param"><span class="n">moving_selection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_transformation" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_transformation</code><span class="sig-paren">(</span><em>fixed_selection</em>, <em>moving_selection</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_transformation" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.norm_vec">
-<code class="sig-name descname">norm_vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">end</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.norm_vec" title="Permalink to this definition">¶</a></dt>
+<code class="descname">norm_vec</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.norm_vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>retruns normalized vector that starts at “stat” and ends at “end”</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="mmtbx.utils.fab_elbow_angle.fab_elbow_angle.select_str">
-<code class="sig-name descname">select_str</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chain_ID_H</span></em>, <em class="sig-param"><span class="n">limit_H</span></em>, <em class="sig-param"><span class="n">chain_ID_L</span></em>, <em class="sig-param"><span class="n">limit_L</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.select_str" title="Permalink to this definition">¶</a></dt>
+<code class="descname">select_str</code><span class="sig-paren">(</span><em>chain_ID_H</em>, <em>limit_H</em>, <em>chain_ID_L</em>, <em>limit_L</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.select_str" title="Permalink to this definition">¶</a></dt>
 <dd><p>create selection strings for the heavy and light chains
 separating the variable and constant parts of the chains</p>
 </dd></dl>
@@ -613,21 +626,20 @@ separating the variable and constant parts of the chains</p>
 </div>
 <div class="section" id="module-mmtbx.utils.rotatable_bonds">
 <span id="mmtbx-utils-rotatable-bonds-module"></span><h2>mmtbx.utils.rotatable_bonds module<a class="headerlink" href="#module-mmtbx.utils.rotatable_bonds" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.rotatable_bonds.axes_and_atoms_aa_specific">
-<code class="sig-prename descclassname">mmtbx.utils.rotatable_bonds.</code><code class="sig-name descname">axes_and_atoms_aa_specific</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">residue</span></em>, <em class="sig-param"><span class="n">mon_lib_srv</span></em>, <em class="sig-param"><span class="n">remove_clusters_with_all_h</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">include_labels</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">tardy_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.rotatable_bonds.axes_and_atoms_aa_specific" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.rotatable_bonds.</code><code class="descname">axes_and_atoms_aa_specific</code><span class="sig-paren">(</span><em>residue</em>, <em>mon_lib_srv</em>, <em>remove_clusters_with_all_h=False</em>, <em>include_labels=False</em>, <em>tardy_model=None</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.rotatable_bonds.axes_and_atoms_aa_specific" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
+<dl class="function">
 <dt id="mmtbx.utils.rotatable_bonds.tardy_model_one_residue">
-<code class="sig-prename descclassname">mmtbx.utils.rotatable_bonds.</code><code class="sig-name descname">tardy_model_one_residue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">residue</span></em>, <em class="sig-param"><span class="n">mon_lib_srv</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.rotatable_bonds.tardy_model_one_residue" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mmtbx.utils.rotatable_bonds.</code><code class="descname">tardy_model_one_residue</code><span class="sig-paren">(</span><em>residue</em>, <em>mon_lib_srv</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.rotatable_bonds.tardy_model_one_residue" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 </div>
 
 
-            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -659,15 +671,17 @@ separating the variable and constant parts of the chains</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -688,13 +702,12 @@ separating the variable and constant parts of the chains</p>
           <a href="mmtbx.twinning.html" title="mmtbx.twinning package"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">mmtbx.utils package</a></li> 
+          <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

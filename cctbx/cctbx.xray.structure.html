@@ -1,20 +1,21 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>cctbx.xray.structure module &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,8 +39,7 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="cctbx.xray.html" accesskey="U">cctbx.xray package</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">cctbx.xray.structure module</a></li> 
+          <li class="nav-item nav-item-2"><a href="cctbx.xray.html" accesskey="U">cctbx.xray package</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -50,15 +50,15 @@
             
   <div class="section" id="module-cctbx.xray.structure">
 <span id="cctbx-xray-structure-module"></span><h1>cctbx.xray.structure module<a class="headerlink" href="#module-cctbx.xray.structure" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
+<dl class="class">
 <dt id="cctbx.xray.structure.conservative_pair_proxies">
-<em class="property">class </em><code class="sig-prename descclassname">cctbx.xray.structure.</code><code class="sig-name descname">conservative_pair_proxies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structure</span></em>, <em class="sig-param"><span class="n">bond_sym_table</span></em>, <em class="sig-param"><span class="n">conserve_angles</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.conservative_pair_proxies" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cctbx.xray.structure.</code><code class="descname">conservative_pair_proxies</code><span class="sig-paren">(</span><em>structure</em>, <em>bond_sym_table</em>, <em>conserve_angles</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.conservative_pair_proxies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="cctbx.xray.structure.meaningful_site_cart_differences">
-<em class="property">class </em><code class="sig-prename descclassname">cctbx.xray.structure.</code><code class="sig-name descname">meaningful_site_cart_differences</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xs1</span></em>, <em class="sig-param"><span class="n">xs2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.meaningful_site_cart_differences" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cctbx.xray.structure.</code><code class="descname">meaningful_site_cart_differences</code><span class="sig-paren">(</span><em>xs1</em>, <em>xs2</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.meaningful_site_cart_differences" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Differences between the Cartesian coordinates of corresponding sites
 in two structures, cancelling continuous origin shifts if any.</p>
@@ -66,1241 +66,1345 @@ in two structures, cancelling continuous origin shifts if any.</p>
 structure to a reference structure as the former may have drifted along
 a continuous shift direction during refinement, therefore spoiling
 a naive comparison of corresponding sites.</p>
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.meaningful_site_cart_differences.max_absolute">
-<code class="sig-name descname">max_absolute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.meaningful_site_cart_differences.max_absolute" title="Permalink to this definition">¶</a></dt>
+<code class="descname">max_absolute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.meaningful_site_cart_differences.max_absolute" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.meaningful_site_cart_differences.show">
-<code class="sig-name descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.meaningful_site_cart_differences.show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.meaningful_site_cart_differences.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="cctbx.xray.structure.scattering_type_registry_params">
-<em class="property">class </em><code class="sig-prename descclassname">cctbx.xray.structure.</code><code class="sig-name descname">scattering_type_registry_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">custom_dict</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">d_min</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">table</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">types_without_a_scattering_contribution</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.scattering_type_registry_params" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cctbx.xray.structure.</code><code class="descname">scattering_type_registry_params</code><span class="sig-paren">(</span><em>custom_dict=None</em>, <em>d_min=None</em>, <em>table=None</em>, <em>types_without_a_scattering_contribution=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.scattering_type_registry_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
-<dl class="py class">
+<dl class="class">
 <dt id="cctbx.xray.structure.structure">
-<em class="property">class </em><code class="sig-prename descclassname">cctbx.xray.structure.</code><code class="sig-name descname">structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">special_position_settings</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">scatterers</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">site_symmetry_table</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">non_unit_occupancy_implies_min_distance_sym_equiv_zero</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">scattering_type_registry</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">crystal_symmetry</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">wavelength</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cctbx.xray.structure.</code><code class="descname">structure</code><span class="sig-paren">(</span><em>special_position_settings=None</em>, <em>scatterers=None</em>, <em>site_symmetry_table=None</em>, <em>non_unit_occupancy_implies_min_distance_sym_equiv_zero=False</em>, <em>scattering_type_registry=None</em>, <em>crystal_symmetry=None</em>, <em>wavelength=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cctbx.crystal.html#cctbx.crystal.special_position_settings" title="cctbx.crystal.special_position_settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.crystal.special_position_settings</span></code></a></p>
 <p>A class to describe and handle information related to a crystal structure.</p>
 <p>It offers various methods to modify the crystallographic information contained.</p>
 <p>Important members are:</p>
 <ul class="simple">
-<li><p>.special_position_settings (base class)</p></li>
-<li><p>.scatterers</p></li>
-<li><p>.site_symmetry</p></li>
-<li><p>.crystal_symmetry</p></li>
+<li>.special_position_settings (base class)</li>
+<li>.scatterers</li>
+<li>.site_symmetry</li>
+<li>.crystal_symmetry</li>
 </ul>
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.add_scatterer">
-<code class="sig-name descname">add_scatterer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scatterer</span></em>, <em class="sig-param"><span class="n">site_symmetry_ops</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">insert_at_index</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.add_scatterer" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_scatterer</code><span class="sig-paren">(</span><em>scatterer</em>, <em>site_symmetry_ops=None</em>, <em>insert_at_index=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.add_scatterer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.add_scatterers">
-<code class="sig-name descname">add_scatterers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scatterers</span></em>, <em class="sig-param"><span class="n">site_symmetry_table</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">non_unit_occupancy_implies_min_distance_sym_equiv_zero</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.add_scatterers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_scatterers</code><span class="sig-paren">(</span><em>scatterers</em>, <em>site_symmetry_table=None</em>, <em>non_unit_occupancy_implies_min_distance_sym_equiv_zero=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.add_scatterers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.adjust_occupancy">
-<code class="sig-name descname">adjust_occupancy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">occ_max</span></em>, <em class="sig-param"><span class="n">occ_min</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.adjust_occupancy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">adjust_occupancy</code><span class="sig-paren">(</span><em>occ_max</em>, <em>occ_min</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.adjust_occupancy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjust site occupancy factor for selected sites to be between occ_min and
 occ_max.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>occ_max</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – maximal site occupancy factor</p></li>
-<li><p><strong>occ_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – minimal site occupancy factor</p></li>
-<li><p><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be adjusted</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>occ_max</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – maximal site occupancy factor</li>
+<li><strong>occ_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – minimal site occupancy factor</li>
+<li><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be adjusted</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>none</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">none</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.adjust_u_iso">
-<code class="sig-name descname">adjust_u_iso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.adjust_u_iso" title="Permalink to this definition">¶</a></dt>
+<code class="descname">adjust_u_iso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.adjust_u_iso" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.all_selection">
-<code class="sig-name descname">all_selection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.all_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">all_selection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.all_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for all scatterers of the structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>an array to select all scatterers of the structure</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>boolean[]</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an array to select all scatterers of the structure</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean[]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.apply_rigid_body_shift">
-<code class="sig-name descname">apply_rigid_body_shift</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rot</span></em>, <em class="sig-param"><span class="n">trans</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">recompute_site_symmetries</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_rigid_body_shift" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_rigid_body_shift</code><span class="sig-paren">(</span><em>rot</em>, <em>trans</em>, <em>selection=None</em>, <em>recompute_site_symmetries=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_rigid_body_shift" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.apply_rigid_body_shift_obj">
-<code class="sig-name descname">apply_rigid_body_shift_obj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">sites_frac</span></em>, <em class="sig-param"><span class="n">rot</span></em>, <em class="sig-param"><span class="n">trans</span></em>, <em class="sig-param"><span class="n">selection</span></em>, <em class="sig-param"><span class="n">unit_cell</span></em>, <em class="sig-param"><span class="n">atomic_weights</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_rigid_body_shift_obj" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_rigid_body_shift_obj</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>sites_frac</em>, <em>rot</em>, <em>trans</em>, <em>selection</em>, <em>unit_cell</em>, <em>atomic_weights</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_rigid_body_shift_obj" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.apply_shift">
-<code class="sig-name descname">apply_shift</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shift</span></em>, <em class="sig-param"><span class="n">recompute_site_symmetries</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_shift" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_shift</code><span class="sig-paren">(</span><em>shift</em>, <em>recompute_site_symmetries=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_shift" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.apply_special_position_ops_d_target_d_site">
-<code class="sig-name descname">apply_special_position_ops_d_target_d_site</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d_target_d_site</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_special_position_ops_d_target_d_site" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_special_position_ops_d_target_d_site</code><span class="sig-paren">(</span><em>d_target_d_site</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_special_position_ops_d_target_d_site" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.apply_symmetry_sites">
-<code class="sig-name descname">apply_symmetry_sites</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_symmetry_sites" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_symmetry_sites</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_symmetry_sites" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.apply_symmetry_u_stars">
-<code class="sig-name descname">apply_symmetry_u_stars</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_symmetry_u_stars" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply_symmetry_u_stars</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.apply_symmetry_u_stars" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.as_cif_block">
-<code class="sig-name descname">as_cif_block</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">covariance_matrix</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cell_covariance_matrix</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">'mmCIF'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.as_cif_block" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_cif_block</code><span class="sig-paren">(</span><em>covariance_matrix=None</em>, <em>cell_covariance_matrix=None</em>, <em>format='mmCIF'</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.as_cif_block" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.as_cif_simple">
-<code class="sig-name descname">as_cif_simple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data_name</span><span class="o">=</span><span class="default_value">'global'</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">'mmCIF'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.as_cif_simple" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_cif_simple</code><span class="sig-paren">(</span><em>out=None</em>, <em>data_name='global'</em>, <em>format='mmCIF'</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.as_cif_simple" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.as_emma_model">
-<code class="sig-name descname">as_emma_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.as_emma_model" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_emma_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.as_emma_model" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.as_pdb_file">
-<code class="sig-name descname">as_pdb_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">remark</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">remarks</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">fractional_coordinates</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">resname</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">connect</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.as_pdb_file" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_pdb_file</code><span class="sig-paren">(</span><em>remark=None</em>, <em>remarks=[]</em>, <em>fractional_coordinates=False</em>, <em>resname=None</em>, <em>connect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.as_pdb_file" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.as_py_code">
-<code class="sig-name descname">as_py_code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">indent</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.as_py_code" title="Permalink to this definition">¶</a></dt>
+<code class="descname">as_py_code</code><span class="sig-paren">(</span><em>indent=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.as_py_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>eval(self.as_py_code()) is similar (but sometimes not identical)
 to self and meant to enable quick formatting of self as Python code
 for unit tests.</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.asu_mappings">
-<code class="sig-name descname">asu_mappings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buffer_thickness</span></em>, <em class="sig-param"><span class="n">asu_is_inside_epsilon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.asu_mappings" title="Permalink to this definition">¶</a></dt>
+<code class="descname">asu_mappings</code><span class="sig-paren">(</span><em>buffer_thickness</em>, <em>asu_is_inside_epsilon=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.asu_mappings" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.asymmetric_unit_in_p1">
-<code class="sig-name descname">asymmetric_unit_in_p1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.asymmetric_unit_in_p1" title="Permalink to this definition">¶</a></dt>
+<code class="descname">asymmetric_unit_in_p1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.asymmetric_unit_in_p1" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.atom_names_selection">
-<code class="sig-name descname">atom_names_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">atom_names</span><span class="o">=</span><span class="default_value">['C', 'O', 'CA', 'N']</span></em>, <em class="sig-param"><span class="n">ignore_atoms_with_alternative_conformations</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">include_only_atoms_with_alternative_conformations</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.atom_names_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">atom_names_selection</code><span class="sig-paren">(</span><em>atom_names=['C', 'O', 'CA', 'N'], ignore_atoms_with_alternative_conformations=False, include_only_atoms_with_alternative_conformations=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.atom_names_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for scatterers of the structure by “atom” names.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>atom_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>)</em>) – list of labels of scatterers to select</p></li>
-<li><p><strong>ignore_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select normal atoms/conformations only</p></li>
-<li><p><strong>include_only_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select only scatterers with alternative conformations</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>atom_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>)</em>) – list of labels of scatterers to select</li>
+<li><strong>ignore_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select normal atoms/conformations only</li>
+<li><strong>include_only_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select only scatterers with alternative conformations</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array to select the desired scatterers of the structure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean[]</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an array to select the desired scatterers of the structure</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean[]</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.atomic_weights">
-<code class="sig-name descname">atomic_weights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.atomic_weights" title="Permalink to this definition">¶</a></dt>
+<code class="descname">atomic_weights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.atomic_weights" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.b_iso_min_max_mean">
-<code class="sig-name descname">b_iso_min_max_mean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.b_iso_min_max_mean" title="Permalink to this definition">¶</a></dt>
+<code class="descname">b_iso_min_max_mean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.b_iso_min_max_mean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the minimal, maximal and mean isotropic Debye-Waller/temperature/B     factors of all scatterers in this structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>minimal b_iso, maximal b_iso, mean b_iso</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a>, <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a>, <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">minimal b_iso, maximal b_iso, mean b_iso</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a>, <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a>, <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.backbone_selection">
-<code class="sig-name descname">backbone_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">atom_names</span><span class="o">=</span><span class="default_value">['C', 'O', 'CA', 'N']</span></em>, <em class="sig-param"><span class="n">ignore_atoms_with_alternative_conformations</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">include_only_atoms_with_alternative_conformations</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.backbone_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">backbone_selection</code><span class="sig-paren">(</span><em>atom_names=['C', 'O', 'CA', 'N'], ignore_atoms_with_alternative_conformations=False, include_only_atoms_with_alternative_conformations=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.backbone_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for scatterers of the backbone of the structure.
 (This is just an alias for atom_names_selection.)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>atom_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>)</em>) – list of labels of scatterers to select</p></li>
-<li><p><strong>ignore_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select normal atoms/conformations only</p></li>
-<li><p><strong>include_only_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select only scatterers with alternative conformations</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>atom_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>)</em>) – list of labels of scatterers to select</li>
+<li><strong>ignore_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select normal atoms/conformations only</li>
+<li><strong>include_only_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select only scatterers with alternative conformations</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array to select the desired scatterers of the structure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean[]</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an array to select the desired scatterers of the structure</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean[]</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.by_index_selection">
-<code class="sig-name descname">by_index_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selected_scatterers</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.by_index_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">by_index_selection</code><span class="sig-paren">(</span><em>selected_scatterers</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.by_index_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for scatterers with specified index from the
 structure. For example you can select scatterers 1,4 and 5 by passing
 (1,4,5) as argument.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>selected_scatterers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a><em>)</em>) – list of scatterers to select</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array to select the desired scatterers of the structure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">flex.bool</a>[]</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>selected_scatterers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a><em>)</em>) – list of scatterers to select</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an array to select the desired scatterers of the structure</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">flex.bool</a>[]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.center_of_mass">
-<code class="sig-name descname">center_of_mass</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">atomic_weights</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.center_of_mass" title="Permalink to this definition">¶</a></dt>
+<code class="descname">center_of_mass</code><span class="sig-paren">(</span><em>atomic_weights=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.center_of_mass" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.change_basis">
-<code class="sig-name descname">change_basis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cb_op</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.change_basis" title="Permalink to this definition">¶</a></dt>
+<code class="descname">change_basis</code><span class="sig-paren">(</span><em>cb_op</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.change_basis" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.change_hand">
-<code class="sig-name descname">change_hand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.change_hand" title="Permalink to this definition">¶</a></dt>
+<code class="descname">change_hand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.change_hand" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.closest_distances">
-<code class="sig-name descname">closest_distances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_frac</span></em>, <em class="sig-param"><span class="n">distance_cutoff</span></em>, <em class="sig-param"><span class="n">use_selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.closest_distances" title="Permalink to this definition">¶</a></dt>
+<code class="descname">closest_distances</code><span class="sig-paren">(</span><em>sites_frac</em>, <em>distance_cutoff</em>, <em>use_selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.closest_distances" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.concatenate">
-<code class="sig-name descname">concatenate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.concatenate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">concatenate</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.concatenate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.concatenate_inplace">
-<code class="sig-name descname">concatenate_inplace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.concatenate_inplace" title="Permalink to this definition">¶</a></dt>
+<code class="descname">concatenate_inplace</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.concatenate_inplace" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.conservative_pair_proxies">
-<code class="sig-name descname">conservative_pair_proxies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bond_sym_table</span></em>, <em class="sig-param"><span class="n">conserve_angles</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.conservative_pair_proxies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">conservative_pair_proxies</code><span class="sig-paren">(</span><em>bond_sym_table</em>, <em>conserve_angles</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.conservative_pair_proxies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.convert_to_anisotropic">
-<code class="sig-name descname">convert_to_anisotropic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.convert_to_anisotropic" title="Permalink to this definition">¶</a></dt>
+<code class="descname">convert_to_anisotropic</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.convert_to_anisotropic" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.convert_to_isotropic">
-<code class="sig-name descname">convert_to_isotropic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.convert_to_isotropic" title="Permalink to this definition">¶</a></dt>
+<code class="descname">convert_to_isotropic</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.convert_to_isotropic" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.coordinate_degrees_of_freedom_counts">
-<code class="sig-name descname">coordinate_degrees_of_freedom_counts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.coordinate_degrees_of_freedom_counts" title="Permalink to this definition">¶</a></dt>
+<code class="descname">coordinate_degrees_of_freedom_counts</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.coordinate_degrees_of_freedom_counts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.crystal_density">
-<code class="sig-name descname">crystal_density</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.crystal_density" title="Permalink to this definition">¶</a></dt>
+<code class="descname">crystal_density</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.crystal_density" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the value of the diffraction-determined density for the crystal,
 suitable for the CIF item _exptl_crystal_density_diffrn</p>
 <p>Density values are calculated from the crystal cell and contents. The
 units are megagrams per cubic metre (=grams per cubic centimetre).</p>
-<dl class="simple">
-<dt>Equivalent to:</dt><dd><p>1.66042 * _chemical_formula_weight * _cell_formula_units_Z / _cell_volume</p>
-</dd>
+<dl class="docutils">
+<dt>Equivalent to:</dt>
+<dd>1.66042 * _chemical_formula_weight * _cell_formula_units_Z / _cell_volume</dd>
 </dl>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>chemical density in megagrams per cubic metre (=grams per cm^3)</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">chemical density in megagrams per cubic metre (=grams per cm^3)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.crystal_symmetry">
-<code class="sig-name descname">crystal_symmetry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.crystal_symmetry" title="Permalink to this definition">¶</a></dt>
+<code class="descname">crystal_symmetry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.crystal_symmetry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get crystal symmetry of the structure</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a new crystal symmetry object</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="cctbx.crystal.html#cctbx.crystal.symmetry" title="cctbx.crystal.symmetry">cctbx.crystal.symmetry</a></p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new crystal symmetry object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="cctbx.crystal.html#cctbx.crystal.symmetry" title="cctbx.crystal.symmetry">cctbx.crystal.symmetry</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.cubic_unit_cell_around_centered_scatterers">
-<code class="sig-name descname">cubic_unit_cell_around_centered_scatterers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buffer_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.cubic_unit_cell_around_centered_scatterers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cubic_unit_cell_around_centered_scatterers</code><span class="sig-paren">(</span><em>buffer_size</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.cubic_unit_cell_around_centered_scatterers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.customized_copy">
-<code class="sig-name descname">customized_copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">crystal_symmetry</span><span class="o">=</span><span class="default_value">Keep</span></em>, <em class="sig-param"><span class="n">unit_cell</span><span class="o">=</span><span class="default_value">Keep</span></em>, <em class="sig-param"><span class="n">space_group_info</span><span class="o">=</span><span class="default_value">Keep</span></em>, <em class="sig-param"><span class="n">non_unit_occupancy_implies_min_distance_sym_equiv_zero</span><span class="o">=</span><span class="default_value">Keep</span></em>, <em class="sig-param"><span class="n">wavelength</span><span class="o">=</span><span class="default_value">Keep</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.customized_copy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">customized_copy</code><span class="sig-paren">(</span><em>crystal_symmetry=Keep</em>, <em>unit_cell=Keep</em>, <em>space_group_info=Keep</em>, <em>non_unit_occupancy_implies_min_distance_sym_equiv_zero=Keep</em>, <em>wavelength=Keep</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.customized_copy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.deep_copy_scatterers">
-<code class="sig-name descname">deep_copy_scatterers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.deep_copy_scatterers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">deep_copy_scatterers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.deep_copy_scatterers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a deep copy of the structure with all scatterers</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a new cctbx.xray.structure object</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>cctbx.xray.structure</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new cctbx.xray.structure object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">cctbx.xray.structure</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.difference_vectors_cart">
-<code class="sig-name descname">difference_vectors_cart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.difference_vectors_cart" title="Permalink to this definition">¶</a></dt>
+<code class="descname">difference_vectors_cart</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.difference_vectors_cart" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.discard_scattering_type_registry">
-<code class="sig-name descname">discard_scattering_type_registry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.discard_scattering_type_registry" title="Permalink to this definition">¶</a></dt>
+<code class="descname">discard_scattering_type_registry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.discard_scattering_type_registry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.distances">
-<code class="sig-name descname">distances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.distances" title="Permalink to this definition">¶</a></dt>
+<code class="descname">distances</code><span class="sig-paren">(</span><em>other</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.distances" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates pairwise distances between the atoms of this structure and
 another structure with the same number of scatterers.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>other</strong> (<em>cctbx.xray.structure</em>) – the other structure</p></li>
-<li><p><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be taken into     calculation</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>other</strong> (<em>cctbx.xray.structure</em>) – the other structure</li>
+<li><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be taken into     calculation</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array of distances for the selected scatterers</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a>[]</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an array of distances for the selected scatterers</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a>[]</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.element_selection">
-<code class="sig-name descname">element_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">elements</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.element_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">element_selection</code><span class="sig-paren">(</span><em>*elements</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.element_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for scatterers of specified element type(s) of the structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>elements</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>) or </em><a class="reference internal" href="cctbx.miller.html#cctbx.miller.set" title="cctbx.miller.set"><em>set</em></a><em>(</em><em>string</em><em>) or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><em>tuple</em></a><em>(</em><em>string</em><em>)</em>) – tuple of element symbols to select</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array to select the desired scatterers of the structure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean[]</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>elements</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>) or </em><a class="reference internal" href="cctbx.miller.html#cctbx.miller.set" title="cctbx.miller.set"><em>set</em></a><em>(</em><em>string</em><em>) or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><em>tuple</em></a><em>(</em><em>string</em><em>)</em>) – tuple of element symbols to select</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an array to select the desired scatterers of the structure</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean[]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.erase_scatterers">
-<code class="sig-name descname">erase_scatterers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.erase_scatterers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">erase_scatterers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.erase_scatterers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all scatterers from structure</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>none</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">none</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.expand_to_p1">
-<code class="sig-name descname">expand_to_p1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">append_number_to_labels</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">sites_mod_positive</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.expand_to_p1" title="Permalink to this definition">¶</a></dt>
+<code class="descname">expand_to_p1</code><span class="sig-paren">(</span><em>append_number_to_labels=False</em>, <em>sites_mod_positive=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.expand_to_p1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current structure expanded into spacegroup P1.
 This turns all symmetry induced scatterers into independent
 individual scatterers. The expanded structure may have sites
 with negative or &gt; 1.0 coordinates. Use ‘.sites_mod_positive()’
 or ‘.sites_mod_short()’ on the result, or alternatively
 set sites_mod_positive to ‘True’ in case you want to change this behaviour.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>append_number_to_labels</strong> (<em>boolean</em>) – If set to ‘True’ scatterers generated from     symmetry will be labelled with a numerical suffix</p></li>
-<li><p><strong>sites_mod_positive</strong> (<em>boolean</em>) – If set to ‘True’ xyz coordinates of the     scatterers will be kept inside [0,1[</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>append_number_to_labels</strong> (<em>boolean</em>) – If set to ‘True’ scatterers generated from     symmetry will be labelled with a numerical suffix</li>
+<li><strong>sites_mod_positive</strong> (<em>boolean</em>) – If set to ‘True’ xyz coordinates of the     scatterers will be kept inside [0,1[</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a new instance of the structure expanded into P1</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>cctbx.xray.structure</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new instance of the structure expanded into P1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">cctbx.xray.structure</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.extract_u_cart_plus_u_iso">
-<code class="sig-name descname">extract_u_cart_plus_u_iso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.extract_u_cart_plus_u_iso" title="Permalink to this definition">¶</a></dt>
+<code class="descname">extract_u_cart_plus_u_iso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.extract_u_cart_plus_u_iso" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.extract_u_iso_or_u_equiv">
-<code class="sig-name descname">extract_u_iso_or_u_equiv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.extract_u_iso_or_u_equiv" title="Permalink to this definition">¶</a></dt>
+<code class="descname">extract_u_iso_or_u_equiv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.extract_u_iso_or_u_equiv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.f_000">
-<code class="sig-name descname">f_000</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">include_inelastic_part</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.f_000" title="Permalink to this definition">¶</a></dt>
+<code class="descname">f_000</code><span class="sig-paren">(</span><em>include_inelastic_part=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.f_000" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the effective number of electrons in the crystal unit cell
 contributing to F(000), suitable for the CIF item _exptl_crystal_F_000.</p>
 <p>According to the CIF definition, this item <strong>may</strong> contain dispersion
 contributions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>include_inelastic_part</strong> (<em>boolean</em>) – If ‘True’ contributions due to dispersion     are included in F(000).</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>F(000)</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>include_inelastic_part</strong> (<em>boolean</em>) – If ‘True’ contributions due to dispersion     are included in F(000).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">F(000)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="classmethod">
 <dt id="cctbx.xray.structure.structure.from_cif">
-<em class="property">classmethod </em><code class="sig-name descname">from_cif</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_object</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">file_path</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data_block_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.from_cif" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">from_cif</code><span class="sig-paren">(</span><em>file_object=None</em>, <em>file_path=None</em>, <em>data_block_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.from_cif" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="classmethod">
 <dt id="cctbx.xray.structure.structure.from_shelx">
-<em class="property">classmethod </em><code class="sig-name descname">from_shelx</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.from_shelx" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">from_shelx</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.from_shelx" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.grads_and_curvs_target_simple">
-<code class="sig-name descname">grads_and_curvs_target_simple</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">miller_indices</span></em>, <em class="sig-param"><span class="n">da_db</span></em>, <em class="sig-param"><span class="n">daa_dbb_dab</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.grads_and_curvs_target_simple" title="Permalink to this definition">¶</a></dt>
+<code class="descname">grads_and_curvs_target_simple</code><span class="sig-paren">(</span><em>miller_indices</em>, <em>da_db</em>, <em>daa_dbb_dab</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.grads_and_curvs_target_simple" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.guess_scattering_type_is_a_mixture_of_xray_and_neutron">
-<code class="sig-name descname">guess_scattering_type_is_a_mixture_of_xray_and_neutron</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.guess_scattering_type_is_a_mixture_of_xray_and_neutron" title="Permalink to this definition">¶</a></dt>
+<code class="descname">guess_scattering_type_is_a_mixture_of_xray_and_neutron</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.guess_scattering_type_is_a_mixture_of_xray_and_neutron" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.guess_scattering_type_neutron">
-<code class="sig-name descname">guess_scattering_type_neutron</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.guess_scattering_type_neutron" title="Permalink to this definition">¶</a></dt>
+<code class="descname">guess_scattering_type_neutron</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.guess_scattering_type_neutron" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.hd_selection">
-<code class="sig-name descname">hd_selection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.hd_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">hd_selection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.hd_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for all hydrogen and deuterium scatterers of the structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>an array to select all H and D scatterers of the structure</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>boolean[]</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an array to select all H and D scatterers of the structure</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean[]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.heavy_selection">
-<code class="sig-name descname">heavy_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ignore_atoms_with_alternative_conformations</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">include_only_atoms_with_alternative_conformations</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">only_protein</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.heavy_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">heavy_selection</code><span class="sig-paren">(</span><em>ignore_atoms_with_alternative_conformations=False</em>, <em>include_only_atoms_with_alternative_conformations=False</em>, <em>only_protein=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.heavy_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for heavy (= non H or D) scatterers of the structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ignore_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select normal atoms/conformations only</p></li>
-<li><p><strong>include_only_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select only scatterers with alternative conformations</p></li>
-<li><p><strong>only_protein</strong> (<em>boolean</em>) – select only protein scatterers</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ignore_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select normal atoms/conformations only</li>
+<li><strong>include_only_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select only scatterers with alternative conformations</li>
+<li><strong>only_protein</strong> (<em>boolean</em>) – select only protein scatterers</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array to select the desired scatterers of the structure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean[]</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an array to select the desired scatterers of the structure</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean[]</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.intersection_of_scatterers">
-<code class="sig-name descname">intersection_of_scatterers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i_seq</span></em>, <em class="sig-param"><span class="n">j_seq</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.intersection_of_scatterers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">intersection_of_scatterers</code><span class="sig-paren">(</span><em>i_seq</em>, <em>j_seq</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.intersection_of_scatterers" title="Permalink to this definition">¶</a></dt>
 <dd><p>For a pair of scatterers, calculates their overlap given the coordinates
 and displacement parameters (using adptbx.intersection).</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.is_positive_definite_u">
-<code class="sig-name descname">is_positive_definite_u</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">u_cart_tolerance</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.is_positive_definite_u" title="Permalink to this definition">¶</a></dt>
+<code class="descname">is_positive_definite_u</code><span class="sig-paren">(</span><em>u_cart_tolerance=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.is_positive_definite_u" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.is_similar">
-<code class="sig-name descname">is_similar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">eps</span><span class="o">=</span><span class="default_value">1e-06</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.is_similar" title="Permalink to this definition">¶</a></dt>
+<code class="descname">is_similar</code><span class="sig-paren">(</span><em>other</em>, <em>eps=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.is_similar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if similar. Can be endlessly fortified as needed.</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.label_regex_selection">
-<code class="sig-name descname">label_regex_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label_regex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.label_regex_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">label_regex_selection</code><span class="sig-paren">(</span><em>label_regex</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.label_regex_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for scatterers of specified labels (via regular
 expression) from the structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>label_regex</strong> (<em>string</em><em> or </em><em>re</em>) – a regular expression matching scatterer labels to select</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array to select the desired scatterers of the structure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean[]</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>label_regex</strong> (<em>string</em><em> or </em><em>re</em>) – a regular expression matching scatterer labels to select</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an array to select the desired scatterers of the structure</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean[]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.label_selection">
-<code class="sig-name descname">label_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">labels</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.label_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">label_selection</code><span class="sig-paren">(</span><em>*labels</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.label_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for scatterers of specified labels from the structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>labels</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>) or </em><a class="reference internal" href="cctbx.miller.html#cctbx.miller.set" title="cctbx.miller.set"><em>set</em></a><em>(</em><em>string</em><em>) or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><em>tuple</em></a><em>(</em><em>string</em><em>)</em>) – tuple of scatterer labels to select</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array to select the desired scatterers of the structure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean[]</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>labels</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>) or </em><a class="reference internal" href="cctbx.miller.html#cctbx.miller.set" title="cctbx.miller.set"><em>set</em></a><em>(</em><em>string</em><em>) or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><em>tuple</em></a><em>(</em><em>string</em><em>)</em>) – tuple of scatterer labels to select</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an array to select the desired scatterers of the structure</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">boolean[]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.main_chain_selection">
-<code class="sig-name descname">main_chain_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">atom_names</span><span class="o">=</span><span class="default_value">['C', 'O', 'CA', 'N', 'CB']</span></em>, <em class="sig-param"><span class="n">ignore_atoms_with_alternative_conformations</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">include_only_atoms_with_alternative_conformations</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.main_chain_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">main_chain_selection</code><span class="sig-paren">(</span><em>atom_names=['C', 'O', 'CA', 'N', 'CB'], ignore_atoms_with_alternative_conformations=False, include_only_atoms_with_alternative_conformations=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.main_chain_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for scatterers of the main chain of the structure.
 (This is just an alias for atom_names_selection with a different default selection.)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>atom_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>)</em>) – list of labels of scatterers to select</p></li>
-<li><p><strong>ignore_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select normal atoms/conformations only</p></li>
-<li><p><strong>include_only_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select only scatterers with alternative conformations</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>atom_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>)</em>) – list of labels of scatterers to select</li>
+<li><strong>ignore_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select normal atoms/conformations only</li>
+<li><strong>include_only_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select only scatterers with alternative conformations</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array to select the desired scatterers of the structure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean[]</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an array to select the desired scatterers of the structure</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean[]</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.make_scatterer_labels_shelx_compatible_in_place">
-<code class="sig-name descname">make_scatterer_labels_shelx_compatible_in_place</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.make_scatterer_labels_shelx_compatible_in_place" title="Permalink to this definition">¶</a></dt>
+<code class="descname">make_scatterer_labels_shelx_compatible_in_place</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.make_scatterer_labels_shelx_compatible_in_place" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.max_distance">
-<code class="sig-name descname">max_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.max_distance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">max_distance</code><span class="sig-paren">(</span><em>other</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.max_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the maximum pairwise distance between the atoms of this
 structure and another structure with the same number of scatterers.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>other</strong> (<em>cctbx.xray.structure</em>) – the other structure</p></li>
-<li><p><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be taken into     calculation</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>other</strong> (<em>cctbx.xray.structure</em>) – the other structure</li>
+<li><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be taken into     calculation</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the maximum distance of two corresponding scatterers out of the     selected scatterers</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the maximum distance of two corresponding scatterers out of the     selected scatterers</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.mean_distance">
-<code class="sig-name descname">mean_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.mean_distance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mean_distance</code><span class="sig-paren">(</span><em>other</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.mean_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the arithmetic mean pairwise distance between the atoms
 of this structure and another structure with the same number of scatterers.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>other</strong> (<em>cctbx.xray.structure</em>) – the other structure</p></li>
-<li><p><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be taken into     calculation</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>other</strong> (<em>cctbx.xray.structure</em>) – the other structure</li>
+<li><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be taken into     calculation</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the mean pairwise distance of the selected scatterers</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the mean pairwise distance of the selected scatterers</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.mean_scattering_density">
-<code class="sig-name descname">mean_scattering_density</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.mean_scattering_density" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mean_scattering_density</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.mean_scattering_density" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.min_distance">
-<code class="sig-name descname">min_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.min_distance" title="Permalink to this definition">¶</a></dt>
+<code class="descname">min_distance</code><span class="sig-paren">(</span><em>other</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.min_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the minimum pairwise distance between the atoms of this
 structure and another structure with the same number of scatterers.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>other</strong> (<em>cctbx.xray.structure</em>) – the other structure</p></li>
-<li><p><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be taken into     calculation</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>other</strong> (<em>cctbx.xray.structure</em>) – the other structure</li>
+<li><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be taken into     calculation</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the minimum distance of two corresponding scatterers out of the     selected scatterers</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the minimum distance of two corresponding scatterers out of the     selected scatterers</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.min_u_cart_eigenvalue">
-<code class="sig-name descname">min_u_cart_eigenvalue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.min_u_cart_eigenvalue" title="Permalink to this definition">¶</a></dt>
+<code class="descname">min_u_cart_eigenvalue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.min_u_cart_eigenvalue" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.n_grad_u_aniso">
-<code class="sig-name descname">n_grad_u_aniso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.n_grad_u_aniso" title="Permalink to this definition">¶</a></dt>
+<code class="descname">n_grad_u_aniso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.n_grad_u_aniso" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.n_grad_u_iso">
-<code class="sig-name descname">n_grad_u_iso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.n_grad_u_iso" title="Permalink to this definition">¶</a></dt>
+<code class="descname">n_grad_u_iso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.n_grad_u_iso" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.n_parameters">
-<code class="sig-name descname">n_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">considering_site_symmetry_constraints</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.n_parameters" title="Permalink to this definition">¶</a></dt>
+<code class="descname">n_parameters</code><span class="sig-paren">(</span><em>considering_site_symmetry_constraints=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.n_parameters" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.n_undefined_multiplicities">
-<code class="sig-name descname">n_undefined_multiplicities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.n_undefined_multiplicities" title="Permalink to this definition">¶</a></dt>
+<code class="descname">n_undefined_multiplicities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.n_undefined_multiplicities" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.non_unit_occupancy_implies_min_distance_sym_equiv_zero">
-<code class="sig-name descname">non_unit_occupancy_implies_min_distance_sym_equiv_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.non_unit_occupancy_implies_min_distance_sym_equiv_zero" title="Permalink to this definition">¶</a></dt>
+<code class="descname">non_unit_occupancy_implies_min_distance_sym_equiv_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.non_unit_occupancy_implies_min_distance_sym_equiv_zero" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.orthorhombic_unit_cell_around_centered_scatterers">
-<code class="sig-name descname">orthorhombic_unit_cell_around_centered_scatterers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buffer_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.orthorhombic_unit_cell_around_centered_scatterers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">orthorhombic_unit_cell_around_centered_scatterers</code><span class="sig-paren">(</span><em>buffer_size</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.orthorhombic_unit_cell_around_centered_scatterers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.pair_asu_table">
-<code class="sig-name descname">pair_asu_table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">distance_cutoff</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">asu_mappings_buffer_thickness</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">asu_is_inside_epsilon</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">min_cubicle_edge</span><span class="o">=</span><span class="default_value">5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.pair_asu_table" title="Permalink to this definition">¶</a></dt>
+<code class="descname">pair_asu_table</code><span class="sig-paren">(</span><em>distance_cutoff=None</em>, <em>asu_mappings_buffer_thickness=None</em>, <em>asu_is_inside_epsilon=None</em>, <em>min_cubicle_edge=5</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.pair_asu_table" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.pair_sym_table_show">
-<code class="sig-name descname">pair_sym_table_show</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pair_sym_table</span></em>, <em class="sig-param"><span class="n">is_full_connectivity</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.pair_sym_table_show" title="Permalink to this definition">¶</a></dt>
+<code class="descname">pair_sym_table_show</code><span class="sig-paren">(</span><em>pair_sym_table</em>, <em>is_full_connectivity=False</em>, <em>out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.pair_sym_table_show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.pair_sym_table_show_distances">
-<code class="sig-name descname">pair_sym_table_show_distances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pair_sym_table</span></em>, <em class="sig-param"><span class="n">show_cartesian</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">skip_j_seq_less_than_i_seq</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">skip_sym_equiv</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.pair_sym_table_show_distances" title="Permalink to this definition">¶</a></dt>
+<code class="descname">pair_sym_table_show_distances</code><span class="sig-paren">(</span><em>pair_sym_table</em>, <em>show_cartesian=False</em>, <em>skip_j_seq_less_than_i_seq=False</em>, <em>skip_sym_equiv=False</em>, <em>out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.pair_sym_table_show_distances" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.parameter_map">
-<code class="sig-name descname">parameter_map</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.parameter_map" title="Permalink to this definition">¶</a></dt>
+<code class="descname">parameter_map</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.parameter_map" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.peptide_dihedral_selection">
-<code class="sig-name descname">peptide_dihedral_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">atom_names</span><span class="o">=</span><span class="default_value">['C', 'CA', 'N']</span></em>, <em class="sig-param"><span class="n">ignore_atoms_with_alternative_conformations</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">include_only_atoms_with_alternative_conformations</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.peptide_dihedral_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">peptide_dihedral_selection</code><span class="sig-paren">(</span><em>atom_names=['C', 'CA', 'N'], ignore_atoms_with_alternative_conformations=False, include_only_atoms_with_alternative_conformations=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.peptide_dihedral_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a selector array for peptide dihedral scatterers of the structure.
 (This is just an alias for atom_names_selection with a different default selection.)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>atom_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>)</em>) – list of labels of scatterers to select</p></li>
-<li><p><strong>ignore_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select normal atoms/conformations only</p></li>
-<li><p><strong>include_only_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select only scatterers with alternative conformations</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>atom_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>(</em><em>string</em><em>)</em>) – list of labels of scatterers to select</li>
+<li><strong>ignore_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select normal atoms/conformations only</li>
+<li><strong>include_only_atoms_with_alternative_conformations</strong> (<em>boolean</em>) – select only scatterers with alternative conformations</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array to select the desired scatterers of the structure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean[]</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an array to select the desired scatterers of the structure</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean[]</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.principal_axes_of_inertia">
-<code class="sig-name descname">principal_axes_of_inertia</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">atomic_weights</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.principal_axes_of_inertia" title="Permalink to this definition">¶</a></dt>
+<code class="descname">principal_axes_of_inertia</code><span class="sig-paren">(</span><em>atomic_weights=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.principal_axes_of_inertia" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.random_remove_sites_selection">
-<code class="sig-name descname">random_remove_sites_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fraction</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.random_remove_sites_selection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">random_remove_sites_selection</code><span class="sig-paren">(</span><em>fraction</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.random_remove_sites_selection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.random_shift_sites">
-<code class="sig-name descname">random_shift_sites</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">max_shift_cart</span><span class="o">=</span><span class="default_value">0.2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.random_shift_sites" title="Permalink to this definition">¶</a></dt>
+<code class="descname">random_shift_sites</code><span class="sig-paren">(</span><em>max_shift_cart=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.random_shift_sites" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.re_apply_symmetry">
-<code class="sig-name descname">re_apply_symmetry</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i_scatterer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.re_apply_symmetry" title="Permalink to this definition">¶</a></dt>
+<code class="descname">re_apply_symmetry</code><span class="sig-paren">(</span><em>i_scatterer</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.re_apply_symmetry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.replace_scatterers">
-<code class="sig-name descname">replace_scatterers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scatterers</span></em>, <em class="sig-param"><span class="n">site_symmetry_table</span><span class="o">=</span><span class="default_value">'existing'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.replace_scatterers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replace_scatterers</code><span class="sig-paren">(</span><em>scatterers</em>, <em>site_symmetry_table='existing'</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.replace_scatterers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.replace_sites_cart">
-<code class="sig-name descname">replace_sites_cart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_sites</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.replace_sites_cart" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replace_sites_cart</code><span class="sig-paren">(</span><em>new_sites</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.replace_sites_cart" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.replace_sites_frac">
-<code class="sig-name descname">replace_sites_frac</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_sites</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.replace_sites_frac" title="Permalink to this definition">¶</a></dt>
+<code class="descname">replace_sites_frac</code><span class="sig-paren">(</span><em>new_sites</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.replace_sites_frac" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.rms_difference">
-<code class="sig-name descname">rms_difference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.rms_difference" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rms_difference</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.rms_difference" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.scale_adp">
-<code class="sig-name descname">scale_adp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">factor</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scale_adp" title="Permalink to this definition">¶</a></dt>
+<code class="descname">scale_adp</code><span class="sig-paren">(</span><em>factor</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scale_adp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scale the atomic displacement parameters of the selected scatterers
 of the structure with the specified factor.
 If no selection is given, all scatterers will be handled as if selected.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>factor</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – scale factor to apply to the adps of the selected scatterers</p></li>
-<li><p><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select the scatterers to have their     adps scaled</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>factor</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – scale factor to apply to the adps of the selected scatterers</li>
+<li><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select the scatterers to have their     adps scaled</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>none</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">none</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.scale_adps">
-<code class="sig-name descname">scale_adps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scale_factor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scale_adps" title="Permalink to this definition">¶</a></dt>
+<code class="descname">scale_adps</code><span class="sig-paren">(</span><em>scale_factor</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scale_adps" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.scatterer_flags">
-<code class="sig-name descname">scatterer_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scatterer_flags" title="Permalink to this definition">¶</a></dt>
+<code class="descname">scatterer_flags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scatterer_flags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.scatterers">
-<code class="sig-name descname">scatterers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scatterers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">scatterers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scatterers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all scatterers of the structure</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a reference to an array of cctbx.xray.scatterer</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>cctbx.xray.scatterer[]</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a reference to an array of cctbx.xray.scatterer</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">cctbx.xray.scatterer[]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.scattering_dictionary_as_string">
-<code class="sig-name descname">scattering_dictionary_as_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scattering_dictionary_as_string" title="Permalink to this definition">¶</a></dt>
+<code class="descname">scattering_dictionary_as_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scattering_dictionary_as_string" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.scattering_type_registry">
-<code class="sig-name descname">scattering_type_registry</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">custom_dict</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">d_min</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">table</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">types_without_a_scattering_contribution</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">explicitly_allow_mixing</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scattering_type_registry" title="Permalink to this definition">¶</a></dt>
+<code class="descname">scattering_type_registry</code><span class="sig-paren">(</span><em>custom_dict=None</em>, <em>d_min=None</em>, <em>table=None</em>, <em>types_without_a_scattering_contribution=None</em>, <em>explicitly_allow_mixing=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scattering_type_registry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.scattering_types">
-<code class="sig-name descname">scattering_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scattering_types" title="Permalink to this definition">¶</a></dt>
+<code class="descname">scattering_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scattering_types" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.scattering_types_counts_and_occupancy_sums">
-<code class="sig-name descname">scattering_types_counts_and_occupancy_sums</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scattering_types_counts_and_occupancy_sums" title="Permalink to this definition">¶</a></dt>
+<code class="descname">scattering_types_counts_and_occupancy_sums</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.scattering_types_counts_and_occupancy_sums" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.select">
-<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selection</span></em>, <em class="sig-param"><span class="n">negate</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.select" title="Permalink to this definition">¶</a></dt>
+<code class="descname">select</code><span class="sig-paren">(</span><em>selection</em>, <em>negate=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.select" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.select_inplace">
-<code class="sig-name descname">select_inplace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.select_inplace" title="Permalink to this definition">¶</a></dt>
+<code class="descname">select_inplace</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.select_inplace" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.selection_within">
-<code class="sig-name descname">selection_within</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">radius</span></em>, <em class="sig-param"><span class="n">selection</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.selection_within" title="Permalink to this definition">¶</a></dt>
+<code class="descname">selection_within</code><span class="sig-paren">(</span><em>radius</em>, <em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.selection_within" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_b_iso">
-<code class="sig-name descname">set_b_iso</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_b_iso" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_b_iso</code><span class="sig-paren">(</span><em>value=None</em>, <em>values=None</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_b_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set isotropic Debye-Waller/temperature/B factors with automatic conversion
 to u_iso</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double"><em>double</em></a>) – a single double value to set all b_iso of selected     scatterers to</p></li>
-<li><p><strong>values</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double"><em>double</em></a><em>[</em><em>]</em>) – an array of double values to set all b_iso of selected     scatterers to</p></li>
-<li><p><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be updated with     new b_iso values</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double"><em>double</em></a>) – a single double value to set all b_iso of selected     scatterers to</li>
+<li><strong>values</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double"><em>double</em></a><em>[</em><em>]</em>) – an array of double values to set all b_iso of selected     scatterers to</li>
+<li><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be updated with     new b_iso values</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the modified base object</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>cctbx.xray.structure</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the modified base object</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">cctbx.xray.structure</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_custom_inelastic_form_factors">
-<code class="sig-name descname">set_custom_inelastic_form_factors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="n">set_use_fp_fdp</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">'custom'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_custom_inelastic_form_factors" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_custom_inelastic_form_factors</code><span class="sig-paren">(</span><em>table</em>, <em>set_use_fp_fdp=True</em>, <em>source='custom'</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_custom_inelastic_form_factors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Expects a dictionary of tuples like ‘C’ : (fp, fdp). If an element is
 not in the dictionary, the fp and fdp are reset to 0 and the use_fp_fdp is
 set to false.</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_fdps">
-<code class="sig-name descname">set_fdps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_fdps" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_fdps</code><span class="sig-paren">(</span><em>value</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_fdps" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_fps">
-<code class="sig-name descname">set_fps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_fps" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_fps</code><span class="sig-paren">(</span><em>value</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_fps" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_inelastic_form_factors">
-<code class="sig-name descname">set_inelastic_form_factors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">photon</span></em>, <em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="n">set_use_fp_fdp</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_inelastic_form_factors" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_inelastic_form_factors</code><span class="sig-paren">(</span><em>photon</em>, <em>table</em>, <em>set_use_fp_fdp=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_inelastic_form_factors" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_non_unit_occupancy_implies_min_distance_sym_equiv_zero">
-<code class="sig-name descname">set_non_unit_occupancy_implies_min_distance_sym_equiv_zero</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_non_unit_occupancy_implies_min_distance_sym_equiv_zero" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_non_unit_occupancy_implies_min_distance_sym_equiv_zero</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_non_unit_occupancy_implies_min_distance_sym_equiv_zero" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_occupancies">
-<code class="sig-name descname">set_occupancies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_occupancies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_occupancies</code><span class="sig-paren">(</span><em>value</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_occupancies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_scatterer_flags">
-<code class="sig-name descname">set_scatterer_flags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scatterer_flags</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_scatterer_flags" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_scatterer_flags</code><span class="sig-paren">(</span><em>scatterer_flags</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_scatterer_flags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_sites_cart">
-<code class="sig-name descname">set_sites_cart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_sites_cart" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_sites_cart</code><span class="sig-paren">(</span><em>sites_cart</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_sites_cart" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the the cartesian coordinates of all sites of the structure to     ‘sites_cart’.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>sites_cart</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.vec3_double" title="scitbx.array_family.flex.vec3_double"><em>scitbx.array_family.flex.vec3_double</em></a>) – a list of the cartesian coordinates for all scatterers</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>none</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sites_cart</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.vec3_double" title="scitbx.array_family.flex.vec3_double"><em>scitbx.array_family.flex.vec3_double</em></a>) – a list of the cartesian coordinates for all scatterers</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">none</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_sites_frac">
-<code class="sig-name descname">set_sites_frac</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_frac</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_sites_frac" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_sites_frac</code><span class="sig-paren">(</span><em>sites_frac</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_sites_frac" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the the fractional coordinates of all sites of the structure to     ‘sites_frac’.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>sites_frac</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.vec3_double" title="scitbx.array_family.flex.vec3_double"><em>scitbx.array_family.flex.vec3_double</em></a>) – a list of the fractional coordinates for all scatterers</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>none</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sites_frac</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.vec3_double" title="scitbx.array_family.flex.vec3_double"><em>scitbx.array_family.flex.vec3_double</em></a>) – a list of the fractional coordinates for all scatterers</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">none</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_u_cart">
-<code class="sig-name descname">set_u_cart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">u_cart</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_u_cart" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_u_cart</code><span class="sig-paren">(</span><em>u_cart</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_u_cart" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.set_u_iso">
-<code class="sig-name descname">set_u_iso</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_u_iso" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_u_iso</code><span class="sig-paren">(</span><em>value=None</em>, <em>values=None</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.set_u_iso" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set isotropic mean thermic displacements of scatterers</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double"><em>double</em></a>) – a single double value to set all u_iso of selected     scatterers to</p></li>
-<li><p><strong>values</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double"><em>double</em></a><em>[</em><em>]</em>) – an array of double values to set all u_iso of selected     scatterers to</p></li>
-<li><p><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be updated     with new u_iso values</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double"><em>double</em></a>) – a single double value to set all u_iso of selected     scatterers to</li>
+<li><strong>values</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.double" title="scitbx.array_family.flex.double"><em>double</em></a><em>[</em><em>]</em>) – an array of double values to set all u_iso of selected     scatterers to</li>
+<li><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be updated     with new u_iso values</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the modified base object</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>cctbx.xray.structure</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the modified base object</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">cctbx.xray.structure</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.shake_adp">
-<code class="sig-name descname">shake_adp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">b_max</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">b_min</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">spread</span><span class="o">=</span><span class="default_value">10.0</span></em>, <em class="sig-param"><span class="n">aniso_spread</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">keep_anisotropic</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">random_u_cart_scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_adp" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shake_adp</code><span class="sig-paren">(</span><em>b_max=None</em>, <em>b_min=None</em>, <em>spread=10.0</em>, <em>aniso_spread=0.1</em>, <em>keep_anisotropic=False</em>, <em>random_u_cart_scale=1.0</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_adp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.shake_adp_if_all_equal">
-<code class="sig-name descname">shake_adp_if_all_equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">b_iso_tolerance</span><span class="o">=</span><span class="default_value">0.1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_adp_if_all_equal" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shake_adp_if_all_equal</code><span class="sig-paren">(</span><em>b_iso_tolerance=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_adp_if_all_equal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.shake_fdps">
-<code class="sig-name descname">shake_fdps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_fdps" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shake_fdps</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_fdps" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.shake_fps">
-<code class="sig-name descname">shake_fps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_fps" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shake_fps</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_fps" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.shake_occupancies">
-<code class="sig-name descname">shake_occupancies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_occupancies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shake_occupancies</code><span class="sig-paren">(</span><em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_occupancies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.shake_sites_in_place">
-<code class="sig-name descname">shake_sites_in_place</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rms_difference</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mean_distance</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">allow_all_fixed</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">random_double</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_sites_in_place" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shake_sites_in_place</code><span class="sig-paren">(</span><em>rms_difference=None</em>, <em>mean_distance=None</em>, <em>selection=None</em>, <em>allow_all_fixed=False</em>, <em>random_double=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shake_sites_in_place" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shake the coordinates of the selected scatterers in this structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>rms_difference</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – radial mean square displacement (&gt;=0) to apply to     selected scatterers</p></li>
-<li><p><strong>mean_distance</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – a mean distance shift (&gt;=0) to apply to selected     scatterers</p></li>
-<li><p><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be shaken</p></li>
-<li><p><strong>allow_all_fixed</strong> (<em>boolean</em>) – if set to ‘True’ shaking a structure with all     scatterers on fixed special positions will not cause an error</p></li>
-<li><p><strong>random_double</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>[</em><em>]</em>) – “random” numbers to use for displacements</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>rms_difference</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – radial mean square displacement (&gt;=0) to apply to     selected scatterers</li>
+<li><strong>mean_distance</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – a mean distance shift (&gt;=0) to apply to selected     scatterers</li>
+<li><strong>selection</strong> (<em>boolean</em><em>[</em><em>]</em>) – an array of bools to select scatterers to be shaken</li>
+<li><strong>allow_all_fixed</strong> (<em>boolean</em>) – if set to ‘True’ shaking a structure with all     scatterers on fixed special positions will not cause an error</li>
+<li><strong>random_double</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>[</em><em>]</em>) – “random” numbers to use for displacements</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>‘True’ if at least one scatterer was moved, ‘False’ otherwise</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">‘True’ if at least one scatterer was moved, ‘False’ otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.shift_occupancies">
-<code class="sig-name descname">shift_occupancies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">q_shift</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shift_occupancies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shift_occupancies</code><span class="sig-paren">(</span><em>q_shift</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shift_occupancies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.shift_sites_in_place">
-<code class="sig-name descname">shift_sites_in_place</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shift_length</span></em>, <em class="sig-param"><span class="n">mersenne_twister</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shift_sites_in_place" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shift_sites_in_place</code><span class="sig-paren">(</span><em>shift_length</em>, <em>mersenne_twister=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shift_sites_in_place" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shifts the coordinates of all scatterers in this structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>shift_length</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – the distance to shift each scatterer with</p></li>
-<li><p><strong>mersenne_twister</strong> (<em>flex.mersenne_twister</em>) – a mersenne twister to use as entropy source</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>shift_length</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – the distance to shift each scatterer with</li>
+<li><strong>mersenne_twister</strong> (<em>flex.mersenne_twister</em>) – a mersenne twister to use as entropy source</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>none</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">none</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.shift_us">
-<code class="sig-name descname">shift_us</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">u_shift</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">b_shift</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">selection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shift_us" title="Permalink to this definition">¶</a></dt>
+<code class="descname">shift_us</code><span class="sig-paren">(</span><em>u_shift=None</em>, <em>b_shift=None</em>, <em>selection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.shift_us" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.show_angles">
-<code class="sig-name descname">show_angles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">distance_cutoff</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">asu_mappings_buffer_thickness</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">asu_is_inside_epsilon</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pair_asu_table</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">keep_pair_asu_table</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_angles" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_angles</code><span class="sig-paren">(</span><em>distance_cutoff=None</em>, <em>asu_mappings_buffer_thickness=None</em>, <em>asu_is_inside_epsilon=None</em>, <em>pair_asu_table=None</em>, <em>keep_pair_asu_table=False</em>, <em>out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_angles" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.show_dihedral_angles">
-<code class="sig-name descname">show_dihedral_angles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">distance_cutoff</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_d</span><span class="o">=</span><span class="default_value">1.7</span></em>, <em class="sig-param"><span class="n">max_angle</span><span class="o">=</span><span class="default_value">170</span></em>, <em class="sig-param"><span class="n">asu_mappings_buffer_thickness</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">asu_is_inside_epsilon</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pair_asu_table</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">keep_pair_asu_table</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_dihedral_angles" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_dihedral_angles</code><span class="sig-paren">(</span><em>distance_cutoff=None</em>, <em>max_d=1.7</em>, <em>max_angle=170</em>, <em>asu_mappings_buffer_thickness=None</em>, <em>asu_is_inside_epsilon=None</em>, <em>pair_asu_table=None</em>, <em>keep_pair_asu_table=False</em>, <em>out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_dihedral_angles" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.show_distances">
-<code class="sig-name descname">show_distances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">distance_cutoff</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">asu_mappings_buffer_thickness</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">asu_is_inside_epsilon</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">min_cubicle_edge</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">pair_asu_table</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show_cartesian</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">keep_pair_asu_table</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_distances" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_distances</code><span class="sig-paren">(</span><em>distance_cutoff=None</em>, <em>asu_mappings_buffer_thickness=None</em>, <em>asu_is_inside_epsilon=None</em>, <em>min_cubicle_edge=5</em>, <em>pair_asu_table=None</em>, <em>show_cartesian=False</em>, <em>keep_pair_asu_table=False</em>, <em>out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_distances" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.show_scatterer_flags_summary">
-<code class="sig-name descname">show_scatterer_flags_summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_scatterer_flags_summary" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_scatterer_flags_summary</code><span class="sig-paren">(</span><em>out=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_scatterer_flags_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.show_scatterers">
-<code class="sig-name descname">show_scatterers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">special_positions_only</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_scatterers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_scatterers</code><span class="sig-paren">(</span><em>f=None</em>, <em>special_positions_only=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_scatterers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.show_special_position_shifts">
-<code class="sig-name descname">show_special_position_shifts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_frac_original</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sites_cart_original</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_special_position_shifts" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_special_position_shifts</code><span class="sig-paren">(</span><em>sites_frac_original=None</em>, <em>sites_cart_original=None</em>, <em>out=None</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_special_position_shifts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.show_summary">
-<code class="sig-name descname">show_summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_summary" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_summary</code><span class="sig-paren">(</span><em>f=None</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.show_u_statistics">
-<code class="sig-name descname">show_u_statistics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">out</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">use_hydrogens</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_u_statistics" title="Permalink to this definition">¶</a></dt>
+<code class="descname">show_u_statistics</code><span class="sig-paren">(</span><em>text=''</em>, <em>out=None</em>, <em>use_hydrogens=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.show_u_statistics" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.site_symmetry_table">
-<code class="sig-name descname">site_symmetry_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.site_symmetry_table" title="Permalink to this definition">¶</a></dt>
+<code class="descname">site_symmetry_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.site_symmetry_table" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.sites_cart">
-<code class="sig-name descname">sites_cart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.sites_cart" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sites_cart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.sites_cart" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the the cartesian coordinates of all sites of the structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a list of the sites of the structure in cartesian coordinates</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.vec3_double" title="scitbx.array_family.flex.vec3_double">scitbx.array_family.flex.vec3_double</a></p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of the sites of the structure in cartesian coordinates</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.vec3_double" title="scitbx.array_family.flex.vec3_double">scitbx.array_family.flex.vec3_double</a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.sites_frac">
-<code class="sig-name descname">sites_frac</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.sites_frac" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sites_frac</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.sites_frac" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.sites_mod_positive">
-<code class="sig-name descname">sites_mod_positive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.sites_mod_positive" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sites_mod_positive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.sites_mod_positive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current structure converted into a structure with x,y,z of all
 scatterers in the interval [0,1[</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>the same instance of the structure with only posive coordinates     of its scatterers</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>cctbx.xray.structure</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the same instance of the structure with only posive coordinates     of its scatterers</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">cctbx.xray.structure</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.sites_mod_short">
-<code class="sig-name descname">sites_mod_short</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.sites_mod_short" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sites_mod_short</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.sites_mod_short" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current structure converted into a structure with short
 coordinates vectors of all scatterers</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>the same instance of the structure with only short coordinates     vectors of its scatterers</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>cctbx.xray.structure</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the same instance of the structure with only short coordinates     vectors of its scatterers</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">cctbx.xray.structure</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.sort">
-<code class="sig-name descname">sort</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">by_value</span><span class="o">=</span><span class="default_value">'occupancy'</span></em>, <em class="sig-param"><span class="n">reverse</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.sort" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sort</code><span class="sig-paren">(</span><em>by_value='occupancy'</em>, <em>reverse=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.sort" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.special_position_indices">
-<code class="sig-name descname">special_position_indices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.special_position_indices" title="Permalink to this definition">¶</a></dt>
+<code class="descname">special_position_indices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.special_position_indices" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.structure_factors">
-<code class="sig-name descname">structure_factors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anomalous_flag</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">d_min</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">algorithm</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cos_sin_table</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">quality_factor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">u_base</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">b_base</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">wing_cutoff</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.structure_factors" title="Permalink to this definition">¶</a></dt>
+<code class="descname">structure_factors</code><span class="sig-paren">(</span><em>anomalous_flag=None</em>, <em>d_min=None</em>, <em>algorithm=None</em>, <em>cos_sin_table=False</em>, <em>quality_factor=None</em>, <em>u_base=None</em>, <em>b_base=None</em>, <em>wing_cutoff=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.structure_factors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate structure factors for the current scatterers using either direct
 summation or FFT method; by default the appropriate method will be guessed
 automatically.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>anomalous_flag</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a>) – toggles whether the returned structure factors are
-anomalous or not</p></li>
-<li><p><strong>d_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – resolution cutoff (required)</p></li>
-<li><p><strong>algorithm</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) – specifies ‘direct’ or ‘fft’, or if None (default), the
-algorithm will be chosen automatically</p></li>
-<li><p><strong>cos_sin_table</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a>) – if True, uses interpolation of values from a
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>anomalous_flag</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a>) – toggles whether the returned structure factors are
+anomalous or not</li>
+<li><strong>d_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – resolution cutoff (required)</li>
+<li><strong>algorithm</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) – specifies ‘direct’ or ‘fft’, or if None (default), the
+algorithm will be chosen automatically</li>
+<li><strong>cos_sin_table</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a>) – if True, uses interpolation of values from a
 pre-calculated lookup table for trigonometric function calls in the
 structure factor calculations in preference to calling the system
-libraries</p></li>
-<li><p><strong>quality_factor</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – determines accuracy of sampled density in fft method</p></li>
-<li><p><strong>u_base</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – additional smearing B-factor for scatterers which have too
-small Bs so they fall between the grid nodes</p></li>
-<li><p><strong>b_base</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – same as u_base (but 8*pi^2 larger)</p></li>
-<li><p><strong>wing_cutoff</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – is how far away from atomic center you sample density
-around atom</p></li>
+libraries</li>
+<li><strong>quality_factor</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – determines accuracy of sampled density in fft method</li>
+<li><strong>u_base</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – additional smearing B-factor for scatterers which have too
+small Bs so they fall between the grid nodes</li>
+<li><strong>b_base</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – same as u_base (but 8*pi^2 larger)</li>
+<li><strong>wing_cutoff</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – is how far away from atomic center you sample density
+around atom</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a custom Python object (exact type depends on method used), from
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a custom Python object (exact type depends on method used), from
 which f_calc() may be called</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>derived from cctbx.xray.structure_factors.manager.managed_calculation_base</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">derived from cctbx.xray.structure_factors.manager.managed_calculation_base</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.switch_to_neutron_scattering_dictionary">
-<code class="sig-name descname">switch_to_neutron_scattering_dictionary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.switch_to_neutron_scattering_dictionary" title="Permalink to this definition">¶</a></dt>
+<code class="descname">switch_to_neutron_scattering_dictionary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.switch_to_neutron_scattering_dictionary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.tidy_us">
-<code class="sig-name descname">tidy_us</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">u_min</span><span class="o">=</span><span class="default_value">1e-06</span></em>, <em class="sig-param"><span class="n">u_max</span><span class="o">=</span><span class="default_value">12.665021303812669</span></em>, <em class="sig-param"><span class="n">anisotropy_min</span><span class="o">=</span><span class="default_value">0.25</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.tidy_us" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tidy_us</code><span class="sig-paren">(</span><em>u_min=1e-06</em>, <em>u_max=12.665021303812669</em>, <em>anisotropy_min=0.25</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.tidy_us" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clean up atomic displacements so they fall within a sensible range (this
 is especially important when writing out PDB format).</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.translate">
-<code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">z</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.translate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">translate</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em>, <em>z=0</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.translate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Translates all scatterers of this structure by x,y,z.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – x component of the translation vector</p></li>
-<li><p><strong>y</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – y component of the translation vector</p></li>
-<li><p><strong>z</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – z component of the translation vector</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – x component of the translation vector</li>
+<li><strong>y</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – y component of the translation vector</li>
+<li><strong>z</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – z component of the translation vector</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a new translated copy of the structure</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>cctbx.xray.structure</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a new translated copy of the structure</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">cctbx.xray.structure</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.truncate_at_pdb_format_precision">
-<code class="sig-name descname">truncate_at_pdb_format_precision</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.truncate_at_pdb_format_precision" title="Permalink to this definition">¶</a></dt>
+<code class="descname">truncate_at_pdb_format_precision</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.truncate_at_pdb_format_precision" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.unit_cell_content">
-<code class="sig-name descname">unit_cell_content</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">omit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.unit_cell_content" title="Permalink to this definition">¶</a></dt>
+<code class="descname">unit_cell_content</code><span class="sig-paren">(</span><em>omit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.unit_cell_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>The content of the unit cell as a chemical formula</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.use_u_aniso">
-<code class="sig-name descname">use_u_aniso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.use_u_aniso" title="Permalink to this definition">¶</a></dt>
+<code class="descname">use_u_aniso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.use_u_aniso" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="cctbx.xray.structure.structure.use_u_iso">
-<code class="sig-name descname">use_u_iso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.use_u_iso" title="Permalink to this definition">¶</a></dt>
+<code class="descname">use_u_iso</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.xray.structure.structure.use_u_iso" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1308,7 +1412,6 @@ is especially important when writing out PDB format).</p>
 </div>
 
 
-            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1328,15 +1431,17 @@ is especially important when writing out PDB format).</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1358,13 +1463,12 @@ is especially important when writing out PDB format).</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="cctbx.xray.html" >cctbx.xray package</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">cctbx.xray.structure module</a></li> 
+          <li class="nav-item nav-item-2"><a href="cctbx.xray.html" >cctbx.xray package</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

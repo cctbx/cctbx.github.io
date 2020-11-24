@@ -1,21 +1,20 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iotbx.pdb tutorial: pdb_truncate_to_ala &#8212; CCTBX Developer documentation</title>
-    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -29,7 +28,8 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iotbx.pdb tutorial: <code class="docutils literal notranslate"><span class="pre">pdb_truncate_to_ala</span></code></a></li> 
       </ul>
     </div>  
 
@@ -52,33 +52,33 @@ module to truncate the amino-acid residues in a PDB file to alanine
 of five scripts with increasing sophistication:</p>
 <blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt><a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v0_getting_started.py">v0_getting_started.py</a></dt>
-<dd>Reads a PDB file and shows some information about the content.</dd>
+<li><dl class="simple">
+<dt><a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v0_getting_started.py">v0_getting_started.py</a></dt><dd><p>Reads a PDB file and shows some information about the content.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt><a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v1_loop_over_atoms.py">v1_loop_over_atoms.py</a></dt>
-<dd>Also loops over the atoms in the PDB file and prints
-residue information and atom names.</dd>
+<li><dl class="simple">
+<dt><a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v1_loop_over_atoms.py">v1_loop_over_atoms.py</a></dt><dd><p>Also loops over the atoms in the PDB file and prints
+residue information and atom names.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt><a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v2_simple.py">v2_simple.py</a></dt>
-<dd>Simple version removing amino-acid side chain atoms,
-except C-beta.</dd>
+<li><dl class="simple">
+<dt><a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v2_simple.py">v2_simple.py</a></dt><dd><p>Simple version removing amino-acid side chain atoms,
+except C-beta.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt><a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v3_better.py">v3_better.py</a></dt>
-<dd>Improved removal of side chain atoms that works even if
+<li><dl class="simple">
+<dt><a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v3_better.py">v3_better.py</a></dt><dd><p>Improved removal of side chain atoms that works even if
 there are alternative conformations with a mix of
-residue names.</dd>
+residue names.</p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt><a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v4_with_bells_and_whistles.py">v4_with_bells_and_whistles.py</a></dt>
-<dd>Additional bookkeeping for a few informative print statements.</dd>
+<li><dl class="simple">
+<dt><a class="reference external" href="http://cctbx.sourceforge.net/sbgrid2008/v4_with_bells_and_whistles.py">v4_with_bells_and_whistles.py</a></dt><dd><p>Additional bookkeeping for a few informative print statements.</p>
+</dd>
 </dl>
 </li>
 </ul>
@@ -101,9 +101,8 @@ approximation.</p>
 <h2><code class="docutils literal notranslate"><span class="pre">v0_getting_started.py</span></code><a class="headerlink" href="#v0-getting-started-py" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">iotbx.pdb</span></code> module implements highly efficient procedures for:</p>
 <ul>
-<li><p class="first">Processing the records (i.e. lines) in a PDB file.</p>
-</li>
-<li><p class="first">Constructing a <em>hierarchy</em> object. This is a five-deep nested
+<li><p>Processing the records (i.e. lines) in a PDB file.</p></li>
+<li><p>Constructing a <em>hierarchy</em> object. This is a five-deep nested
 data structure:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span>
   <span class="n">chain</span>
@@ -542,22 +541,22 @@ write the output PDB file only if there are changes:</p>
 <code class="docutils literal notranslate"><span class="pre">v3_better.py</span></code> script:</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">os.path.basename()</span></code> is used to remove any directory name
+<li><p><code class="docutils literal notranslate"><span class="pre">os.path.basename()</span></code> is used to remove any directory name
 component from the input file name, if present. With this,
 it is certain that the output file is written in the current
 working directory, not the directory of the input file (which
-may be in another user’s directory or a system directory)</li>
-<li><code class="docutils literal notranslate"><span class="pre">iotbx.pdb.hierarchy.input</span></code> is able to open <cite>.gz</cite> files
+may be in another user’s directory or a system directory)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iotbx.pdb.hierarchy.input</span></code> is able to open <cite>.gz</cite> files
 directly (e.g. compressed files as downloaded from the PDB).
 However, the <code class="docutils literal notranslate"><span class="pre">.write_pdb_file()</span></code> method always writes plain
 (non-compressed) files. Therefore the <code class="docutils literal notranslate"><span class="pre">.gz</span></code> extension has to be
 removed, if present. The string method <code class="docutils literal notranslate"><span class="pre">.endswith()</span></code> is used to
-detect the extension, and string slicing (<code class="docutils literal notranslate"><span class="pre">[:-3]</span></code>) to remove it.</li>
-<li>The input crystal symmetry information (unit cell and space group)
+detect the extension, and string slicing (<code class="docutils literal notranslate"><span class="pre">[:-3]</span></code>) to remove it.</p></li>
+<li><p>The input crystal symmetry information (unit cell and space group)
 is passed to the <code class="docutils literal notranslate"><span class="pre">.write_pdb_file()</span></code> method, which then
 writes CRYST1 and SCALE records to the output file. In addtion,
 the optional <code class="docutils literal notranslate"><span class="pre">append_end</span></code> argument is used to request that
-an END record is written at the end of the output file.</li>
+an END record is written at the end of the output file.</p></li>
 </ul>
 </div></blockquote>
 <p>Full source:</p>
@@ -618,6 +617,7 @@ an END record is written at the end of the output file.</li>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -646,17 +646,15 @@ an END record is written at the end of the output file.</li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -670,12 +668,13 @@ an END record is written at the end of the output file.</li>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iotbx.pdb tutorial: <code class="docutils literal notranslate"><span class="pre">pdb_truncate_to_ala</span></code></a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
     </div>
   </body>
 </html>

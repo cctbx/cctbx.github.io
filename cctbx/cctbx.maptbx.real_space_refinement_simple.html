@@ -1,21 +1,20 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cctbx.maptbx.real_space_refinement_simple module &#8212; CCTBX Developer documentation</title>
-    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,7 +38,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="cctbx.maptbx.html" accesskey="U">cctbx.maptbx package</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="cctbx.maptbx.html" accesskey="U">cctbx.maptbx package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">cctbx.maptbx.real_space_refinement_simple module</a></li> 
       </ul>
     </div>  
 
@@ -50,39 +50,39 @@
             
   <div class="section" id="module-cctbx.maptbx.real_space_refinement_simple">
 <span id="cctbx-maptbx-real-space-refinement-simple-module"></span><h1>cctbx.maptbx.real_space_refinement_simple module<a class="headerlink" href="#module-cctbx.maptbx.real_space_refinement_simple" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="cctbx.maptbx.real_space_refinement_simple.lbfgs">
-<em class="property">class </em><code class="descclassname">cctbx.maptbx.real_space_refinement_simple.</code><code class="descname">lbfgs</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>density_map</em>, <em>gradients_method</em>, <em>weight_map=None</em>, <em>unit_cell=None</em>, <em>selection_variable=None</em>, <em>selection_variable_real_space=None</em>, <em>geometry_restraints_manager=None</em>, <em>energies_sites_flags=None</em>, <em>gradient_only=False</em>, <em>line_search=True</em>, <em>real_space_target_weight=1</em>, <em>real_space_gradients_delta=None</em>, <em>local_standard_deviations_radius=None</em>, <em>weight_map_scale_factor=None</em>, <em>lbfgs_core_params=None</em>, <em>lbfgs_termination_params=None</em>, <em>lbfgs_exception_handling_params=None</em>, <em>states_collector=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.lbfgs" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cctbx.maptbx.real_space_refinement_simple.</code><code class="sig-name descname">lbfgs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">density_map</span></em>, <em class="sig-param"><span class="n">gradients_method</span></em>, <em class="sig-param"><span class="n">weight_map</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">unit_cell</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">selection_variable</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">selection_variable_real_space</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">geometry_restraints_manager</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">energies_sites_flags</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">gradient_only</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">line_search</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">real_space_target_weight</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">real_space_gradients_delta</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">local_standard_deviations_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight_map_scale_factor</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lbfgs_core_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lbfgs_termination_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lbfgs_exception_handling_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">states_collector</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.lbfgs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.maptbx.real_space_refinement_simple.lbfgs.compute_functional_and_gradients">
-<code class="descname">compute_functional_and_gradients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.lbfgs.compute_functional_and_gradients" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">compute_functional_and_gradients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.lbfgs.compute_functional_and_gradients" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="cctbx.maptbx.real_space_refinement_simple.local_standard_deviations_gradients">
-<code class="descclassname">cctbx.maptbx.real_space_refinement_simple.</code><code class="descname">local_standard_deviations_gradients</code><span class="sig-paren">(</span><em>unit_cell</em>, <em>density_map</em>, <em>weight_map</em>, <em>weight_map_scale_factor</em>, <em>sites_cart</em>, <em>site_radii</em>, <em>delta</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.local_standard_deviations_gradients" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.maptbx.real_space_refinement_simple.</code><code class="sig-name descname">local_standard_deviations_gradients</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit_cell</span></em>, <em class="sig-param"><span class="n">density_map</span></em>, <em class="sig-param"><span class="n">weight_map</span></em>, <em class="sig-param"><span class="n">weight_map_scale_factor</span></em>, <em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">site_radii</span></em>, <em class="sig-param"><span class="n">delta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.local_standard_deviations_gradients" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="cctbx.maptbx.real_space_refinement_simple.local_standard_deviations_target">
-<code class="descclassname">cctbx.maptbx.real_space_refinement_simple.</code><code class="descname">local_standard_deviations_target</code><span class="sig-paren">(</span><em>unit_cell</em>, <em>density_map</em>, <em>weight_map</em>, <em>weight_map_scale_factor</em>, <em>sites_cart</em>, <em>site_radii</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.local_standard_deviations_target" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.maptbx.real_space_refinement_simple.</code><code class="sig-name descname">local_standard_deviations_target</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit_cell</span></em>, <em class="sig-param"><span class="n">density_map</span></em>, <em class="sig-param"><span class="n">weight_map</span></em>, <em class="sig-param"><span class="n">weight_map_scale_factor</span></em>, <em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">site_radii</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.local_standard_deviations_target" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="cctbx.maptbx.real_space_refinement_simple.local_standard_deviations_target_per_site">
-<code class="descclassname">cctbx.maptbx.real_space_refinement_simple.</code><code class="descname">local_standard_deviations_target_per_site</code><span class="sig-paren">(</span><em>unit_cell</em>, <em>density_map</em>, <em>weight_map</em>, <em>weight_map_scale_factor</em>, <em>sites_cart</em>, <em>site_radii</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.local_standard_deviations_target_per_site" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.maptbx.real_space_refinement_simple.</code><code class="sig-name descname">local_standard_deviations_target_per_site</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit_cell</span></em>, <em class="sig-param"><span class="n">density_map</span></em>, <em class="sig-param"><span class="n">weight_map</span></em>, <em class="sig-param"><span class="n">weight_map_scale_factor</span></em>, <em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">site_radii</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.local_standard_deviations_target_per_site" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="cctbx.maptbx.real_space_refinement_simple.magnification_anisotropic_minimization">
-<em class="property">class </em><code class="descclassname">cctbx.maptbx.real_space_refinement_simple.</code><code class="descname">magnification_anisotropic_minimization</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>density_map</em>, <em>unit_cell</em>, <em>K</em>, <em>lbfgs_termination_params=None</em>, <em>lbfgs_exception_handling_params=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.magnification_anisotropic_minimization" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cctbx.maptbx.real_space_refinement_simple.</code><code class="sig-name descname">magnification_anisotropic_minimization</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">density_map</span></em>, <em class="sig-param"><span class="n">unit_cell</span></em>, <em class="sig-param"><span class="n">K</span></em>, <em class="sig-param"><span class="n">lbfgs_termination_params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lbfgs_exception_handling_params</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.magnification_anisotropic_minimization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.maptbx.real_space_refinement_simple.magnification_anisotropic_minimization.compute_functional_and_gradients">
-<code class="descname">compute_functional_and_gradients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.magnification_anisotropic_minimization.compute_functional_and_gradients" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">compute_functional_and_gradients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.maptbx.real_space_refinement_simple.magnification_anisotropic_minimization.compute_functional_and_gradients" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -90,6 +90,7 @@
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -109,17 +110,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -141,12 +140,13 @@
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="cctbx.maptbx.html" >cctbx.maptbx package</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="cctbx.maptbx.html" >cctbx.maptbx package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">cctbx.maptbx.real_space_refinement_simple module</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
     </div>
   </body>
 </html>

@@ -1,21 +1,20 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mmtbx.command_line package &#8212; CCTBX Developer documentation</title>
-    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,7 +37,8 @@
           <a href="mmtbx.chemical_components.html" title="mmtbx.chemical_components package"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mmtbx.command_line package</a></li> 
       </ul>
     </div>  
 
@@ -65,465 +65,377 @@ disambiguate crystal symmetry and Miller array conventions is performed
 automatically.  This is superficially similar to the setup for phenix.refine
 (and re-uses many of the methods in mmtbx.utils), but is somewhat simpler
 (single-dataset only) and more general-purpose.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.command_line.check_files">
-<code class="descclassname">mmtbx.command_line.</code><code class="descname">check_files</code><span class="sig-paren">(</span><em>phil_scope</em>, <em>file_type</em>, <em>error_message</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.check_files" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.command_line.</code><code class="sig-name descname">check_files</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">phil_scope</span></em>, <em class="sig-param"><span class="n">file_type</span></em>, <em class="sig-param"><span class="n">error_message</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.check_files" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.command_line.generate_master_phil_with_inputs">
-<code class="descclassname">mmtbx.command_line.</code><code class="descname">generate_master_phil_with_inputs</code><span class="sig-paren">(</span><em>phil_string</em>, <em>enable_twin_law=True</em>, <em>enable_automatic_twin_detection=False</em>, <em>enable_experimental_phases=False</em>, <em>enable_pdb_interpretation_params=False</em>, <em>enable_stop_for_unknowns=None</em>, <em>enable_full_geometry_params=False</em>, <em>enable_unmerged_data=False</em>, <em>enable_cdl=None</em>, <em>as_phil_string=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.generate_master_phil_with_inputs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.command_line.</code><code class="sig-name descname">generate_master_phil_with_inputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">phil_string</span></em>, <em class="sig-param"><span class="n">enable_twin_law</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">enable_automatic_twin_detection</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">enable_experimental_phases</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">enable_pdb_interpretation_params</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">enable_stop_for_unknowns</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">enable_full_geometry_params</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">enable_unmerged_data</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">enable_cdl</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">as_phil_string</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.generate_master_phil_with_inputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a complete PHIL parameter block with generic input parameters plus
 user-specified options.  The result is suitable for input for the class
 load_model_and_data.  Depending on the target application, the exact input
 options can be adjusted.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>phil_string</strong> – application-specific parameters</li>
-<li><strong>enable_twin_law</strong> – allow twinned f_model calculation</li>
-<li><strong>enable_automatic_twin_detection</strong> – allow automatic detection of twinning
-and setup of the f_model object</li>
-<li><strong>enable_experimental_phases</strong> – use Hendrickson-Lattman coefficients</li>
-<li><strong>enable_pdb_interpretation_params</strong> – show options for modifying the
-behavior of mmtbx.monomer_library.pdb_interpretation</li>
-<li><strong>enable_stop_for_unknowns</strong> – modify behavior of restraint interpretation
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>phil_string</strong> – application-specific parameters</p></li>
+<li><p><strong>enable_twin_law</strong> – allow twinned f_model calculation</p></li>
+<li><p><strong>enable_automatic_twin_detection</strong> – allow automatic detection of twinning
+and setup of the f_model object</p></li>
+<li><p><strong>enable_experimental_phases</strong> – use Hendrickson-Lattman coefficients</p></li>
+<li><p><strong>enable_pdb_interpretation_params</strong> – show options for modifying the
+behavior of mmtbx.monomer_library.pdb_interpretation</p></li>
+<li><p><strong>enable_stop_for_unknowns</strong> – modify behavior of restraint interpretation
 when unknown atoms are encountered.  Default is None; if True, the
 program will not raise an error; if False, the program will raise an
-error which may be suppressed by the user</li>
-<li><strong>enable_full_geometry_params</strong> – include parameters for specifying custom
-geometry resraints</li>
-<li><strong>enable_unmerged_data</strong> – accept separate unmerged intensities</li>
-<li><strong>enable_cdl</strong> – change default setting for conformation-dependent library</li>
-<li><strong>as_phil_string</strong> – return parameter string instead of PHIL object</li>
+error which may be suppressed by the user</p></li>
+<li><p><strong>enable_full_geometry_params</strong> – include parameters for specifying custom
+geometry resraints</p></li>
+<li><p><strong>enable_unmerged_data</strong> – accept separate unmerged intensities</p></li>
+<li><p><strong>enable_cdl</strong> – change default setting for conformation-dependent library</p></li>
+<li><p><strong>as_phil_string</strong> – return parameter string instead of PHIL object</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">PHIL object (unless as_phil_string=True)</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>PHIL object (unless as_phil_string=True)</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.command_line.generic_simple_input_phil">
-<code class="descclassname">mmtbx.command_line.</code><code class="descname">generic_simple_input_phil</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.generic_simple_input_phil" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.command_line.</code><code class="sig-name descname">generic_simple_input_phil</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.generic_simple_input_phil" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate minimal PHIL input string with no additional parameters.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.command_line.load_and_validate_unmerged_data">
-<code class="descclassname">mmtbx.command_line.</code><code class="descname">load_and_validate_unmerged_data</code><span class="sig-paren">(</span><em>f_obs</em>, <em>file_name</em>, <em>data_labels</em>, <em>log=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.load_and_validate_unmerged_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.command_line.</code><code class="sig-name descname">load_and_validate_unmerged_data</code><span class="sig-paren">(</span><em class="sig-param">f_obs</em>, <em class="sig-param">file_name</em>, <em class="sig-param">data_labels</em>, <em class="sig-param">log=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='utf-8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.load_and_validate_unmerged_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read in (and verify) unmerged intensities, e.g. from scalepack or XDS.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="mmtbx.command_line.load_model_and_data">
-<em class="property">class </em><code class="descclassname">mmtbx.command_line.</code><code class="descname">load_model_and_data</code><span class="sig-paren">(</span><em>args</em>, <em>master_phil</em>, <em>out=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em>, <em>process_pdb_file=True</em>, <em>require_data=True</em>, <em>create_fmodel=True</em>, <em>prefer_anomalous=None</em>, <em>force_non_anomalous=False</em>, <em>set_wavelength_from_model_header=False</em>, <em>set_inelastic_form_factors=None</em>, <em>usage_string=None</em>, <em>create_log_buffer=False</em>, <em>remove_unknown_scatterers=False</em>, <em>generate_input_phil=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">mmtbx.command_line.</code><code class="sig-name descname">load_model_and_data</code><span class="sig-paren">(</span><em class="sig-param">args</em>, <em class="sig-param">master_phil</em>, <em class="sig-param">out=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='utf-8'&gt;</em>, <em class="sig-param">process_pdb_file=True</em>, <em class="sig-param">require_data=True</em>, <em class="sig-param">create_fmodel=True</em>, <em class="sig-param">prefer_anomalous=None</em>, <em class="sig-param">force_non_anomalous=False</em>, <em class="sig-param">set_wavelength_from_model_header=False</em>, <em class="sig-param">set_inelastic_form_factors=None</em>, <em class="sig-param">usage_string=None</em>, <em class="sig-param">create_log_buffer=False</em>, <em class="sig-param">remove_unknown_scatterers=False</em>, <em class="sig-param">generate_input_phil=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Class for processing command-line input and creating necessary objects.
 The master_phil object should include cmdline_input_phil_str above, plus
 any application-specific parameters.  Programs which use this can be invoked
 using simple file arguments or explicit parameters, e.g.</p>
 <blockquote>
-<div>mmtbx.some_program model.pdb data.mtz</div></blockquote>
+<div><p>mmtbx.some_program model.pdb data.mtz</p>
+</div></blockquote>
 <p>This class performs the following functions (mostly using other wrappers
 elsewhere in mmtbx.utils):</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Process all arguments and extract as Python parameters</li>
-<li>Read in data and R-free flags</li>
-<li>Filter data and flags to be consistent if necessary</li>
-<li>Read in PDB file, either using the iotbx.pdb API, or if process_pdb_file
+<li><p>Process all arguments and extract as Python parameters</p></li>
+<li><p>Read in data and R-free flags</p></li>
+<li><p>Filter data and flags to be consistent if necessary</p></li>
+<li><p>Read in PDB file, either using the iotbx.pdb API, or if process_pdb_file
 is True, mmtbx.monomer_library.pdb_interpretation (using any CIF files
-included in the inputs)</li>
-<li>Extract the pdb_hierarchy and xray_structure objects.</li>
-<li>Create an mmtbx.f_model.manager object using the data, flags, and
-xray_structure.</li>
+included in the inputs)</p></li>
+<li><p>Extract the pdb_hierarchy and xray_structure objects.</p></li>
+<li><p>Create an mmtbx.f_model.manager object using the data, flags, and
+xray_structure.</p></li>
 </ol>
 </div></blockquote>
 <p>If at any point the inputs are ambiguous, hopefully the program will stop
 and raise an interpretable error.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>args</strong> (<em>list of command-line arguments</em>) – </li>
-<li><strong>master_phil</strong> (<em>PHIL master</em><em> (</em><em>can optionally be an unparsed string</em><em>)</em>) – </li>
-<li><strong>out</strong> (<em>filehandle-like object</em>) – </li>
-<li><strong>process_pdb_file</strong> (<em>run full restraints generation</em>) – </li>
-<li><strong>require_data</strong> (<em>raise error if no experimental data supplied</em>) – </li>
-<li><strong>create_fmodel</strong> (<em>setup mmtbx.f_model.manager object</em>) – </li>
-<li><strong>prefer_anomalous</strong> (<em>preferentially use anomalous data if present</em>) – </li>
-<li><strong>force_non_anomalous</strong> (<em>merge anomalous data if present</em>) – </li>
-<li><strong>set_wavelength_from_model_header</strong> (<em>interpret PDB</em><em> or </em><em>mmCIF header to set     experimental wavelength</em>) – </li>
-<li><strong>set_inelastic_form_factors</strong> (<em>table to use</em><em> (</em><em>if any</em><em>) </em><em>for setting anomalous     scattering form factors</em>) – </li>
-<li><strong>usage_string</strong> (<em>console output for no arguments</em><em> or </em><em>--help</em>) – </li>
-<li><strong>create_log_buffer</strong> (<em>store log output for later output to file</em>) – </li>
-<li><strong>remove_unknown_scatterers</strong> (<em>delete atoms with scattering type 'X'</em><em> (</em><em>only     used when process_pdb_file=False</em><em>)</em>) – </li>
-<li><strong>generate_input_phil</strong> (<em>specifies that the master_phil object is a string     containing onky the app-specific options</em><em>, </em><em>and automatically add the     standard input parameters</em>) – </li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>list of command-line arguments</em>) – </p></li>
+<li><p><strong>master_phil</strong> (<em>PHIL master</em><em> (</em><em>can optionally be an unparsed string</em><em>)</em>) – </p></li>
+<li><p><strong>out</strong> (<em>filehandle-like object</em>) – </p></li>
+<li><p><strong>process_pdb_file</strong> (<em>run full restraints generation</em>) – </p></li>
+<li><p><strong>require_data</strong> (<em>raise error if no experimental data supplied</em>) – </p></li>
+<li><p><strong>create_fmodel</strong> (<em>setup mmtbx.f_model.manager object</em>) – </p></li>
+<li><p><strong>prefer_anomalous</strong> (<em>preferentially use anomalous data if present</em>) – </p></li>
+<li><p><strong>force_non_anomalous</strong> (<em>merge anomalous data if present</em>) – </p></li>
+<li><p><strong>set_wavelength_from_model_header</strong> (<em>interpret PDB</em><em> or </em><em>mmCIF header to set     experimental wavelength</em>) – </p></li>
+<li><p><strong>set_inelastic_form_factors</strong> (<em>table to use</em><em> (</em><em>if any</em><em>) </em><em>for setting anomalous     scattering form factors</em>) – </p></li>
+<li><p><strong>usage_string</strong> (<em>console output for no arguments</em><em> or </em><em>--help</em>) – </p></li>
+<li><p><strong>create_log_buffer</strong> (<em>store log output for later output to file</em>) – </p></li>
+<li><p><strong>remove_unknown_scatterers</strong> (<em>delete atoms with scattering type 'X'</em><em> (</em><em>only     used when process_pdb_file=False</em><em>)</em>) – </p></li>
+<li><p><strong>generate_input_phil</strong> (<em>specifies that the master_phil object is a string     containing onky the app-specific options</em><em>, </em><em>and automatically add the     standard input parameters</em>) – </p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
+</dd>
+</dl>
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.args">
-<code class="descname">args</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.args" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of str</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">args</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.args" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.cif_file_names">
-<code class="descname">cif_file_names</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.cif_file_names" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">libtbx.phil.scope_extract_list</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">cif_file_names</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.cif_file_names" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>libtbx.phil.scope_extract_list</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.cif_objects">
-<code class="descname">cif_objects</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.cif_objects" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of …</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">cif_objects</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.cif_objects" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of …</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.crystal_symmetry">
-<code class="descname">crystal_symmetry</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.crystal_symmetry" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../cctbx/cctbx.crystal.html#cctbx.crystal.symmetry" title="cctbx.crystal.symmetry">cctbx.crystal.symmetry</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">crystal_symmetry</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.crystal_symmetry" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../cctbx/cctbx.crystal.html#cctbx.crystal.symmetry" title="cctbx.crystal.symmetry">cctbx.crystal.symmetry</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.f_obs">
-<code class="descname">f_obs</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.f_obs" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array">cctbx.miller.array</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">f_obs</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.f_obs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array">cctbx.miller.array</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.fmodel">
-<code class="descname">fmodel</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.fmodel" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">mmtbx.f_model.manager</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">fmodel</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.fmodel" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>mmtbx.f_model.manager</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.geometry">
-<code class="descname">geometry</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.geometry" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../cctbx/cctbx.geometry_restraints.manager.html#cctbx.geometry_restraints.manager.manager" title="cctbx.geometry_restraints.manager.manager">cctbx.geometry_restraints.manager.manager</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">geometry</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.geometry" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../cctbx/cctbx.geometry_restraints.manager.html#cctbx.geometry_restraints.manager.manager" title="cctbx.geometry_restraints.manager.manager">cctbx.geometry_restraints.manager.manager</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.hl_coeffs">
-<code class="descname">hl_coeffs</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.hl_coeffs" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">…</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">hl_coeffs</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.hl_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>…</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.intensity_flag">
-<code class="descname">intensity_flag</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.intensity_flag" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">intensity_flag</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.intensity_flag" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.log">
-<code class="descname">log</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.log" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">file</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">log</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.log" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>file</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.master_phil">
-<code class="descname">master_phil</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.master_phil" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../libtbx/libtbx.phil.html#libtbx.phil.scope" title="libtbx.phil.scope">libtbx.phil.scope</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">master_phil</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.master_phil" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../libtbx/libtbx.phil.html#id0" title="libtbx.phil.scope">libtbx.phil.scope</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.miller_arrays">
-<code class="descname">miller_arrays</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.miller_arrays" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list of cctbx.miller.array</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">miller_arrays</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.miller_arrays" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of cctbx.miller.array</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.params">
-<code class="descname">params</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.params" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">libtbx.phil.scope_extract</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">params</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.params" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>libtbx.phil.scope_extract</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.pdb_file_names">
-<code class="descname">pdb_file_names</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.pdb_file_names" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">libtbx.phil.scope_extract_list</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">pdb_file_names</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.pdb_file_names" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>libtbx.phil.scope_extract_list</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.pdb_hierarchy">
-<code class="descname">pdb_hierarchy</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.pdb_hierarchy" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root">iotbx.pdb.hierarchy.root</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">pdb_hierarchy</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.pdb_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root">iotbx.pdb.hierarchy.root</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.pdb_inp">
-<code class="descname">pdb_inp</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.pdb_inp" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">iotbx.pdb.input</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">pdb_inp</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.pdb_inp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>iotbx.pdb.input</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.processed_pdb_file">
-<code class="descname">processed_pdb_file</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.processed_pdb_file" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="mmtbx.monomer_library.html#mmtbx.monomer_library.pdb_interpretation.process" title="mmtbx.monomer_library.pdb_interpretation.process">mmtbx.monomer_library.pdb_interpretation.process</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">processed_pdb_file</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.processed_pdb_file" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mmtbx.monomer_library.html#mmtbx.monomer_library.pdb_interpretation.process" title="mmtbx.monomer_library.pdb_interpretation.process">mmtbx.monomer_library.pdb_interpretation.process</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.r_free_flags">
-<code class="descname">r_free_flags</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.r_free_flags" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array">cctbx.miller.array</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">r_free_flags</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.r_free_flags" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array">cctbx.miller.array</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.raw_data">
-<code class="descname">raw_data</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.raw_data" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array">cctbx.miller.array</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">raw_data</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.raw_data" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array">cctbx.miller.array</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.raw_flags">
-<code class="descname">raw_flags</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.raw_flags" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array">cctbx.miller.array</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">raw_flags</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.raw_flags" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array">cctbx.miller.array</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.sequence">
-<code class="descname">sequence</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.sequence" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">…</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">sequence</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.sequence" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>…</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.test_flag_value">
-<code class="descname">test_flag_value</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.test_flag_value" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">test_flag_value</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.test_flag_value" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.unknown_residues_flag">
-<code class="descname">unknown_residues_flag</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.unknown_residues_flag" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">unknown_residues_flag</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.unknown_residues_flag" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.unknown_residues_error_message">
-<code class="descname">unknown_residues_error_message</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.unknown_residues_error_message" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">unknown_residues_error_message</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.unknown_residues_error_message" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.unmerged_i_obs">
-<code class="descname">unmerged_i_obs</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.unmerged_i_obs" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">…</td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">unmerged_i_obs</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.unmerged_i_obs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>…</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.working_phil">
-<code class="descname">working_phil</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.working_phil" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../libtbx/libtbx.phil.html#libtbx.phil.scope" title="libtbx.phil.scope">libtbx.phil.scope</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">working_phil</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.working_phil" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../libtbx/libtbx.phil.html#id0" title="libtbx.phil.scope">libtbx.phil.scope</a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.command_line.load_model_and_data.xray_structure">
-<code class="descname">xray_structure</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.xray_structure" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../cctbx/cctbx.xray.structure.html#cctbx.xray.structure.structure" title="cctbx.xray.structure.structure">cctbx.xray.structure.structure</a></td>
-</tr>
-</tbody>
-</table>
+<code class="sig-name descname">xray_structure</code><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.xray_structure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../cctbx/cctbx.xray.structure.html#cctbx.xray.structure.structure" title="cctbx.xray.structure.structure">cctbx.xray.structure.structure</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mmtbx.command_line</span> <span class="kn">import</span> <span class="n">load_model_and_data</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mmtbx.command_line</span> <span class="kn">import</span> <span class="n">load_model_and_data</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cmdline</span> <span class="o">=</span> <span class="n">load_model_and_data</span><span class="p">(</span>
 <span class="gp">... </span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;model.pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;data.mtz&quot;</span><span class="p">],</span>
 <span class="gp">... </span> <span class="n">master_phil</span><span class="o">=</span><span class="n">master_phil</span><span class="p">,</span>
@@ -536,54 +448,52 @@ and raise an interpretable error.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cmdline</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">wavelength</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.command_line.load_model_and_data.create_model_manager">
-<code class="descname">create_model_manager</code><span class="sig-paren">(</span><em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.create_model_manager" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_model_manager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.create_model_manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instantiate an mmtbx.model.manager object with the current pdb hierarchy,
 xray structure, and geometry restraints.
 deprecated</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.command_line.load_model_and_data.save_data_mtz">
-<code class="descname">save_data_mtz</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.save_data_mtz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">save_data_mtz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.save_data_mtz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the processed amplitudes, optional Hendrickson-Lattman coefficients,
 and R-free flags to the designated MTZ file.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.command_line.load_model_and_data.start_log_file">
-<code class="descname">start_log_file</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.start_log_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">start_log_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.start_log_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open a log file and write out the existing output buffer, returning the
 multi_out pseudo-filehandle.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_name</strong> – log file to create</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">libtbx.utils.multi_out object</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_name</strong> – log file to create</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>libtbx.utils.multi_out object</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.command_line.show_symmetry_error">
-<code class="descclassname">mmtbx.command_line.</code><code class="descname">show_symmetry_error</code><span class="sig-paren">(</span><em>file1</em>, <em>file2</em>, <em>symm1</em>, <em>symm2</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.show_symmetry_error" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.command_line.</code><code class="sig-name descname">show_symmetry_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file1</span></em>, <em class="sig-param"><span class="n">file2</span></em>, <em class="sig-param"><span class="n">symm1</span></em>, <em class="sig-param"><span class="n">symm2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.show_symmetry_error" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.command_line.validate_input_params">
-<code class="descclassname">mmtbx.command_line.</code><code class="descname">validate_input_params</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.validate_input_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.command_line.</code><code class="sig-name descname">validate_input_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.validate_input_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check for completeness of mandatory input parameters</p>
 </dd></dl>
 
 <p>A more complex example, which identifies suspect ligands based on electron
 density:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">master_phil</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">command_line</span><span class="o">.</span><span class="n">generate_master_phil_with_inputs</span><span class="p">(</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">master_phil</span> <span class="o">=</span> <span class="n">mmtbx</span><span class="o">.</span><span class="n">command_line</span><span class="o">.</span><span class="n">generate_master_phil_with_inputs</span><span class="p">(</span>
 <span class="gp">... </span>  <span class="n">enable_twin_law</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="gp">... </span>  <span class="n">phil_string</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="s2">    hetatms_only = True</span>
@@ -617,6 +527,7 @@ density:</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -644,17 +555,15 @@ density:</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -675,12 +584,13 @@ density:</p>
           <a href="mmtbx.chemical_components.html" title="mmtbx.chemical_components package"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mmtbx.command_line package</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
     </div>
   </body>
 </html>

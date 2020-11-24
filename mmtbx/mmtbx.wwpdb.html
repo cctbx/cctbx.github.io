@@ -1,21 +1,20 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mmtbx.wwpdb package &#8212; CCTBX Developer documentation</title>
-    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,7 +37,8 @@
           <a href="mmtbx.validation.molprobity.html" title="mmtbx.validation.molprobity package"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="mmtbx.html" accesskey="U">mmtbx - macromolecular crystallography</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mmtbx.wwpdb package</a></li> 
       </ul>
     </div>  
 
@@ -59,108 +59,100 @@
 <p>There is some overlap with iotbx.pdb.fetch, which really should have gone here
 instead, but this module is intended to be used in higher-level automation
 pipelines.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.rcsb_web_services.chemical_id_search">
-<code class="descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="descname">chemical_id_search</code><span class="sig-paren">(</span><em>resname</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.chemical_id_search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="sig-name descname">chemical_id_search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">resname</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.chemical_id_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find all entry IDs with the specified chemical ID.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>resname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </li>
-<li><strong>kwds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Keyword arguments passed to post_query.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resname</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>kwds</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Keyword arguments passed to post_query.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mmtbx.wwpdb.rcsb_web_services</span> <span class="kn">import</span> <span class="n">chemical_id_search</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mmtbx.wwpdb.rcsb_web_services</span> <span class="kn">import</span> <span class="n">chemical_id_search</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">chemical_id_search</span><span class="p">(</span><span class="s2">&quot;ZN&quot;</span><span class="p">,</span> <span class="n">data_only</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">2874</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.rcsb_web_services.get_high_resolution_and_residue_count_for_structures">
-<code class="descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="descname">get_high_resolution_and_residue_count_for_structures</code><span class="sig-paren">(</span><em>pdb_ids</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.get_high_resolution_and_residue_count_for_structures" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="sig-name descname">get_high_resolution_and_residue_count_for_structures</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_ids</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.get_high_resolution_and_residue_count_for_structures" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.rcsb_web_services.get_high_resolution_for_structures">
-<code class="descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="descname">get_high_resolution_for_structures</code><span class="sig-paren">(</span><em>pdb_ids</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.get_high_resolution_for_structures" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="sig-name descname">get_high_resolution_for_structures</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_ids</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.get_high_resolution_for_structures" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.rcsb_web_services.get_ligand_info_for_structures">
-<code class="descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="descname">get_ligand_info_for_structures</code><span class="sig-paren">(</span><em>pdb_ids</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.get_ligand_info_for_structures" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="sig-name descname">get_ligand_info_for_structures</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_ids</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.get_ligand_info_for_structures" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of ligands in the specified structure(s), including the
 SMILES strings.</p>
 <p>Returns list of lists with
 [PDB ID, chain id, lig id, lig MW, lig Formula, lig name, lig SMILES]
 If the same ligand is present in different chains, it will produce several
 entries which will be different in chain ids.</p>
-<dl class="docutils">
-<dt>[[u’1MRU’, u’A’, u’MG’, u’24.31’, u’Mg 2’, u’MAGNESIUM ION’, u’[Mg+2]’],</dt>
-<dd>[u’1MRU’, u’B’, u’MG’, u’24.31’, u’Mg 2’, u’MAGNESIUM ION’, u’[Mg+2]’]]</dd>
+<dl class="simple">
+<dt>[[u’1MRU’, u’A’, u’MG’, u’24.31’, u’Mg 2’, u’MAGNESIUM ION’, u’[Mg+2]’],</dt><dd><p>[u’1MRU’, u’B’, u’MG’, u’24.31’, u’Mg 2’, u’MAGNESIUM ION’, u’[Mg+2]’]]</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.rcsb_web_services.polymeric_type_filter">
-<code class="descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="descname">polymeric_type_filter</code><span class="sig-paren">(</span><em>value='Protein (only)'</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.polymeric_type_filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="sig-name descname">polymeric_type_filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">'Protein (only)'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.polymeric_type_filter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.rcsb_web_services.post_query">
-<code class="descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="descname">post_query</code><span class="sig-paren">(</span><em>query_json</em>, <em>xray_only=True</em>, <em>d_max=None</em>, <em>d_min=None</em>, <em>protein_only=False</em>, <em>data_only=False</em>, <em>log=None</em>, <em>sort_by_resolution=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.post_query" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="sig-name descname">post_query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query_json</span></em>, <em class="sig-param"><span class="n">xray_only</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">d_max</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">d_min</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">protein_only</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">data_only</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sort_by_resolution</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.post_query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the full XML for a multi-part query with generic search options,
 starting from the basic query passed by another function, post it to the
 RCSB’s web service, and return a list of matching PDB IDs.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>query_xml</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) – </li>
-<li><strong>xray_only</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
-<li><strong>d_max</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
-<li><strong>d_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </li>
-<li><strong>protein_only</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
-<li><strong>data_only</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
-<li><strong>log</strong> (<em>file</em><em>, </em><em>optional</em>) – </li>
-<li><strong>sort_by_resolution</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query_xml</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) – </p></li>
+<li><p><strong>xray_only</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>d_max</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>d_min</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>protein_only</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>data_only</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>log</strong> (<em>file</em><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>sort_by_resolution</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.rcsb_web_services.post_report_query_with_pdb_list">
-<code class="descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="descname">post_report_query_with_pdb_list</code><span class="sig-paren">(</span><em>query</em>, <em>pdb_ids</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.post_report_query_with_pdb_list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="sig-name descname">post_report_query_with_pdb_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">pdb_ids</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.post_report_query_with_pdb_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.rcsb_web_services.resolution_filter">
-<code class="descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="descname">resolution_filter</code><span class="sig-paren">(</span><em>operator</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.resolution_filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="sig-name descname">resolution_filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">operator</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.resolution_filter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.rcsb_web_services.sequence_search">
-<code class="descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="descname">sequence_search</code><span class="sig-paren">(</span><em>sequence</em>, <em>identity_cutoff=90</em>, <em>target='pdb_protein_sequence'</em>, <em>e_value_cutoff=1000000</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.sequence_search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.rcsb_web_services.</code><code class="sig-name descname">sequence_search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sequence</span></em>, <em class="sig-param"><span class="n">identity_cutoff</span><span class="o">=</span><span class="default_value">90</span></em>, <em class="sig-param"><span class="n">target</span><span class="o">=</span><span class="default_value">'pdb_protein_sequence'</span></em>, <em class="sig-param"><span class="n">e_value_cutoff</span><span class="o">=</span><span class="default_value">1000000</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.rcsb_web_services.sequence_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Homology search for an amino acid sequence.  The advantage of using this
 service over the NCBI/EBI BLAST servers (in iotbx.pdb.fetch) is the ability
 to exclude non-Xray structures.</p>
-<dl class="docutils">
-<dt>identity_cutoff <span class="classifier-delimiter">:</span> <span class="classifier">int, optional</span></dt>
-<dd>Apply sequence filtering to remove structures with greater than this
-percentage sequence identity.</dd>
-<dt>e_value_cutoff <span class="classifier-delimiter">:</span> <span class="classifier">float, optional</span></dt>
-<dd>Hits with an E-Value above the cutoff value are filtered out</dd>
+<dl class="simple">
+<dt>identity_cutoff<span class="classifier">int, optional</span></dt><dd><p>Apply sequence filtering to remove structures with greater than this
+percentage sequence identity.</p>
+</dd>
+<dt>e_value_cutoff<span class="classifier">float, optional</span></dt><dd><p>Hits with an E-Value above the cutoff value are filtered out</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -169,136 +161,136 @@ percentage sequence identity.</dd>
 <span id="mmtbx-wwpdb-standard-geometry-cif-module"></span><h2>mmtbx.wwpdb.standard_geometry_cif module<a class="headerlink" href="#module-mmtbx.wwpdb.standard_geometry_cif" title="Permalink to this headline">¶</a></h2>
 <p>Parser for Kim Henrick’s standard_geometry.cif file:
 <a class="reference external" href="http://www.ebi.ac.uk/~henrick/newpdb/standard_geometry.cif">http://www.ebi.ac.uk/~henrick/newpdb/standard_geometry.cif</a></p>
-<dl class="class">
+<dl class="py class">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom">
-<em class="property">class </em><code class="descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="descname">chem_comp_atom</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="sig-name descname">chem_comp_atom</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.alt_atom_id">
-<code class="descname">alt_atom_id</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.alt_atom_id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">alt_atom_id</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.alt_atom_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.atom_id">
-<code class="descname">atom_id</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.atom_id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">atom_id</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.atom_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.ccp4_partial_charge">
-<code class="descname">ccp4_partial_charge</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.ccp4_partial_charge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ccp4_partial_charge</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.ccp4_partial_charge" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.ccp4_type_energy">
-<code class="descname">ccp4_type_energy</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.ccp4_type_energy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ccp4_type_energy</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.ccp4_type_energy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.charge">
-<code class="descname">charge</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.charge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">charge</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.charge" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.descriptor">
-<code class="descname">descriptor</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.descriptor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">descriptor</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.descriptor" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_align">
-<code class="descname">pdbx_align</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_align" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pdbx_align</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_align" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_aromatic_flag">
-<code class="descname">pdbx_aromatic_flag</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_aromatic_flag" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pdbx_aromatic_flag</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_aromatic_flag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_leaving_atom_flag">
-<code class="descname">pdbx_leaving_atom_flag</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_leaving_atom_flag" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pdbx_leaving_atom_flag</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_leaving_atom_flag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_model_cartn_x_ideal">
-<code class="descname">pdbx_model_cartn_x_ideal</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_model_cartn_x_ideal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pdbx_model_cartn_x_ideal</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_model_cartn_x_ideal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_model_cartn_y_ideal">
-<code class="descname">pdbx_model_cartn_y_ideal</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_model_cartn_y_ideal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pdbx_model_cartn_y_ideal</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_model_cartn_y_ideal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_model_cartn_z_ideal">
-<code class="descname">pdbx_model_cartn_z_ideal</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_model_cartn_z_ideal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pdbx_model_cartn_z_ideal</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_model_cartn_z_ideal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_ordinal">
-<code class="descname">pdbx_ordinal</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_ordinal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pdbx_ordinal</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_ordinal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_stereo_config">
-<code class="descname">pdbx_stereo_config</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_stereo_config" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pdbx_stereo_config</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.pdbx_stereo_config" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.ref_radii_asa_probe">
-<code class="descname">ref_radii_asa_probe</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.ref_radii_asa_probe" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ref_radii_asa_probe</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.ref_radii_asa_probe" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.site_ideal">
-<code class="descname">site_ideal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.site_ideal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">site_ideal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.site_ideal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.type_symbol">
-<code class="descname">type_symbol</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.type_symbol" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">type_symbol</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.chem_comp_atom.type_symbol" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.get_cif_float">
-<code class="descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="descname">get_cif_float</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.get_cif_float" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="sig-name descname">get_cif_float</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.get_cif_float" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.get_cif_int">
-<code class="descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="descname">get_cif_int</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.get_cif_int" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="sig-name descname">get_cif_int</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.get_cif_int" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.get_cif_number">
-<code class="descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="descname">get_cif_number</code><span class="sig-paren">(</span><em>type</em>, <em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.get_cif_number" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="sig-name descname">get_cif_number</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type</span></em>, <em class="sig-param"><span class="n">s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.get_cif_number" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer">
-<em class="property">class </em><code class="descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="descname">process_chem_comp_atom_buffer</code><span class="sig-paren">(</span><em>buffer</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="sig-name descname">process_chem_comp_atom_buffer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buffer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.atoms">
-<code class="descname">atoms</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.atoms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">atoms</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.atoms" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.comp_id">
-<code class="descname">comp_id</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.comp_id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">comp_id</code><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.comp_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.count_non_hydrogen_atoms">
-<code class="descname">count_non_hydrogen_atoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.count_non_hydrogen_atoms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count_non_hydrogen_atoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comp_atom_buffer.count_non_hydrogen_atoms" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.standard_geometry_cif.process_chem_comps">
-<code class="descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="descname">process_chem_comps</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comps" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.standard_geometry_cif.</code><code class="sig-name descname">process_chem_comps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.standard_geometry_cif.process_chem_comps" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -306,24 +298,24 @@ percentage sequence identity.</dd>
 <span id="mmtbx-wwpdb-utils-module"></span><h2>mmtbx.wwpdb.utils module<a class="headerlink" href="#module-mmtbx.wwpdb.utils" title="Permalink to this headline">¶</a></h2>
 <p>Utilities for re-refining (or otherwise working with) structures downloaded
 directly from the PDB.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.utils.combine_split_structure">
-<code class="descclassname">mmtbx.wwpdb.utils.</code><code class="descname">combine_split_structure</code><span class="sig-paren">(</span><em>pdb_file</em>, <em>pdb_id</em>, <em>base_dir=None</em>, <em>log=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.combine_split_structure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.utils.</code><code class="sig-name descname">combine_split_structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_file</span></em>, <em class="sig-param"><span class="n">pdb_id</span></em>, <em class="sig-param"><span class="n">base_dir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.combine_split_structure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assembles complete structures from split PDB files (e.g. ribosomes),
 preserving the original file name.  Return value is a list of IDs which
 were added to the current model (or None).</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.utils.fetch_pdb_data">
-<code class="descclassname">mmtbx.wwpdb.utils.</code><code class="descname">fetch_pdb_data</code><span class="sig-paren">(</span><em>pdb_id</em>, <em>pdb_dir=None</em>, <em>sf_dir=None</em>, <em>log=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.fetch_pdb_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.utils.</code><code class="sig-name descname">fetch_pdb_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_id</span></em>, <em class="sig-param"><span class="n">pdb_dir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sf_dir</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.fetch_pdb_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy data from local repository if defined and available, or download it
 from the PDB, and run cif_as_mtz.</p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="mmtbx.wwpdb.utils.filter_pdb_file">
-<em class="property">class </em><code class="descclassname">mmtbx.wwpdb.utils.</code><code class="descname">filter_pdb_file</code><span class="sig-paren">(</span><em>pdb_file</em>, <em>output_file=None</em>, <em>log=None</em>, <em>quiet=False</em>, <em>set_se_occ=True</em>, <em>remove_atoms_with_zero_occupancy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.filter_pdb_file" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">mmtbx.wwpdb.utils.</code><code class="sig-name descname">filter_pdb_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_file</span></em>, <em class="sig-param"><span class="n">output_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">quiet</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">set_se_occ</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">remove_atoms_with_zero_occupancy</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.filter_pdb_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Processing of PDB files to remove common pathologies and enable automatic
 refinement behavior.  In particular, delete unknown atoms and ligands,
@@ -331,16 +323,16 @@ reduce the occupancy of Se atoms from 1 to trigger occupancy refinement,
 and optionally remove zero-occupancy atoms.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.utils.find_data_arrays">
-<code class="descclassname">mmtbx.wwpdb.utils.</code><code class="descname">find_data_arrays</code><span class="sig-paren">(</span><em>mtz_file</em>, <em>log=None</em>, <em>merge_anomalous=False</em>, <em>preferred_labels=None</em>, <em>crystal_symmetry=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.find_data_arrays" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.utils.</code><code class="sig-name descname">find_data_arrays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mtz_file</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">merge_anomalous</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">preferred_labels</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">crystal_symmetry</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.find_data_arrays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Guess an appropriate data array to use for refinement, plus optional
 Hendrickson-Lattman coefficients and R-free flags if present.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="mmtbx.wwpdb.utils.get_program">
-<code class="descclassname">mmtbx.wwpdb.utils.</code><code class="descname">get_program</code><span class="sig-paren">(</span><em>pdb_file</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.get_program" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.wwpdb.utils.</code><code class="sig-name descname">get_program</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.wwpdb.utils.get_program" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -350,6 +342,7 @@ Hendrickson-Lattman coefficients and R-free flags if present.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -381,17 +374,15 @@ Hendrickson-Lattman coefficients and R-free flags if present.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -412,12 +403,13 @@ Hendrickson-Lattman coefficients and R-free flags if present.</p>
           <a href="mmtbx.validation.molprobity.html" title="mmtbx.validation.molprobity package"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="mmtbx.html" >mmtbx - macromolecular crystallography</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mmtbx.wwpdb package</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
     </div>
   </body>
 </html>

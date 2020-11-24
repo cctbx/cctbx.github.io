@@ -1,21 +1,20 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cctbx.geometry_restraints.energies module &#8212; CCTBX Developer documentation</title>
-    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,7 +38,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="cctbx.geometry_restraints.html" accesskey="U">cctbx.geometry_restraints package</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="cctbx.geometry_restraints.html" accesskey="U">cctbx.geometry_restraints package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">cctbx.geometry_restraints.energies module</a></li> 
       </ul>
     </div>  
 
@@ -50,23 +50,23 @@
             
   <div class="section" id="module-cctbx.geometry_restraints.energies">
 <span id="cctbx-geometry-restraints-energies-module"></span><h1>cctbx.geometry_restraints.energies module<a class="headerlink" href="#module-cctbx.geometry_restraints.energies" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="cctbx.geometry_restraints.energies.energies">
-<em class="property">class </em><code class="descclassname">cctbx.geometry_restraints.energies.</code><code class="descname">energies</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>unit_cell=None</em>, <em>bond_proxies=None</em>, <em>nonbonded_proxies=None</em>, <em>nonbonded_function=None</em>, <em>angle_proxies=None</em>, <em>dihedral_proxies=None</em>, <em>reference_coordinate_proxies=None</em>, <em>reference_dihedral_manager=None</em>, <em>ncs_dihedral_manager=None</em>, <em>den_manager=None</em>, <em>chirality_proxies=None</em>, <em>planarity_proxies=None</em>, <em>parallelity_proxies=None</em>, <em>bond_similarity_proxies=None</em>, <em>ramachandran_manager=None</em>, <em>external_energy_function=None</em>, <em>compute_gradients=True</em>, <em>gradients=None</em>, <em>disable_asu_cache=False</em>, <em>normalization=False</em>, <em>extension_objects=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cctbx.geometry_restraints.energies.</code><code class="sig-name descname">energies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">unit_cell</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bond_proxies</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonbonded_proxies</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonbonded_function</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">angle_proxies</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dihedral_proxies</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reference_coordinate_proxies</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reference_dihedral_manager</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ncs_dihedral_manager</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">den_manager</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">chirality_proxies</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">planarity_proxies</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">parallelity_proxies</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bond_similarity_proxies</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ramachandran_manager</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">external_energy_function</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">compute_gradients</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">gradients</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">disable_asu_cache</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">normalization</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">extension_objects</span><span class="o">=</span><span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">scitbx.restraints.energies</span></code></p>
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.angle_deviations">
-<code class="descname">angle_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.angle_deviations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">angle_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.angle_deviations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.angle_deviations_weighted">
-<code class="descname">angle_deviations_weighted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.angle_deviations_weighted" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">angle_deviations_weighted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.angle_deviations_weighted" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.angle_deviations_z">
-<code class="descname">angle_deviations_z</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.angle_deviations_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">angle_deviations_z</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.angle_deviations_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate rmsz of angles deviations</p>
 <p>Compute rmsz, the Root-Mean-Square of the z-scors for a set of data
 using z_i = {x_i - mu / sigma}  and rmsz = sqrt(mean(z*z))</p>
@@ -79,31 +79,28 @@ z_i: z-score for bond i
 z: array of z_i</p>
 <p>The sigma and the (x_i - mu) are model constrains, geometry restraints. They function extracts
 from self, not calculated from data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
 <p>a_rmsz: rmsz, root mean square of the z-scors of all angles
 a_z_min/max: min/max values of z-scors</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.bond_deviations">
-<code class="descname">bond_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.bond_deviations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bond_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.bond_deviations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.bond_deviations_weighted">
-<code class="descname">bond_deviations_weighted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.bond_deviations_weighted" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bond_deviations_weighted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.bond_deviations_weighted" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.bond_deviations_z">
-<code class="descname">bond_deviations_z</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.bond_deviations_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bond_deviations_z</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.bond_deviations_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate rmsz of bond deviations</p>
 <p>Compute rmsz, the Root-Mean-Square of the z-scors for a set of data
 using z_i = {x_i - mu / sigma}  and rmsz = sqrt(mean(z*z))
@@ -114,96 +111,93 @@ z_i: z-score for bond i
 z: array of z_i</p>
 <p>The sigma and the (x_i - mu) are model constrains, geometry restraints.
 This function extracts from self, not calculated from data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
 <p>b_rmsz: rmsz, root mean square of the z-scors of all bonds
 b_z_min/max: min/max abolute values of z-scors</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.chirality_deviations">
-<code class="descname">chirality_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.chirality_deviations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">chirality_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.chirality_deviations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.dihedral_deviations">
-<code class="descname">dihedral_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.dihedral_deviations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dihedral_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.dihedral_deviations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.get_angle_outliers">
-<code class="descname">get_angle_outliers</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>sigma_threshold=4</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_angle_outliers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_angle_outliers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">sigma_threshold</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_angle_outliers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.get_bond_outliers">
-<code class="descname">get_bond_outliers</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>sigma_threshold=4</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_bond_outliers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_bond_outliers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">sigma_threshold</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_bond_outliers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.get_chirality_outliers">
-<code class="descname">get_chirality_outliers</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>sigma_threshold=4</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_chirality_outliers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_chirality_outliers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">sigma_threshold</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_chirality_outliers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.get_dihedral_outliers">
-<code class="descname">get_dihedral_outliers</code><span class="sig-paren">(</span><em>sites_cart</em>, <em>sigma_threshold=4</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_dihedral_outliers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_dihedral_outliers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">sigma_threshold</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_dihedral_outliers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.get_filtered_n_angle_proxies">
-<code class="descname">get_filtered_n_angle_proxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_filtered_n_angle_proxies" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_filtered_n_angle_proxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_filtered_n_angle_proxies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.get_filtered_n_bond_proxies">
-<code class="descname">get_filtered_n_bond_proxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_filtered_n_bond_proxies" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_filtered_n_bond_proxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_filtered_n_bond_proxies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.get_filtered_n_dihedral_proxies">
-<code class="descname">get_filtered_n_dihedral_proxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_filtered_n_dihedral_proxies" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_filtered_n_dihedral_proxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_filtered_n_dihedral_proxies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.get_filtered_n_planarity_proxies">
-<code class="descname">get_filtered_n_planarity_proxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_filtered_n_planarity_proxies" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_filtered_n_planarity_proxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.get_filtered_n_planarity_proxies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.nonbonded_deviations">
-<code class="descname">nonbonded_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.nonbonded_deviations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">nonbonded_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.nonbonded_deviations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.nonbonded_distances">
-<code class="descname">nonbonded_distances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.nonbonded_distances" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">nonbonded_distances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.nonbonded_distances" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.parallelity_deviations">
-<code class="descname">parallelity_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.parallelity_deviations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">parallelity_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.parallelity_deviations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.planarity_deviations">
-<code class="descname">planarity_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.planarity_deviations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">planarity_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.planarity_deviations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.reference_dihedral_deviations">
-<code class="descname">reference_dihedral_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.reference_dihedral_deviations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reference_dihedral_deviations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.reference_dihedral_deviations" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="cctbx.geometry_restraints.energies.energies.show">
-<code class="descname">show</code><span class="sig-paren">(</span><em>f=None</em>, <em>prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.show" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">show</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.energies.energies.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -211,6 +205,7 @@ b_z_min/max: min/max abolute values of z-scors</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -230,17 +225,15 @@ b_z_min/max: min/max abolute values of z-scors</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -262,12 +255,13 @@ b_z_min/max: min/max abolute values of z-scors</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">CCTBX Developer documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="cctbx.html" >cctbx - core crystallographic objects and functions</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="cctbx.geometry_restraints.html" >cctbx.geometry_restraints package</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="cctbx.geometry_restraints.html" >cctbx.geometry_restraints package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">cctbx.geometry_restraints.energies module</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
     </div>
   </body>
 </html>

@@ -389,7 +389,7 @@ The radius is to define the boundary around the map.</p>
 
 <dl class="py method">
 <dt id="iotbx.map_manager.map_manager.customized_copy">
-<code class="sig-name descname">customized_copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">origin_shift_grid_units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">use_deep_copy_for_map_data</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.customized_copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">customized_copy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">origin_shift_grid_units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">use_deep_copy_for_map_data</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">crystal_symmetry_space_group_number</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">wrapping</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.customized_copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a customized deep_copy of this map_manager, replacing map_data with
 supplied map_data.</p>
 <p>The map_data and any _created_mask will be deep_copied before using
@@ -420,6 +420,7 @@ map_data.all() (size in each direction)  of current and new maps</p>
 <p>NOTE: wrapping is normally copied from original map, but if new map is
 not full size then wrapping is always set to False.</p>
 </div></blockquote>
+<p>If crystal_symmetry_space_group_number is specified, use it</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1519,7 +1520,8 @@ regions_to_keep:   Allows choosing just highest-density contiguous</p>
 Replaces existing map_managers and shifts model in place</p>
 <p>If extract_box=True:  Creates new object with deep_copies.
 Otherwise: replaces existing map_managers and shifts model in place</p>
-<p>NOTE: This changes the gridding and shift_cart of the maps and model</p>
+<p>NOTE: This changes the gridding and shift_cart of the maps and model
+Also changes space group to p1</p>
 <p>Can be used in map_model_manager to work with boxed maps
 and model or in map_model_manager to re-box all maps and model</p>
 <p>The lower_bounds and upper_bounds define the region to be boxed. These
@@ -1600,6 +1602,34 @@ mask_id (default=’mask’) replacing any existing entry with that id</p>
 <code class="sig-name descname">create_masked_copies_of_maps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_id_list</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask_id</span><span class="o">=</span><span class="default_value">'mask'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.create_masked_copies_of_maps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create masked copies of all maps identified by map_id_list (default is all)
 Return list of map_id for masked versions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iotbx.map_model_manager.map_model_manager.create_spherical_mask">
+<code class="sig-name descname">create_spherical_mask</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">soft_mask</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">mask_center_cart</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">soft_mask_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">boundary_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">boundary_to_smoothing_ratio</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">mask_id</span><span class="o">=</span><span class="default_value">'mask'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.create_spherical_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate spherical mask with radius mask_radius around the
+cartesian point mask_center_cart.  The value of</p>
+<blockquote>
+<div><p>mask_center_cart is relative to the</p>
+</div></blockquote>
+<p>shifted (origin at (0,0,0) ) position of the map.
+Does not apply the mask to anything.
+Normally follow with apply_mask_to_map or apply_mask_to_maps
+Default: calculate spherical soft mask centered at center of map</p>
+<blockquote>
+<div><p>soft_mask radius default is resolution()
+boundary between mask and closest edge is</p>
+<blockquote>
+<div><p>soft_mask_radius * boundary_to_smoothing_ratio</p>
+</div></blockquote>
+</div></blockquote>
+<dl class="simple">
+<dt>Optional:  not soft mask.  Same as soft mask in dimensions but the</dt><dd><p>soft_mask will not be applied</p>
+</dd>
+</dl>
+<p>Optional: mask_center_cart  (default is center of map)</p>
+<p>Generates new entry in map_manager dictionary with id of
+mask_id (default=’mask’) replacing any existing entry with that id</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1893,6 +1923,12 @@ The Fourier coefficients represent the map in this location at (0, 0, 0)</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="iotbx.map_model_manager.map_model_manager.map_info">
+<code class="sig-name descname">map_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_id</span><span class="o">=</span><span class="default_value">'map_manager'</span></em>, <em class="sig-param"><span class="n">sigma_cutoff</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">quiet</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.map_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summarizes info about map and returns group_args</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.map_manager">
 <code class="sig-name descname">map_manager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.map_manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the map_manager</p>
@@ -1965,6 +2001,12 @@ Default is to use ‘mask’ as the mask id</p>
 <dd><p>Apply a soft mask around edges of all maps. Overwrites values in maps
 Use ‘mask’ as the mask id</p>
 <p>NOTE: Does not change the gridding or shift_cart of the maps and model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iotbx.map_model_manager.map_model_manager.mask_info">
+<code class="sig-name descname">mask_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mask_id</span><span class="o">=</span><span class="default_value">'mask'</span></em>, <em class="sig-param"><span class="n">cutoff</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">quiet</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.mask_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summarizes info about mask and returns group_args</p>
 </dd></dl>
 
 <dl class="py method">

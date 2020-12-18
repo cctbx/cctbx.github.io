@@ -1313,7 +1313,7 @@ map_manager_mask:  a mask as a map_manager</p>
 </dl>
 <p>All other ids are any strings and are assumed to correspond to other maps</p>
 </dd>
-<dt>Note:  It is permissible to call with no map_manger, but supplying</dt><dd><p>both map_manager_1 and map_manager_2.  In this case, the working
+<dt>Note:  It is permissible to call with no map_manager, but supplying</dt><dd><p>both map_manager_1 and map_manager_2.  In this case, the working
 map_manager will be the average of map_manager_1 and map_manager_2. This
 will be created the first time map_manager is referenced.</p>
 </dd>
@@ -1329,6 +1329,21 @@ must be shared by all maps</p>
 differ between models and between models and maps.</p>
 <p>Note: set wrapping of all maps to match map_manager if they differ. Set
 all to be wrapping if it is set</p>
+<dl class="simple">
+<dt>If a model has no crystal_symmetry or not unit_cell, it receives the</dt><dd><p>crystal symmetry of the map_manager and the shift_cart of the map_manager
+The same result is obtained if ignore_symmetry_conflicts is set.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="iotbx.map_model_manager.map_model_manager.add_crystal_symmetry_if_necessary">
+<code class="sig-name descname">add_crystal_symmetry_if_necessary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">map_manager</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.add_crystal_symmetry_if_necessary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take any model and add crystal symmetry if it is missing
+Changes model in place</p>
+<blockquote>
+<div><p>Parameters:  model</p>
+</div></blockquote>
+</dd></dl>
+
 <dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.add_map_from_fourier_coefficients">
 <code class="sig-name descname">add_map_from_fourier_coefficients</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">map_coeffs</span></em>, <em class="sig-param"><span class="n">map_id</span><span class="o">=</span><span class="default_value">'map_from_fourier_coefficients'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.add_map_from_fourier_coefficients" title="Permalink to this definition">¶</a></dt>
@@ -2368,7 +2383,7 @@ models.</p>
 
 <dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.shift_any_model_to_match">
-<code class="sig-name descname">shift_any_model_to_match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.shift_any_model_to_match" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">shift_any_model_to_match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">map_manager</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.shift_any_model_to_match" title="Permalink to this definition">¶</a></dt>
 <dd><p>Take any model and shift it to match the working shift_cart
 Also sets crystal_symmetry.
 Changes model in place</p>

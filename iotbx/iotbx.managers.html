@@ -340,11 +340,12 @@ Changes and overwrites contents of this map_manager.</p>
 
 <dl class="py method">
 <dt id="iotbx.map_manager.map_manager.create_mask_around_atoms">
-<code class="sig-name descname">create_mask_around_atoms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">mask_atoms_atom_radius</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.create_mask_around_atoms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_mask_around_atoms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">mask_atoms_atom_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invert_mask</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.create_mask_around_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use cctbx.maptbx.mask.create_mask_around_atoms to create a mask around
 atoms in model</p>
 <p>Does not apply the mask (use apply_mask_to_map etc for that)</p>
 <p>mask_atoms_atom_radius default is max(3, resolution)</p>
+<p>invert_mask makes outside 1 and inside 0</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1221,9 +1222,15 @@ of evenly spaced.</p>
 
 <dl class="py function">
 <dt id="iotbx.map_model_manager.get_selections_for_segments">
-<code class="sig-prename descclassname">iotbx.map_model_manager.</code><code class="sig-name descname">get_selections_for_segments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">no_water_or_het_with_and</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.get_selections_for_segments" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate selections corresponding to each segment (chain or part of a chain
+<code class="sig-prename descclassname">iotbx.map_model_manager.</code><code class="sig-name descname">get_selections_for_segments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">skip_waters</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">skip_hetero</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">no_water_or_het_with_and</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">skip_n_residues_on_ends</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">minimum_length</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.get_selections_for_segments" title="Permalink to this definition">¶</a></dt>
+<dd><p>‘
+Generate selections corresponding to each segment (chain or part of a chain
 that is separate from remainder of chain)</p>
+<p>Use skip_waters and skip_hetero to specify whether to include them
+If skip_n_residues_on_ends is set, skip residues within</p>
+<blockquote>
+<div><p>skip_n_residues_on_ends of an end</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
@@ -1237,7 +1244,7 @@ that is separate from remainder of chain)</p>
 
 <dl class="py function">
 <dt id="iotbx.map_model_manager.get_skip_waters_and_hetero_lines">
-<code class="sig-prename descclassname">iotbx.map_model_manager.</code><code class="sig-name descname">get_skip_waters_and_hetero_lines</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">skip_waters</span></em>, <em class="sig-param"><span class="n">skip_hetero</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.get_skip_waters_and_hetero_lines" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iotbx.map_model_manager.</code><code class="sig-name descname">get_skip_waters_and_hetero_lines</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">skip_waters</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">skip_hetero</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.get_skip_waters_and_hetero_lines" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1582,7 +1589,7 @@ else afterwards as you should apply a mask only once.</p>
 
 <dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.create_mask_around_atoms">
-<code class="sig-name descname">create_mask_around_atoms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask_atoms_atom_radius</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">soft_mask</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">soft_mask_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask_id</span><span class="o">=</span><span class="default_value">'mask'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.create_mask_around_atoms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_mask_around_atoms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask_atoms_atom_radius</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">soft_mask</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">soft_mask_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invert_mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask_id</span><span class="o">=</span><span class="default_value">'mask'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.create_mask_around_atoms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate mask based on model.  Does not apply the mask to anything.
 Normally follow with apply_mask_to_map or apply_mask_to_maps</p>
 <p>Optional: radius around atoms for masking
@@ -1598,6 +1605,7 @@ Optional: soft mask  (default = True)</p>
 </dd>
 </dl>
 </div></blockquote>
+<p>Optional: invert_mask:  keep outside atoms instead of inside</p>
 <p>Generates new entry in map_manager dictionary with id of
 mask_id (default=’mask’) replacing any existing entry with that id</p>
 </dd></dl>
@@ -1824,7 +1832,7 @@ be more than 1.</p>
 
 <dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.get_diffs_for_matching_target_and_model">
-<code class="sig-name descname">get_diffs_for_matching_target_and_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matching_info</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_dist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ca_only</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.get_diffs_for_matching_target_and_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_diffs_for_matching_target_and_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matching_info</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_dist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ca_only</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reverse</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.get_diffs_for_matching_target_and_model" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -2045,7 +2053,7 @@ fsc which are the FSC curve</p>
 
 <dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.mask_all_maps_around_atoms">
-<code class="sig-name descname">mask_all_maps_around_atoms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mask_atoms_atom_radius</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">set_outside_to_mean_inside</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">soft_mask</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">soft_mask_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask_id</span><span class="o">=</span><span class="default_value">'mask'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.mask_all_maps_around_atoms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">mask_all_maps_around_atoms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask_atoms_atom_radius</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">set_outside_to_mean_inside</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">soft_mask</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">soft_mask_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">skip_n_residues_on_ends</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">invert_mask</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mask_id</span><span class="o">=</span><span class="default_value">'mask'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.mask_all_maps_around_atoms" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -2226,7 +2234,7 @@ filter it:</p>
 
 <dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.rmsd_of_matching_residues">
-<code class="sig-name descname">rmsd_of_matching_residues</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target_model_id</span><span class="o">=</span><span class="default_value">'model'</span></em>, <em class="sig-param"><span class="n">matching_model_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">target_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">matching_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_dist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">minimum_length</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">chain_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">atom_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ca_only</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">matching_info_list</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">quiet</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.rmsd_of_matching_residues" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rmsd_of_matching_residues</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target_model_id</span><span class="o">=</span><span class="default_value">'model'</span></em>, <em class="sig-param"><span class="n">matching_model_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">target_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">matching_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_dist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">minimum_length</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">chain_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">atom_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ca_only</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">matching_info_list</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">allow_reverse</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">quiet</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.rmsd_of_matching_residues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get rmsd of all or ca(P) atoms in matching residues</p>
 </dd></dl>
 
@@ -2596,7 +2604,7 @@ coordinates)</p>
 
 <dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.write_model">
-<code class="sig-name descname">write_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">model_id</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.write_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">write_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">model_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.write_model" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

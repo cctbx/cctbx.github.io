@@ -2132,6 +2132,27 @@ nproc is number of processors to use</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="iotbx.map_model_manager.map_model_manager.model_from_sites_cart">
+<code class="sig-name descname">model_from_sites_cart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites_cart</span></em>, <em class="sig-param"><span class="n">model_id</span><span class="o">=</span><span class="default_value">'model_from_sites'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kw</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.model_from_sites_cart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience method to use the from_sites_cart method of model manager to
+create a model.</p>
+<p>Model is saved with the id of model_id (default ‘model_from_sites’)</p>
+<dl class="simple">
+<dt>Unique feature of this method is that it sets up the crystal_symmetry,</dt><dd><p>unit_cell_crystal_symmetry, and shift_cart in the model to match
+this map_model_manager.</p>
+</dd>
+<dt>Note:  sites_cart are assumed to be in the same coordinate frame as this</dt><dd><p>map_model_manager.</p>
+</dd>
+<dt>Any keywords used in from_sites_cart are allowed (i.e.,</dt><dd><p>atom_name and scatterer or atom_name_list and scatterer_list
+occ or occ_list
+b_iso or b_iso_list
+resname or resname_list
+resseq_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.model_id_list">
 <code class="sig-name descname">model_id_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.model_id_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all the names (ids) for all models</p>
@@ -2308,6 +2329,26 @@ break based on distances (assumes input numbering reflects chain breaks).</p>
 <dt id="iotbx.map_model_manager.map_model_manager.set_model">
 <code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.set_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Overwrites existing model with id ‘model’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iotbx.map_model_manager.map_model_manager.set_model_symmetries_and_shift_cart_to_match_map">
+<code class="sig-name descname">set_model_symmetries_and_shift_cart_to_match_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.set_model_symmetries_and_shift_cart_to_match_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to set the crystal_symmetry, unit_cell_crystal_symmetry and
+shift_cart of any model to match those of this map_model_manager</p>
+<p>This method changes the model in place.</p>
+<p>Assumes that the sites in this model are already in the same coordinate
+system as this map_model_manager</p>
+<p>This is the preferred method of making sure that a model has the
+same symmetry and shifts as a map_model_manager if the model coordinates
+already match the map_model_manager.</p>
+<p>If you have a model that is relative to some other coordinate system,
+first make sure that model has a complete set of symmetry and shifts
+for that coordinate system (any model coming from a map_model_manager
+will have these).  Then use either self.shift_any_model_to_match(model) to
+shift that model directly to match this map_model_manager, or use
+self.add_model_by_id(model_id=model_id, model=model) which will import
+that model into this manager and shift it to match in the process.</p>
 </dd></dl>
 
 <dl class="py method">

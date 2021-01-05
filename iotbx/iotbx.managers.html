@@ -774,7 +774,8 @@ objects that currently are just pointers to self.data are affected.</p>
 <dl class="py method">
 <dt id="iotbx.map_manager.map_manager.set_mean_zero_sd_one">
 <code class="sig-name descname">set_mean_zero_sd_one</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.set_mean_zero_sd_one" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function to normalize the map</p>
+<dd><p>Function to normalize the map
+If the map has a constant value, do nothing</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1826,6 +1827,13 @@ be more than 1.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="iotbx.map_model_manager.map_model_manager.get_cb_resseq_to_skip">
+<code class="sig-name descname">get_cb_resseq_to_skip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cb_resseq_list</span></em>, <em class="sig-param"><span class="n">far_away</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">far_away_n</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.get_cb_resseq_to_skip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identify numbers in resseq_list that are way different than all others by
+at least max_gap</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.get_counts_and_histograms">
 <code class="sig-name descname">get_counts_and_histograms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.get_counts_and_histograms" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -2112,7 +2120,7 @@ value of d_min</p>
 
 <dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.model_building">
-<code class="sig-name descname">model_building</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nproc</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">soft_zero_boundary_mask</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">soft_zero_boundary_mask_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model_id</span><span class="o">=</span><span class="default_value">'model'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.model_building" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">model_building</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nproc</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">soft_zero_boundary_mask</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">soft_zero_boundary_mask_radius</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model_id</span><span class="o">=</span><span class="default_value">'model'</span></em>, <em class="sig-param"><span class="n">normalize</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.model_building" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return this object as a local_model_building object
 The model-building object has pointers to model and map_manager, not</p>
 <blockquote>
@@ -2129,6 +2137,13 @@ nproc is number of processors to use</p>
 <dt id="iotbx.map_model_manager.map_model_manager.model_dict">
 <code class="sig-name descname">model_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.model_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the dictionary of all models</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iotbx.map_model_manager.map_model_manager.model_from_hierarchy">
+<code class="sig-name descname">model_from_hierarchy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hierarchy</span></em>, <em class="sig-param"><span class="n">model_id</span><span class="o">=</span><span class="default_value">'model_from_hierarchy'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.model_from_hierarchy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience method to convert a hierarchy into a model, where the
+model has symmetry and shift cart matching this manager</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2266,7 +2281,7 @@ filter it:</p>
 
 <dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.select_matching_segments">
-<code class="sig-name descname">select_matching_segments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target_model_id</span><span class="o">=</span><span class="default_value">'model'</span></em>, <em class="sig-param"><span class="n">matching_model_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">target_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">matching_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">chain_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">atom_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_dist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">minimum_length</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_gap</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">one_to_one</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">residue_names_must_match</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">quiet</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.select_matching_segments" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">select_matching_segments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target_model_id</span><span class="o">=</span><span class="default_value">'model'</span></em>, <em class="sig-param"><span class="n">matching_model_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">target_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">matching_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">chain_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">atom_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">element</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_dist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_dist_extra</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">minimum_length</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_gap</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">far_away</span><span class="o">=</span><span class="default_value">7</span></em>, <em class="sig-param"><span class="n">far_away_n</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">one_to_one</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">residue_names_must_match</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">quiet</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.select_matching_segments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select the parts of matching_model that best match target_model
 without using matching model or target model more than once</p>
 <dl class="simple">
@@ -2281,6 +2296,8 @@ break based on distances (assumes input numbering reflects chain breaks).</p>
 <div><p>well as position</p>
 </div></blockquote>
 <p>Return a group_args object with a list of paired sements</p>
+</dd>
+<dt>If far_away is set, remove any groups of far_away_n or fewer that are</dt><dd><p>far_away residues from all other groups</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2926,7 +2943,7 @@ instead of the shift_cart() for the working map.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.2.
     </div>
   </body>
 </html>

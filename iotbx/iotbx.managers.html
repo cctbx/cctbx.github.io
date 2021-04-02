@@ -1349,6 +1349,7 @@ Changes model in place</p>
 <blockquote>
 <div><p>Parameters:  model</p>
 </div></blockquote>
+<p>Also add unit_cell_crystal_symmetry if missing</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2599,6 +2600,27 @@ models.</p>
 <dt>Optionally carry out the step box_info = get_split_maps_and_models(…)</dt><dd><p>separately with the keyword apply_box_info=False</p>
 </dd>
 <dt>skip_waters and skip_hetero define whether waters and hetero atoms are</dt><dd><p>ignored</p>
+</dd>
+</dl>
+<p>box_cushion is the padding around the model atoms when creating boxes</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iotbx.map_model_manager.map_model_manager.split_up_map_and_model_by_ncs_groups">
+<code class="sig-name descname"><span class="pre">split_up_map_and_model_by_ncs_groups</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_cushion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_around_unselected_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masked_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_box_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.split_up_map_and_model_by_ncs_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split up the map, boxing around atoms selected with each ncs group in
+ncs_groups obtained from supplied model</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Returns a group_args object containing list of the map_model_manager</dt><dd><p>objects and a list of the selection objects that define which atoms
+from the working model are in each object.</p>
+</dd>
+<dt>Normally do work on each map_model_manager to create a new model with</dt><dd><p>the same atoms, then use merge_split_maps_and_models() to replace
+coordinates in the original model with those from all the component
+models.</p>
+</dd>
+<dt>Optionally carry out the step box_info = get_split_maps_and_models(…)</dt><dd><p>separately with the keyword apply_box_info=False</p>
 </dd>
 </dl>
 <p>box_cushion is the padding around the model atoms when creating boxes</p>

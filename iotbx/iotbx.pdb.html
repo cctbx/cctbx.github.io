@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>iotbx.pdb &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
@@ -45,7 +46,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="iotbx-pdb">
+  <section id="iotbx-pdb">
 <h1>iotbx.pdb<a class="headerlink" href="#iotbx-pdb" title="Permalink to this headline">¶</a></h1>
 <p>The PDB format is the predominant working format for atomic parameters
 (coordinates, occupancies, displacement parameters, etc.) in macromolecular
@@ -65,7 +66,7 @@ move towards greater use of the mmCIF format for storing models.
 hierarchy is identical for both formats.  Throughout the documentation we
 refer to models as “PDB files”, but in most cases an mmCIF will work equally
 well.</p>
-<div class="section" id="quick-overview">
+<section id="quick-overview">
 <h2>Quick overview<a class="headerlink" href="#quick-overview" title="Permalink to this headline">¶</a></h2>
 <p>Here is a simple example of reading in a single-model PDB (or mmCIF) model and
 traversing the hierarchy, deleting any zinc atoms:</p>
@@ -105,8 +106,8 @@ PDB hierarchy we also need the corresponding X-ray structure:</p>
 </pre></div>
 </div>
 <p>The scatterers will be labeled to match the atom objects.</p>
-</div>
-<div class="section" id="background-the-pdb-hierarchy">
+</section>
+<section id="background-the-pdb-hierarchy">
 <span id="background"></span><h2>Background: the PDB hierarchy<a class="headerlink" href="#background-the-pdb-hierarchy" title="Permalink to this headline">¶</a></h2>
 <p>(The overview is adapted from an article by Ralf Grosse-Kunstleve; the original
 can be found <a class="reference external" href="http://phenix-online.org/newsletter/CCN_2010_07.pdf">here</a>.)</p>
@@ -128,7 +129,7 @@ It is not a tutorial for using the iotbx.pdb facilities.  For this, refer to
 the separate <a class="reference external" href="iotbx.pdb_tutorial.html">iotbx.pdb tutorial</a> given at the
 2008 SBGrid meeting.  See also <a class="reference external" href="http://cci.lbl.gov/hybrid_36/">http://cci.lbl.gov/hybrid_36/</a> which describes
 iotbx.pdb facilities for handling very large models.</p>
-<div class="section" id="real-world-pdb-files">
+<section id="real-world-pdb-files">
 <h3>Real-world PDB files<a class="headerlink" href="#real-world-pdb-files" title="Permalink to this headline">¶</a></h3>
 <p>The simplicity of the PDB format is only superficial and, in the general case, stops after the initial parsing level. The structure of the PDB file implies a hierarchy of objects. A first approximation is this hierarchical view is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span>
@@ -247,8 +248,8 @@ in a file, it is still considered valid because the original intention is
 clear. Since it was our goal to develop a comprehensive library suitable for
 automatically processing files produced by any popular program, we found it
 important to correctly handle non-consecutive conformers.</p>
-</div>
-<div class="section" id="iotbx-pdb-hierarchy">
+</section>
+<section id="iotbx-pdb-hierarchy">
 <h3>iotbx.pdb.hierarchy<a class="headerlink" href="#iotbx-pdb-hierarchy" title="Permalink to this headline">¶</a></h3>
 <p>When developing the procedure capable of handling the variety of real-world
 situations shown above, we strived to keep the underlying rule-set as simple as
@@ -299,8 +300,8 @@ the alternative secondary view of the PDB hierarchy:</p>
 <p>This organization is probably more intuitive at first. The first two levels (model, chain) are exactly the same as in the primary hierarchy. Each chain holds a list of conformer objects, which are characterized by the altloc character from column 17 in the PDB ATOM records. A conformer is understood to be a  complete copy  of a chain, but usually two conformers share some or even most atoms.  A residue is characterized by a unique resname and the resseq+icode.</p>
 <p>The secondary view of the hierarchy evolved in the context of generating geometry restraints for refinement (e.g. bond, angle, and dihedral restraints), where this organization is most useful. It is also the organization introduced in Grosse-Kunstleve et al. (2006), where it was actually the primary organization. While working with the conformer-residue organization, we found that it is difficult to manipulate a hierarchy (e.g. add or delete atoms) in obvious ways. Finally, while developing the automatic generation of constrained occupancy groups for alternative conformations, the conformer-residue organization proved to be unworkable. The main difficulty is that the relative order of residues with alternative conformations is lost in the conformer-residue organization; it is only given indirectly by interleaved residues with shared atoms – if they exist. As convenient as the conformer-residue organization is for the generation of restraints, it is a hindrance for other purposes.</p>
 <p>The names for the new types in the primary hierarchy were chosen not to collide with the secondary view. We could have used “conformer” and “residue” again, just reversed, but there would be the big surprise that one residue has different resnames. To send the signal “this is not what you usually think of as a residue”, we decided to use residue_group as the type name. A residue group holds a list of atom_group objects. All atoms in an atom group have the same resname and altloc. Therefore “resname_altloc_group” would have been another plausible name, but we favored atom_group since it is more concise and better conveys what is the main content.</p>
-</div>
-<div class="section" id="detection-of-residue-groups-and-atom-groups">
+</section>
+<section id="detection-of-residue-groups-and-atom-groups">
 <h3>Detection of residue groups and atom groups<a class="headerlink" href="#detection-of-residue-groups-and-atom-groups" title="Permalink to this headline">¶</a></h3>
 <p>When constructing the primary hierarchy given a PDB file, the processing algorithm has to detect models, chains, residue groups, atom groups and atoms. Most steps are fairly straightforward, but none of the steps is actually completely trivial. For example, what to do if TER or ENDMDL cards are missing? What if residue sequence numbers are not consecutive? The ribosome community widely uses segid instead of chain id (even though the segid column is officially deprecated by the PDB). What if a file contains both chain id and segid? Documenting all our answers in full detail is beyond the scope of this article (and would be more distracting than helpful anyway because the source code is openly available). Therefore we concentrate on the most important rules for the detection of residue groups and atom groups.</p>
 <p>Then central conflict we had to resolve was:
@@ -335,8 +336,8 @@ atom (almost “blank altloc”), e.g.:</p>
 </ul>
 <p>are merged in the second processing stage. While two residue groups are merged, atom groups with identical altloc+resname from the two sources are also merged.
 Note that the grouping steps in this process may change the order of the atoms. However, our implementation preserves the relative order of the atoms as much as possible. I.e. in the hierarchy, resseq+icode appear in the original “first seen” order, and similarly for altloc+resname within a residue group.</p>
-</div>
-<div class="section" id="construction-of-secondary-view-of-hierarchy">
+</section>
+<section id="construction-of-secondary-view-of-hierarchy">
 <h3>Construction of secondary view of hierarchy<a class="headerlink" href="#construction-of-secondary-view-of-hierarchy" title="Permalink to this headline">¶</a></h3>
 <p>The secondary view of the hierarchy is constructed trivially from the primary
 hierarchy objects. For each chain, the complete list of altloc characters is
@@ -352,8 +353,8 @@ changed is very fast (fractions of seconds even for the largest files, e.g.
 0.22 s for PDB entry 1HTQ with almost one million atoms).</p>
 <p>The iotbx/examples/pdb_hierarchy.py script shows how to construct the primary
 hierarchy from a PDB file, and how to obtain the secondary view.</p>
-</div>
-<div class="section" id="nomenclature-related-to-alternative-conformations">
+</section>
+<section id="nomenclature-related-to-alternative-conformations">
 <h3>Nomenclature related to alternative conformations<a class="headerlink" href="#nomenclature-related-to-alternative-conformations" title="Permalink to this headline">¶</a></h3>
 <p>The iotbx.pdb module uses the following nomenclature to describe various
 aspects of alternative conformations:</p>
@@ -384,8 +385,8 @@ atoms have a non-blank altloc column</p></li>
 alt conf. atoms have a blank altloc column (as shown in the 1SO7 fragment
 above).</p></li>
 </ul>
-</div>
-<div class="section" id="errors-and-warnings">
+</section>
+<section id="errors-and-warnings">
 <h3>Errors and warnings<a class="headerlink" href="#errors-and-warnings" title="Permalink to this headline">¶</a></h3>
 <p>The tools in iotbx.pdb are designed to be as tolerant as reasonably possible
 when processing input PDB files. E.g., as of Jun 8 2010, all 65802 files in the
@@ -508,9 +509,9 @@ iotbx.pdb module. MODEL ids are unique throughout the PDB archive (as an aside:
 and all MODEL records have a matching ENDMDL record). Finally, in all 74 files
 with mixed residue names (i.e. conformers with different sequences), there is
 exactly one residue name for a given altloc.</p>
-</div>
-</div>
-<div class="section" id="atom-selections">
+</section>
+</section>
+<section id="atom-selections">
 <h2>Atom selections<a class="headerlink" href="#atom-selections" title="Permalink to this headline">¶</a></h2>
 <p>The PDB hierarchy enables fast selection lookup based on a simple syntax
 similar to the one
@@ -645,7 +646,7 @@ name), common amino acid residues, and atoms labeled as HETATM, respectively.</p
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="ow">not</span> <span class="nb">all</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="extracting-selections-from-atom-arrays">
+<section id="extracting-selections-from-atom-arrays">
 <h3>Extracting selections from atom arrays<a class="headerlink" href="#extracting-selections-from-atom-arrays" title="Permalink to this headline">¶</a></h3>
 <p>In addition to the string-based selection mechanism, it is also possible to
 derive selections from any object in the PDB hierarchy:</p>
@@ -679,11 +680,11 @@ propagated to the individual atoms.  You can reset the <code class="docutils lit
 <span class="n">pdb_atoms</span><span class="o">.</span><span class="n">reset_i_seq</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="api-documentation">
+</section>
+</section>
+<section id="api-documentation">
 <h2>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="input-methods-and-objects">
+<section id="input-methods-and-objects">
 <h3>Input methods and objects<a class="headerlink" href="#input-methods-and-objects" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt id="iotbx.pdb.hierarchy.input">
@@ -1355,8 +1356,8 @@ REVDAT.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="pdb-hierarchy-objects">
+</section>
+<section id="pdb-hierarchy-objects">
 <h3>PDB hierarchy objects<a class="headerlink" href="#pdb-hierarchy-objects" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt id="iotbx.pdb.hierarchy.root">
@@ -4189,8 +4190,8 @@ chain.residue_groups() instead.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="accessory-classes-and-functions">
+</section>
+<section id="accessory-classes-and-functions">
 <h3>Accessory classes and functions<a class="headerlink" href="#accessory-classes-and-functions" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt id="iotbx.pdb.hierarchy.overall_counts">
@@ -4273,15 +4274,15 @@ chain.residue_groups() instead.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="submodules">
+</section>
+<section id="submodules">
 <h3>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="iotbx-pdb-multimer-reconstruction-module">
+</section>
+<section id="iotbx-pdb-multimer-reconstruction-module">
 <h3>iotbx.pdb.multimer_reconstruction module<a class="headerlink" href="#iotbx-pdb-multimer-reconstruction-module" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>

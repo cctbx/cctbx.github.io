@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>cctbx.miller package &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
@@ -46,7 +47,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="module-cctbx.miller"></span><div class="section" id="cctbx-miller-package">
+  <span class="target" id="module-cctbx.miller"></span><section id="cctbx-miller-package">
 <h1>cctbx.miller package<a class="headerlink" href="#cctbx-miller-package" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference internal" href="#module-cctbx.miller" title="cctbx.miller"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cctbx.miller</span></code></a> is one of the most important modules in CCTBX; it
 encompasses nearly every operation performed directly on experimental data.
@@ -87,7 +88,7 @@ together, and have their own data type
 <p>These conventions greatly simplify keeping track of and manipulating related
 data items.
 Output to various file formats will still follow the appropriate conventions.</p>
-<div class="section" id="getting-started">
+<section id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Miller sets (and arrays) can be created in three ways: programatically, by
 reading from a file, or from a <a class="reference internal" href="cctbx.xray.structure.html#module-cctbx.xray.structure" title="cctbx.xray.structure"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.xray.structure</span></code></a> object.  (In
@@ -202,8 +203,8 @@ call <code class="docutils literal notranslate"><span class="pre">lone_set()</sp
 <p>However, you should use caution when disabling the symmetry check, as this
 will also mean that comparisons between radically different crystal symmetries
 (e.g. <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">63</span> <span class="pre">2</span> <span class="pre">2</span></code> versus <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">41</span></code>) will be performed silently.</p>
-</div>
-<div class="section" id="file-i-o">
+</section>
+<section id="file-i-o">
 <h2>File I/O<a class="headerlink" href="#file-i-o" title="Permalink to this headline">¶</a></h2>
 <p>Of course, if you are interested in working with actual experimental data,
 additional APIs are required.  Methods for reading input files are covered in
@@ -276,7 +277,7 @@ arrays to be combined (provided that they have identical crystal symmetry):</p>
 </div>
 <p>In addition to conventional formats, since all of the internal types can be
 serialized as Python pickles, the same applies to set and array objects.</p>
-<div class="section" id="processing-input-data-practical-aspects">
+<section id="processing-input-data-practical-aspects">
 <h3>Processing input data - practical aspects<a class="headerlink" href="#processing-input-data-practical-aspects" title="Permalink to this headline">¶</a></h3>
 <p>In practice, preparing input arrays for the various other algorithms in CCTBX
 is often significantly more complicated than implied in the previous section.
@@ -358,9 +359,9 @@ standardized retrieval of different array types based on a combination of
 automatic behavior and user input (i.e. label strings), and the general-purpose
 input wrapper in <a class="reference internal" href="../mmtbx/mmtbx.command_line.html#module-mmtbx.command_line" title="mmtbx.command_line"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.command_line</span></code></a> encapsulates nearly all of these
 steps.</p>
-</div>
-</div>
-<div class="section" id="comparing-arrays">
+</section>
+</section>
+<section id="comparing-arrays">
 <h2>Comparing arrays<a class="headerlink" href="#comparing-arrays" title="Permalink to this headline">¶</a></h2>
 <p>Here is a slightly more complex example of comparing data output by a
 refinement program.  The input arrays are assumed to already be merged and
@@ -403,12 +404,12 @@ in the same ASU, but normally this would be taken care of by previous routines.<
 </div>
 <p>(The full source code is available in
 <code class="docutils literal notranslate"><span class="pre">iotbx/examples/recalculate_phenix_refine_r_factors.py</span></code>.)</p>
-</div>
-<div class="section" id="working-with-experimental-data">
+</section>
+<section id="working-with-experimental-data">
 <h2>Working with experimental data<a class="headerlink" href="#working-with-experimental-data" title="Permalink to this headline">¶</a></h2>
 <p>TODO</p>
-</div>
-<div class="section" id="from-arrays-to-maps">
+</section>
+<section id="from-arrays-to-maps">
 <h2>From arrays to maps<a class="headerlink" href="#from-arrays-to-maps" title="Permalink to this headline">¶</a></h2>
 <p>TODO</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fft_map</span> <span class="o">=</span> <span class="n">map_coeffs</span><span class="o">.</span><span class="n">fft_map</span><span class="p">(</span><span class="n">resolution_factor</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
@@ -434,8 +435,8 @@ unit cell):</p>
 </div>
 <p>See the documentation for <a class="reference internal" href="cctbx.maptbx.html#module-cctbx.maptbx" title="cctbx.maptbx"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cctbx.maptbx</span></code></a> for details of working with
 map objects.</p>
-</div>
-<div class="section" id="the-miller-set">
+</section>
+<section id="the-miller-set">
 <h2>The Miller set<a class="headerlink" href="#the-miller-set" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="cctbx.miller.set">
@@ -1242,8 +1243,8 @@ complete set object.</p>
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="the-miller-array">
+</section>
+<section id="the-miller-array">
 <h2>The Miller array<a class="headerlink" href="#the-miller-array" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="cctbx.miller.array">
@@ -2564,8 +2565,8 @@ phase_shift = 2 * pi * h . shift_frac</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="utility-classes">
+</section>
+<section id="utility-classes">
 <h2>Utility classes<a class="headerlink" href="#utility-classes" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="cctbx.miller.merge_equivalents">
@@ -2660,7 +2661,7 @@ read from a data file.</p>
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cctbx.miller.</span></code><code class="sig-name descname"><span class="pre">binner</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">miller_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.miller.binner" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="section" id="submodules">
+<section id="submodules">
 <h3>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
@@ -2668,9 +2669,9 @@ read from a data file.</p>
 <li class="toctree-l1"><a class="reference internal" href="cctbx.miller.reindexing.html">cctbx.miller.reindexing module</a></li>
 </ul>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>

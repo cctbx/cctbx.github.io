@@ -14,6 +14,7 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,12 +51,12 @@
 <span id="cctbx-euclidean-model-matching-module"></span><h1>cctbx.euclidean_model_matching module<a class="headerlink" href="#module-cctbx.euclidean_model_matching" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="cctbx.euclidean_model_matching.compute_refined_matches">
-<code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">compute_refined_matches</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_model1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_model2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models_are_diffraction_index_equivalent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shall_break</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.compute_refined_matches" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">compute_refined_matches</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ref_model1</span></em>, <em class="sig-param"><span class="n">ref_model2</span></em>, <em class="sig-param"><span class="n">tolerance</span></em>, <em class="sig-param"><span class="n">models_are_diffraction_index_equivalent</span></em>, <em class="sig-param"><span class="n">shall_break</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.compute_refined_matches" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt id="cctbx.euclidean_model_matching.delegating_model_matches">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">delegating_model_matches</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models_are_diffraction_index_equivalent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shall_break</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rms_penalty_per_site</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">delegating_model_matches</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model1</span></em>, <em class="sig-param"><span class="n">model2</span></em>, <em class="sig-param"><span class="n">tolerance</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">models_are_diffraction_index_equivalent</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">shall_break</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rms_penalty_per_site</span><span class="o">=</span><span class="default_value">0.05</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>emma loops over all pairs of sites from the first and second structure.
 If a pair is closer than tolerance (under Euclidean symmetry) it
@@ -72,234 +73,234 @@ there are no pairs above tolerance.</p>
 (by macromolecular standards) sites placed far apart in space.</p>
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.delegating_model_matches.consensus_model">
-<code class="sig-name descname"><span class="pre">consensus_model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_refined_matches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches.consensus_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">consensus_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i_model</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">i_refined_matches</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches.consensus_model" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.delegating_model_matches.n_matches">
-<code class="sig-name descname"><span class="pre">n_matches</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches.n_matches" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">n_matches</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches.n_matches" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.delegating_model_matches.n_pairs_best_match">
-<code class="sig-name descname"><span class="pre">n_pairs_best_match</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches.n_pairs_best_match" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">n_pairs_best_match</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches.n_pairs_best_match" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.delegating_model_matches.transform_model">
-<code class="sig-name descname"><span class="pre">transform_model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_refined_matches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches.transform_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i_model</span></em>, <em class="sig-param"><span class="n">i_refined_matches</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.delegating_model_matches.transform_model" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt id="cctbx.euclidean_model_matching.euclidean_match_symmetry">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">euclidean_match_symmetry</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">space_group_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_k2l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_l2n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">euclidean_match_symmetry</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">space_group_info</span></em>, <em class="sig-param"><span class="n">use_k2l</span></em>, <em class="sig-param"><span class="n">use_l2n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.euclidean_match_symmetry.filter_shift">
-<code class="sig-name descname"><span class="pre">filter_shift</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry.filter_shift" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter_shift</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shift</span></em>, <em class="sig-param"><span class="n">selector</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry.filter_shift" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.euclidean_match_symmetry.show">
-<code class="sig-name descname"><span class="pre">show</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry.show" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">show</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt id="cctbx.euclidean_model_matching.filter_shift">
-<code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">filter_shift</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">continuous_shift_flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.filter_shift" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">filter_shift</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">continuous_shift_flags</span></em>, <em class="sig-param"><span class="n">shift</span></em>, <em class="sig-param"><span class="n">selector</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.filter_shift" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="cctbx.euclidean_model_matching.generate_singles">
-<code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">generate_singles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.generate_singles" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">generate_singles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">i</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.generate_singles" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="cctbx.euclidean_model_matching.inside_zero_one">
-<code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">inside_zero_one</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.inside_zero_one" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">inside_zero_one</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">c</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.inside_zero_one" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt id="cctbx.euclidean_model_matching.match_refine">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">match_refine</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tolerance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_model1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_model2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_symmetry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_pair_ext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_pivot1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_pivot2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eucl_symop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_shift</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">match_refine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tolerance</span></em>, <em class="sig-param"><span class="n">ref_model1</span></em>, <em class="sig-param"><span class="n">ref_model2</span></em>, <em class="sig-param"><span class="n">match_symmetry</span></em>, <em class="sig-param"><span class="n">add_pair_ext</span></em>, <em class="sig-param"><span class="n">i_pivot1</span></em>, <em class="sig-param"><span class="n">i_pivot2</span></em>, <em class="sig-param"><span class="n">eucl_symop</span></em>, <em class="sig-param"><span class="n">initial_shift</span></em>, <em class="sig-param"><span class="n">times</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.add_pairs">
-<code class="sig-name descname"><span class="pre">add_pairs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.add_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_pairs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.add_pairs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.apply_eucl_ops">
-<code class="sig-name descname"><span class="pre">apply_eucl_ops</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_model2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.apply_eucl_ops" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">apply_eucl_ops</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i_model2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.apply_eucl_ops" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.calculate_rms">
-<code class="sig-name descname"><span class="pre">calculate_rms</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.calculate_rms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calculate_rms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.calculate_rms" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.calculate_shortest_diff">
-<code class="sig-name descname"><span class="pre">calculate_shortest_diff</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pair</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_diff" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calculate_shortest_diff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pair</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_diff" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.calculate_shortest_diffs">
-<code class="sig-name descname"><span class="pre">calculate_shortest_diffs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_diffs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calculate_shortest_diffs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_diffs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.calculate_shortest_dist">
-<code class="sig-name descname"><span class="pre">calculate_shortest_dist</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pair</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_dist" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calculate_shortest_dist</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pair</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_dist" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.eliminate_weak_pairs">
-<code class="sig-name descname"><span class="pre">eliminate_weak_pairs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.eliminate_weak_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">eliminate_weak_pairs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.eliminate_weak_pairs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.exclude_pairs">
-<code class="sig-name descname"><span class="pre">exclude_pairs</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.exclude_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">exclude_pairs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.exclude_pairs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.get_transformed_model2">
-<code class="sig-name descname"><span class="pre">get_transformed_model2</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">output_pdb=None</span></em>, <em class="sig-param"><span class="pre">scattering_type='SE'</span></em>, <em class="sig-param"><span class="pre">f=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></em>, <em class="sig-param"><span class="pre">return_superposed_model2=True</span></em>, <em class="sig-param"><span class="pre">template_pdb_inp=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.get_transformed_model2" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_transformed_model2</code><span class="sig-paren">(</span><em class="sig-param">output_pdb=None</em>, <em class="sig-param">scattering_type='SE'</em>, <em class="sig-param">f=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='utf-8'&gt;</em>, <em class="sig-param">return_superposed_model2=True</em>, <em class="sig-param">template_pdb_inp=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.get_transformed_model2" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.refine_adjusted_shift">
-<code class="sig-name descname"><span class="pre">refine_adjusted_shift</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.refine_adjusted_shift" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">refine_adjusted_shift</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.refine_adjusted_shift" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.match_refine.show">
-<code class="sig-name descname"><span class="pre">show</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truncate_singles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">singles_per_line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.show" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">show</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">truncate_singles</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">singles_per_line</span><span class="o">=</span><span class="default_value">5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt id="cctbx.euclidean_model_matching.match_refine_times">
-<code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">match_refine_times</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine_times" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">match_refine_times</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_refine_times" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="cctbx.euclidean_model_matching.match_rt_from_ref_eucl_rt">
-<code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">match_rt_from_ref_eucl_rt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model1_cb_op</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model2_cb_op</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_eucl_rt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_rt_from_ref_eucl_rt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">match_rt_from_ref_eucl_rt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model1_cb_op</span></em>, <em class="sig-param"><span class="n">model2_cb_op</span></em>, <em class="sig-param"><span class="n">ref_eucl_rt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_rt_from_ref_eucl_rt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="cctbx.euclidean_model_matching.match_sort_function">
-<code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">match_sort_function</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">match_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_sort_function" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">match_sort_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">match_a</span></em>, <em class="sig-param"><span class="n">match_b</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.match_sort_function" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt id="cctbx.euclidean_model_matching.model">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">special_position_settings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">special_position_settings</span></em>, <em class="sig-param"><span class="n">positions</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cctbx.crystal.html#cctbx.crystal.special_position_settings" title="cctbx.crystal.special_position_settings"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.crystal.special_position_settings</span></code></a></p>
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.add_position">
-<code class="sig-name descname"><span class="pre">add_position</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.add_position" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_position</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pos</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.add_position" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.add_positions">
-<code class="sig-name descname"><span class="pre">add_positions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">positions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.add_positions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_positions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">positions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.add_positions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.as_xray_structure">
-<code class="sig-name descname"><span class="pre">as_xray_structure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scatterer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.as_xray_structure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">as_xray_structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scatterer</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.as_xray_structure" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.best_superpositions_on_other">
-<code class="sig-name descname"><span class="pre">best_superpositions_on_other</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">other_model</span></em>, <em class="sig-param"><span class="pre">tolerance=1.5</span></em>, <em class="sig-param"><span class="pre">models_are_diffraction_index_equivalent=True</span></em>, <em class="sig-param"><span class="pre">break_if_match_with_no_singles=True</span></em>, <em class="sig-param"><span class="pre">f=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></em>, <em class="sig-param"><span class="pre">specifically_test_inverse=True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.best_superpositions_on_other" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">best_superpositions_on_other</code><span class="sig-paren">(</span><em class="sig-param">other_model</em>, <em class="sig-param">tolerance=1.5</em>, <em class="sig-param">models_are_diffraction_index_equivalent=True</em>, <em class="sig-param">break_if_match_with_no_singles=True</em>, <em class="sig-param">f=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='utf-8'&gt;</em>, <em class="sig-param">specifically_test_inverse=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.best_superpositions_on_other" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.cb_op">
-<code class="sig-name descname"><span class="pre">cb_op</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.cb_op" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cb_op</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.cb_op" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.change_basis">
-<code class="sig-name descname"><span class="pre">change_basis</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cb_op</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.change_basis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">change_basis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cb_op</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.change_basis" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.change_hand">
-<code class="sig-name descname"><span class="pre">change_hand</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.change_hand" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">change_hand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.change_hand" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.combine_with_other">
-<code class="sig-name descname"><span class="pre">combine_with_other</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">other_model</span></em>, <em class="sig-param"><span class="pre">tolerance=1.5</span></em>, <em class="sig-param"><span class="pre">models_are_diffraction_index_equivalent=True</span></em>, <em class="sig-param"><span class="pre">break_if_match_with_no_singles=True</span></em>, <em class="sig-param"><span class="pre">f=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></em>, <em class="sig-param"><span class="pre">improved_only=True</span></em>, <em class="sig-param"><span class="pre">new_model_number=0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.combine_with_other" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">combine_with_other</code><span class="sig-paren">(</span><em class="sig-param">other_model</em>, <em class="sig-param">tolerance=1.5</em>, <em class="sig-param">models_are_diffraction_index_equivalent=True</em>, <em class="sig-param">break_if_match_with_no_singles=True</em>, <em class="sig-param">f=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='utf-8'&gt;</em>, <em class="sig-param">improved_only=True</em>, <em class="sig-param">new_model_number=0</em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.combine_with_other" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.expand_to_p1">
-<code class="sig-name descname"><span class="pre">expand_to_p1</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.expand_to_p1" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">expand_to_p1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.expand_to_p1" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.positions">
-<code class="sig-name descname"><span class="pre">positions</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.positions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.positions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.reset_cb_op">
-<code class="sig-name descname"><span class="pre">reset_cb_op</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.reset_cb_op" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset_cb_op</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.reset_cb_op" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.show">
-<code class="sig-name descname"><span class="pre">show</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.show" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">show</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">title</span></em>, <em class="sig-param"><span class="n">f</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.size">
-<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.size" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.size" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="cctbx.euclidean_model_matching.model.transform_to_reference_setting">
-<code class="sig-name descname"><span class="pre">transform_to_reference_setting</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.transform_to_reference_setting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform_to_reference_setting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model.transform_to_reference_setting" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt id="cctbx.euclidean_model_matching.model_matches">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">model_matches</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models_are_diffraction_index_equivalent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">break_if_match_with_no_singles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rms_penalty_per_site</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model_matches" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">model_matches</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model1</span></em>, <em class="sig-param"><span class="n">model2</span></em>, <em class="sig-param"><span class="n">tolerance</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">models_are_diffraction_index_equivalent</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">break_if_match_with_no_singles</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">rms_penalty_per_site</span><span class="o">=</span><span class="default_value">0.05</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.model_matches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches" title="cctbx.euclidean_model_matching.delegating_model_matches"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.euclidean_model_matching.delegating_model_matches</span></code></a></p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="cctbx.euclidean_model_matching.pair_sort_function">
-<code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">pair_sort_function</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pair_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair_b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.pair_sort_function" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">pair_sort_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pair_a</span></em>, <em class="sig-param"><span class="n">pair_b</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.pair_sort_function" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt id="cctbx.euclidean_model_matching.position">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">position</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.position" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">position</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">site</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.position" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="cctbx.euclidean_model_matching.sgtbx_rt_mx_as_matrix_rt">
-<code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">sgtbx_rt_mx_as_matrix_rt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.sgtbx_rt_mx_as_matrix_rt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">sgtbx_rt_mx_as_matrix_rt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.sgtbx_rt_mx_as_matrix_rt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="cctbx.euclidean_model_matching.weed_refined_matches">
-<code class="sig-prename descclassname"><span class="pre">cctbx.euclidean_model_matching.</span></code><code class="sig-name descname"><span class="pre">weed_refined_matches</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">space_group_number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refined_matches</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rms_penalty_per_site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.weed_refined_matches" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cctbx.euclidean_model_matching.</code><code class="sig-name descname">weed_refined_matches</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">space_group_number</span></em>, <em class="sig-param"><span class="n">refined_matches</span></em>, <em class="sig-param"><span class="n">rms_penalty_per_site</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.euclidean_model_matching.weed_refined_matches" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -360,7 +361,7 @@ there are no pairs above tolerance.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

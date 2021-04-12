@@ -14,6 +14,7 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -51,7 +52,7 @@
 <span id="mmtbx-ions-utils-module"></span><h1>mmtbx.ions.utils module<a class="headerlink" href="#module-mmtbx.ions.utils" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="mmtbx.ions.utils.anonymize_ions">
-<code class="sig-prename descclassname"><span class="pre">mmtbx.ions.utils.</span></code><code class="sig-name descname"><span class="pre">anonymize_ions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">pdb_hierarchy</span></em>, <em class="sig-param"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.anonymize_ions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.ions.utils.</code><code class="sig-name descname">anonymize_ions</code><span class="sig-paren">(</span><em class="sig-param">pdb_hierarchy</em>, <em class="sig-param">log=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='utf-8'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.anonymize_ions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert any elemental ions in the PDB hierarchy to water, resetting the
 occupancy and scaling the B-factor.  The atom segids will be set to the old
 resname.  NOTE: this does not change the corresponding scatterer in the xray
@@ -76,7 +77,7 @@ hierarchy.extract_xray_structure(crystal_symmetry).</p>
 
 <dl class="py function">
 <dt id="mmtbx.ions.utils.collect_ions">
-<code class="sig-prename descclassname"><span class="pre">mmtbx.ions.utils.</span></code><code class="sig-name descname"><span class="pre">collect_ions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.collect_ions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.ions.utils.</code><code class="sig-name descname">collect_ions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_hierarchy</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.collect_ions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collects a list of all ions in pdb_hierarchy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -93,7 +94,7 @@ hierarchy.extract_xray_structure(crystal_symmetry).</p>
 
 <dl class="py function">
 <dt id="mmtbx.ions.utils.compare_ions">
-<code class="sig-prename descclassname"><span class="pre">mmtbx.ions.utils.</span></code><code class="sig-name descname"><span class="pre">compare_ions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_xrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sel_str_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'segid</span> <span class="pre">ION'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.compare_ions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.ions.utils.</code><code class="sig-name descname">compare_ions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hierarchy</span></em>, <em class="sig-param"><span class="n">reference_hierarchy</span></em>, <em class="sig-param"><span class="n">reference_xrs</span></em>, <em class="sig-param"><span class="n">distance_cutoff</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">log</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ignore_elements</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">only_elements</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">sel_str_base</span><span class="o">=</span><span class="default_value">'segid ION'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.compare_ions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compares two pdb structures to determine the number of ions that appear in the
 reference structure and are either matched or missing in the other structure.</p>
 <dl class="field-list simple">
@@ -121,7 +122,7 @@ reference structure and are either matched or missing in the other structure.</p
 
 <dl class="py function">
 <dt id="mmtbx.ions.utils.count_coordinating_residues">
-<code class="sig-prename descclassname"><span class="pre">mmtbx.ions.utils.</span></code><code class="sig-name descname"><span class="pre">count_coordinating_residues</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nearby_atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.count_coordinating_residues" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.ions.utils.</code><code class="sig-name descname">count_coordinating_residues</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nearby_atoms</span></em>, <em class="sig-param"><span class="n">distance_cutoff</span><span class="o">=</span><span class="default_value">3.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.count_coordinating_residues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Count the number of residues of each type involved in the coordination
 sphere.  This may yield additional clues to the identity of ions, e.g. only
 Zn will have 4 Cys residues.</p>
@@ -143,7 +144,7 @@ Zn will have 4 Cys residues.</p>
 
 <dl class="py function">
 <dt id="mmtbx.ions.utils.fit_gaussian">
-<code class="sig-prename descclassname"><span class="pre">mmtbx.ions.utils.</span></code><code class="sig-name descname"><span class="pre">fit_gaussian</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_cell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site_cart</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.fit_gaussian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.ions.utils.</code><code class="sig-name descname">fit_gaussian</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit_cell</span></em>, <em class="sig-param"><span class="n">site_cart</span></em>, <em class="sig-param"><span class="n">real_map</span></em>, <em class="sig-param"><span class="n">radius</span><span class="o">=</span><span class="default_value">1.6</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.fit_gaussian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit a gaussian function to the map around a site. Samples points in concentric
 spheres up to radius away from the site.</p>
 <p>f(x) = a * exp(-b * x ** 2)</p>
@@ -172,7 +173,7 @@ spheres up to radius away from the site.</p>
 
 <dl class="py function">
 <dt id="mmtbx.ions.utils.sort_atoms_permutation">
-<code class="sig-prename descclassname"><span class="pre">mmtbx.ions.utils.</span></code><code class="sig-name descname"><span class="pre">sort_atoms_permutation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xray_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.sort_atoms_permutation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">mmtbx.ions.utils.</code><code class="sig-name descname">sort_atoms_permutation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdb_atoms</span></em>, <em class="sig-param"><span class="n">xray_structure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.sort_atoms_permutation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a list of atoms in pdb_atoms, sorted first by their atomic number,
 then by occupancy, and finally, by isotropic b-factor.</p>
 <dl class="field-list simple">
@@ -250,7 +251,7 @@ then by occupancy, and finally, by isotropic b-factor.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   </body>
 </html>

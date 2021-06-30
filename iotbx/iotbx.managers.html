@@ -70,6 +70,12 @@
 <dd></dd></dl>
 
 <dl class="py function">
+<dt id="iotbx.map_manager.dummy_map_manager">
+<code class="sig-prename descclassname"><span class="pre">iotbx.map_manager.</span></code><code class="sig-name descname"><span class="pre">dummy_map_manager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.dummy_map_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a map manager with crystal symmetry and unit sized map</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="iotbx.map_manager.get_indices_from_index">
 <code class="sig-prename descclassname"><span class="pre">iotbx.map_manager.</span></code><code class="sig-name descname"><span class="pre">get_indices_from_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.get_indices_from_index" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -603,6 +609,12 @@ If has all zeroes (or some other constant on edges) … no wrapping</p>
 <p>relative_sd_tol defines how close to constant values at edges must be
 to qualify as “constant”</p>
 <p>Returns True, False, or None (unsure)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iotbx.map_manager.map_manager.is_dummy_map_manager">
+<code class="sig-name descname"><span class="pre">is_dummy_map_manager</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.is_dummy_map_manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is this a dummy map manager</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1363,7 +1375,7 @@ is produced by map_as_fourier_coefficients.</p>
 
 <dl class="py method">
 <dt id="iotbx.map_model_manager.map_model_manager.add_map_manager_by_id">
-<code class="sig-name descname"><span class="pre">add_map_manager_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.add_map_manager_by_id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_map_manager_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.add_map_manager_by_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a new map_manager
 Must be similar to existing
 Overwrites any existing with the same id unless overwrite = False
@@ -1804,7 +1816,8 @@ cctbx.development.generate_map</p>
 <dl class="simple">
 <dt>If no map_manager is present, use supplied or existing model to</dt><dd><p>generate map_manager and model.</p>
 </dd>
-<dt>If map_manager is present, use supplied or existing model as model and</dt><dd><p>create new entry in this this map_model_manager with name map_id.
+<dt>If map_manager is present and is not a dummy map_manager,</dt><dd><p>use supplied or existing model as model and
+create new entry in this this map_model_manager with name map_id.
 If map_id is None, use ‘model_map’</p>
 </dd>
 </dl>
@@ -2540,7 +2553,7 @@ sites_cart_to = shift_aware_rt.apply_rt(sites_cart_from)</p>
 <dt id="iotbx.map_model_manager.map_model_manager.shift_aware_rt_to_superpose_other">
 <code class="sig-name descname"><span class="pre">shift_aware_rt_to_superpose_other</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.shift_aware_rt_to_superpose_other" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
-<dt>Identify rotation/translation to map model from other on to model in this</dt><dd><p>object.</p>
+<dt>Identify rotation/translation to transform model from other on to</dt><dd><p>model in this object.</p>
 </dd>
 <dt>Optionally apply selection_string to both models before doing the</dt><dd><p>mapping</p>
 </dd>
@@ -2697,7 +2710,7 @@ models.</p>
 <dt id="iotbx.map_model_manager.map_model_manager.superposed_map_manager_from_other">
 <code class="sig-name descname"><span class="pre">superposed_map_manager_from_other</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_rt_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">absolute_rt_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_aware_rt_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.superposed_map_manager_from_other" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
-<dt>Identify rotation/translation to map model from other on to model in this</dt><dd><p>object.</p>
+<dt>Identify rotation/translation to transform model from other on to</dt><dd><p>model in this object.</p>
 </dd>
 <dt>Optionally apply selection_string to both models before doing the</dt><dd><p>mapping</p>
 </dd>

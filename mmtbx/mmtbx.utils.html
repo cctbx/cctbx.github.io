@@ -93,11 +93,6 @@ messy details.</p>
 <code class="sig-prename descclassname"><span class="pre">mmtbx.utils.</span></code><code class="sig-name descname"><span class="pre">compare_hierarchy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatterers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.compare_hierarchy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
-<dt id="mmtbx.utils.data_and_flags_master_params">
-<code class="sig-prename descclassname"><span class="pre">mmtbx.utils.</span></code><code class="sig-name descname"><span class="pre">data_and_flags_master_params</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master_scope_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.data_and_flags_master_params" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="py class">
 <dt id="mmtbx.utils.detect_hydrogen_nomenclature_problem">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mmtbx.utils.</span></code><code class="sig-name descname"><span class="pre">detect_hydrogen_nomenclature_problem</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cif_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem" title="Permalink to this definition">¶</a></dt>
@@ -153,65 +148,6 @@ by a sugar link.</p>
 
 </dd></dl>
 
-<dl class="py class">
-<dt id="mmtbx.utils.determine_data_and_flags">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">mmtbx.utils.</span></code><code class="sig-name descname"><span class="pre">determine_data_and_flags</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflection_file_server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_parameter_scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags_parameter_scope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_point_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetry_safety_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remark_r_free_flags_md5_hexdigest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_r_free_flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_going</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefer_anomalous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_non_anomalous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Encapsulates logic for extracting experimental amplitudes and R-free flags
-from the given input file(s).  This expects that the standard parameter block
-is being used.  Determination of appropriate data labels will be as automatic
-as possible, or will give clear feedback when ambiguity exists.  If not
-found in the inputs, the R-free flags can be created if desired.</p>
-<dl class="py method">
-<dt id="mmtbx.utils.determine_data_and_flags.data_as_f_obs">
-<code class="sig-name descname"><span class="pre">data_as_f_obs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_obs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.data_as_f_obs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert input data array to amplitudes, adjusting the data type and
-applying additional filters if necessary.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>f_obs</strong> – selected input data</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.miller.array</span></code></a> of real numbers with observation
-type set to amplitudes</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="mmtbx.utils.determine_data_and_flags.extract_data">
-<code class="sig-name descname"><span class="pre">extract_data</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.extract_data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="mmtbx.utils.determine_data_and_flags.extract_flags">
-<code class="sig-name descname"><span class="pre">extract_flags</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'R-free</span> <span class="pre">flags'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.extract_flags" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="mmtbx.utils.determine_data_and_flags.flags_as_r_free_flags">
-<code class="sig-name descname"><span class="pre">flags_as_r_free_flags</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_free_flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_show_max_lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.flags_as_r_free_flags" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="mmtbx.utils.determine_data_and_flags.get_r_free_flags">
-<code class="sig-name descname"><span class="pre">get_r_free_flags</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.get_r_free_flags" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="mmtbx.utils.determine_data_and_flags.verify_r_free_flags_md5_hexdigest">
-<code class="sig-name descname"><span class="pre">verify_r_free_flags_md5_hexdigest</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ignore_pdb_hexdigest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">records</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_data_and_flags.verify_r_free_flags_md5_hexdigest" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt id="mmtbx.utils.determine_experimental_phases">
-<code class="sig-prename descclassname"><span class="pre">mmtbx.utils.</span></code><code class="sig-name descname"><span class="pre">determine_experimental_phases</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflection_file_server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_scope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_point_group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetry_safety_check</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_all_zeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.determine_experimental_phases" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extract experimental phases from the given inputs if possible.  Returns None
-if not found.</p>
-</dd></dl>
-
 <dl class="py function">
 <dt id="mmtbx.utils.equivalent_sigma_from_cumulative_histogram_match">
 <code class="sig-prename descclassname"><span class="pre">mmtbx.utils.</span></code><code class="sig-name descname"><span class="pre">equivalent_sigma_from_cumulative_histogram_match</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tail_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.equivalent_sigma_from_cumulative_histogram_match" title="Permalink to this definition">¶</a></dt>
@@ -252,11 +188,6 @@ if not found.</p>
 <dd></dd></dl>
 
 </dd></dl>
-
-<dl class="py function">
-<dt id="mmtbx.utils.explain_how_to_generate_array_of_r_free_flags">
-<code class="sig-prename descclassname"><span class="pre">mmtbx.utils.</span></code><code class="sig-name descname"><span class="pre">explain_how_to_generate_array_of_r_free_flags</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags_parameter_scope</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.explain_how_to_generate_array_of_r_free_flags" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="py class">
 <dt id="mmtbx.utils.extract_box_around_model_and_map">
@@ -419,11 +350,6 @@ of selection strings found to overlap, or None if all selections are unique.</p>
 <dl class="py function">
 <dt id="mmtbx.utils.limit_frac_min_frac_max">
 <code class="sig-prename descclassname"><span class="pre">mmtbx.utils.</span></code><code class="sig-name descname"><span class="pre">limit_frac_min_frac_max</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frac_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_max</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.limit_frac_min_frac_max" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="mmtbx.utils.miller_array_symmetry_safety_check">
-<code class="sig-prename descclassname"><span class="pre">mmtbx.utils.</span></code><code class="sig-name descname"><span class="pre">miller_array_symmetry_safety_check</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">miller_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">working_point_group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetry_safety_check</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.miller_array_symmetry_safety_check" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">

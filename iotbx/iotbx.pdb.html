@@ -767,6 +767,12 @@ the scatterers do not match the atom labels.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.apply_atom_selection">
+<span class="sig-name descname"><span class="pre">apply_atom_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_selection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.apply_atom_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply atom selection string and return deep copy with selected atoms</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.apply_rotation_translation">
 <span class="sig-name descname"><span class="pre">apply_rotation_translation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rot_matrices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trans_vectors</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.apply_rotation_translation" title="Permalink to this definition">¶</a></dt>
 <dd><p>LIMITATION: ANISOU records in resulting hierarchy will be invalid!!!</p>
@@ -867,6 +873,25 @@ the array returned by the atoms() method.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.chain_ids">
+<span class="sig-name descname"><span class="pre">chain_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.chain_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of chain IDS, return unique set if unique_only=True</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.chain_type">
+<span class="sig-name descname"><span class="pre">chain_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.chain_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inspect residue names and counts to determine what chain types are present
+If only one chain type, return it. Otherwise return None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.chain_types">
+<span class="sig-name descname"><span class="pre">chain_types</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.chain_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inspect residue names and counts to determine what chain types are present</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.chains">
 <span class="sig-name descname"><span class="pre">chains</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.chains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate over all chains in all models.</p>
@@ -883,21 +908,28 @@ the array returned by the atoms() method.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.contains_dna">
+<span class="sig-name descname"><span class="pre">contains_dna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.contains_dna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inspect residue names and counts to determine if any of
+them are DNA.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.contains_nucleic_acid">
-<span class="sig-name descname"><span class="pre">contains_nucleic_acid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.contains_nucleic_acid" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">contains_nucleic_acid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.contains_nucleic_acid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inspect residue names and counts to determine if enough of
 them are RNA or DNA.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.contains_protein">
-<span class="sig-name descname"><span class="pre">contains_protein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.contains_protein" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">contains_protein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.contains_protein" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inspect residue names and counts to determine if enough of them are protein.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.contains_rna">
-<span class="sig-name descname"><span class="pre">contains_rna</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.contains_rna" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">contains_rna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.contains_rna" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inspect residue names and counts to determine if any of
 them are RNA.</p>
 </dd></dl>
@@ -947,6 +979,13 @@ method is helpful in corner cases.</p>
 <dt>C++ signature :</dt><dd><p>long find_model_index(iotbx::pdb::hierarchy::root {lvalue},iotbx::pdb::hierarchy::model [,bool=False])</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.first_resno_as_int">
+<span class="sig-name descname"><span class="pre">first_resno_as_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.first_resno_as_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return residue number of first residue in specified chain, as integer.
+If chain not specified, first residue in hierarchy.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1069,6 +1108,13 @@ full;</p></li>
 <dt>C++ signature :</dt><dd><p>bool is_similar_hierarchy(iotbx::pdb::hierarchy::root {lvalue},iotbx::pdb::hierarchy::root)</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.last_resno_as_int">
+<span class="sig-name descname"><span class="pre">last_resno_as_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.last_resno_as_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return residue number of last residue in specified chain, as integer.
+If chain not specified, last residue in hierarchy.</p>
 </dd></dl>
 
 <dl class="py method">

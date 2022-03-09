@@ -784,6 +784,11 @@ the scatterers do not match the atom labels.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_list_of_residue_names">
+<span class="sig-name descname"><span class="pre">as_list_of_residue_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_list_of_residue_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_pdb_input">
 <span class="sig-name descname"><span class="pre">as_pdb_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_pdb_input" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate corresponding pdb.input object.</p>
@@ -810,6 +815,16 @@ crystal symmetry is provided</p></li>
 <dd class="field-even"><p>Python str</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_sequence">
+<span class="sig-name descname"><span class="pre">as_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substitute_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitute_unknown_na</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_all_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses chain.as_sequence() for all chains and returns the catenation
+:param substitute_unknown: character to use for unrecognized 3-letter codes
+:param substitute_unknown_na: character to use for unrecognized na codes
+:param ignore_all_unknown: set substitute_unknown and substitute_unknown_na to ‘’
+:param as_string: return string (default is to return list)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -998,6 +1013,16 @@ If chain not specified, first residue in hierarchy.</p>
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.flip_symmetric_amino_acids">
 <span class="sig-name descname"><span class="pre">flip_symmetric_amino_acids</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.flip_symmetric_amino_acids" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.format_fasta">
+<span class="sig-name descname"><span class="pre">format_fasta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substitute_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitute_unknown_na</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_all_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.format_fasta" title="Permalink to this definition">¶</a></dt>
+<dd><p>uses format_fasta for all chains and returns catenation
+:param substitute_unknown: character to use for unrecognized 3-letter codes
+:param substitute_unknown_na: character to use for unrecognized na codes
+:param ignore_all_unknown: set substitute_unknown and substitute_unknown_na to ‘’
+:param as_string: return string (default is to return list of lines)</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.get_atom_selection_cache">
@@ -1608,6 +1633,11 @@ grouped into exactly one chain object apiece.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.chain.as_list_of_residue_names">
+<span class="sig-name descname"><span class="pre">as_list_of_residue_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.chain.as_list_of_residue_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.chain.as_padded_sequence">
 <span class="sig-name descname"><span class="pre">as_padded_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">missing_char</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_insertions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitute_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_at_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_hetatm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.chain.as_padded_sequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract protein or nucleic acid sequence, taking residue numbering into
@@ -1616,12 +1646,16 @@ account so that apparent gaps will be filled with substitute characters.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.chain.as_sequence">
-<span class="sig-name descname"><span class="pre">as_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substitute_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.chain.as_sequence" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">as_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substitute_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitute_unknown_na</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_all_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.chain.as_sequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Naively extract single-character protein or nucleic acid sequence, without
 accounting for residue numbering.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>substitute_unknown</strong> – character to use for unrecognized 3-letter codes</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>substitute_unknown</strong> – character to use for unrecognized 3-letter codes</p></li>
+<li><p><strong>substitute_unknown_na</strong> – character to use for unrecognized na codes</p></li>
+<li><p><strong>ignore_all_unknown</strong> – set substitute_unknown and substitute_unknown_na to ‘’</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -1683,6 +1717,17 @@ accounting for residue numbering.</p>
 <dt>C++ signature :</dt><dd><p>long find_residue_group_index(iotbx::pdb::hierarchy::chain {lvalue},iotbx::pdb::hierarchy::residue_group [,bool=False])</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.chain.format_fasta">
+<span class="sig-name descname"><span class="pre">format_fasta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_line_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">79</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitute_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitute_unknown_na</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_all_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.chain.format_fasta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format this chain as Fasta
+:param max_line_length: length of lines in formatted output
+:param substitute_unknown: character to use for unrecognized 3-letter codes
+:param substitute_unknown_na: character to use for unrecognized na codes
+:param ignore_all_unknown: set substitute_unknown and substitute_unknown_na to ‘’
+:param as_string: return string (default is to return list of lines)</p>
 </dd></dl>
 
 <dl class="py method">

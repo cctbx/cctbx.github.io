@@ -819,12 +819,13 @@ crystal symmetry is provided</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_sequence">
-<span class="sig-name descname"><span class="pre">as_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substitute_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitute_unknown_na</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_all_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_sequence" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">as_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substitute_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitute_unknown_na</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_all_unknown</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_one_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_sequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uses chain.as_sequence() for all chains and returns the catenation
 :param substitute_unknown: character to use for unrecognized 3-letter codes
 :param substitute_unknown_na: character to use for unrecognized na codes
 :param ignore_all_unknown: set substitute_unknown and substitute_unknown_na to ‘’
-:param as_string: return string (default is to return list)</p>
+:param as_string: return string (default is to return list)
+:param only_one_model: Only use the first model if more than one</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1229,12 +1230,15 @@ PDB input to the correct residue object</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.overall_counts">
-<span class="sig-name descname"><span class="pre">overall_counts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.overall_counts" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">overall_counts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">only_one_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.overall_counts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate basic statistics for contents of the PDB hierarchy, including
 number of residues of each type.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>iotbx.pdb.hierarchy.overall_counts object</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>only_one_model</strong> – return results for first model only</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>iotbx.pdb.hierarchy.overall_counts object</p>
 </dd>
 </dl>
 </dd></dl>

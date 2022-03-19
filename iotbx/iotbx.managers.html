@@ -312,7 +312,7 @@ Just uses method in create_mask_around_atoms</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.map_manager.map_manager.as_full_size_map">
 <span class="sig-name descname"><span class="pre">as_full_size_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.as_full_size_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a full-size map that with the current map inside it, padded by zero</p>
+<dd><p>Create a full-size map with the current map inside it, padded by zero</p>
 <p>A little tricky because the starting map is going to have its origin at
 (0, 0, 0) but the map we are creating will have that point at
 self.origin_shift_grid_units.</p>
@@ -338,6 +338,11 @@ If the map is bigger than full size stop as this is not suitable</p>
 of all 27 pixels within 1 of this one is &gt; threshold, otherwise 0)
 Changes and overwrites contents of this map_manager.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.map_manager.map_manager.cart_to_grid_units">
+<span class="sig-name descname"><span class="pre">cart_to_grid_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.cart_to_grid_units" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.map_manager.map_manager.cc_to_other_map_manager">
@@ -711,9 +716,11 @@ low_resolution_real_space_noise_fraction(float, 0): Low-res</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.map_manager.map_manager.resample_on_different_grid">
-<span class="sig-name descname"><span class="pre">resample_on_different_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_real</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.resample_on_different_grid" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resample_on_different_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_real</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_grid_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.resample_on_different_grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resample the map on a grid of n_real and return new map_manager
 If an ncs_object is present, set its shift_cart too</p>
+<p>Allows map to be boxed; if so returns new boxed map of similar size
+and location</p>
 </dd></dl>
 
 <dl class="py method">
@@ -813,8 +820,10 @@ For shifting a model, use:</p>
 <dd><blockquote>
 <div><p>set the ncs object for this map_manager.  Incoming ncs_object must</p>
 </div></blockquote>
-<p>be compatible (shift_cart values must match).  Incoming ncs_object is
-deep_copied.</p>
+<dl class="simple">
+<dt>be compatible (shift_cart values must match or be defined).</dt><dd><p>Incoming ncs_object is deep_copied.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

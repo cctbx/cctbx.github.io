@@ -42,8 +42,186 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </section>
-<section id="xfel-cftbx-detector-cspad-cbf-tbx-module">
-<h2>xfel.cftbx.detector.cspad_cbf_tbx module<a class="headerlink" href="#xfel-cftbx-detector-cspad-cbf-tbx-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-xfel.cftbx.detector.cspad_cbf_tbx">
+<span id="xfel-cftbx-detector-cspad-cbf-tbx-module"></span><h2>xfel.cftbx.detector.cspad_cbf_tbx module<a class="headerlink" href="#module-xfel.cftbx.detector.cspad_cbf_tbx" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.add_frame_specific_cbf_tables">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">add_frame_specific_cbf_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cbf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trusted_ranges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffrn_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DS1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_xfel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flux</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.add_frame_specific_cbf_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds tables to cbf handle that won’t already exsist if the cbf file is just a header
+&#64; param wavelength Wavelength in angstroms
+&#64; param timestamp String formatted timestamp for the image
+&#64; param trusted_ranges Array of trusted range tuples (min, max), one for each element</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.add_tiles_to_cbf">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">add_tiles_to_cbf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cbf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.add_tiles_to_cbf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a cbf handle, add the raw data and the necessary tables to support it</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.angle_and_axis">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">angle_and_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.angle_and_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize a quaternion and return the angle and axis
+&#64;param params metrology object</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.basis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">panelgroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">homogenous_transformation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Bucket for detector element information</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.basis.as_homogenous_transformation">
+<span class="sig-name descname"><span class="pre">as_homogenous_transformation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.basis.as_homogenous_transformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns this basis change as a 4x4 transformation matrix in homogenous coordinates</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.basis_from_geo">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">basis_from_geo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.basis_from_geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a psana GeometryObject, construct a basis object</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.cbf_file_to_basis_dict">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">cbf_file_to_basis_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.cbf_file_to_basis_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps a cbf file to a dictionary of tuples and basis objects, in the same form as the above from
+read_optical_metrology_from_flat_file
+&#64;param path cbf file path</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">cbf_wrapper</span></span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dxtbx.format.FormatCBFMultiTile.cbf_wrapper</span></code></p>
+<p>Wrapper class that provides convenience functions for working with cbflib</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper.add_frame_shift">
+<span class="sig-name descname"><span class="pre">add_frame_shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_settings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.cbf_wrapper.add_frame_shift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an axis representing a frame shift (a rotation axis with an offset)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.center">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the average of a list of vectors
+&#64;param coords List of vectors to return the center of</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.copy_cbf_header">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">copy_cbf_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_cbf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_sections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.copy_cbf_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a cbf handle, copy the header tables only to a new cbf handle instance
+&#64;param src_cbf cbf_handle instance that has the header information
+&#64;param skip_sections If True, don’t copy array array_structure_list_section,
+which may not always be present
+&#64;return cbf_wrapper instance with the header information from the source</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.env_dxtbx_from_slac_metrology">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">env_dxtbx_from_slac_metrology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.env_dxtbx_from_slac_metrology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a dxtbx cspad cbf header only object from the metrology path stored
+in a psana run object’s calibration store
+&#64;param env psana run object
+&#64;param address address string for a detector</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.format_object_from_data">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">format_object_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_dxtbx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_to_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.format_object_from_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a preloaded dxtbx format object and raw data, assemble the tiles
+and set the distance.
+&#64;param base_dxtbx A header only dxtbx format object
+&#64;param data 32x185x388 CSPAD byte array from XTC stream
+&#64;param distance Detector distance (mm)
+&#64;param wavelength Shot wavelength (angstroms)
+&#64;param timestamp Human readable timestamp
+&#64;param address Detector address, put in CBF header</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.get_calib_file_path">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">get_calib_file_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.get_calib_file_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Findes the path to the SLAC metrology file stored in a psana environment
+object’s calibration store
+&#64;param env psana environment object
+&#64;param address address string for a detector
+&#64;param run psana run object or run number</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.get_cspad_cbf_handle">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">get_cspad_cbf_handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metro</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metro_style</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbf_root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.get_cspad_cbf_handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.get_psana_corrected_data">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">get_psana_corrected_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psana_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dark</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_gain_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain_mask_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">per_pixel_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_gain_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.get_psana_corrected_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a psana Detector object, apply corrections as appropriate and return the data from the event
+&#64;param psana_det psana Detector object
+&#64;param evt psana event
+&#64;param use_default If true, apply the default calibration only, using the psana algorithms. Otherise, use the corrections
+specified by the rest of the flags and values passed in.
+&#64;param dark Whether to apply the detector dark, bool or numpy array
+&#64;param common_mode Which common mode algorithm to apply. None: apply no algorithm. Default: use the algorithm specified
+in the calib folder. Otherwise should be a list as specified by the psana documentation for common mode customization
+&#64;param apply_gain_mask Whether to apply the common mode gain mask correction
+&#64;param gain_mask_value Multiplier to apply to the pixels, according to the gain mask
+&#64;param per_pixel_gain If available, use the per pixel gain deployed to the calibration folder
+&#64;param gain_mask gain mask showing which pixels to apply gain mask value
+&#64;param additional_gain_factor Additional gain factor. Pixels counts are divided by this number after all other
+corrections.
+&#64;return Numpy array corrected as specified.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.map_detector_to_basis_dict">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">map_detector_to_basis_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.map_detector_to_basis_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps a dxtbx detector object representing a CSPAD CBF to a dictionary of tuples and basis objects,
+in the same form as the above from read_optical_metrology_from_flat_file
+&#64;param detector cbf file path</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.metro_phil_to_basis_dict">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">metro_phil_to_basis_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metro</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.metro_phil_to_basis_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps a phil object from xfel.cftbx.detector.metrology2phil to a dictionary of tuples and basis objects, in the same form
+as the above read_optical_metrology_from_flat_file
+&#64;param metro unextracted phil scope object that contains translations and rotations for each asic</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.read_optical_metrology_from_flat_file">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">read_optical_metrology_from_flat_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asic_dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asic_gap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_style_diff_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.read_optical_metrology_from_flat_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a flat optical metrology file from LCLS and apply some corrections.  Partly adapted from xfel.metrology.flatfile
+&#64;param path to the file to read
+&#64;param detector Choice of CxiDs1 and XppDs1.  Affect how the quadrants are laid out (rotated manually or in absolute coordinates, respectively)
+&#64;param pixel_size Size of each pixel in mm
+&#64;param asic_dimension: the size of each sensor in pixels
+&#64;param asic_gap: the pixel gap between the two asics on each pixel
+&#64;param plot: if True, will plot the read and corrected metrology
+&#64;param old_style_diff_path: if set to an old-style calibration directory, will print out and plot some comparisons between the metrology in this
+file and the metrology in the given directory
+&#64;return dictionary of tuples in the form of (detector id), (detector id,quadrant id), (detector id,quadrant id,sensor id), and
+(detector id,quadrant id,sensor id,asic_id), mapping the levels of the hierarchy to basis objects</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.read_slac_metrology">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">read_slac_metrology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_asic_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.read_slac_metrology" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="xfel.cftbx.detector.cspad_cbf_tbx.write_cspad_cbf">
+<span class="sig-prename descclassname"><span class="pre">xfel.cftbx.detector.cspad_cbf_tbx.</span></span><span class="sig-name descname"><span class="pre">write_cspad_cbf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metro</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metro_style</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbf_root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.cftbx.detector.cspad_cbf_tbx.write_cspad_cbf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </section>
 <section id="module-xfel.cftbx.detector.cspad_detector">
 <span id="xfel-cftbx-detector-cspad-detector-module"></span><h2>xfel.cftbx.detector.cspad_detector module<a class="headerlink" href="#module-xfel.cftbx.detector.cspad_detector" title="Permalink to this headline">¶</a></h2>
@@ -310,7 +488,7 @@ thing, I guess).</p>
     <ul>
 <li><a class="reference internal" href="#">xfel.cftbx.detector package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#xfel-cftbx-detector-cspad-cbf-tbx-module">xfel.cftbx.detector.cspad_cbf_tbx module</a></li>
+<li><a class="reference internal" href="#module-xfel.cftbx.detector.cspad_cbf_tbx">xfel.cftbx.detector.cspad_cbf_tbx module</a></li>
 <li><a class="reference internal" href="#module-xfel.cftbx.detector.cspad_detector">xfel.cftbx.detector.cspad_detector module</a></li>
 <li><a class="reference internal" href="#module-xfel.cftbx.detector.generic_detector">xfel.cftbx.detector.generic_detector module</a></li>
 <li><a class="reference internal" href="#module-xfel.cftbx.detector.metrology">xfel.cftbx.detector.metrology module</a></li>

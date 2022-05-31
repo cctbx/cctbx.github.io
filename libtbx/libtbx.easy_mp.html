@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>libtbx.easy_mp: functions for painless parallelization of Python code &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -77,7 +77,7 @@ optional redirection of output and automatic process number determination.</p>
 <p>Note that because of the reliance on fork(), this function will run in serial
 on Windows, regardless of how many processors are available.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>processes</strong> – number of processes to spawn; if None or Auto, the
 get_processes() function will be used.</p></li>
@@ -132,10 +132,10 @@ the child process when forked (instead of pickling)</p></li>
 the beginning of an app.  If nproc is Auto or None and we are running
 Windows, it will be reset to 1.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>nproc</strong> – default number of processors to use</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>number of processors to use (None or Auto means automatic)</p>
 </dd>
 </dl>
@@ -147,10 +147,10 @@ Windows, it will be reset to 1.</p>
 <dd><p>Determine number of processes dynamically: number of CPUs minus the current
 load average (with a minimum of 1).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>processes</strong> – default number of processes (may be None or Auto)</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>actual number of processes to use</p>
 </dd>
 </dl>
@@ -181,7 +181,7 @@ parallelizing across a single multi-core system.</p>
 <p>See Computational Crystallography Newsletter 3:37-42 (2012) for details of
 the underlying method.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>func</strong> – target function (must be pickleable)</p></li>
 <li><p><strong>iterable</strong> – list of arguments for func</p></li>
@@ -194,7 +194,7 @@ the underlying method.</p>
 <li><p><strong>break_condition</strong> – if break_condition(result) is True, break</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>a list of result objects</p>
 </dd>
 </dl>

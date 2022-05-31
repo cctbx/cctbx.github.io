@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>mmtbx.refinement package &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -169,7 +169,7 @@ with atomic number 15 (P) or greater.  Not yet accessible from phenix.refine.</p
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.refinement.anomalous_scatterer_groups.refine_anomalous_substructure">
-<span class="sig-prename descclassname"><span class="pre">mmtbx.refinement.anomalous_scatterer_groups.</span></span><span class="sig-name descname"><span class="pre">refine_anomalous_substructure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_type='anom_residual'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_waters=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_non_water_light_elements=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_cycles_max=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_sigma_min=3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refine=('f_prime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">'f_double_prime')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_water_u_iso=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_all_anomalous=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.anomalous_scatterer_groups.refine_anomalous_substructure" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">mmtbx.refinement.anomalous_scatterer_groups.</span></span><span class="sig-name descname"><span class="pre">refine_anomalous_substructure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_type='anom_residual'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_waters=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_non_water_light_elements=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_cycles_max=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_sigma_min=3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refine=('f_prime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">'f_double_prime')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset_water_u_iso=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_all_anomalous=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.anomalous_scatterer_groups.refine_anomalous_substructure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Crude mimic of Phaser’s substructure completion, with two essential
 differences: only the existing real scatterers in the input model will be
 used (with the assumption that the model is already more or less complete),
@@ -178,7 +178,7 @@ f-prime and f-double-prime.  The refined f-prime provides us with an
 orthogonal estimate of the number of electrons missing from an incorrectly
 labeled scatterer.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>wavelength</strong> – X-ray wavelenth in Angstroms</p></li>
 <li><p><strong>exclude_waters</strong> – Don’t refine anomalous scattering for water oxygens</p></li>
@@ -420,7 +420,7 @@ WARNING: no setting sites_cart at the end…</p>
 <dd><p>Apply NCS constraints to reduce the gradients corresponding to whole ASU, to
 gradients corresponding to one NCS copy.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ncs_restraints_group_list</strong> – list of ncs_restraint_group objects</p></li>
 <li><p><strong>grad</strong> – gradient of the complete asu</p></li>
@@ -439,7 +439,7 @@ NCS copies)</p></li>
 <dd><p>Expand average gradient of a single NCS to all ASU
 (only for u_iso refinement)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ncs_restraints_group_list</strong> – list of ncs_restraint_group objects</p></li>
 <li><p><strong>total_asu_length</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – length of the complete ASU</p></li>
@@ -488,7 +488,7 @@ fmodel object with updated xray_structure.</p>
 <dt class="sig sig-object py" id="mmtbx.refinement.minimization_ncs_constraints.restraints_target_and_grads">
 <span class="sig-prename descclassname"><span class="pre">mmtbx.refinement.minimization_ncs_constraints.</span></span><span class="sig-name descname"><span class="pre">restraints_target_and_grads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ncs_restraints_group_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restraints_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xray_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refine_sites</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refine_u_iso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refine_transformations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iso_restraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_hd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.minimization_ncs_constraints.restraints_target_and_grads" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ncs_restraints_group_list</strong> – NCS operator list</p></li>
 <li><p><strong>restraints_manager</strong> – (object)</p></li>
@@ -502,11 +502,11 @@ fmodel object with updated xray_structure.</p>
 <li><p><strong>use_hd</strong> – (bool) Use hydrogen</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>(float) restraints target function value
 ef_grad: (flex.double or flex.vec3_double) restraints gradient</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ef_target</p>
 </dd>
 </dl>
@@ -533,7 +533,7 @@ ef_grad: (flex.double or flex.vec3_double) restraints gradient</p>
 <dt class="sig sig-object py" id="mmtbx.refinement.minimization_ncs_constraints.target_function_and_grads_real_space.data_target_and_grads">
 <span class="sig-name descname"><span class="pre">data_target_and_grads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compute_gradients</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.minimization_ncs_constraints.target_function_and_grads_real_space.data_target_and_grads" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>compute_gradients</strong> – (bool) when True compute gradients</p></li>
 <li><p><strong>x</strong> – refined parameters</p></li>
@@ -546,7 +546,7 @@ ef_grad: (flex.double or flex.vec3_double) restraints gradient</p>
 <dt class="sig sig-object py" id="mmtbx.refinement.minimization_ncs_constraints.target_function_and_grads_real_space.target_and_gradients">
 <span class="sig-name descname"><span class="pre">target_and_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compute_gradients</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xray_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.minimization_ncs_constraints.target_function_and_grads_real_space.target_and_gradients" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>compute_gradients</strong> – (bool) when True compute gradients</p></li>
 <li><p><strong>xray_structure</strong> – xray_structure object</p></li>
@@ -564,7 +564,7 @@ ef_grad: (flex.double or flex.vec3_double) restraints gradient</p>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Reciprocal-space target and gradients evaluator</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>refine_selection</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t"><em>flex.size_t</em></a>) – of all ncs related copies and
 non ncs related parts to be refined</p>
 </dd>
@@ -875,7 +875,7 @@ with an error if the occupancies for the new groups are not consistent.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="mmtbx.refinement.print_statistics.trajectory_output">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.refinement.print_statistics.</span></span><span class="sig-name descname"><span class="pre">trajectory_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_base='refine'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filled_maps=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.print_statistics.trajectory_output" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.refinement.print_statistics.</span></span><span class="sig-name descname"><span class="pre">trajectory_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_base='refine'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filled_maps=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.print_statistics.trajectory_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Callback object for saving the intermediate results of refinement as a stack
 of PDB and MTZ files.  Equivalent to the interactivity with Coot in the
@@ -1093,7 +1093,7 @@ R-factors, with or without optional rigid-body refinement.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.refinement.select_best_starting_model.evaluate_model.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.evaluate_model.show" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.evaluate_model.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1105,7 +1105,7 @@ R-factors, with or without optional rigid-body refinement.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="mmtbx.refinement.select_best_starting_model.select_model">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.refinement.select_best_starting_model.</span></span><span class="sig-name descname"><span class="pre">select_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_free_flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_twin_detection=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.select_model" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.refinement.select_best_starting_model.</span></span><span class="sig-name descname"><span class="pre">select_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_free_flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_twin_detection=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.select_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.refinement.select_best_starting_model.select_model.evaluate_model">
@@ -1139,7 +1139,7 @@ R-factors, with or without optional rigid-body refinement.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.refinement.select_best_starting_model.select_model.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.select_model.show" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.select_model.show" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

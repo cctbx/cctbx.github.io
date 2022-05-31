@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>xfel.clustering package &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -96,7 +96,7 @@ cluster.lst file:</p>
 <dd><p>Builds a cluster from a list of SingleFrame objects, as well as information
 about these as a cluster (e.g. mean unit cell).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> – a list of SingleFrame objects</p></li>
 <li><p><strong>cname</strong> – the name of the cluster, as a string.</p></li>
@@ -128,7 +128,7 @@ about these as a cluster (e.g. mean unit cell).</p>
 <span class="sig-name descname"><span class="pre">ab_cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'distance'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linkage_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'single'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_file_lists</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schnell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.ab_cluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hierarchical clustering using the unit cell dimentions.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>threshold</strong> – the threshold to use for prunning the tree into clusters.</p></li>
 <li><p><strong>method</strong> – which clustering method from scipy to use when creating the tree (see scipy.cluster.hierarchy)</p></li>
@@ -157,13 +157,13 @@ around symmetry boundaries.</p>
 <dd><p>Goes through all frames in the cluster, and plots all the partial intensites.
 Then does a linear fit and rolling average on these.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>smoothing_width</strong> – the width of the smoothing window.</p></li>
 <li><p><strong>ax</strong> – Optional matplotlib axes object to plot to. Otherwise, plot to screen.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the axis, with the data plotted onto it.</p>
 </dd>
 </dl>
@@ -189,7 +189,7 @@ Then does a linear fit and rolling average on these.</p>
 <dd><p>Dumps a list of paths to inegration pickle files to a file. One
 line per image. Provides easy input into post-refinement programs.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>out_file_name</strong> – the output file name.</p>
 </dd>
 </dl>
@@ -262,10 +262,10 @@ and space_group_type, each as a single token.
 2) histogram of B factors
 3) scatter  plot of intercept vs. gradient (G vs. B)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ax</strong> – optionally hand the method three matplotlib axes objects to plot onto. If not specified, will plot the data.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the three axes, with the data plotted onto them.</p>
 </dd>
 </dl>
@@ -277,7 +277,7 @@ and space_group_type, each as a single token.
 <dd><p>Make a sub-cluster from a list of SingleFrame objects from the old
 SingleFrame array.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>new_members</strong> – a new set of SingleFrame objects, typically a subset of</p>
 </dd>
 </dl>
@@ -345,7 +345,7 @@ criteria defined by:
 <span class="sig-name descname"><span class="pre">visualise_orientational_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axes_to_return</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster.Cluster.visualise_orientational_distribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a plot of the orientational distribution of the unit cells.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>axes_to_return</strong> – if None, print to screen, otherwise, requires 3 axes objects, and will return them.</p></li>
 <li><p><strong>cbar</strong> – boolean to specify if a color bar should be used.</p></li>
@@ -366,10 +366,10 @@ criteria defined by:
 <span class="sig-prename descclassname"><span class="pre">xfel.clustering.cluster_groups.</span></span><span class="sig-name descname"><span class="pre">unit_cell_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub_clusters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.cluster_groups.unit_cell_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print unit cell information for a list of clusters.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>sub_clusters</strong> – a list of cluster objects</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>a string containing median unit cells, standard deviations and
 point group composition of each cluster.</p>
 </dd>
@@ -399,7 +399,7 @@ used in downstream clustering or filtering procedures.</p>
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dicti</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.clustering.singleframe.SingleFrame.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructor for SingleFrame object, using a cctbx.xfel integration pickle.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>path</strong> – path to integration pickle</p></li>
 <li><p><strong>filename</strong> – the file name alone (used as a label)</p></li>
@@ -411,7 +411,7 @@ used in downstream clustering or filtering procedures.</p>
 <li><p><strong>scale</strong> – if False, will intialise scales to G=1, B=0.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>a SingleFrame object, with the following Object attributes:</p>
 </dd>
 </dl>
@@ -470,7 +470,7 @@ Cryst. 2014 between this frame and some other unit cell.
 :param i_corrections: allows flex array of correction factors (e.g. partialities) to be specified
 :param use_b_factor: if True, do a linear regression to fit G and B and returns the coeficients minus_2B, G, the transformed data log_i, and one_over_d_sqare. Also returns fit_stats, which is a dictionairy. If use_b_factor is False, then B is 0, and G is the mean intensity of the image. The r_value is then 0 (by definition), and the std_err is the standard error on the mean.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return minus_2B, G, log_i, on_over_d_square</dt>
+<dt class="field-odd">Return minus_2B, G, log_i, on_over_d_square<span class="colon">:</span></dt>
 <dd class="field-odd"><p><cite>minus_2B</cite>: gradient of fit; <cite>G</cite>: intercept of fit; <cite>log_i</cite>: dependent variable of fit; <cite>one_over_d_square</cite>: independent variable of fit.</p>
 </dd>
 </dl>
@@ -500,10 +500,10 @@ I/sig(I) &gt; sig_i_cuttoff</p>
 <dd><p>Makes a log(I) vs 1/d**2 plot, displaying the raw partial data, a
 rolling average of the data, and the Wilson model fit to the data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Param</dt>
+<dt class="field-odd">Param<span class="colon">:</span></dt>
 <dd class="field-odd"><p>width: smoothing window size</p>
 </dd>
-<dt class="field-even">Param</dt>
+<dt class="field-even">Param<span class="colon">:</span></dt>
 <dd class="field-even"><p>ax: optional axes object to ve used for plotting</p>
 </dd>
 </dl>
@@ -529,7 +529,7 @@ is_polarization_corrected flag to True.</p>
 <dd><p>Remove all miller indicies outside the range of _d_min, _d_max.
 Changes the object in place.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>d_min</strong> – min res of new miller array. Defaults to current value.</p></li>
 <li><p><strong>d_max</strong> – max res of new miller array. Defaults to current value.</p></li>

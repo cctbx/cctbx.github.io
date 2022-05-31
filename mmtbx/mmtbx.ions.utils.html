@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>mmtbx.ions.utils module &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -52,20 +52,20 @@
 <span id="mmtbx-ions-utils-module"></span><h1>mmtbx.ions.utils module<a class="headerlink" href="#module-mmtbx.ions.utils" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.ions.utils.anonymize_ions">
-<span class="sig-prename descclassname"><span class="pre">mmtbx.ions.utils.</span></span><span class="sig-name descname"><span class="pre">anonymize_ions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.anonymize_ions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">mmtbx.ions.utils.</span></span><span class="sig-name descname"><span class="pre">anonymize_ions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.anonymize_ions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert any elemental ions in the PDB hierarchy to water, resetting the
 occupancy and scaling the B-factor.  The atom segids will be set to the old
 resname.  NOTE: this does not change the corresponding scatterer in the xray
 structure, but a new xray structure can be obtained by calling
 hierarchy.extract_xray_structure(crystal_symmetry).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pdb_hierarchy</strong> (<a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root"><em>iotbx.pdb.hierarchy.root</em></a>) – </p></li>
 <li><p><strong>log</strong> (<em>file</em><em>, </em><em>optional</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>iotbx.pdb.hierarchy.root</em> – New pdb hierarchy with its ions anonymized</p></li>
 <li><p><em>int</em> – Number of atoms that were anonymized.</p></li>
@@ -80,10 +80,10 @@ hierarchy.extract_xray_structure(crystal_symmetry).</p>
 <span class="sig-prename descclassname"><span class="pre">mmtbx.ions.utils.</span></span><span class="sig-name descname"><span class="pre">collect_ions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.utils.collect_ions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collects a list of all ions in pdb_hierarchy.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pdb_hierarchy</strong> (<a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root"><em>iotbx.pdb.hierarchy.root</em></a>) – </p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list of iotbx.pdb.hierarchy.atom</p>
 </dd>
 </dl>
@@ -95,7 +95,7 @@ hierarchy.extract_xray_structure(crystal_symmetry).</p>
 <dd><p>Compares two pdb structures to determine the number of ions that appear in the
 reference structure and are either matched or missing in the other structure.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>hierarchy</strong> (<a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root"><em>iotbx.pdb.hierarchy.root</em></a>) – </p></li>
 <li><p><strong>reference_hierarchy</strong> (<a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root"><em>iotbx.pdb.hierarchy.root</em></a>) – </p></li>
@@ -107,7 +107,7 @@ reference structure and are either matched or missing in the other structure.</p
 <li><p><strong>sel_str_base</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>int</em> – Number of ions in reference_hierarchy that were also found in hierarchy.</p></li>
 <li><p><em>int</em> – Number of ions in reference_hierarchy that were not found in hierarchy.</p></li>
@@ -124,13 +124,13 @@ reference structure and are either matched or missing in the other structure.</p
 sphere.  This may yield additional clues to the identity of ions, e.g. only
 Zn will have 4 Cys residues.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>nearby_atoms</strong> (<em>list of mmtbx.ions.environment.atom_contact</em>) – </p></li>
 <li><p><strong>distance_cutoff</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict of str, <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a></p>
 </dd>
 </dl>
@@ -143,7 +143,7 @@ Zn will have 4 Cys residues.</p>
 spheres up to radius away from the site.</p>
 <p>f(x) = a * exp(-b * x ** 2)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>unit_cell</strong> (<a class="reference internal" href="../cctbx/cctbx.uctbx.html#cctbx.uctbx.unit_cell" title="cctbx.uctbx.unit_cell"><em>uctbx.unit_cell</em></a>) – </p></li>
 <li><p><strong>site_cart</strong> (<em>tuple of float</em><em>, </em><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – The site’s cartesian coordinates to sample the density around.</p></li>
@@ -151,7 +151,7 @@ spheres up to radius away from the site.</p>
 <li><p><strong>radius</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – The max radius to use for sampling.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>float</em> – Height of gaussian curve.</p></li>
 <li><p><em>float</em> – Spread of guassian curve.</p></li>
@@ -171,16 +171,16 @@ spheres up to radius away from the site.</p>
 <dd><p>Creates a list of atoms in pdb_atoms, sorted first by their atomic number,
 then by occupancy, and finally, by isotropic b-factor.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pdb_atoms</strong> (<a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.af_shared_atom" title="iotbx.pdb.hierarchy.af_shared_atom"><em>iotbx.pdb.hierarchy.af_shared_atom</em></a>) – </p></li>
 <li><p><strong>xray_structure</strong> (<a class="reference internal" href="../cctbx/cctbx.xray.structure.html#cctbx.xray.structure.structure" title="cctbx.xray.structure.structure"><em>cctbx.xray.structure.structure</em></a>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>i_seqs of sorted atoms</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>flex.size_t of int</p>
 </dd>
 </dl>

@@ -1947,6 +1947,23 @@ if map_manager is not present</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.map_model_manager.map_model_manager.get_map_rmse">
+<span class="sig-name descname"><span class="pre">get_map_rmse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'map_manager'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mask'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc_map_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fc_for_model_comparison'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fofc_map_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fofc_for_model_comparison'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_free</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_work</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_overall_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.get_map_rmse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate map rms error by comparison with model in region containing
+the model. Suitable for cases where model is not refined against this
+map. If refined against this map, correct for degrees of freedom by
+estimating overfitting from ratio of Rfree/Rwork.
+If match_overall_b is True, adjust average B of model to match fall-off
+of the Fourier coefficients representing the map
+Return group_args object with:</p>
+<blockquote>
+<div><p>map_rmse = fofc_info_inside.sd  # map rms error
+map_rmse_to_sd_ratio = ratio_error_to_input_map  # rmse / sd of map
+map_sd = map_info.sd  # SD of the map (rms after setting mean to zero)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.map_model_manager.map_model_manager.get_model_by_id">
 <span class="sig-name descname"><span class="pre">get_model_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.get_model_by_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a model with the name model_id</p>
@@ -2178,6 +2195,11 @@ Use ‘mask’ as the mask id</p>
 <dd><p>Identify cb sites that match ca sites
 If ca_residue_names and cb_residue names, require that residue names match</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.map_model_manager.map_model_manager.match_model_b_to_map">
+<span class="sig-name descname"><span class="pre">match_model_b_to_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'map_manager'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.match_model_b_to_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.map_model_manager.map_model_manager.merge_split_maps_and_models">

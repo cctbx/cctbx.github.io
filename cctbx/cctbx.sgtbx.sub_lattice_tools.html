@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -176,6 +177,41 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">cctbx.sgtbx.sub_lattice_tools module</a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.compare_lattice"><code class="docutils literal notranslate"><span class="pre">compare_lattice</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.compare_lattice.make_new_cell_and_symmetry"><code class="docutils literal notranslate"><span class="pre">compare_lattice.make_new_cell_and_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.compare_lattice.show_basic_info"><code class="docutils literal notranslate"><span class="pre">compare_lattice.show_basic_info()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.compare_lattice.show_solution"><code class="docutils literal notranslate"><span class="pre">compare_lattice.show_solution()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.divisor"><code class="docutils literal notranslate"><span class="pre">divisor()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.exercise"><code class="docutils literal notranslate"><span class="pre">exercise()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.find_triples"><code class="docutils literal notranslate"><span class="pre">find_triples()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.find_triples_slowly"><code class="docutils literal notranslate"><span class="pre">find_triples_slowly()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.generate_cb_op_up_to_order"><code class="docutils literal notranslate"><span class="pre">generate_cb_op_up_to_order()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.generate_inverse_matrix_up_to_order"><code class="docutils literal notranslate"><span class="pre">generate_inverse_matrix_up_to_order()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.generate_matrix"><code class="docutils literal notranslate"><span class="pre">generate_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.generate_matrix_up_to_order"><code class="docutils literal notranslate"><span class="pre">generate_matrix_up_to_order()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.make_list_of_target_xs_up_to_order"><code class="docutils literal notranslate"><span class="pre">make_list_of_target_xs_up_to_order</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.make_list_of_target_xs_up_to_order.make_new_xs"><code class="docutils literal notranslate"><span class="pre">make_list_of_target_xs_up_to_order.make_new_xs()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.make_permutations"><code class="docutils literal notranslate"><span class="pre">make_permutations()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.make_triples"><code class="docutils literal notranslate"><span class="pre">make_triples()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.rt_mx_as_rational"><code class="docutils literal notranslate"><span class="pre">rt_mx_as_rational()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.sort_triple"><code class="docutils literal notranslate"><span class="pre">sort_triple()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.tst_centered_cells"><code class="docutils literal notranslate"><span class="pre">tst_centered_cells()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.tst_compare"><code class="docutils literal notranslate"><span class="pre">tst_compare()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.tst_make_bigger_cell"><code class="docutils literal notranslate"><span class="pre">tst_make_bigger_cell()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.sub_lattice_tools.tst_sublattice"><code class="docutils literal notranslate"><span class="pre">tst_sublattice()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="cctbx.sgtbx.show_cosets.html"
                           title="previous chapter">cctbx.sgtbx.show_cosets module</a></p>
@@ -229,7 +265,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

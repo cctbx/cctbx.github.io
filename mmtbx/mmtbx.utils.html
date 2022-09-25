@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -49,8 +50,8 @@
             
   <section id="mmtbx-utils-package">
 <h1>mmtbx.utils package<a class="headerlink" href="#mmtbx-utils-package" title="Permalink to this heading">¶</a></h1>
-<section id="module-mmtbx.utils">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mmtbx.utils" title="Permalink to this heading">¶</a></h2>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
 <p>Library of convenience functions for working with models and reflection data.
 This contains a number of routines used in phenix.refine and related programs,
 mainly concerned with the repetitive process of loading model and data files
@@ -59,7 +60,7 @@ program that uses similar inputs, it may be significantly easier to use the
 unified input handling encapsulated in <a class="reference internal" href="mmtbx.command_line.html#module-mmtbx.command_line" title="mmtbx.command_line"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.command_line</span></code></a>, which
 wraps much of the functionality in <a class="reference internal" href="#module-mmtbx.utils" title="mmtbx.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mmtbx.utils</span></code></a> while hiding the
 messy details.</p>
-<dl class="py function">
+<span class="target" id="module-mmtbx.utils"></span><dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.utils.assert_model_is_consistent">
 <span class="sig-prename descclassname"><span class="pre">mmtbx.utils.</span></span><span class="sig-name descname"><span class="pre">assert_model_is_consistent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.utils.assert_model_is_consistent" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -568,11 +569,127 @@ separating the variable and constant parts of the chains</p>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.utils package</a><ul>
-<li><a class="reference internal" href="#module-mmtbx.utils">Module contents</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.assert_model_is_consistent"><code class="docutils literal notranslate"><span class="pre">assert_model_is_consistent()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.assert_water_is_consistent"><code class="docutils literal notranslate"><span class="pre">assert_water_is_consistent()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.assert_xray_structures_equal"><code class="docutils literal notranslate"><span class="pre">assert_xray_structures_equal()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.atom_selection"><code class="docutils literal notranslate"><span class="pre">atom_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.check_and_set_crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">check_and_set_crystal_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.compare_hierarchy"><code class="docutils literal notranslate"><span class="pre">compare_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem"><code class="docutils literal notranslate"><span class="pre">detect_hydrogen_nomenclature_problem</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.bad_hydrogens"><code class="docutils literal notranslate"><span class="pre">detect_hydrogen_nomenclature_problem.bad_hydrogens</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_asn_hd22"><code class="docutils literal notranslate"><span class="pre">detect_hydrogen_nomenclature_problem.n_asn_hd22</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_hydrogen"><code class="docutils literal notranslate"><span class="pre">detect_hydrogen_nomenclature_problem.n_hydrogen</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.detect_hydrogen_nomenclature_problem.n_other"><code class="docutils literal notranslate"><span class="pre">detect_hydrogen_nomenclature_problem.n_other</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.equivalent_sigma_from_cumulative_histogram_match"><code class="docutils literal notranslate"><span class="pre">equivalent_sigma_from_cumulative_histogram_match()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients"><code class="docutils literal notranslate"><span class="pre">experimental_data_target_and_gradients</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.grad_occ"><code class="docutils literal notranslate"><span class="pre">experimental_data_target_and_gradients.grad_occ()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.grad_sites_cart"><code class="docutils literal notranslate"><span class="pre">experimental_data_target_and_gradients.grad_sites_cart()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.group_occupancy_grads"><code class="docutils literal notranslate"><span class="pre">experimental_data_target_and_gradients.group_occupancy_grads()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.show"><code class="docutils literal notranslate"><span class="pre">experimental_data_target_and_gradients.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.target"><code class="docutils literal notranslate"><span class="pre">experimental_data_target_and_gradients.target()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.experimental_data_target_and_gradients.update_xray_structure"><code class="docutils literal notranslate"><span class="pre">experimental_data_target_and_gradients.update_xray_structure()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.apply_mask_inplace"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.apply_mask_inplace()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.box_map_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.box_map_coefficients_as_fft_map"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.box_map_coefficients_as_fft_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.cut_and_copy_map"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.cut_and_copy_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.get_original_cs"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.get_original_cs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.get_shifted_cs"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.get_shifted_cs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.get_solvent_content"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.get_solvent_content()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.map_coefficients"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.map_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.origin_shift_grid_units"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.origin_shift_grid_units()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.shift_back"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.shift_back()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.shift_map_back"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.shift_map_back()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.shift_map_coeffs_back"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.shift_map_coeffs_back()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.shift_sites_cart_back"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.shift_sites_cart_back()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_box_around_model_and_map.write_xplor_map"><code class="docutils literal notranslate"><span class="pre">extract_box_around_model_and_map.write_xplor_map()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.extract_tls_and_u_total_from_pdb"><code class="docutils literal notranslate"><span class="pre">extract_tls_and_u_total_from_pdb()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.f_000"><code class="docutils literal notranslate"><span class="pre">f_000</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.find_overlapping_selections"><code class="docutils literal notranslate"><span class="pre">find_overlapping_selections()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.fmodel_from_xray_structure"><code class="docutils literal notranslate"><span class="pre">fmodel_from_xray_structure</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.fmodel_from_xray_structure.Sorry_high_resolution_is_not_defined"><code class="docutils literal notranslate"><span class="pre">fmodel_from_xray_structure.Sorry_high_resolution_is_not_defined()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.fmodel_from_xray_structure.write_to_file"><code class="docutils literal notranslate"><span class="pre">fmodel_from_xray_structure.write_to_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.fmodel_manager"><code class="docutils literal notranslate"><span class="pre">fmodel_manager()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.fmodel_simple"><code class="docutils literal notranslate"><span class="pre">fmodel_simple()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.get_atom_selection"><code class="docutils literal notranslate"><span class="pre">get_atom_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.get_atom_selections"><code class="docutils literal notranslate"><span class="pre">get_atom_selections()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.guess_observation_type"><code class="docutils literal notranslate"><span class="pre">guess_observation_type</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.guess_observation_type.data_size"><code class="docutils literal notranslate"><span class="pre">guess_observation_type.data_size</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.guess_observation_type.find_best"><code class="docutils literal notranslate"><span class="pre">guess_observation_type.find_best()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.guess_observation_type.get_r_factor"><code class="docutils literal notranslate"><span class="pre">guess_observation_type.get_r_factor()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.guess_observation_type.mtz_object"><code class="docutils literal notranslate"><span class="pre">guess_observation_type.mtz_object()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.limit_frac_min_frac_max"><code class="docutils literal notranslate"><span class="pre">limit_frac_min_frac_max()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.model_from_sites_cart"><code class="docutils literal notranslate"><span class="pre">model_from_sites_cart()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.optimize_h"><code class="docutils literal notranslate"><span class="pre">optimize_h()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.pdb_inp_from_multiple_files"><code class="docutils literal notranslate"><span class="pre">pdb_inp_from_multiple_files()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.print_header"><code class="docutils literal notranslate"><span class="pre">print_header()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.print_programs_start_header"><code class="docutils literal notranslate"><span class="pre">print_programs_start_header()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.process_command_line_args"><code class="docutils literal notranslate"><span class="pre">process_command_line_args</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.process_command_line_args.get_reflection_file_server"><code class="docutils literal notranslate"><span class="pre">process_command_line_args.get_reflection_file_server()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.process_pdb_file_srv"><code class="docutils literal notranslate"><span class="pre">process_pdb_file_srv</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.process_pdb_file_srv.process_pdb_files"><code class="docutils literal notranslate"><span class="pre">process_pdb_file_srv.process_pdb_files()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.remove_selections"><code class="docutils literal notranslate"><span class="pre">remove_selections()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.run_reduce_with_timeout"><code class="docutils literal notranslate"><span class="pre">run_reduce_with_timeout</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.run_reduce_with_timeout.as_pdb_hierarchy"><code class="docutils literal notranslate"><span class="pre">run_reduce_with_timeout.as_pdb_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.set_log"><code class="docutils literal notranslate"><span class="pre">set_log()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.set_map_to_value"><code class="docutils literal notranslate"><span class="pre">set_map_to_value</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.set_map_to_value.write_xplor_map"><code class="docutils literal notranslate"><span class="pre">set_map_to_value.write_xplor_map()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.setup_scattering_dictionaries"><code class="docutils literal notranslate"><span class="pre">setup_scattering_dictionaries()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.shift_origin"><code class="docutils literal notranslate"><span class="pre">shift_origin</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.shift_origin.get_original_cs"><code class="docutils literal notranslate"><span class="pre">shift_origin.get_original_cs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.shift_origin.shift_back"><code class="docutils literal notranslate"><span class="pre">shift_origin.shift_back()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.shift_origin.write_map_file"><code class="docutils literal notranslate"><span class="pre">shift_origin.write_map_file()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.shift_origin.write_model_file"><code class="docutils literal notranslate"><span class="pre">shift_origin.write_model_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.states"><code class="docutils literal notranslate"><span class="pre">states</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.states.add"><code class="docutils literal notranslate"><span class="pre">states.add()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.states.write"><code class="docutils literal notranslate"><span class="pre">states.write()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.utils.switch_rotamers"><code class="docutils literal notranslate"><span class="pre">switch_rotamers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.xray_structures_from_processed_pdb_file"><code class="docutils literal notranslate"><span class="pre">xray_structures_from_processed_pdb_file</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.utils.fab_elbow_angle">mmtbx.utils.fab_elbow_angle module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.utils.fab_elbow_angle">mmtbx.utils.fab_elbow_angle module</a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle"><code class="docutils literal notranslate"><span class="pre">fab_elbow_angle</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.cross_product_as_unit_axis"><code class="docutils literal notranslate"><span class="pre">fab_elbow_angle.cross_product_as_unit_axis()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_angle"><code class="docutils literal notranslate"><span class="pre">fab_elbow_angle.get_angle()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_eigenvector"><code class="docutils literal notranslate"><span class="pre">fab_elbow_angle.get_eigenvector()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_pdb_chains"><code class="docutils literal notranslate"><span class="pre">fab_elbow_angle.get_pdb_chains()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.get_transformation"><code class="docutils literal notranslate"><span class="pre">fab_elbow_angle.get_transformation()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.norm_vec"><code class="docutils literal notranslate"><span class="pre">fab_elbow_angle.norm_vec()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.fab_elbow_angle.fab_elbow_angle.select_str"><code class="docutils literal notranslate"><span class="pre">fab_elbow_angle.select_str()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#mmtbx-utils-ncs-utils-module">mmtbx.utils.ncs_utils module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.utils.rotatable_bonds">mmtbx.utils.rotatable_bonds module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.utils.rotatable_bonds">mmtbx.utils.rotatable_bonds module</a><ul>
+<li><a class="reference internal" href="#mmtbx.utils.rotatable_bonds.axes_and_atoms_aa_specific"><code class="docutils literal notranslate"><span class="pre">axes_and_atoms_aa_specific()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.utils.rotatable_bonds.tardy_model_one_residue"><code class="docutils literal notranslate"><span class="pre">tardy_model_one_residue()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -631,7 +748,7 @@ separating the variable and constant parts of the chains</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

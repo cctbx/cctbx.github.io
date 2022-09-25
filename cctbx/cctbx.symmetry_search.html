@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -176,6 +177,45 @@ etc) are in a primitive unit cell.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">cctbx.symmetry_search module</a><ul>
+<li><a class="reference internal" href="#cctbx.symmetry_search.possible_symmetry"><code class="docutils literal notranslate"><span class="pre">possible_symmetry</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.symmetry_search.possible_symmetry.accepted"><code class="docutils literal notranslate"><span class="pre">possible_symmetry.accepted</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.possible_symmetry.change_origin"><code class="docutils literal notranslate"><span class="pre">possible_symmetry.change_origin()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.possible_symmetry.fmt3vec"><code class="docutils literal notranslate"><span class="pre">possible_symmetry.fmt3vec</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.possible_symmetry.rejected"><code class="docutils literal notranslate"><span class="pre">possible_symmetry.rejected</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.possible_symmetry.set_components_of_global_origin"><code class="docutils literal notranslate"><span class="pre">possible_symmetry.set_components_of_global_origin()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.possible_symmetry.unsure"><code class="docutils literal notranslate"><span class="pre">possible_symmetry.unsure</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.shift_refinement"><code class="docutils literal notranslate"><span class="pre">shift_refinement</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.symmetry_search.shift_refinement.compute_functional_and_gradients"><code class="docutils literal notranslate"><span class="pre">shift_refinement.compute_functional_and_gradients()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry.centring_translation_peak_sites"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry.centring_translation_peak_sites()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry.cross_correlation_cutoff_for_centring"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry.cross_correlation_cutoff_for_centring</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry.cross_correlation_peaks"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry.cross_correlation_peaks()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry.find_centring_translations"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry.find_centring_translations()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry.find_space_group"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry.find_space_group()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry.grid_resolution_factor"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry.grid_resolution_factor</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry.phi_sym_acceptance_cutoff"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry.phi_sym_acceptance_cutoff</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry.phi_sym_rejection_cutoff"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry.phi_sym_rejection_cutoff</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry.possible_point_group_generators"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry.possible_point_group_generators()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.structure_factor_symmetry.symmetrised_structure_factors"><code class="docutils literal notranslate"><span class="pre">structure_factor_symmetry.symmetrised_structure_factors()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.symmetry_search.symmetrised_shifted_structure_factors"><code class="docutils literal notranslate"><span class="pre">symmetrised_shifted_structure_factors</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.symmetry_search.symmetrised_shifted_structure_factors.misfit"><code class="docutils literal notranslate"><span class="pre">symmetrised_shifted_structure_factors.misfit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="cctbx.statistics.html"
                           title="previous chapter">cctbx.statistics module</a></p>
@@ -228,7 +268,7 @@ etc) are in a primitive unit cell.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

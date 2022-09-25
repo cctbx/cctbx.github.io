@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -615,13 +616,162 @@ group.</p>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.refinement.real_space package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.fit_residue">mmtbx.refinement.real_space.fit_residue module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.fit_residues">mmtbx.refinement.real_space.fit_residues module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.fit_water">mmtbx.refinement.real_space.fit_water module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.individual_sites">mmtbx.refinement.real_space.individual_sites module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.rigid_body">mmtbx.refinement.real_space.rigid_body module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.weight">mmtbx.refinement.real_space.weight module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.refinement.real_space">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.fit_residue">mmtbx.refinement.real_space.fit_residue module</a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.backrub_move"><code class="docutils literal notranslate"><span class="pre">backrub_move()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.flatten"><code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.get_rotamer_iterator"><code class="docutils literal notranslate"><span class="pre">get_rotamer_iterator()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.monitor"><code class="docutils literal notranslate"><span class="pre">monitor</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.monitor.add"><code class="docutils literal notranslate"><span class="pre">monitor.add()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.monitor.finalize"><code class="docutils literal notranslate"><span class="pre">monitor.finalize()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.monitor.show"><code class="docutils literal notranslate"><span class="pre">monitor.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run.fit_c_beta"><code class="docutils literal notranslate"><span class="pre">run.fit_c_beta()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run.fit_proline"><code class="docutils literal notranslate"><span class="pre">run.fit_proline()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run.fit_side_chain"><code class="docutils literal notranslate"><span class="pre">run.fit_side_chain()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run.get_rotamer_iterator"><code class="docutils literal notranslate"><span class="pre">run.get_rotamer_iterator()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run.get_target_value"><code class="docutils literal notranslate"><span class="pre">run.get_target_value()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization"><code class="docutils literal notranslate"><span class="pre">run_with_minimization</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_backbone"><code class="docutils literal notranslate"><span class="pre">run_with_minimization.fit_backbone()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.fit_rotamers"><code class="docutils literal notranslate"><span class="pre">run_with_minimization.fit_rotamers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.grid_sample_around_c_n_axis"><code class="docutils literal notranslate"><span class="pre">run_with_minimization.grid_sample_around_c_n_axis()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.run_with_minimization.real_space_refine"><code class="docutils literal notranslate"><span class="pre">run_with_minimization.real_space_refine()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residue.tune_up"><code class="docutils literal notranslate"><span class="pre">tune_up</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.fit_residues">mmtbx.refinement.real_space.fit_residues module</a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residues.fix_outliers"><code class="docutils literal notranslate"><span class="pre">fix_outliers</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residues.run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residues.run.count_outliers"><code class="docutils literal notranslate"><span class="pre">run.count_outliers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residues.run.get_nonbonded_bumpers"><code class="docutils literal notranslate"><span class="pre">run.get_nonbonded_bumpers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residues.run.loop"><code class="docutils literal notranslate"><span class="pre">run.loop()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residues.run.one_residue_iteration"><code class="docutils literal notranslate"><span class="pre">run.one_residue_iteration()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_residues.run.show"><code class="docutils literal notranslate"><span class="pre">run.show()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.fit_water">mmtbx.refinement.real_space.fit_water module</a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.fit_water.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.individual_sites">mmtbx.refinement.real_space.individual_sites module</a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager"><code class="docutils literal notranslate"><span class="pre">box_refinement_manager</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager.refine"><code class="docutils literal notranslate"><span class="pre">box_refinement_manager.refine()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager.update_target_map"><code class="docutils literal notranslate"><span class="pre">box_refinement_manager.update_target_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.box_refinement_manager.update_xray_structure"><code class="docutils literal notranslate"><span class="pre">box_refinement_manager.update_xray_structure()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.diff_map"><code class="docutils literal notranslate"><span class="pre">diff_map</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.diff_map.refine"><code class="docutils literal notranslate"><span class="pre">diff_map.refine()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.diff_map.sites_cart"><code class="docutils literal notranslate"><span class="pre">diff_map.sites_cart()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.easy"><code class="docutils literal notranslate"><span class="pre">easy</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.minimize_wrapper_with_map"><code class="docutils literal notranslate"><span class="pre">minimize_wrapper_with_map</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.refinery"><code class="docutils literal notranslate"><span class="pre">refinery</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.refinery.adjust_weight_sample_rate"><code class="docutils literal notranslate"><span class="pre">refinery.adjust_weight_sample_rate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.refinery.rmsds"><code class="docutils literal notranslate"><span class="pre">refinery.rmsds()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.simple"><code class="docutils literal notranslate"><span class="pre">simple</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.simple.refine"><code class="docutils literal notranslate"><span class="pre">simple.refine()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.simple.rmsds"><code class="docutils literal notranslate"><span class="pre">simple.rmsds()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.individual_sites.simple.sites_cart"><code class="docutils literal notranslate"><span class="pre">simple.sites_cart()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.rigid_body">mmtbx.refinement.real_space.rigid_body module</a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rigid_body.real_space_rigid_body_gradients_simple"><code class="docutils literal notranslate"><span class="pre">real_space_rigid_body_gradients_simple()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rigid_body.refine"><code class="docutils literal notranslate"><span class="pre">refine</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rigid_body.refine.compute_functional_and_gradients"><code class="docutils literal notranslate"><span class="pre">refine.compute_functional_and_gradients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rigid_body.refine.d_e_pot_d_sites"><code class="docutils literal notranslate"><span class="pre">refine.d_e_pot_d_sites()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rigid_body.refine_groups"><code class="docutils literal notranslate"><span class="pre">refine_groups</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rigid_body.refine_mz"><code class="docutils literal notranslate"><span class="pre">refine_mz</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space.weight">mmtbx.refinement.real_space.weight module</a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.weight.run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.weight.run.show"><code class="docutils literal notranslate"><span class="pre">run.show()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.refinement.real_space">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.aa_residue_axes_and_clusters"><code class="docutils literal notranslate"><span class="pre">aa_residue_axes_and_clusters</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.check_sites_match"><code class="docutils literal notranslate"><span class="pre">check_sites_match()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.cluster"><code class="docutils literal notranslate"><span class="pre">cluster</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.cluster.get_vector_flat"><code class="docutils literal notranslate"><span class="pre">cluster.get_vector_flat()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.cluster.show"><code class="docutils literal notranslate"><span class="pre">cluster.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.common_map_values"><code class="docutils literal notranslate"><span class="pre">common_map_values()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.flatten"><code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.generate_angles_nested"><code class="docutils literal notranslate"><span class="pre">generate_angles_nested()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.get_radii"><code class="docutils literal notranslate"><span class="pre">get_radii()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.get_radius"><code class="docutils literal notranslate"><span class="pre">get_radius()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.negate_map_around_selected_atoms_except_selected_atoms"><code class="docutils literal notranslate"><span class="pre">negate_map_around_selected_atoms_except_selected_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.residue_monitor"><code class="docutils literal notranslate"><span class="pre">residue_monitor</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.residue_monitor.format_info_string"><code class="docutils literal notranslate"><span class="pre">residue_monitor.format_info_string()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rsr_model"><code class="docutils literal notranslate"><span class="pre">rsr_model</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rsr_model.initialize"><code class="docutils literal notranslate"><span class="pre">rsr_model.initialize()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rsr_model.show"><code class="docutils literal notranslate"><span class="pre">rsr_model.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rsr_model.update"><code class="docutils literal notranslate"><span class="pre">rsr_model.update()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.rsr_model.update_statistics"><code class="docutils literal notranslate"><span class="pre">rsr_model.update_statistics()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.score"><code class="docutils literal notranslate"><span class="pre">score</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.score.compute_target"><code class="docutils literal notranslate"><span class="pre">score.compute_target()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.score.reset"><code class="docutils literal notranslate"><span class="pre">score.reset()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.score.update"><code class="docutils literal notranslate"><span class="pre">score.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.score2"><code class="docutils literal notranslate"><span class="pre">score2</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.score2.update"><code class="docutils literal notranslate"><span class="pre">score2.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.score3"><code class="docutils literal notranslate"><span class="pre">score3</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.score3.compute_target"><code class="docutils literal notranslate"><span class="pre">score3.compute_target()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.score3.reset"><code class="docutils literal notranslate"><span class="pre">score3.reset()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.score3.update"><code class="docutils literal notranslate"><span class="pre">score3.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.selection_around_to_negate"><code class="docutils literal notranslate"><span class="pre">selection_around_to_negate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.setup_test"><code class="docutils literal notranslate"><span class="pre">setup_test()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.side_chain_fit_evaluator"><code class="docutils literal notranslate"><span class="pre">side_chain_fit_evaluator</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.side_chain_fit_evaluator.sel_all"><code class="docutils literal notranslate"><span class="pre">side_chain_fit_evaluator.sel_all()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.side_chain_fit_evaluator.sel_outliers"><code class="docutils literal notranslate"><span class="pre">side_chain_fit_evaluator.sel_outliers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.side_chain_fit_evaluator.sel_outliers_and_poormap"><code class="docutils literal notranslate"><span class="pre">side_chain_fit_evaluator.sel_outliers_and_poormap()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.side_chain_fit_evaluator.sel_outliers_or_poormap"><code class="docutils literal notranslate"><span class="pre">side_chain_fit_evaluator.sel_outliers_or_poormap()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.side_chain_fit_evaluator.sel_poormap"><code class="docutils literal notranslate"><span class="pre">side_chain_fit_evaluator.sel_poormap()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.side_chain_fit_evaluator.show"><code class="docutils literal notranslate"><span class="pre">side_chain_fit_evaluator.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor"><code class="docutils literal notranslate"><span class="pre">structure_monitor</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.assert_pdb_hierarchy_xray_structure_sync"><code class="docutils literal notranslate"><span class="pre">structure_monitor.assert_pdb_hierarchy_xray_structure_sync()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.compute_map"><code class="docutils literal notranslate"><span class="pre">structure_monitor.compute_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.initialize"><code class="docutils literal notranslate"><span class="pre">structure_monitor.initialize()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.map_cc"><code class="docutils literal notranslate"><span class="pre">structure_monitor.map_cc()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.map_cc_histogram_per_atom"><code class="docutils literal notranslate"><span class="pre">structure_monitor.map_cc_histogram_per_atom()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.show"><code class="docutils literal notranslate"><span class="pre">structure_monitor.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.show_residues"><code class="docutils literal notranslate"><span class="pre">structure_monitor.show_residues()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.structure_monitor.update"><code class="docutils literal notranslate"><span class="pre">structure_monitor.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.torsion_search"><code class="docutils literal notranslate"><span class="pre">torsion_search()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.refinement.real_space.torsion_search_nested"><code class="docutils literal notranslate"><span class="pre">torsion_search_nested()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -681,7 +831,7 @@ group.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

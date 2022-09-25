@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -102,11 +103,11 @@ test cases with just .pdb, without arguments, etc.</p>
 <dd></dd></dl>
 
 </section>
-<section id="module-mmtbx.validation.molprobity">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mmtbx.validation.molprobity" title="Permalink to this heading">¶</a></h2>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
 <p>Classes for MolProbity validation, combining all other analyses in
 mmtbx.validation, which use the same APIs for storing and displaying results.</p>
-<dl class="py class">
+<span class="target" id="module-mmtbx.validation.molprobity"></span><dl class="py class">
 <dt class="sig sig-object py" id="mmtbx.validation.molprobity.MolProbityParser">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.validation.molprobity.</span></span><span class="sig-name descname"><span class="pre">MolProbityParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_process_arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unused_phil_raises_sorry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.validation.molprobity.MolProbityParser" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CCTBXParser</span></code></p>
@@ -846,9 +847,167 @@ larger.</p>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.validation.molprobity package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.validation.molprobity.mp_geo">mmtbx.validation.molprobity.mp_geo module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.validation.molprobity.nqh_minimize">mmtbx.validation.molprobity.nqh_minimize module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.validation.molprobity">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.validation.molprobity.mp_geo">mmtbx.validation.molprobity.mp_geo module</a><ul>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.mp_geo.get_altloc"><code class="docutils literal notranslate"><span class="pre">get_altloc()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.mp_geo.get_atoms_str"><code class="docutils literal notranslate"><span class="pre">get_atoms_str()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.mp_geo.get_bond_and_angle_outliers"><code class="docutils literal notranslate"><span class="pre">get_bond_and_angle_outliers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.mp_geo.get_master_phil"><code class="docutils literal notranslate"><span class="pre">get_master_phil()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.mp_geo.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.validation.molprobity.nqh_minimize">mmtbx.validation.molprobity.nqh_minimize module</a><ul>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.nqh_minimize.finalize_coords"><code class="docutils literal notranslate"><span class="pre">finalize_coords()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.nqh_minimize.parse_user_mods"><code class="docutils literal notranslate"><span class="pre">parse_user_mods()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.nqh_minimize.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-contents">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.MolProbityParser"><code class="docutils literal notranslate"><span class="pre">MolProbityParser</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.MolProbityParser.add_default_options"><code class="docutils literal notranslate"><span class="pre">MolProbityParser.add_default_options()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.MolProbityTemplate"><code class="docutils literal notranslate"><span class="pre">MolProbityTemplate</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.MolProbityTemplate.get_results_as_PDB_JSON"><code class="docutils literal notranslate"><span class="pre">MolProbityTemplate.get_results_as_PDB_JSON()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity"><code class="docutils literal notranslate"><span class="pre">molprobity</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.adp_stats"><code class="docutils literal notranslate"><span class="pre">molprobity.adp_stats</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.as_mmcif_records"><code class="docutils literal notranslate"><span class="pre">molprobity.as_mmcif_records()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.as_multi_criterion_view"><code class="docutils literal notranslate"><span class="pre">molprobity.as_multi_criterion_view()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.atoms_to_observations_ratio"><code class="docutils literal notranslate"><span class="pre">molprobity.atoms_to_observations_ratio()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.b_iso_mean"><code class="docutils literal notranslate"><span class="pre">molprobity.b_iso_mean()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.cbeta_outliers"><code class="docutils literal notranslate"><span class="pre">molprobity.cbeta_outliers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.cbetadev"><code class="docutils literal notranslate"><span class="pre">molprobity.cbetadev</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.clashes"><code class="docutils literal notranslate"><span class="pre">molprobity.clashes</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.clashscore"><code class="docutils literal notranslate"><span class="pre">molprobity.clashscore()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">molprobity.crystal_symmetry</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.d_max_min"><code class="docutils literal notranslate"><span class="pre">molprobity.d_max_min()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.d_min"><code class="docutils literal notranslate"><span class="pre">molprobity.d_min()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.data_stats"><code class="docutils literal notranslate"><span class="pre">molprobity.data_stats</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.display_wx_plots"><code class="docutils literal notranslate"><span class="pre">molprobity.display_wx_plots()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.file_name"><code class="docutils literal notranslate"><span class="pre">molprobity.file_name</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.find_missing_atoms"><code class="docutils literal notranslate"><span class="pre">molprobity.find_missing_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.fmodel_statistics_by_resolution"><code class="docutils literal notranslate"><span class="pre">molprobity.fmodel_statistics_by_resolution()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.fmodel_statistics_graph_data"><code class="docutils literal notranslate"><span class="pre">molprobity.fmodel_statistics_graph_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.get_polygon_statistics"><code class="docutils literal notranslate"><span class="pre">molprobity.get_polygon_statistics()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.get_statistics_for_phenix_gui"><code class="docutils literal notranslate"><span class="pre">molprobity.get_statistics_for_phenix_gui()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.header_info"><code class="docutils literal notranslate"><span class="pre">molprobity.header_info</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.hydrogens"><code class="docutils literal notranslate"><span class="pre">molprobity.hydrogens</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.kinemage_file"><code class="docutils literal notranslate"><span class="pre">molprobity.kinemage_file</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.merging"><code class="docutils literal notranslate"><span class="pre">molprobity.merging</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.missing_atoms"><code class="docutils literal notranslate"><span class="pre">molprobity.missing_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.model"><code class="docutils literal notranslate"><span class="pre">molprobity.model</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.model_statistics_geometry"><code class="docutils literal notranslate"><span class="pre">molprobity.model_statistics_geometry</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.model_statistics_geometry_result"><code class="docutils literal notranslate"><span class="pre">molprobity.model_statistics_geometry_result</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.model_stats"><code class="docutils literal notranslate"><span class="pre">molprobity.model_stats</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.model_stats_new"><code class="docutils literal notranslate"><span class="pre">molprobity.model_stats_new</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.molprobity_score"><code class="docutils literal notranslate"><span class="pre">molprobity.molprobity_score()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.molprobity_version_number"><code class="docutils literal notranslate"><span class="pre">molprobity.molprobity_version_number</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.neutron_stats"><code class="docutils literal notranslate"><span class="pre">molprobity.neutron_stats</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.nqh_flips"><code class="docutils literal notranslate"><span class="pre">molprobity.nqh_flips</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.omegalyze"><code class="docutils literal notranslate"><span class="pre">molprobity.omegalyze</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.pdb_hierarchy"><code class="docutils literal notranslate"><span class="pre">molprobity.pdb_hierarchy</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.polygon_stats"><code class="docutils literal notranslate"><span class="pre">molprobity.polygon_stats</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.r_free"><code class="docutils literal notranslate"><span class="pre">molprobity.r_free()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.r_work"><code class="docutils literal notranslate"><span class="pre">molprobity.r_work()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.rama_allowed"><code class="docutils literal notranslate"><span class="pre">molprobity.rama_allowed()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.rama_favored"><code class="docutils literal notranslate"><span class="pre">molprobity.rama_favored()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.rama_outliers"><code class="docutils literal notranslate"><span class="pre">molprobity.rama_outliers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.ramalyze"><code class="docutils literal notranslate"><span class="pre">molprobity.ramalyze</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.real_space"><code class="docutils literal notranslate"><span class="pre">molprobity.real_space</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.restraints"><code class="docutils literal notranslate"><span class="pre">molprobity.restraints</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.rms_angles"><code class="docutils literal notranslate"><span class="pre">molprobity.rms_angles()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.rms_bonds"><code class="docutils literal notranslate"><span class="pre">molprobity.rms_bonds()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.rna"><code class="docutils literal notranslate"><span class="pre">molprobity.rna</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.rota_outliers"><code class="docutils literal notranslate"><span class="pre">molprobity.rota_outliers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.rotalyze"><code class="docutils literal notranslate"><span class="pre">molprobity.rotalyze</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.sequence"><code class="docutils literal notranslate"><span class="pre">molprobity.sequence</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.show"><code class="docutils literal notranslate"><span class="pre">molprobity.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.show_summary"><code class="docutils literal notranslate"><span class="pre">molprobity.show_summary()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.space_group"><code class="docutils literal notranslate"><span class="pre">molprobity.space_group()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.space_group_info"><code class="docutils literal notranslate"><span class="pre">molprobity.space_group_info()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.summarize"><code class="docutils literal notranslate"><span class="pre">molprobity.summarize()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.twin_law"><code class="docutils literal notranslate"><span class="pre">molprobity.twin_law()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.unit_cell"><code class="docutils literal notranslate"><span class="pre">molprobity.unit_cell()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.waters"><code class="docutils literal notranslate"><span class="pre">molprobity.waters</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.wilson_b"><code class="docutils literal notranslate"><span class="pre">molprobity.wilson_b</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.write_coot_script"><code class="docutils literal notranslate"><span class="pre">molprobity.write_coot_script()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity.xtriage"><code class="docutils literal notranslate"><span class="pre">molprobity.xtriage</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.molprobity_flags"><code class="docutils literal notranslate"><span class="pre">molprobity_flags()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.multi_criterion_view"><code class="docutils literal notranslate"><span class="pre">multi_criterion_view</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.multi_criterion_view.binned_data"><code class="docutils literal notranslate"><span class="pre">multi_criterion_view.binned_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.multi_criterion_view.data"><code class="docutils literal notranslate"><span class="pre">multi_criterion_view.data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.multi_criterion_view.display_wx_plots"><code class="docutils literal notranslate"><span class="pre">multi_criterion_view.display_wx_plots()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.multi_criterion_view.get_residue_group_data"><code class="docutils literal notranslate"><span class="pre">multi_criterion_view.get_residue_group_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.multi_criterion_view.get_y_limits"><code class="docutils literal notranslate"><span class="pre">multi_criterion_view.get_y_limits()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.multi_criterion_view.is_populated"><code class="docutils literal notranslate"><span class="pre">multi_criterion_view.is_populated</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.multi_criterion_view.process_outliers"><code class="docutils literal notranslate"><span class="pre">multi_criterion_view.process_outliers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.multi_criterion_view.residues"><code class="docutils literal notranslate"><span class="pre">multi_criterion_view.residues</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info"><code class="docutils literal notranslate"><span class="pre">pdb_header_info</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info.d_max"><code class="docutils literal notranslate"><span class="pre">pdb_header_info.d_max</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info.d_min"><code class="docutils literal notranslate"><span class="pre">pdb_header_info.d_min</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info.is_phenix_refinement"><code class="docutils literal notranslate"><span class="pre">pdb_header_info.is_phenix_refinement()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info.n_tls_groups"><code class="docutils literal notranslate"><span class="pre">pdb_header_info.n_tls_groups</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info.r_free"><code class="docutils literal notranslate"><span class="pre">pdb_header_info.r_free</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info.r_work"><code class="docutils literal notranslate"><span class="pre">pdb_header_info.r_work</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info.refinement_program"><code class="docutils literal notranslate"><span class="pre">pdb_header_info.refinement_program</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info.rms_angles"><code class="docutils literal notranslate"><span class="pre">pdb_header_info.rms_angles</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info.rms_bonds"><code class="docutils literal notranslate"><span class="pre">pdb_header_info.rms_bonds</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.pdb_header_info.show"><code class="docutils literal notranslate"><span class="pre">pdb_header_info.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.add_outlier"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.add_outlier()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.altloc"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.altloc</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.atom_selection"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.atom_selection</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.chain_id"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.chain_id</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.get_outlier_plot_values"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.get_outlier_plot_values()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.get_real_space_plot_values"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.get_real_space_plot_values()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.i_seq"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.i_seq</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.icode"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.icode</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.is_cbeta_outlier"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.is_cbeta_outlier()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.is_clash_outlier"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.is_clash_outlier()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.is_geometry_outlier"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.is_geometry_outlier()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.is_map_outlier"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.is_map_outlier()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.is_ramachandran_outlier"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.is_ramachandran_outlier()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.is_rotamer_outlier"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.is_rotamer_outlier()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.n_confs"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.n_confs</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.occupancy"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.occupancy</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.outlier"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.outlier</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.outliers"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.outliers</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.resname"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.resname</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.resseq"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.resseq</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.score"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.score</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.segid"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.segid</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.residue_multi_criterion.xyz"><code class="docutils literal notranslate"><span class="pre">residue_multi_criterion.xyz</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.run_molprobity_program"><code class="docutils literal notranslate"><span class="pre">run_molprobity_program()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary"><code class="docutils literal notranslate"><span class="pre">summary</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.angle_rmsd"><code class="docutils literal notranslate"><span class="pre">summary.angle_rmsd</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.bond_rmsd"><code class="docutils literal notranslate"><span class="pre">summary.bond_rmsd</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.c_beta_deviations"><code class="docutils literal notranslate"><span class="pre">summary.c_beta_deviations</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.clashscore"><code class="docutils literal notranslate"><span class="pre">summary.clashscore</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.d_min"><code class="docutils literal notranslate"><span class="pre">summary.d_min</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.formats"><code class="docutils literal notranslate"><span class="pre">summary.formats</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.iter_molprobity_gui_fields"><code class="docutils literal notranslate"><span class="pre">summary.iter_molprobity_gui_fields()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.labels"><code class="docutils literal notranslate"><span class="pre">summary.labels</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.mpscore"><code class="docutils literal notranslate"><span class="pre">summary.mpscore</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.program"><code class="docutils literal notranslate"><span class="pre">summary.program</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.r_free"><code class="docutils literal notranslate"><span class="pre">summary.r_free</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.r_work"><code class="docutils literal notranslate"><span class="pre">summary.r_work</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.rama_favored"><code class="docutils literal notranslate"><span class="pre">summary.rama_favored</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.rama_outliers"><code class="docutils literal notranslate"><span class="pre">summary.rama_outliers</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.rotamer_outliers"><code class="docutils literal notranslate"><span class="pre">summary.rotamer_outliers</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.validation.molprobity.summary.show"><code class="docutils literal notranslate"><span class="pre">summary.show()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -908,7 +1067,7 @@ larger.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

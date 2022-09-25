@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -299,8 +300,73 @@ to other crystal structures at similar resolution.</p>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.polygon package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.polygon.output">mmtbx.polygon.output module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.polygon">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.polygon.output">mmtbx.polygon.output module</a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.output.blue_color_model"><code class="docutils literal notranslate"><span class="pre">blue_color_model</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.output.blue_color_model.get_bin_color"><code class="docutils literal notranslate"><span class="pre">blue_color_model.get_bin_color()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.color_model"><code class="docutils literal notranslate"><span class="pre">color_model</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.output.color_model.get_bin_color"><code class="docutils literal notranslate"><span class="pre">color_model.get_bin_color()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.color_model.get_histogram_colors"><code class="docutils literal notranslate"><span class="pre">color_model.get_histogram_colors()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.convert_histogram_data"><code class="docutils literal notranslate"><span class="pre">convert_histogram_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.get_basic_histogram_data"><code class="docutils literal notranslate"><span class="pre">get_basic_histogram_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.get_stats_and_histogram_data"><code class="docutils literal notranslate"><span class="pre">get_stats_and_histogram_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.grayscale_color_model"><code class="docutils literal notranslate"><span class="pre">grayscale_color_model</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.output.grayscale_color_model.get_bin_color"><code class="docutils literal notranslate"><span class="pre">grayscale_color_model.get_bin_color()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.histogram_layout"><code class="docutils literal notranslate"><span class="pre">histogram_layout</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.output.histogram_layout.get_absolute_label_position"><code class="docutils literal notranslate"><span class="pre">histogram_layout.get_absolute_label_position()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.histogram_layout.get_polygon_intersection"><code class="docutils literal notranslate"><span class="pre">histogram_layout.get_polygon_intersection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.histogram_layout.set_colors"><code class="docutils literal notranslate"><span class="pre">histogram_layout.set_colors()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.hsv2rgb"><code class="docutils literal notranslate"><span class="pre">hsv2rgb()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.original_color_model"><code class="docutils literal notranslate"><span class="pre">original_color_model</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.polygon_layout"><code class="docutils literal notranslate"><span class="pre">polygon_layout</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.output.polygon_layout.get_line_segments"><code class="docutils literal notranslate"><span class="pre">polygon_layout.get_line_segments()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.rainbow_color_model"><code class="docutils literal notranslate"><span class="pre">rainbow_color_model</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.output.rainbow_color_model.get_bin_color"><code class="docutils literal notranslate"><span class="pre">rainbow_color_model.get_bin_color()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.red_color_model"><code class="docutils literal notranslate"><span class="pre">red_color_model</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.output.red_color_model.get_bin_color"><code class="docutils literal notranslate"><span class="pre">red_color_model.get_bin_color()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer"><code class="docutils literal notranslate"><span class="pre">renderer</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer.draw"><code class="docutils literal notranslate"><span class="pre">renderer.draw()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer.draw_box"><code class="docutils literal notranslate"><span class="pre">renderer.draw_box()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer.draw_dashed_line"><code class="docutils literal notranslate"><span class="pre">renderer.draw_dashed_line()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer.draw_labels"><code class="docutils literal notranslate"><span class="pre">renderer.draw_labels()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer.draw_solid_line"><code class="docutils literal notranslate"><span class="pre">renderer.draw_solid_line()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer.format_value"><code class="docutils literal notranslate"><span class="pre">renderer.format_value()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer.get_color_key"><code class="docutils literal notranslate"><span class="pre">renderer.get_color_key()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer.ratio_cutoffs"><code class="docutils literal notranslate"><span class="pre">renderer.ratio_cutoffs</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer.resize"><code class="docutils literal notranslate"><span class="pre">renderer.resize()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.renderer.set_color_model"><code class="docutils literal notranslate"><span class="pre">renderer.set_color_model()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.polygon.output.rmb_color_model"><code class="docutils literal notranslate"><span class="pre">rmb_color_model</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.output.rmb_color_model.get_bin_color"><code class="docutils literal notranslate"><span class="pre">rmb_color_model.get_bin_color()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.polygon">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.polygon.apply_default_filter"><code class="docutils literal notranslate"><span class="pre">apply_default_filter()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.convert_to_histogram"><code class="docutils literal notranslate"><span class="pre">convert_to_histogram()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.filter_and_convert"><code class="docutils literal notranslate"><span class="pre">filter_and_convert()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.get_statistics_percentiles"><code class="docutils literal notranslate"><span class="pre">get_statistics_percentiles()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.load_db"><code class="docutils literal notranslate"><span class="pre">load_db()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.polygon"><code class="docutils literal notranslate"><span class="pre">polygon()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.select_dict"><code class="docutils literal notranslate"><span class="pre">select_dict()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.polygon.show_histogram"><code class="docutils literal notranslate"><span class="pre">show_histogram()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -359,7 +425,7 @@ to other crystal structures at similar resolution.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

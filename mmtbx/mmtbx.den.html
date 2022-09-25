@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -237,9 +238,51 @@
     <ul>
 <li><a class="reference internal" href="#">mmtbx.den package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.den.plot_weights">mmtbx.den.plot_weights module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.den.refinement">mmtbx.den.refinement module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.den">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.den.plot_weights">mmtbx.den.plot_weights module</a><ul>
+<li><a class="reference internal" href="#mmtbx.den.plot_weights.exercise"><code class="docutils literal notranslate"><span class="pre">exercise()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.plot_weights.plot_weights_pyplot"><code class="docutils literal notranslate"><span class="pre">plot_weights_pyplot()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.den.refinement">mmtbx.den.refinement module</a><ul>
+<li><a class="reference internal" href="#mmtbx.den.refinement.manager"><code class="docutils literal notranslate"><span class="pre">manager</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.den.refinement.manager.adp_refinement"><code class="docutils literal notranslate"><span class="pre">manager.adp_refinement()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.refinement.manager.bulk_solvent_and_scale"><code class="docutils literal notranslate"><span class="pre">manager.bulk_solvent_and_scale()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.refinement.manager.minimize"><code class="docutils literal notranslate"><span class="pre">manager.minimize()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.refinement.manager.show_den_opt_summary_cartesian"><code class="docutils literal notranslate"><span class="pre">manager.show_den_opt_summary_cartesian()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.refinement.manager.show_den_opt_summary_torsion"><code class="docutils literal notranslate"><span class="pre">manager.show_den_opt_summary_torsion()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.refinement.manager.try_den_weight_cartesian"><code class="docutils literal notranslate"><span class="pre">manager.try_den_weight_cartesian()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.refinement.manager.try_den_weight_torsion"><code class="docutils literal notranslate"><span class="pre">manager.try_den_weight_torsion()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.den">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints"><code class="docutils literal notranslate"><span class="pre">den_restraints</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.build_den_proxies"><code class="docutils literal notranslate"><span class="pre">den_restraints.build_den_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.build_den_restraints"><code class="docutils literal notranslate"><span class="pre">den_restraints.build_den_restraints()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.check_den_pair_consistency"><code class="docutils literal notranslate"><span class="pre">den_restraints.check_den_pair_consistency()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.count_atoms_per_chain"><code class="docutils literal notranslate"><span class="pre">den_restraints.count_atoms_per_chain()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.dump_den_network"><code class="docutils literal notranslate"><span class="pre">den_restraints.dump_den_network()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.find_atom_pairs"><code class="docutils literal notranslate"><span class="pre">den_restraints.find_atom_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.get_current_eq_distances"><code class="docutils literal notranslate"><span class="pre">den_restraints.get_current_eq_distances()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.get_den_atom_pairs"><code class="docutils literal notranslate"><span class="pre">den_restraints.get_den_atom_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.get_n_proxies"><code class="docutils literal notranslate"><span class="pre">den_restraints.get_n_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.get_optimization_grid"><code class="docutils literal notranslate"><span class="pre">den_restraints.get_optimization_grid()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.get_selection_strings"><code class="docutils literal notranslate"><span class="pre">den_restraints.get_selection_strings()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.import_eq_distances"><code class="docutils literal notranslate"><span class="pre">den_restraints.import_eq_distances()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.load_den_network"><code class="docutils literal notranslate"><span class="pre">den_restraints.load_den_network()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.output_kinemage"><code class="docutils literal notranslate"><span class="pre">den_restraints.output_kinemage()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.proxy_select"><code class="docutils literal notranslate"><span class="pre">den_restraints.proxy_select()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.remove_non_matching_pairs"><code class="docutils literal notranslate"><span class="pre">den_restraints.remove_non_matching_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.select_random_den_restraints"><code class="docutils literal notranslate"><span class="pre">den_restraints.select_random_den_restraints()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.show_den_summary"><code class="docutils literal notranslate"><span class="pre">den_restraints.show_den_summary()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.target_and_gradients"><code class="docutils literal notranslate"><span class="pre">den_restraints.target_and_gradients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.den.den_restraints.update_eq_distances"><code class="docutils literal notranslate"><span class="pre">den_restraints.update_eq_distances()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.den.distance_squared"><code class="docutils literal notranslate"><span class="pre">distance_squared()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -298,7 +341,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

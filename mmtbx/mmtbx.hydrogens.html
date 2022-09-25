@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -304,9 +305,60 @@
     <ul>
 <li><a class="reference internal" href="#">mmtbx.hydrogens package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.hydrogens.build_hydrogens">mmtbx.hydrogens.build_hydrogens module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.hydrogens.find">mmtbx.hydrogens.find module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.hydrogens">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.hydrogens.build_hydrogens">mmtbx.hydrogens.build_hydrogens module</a><ul>
+<li><a class="reference internal" href="#mmtbx.hydrogens.build_hydrogens.add_arg_like_h"><code class="docutils literal notranslate"><span class="pre">add_arg_like_h()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.build_hydrogens.add_ca_ha1_and_ha2"><code class="docutils literal notranslate"><span class="pre">add_ca_ha1_and_ha2()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.build_hydrogens.add_ca_ha1_or_ha2"><code class="docutils literal notranslate"><span class="pre">add_ca_ha1_or_ha2()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.build_hydrogens.add_hhh"><code class="docutils literal notranslate"><span class="pre">add_hhh()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.build_hydrogens.add_ring_h"><code class="docutils literal notranslate"><span class="pre">add_ring_h()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.build_hydrogens.regularize_model"><code class="docutils literal notranslate"><span class="pre">regularize_model()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.build_hydrogens.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.build_hydrogens.write_atoms"><code class="docutils literal notranslate"><span class="pre">write_atoms()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.hydrogens.find">mmtbx.hydrogens.find module</a><ul>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.all_master_params"><code class="docutils literal notranslate"><span class="pre">all_master_params()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.assert_water_is_consistent"><code class="docutils literal notranslate"><span class="pre">assert_water_is_consistent()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.atom_as_str"><code class="docutils literal notranslate"><span class="pre">atom_as_str()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.atom_scat"><code class="docutils literal notranslate"><span class="pre">atom_scat()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.build_dod_and_od"><code class="docutils literal notranslate"><span class="pre">build_dod_and_od()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.build_water_hydrogens_from_map"><code class="docutils literal notranslate"><span class="pre">build_water_hydrogens_from_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.build_water_hydrogens_from_map2"><code class="docutils literal notranslate"><span class="pre">build_water_hydrogens_from_map2()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.choose_h_for_water"><code class="docutils literal notranslate"><span class="pre">choose_h_for_water()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.distances_to_peaks"><code class="docutils literal notranslate"><span class="pre">distances_to_peaks()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.extract_hoh_peaks"><code class="docutils literal notranslate"><span class="pre">extract_hoh_peaks()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.find_hydrogen_peaks"><code class="docutils literal notranslate"><span class="pre">find_hydrogen_peaks()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.fit_water"><code class="docutils literal notranslate"><span class="pre">fit_water()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.get_pdb_oxygen"><code class="docutils literal notranslate"><span class="pre">get_pdb_oxygen()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.h_peak"><code class="docutils literal notranslate"><span class="pre">h_peak</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.insert_atom_into_model"><code class="docutils literal notranslate"><span class="pre">insert_atom_into_model()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.len_peaks"><code class="docutils literal notranslate"><span class="pre">len_peaks()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.make_peak_dict"><code class="docutils literal notranslate"><span class="pre">make_peak_dict()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.map_peak_filter"><code class="docutils literal notranslate"><span class="pre">map_peak_filter()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.match_dod"><code class="docutils literal notranslate"><span class="pre">match_dod()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.match_od"><code class="docutils literal notranslate"><span class="pre">match_od()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.obs_map"><code class="docutils literal notranslate"><span class="pre">obs_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.one_water_correlation"><code class="docutils literal notranslate"><span class="pre">one_water_correlation()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.print_atom"><code class="docutils literal notranslate"><span class="pre">print_atom()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.print_scat"><code class="docutils literal notranslate"><span class="pre">print_scat()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.print_scats"><code class="docutils literal notranslate"><span class="pre">print_scats()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.remove_zero_occupancy"><code class="docutils literal notranslate"><span class="pre">remove_zero_occupancy()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.scatterers_info"><code class="docutils literal notranslate"><span class="pre">scatterers_info()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.select_one_water"><code class="docutils literal notranslate"><span class="pre">select_one_water()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.water_and_peaks"><code class="docutils literal notranslate"><span class="pre">water_and_peaks</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.water_bond_angle"><code class="docutils literal notranslate"><span class="pre">water_bond_angle()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.find.water_map_correlations"><code class="docutils literal notranslate"><span class="pre">water_map_correlations()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.hydrogens">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.hydrogens.count_rotatable"><code class="docutils literal notranslate"><span class="pre">count_rotatable()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.fit_rotatable"><code class="docutils literal notranslate"><span class="pre">fit_rotatable()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.rotatable"><code class="docutils literal notranslate"><span class="pre">rotatable()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.run_fit_rotatable"><code class="docutils literal notranslate"><span class="pre">run_fit_rotatable()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.hydrogens.shortcut"><code class="docutils literal notranslate"><span class="pre">shortcut()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -365,7 +417,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

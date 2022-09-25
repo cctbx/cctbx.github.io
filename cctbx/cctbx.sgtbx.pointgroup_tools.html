@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -232,6 +233,58 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">cctbx.sgtbx.pointgroup_tools module</a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.compatible_symmetries"><code class="docutils literal notranslate"><span class="pre">compatible_symmetries()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.coset_lookup"><code class="docutils literal notranslate"><span class="pre">coset_lookup()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.edge_object"><code class="docutils literal notranslate"><span class="pre">edge_object</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.edge_object.return_unused"><code class="docutils literal notranslate"><span class="pre">edge_object.return_unused()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.edge_object.return_used"><code class="docutils literal notranslate"><span class="pre">edge_object.return_used()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.find_compatible_space_groups"><code class="docutils literal notranslate"><span class="pre">find_compatible_space_groups</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.find_compatible_space_groups.compare_abs_lists"><code class="docutils literal notranslate"><span class="pre">find_compatible_space_groups.compare_abs_lists()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.find_compatible_space_groups.find_absent_indices"><code class="docutils literal notranslate"><span class="pre">find_compatible_space_groups.find_absent_indices()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.find_compatible_space_groups.full_sys_abs_mask"><code class="docutils literal notranslate"><span class="pre">find_compatible_space_groups.full_sys_abs_mask()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.find_compatible_space_groups.get_space_groups_compatible_with_likely_point_group"><code class="docutils literal notranslate"><span class="pre">find_compatible_space_groups.get_space_groups_compatible_with_likely_point_group()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.find_compatible_space_groups.make_sys_abs_list"><code class="docutils literal notranslate"><span class="pre">find_compatible_space_groups.make_sys_abs_list()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.find_compatible_space_groups.show"><code class="docutils literal notranslate"><span class="pre">find_compatible_space_groups.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.node_object"><code class="docutils literal notranslate"><span class="pre">node_object</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.point_group_graph"><code class="docutils literal notranslate"><span class="pre">point_group_graph</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.point_group_graph.build_it"><code class="docutils literal notranslate"><span class="pre">point_group_graph.build_it()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.point_group_graph.get_maximal_subgroup"><code class="docutils literal notranslate"><span class="pre">point_group_graph.get_maximal_subgroup()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.point_group_graph.make_and_place_nodes_and_connections"><code class="docutils literal notranslate"><span class="pre">point_group_graph.make_and_place_nodes_and_connections()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.point_group_graph.remove_point_group_and_its_super_groups_from_graph"><code class="docutils literal notranslate"><span class="pre">point_group_graph.remove_point_group_and_its_super_groups_from_graph()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.point_group_graph.reverse_dict"><code class="docutils literal notranslate"><span class="pre">point_group_graph.reverse_dict()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.reference_setting_choices"><code class="docutils literal notranslate"><span class="pre">reference_setting_choices()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.space_group_graph_from_cell_and_sg"><code class="docutils literal notranslate"><span class="pre">space_group_graph_from_cell_and_sg</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.space_group_graph_from_cell_and_sg.graphviz_pg_graph"><code class="docutils literal notranslate"><span class="pre">space_group_graph_from_cell_and_sg.graphviz_pg_graph()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.space_group_graph_from_cell_and_sg.return_likely_sg_and_cell"><code class="docutils literal notranslate"><span class="pre">space_group_graph_from_cell_and_sg.return_likely_sg_and_cell()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.space_group_graph_from_cell_and_sg.show"><code class="docutils literal notranslate"><span class="pre">space_group_graph_from_cell_and_sg.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.sub_super_point_group_relations"><code class="docutils literal notranslate"><span class="pre">sub_super_point_group_relations</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.sub_super_point_group_relations.assemble_symops"><code class="docutils literal notranslate"><span class="pre">sub_super_point_group_relations.assemble_symops()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.sub_super_point_group_relations.find_left_over_symops"><code class="docutils literal notranslate"><span class="pre">sub_super_point_group_relations.find_left_over_symops()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.sub_super_point_group_relations.get_symops_from_supergroup_that_are_not_in_subgroup"><code class="docutils literal notranslate"><span class="pre">sub_super_point_group_relations.get_symops_from_supergroup_that_are_not_in_subgroup()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.sub_super_point_group_relations.return_next_index"><code class="docutils literal notranslate"><span class="pre">sub_super_point_group_relations.return_next_index()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.sub_super_point_group_relations.return_next_left_over_set"><code class="docutils literal notranslate"><span class="pre">sub_super_point_group_relations.return_next_left_over_set()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.sub_super_point_group_relations.return_next_set"><code class="docutils literal notranslate"><span class="pre">sub_super_point_group_relations.return_next_set()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.sub_super_point_group_relations.return_next_sg"><code class="docutils literal notranslate"><span class="pre">sub_super_point_group_relations.return_next_sg()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.pointgroup_tools.sub_super_point_group_relations.show"><code class="docutils literal notranslate"><span class="pre">sub_super_point_group_relations.show()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="cctbx.sgtbx.plane_groups.html"
                           title="previous chapter">cctbx.sgtbx.plane_groups module</a></p>
@@ -285,7 +338,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

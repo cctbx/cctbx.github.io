@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -896,9 +897,187 @@ input (rather than taking f_model.manager or the Miller arrays directly).</p>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.twinning package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.twinning.probabalistic_detwinning">mmtbx.twinning.probabalistic_detwinning module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.twinning.twin_f_model">mmtbx.twinning.twin_f_model module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.twinning.twin_map_utils">mmtbx.twinning.twin_map_utils module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.twinning.probabalistic_detwinning">mmtbx.twinning.probabalistic_detwinning module</a><ul>
+<li><a class="reference internal" href="#mmtbx.twinning.probabalistic_detwinning.detwin"><code class="docutils literal notranslate"><span class="pre">detwin</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.twinning.probabalistic_detwinning.detwin.compute_functional_and_gradients"><code class="docutils literal notranslate"><span class="pre">detwin.compute_functional_and_gradients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.probabalistic_detwinning.detwin.d_log_p"><code class="docutils literal notranslate"><span class="pre">detwin.d_log_p()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.probabalistic_detwinning.detwin.log_p"><code class="docutils literal notranslate"><span class="pre">detwin.log_p()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.probabalistic_detwinning.detwin.snd"><code class="docutils literal notranslate"><span class="pre">detwin.snd()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.twinning.probabalistic_detwinning.detwin_miller_array"><code class="docutils literal notranslate"><span class="pre">detwin_miller_array()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.probabalistic_detwinning.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.probabalistic_detwinning.test_detwin"><code class="docutils literal notranslate"><span class="pre">test_detwin()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.twinning.twin_f_model">mmtbx.twinning.twin_f_model module</a><ul>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.get_initial_scale"><code class="docutils literal notranslate"><span class="pre">get_initial_scale()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.kb_range"><code class="docutils literal notranslate"><span class="pre">kb_range()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.ls_ff_weights"><code class="docutils literal notranslate"><span class="pre">ls_ff_weights()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.ls_sigma_weights"><code class="docutils literal notranslate"><span class="pre">ls_sigma_weights()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.n_as_s"><code class="docutils literal notranslate"><span class="pre">n_as_s()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.resolution_bin"><code class="docutils literal notranslate"><span class="pre">resolution_bin</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameter_mask"><code class="docutils literal notranslate"><span class="pre">scaling_parameter_mask</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.d_t_d_k_overall_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.d_t_d_k_overall_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.d_t_d_k_part_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.d_t_d_k_part_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.d_t_d_k_sol_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.d_t_d_k_sol_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.d_t_d_u_part_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.d_t_d_u_part_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.d_t_d_u_sol_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.d_t_d_u_sol_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.d_t_d_u_star_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.d_t_d_u_star_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.deep_copy"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.deep_copy()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.k_overall_to_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.k_overall_to_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.k_part_to_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.k_part_to_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.k_sol_to_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.k_sol_to_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.ref_to_k_overall"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.ref_to_k_overall()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.ref_to_k_part"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.ref_to_k_part()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.ref_to_k_sol"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.ref_to_k_sol()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.ref_to_u_part"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.ref_to_u_part()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.ref_to_u_sol"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.ref_to_u_sol()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.ref_to_u_star"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.ref_to_u_star()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.show"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.u_part_to_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.u_part_to_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.u_sol_to_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.u_sol_to_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.scaling_parameters_object.u_star_to_ref"><code class="docutils literal notranslate"><span class="pre">scaling_parameters_object.u_star_to_ref()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.target_attributes"><code class="docutils literal notranslate"><span class="pre">target_attributes</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.target_functor"><code class="docutils literal notranslate"><span class="pre">target_functor</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.target_functor.prepare_for_minimization"><code class="docutils literal notranslate"><span class="pre">target_functor.prepare_for_minimization()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.target_functor.target_function_is_invariant_under_allowed_origin_shifts"><code class="docutils literal notranslate"><span class="pre">target_functor.target_function_is_invariant_under_allowed_origin_shifts()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.target_result"><code class="docutils literal notranslate"><span class="pre">target_result</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.target_result.d_target_d_f_calc_work"><code class="docutils literal notranslate"><span class="pre">target_result.d_target_d_f_calc_work()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.target_result.d_target_d_f_model_work"><code class="docutils literal notranslate"><span class="pre">target_result.d_target_d_f_model_work()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.target_result.target_test"><code class="docutils literal notranslate"><span class="pre">target_result.target_test()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.target_result.target_work"><code class="docutils literal notranslate"><span class="pre">target_result.target_work()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_fraction_object"><code class="docutils literal notranslate"><span class="pre">twin_fraction_object</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_fraction_object.d_t_d_twin_fraction_ref"><code class="docutils literal notranslate"><span class="pre">twin_fraction_object.d_t_d_twin_fraction_ref()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_fraction_object.ref_to_twin_fraction"><code class="docutils literal notranslate"><span class="pre">twin_fraction_object.ref_to_twin_fraction()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_fraction_object.show"><code class="docutils literal notranslate"><span class="pre">twin_fraction_object.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_fraction_object.twin_fraction_to_ref"><code class="docutils literal notranslate"><span class="pre">twin_fraction_object.twin_fraction_to_ref()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager"><code class="docutils literal notranslate"><span class="pre">twin_model_manager</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.alpha_beta"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.alpha_beta()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.alpha_beta_f"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.alpha_beta_f()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.alpha_beta_w"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.alpha_beta_w()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.anomalous_map"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.anomalous_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.apply_back_b_iso"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.apply_back_b_iso()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.b_cart"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.b_cart()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.b_iso"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.b_iso()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.b_part"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.b_part()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.b_sol"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.b_sol()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.bulk_solvent_mask"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.bulk_solvent_mask()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.compute_f_atoms"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.compute_f_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.compute_map_coefficients"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.compute_map_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.construct_miller_set"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.construct_miller_set()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.deep_copy"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.deep_copy()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.determine_n_bins"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.determine_n_bins()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.detwin_data"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.detwin_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.electron_density_map"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.electron_density_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.explain_members"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.explain_members()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.export"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.export()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.export_f_obs_flags_as_mtz"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.export_f_obs_flags_as_mtz()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_bulk"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_bulk()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_bulk_t"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_bulk_t()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_bulk_w"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_bulk_w()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_calc"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_calc()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_calc_t"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_calc_t()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_calc_w"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_calc_w()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_mask"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_mask()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_mask_t"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_mask_t()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_mask_w"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_mask_w()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_model"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_model()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_model_scaled_with_k1_composite_work_free"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_model_scaled_with_k1_composite_work_free()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_model_t"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_model_t()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_model_w"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_model_w()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_obs"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_obs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_obs_work"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_obs_work()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.f_part1"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.f_part1()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.fb_bulk"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.fb_bulk()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.fb_bulk_t"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.fb_bulk_t()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.fb_bulk_w"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.fb_bulk_w()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.fft_vs_direct"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.fft_vs_direct()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.figures_of_merit"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.figures_of_merit()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.figures_of_merit_t"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.figures_of_merit_t()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.figures_of_merit_work"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.figures_of_merit_work()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.fofc_map"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.fofc_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.hl_coeffs"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.hl_coeffs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.info"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.info()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.is_twin_fmodel_manager"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.is_twin_fmodel_manager()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.k_part"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.k_part()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.k_sol"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.k_sol()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.k_sol_b_sol"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.k_sol_b_sol()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.k_sol_u_sol"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.k_sol_u_sol()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.k_sols"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.k_sols()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.map_coefficients"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.map_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.model_error_ml"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.model_error_ml()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.outlier_selection"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.outlier_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.phase_errors"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.phase_errors()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.phase_errors_test"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.phase_errors_test()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.phase_errors_work"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.phase_errors_work()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.print_diffs"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.print_diffs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.r_all"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.r_all()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.r_factors_in_resolution_bins"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.r_factors_in_resolution_bins()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.r_free"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.r_free()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.r_free_flags"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.r_free_flags()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.r_overall_low_high"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.r_overall_low_high()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.r_values"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.r_values()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.r_work"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.r_work()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.r_work_in_lowest_resolution_bin"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.r_work_in_lowest_resolution_bin()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.r_work_scale_k1_completeness_in_bins"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.r_work_scale_k1_completeness_in_bins()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.remove_outliers"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.remove_outliers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.resolution_filter"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.resolution_filter()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.scale_k1"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.scale_k1()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.scale_k1_t"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.scale_k1_t()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.scale_k1_w"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.scale_k1_w()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.scale_k3_t"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.scale_k3_t()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.scale_k3_w"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.scale_k3_w()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.select"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.select()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.set_pseudo_ml_weights"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.set_pseudo_ml_weights()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.show"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.show_comprehensive"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.show_comprehensive()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.show_essential"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.show_essential()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.show_fom_phase_error_alpha_beta_in_bins"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.show_fom_phase_error_alpha_beta_in_bins()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.show_k_sol_b_sol_b_cart_target"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.show_k_sol_b_sol_b_cart_target()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.show_parameter_summary"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.show_parameter_summary()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.show_targets"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.show_targets()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.sigmaa_object"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.sigmaa_object()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.statistics_in_resolution_bins"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.statistics_in_resolution_bins()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.target"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.target()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.target_attributes"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.target_attributes()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.target_f"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.target_f()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.target_functor"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.target_functor()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.twin_fraction_scan"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.twin_fraction_scan()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.twin_test"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.twin_test()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.two_fofc_map"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.two_fofc_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.u_cart"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.u_cart()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.u_iso"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.u_iso()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.u_iso_as_u_cart"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.u_iso_as_u_cart()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.u_sol"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.u_sol()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.u_star"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.u_star()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.update"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.update()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.update_all_scales"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.update_all_scales()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.update_core"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.update_core()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.update_f_hydrogens"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.update_f_hydrogens()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.update_f_mask"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.update_f_mask()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.update_solvent_and_scale"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.update_solvent_and_scale()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.update_xray_structure"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.update_xray_structure()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.w_star"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.w_star()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_f_model.twin_model_manager.wilson_b"><code class="docutils literal notranslate"><span class="pre">twin_model_manager.wilson_b()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.twinning.twin_map_utils">mmtbx.twinning.twin_map_utils module</a><ul>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_map_utils.print_help"><code class="docutils literal notranslate"><span class="pre">print_help()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.twinning.twin_map_utils.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-mmtbx.twinning">Module contents</a></li>
 </ul>
 </li>
@@ -958,7 +1137,7 @@ input (rather than taking f_model.manager or the Miller arrays directly).</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

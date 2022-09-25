@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -48,15 +49,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-mmtbx.ions.identify">
-<span id="mmtbx-ions-identify-module"></span><h1>mmtbx.ions.identify module<a class="headerlink" href="#module-mmtbx.ions.identify" title="Permalink to this heading">¶</a></h1>
+  <section id="mmtbx-ions-identify-module">
+<h1>mmtbx.ions.identify module<a class="headerlink" href="#mmtbx-ions-identify-module" title="Permalink to this heading">¶</a></h1>
 <p>Examines a structure for metal ions. Can iterate over all atoms, examining
 their density and chemical environment to determine if they are correctly
 identified, or if there are better candidate ions that they can be replaced
 with.</p>
 <p>See mmtbx.ions.build to actually modify the structure, the code in this module
 handles ion identification, but only prints out messages to a log.</p>
-<dl class="py class">
+<span class="target" id="module-mmtbx.ions.identify"></span><dl class="py class">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">AtomProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
@@ -397,7 +398,7 @@ approximate detection of transition-metal binding sites.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ion_params</strong> (<a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters"><em>mmtbx.ions.metal_parameters</em></a>) – </p></li>
 <li><p><strong>distance</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><em>optional</em>) – </p></li>
-<li><p><strong>exclude_atoms</strong> (<em>tuple of </em><em>...</em>) – </p></li>
+<li><p><strong>exclude_atoms</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em> of </em><em>...</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -614,7 +615,7 @@ candidates appear to probable ion identities.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </p></li>
 <li><p><strong>debug</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </p></li>
-<li><p><strong>candidates</strong> (<em>list of str</em><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>candidates</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – </p></li>
 <li><p><strong>no_file</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </p></li>
 <li><p><strong>out</strong> (<em>file</em><em>, </em><em>optional</em>) – </p></li>
 </ul>
@@ -636,7 +637,7 @@ appropriate.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>out</strong> (<em>file</em><em>, </em><em>otpional</em>) – </p></li>
 <li><p><strong>debug</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.bool" title="scitbx.array_family.flex.bool"><em>bool</em></a><em>, </em><em>optional</em>) – </p></li>
-<li><p><strong>candidates</strong> (<em>list of str</em><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>candidates</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -644,7 +645,7 @@ appropriate.</p>
 better changed to that new metal identity.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of tuple of int, <a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters">mmtbx.ions.metal_parameters</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a> of <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int">int</a>, <a class="reference internal" href="mmtbx.ions.html#mmtbx.ions.metal_parameters" title="mmtbx.ions.metal_parameters">mmtbx.ions.metal_parameters</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -665,7 +666,7 @@ filtering by connectivity and 2mFo-DFc map level.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list of mmtbx.ions.environment.atom_contact</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a> of <a class="reference internal" href="mmtbx.ions.environment.html#mmtbx.ions.environment.atom_contact" title="mmtbx.ions.environment.atom_contact">mmtbx.ions.environment.atom_contact</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -754,7 +755,7 @@ a site.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>(tuple of float, <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a>) or None</p>
+<dd class="field-even"><p>(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a> of <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a>, <a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float">float</a>) or None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1013,6 +1014,115 @@ and retrieval.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">mmtbx.ions.identify module</a><ul>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties"><code class="docutils literal notranslate"><span class="pre">AtomProperties</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.ANOM_PEAK"><code class="docutils literal notranslate"><span class="pre">AtomProperties.ANOM_PEAK</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.BAD_COORD_ATOM"><code class="docutils literal notranslate"><span class="pre">AtomProperties.BAD_COORD_ATOM</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.BAD_COORD_RESIDUE"><code class="docutils literal notranslate"><span class="pre">AtomProperties.BAD_COORD_RESIDUE</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.BAD_FPP"><code class="docutils literal notranslate"><span class="pre">AtomProperties.BAD_FPP</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.BAD_GEOMETRY"><code class="docutils literal notranslate"><span class="pre">AtomProperties.BAD_GEOMETRY</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.BAD_HALIDE"><code class="docutils literal notranslate"><span class="pre">AtomProperties.BAD_HALIDE</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.BAD_VALENCES"><code class="docutils literal notranslate"><span class="pre">AtomProperties.BAD_VALENCES</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.BAD_VECTORS"><code class="docutils literal notranslate"><span class="pre">AtomProperties.BAD_VECTORS</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.CLOSE_CONTACT"><code class="docutils literal notranslate"><span class="pre">AtomProperties.CLOSE_CONTACT</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.COORDING_GEOMETRY"><code class="docutils literal notranslate"><span class="pre">AtomProperties.COORDING_GEOMETRY</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.FOFC_HOLE"><code class="docutils literal notranslate"><span class="pre">AtomProperties.FOFC_HOLE</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.FOFC_PEAK"><code class="docutils literal notranslate"><span class="pre">AtomProperties.FOFC_PEAK</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.HIGH_2FOFC"><code class="docutils literal notranslate"><span class="pre">AtomProperties.HIGH_2FOFC</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.HIGH_B"><code class="docutils literal notranslate"><span class="pre">AtomProperties.HIGH_B</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.HIGH_OCC"><code class="docutils literal notranslate"><span class="pre">AtomProperties.HIGH_OCC</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.LIKE_COORD"><code class="docutils literal notranslate"><span class="pre">AtomProperties.LIKE_COORD</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.LOW_B"><code class="docutils literal notranslate"><span class="pre">AtomProperties.LOW_B</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.LOW_OCC"><code class="docutils literal notranslate"><span class="pre">AtomProperties.LOW_OCC</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.NO_2FOFC_PEAK"><code class="docutils literal notranslate"><span class="pre">AtomProperties.NO_2FOFC_PEAK</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.NO_ANOM_PEAK"><code class="docutils literal notranslate"><span class="pre">AtomProperties.NO_ANOM_PEAK</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.NO_GEOMETRY"><code class="docutils literal notranslate"><span class="pre">AtomProperties.NO_GEOMETRY</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.TOO_FEW_COORD"><code class="docutils literal notranslate"><span class="pre">AtomProperties.TOO_FEW_COORD</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.TOO_FEW_NON_WATERS"><code class="docutils literal notranslate"><span class="pre">AtomProperties.TOO_FEW_NON_WATERS</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.TOO_MANY_COORD"><code class="docutils literal notranslate"><span class="pre">AtomProperties.TOO_MANY_COORD</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.VERY_BAD_VALENCES"><code class="docutils literal notranslate"><span class="pre">AtomProperties.VERY_BAD_VALENCES</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.atom_weight"><code class="docutils literal notranslate"><span class="pre">AtomProperties.atom_weight()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.check_fpp_ratio"><code class="docutils literal notranslate"><span class="pre">AtomProperties.check_fpp_ratio()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.check_ion_environment"><code class="docutils literal notranslate"><span class="pre">AtomProperties.check_ion_environment()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.error_strs"><code class="docutils literal notranslate"><span class="pre">AtomProperties.error_strs</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.get_atom_type"><code class="docutils literal notranslate"><span class="pre">AtomProperties.get_atom_type()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.has_compatible_ligands"><code class="docutils literal notranslate"><span class="pre">AtomProperties.has_compatible_ligands()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.identity"><code class="docutils literal notranslate"><span class="pre">AtomProperties.identity()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.is_compatible_anomalous_scattering"><code class="docutils literal notranslate"><span class="pre">AtomProperties.is_compatible_anomalous_scattering()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.is_compatible_site"><code class="docutils literal notranslate"><span class="pre">AtomProperties.is_compatible_site()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.is_correctly_identified"><code class="docutils literal notranslate"><span class="pre">AtomProperties.is_correctly_identified()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.looks_like_nucleotide_phosphate_site"><code class="docutils literal notranslate"><span class="pre">AtomProperties.looks_like_nucleotide_phosphate_site()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.number_of_atoms_within_radius"><code class="docutils literal notranslate"><span class="pre">AtomProperties.number_of_atoms_within_radius()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.number_of_backbone_oxygens"><code class="docutils literal notranslate"><span class="pre">AtomProperties.number_of_backbone_oxygens()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.number_of_favored_ligand_residues"><code class="docutils literal notranslate"><span class="pre">AtomProperties.number_of_favored_ligand_residues()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.show_ion_results"><code class="docutils literal notranslate"><span class="pre">AtomProperties.show_ion_results()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.AtomProperties.show_properties"><code class="docutils literal notranslate"><span class="pre">AtomProperties.show_properties()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.create_manager"><code class="docutils literal notranslate"><span class="pre">create_manager()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.find_anomalous_scatterers"><code class="docutils literal notranslate"><span class="pre">find_anomalous_scatterers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_master_phil"><code class="docutils literal notranslate"><span class="pre">ion_master_phil()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result"><code class="docutils literal notranslate"><span class="pre">ion_result</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.altloc"><code class="docutils literal notranslate"><span class="pre">ion_result.altloc</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.atom_selection"><code class="docutils literal notranslate"><span class="pre">ion_result.atom_selection</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.b_iso"><code class="docutils literal notranslate"><span class="pre">ion_result.b_iso</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.chain_id"><code class="docutils literal notranslate"><span class="pre">ion_result.chain_id</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.chem_env"><code class="docutils literal notranslate"><span class="pre">ion_result.chem_env</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.element"><code class="docutils literal notranslate"><span class="pre">ion_result.element</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.icode"><code class="docutils literal notranslate"><span class="pre">ion_result.icode</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.name"><code class="docutils literal notranslate"><span class="pre">ion_result.name</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.occupancy"><code class="docutils literal notranslate"><span class="pre">ion_result.occupancy</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.outlier"><code class="docutils literal notranslate"><span class="pre">ion_result.outlier</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.resname"><code class="docutils literal notranslate"><span class="pre">ion_result.resname</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.resseq"><code class="docutils literal notranslate"><span class="pre">ion_result.resseq</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.scatter_env"><code class="docutils literal notranslate"><span class="pre">ion_result.scatter_env</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.score"><code class="docutils literal notranslate"><span class="pre">ion_result.score</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.segid"><code class="docutils literal notranslate"><span class="pre">ion_result.segid</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.show"><code class="docutils literal notranslate"><span class="pre">ion_result.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.show_brief"><code class="docutils literal notranslate"><span class="pre">ion_result.show_brief()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.symop"><code class="docutils literal notranslate"><span class="pre">ion_result.symop</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.ion_result.xyz"><code class="docutils literal notranslate"><span class="pre">ion_result.xyz</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager"><code class="docutils literal notranslate"><span class="pre">manager</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.analyze_substructure"><code class="docutils literal notranslate"><span class="pre">manager.analyze_substructure()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.analyze_water"><code class="docutils literal notranslate"><span class="pre">manager.analyze_water()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.analyze_waters"><code class="docutils literal notranslate"><span class="pre">manager.analyze_waters()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.find_nearby_atoms"><code class="docutils literal notranslate"><span class="pre">manager.find_nearby_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.get_b_iso"><code class="docutils literal notranslate"><span class="pre">manager.get_b_iso()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.get_fp"><code class="docutils literal notranslate"><span class="pre">manager.get_fp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.get_fpp"><code class="docutils literal notranslate"><span class="pre">manager.get_fpp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.get_initial_b_iso"><code class="docutils literal notranslate"><span class="pre">manager.get_initial_b_iso()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.get_map"><code class="docutils literal notranslate"><span class="pre">manager.get_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.get_map_gaussian_fit"><code class="docutils literal notranslate"><span class="pre">manager.get_map_gaussian_fit()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.get_map_sphere_variance"><code class="docutils literal notranslate"><span class="pre">manager.get_map_sphere_variance()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.get_strict_valence_flag"><code class="docutils literal notranslate"><span class="pre">manager.get_strict_valence_flag()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.guess_b_iso_real"><code class="docutils literal notranslate"><span class="pre">manager.guess_b_iso_real()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.guess_molecular_weight"><code class="docutils literal notranslate"><span class="pre">manager.guess_molecular_weight()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.looks_like_halide_ion"><code class="docutils literal notranslate"><span class="pre">manager.looks_like_halide_ion()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.map_stats"><code class="docutils literal notranslate"><span class="pre">manager.map_stats()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.principal_axes_of_inertia"><code class="docutils literal notranslate"><span class="pre">manager.principal_axes_of_inertia()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.refine_anomalous_substructure"><code class="docutils literal notranslate"><span class="pre">manager.refine_anomalous_substructure()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.show_current_scattering_statistics"><code class="docutils literal notranslate"><span class="pre">manager.show_current_scattering_statistics()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.update_maps"><code class="docutils literal notranslate"><span class="pre">manager.update_maps()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.update_structure"><code class="docutils literal notranslate"><span class="pre">manager.update_structure()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.validate_ion"><code class="docutils literal notranslate"><span class="pre">manager.validate_ion()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.validate_ions"><code class="docutils literal notranslate"><span class="pre">manager.validate_ions()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.manager.water_selection"><code class="docutils literal notranslate"><span class="pre">manager.water_selection()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.ions.identify.water_result"><code class="docutils literal notranslate"><span class="pre">water_result</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.ions.identify.water_result.show_summary"><code class="docutils literal notranslate"><span class="pre">water_result.show_summary()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="mmtbx.ions.halides.html"
                           title="previous chapter">mmtbx.ions.halides module</a></p>
@@ -1066,7 +1176,7 @@ and retrieval.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

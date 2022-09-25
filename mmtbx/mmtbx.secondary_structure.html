@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -454,10 +455,99 @@ miss helices in poor structures.</p>
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#mmtbx-secondary-structure-base-pairing-module">mmtbx.secondary_structure.base_pairing module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.secondary_structure.dssp">mmtbx.secondary_structure.dssp module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.secondary_structure.proteins">mmtbx.secondary_structure.proteins module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.secondary_structure.utils">mmtbx.secondary_structure.utils module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.secondary_structure">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.secondary_structure.dssp">mmtbx.secondary_structure.dssp module</a><ul>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.bridge"><code class="docutils literal notranslate"><span class="pre">bridge</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.bridge.contains_hbond"><code class="docutils literal notranslate"><span class="pre">bridge.contains_hbond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.bridge.invert"><code class="docutils literal notranslate"><span class="pre">bridge.invert()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.bridge.show"><code class="docutils literal notranslate"><span class="pre">bridge.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.dssp"><code class="docutils literal notranslate"><span class="pre">dssp</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.dssp.find_helices"><code class="docutils literal notranslate"><span class="pre">dssp.find_helices()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.dssp.find_nearby_backbone_n"><code class="docutils literal notranslate"><span class="pre">dssp.find_nearby_backbone_n()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.dssp.find_sheets"><code class="docutils literal notranslate"><span class="pre">dssp.find_sheets()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.dssp.get_annotation"><code class="docutils literal notranslate"><span class="pre">dssp.get_annotation()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.dssp.process_o_n_interaction"><code class="docutils literal notranslate"><span class="pre">dssp.process_o_n_interaction()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.dssp.show"><code class="docutils literal notranslate"><span class="pre">dssp.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.get_pdb_fields"><code class="docutils literal notranslate"><span class="pre">get_pdb_fields()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.hbond"><code class="docutils literal notranslate"><span class="pre">hbond</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.hbond.as_pymol_cmd"><code class="docutils literal notranslate"><span class="pre">hbond.as_pymol_cmd()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.hbond.get_n_turn"><code class="docutils literal notranslate"><span class="pre">hbond.get_n_turn()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.hbond.is_bridge"><code class="docutils literal notranslate"><span class="pre">hbond.is_bridge()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.hbond.is_helical"><code class="docutils literal notranslate"><span class="pre">hbond.is_helical()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.hbond.is_in_ladder"><code class="docutils literal notranslate"><span class="pre">hbond.is_in_ladder()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.hbond.is_same_chain"><code class="docutils literal notranslate"><span class="pre">hbond.is_same_chain()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.hbond.set_helical"><code class="docutils literal notranslate"><span class="pre">hbond.set_helical()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.hbond.show"><code class="docutils literal notranslate"><span class="pre">hbond.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.ladder"><code class="docutils literal notranslate"><span class="pre">ladder</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.ladder.add_bridge"><code class="docutils literal notranslate"><span class="pre">ladder.add_bridge()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.ladder.get_initial_strand"><code class="docutils literal notranslate"><span class="pre">ladder.get_initial_strand()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.ladder.get_next_strand"><code class="docutils literal notranslate"><span class="pre">ladder.get_next_strand()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.ladder.get_residue_range"><code class="docutils literal notranslate"><span class="pre">ladder.get_residue_range()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.ladder.get_strand_register"><code class="docutils literal notranslate"><span class="pre">ladder.get_strand_register()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.dssp.ladder.show"><code class="docutils literal notranslate"><span class="pre">ladder.show()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.secondary_structure.proteins">mmtbx.secondary_structure.proteins module</a><ul>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.create_helix_hydrogen_bond_proxies"><code class="docutils literal notranslate"><span class="pre">create_helix_hydrogen_bond_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.create_sheet_hydrogen_bond_proxies"><code class="docutils literal notranslate"><span class="pre">create_sheet_hydrogen_bond_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.find_helices_simple"><code class="docutils literal notranslate"><span class="pre">find_helices_simple</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.find_helices_simple.as_pdb_records"><code class="docutils literal notranslate"><span class="pre">find_helices_simple.as_pdb_records()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.find_helices_simple.as_restraint_group_phil"><code class="docutils literal notranslate"><span class="pre">find_helices_simple.as_restraint_group_phil()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.find_helices_simple.as_restraint_groups"><code class="docutils literal notranslate"><span class="pre">find_helices_simple.as_restraint_groups()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.find_helices_simple.build_selections"><code class="docutils literal notranslate"><span class="pre">find_helices_simple.build_selections()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.find_helices_simple.process_break"><code class="docutils literal notranslate"><span class="pre">find_helices_simple.process_break()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.find_helices_simple.push_back"><code class="docutils literal notranslate"><span class="pre">find_helices_simple.push_back()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.find_helices_simple.run"><code class="docutils literal notranslate"><span class="pre">find_helices_simple.run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.find_helices_simple.show"><code class="docutils literal notranslate"><span class="pre">find_helices_simple.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.proteins.is_approximately_helical"><code class="docutils literal notranslate"><span class="pre">is_approximately_helical()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.secondary_structure.utils">mmtbx.secondary_structure.utils module</a><ul>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.utils.get_residue_name_from_selection"><code class="docutils literal notranslate"><span class="pre">get_residue_name_from_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.utils.hydrogen_bond_from_selection_pair"><code class="docutils literal notranslate"><span class="pre">hydrogen_bond_from_selection_pair()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.secondary_structure">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.contiguous_ss_selections"><code class="docutils literal notranslate"><span class="pre">contiguous_ss_selections()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.get_ksdssp_exe_path"><code class="docutils literal notranslate"><span class="pre">get_ksdssp_exe_path()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager"><code class="docutils literal notranslate"><span class="pre">manager</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.apply_phil_str"><code class="docutils literal notranslate"><span class="pre">manager.apply_phil_str()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.as_phil_str"><code class="docutils literal notranslate"><span class="pre">manager.as_phil_str()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.base_pair_selection"><code class="docutils literal notranslate"><span class="pre">manager.base_pair_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.base_pair_selections"><code class="docutils literal notranslate"><span class="pre">manager.base_pair_selections()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.beta_selection"><code class="docutils literal notranslate"><span class="pre">manager.beta_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.beta_selections"><code class="docutils literal notranslate"><span class="pre">manager.beta_selections()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.calculate_structure_content"><code class="docutils literal notranslate"><span class="pre">manager.calculate_structure_content()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.create_all_new_restraints"><code class="docutils literal notranslate"><span class="pre">manager.create_all_new_restraints()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.create_protein_hbond_proxies"><code class="docutils literal notranslate"><span class="pre">manager.create_protein_hbond_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.find_approximate_helices"><code class="docutils literal notranslate"><span class="pre">manager.find_approximate_helices()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.find_automatically"><code class="docutils literal notranslate"><span class="pre">manager.find_automatically()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.find_base_pairs"><code class="docutils literal notranslate"><span class="pre">manager.find_base_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.find_sec_str"><code class="docutils literal notranslate"><span class="pre">manager.find_sec_str()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.get_default_ss_params"><code class="docutils literal notranslate"><span class="pre">manager.get_default_ss_params()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.get_helix_types"><code class="docutils literal notranslate"><span class="pre">manager.get_helix_types()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.get_simple_bonds"><code class="docutils literal notranslate"><span class="pre">manager.get_simple_bonds()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.helix_selection"><code class="docutils literal notranslate"><span class="pre">manager.helix_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.helix_selections"><code class="docutils literal notranslate"><span class="pre">manager.helix_selections()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.initialize"><code class="docutils literal notranslate"><span class="pre">manager.initialize()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.records_for_pdb_file"><code class="docutils literal notranslate"><span class="pre">manager.records_for_pdb_file()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.manager.show_summary"><code class="docutils literal notranslate"><span class="pre">manager.show_summary()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.run_ksdssp"><code class="docutils literal notranslate"><span class="pre">run_ksdssp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.run_ksdssp_direct"><code class="docutils literal notranslate"><span class="pre">run_ksdssp_direct()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.secondary_structure.sec_str_from_phil"><code class="docutils literal notranslate"><span class="pre">sec_str_from_phil()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -516,7 +606,7 @@ miss helices in poor structures.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

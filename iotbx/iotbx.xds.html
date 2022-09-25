@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -320,7 +321,53 @@ information about the file format.</p>
     <ul>
 <li><a class="reference internal" href="#">iotbx.xds</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#module-iotbx.xds.xds_inp">API documentation</a></li>
+<li><a class="reference internal" href="#module-iotbx.xds.xds_inp">API documentation</a><ul>
+<li><a class="reference internal" href="#iotbx.xds.xds_inp.reader"><code class="docutils literal notranslate"><span class="pre">reader</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.xds.xds_inp.reader.is_xds_inp_file"><code class="docutils literal notranslate"><span class="pre">reader.is_xds_inp_file()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.xds_inp.reader.parse_lines"><code class="docutils literal notranslate"><span class="pre">reader.parse_lines()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.xds_inp.reader.read_file"><code class="docutils literal notranslate"><span class="pre">reader.read_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.xds.xparm.reader"><code class="docutils literal notranslate"><span class="pre">reader</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.xds.xparm.reader.find_version"><code class="docutils literal notranslate"><span class="pre">reader.find_version()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.xparm.reader.is_xparm_file"><code class="docutils literal notranslate"><span class="pre">reader.is_xparm_file()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.xparm.reader.parse_version_1_tokens"><code class="docutils literal notranslate"><span class="pre">reader.parse_version_1_tokens()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.xparm.reader.parse_version_2_tokens"><code class="docutils literal notranslate"><span class="pre">reader.parse_version_2_tokens()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.xparm.reader.read_file"><code class="docutils literal notranslate"><span class="pre">reader.read_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.xds.xparm.write"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.xparm.writer"><code class="docutils literal notranslate"><span class="pre">writer</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.xds.xparm.writer.show"><code class="docutils literal notranslate"><span class="pre">writer.show()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.xparm.writer.write_file"><code class="docutils literal notranslate"><span class="pre">writer.write_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.xds.read_ascii.get_rhs"><code class="docutils literal notranslate"><span class="pre">get_rhs()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.read_ascii.reader"><code class="docutils literal notranslate"><span class="pre">reader</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.xds.read_ascii.reader.as_miller_array"><code class="docutils literal notranslate"><span class="pre">reader.as_miller_array()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.read_ascii.reader.as_miller_arrays"><code class="docutils literal notranslate"><span class="pre">reader.as_miller_arrays()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.read_ascii.reader.batch_as_miller_array"><code class="docutils literal notranslate"><span class="pre">reader.batch_as_miller_array()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.read_ascii.reader.column_index"><code class="docutils literal notranslate"><span class="pre">reader.column_index()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.read_ascii.reader.crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">reader.crystal_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.read_ascii.reader.miller_set"><code class="docutils literal notranslate"><span class="pre">reader.miller_set()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.xds.spot_xds.reader"><code class="docutils literal notranslate"><span class="pre">reader</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.xds.spot_xds.reader.read_file"><code class="docutils literal notranslate"><span class="pre">reader.read_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.xds.spot_xds.writer"><code class="docutils literal notranslate"><span class="pre">writer</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.xds.spot_xds.writer.write_file"><code class="docutils literal notranslate"><span class="pre">writer.write_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.xds.integrate_hkl.reader"><code class="docutils literal notranslate"><span class="pre">reader</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.xds.integrate_hkl.reader.as_miller_arrays"><code class="docutils literal notranslate"><span class="pre">reader.as_miller_arrays()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.integrate_hkl.reader.is_integrate_hkl_file"><code class="docutils literal notranslate"><span class="pre">reader.is_integrate_hkl_file()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.xds.integrate_hkl.reader.read_file"><code class="docutils literal notranslate"><span class="pre">reader.read_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -379,7 +426,7 @@ information about the file format.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

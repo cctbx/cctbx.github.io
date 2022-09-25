@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -233,7 +234,48 @@
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.density_modification package</a><ul>
-<li><a class="reference internal" href="#module-mmtbx.density_modification">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.density_modification">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification"><code class="docutils literal notranslate"><span class="pre">density_modification</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.active_indices"><code class="docutils literal notranslate"><span class="pre">density_modification.active_indices</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.anisotropic_correction"><code class="docutils literal notranslate"><span class="pre">density_modification.anisotropic_correction()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.calculate_solvent_mask"><code class="docutils literal notranslate"><span class="pre">density_modification.calculate_solvent_mask()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.compute_map"><code class="docutils literal notranslate"><span class="pre">density_modification.compute_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.compute_map_coefficients"><code class="docutils literal notranslate"><span class="pre">density_modification.compute_map_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.compute_phase_source"><code class="docutils literal notranslate"><span class="pre">density_modification.compute_phase_source()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.d_min"><code class="docutils literal notranslate"><span class="pre">density_modification.d_min</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.density_truncation"><code class="docutils literal notranslate"><span class="pre">density_modification.density_truncation()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.f_obs_active"><code class="docutils literal notranslate"><span class="pre">density_modification.f_obs_active</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.get_stats"><code class="docutils literal notranslate"><span class="pre">density_modification.get_stats()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.hl_coeffs_in_original_setting"><code class="docutils literal notranslate"><span class="pre">density_modification.hl_coeffs_in_original_setting</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.map_coeffs_in_original_setting"><code class="docutils literal notranslate"><span class="pre">density_modification.map_coeffs_in_original_setting</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.matthews_analysis"><code class="docutils literal notranslate"><span class="pre">density_modification.matthews_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.miller_array_in_original_setting"><code class="docutils literal notranslate"><span class="pre">density_modification.miller_array_in_original_setting()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.ncs_averaging"><code class="docutils literal notranslate"><span class="pre">density_modification.ncs_averaging()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.next_cycle"><code class="docutils literal notranslate"><span class="pre">density_modification.next_cycle()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.radius"><code class="docutils literal notranslate"><span class="pre">density_modification.radius</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.show_cycle_summary"><code class="docutils literal notranslate"><span class="pre">density_modification.show_cycle_summary()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.solvent_adjust"><code class="docutils literal notranslate"><span class="pre">density_modification.solvent_adjust()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.solvent_flattening"><code class="docutils literal notranslate"><span class="pre">density_modification.solvent_flattening()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.solvent_flipping"><code class="docutils literal notranslate"><span class="pre">density_modification.solvent_flipping()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.density_modification.start_and_end_fom"><code class="docutils literal notranslate"><span class="pre">density_modification.start_and_end_fom()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.density_modification.dm_stats"><code class="docutils literal notranslate"><span class="pre">dm_stats</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.density_modification.dm_stats.add_cycle"><code class="docutils literal notranslate"><span class="pre">dm_stats.add_cycle()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.dm_stats.extract_loggraph"><code class="docutils literal notranslate"><span class="pre">dm_stats.extract_loggraph()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.dm_stats.format_summary"><code class="docutils literal notranslate"><span class="pre">dm_stats.format_summary()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.dm_stats.get_cycle_stats"><code class="docutils literal notranslate"><span class="pre">dm_stats.get_cycle_stats()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.dm_stats.get_fom_for_plot"><code class="docutils literal notranslate"><span class="pre">dm_stats.get_fom_for_plot()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.density_modification.local_standard_deviation_map"><code class="docutils literal notranslate"><span class="pre">local_standard_deviation_map</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.density_modification.local_standard_deviation_map.histogram"><code class="docutils literal notranslate"><span class="pre">local_standard_deviation_map.histogram()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.density_modification.local_standard_deviation_map.mask"><code class="docutils literal notranslate"><span class="pre">local_standard_deviation_map.mask()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.density_modification.rms"><code class="docutils literal notranslate"><span class="pre">rms()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -292,7 +334,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -269,6 +270,62 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">cctbx.sgtbx.direct_space_asu.facet_analysis module</a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.all_cut_points"><code class="docutils literal notranslate"><span class="pre">all_cut_points()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.asu_polygons"><code class="docutils literal notranslate"><span class="pre">asu_polygons()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.collect_cuts"><code class="docutils literal notranslate"><span class="pre">collect_cuts()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.consolidated_edges_with_cut_points"><code class="docutils literal notranslate"><span class="pre">consolidated_edges_with_cut_points</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.consolidated_edges_with_cut_points.add"><code class="docutils literal notranslate"><span class="pre">consolidated_edges_with_cut_points.add()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.consolidated_edges_with_cut_points.asu"><code class="docutils literal notranslate"><span class="pre">consolidated_edges_with_cut_points.asu</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.consolidated_edges_with_cut_points.get_all_segments"><code class="docutils literal notranslate"><span class="pre">consolidated_edges_with_cut_points.get_all_segments()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.consolidated_edges_with_cut_points.get_segments"><code class="docutils literal notranslate"><span class="pre">consolidated_edges_with_cut_points.get_segments()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.consolidated_edges_with_cut_points.list"><code class="docutils literal notranslate"><span class="pre">consolidated_edges_with_cut_points.list</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.consolidated_edges_with_cut_points.verify_edge_segments"><code class="docutils literal notranslate"><span class="pre">consolidated_edges_with_cut_points.verify_edge_segments()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.depth1_cuts"><code class="docutils literal notranslate"><span class="pre">depth1_cuts()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_position"><code class="docutils literal notranslate"><span class="pre">edge_position()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_segment"><code class="docutils literal notranslate"><span class="pre">edge_segment</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_segment.edge_inclusive_flag"><code class="docutils literal notranslate"><span class="pre">edge_segment.edge_inclusive_flag</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_segment.vertex"><code class="docutils literal notranslate"><span class="pre">edge_segment.vertex</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_segment.vertex_inclusive_flag"><code class="docutils literal notranslate"><span class="pre">edge_segment.vertex_inclusive_flag</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_with_cut_points"><code class="docutils literal notranslate"><span class="pre">edge_with_cut_points</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_with_cut_points.all_points"><code class="docutils literal notranslate"><span class="pre">edge_with_cut_points.all_points()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_with_cut_points.cut_point_positions"><code class="docutils literal notranslate"><span class="pre">edge_with_cut_points.cut_point_positions()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_with_cut_points.cut_points"><code class="docutils literal notranslate"><span class="pre">edge_with_cut_points.cut_points</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_with_cut_points.end_points"><code class="docutils literal notranslate"><span class="pre">edge_with_cut_points.end_points</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_with_cut_points.join_edge"><code class="docutils literal notranslate"><span class="pre">edge_with_cut_points.join_edge()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_with_cut_points.join_point"><code class="docutils literal notranslate"><span class="pre">edge_with_cut_points.join_point()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_with_cut_points.show_points"><code class="docutils literal notranslate"><span class="pre">edge_with_cut_points.show_points()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_with_cut_points.sort_cut_points"><code class="docutils literal notranslate"><span class="pre">edge_with_cut_points.sort_cut_points()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.edge_with_cut_points.sorted_cut_points"><code class="docutils literal notranslate"><span class="pre">edge_with_cut_points.sorted_cut_points()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.eliminate_outside_vertices"><code class="docutils literal notranslate"><span class="pre">eliminate_outside_vertices()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.extract_polygon_vertices"><code class="docutils literal notranslate"><span class="pre">extract_polygon_vertices()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.face_polygons"><code class="docutils literal notranslate"><span class="pre">face_polygons()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.face_vertices"><code class="docutils literal notranslate"><span class="pre">face_vertices()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.get_all_edge_segments"><code class="docutils literal notranslate"><span class="pre">get_all_edge_segments()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.get_all_vertices"><code class="docutils literal notranslate"><span class="pre">get_all_vertices()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.get_edge_vertices"><code class="docutils literal notranslate"><span class="pre">get_edge_vertices()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.intersection"><code class="docutils literal notranslate"><span class="pre">intersection()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.is_one_of"><code class="docutils literal notranslate"><span class="pre">is_one_of()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.line_sample_point"><code class="docutils literal notranslate"><span class="pre">line_sample_point()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.polygon_vertices"><code class="docutils literal notranslate"><span class="pre">polygon_vertices()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.sense_of_polygon"><code class="docutils literal notranslate"><span class="pre">sense_of_polygon()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.shape_vertices"><code class="docutils literal notranslate"><span class="pre">shape_vertices()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.trace_polygon"><code class="docutils literal notranslate"><span class="pre">trace_polygon()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.sgtbx.direct_space_asu.facet_analysis.verify_asu_polygons"><code class="docutils literal notranslate"><span class="pre">verify_asu_polygons()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="cctbx.sgtbx.direct_space_asu.cut_plane.html"
                           title="previous chapter">cctbx.sgtbx.direct_space_asu.cut_plane module</a></p>
@@ -323,7 +380,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

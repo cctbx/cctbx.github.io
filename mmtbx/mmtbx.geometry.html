@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -857,14 +858,211 @@ average the results.</p>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.geometry package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.geometry.altloc">mmtbx.geometry.altloc module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.geometry.asa">mmtbx.geometry.asa module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.geometry.clash">mmtbx.geometry.clash module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.geometry.indexing">mmtbx.geometry.indexing module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.geometry.altloc">mmtbx.geometry.altloc module</a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Aggregator"><code class="docutils literal notranslate"><span class="pre">Aggregator</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Aggregator.entities"><code class="docutils literal notranslate"><span class="pre">Aggregator.entities</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Aggregator.process_altloc"><code class="docutils literal notranslate"><span class="pre">Aggregator.process_altloc()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Aggregator.process_regular"><code class="docutils literal notranslate"><span class="pre">Aggregator.process_regular()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Alternate"><code class="docutils literal notranslate"><span class="pre">Alternate</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Description"><code class="docutils literal notranslate"><span class="pre">Description</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Description.accept"><code class="docutils literal notranslate"><span class="pre">Description.accept()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Empty"><code class="docutils literal notranslate"><span class="pre">Empty()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Indexer"><code class="docutils literal notranslate"><span class="pre">Indexer</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Indexer.add"><code class="docutils literal notranslate"><span class="pre">Indexer.add()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Inserter"><code class="docutils literal notranslate"><span class="pre">Inserter</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Inserter.process_altloc"><code class="docutils literal notranslate"><span class="pre">Inserter.process_altloc()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.Inserter.process_regular"><code class="docutils literal notranslate"><span class="pre">Inserter.process_regular()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.altloc.altid_for"><code class="docutils literal notranslate"><span class="pre">altid_for()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.geometry.asa">mmtbx.geometry.asa module</a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.AccessibleSurfaceAreas"><code class="docutils literal notranslate"><span class="pre">AccessibleSurfaceAreas</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.AccessibleSurfaceAreas.areas"><code class="docutils literal notranslate"><span class="pre">AccessibleSurfaceAreas.areas</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.AccessibleSurfaceAreas.points"><code class="docutils literal notranslate"><span class="pre">AccessibleSurfaceAreas.points</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.AccessibleSurfaceResult"><code class="docutils literal notranslate"><span class="pre">AccessibleSurfaceResult</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.AccessibleSurfaceResult.surface"><code class="docutils literal notranslate"><span class="pre">AccessibleSurfaceResult.surface</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.CompositeCheckerBuilder"><code class="docutils literal notranslate"><span class="pre">CompositeCheckerBuilder</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.SeparateCheckerBuilder"><code class="docutils literal notranslate"><span class="pre">SeparateCheckerBuilder</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.SeparateCheckerBuilder.append_neighbours"><code class="docutils literal notranslate"><span class="pre">SeparateCheckerBuilder.append_neighbours()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.SeparateCheckerBuilder.process_altloc"><code class="docutils literal notranslate"><span class="pre">SeparateCheckerBuilder.process_altloc()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.SeparateCheckerBuilder.process_regular"><code class="docutils literal notranslate"><span class="pre">SeparateCheckerBuilder.process_regular()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.altloc_averaged_calculation"><code class="docutils literal notranslate"><span class="pre">altloc_averaged_calculation()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.calculate"><code class="docutils literal notranslate"><span class="pre">calculate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.coordinate_adaptor"><code class="docutils literal notranslate"><span class="pre">coordinate_adaptor()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.create_and_populate_indexer"><code class="docutils literal notranslate"><span class="pre">create_and_populate_indexer()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.create_description"><code class="docutils literal notranslate"><span class="pre">create_description()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.get_hash_indexer_for"><code class="docutils literal notranslate"><span class="pre">get_hash_indexer_for()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.get_linear_indexer_for"><code class="docutils literal notranslate"><span class="pre">get_linear_indexer_for()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.get_optimal_indexer_for"><code class="docutils literal notranslate"><span class="pre">get_optimal_indexer_for()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.get_voxelizer_for"><code class="docutils literal notranslate"><span class="pre">get_voxelizer_for()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.identity"><code class="docutils literal notranslate"><span class="pre">identity()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.radius_adaptor"><code class="docutils literal notranslate"><span class="pre">radius_adaptor()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.asa.simple_surface_calculation"><code class="docutils literal notranslate"><span class="pre">simple_surface_calculation()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.geometry.clash">mmtbx.geometry.clash module</a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ASUContent"><code class="docutils literal notranslate"><span class="pre">ASUContent</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ASUContent.add"><code class="docutils literal notranslate"><span class="pre">ASUContent.add()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ASUContent.clashing_with"><code class="docutils literal notranslate"><span class="pre">ASUContent.clashing_with()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ASUContent.descriptor_for"><code class="docutils literal notranslate"><span class="pre">ASUContent.descriptor_for()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.AtomDescriptor"><code class="docutils literal notranslate"><span class="pre">AtomDescriptor</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.AtomDescriptor.atom"><code class="docutils literal notranslate"><span class="pre">AtomDescriptor.atom</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.Case"><code class="docutils literal notranslate"><span class="pre">Case</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.Case.asu_mapping_for"><code class="docutils literal notranslate"><span class="pre">Case.asu_mapping_for()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.Case.create"><code class="docutils literal notranslate"><span class="pre">Case.create()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.Case.radius_for"><code class="docutils literal notranslate"><span class="pre">Case.radius_for()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.Case.sphere_model_group_for"><code class="docutils literal notranslate"><span class="pre">Case.sphere_model_group_for()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.Case.voxelizer"><code class="docutils literal notranslate"><span class="pre">Case.voxelizer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashCalculation"><code class="docutils literal notranslate"><span class="pre">ClashCalculation</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashCollection"><code class="docutils literal notranslate"><span class="pre">ClashCollection</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashCollection.pairs"><code class="docutils literal notranslate"><span class="pre">ClashCollection.pairs()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashCountCalculation"><code class="docutils literal notranslate"><span class="pre">ClashCountCalculation</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashPoint"><code class="docutils literal notranslate"><span class="pre">ClashPoint</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashPoint.count"><code class="docutils literal notranslate"><span class="pre">ClashPoint.count()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashPoint.pairs"><code class="docutils literal notranslate"><span class="pre">ClashPoint.pairs()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashingPair"><code class="docutils literal notranslate"><span class="pre">ClashingPair</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashingPair.atom_pair"><code class="docutils literal notranslate"><span class="pre">ClashingPair.atom_pair()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashingPair.frozenset"><code class="docutils literal notranslate"><span class="pre">ClashingPair.frozenset()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ClashingPair.is_self_clash"><code class="docutils literal notranslate"><span class="pre">ClashingPair.is_self_clash()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.DistanceCalculation"><code class="docutils literal notranslate"><span class="pre">DistanceCalculation</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ElementAccumulator"><code class="docutils literal notranslate"><span class="pre">ElementAccumulator</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.Model.atoms"><code class="docutils literal notranslate"><span class="pre">Model.atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.Model.elements"><code class="docutils literal notranslate"><span class="pre">Model.elements()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.ReducingAccumulator"><code class="docutils literal notranslate"><span class="pre">ReducingAccumulator</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.SphereModel"><code class="docutils literal notranslate"><span class="pre">SphereModel</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.SphereModel.descriptors"><code class="docutils literal notranslate"><span class="pre">SphereModel.descriptors()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.SphereModelGroup"><code class="docutils literal notranslate"><span class="pre">SphereModelGroup</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.SphereModelGroup.group"><code class="docutils literal notranslate"><span class="pre">SphereModelGroup.group()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.SymmetryEquivalent"><code class="docutils literal notranslate"><span class="pre">SymmetryEquivalent</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.SymmetryEquivalent.atom_group"><code class="docutils literal notranslate"><span class="pre">SymmetryEquivalent.atom_group</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.SymmetryEquivalent.chain"><code class="docutils literal notranslate"><span class="pre">SymmetryEquivalent.chain</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.SymmetryEquivalent.molecule"><code class="docutils literal notranslate"><span class="pre">SymmetryEquivalent.molecule</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.SymmetryEquivalent.residue_group"><code class="docutils literal notranslate"><span class="pre">SymmetryEquivalent.residue_group</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.SymmetryEquivalent.root"><code class="docutils literal notranslate"><span class="pre">SymmetryEquivalent.root</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.altloc_strategy_from_atom"><code class="docutils literal notranslate"><span class="pre">altloc_strategy_from_atom()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.calculate"><code class="docutils literal notranslate"><span class="pre">calculate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.calculate_contents"><code class="docutils literal notranslate"><span class="pre">calculate_contents()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.element_of"><code class="docutils literal notranslate"><span class="pre">element_of()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.hash_indexer_for"><code class="docutils literal notranslate"><span class="pre">hash_indexer_for()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.linear_indexer_for"><code class="docutils literal notranslate"><span class="pre">linear_indexer_for()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.clash.to_xray_structure"><code class="docutils literal notranslate"><span class="pre">to_xray_structure()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.geometry.indexing">mmtbx.geometry.indexing module</a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.composite_predicate"><code class="docutils literal notranslate"><span class="pre">composite_predicate</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.containment_predicate"><code class="docutils literal notranslate"><span class="pre">containment_predicate</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.containment_predicate.exclude"><code class="docutils literal notranslate"><span class="pre">containment_predicate.exclude()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.containment_predicate.exclusion"><code class="docutils literal notranslate"><span class="pre">containment_predicate.exclusion()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.containment_predicate.include"><code class="docutils literal notranslate"><span class="pre">containment_predicate.include()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.containment_predicate.inclusion"><code class="docutils literal notranslate"><span class="pre">containment_predicate.inclusion()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.direct"><code class="docutils literal notranslate"><span class="pre">direct()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.filter"><code class="docutils literal notranslate"><span class="pre">filter()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.identity_predicate"><code class="docutils literal notranslate"><span class="pre">identity_predicate</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.overlap_predicate"><code class="docutils literal notranslate"><span class="pre">overlap_predicate</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer"><code class="docutils literal notranslate"><span class="pre">structure_indexer</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.add_atoms_in"><code class="docutils literal notranslate"><span class="pre">structure_indexer.add_atoms_in()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.composite_distance_predicate"><code class="docutils literal notranslate"><span class="pre">structure_indexer.composite_distance_predicate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.coordinate_of"><code class="docutils literal notranslate"><span class="pre">structure_indexer.coordinate_of()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.data_of"><code class="docutils literal notranslate"><span class="pre">structure_indexer.data_of()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.exclude_predicate"><code class="docutils literal notranslate"><span class="pre">structure_indexer.exclude_predicate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.hash"><code class="docutils literal notranslate"><span class="pre">structure_indexer.hash()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.identity_predicate"><code class="docutils literal notranslate"><span class="pre">structure_indexer.identity_predicate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.include_predicate"><code class="docutils literal notranslate"><span class="pre">structure_indexer.include_predicate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.interaction_counts_with"><code class="docutils literal notranslate"><span class="pre">structure_indexer.interaction_counts_with()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.interaction_ranges_with"><code class="docutils literal notranslate"><span class="pre">structure_indexer.interaction_ranges_with()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.interactions_with"><code class="docutils literal notranslate"><span class="pre">structure_indexer.interactions_with()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.overlap_predicate"><code class="docutils literal notranslate"><span class="pre">structure_indexer.overlap_predicate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.indexing.structure_indexer.simple_distance_predicate"><code class="docutils literal notranslate"><span class="pre">structure_indexer.simple_distance_predicate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#mmtbx-geometry-primitive-module">mmtbx.geometry.primitive module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.geometry.shared_types">mmtbx.geometry.shared_types module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.geometry.shared_types">mmtbx.geometry.shared_types module</a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.shared_types.calculate_base_for_coordinates"><code class="docutils literal notranslate"><span class="pre">calculate_base_for_coordinates()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-mmtbx.geometry.sphere_surface_sampling">mmtbx.geometry.sphere_surface_sampling module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.geometry.topology">mmtbx.geometry.topology module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.geometry.topology">mmtbx.geometry.topology module</a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Atom"><code class="docutils literal notranslate"><span class="pre">Atom</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound"><code class="docutils literal notranslate"><span class="pre">Compound</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.add_atom"><code class="docutils literal notranslate"><span class="pre">Compound.add_atom()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.add_bond"><code class="docutils literal notranslate"><span class="pre">Compound.add_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.atom_for"><code class="docutils literal notranslate"><span class="pre">Compound.atom_for</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.atoms"><code class="docutils literal notranslate"><span class="pre">Compound.atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.bonds"><code class="docutils literal notranslate"><span class="pre">Compound.bonds</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.connected_segment_from"><code class="docutils literal notranslate"><span class="pre">Compound.connected_segment_from()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.connected_segments"><code class="docutils literal notranslate"><span class="pre">Compound.connected_segments()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.create"><code class="docutils literal notranslate"><span class="pre">Compound.create()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.descriptors"><code class="docutils literal notranslate"><span class="pre">Compound.descriptors</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.distances_from"><code class="docutils literal notranslate"><span class="pre">Compound.distances_from()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.from_structure"><code class="docutils literal notranslate"><span class="pre">Compound.from_structure()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Compound.subset"><code class="docutils literal notranslate"><span class="pre">Compound.subset()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.GreedyMatch"><code class="docutils literal notranslate"><span class="pre">GreedyMatch</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.GreedyMatch.count"><code class="docutils literal notranslate"><span class="pre">GreedyMatch.count()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.GreedyMatch.length"><code class="docutils literal notranslate"><span class="pre">GreedyMatch.length()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.GreedyMatch.remapped"><code class="docutils literal notranslate"><span class="pre">GreedyMatch.remapped()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.McGregorMatch"><code class="docutils literal notranslate"><span class="pre">McGregorMatch</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.McGregorMatch.length"><code class="docutils literal notranslate"><span class="pre">McGregorMatch.length()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.McGregorMatch.remapped"><code class="docutils literal notranslate"><span class="pre">McGregorMatch.remapped()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Molecule"><code class="docutils literal notranslate"><span class="pre">Molecule</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Molecule.add"><code class="docutils literal notranslate"><span class="pre">Molecule.add()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Molecule.atoms"><code class="docutils literal notranslate"><span class="pre">Molecule.atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Molecule.descriptor_for"><code class="docutils literal notranslate"><span class="pre">Molecule.descriptor_for</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.Molecule.size"><code class="docutils literal notranslate"><span class="pre">Molecule.size()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.RascalMatch"><code class="docutils literal notranslate"><span class="pre">RascalMatch</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.RascalMatch.count"><code class="docutils literal notranslate"><span class="pre">RascalMatch.count()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.RascalMatch.length"><code class="docutils literal notranslate"><span class="pre">RascalMatch.length()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.geometry.topology.RascalMatch.remapped"><code class="docutils literal notranslate"><span class="pre">RascalMatch.remapped()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#mmtbx-geometry-volume-module">mmtbx.geometry.volume module</a></li>
 <li><a class="reference internal" href="#module-mmtbx.geometry">Module contents</a></li>
 </ul>
@@ -925,7 +1123,7 @@ average the results.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

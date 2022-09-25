@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -2605,23 +2606,570 @@ an array of weights instead of a scalar value.</p>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.monomer_library package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.bondlength_defaults">mmtbx.monomer_library.bondlength_defaults module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.cif_triage">mmtbx.monomer_library.cif_triage module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.cif_types">mmtbx.monomer_library.cif_types module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.conformation_dependent_restraints">mmtbx.monomer_library.conformation_dependent_restraints module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.conv_v2_v3">mmtbx.monomer_library.conv_v2_v3 module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.correct_hydrogen_geometries">mmtbx.monomer_library.correct_hydrogen_geometries module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.bondlength_defaults">mmtbx.monomer_library.bondlength_defaults module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.bondlength_defaults.generic_metal_run"><code class="docutils literal notranslate"><span class="pre">generic_metal_run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.bondlength_defaults.get_basepair_target_distance"><code class="docutils literal notranslate"><span class="pre">get_basepair_target_distance()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.bondlength_defaults.get_default_bondlength"><code class="docutils literal notranslate"><span class="pre">get_default_bondlength()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.bondlength_defaults.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.cif_triage">mmtbx.monomer_library.cif_triage module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_triage.check_comp"><code class="docutils literal notranslate"><span class="pre">check_comp()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.cif_types">mmtbx.monomer_library.cif_types module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.apply_chem_mod_list"><code class="docutils literal notranslate"><span class="pre">apply_chem_mod_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp"><code class="docutils literal notranslate"><span class="pre">chem_comp</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_angle"><code class="docutils literal notranslate"><span class="pre">chem_comp_angle</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_atom"><code class="docutils literal notranslate"><span class="pre">chem_comp_atom</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_bond"><code class="docutils literal notranslate"><span class="pre">chem_comp_bond</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_bond.atom_ids"><code class="docutils literal notranslate"><span class="pre">chem_comp_bond.atom_ids()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_chir"><code class="docutils literal notranslate"><span class="pre">chem_comp_chir</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_deriv"><code class="docutils literal notranslate"><span class="pre">chem_comp_deriv</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_plane_atom"><code class="docutils literal notranslate"><span class="pre">chem_comp_plane_atom</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_rotamer_info"><code class="docutils literal notranslate"><span class="pre">chem_comp_rotamer_info</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_synonym"><code class="docutils literal notranslate"><span class="pre">chem_comp_synonym</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_synonym_atom"><code class="docutils literal notranslate"><span class="pre">chem_comp_synonym_atom</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_tor"><code class="docutils literal notranslate"><span class="pre">chem_comp_tor</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_tor.atom_ids"><code class="docutils literal notranslate"><span class="pre">chem_comp_tor.atom_ids()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_comp_tree"><code class="docutils literal notranslate"><span class="pre">chem_comp_tree</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_link"><code class="docutils literal notranslate"><span class="pre">chem_link</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_link_angle"><code class="docutils literal notranslate"><span class="pre">chem_link_angle</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_link_bond"><code class="docutils literal notranslate"><span class="pre">chem_link_bond</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_link_chir"><code class="docutils literal notranslate"><span class="pre">chem_link_chir</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_link_plane"><code class="docutils literal notranslate"><span class="pre">chem_link_plane</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_link_tor"><code class="docutils literal notranslate"><span class="pre">chem_link_tor</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod"><code class="docutils literal notranslate"><span class="pre">chem_mod</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_angle"><code class="docutils literal notranslate"><span class="pre">chem_mod_angle</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_angle.apply_change_in_place"><code class="docutils literal notranslate"><span class="pre">chem_mod_angle.apply_change_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_angle.as_chem_comp"><code class="docutils literal notranslate"><span class="pre">chem_mod_angle.as_chem_comp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_angle.is_matching_mod_for"><code class="docutils literal notranslate"><span class="pre">chem_mod_angle.is_matching_mod_for()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_atom"><code class="docutils literal notranslate"><span class="pre">chem_mod_atom</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_atom.as_chem_comp"><code class="docutils literal notranslate"><span class="pre">chem_mod_atom.as_chem_comp()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_bond"><code class="docutils literal notranslate"><span class="pre">chem_mod_bond</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_bond.apply_change_in_place"><code class="docutils literal notranslate"><span class="pre">chem_mod_bond.apply_change_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_bond.as_chem_comp"><code class="docutils literal notranslate"><span class="pre">chem_mod_bond.as_chem_comp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_bond.is_matching_mod_for"><code class="docutils literal notranslate"><span class="pre">chem_mod_bond.is_matching_mod_for()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_chir"><code class="docutils literal notranslate"><span class="pre">chem_mod_chir</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_chir.apply_change_in_place"><code class="docutils literal notranslate"><span class="pre">chem_mod_chir.apply_change_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_chir.as_chem_comp"><code class="docutils literal notranslate"><span class="pre">chem_mod_chir.as_chem_comp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_chir.is_matching_mod_for"><code class="docutils literal notranslate"><span class="pre">chem_mod_chir.is_matching_mod_for()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_plane_atom"><code class="docutils literal notranslate"><span class="pre">chem_mod_plane_atom</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_plane_atom.apply_change_in_place"><code class="docutils literal notranslate"><span class="pre">chem_mod_plane_atom.apply_change_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_plane_atom.as_chem_comp"><code class="docutils literal notranslate"><span class="pre">chem_mod_plane_atom.as_chem_comp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_plane_atom.is_matching_mod_for"><code class="docutils literal notranslate"><span class="pre">chem_mod_plane_atom.is_matching_mod_for()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_tor"><code class="docutils literal notranslate"><span class="pre">chem_mod_tor</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_tor.apply_change_in_place"><code class="docutils literal notranslate"><span class="pre">chem_mod_tor.apply_change_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_tor.as_chem_comp"><code class="docutils literal notranslate"><span class="pre">chem_mod_tor.as_chem_comp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_tor.is_matching_mod_for"><code class="docutils literal notranslate"><span class="pre">chem_mod_tor.is_matching_mod_for()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_tree"><code class="docutils literal notranslate"><span class="pre">chem_mod_tree</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_tree.apply_change_in_place"><code class="docutils literal notranslate"><span class="pre">chem_mod_tree.apply_change_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_tree.as_chem_comp"><code class="docutils literal notranslate"><span class="pre">chem_mod_tree.as_chem_comp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_mod_tree.is_matching_mod_for"><code class="docutils literal notranslate"><span class="pre">chem_mod_tree.is_matching_mod_for()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.chem_plane"><code class="docutils literal notranslate"><span class="pre">chem_plane</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id"><code class="docutils literal notranslate"><span class="pre">comp_comp_id</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.angle_list"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.angle_list</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.apply_mod"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.apply_mod()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.as_geometry_restraints_motif"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.as_geometry_restraints_motif()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.atom_by_id"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.atom_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.atom_dict"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.atom_dict()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.atom_ids"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.atom_ids()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.atom_list"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.atom_list</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.bond_list"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.bond_list</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.change_atom_in_place"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.change_atom_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.chem_comp"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.chem_comp</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.chir_list"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.chir_list</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.cif_object"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.cif_object</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.classification"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.classification</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.delete_atom_in_place"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.delete_atom_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.get_angle"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.get_angle()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.get_bond"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.get_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.get_chir_bonds_and_angles"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.get_chir_bonds_and_angles()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.get_chir_volume_ideal"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.get_chir_volume_ideal()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.get_classification"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.get_classification()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.get_planes"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.get_planes()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.hydrogen_deuterium_aliases"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.hydrogen_deuterium_aliases()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.i_atom_by_id"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.i_atom_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.is_dna"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.is_dna()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.is_peptide"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.is_peptide()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.is_rna"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.is_rna()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.is_rna_dna"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.is_rna_dna()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.is_water"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.is_water()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.non_hydrogen_atoms"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.non_hydrogen_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.normalize_atom_ids_in_place"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.normalize_atom_ids_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.normalized_angle_list"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.normalized_angle_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.normalized_bond_list"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.normalized_bond_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.normalized_rna_dna"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.normalized_rna_dna</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.plane_atom_list"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.plane_atom_list</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.rotamer_info"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.rotamer_info()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.rotamer_info_phil_str_list"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.rotamer_info_phil_str_list</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.rotamer_iterator"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.rotamer_iterator()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.set_classification"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.set_classification()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.show"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.source_info"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.source_info</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.test_for_peptide"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.test_for_peptide()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.test_for_rna_dna"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.test_for_rna_dna()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.test_for_water"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.test_for_water()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.comp_comp_id.tor_list"><code class="docutils literal notranslate"><span class="pre">comp_comp_id.tor_list</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.energy_lib_atom"><code class="docutils literal notranslate"><span class="pre">energy_lib_atom</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.energy_lib_synonym"><code class="docutils literal notranslate"><span class="pre">energy_lib_synonym</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.energy_lib_vdw"><code class="docutils literal notranslate"><span class="pre">energy_lib_vdw</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.esd_as_weight"><code class="docutils literal notranslate"><span class="pre">esd_as_weight()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.get_bond"><code class="docutils literal notranslate"><span class="pre">get_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.get_chir_volume_ideal"><code class="docutils literal notranslate"><span class="pre">get_chir_volume_ideal()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.group_planes"><code class="docutils literal notranslate"><span class="pre">group_planes()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.link_link_id"><code class="docutils literal notranslate"><span class="pre">link_link_id</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.link_link_id.as_cif_block"><code class="docutils literal notranslate"><span class="pre">link_link_id.as_cif_block()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.link_link_id.as_geometry_restraints_motif_manipulation"><code class="docutils literal notranslate"><span class="pre">link_link_id.as_geometry_restraints_motif_manipulation()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.link_link_id.get_angle"><code class="docutils literal notranslate"><span class="pre">link_link_id.get_angle()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.link_link_id.get_bond"><code class="docutils literal notranslate"><span class="pre">link_link_id.get_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.link_link_id.get_chir_bonds_and_angles"><code class="docutils literal notranslate"><span class="pre">link_link_id.get_chir_bonds_and_angles()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.link_link_id.get_chir_volume_ideal"><code class="docutils literal notranslate"><span class="pre">link_link_id.get_chir_volume_ideal()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.link_link_id.get_planes"><code class="docutils literal notranslate"><span class="pre">link_link_id.get_planes()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.looped_data"><code class="docutils literal notranslate"><span class="pre">looped_data</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.looped_data.as_cif_loop"><code class="docutils literal notranslate"><span class="pre">looped_data.as_cif_loop()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.looped_data.cif_keywords"><code class="docutils literal notranslate"><span class="pre">looped_data.cif_keywords()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.looped_data.generate_loop_data"><code class="docutils literal notranslate"><span class="pre">looped_data.generate_loop_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.looped_data.looped_ids"><code class="docutils literal notranslate"><span class="pre">looped_data.looped_ids()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.looped_data.show"><code class="docutils literal notranslate"><span class="pre">looped_data.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.looped_data.show_loop_data"><code class="docutils literal notranslate"><span class="pre">looped_data.show_loop_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.looped_data.show_loop_header"><code class="docutils literal notranslate"><span class="pre">looped_data.show_loop_header()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.mod_mod_id"><code class="docutils literal notranslate"><span class="pre">mod_mod_id</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.mod_mod_id.as_geometry_restraints_motif_manipulation"><code class="docutils literal notranslate"><span class="pre">mod_mod_id.as_geometry_restraints_motif_manipulation()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.mod_mod_id.get_planes"><code class="docutils literal notranslate"><span class="pre">mod_mod_id.get_planes()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.mod_mod_id.show"><code class="docutils literal notranslate"><span class="pre">mod_mod_id.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.new_if_defined"><code class="docutils literal notranslate"><span class="pre">new_if_defined()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.normalized_bond_list"><code class="docutils literal notranslate"><span class="pre">normalized_bond_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.cif_types.show_loop"><code class="docutils literal notranslate"><span class="pre">show_loop()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.conformation_dependent_restraints">mmtbx.monomer_library.conformation_dependent_restraints module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conformation_dependent_restraints.build_conformation_dependent_angle_proxies"><code class="docutils literal notranslate"><span class="pre">build_conformation_dependent_angle_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conformation_dependent_restraints.conformation_dependent_restraints"><code class="docutils literal notranslate"><span class="pre">conformation_dependent_restraints</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conformation_dependent_restraints.conformation_dependent_restraints.update_restraints"><code class="docutils literal notranslate"><span class="pre">conformation_dependent_restraints.update_restraints()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conformation_dependent_restraints.pgd_server"><code class="docutils literal notranslate"><span class="pre">pgd_server</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conformation_dependent_restraints.pgd_server.lookup"><code class="docutils literal notranslate"><span class="pre">pgd_server.lookup()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.conv_v2_v3">mmtbx.monomer_library.conv_v2_v3 module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.iter_until_loop"><code class="docutils literal notranslate"><span class="pre">iter_until_loop()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_angle"><code class="docutils literal notranslate"><span class="pre">rename_angle()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_atom"><code class="docutils literal notranslate"><span class="pre">rename_atom()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_bond"><code class="docutils literal notranslate"><span class="pre">rename_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_chir"><code class="docutils literal notranslate"><span class="pre">rename_chir()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_generic"><code class="docutils literal notranslate"><span class="pre">rename_generic()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_link_angle"><code class="docutils literal notranslate"><span class="pre">rename_link_angle()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_link_bond"><code class="docutils literal notranslate"><span class="pre">rename_link_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_link_tor"><code class="docutils literal notranslate"><span class="pre">rename_link_tor()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_plan"><code class="docutils literal notranslate"><span class="pre">rename_plan()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_tor"><code class="docutils literal notranslate"><span class="pre">rename_tor()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.rename_tree"><code class="docutils literal notranslate"><span class="pre">rename_tree()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.conv_v2_v3.trans_field"><code class="docutils literal notranslate"><span class="pre">trans_field()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.correct_hydrogen_geometries">mmtbx.monomer_library.correct_hydrogen_geometries module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.correct_hydrogen_geometries.correct_hydrogen_geometries"><code class="docutils literal notranslate"><span class="pre">correct_hydrogen_geometries()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.correct_hydrogen_geometries.get_bad_hydrogen_i_seqs"><code class="docutils literal notranslate"><span class="pre">get_bad_hydrogen_i_seqs()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-mmtbx.monomer_library.glyco_chiral_values">mmtbx.monomer_library.glyco_chiral_values module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.glyco_utils">mmtbx.monomer_library.glyco_utils module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.hydrogen_restrictions">mmtbx.monomer_library.hydrogen_restrictions module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.idealized_aa">mmtbx.monomer_library.idealized_aa module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.linking_mixins">mmtbx.monomer_library.linking_mixins module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.linking_setup">mmtbx.monomer_library.linking_setup module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.linking_utils">mmtbx.monomer_library.linking_utils module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.pdb_interpretation">mmtbx.monomer_library.pdb_interpretation module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.rna_sugar_pucker_analysis">mmtbx.monomer_library.rna_sugar_pucker_analysis module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.rotamer_utils">mmtbx.monomer_library.rotamer_utils module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.monomer_library.server">mmtbx.monomer_library.server module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.glyco_utils">mmtbx.monomer_library.glyco_utils module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.apply_glyco_link_using_proxies_and_atoms"><code class="docutils literal notranslate"><span class="pre">apply_glyco_link_using_proxies_and_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.generate_atoms_from_atom_groups"><code class="docutils literal notranslate"><span class="pre">generate_atoms_from_atom_groups()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_C1_carbon"><code class="docutils literal notranslate"><span class="pre">get_C1_carbon()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_alpha_beta"><code class="docutils literal notranslate"><span class="pre">get_alpha_beta()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_anomeric_carbon"><code class="docutils literal notranslate"><span class="pre">get_anomeric_carbon()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_anomeric_hydrogen"><code class="docutils literal notranslate"><span class="pre">get_anomeric_hydrogen()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_any_linking_carbon"><code class="docutils literal notranslate"><span class="pre">get_any_linking_carbon()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_chiral_sign"><code class="docutils literal notranslate"><span class="pre">get_chiral_sign()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_distance2"><code class="docutils literal notranslate"><span class="pre">get_distance2()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_glyco_link_atoms"><code class="docutils literal notranslate"><span class="pre">get_glyco_link_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_link_carbon"><code class="docutils literal notranslate"><span class="pre">get_link_carbon()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_link_carbon_on_distance"><code class="docutils literal notranslate"><span class="pre">get_link_carbon_on_distance()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_link_oxygen"><code class="docutils literal notranslate"><span class="pre">get_link_oxygen()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_link_oxygen_on_distance"><code class="docutils literal notranslate"><span class="pre">get_link_oxygen_on_distance()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_link_phi_carbon"><code class="docutils literal notranslate"><span class="pre">get_link_phi_carbon()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_ring_carbon"><code class="docutils literal notranslate"><span class="pre">get_ring_carbon()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.get_ring_oxygen"><code class="docutils literal notranslate"><span class="pre">get_ring_oxygen()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.glyco_link_class"><code class="docutils literal notranslate"><span class="pre">glyco_link_class</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.glyco_link_class.as_cif"><code class="docutils literal notranslate"><span class="pre">glyco_link_class.as_cif()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.glyco_link_class.get_chiral_i_seqs"><code class="docutils literal notranslate"><span class="pre">glyco_link_class.get_chiral_i_seqs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.glyco_link_class.get_code"><code class="docutils literal notranslate"><span class="pre">glyco_link_class.get_code()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.glyco_link_class.get_isomer"><code class="docutils literal notranslate"><span class="pre">glyco_link_class.get_isomer()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.glyco_link_class.is_correct"><code class="docutils literal notranslate"><span class="pre">glyco_link_class.is_correct()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.glyco_utils.is_standard_glyco_link"><code class="docutils literal notranslate"><span class="pre">is_standard_glyco_link()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.hydrogen_restrictions">mmtbx.monomer_library.hydrogen_restrictions module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.hydrogen_restrictions.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.idealized_aa">mmtbx.monomer_library.idealized_aa module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.idealized_aa.residue_dict"><code class="docutils literal notranslate"><span class="pre">residue_dict()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.linking_mixins">mmtbx.monomer_library.linking_mixins module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_mixins.ResidueLinkClass"><code class="docutils literal notranslate"><span class="pre">ResidueLinkClass</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_mixins.ResidueLinkClass.remove_link"><code class="docutils literal notranslate"><span class="pre">ResidueLinkClass.remove_link()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_mixins.check_all_classes"><code class="docutils literal notranslate"><span class="pre">check_all_classes()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_mixins.check_for_peptide_links"><code class="docutils literal notranslate"><span class="pre">check_for_peptide_links()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_mixins.linking_mixins"><code class="docutils literal notranslate"><span class="pre">linking_mixins</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_mixins.linking_mixins.process_nonbonded_for_links"><code class="docutils literal notranslate"><span class="pre">linking_mixins.process_nonbonded_for_links()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_mixins.possible_cyclic_peptide"><code class="docutils literal notranslate"><span class="pre">possible_cyclic_peptide()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.linking_setup">mmtbx.monomer_library.linking_setup module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_setup.adjust_class"><code class="docutils literal notranslate"><span class="pre">adjust_class()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_setup.skip_if_non_linking"><code class="docutils literal notranslate"><span class="pre">skip_if_non_linking()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_setup.sulfur_class"><code class="docutils literal notranslate"><span class="pre">sulfur_class()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_setup.update_skip_if_longer"><code class="docutils literal notranslate"><span class="pre">update_skip_if_longer()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.linking_utils">mmtbx.monomer_library.linking_utils module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.check_for_acid"><code class="docutils literal notranslate"><span class="pre">check_for_acid()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.check_valence"><code class="docutils literal notranslate"><span class="pre">check_valence()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.check_valence_and_acid"><code class="docutils literal notranslate"><span class="pre">check_valence_and_acid()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.empty"><code class="docutils literal notranslate"><span class="pre">empty</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.generate_atoms_from_atom_groups"><code class="docutils literal notranslate"><span class="pre">generate_atoms_from_atom_groups()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.get_angles_from_included_bonds"><code class="docutils literal notranslate"><span class="pre">get_angles_from_included_bonds()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.get_bonded"><code class="docutils literal notranslate"><span class="pre">get_bonded()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.get_bonded_from_atom_groups"><code class="docutils literal notranslate"><span class="pre">get_bonded_from_atom_groups()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.get_chiral_volume"><code class="docutils literal notranslate"><span class="pre">get_chiral_volume()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.get_classes"><code class="docutils literal notranslate"><span class="pre">get_classes()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.get_distance2"><code class="docutils literal notranslate"><span class="pre">get_distance2()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.get_hand"><code class="docutils literal notranslate"><span class="pre">get_hand()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.get_volume"><code class="docutils literal notranslate"><span class="pre">get_volume()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.is_atom_group_pair_linked"><code class="docutils literal notranslate"><span class="pre">is_atom_group_pair_linked()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.is_atom_metal_coordinated"><code class="docutils literal notranslate"><span class="pre">is_atom_metal_coordinated()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.is_atom_pair_linked"><code class="docutils literal notranslate"><span class="pre">is_atom_pair_linked()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.is_atom_pair_linked_tuple"><code class="docutils literal notranslate"><span class="pre">is_atom_pair_linked_tuple()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.is_glyco_amino_bond"><code class="docutils literal notranslate"><span class="pre">is_glyco_amino_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.is_glyco_bond"><code class="docutils literal notranslate"><span class="pre">is_glyco_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.is_n_glyco_bond"><code class="docutils literal notranslate"><span class="pre">is_n_glyco_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.is_o_glyco_bond"><code class="docutils literal notranslate"><span class="pre">is_o_glyco_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.print_apply"><code class="docutils literal notranslate"><span class="pre">print_apply()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.linking_utils.process_atom_groups_for_linking_single_link"><code class="docutils literal notranslate"><span class="pre">process_atom_groups_for_linking_single_link()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.pdb_interpretation">mmtbx.monomer_library.pdb_interpretation module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.ad_hoc_single_atom_residue"><code class="docutils literal notranslate"><span class="pre">ad_hoc_single_atom_residue</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.add_angle_proxies"><code class="docutils literal notranslate"><span class="pre">add_angle_proxies</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.add_bond_proxies"><code class="docutils literal notranslate"><span class="pre">add_bond_proxies</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.add_chirality_proxies"><code class="docutils literal notranslate"><span class="pre">add_chirality_proxies</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.add_dihedral_proxies"><code class="docutils literal notranslate"><span class="pre">add_dihedral_proxies</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.add_parallelity_proxies"><code class="docutils literal notranslate"><span class="pre">add_parallelity_proxies</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.add_planarity_proxies"><code class="docutils literal notranslate"><span class="pre">add_planarity_proxies</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.all_atoms_are_in_main_conf"><code class="docutils literal notranslate"><span class="pre">all_atoms_are_in_main_conf()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.atom_selection"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.atom_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.construct_geometry_restraints_manager"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.construct_geometry_restraints_manager()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.create_disulfides"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.create_disulfides()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.create_link"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.create_link()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.extract_secondary_structure"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.extract_secondary_structure()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.extract_xray_structure"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.extract_xray_structure()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.fatal_problems_message"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.fatal_problems_message()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.fatal_problems_report"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.fatal_problems_report()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.iselection"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.iselection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selection"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.phil_atom_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selection_multiple"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.phil_atom_selection_multiple()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.phil_atom_selections_as_i_seqs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.phil_atom_selections_as_i_seqs_multiple"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.phil_atom_selections_as_i_seqs_multiple()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_apply_cif_link"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_apply_cif_link()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_apply_cif_modification"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_apply_cif_modification()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_custom_links"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_custom_links()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_custom_nonbonded_exclusions"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_custom_nonbonded_exclusions()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_custom_nonbonded_symmetry_exclusions"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_custom_nonbonded_symmetry_exclusions()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_geometry_restraints_edits"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_geometry_restraints_edits()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_geometry_restraints_edits_angle"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_geometry_restraints_edits_angle()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_geometry_restraints_edits_bond"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_geometry_restraints_edits_bond()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_geometry_restraints_edits_dihedral"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_geometry_restraints_edits_dihedral()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_geometry_restraints_edits_parallelity"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_geometry_restraints_edits_parallelity()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_geometry_restraints_edits_planarity"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_geometry_restraints_edits_planarity()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_geometry_restraints_remove"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_geometry_restraints_remove()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_geometry_restraints_scale"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_geometry_restraints_scale()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.process_hydrogen_bonds"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.process_hydrogen_bonds()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.sel_backbone"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.sel_backbone()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.sel_backbone_or_sidechain"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.sel_backbone_or_sidechain()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.sel_classification"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.sel_classification()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.sel_phosphate"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.sel_phosphate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.sel_ribose"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.sel_ribose()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.sel_sidechain"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.sel_sidechain()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.sel_within"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.sel_within()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.selection"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.site_symmetry_table"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.site_symmetry_table()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.sites_cart_exact"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.sites_cart_exact()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_all_chain_proxies.update_internals_due_to_coordinates_change"><code class="docutils literal notranslate"><span class="pre">build_all_chain_proxies.update_internals_due_to_coordinates_change()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.build_chain_proxies"><code class="docutils literal notranslate"><span class="pre">build_chain_proxies</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.cif_output_holder"><code class="docutils literal notranslate"><span class="pre">cif_output_holder</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.cif_output_holder.update"><code class="docutils literal notranslate"><span class="pre">cif_output_holder.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.conformer_i_seq"><code class="docutils literal notranslate"><span class="pre">conformer_i_seq</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.conformer_i_seq.convert"><code class="docutils literal notranslate"><span class="pre">conformer_i_seq.convert()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.counters"><code class="docutils literal notranslate"><span class="pre">counters</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.discard_conflicting_pdb_element_column"><code class="docutils literal notranslate"><span class="pre">discard_conflicting_pdb_element_column()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.ener_lib_as_nonbonded_params"><code class="docutils literal notranslate"><span class="pre">ener_lib_as_nonbonded_params()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.evaluate_registry_process_result"><code class="docutils literal notranslate"><span class="pre">evaluate_registry_process_result()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.flush_log"><code class="docutils literal notranslate"><span class="pre">flush_log()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.format_exception_message"><code class="docutils literal notranslate"><span class="pre">format_exception_message()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.geometry_restraints_proxy_registries"><code class="docutils literal notranslate"><span class="pre">geometry_restraints_proxy_registries</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.geometry_restraints_proxy_registries.discard_tables"><code class="docutils literal notranslate"><span class="pre">geometry_restraints_proxy_registries.discard_tables()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.geometry_restraints_proxy_registries.initialize_tables"><code class="docutils literal notranslate"><span class="pre">geometry_restraints_proxy_registries.initialize_tables()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.geometry_restraints_proxy_registries.report"><code class="docutils literal notranslate"><span class="pre">geometry_restraints_proxy_registries.report()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.get_lib_link"><code class="docutils literal notranslate"><span class="pre">get_lib_link()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.get_lib_link_peptide"><code class="docutils literal notranslate"><span class="pre">get_lib_link_peptide()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.get_restraints_loading_flags"><code class="docutils literal notranslate"><span class="pre">get_restraints_loading_flags()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.involves_broken_bonds"><code class="docutils literal notranslate"><span class="pre">involves_broken_bonds()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.is_same_model_as_before"><code class="docutils literal notranslate"><span class="pre">is_same_model_as_before()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.link_match"><code class="docutils literal notranslate"><span class="pre">link_match</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.link_match.is_proper_match"><code class="docutils literal notranslate"><span class="pre">link_match.is_proper_match()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.link_match_one"><code class="docutils literal notranslate"><span class="pre">link_match_one</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.link_match_one.is_match"><code class="docutils literal notranslate"><span class="pre">link_match_one.is_match()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping"><code class="docutils literal notranslate"><span class="pre">monomer_mapping</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.active_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.active_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.add_angle_proxies"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.add_angle_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.add_bond_proxies"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.add_bond_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.add_chirality_proxies"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.add_chirality_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.add_dihedral_proxies"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.add_dihedral_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.add_parallelity_proxies"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.add_parallelity_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.add_planarity_proxies"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.add_planarity_proxies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.angle_counters"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.angle_counters</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.apply_mod"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.apply_mod()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.atom_name_interpretation"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.atom_name_interpretation</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.atom_names_given"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.atom_names_given</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.atom_names_mappings"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.atom_names_mappings</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.bond_counters"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.bond_counters</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.chainid"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.chainid</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.chem_mod_ids"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.chem_mod_ids</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.chirality_counters"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.chirality_counters</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.classification"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.classification</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.conf_altloc"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.conf_altloc</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.dihedral_counters"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.dihedral_counters</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.duplicate_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.duplicate_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.expected_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.expected_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.i_conformer"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.i_conformer</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.ignored_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.ignored_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.incomplete_info"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.incomplete_info</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.is_first_conformer_in_chain"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.is_first_conformer_in_chain</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.is_rna2p"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.is_rna2p</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.is_rna_dna"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.is_rna_dna</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.is_terminus"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.is_terminus</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.is_unusual"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.is_unusual</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.lib_link"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.lib_link</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.missing_hydrogen_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.missing_hydrogen_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.missing_non_hydrogen_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.missing_non_hydrogen_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.mon_lib_names"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.mon_lib_names</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.mon_lib_srv"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.mon_lib_srv</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.monomer"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.monomer</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.monomer_atom_dict"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.monomer_atom_dict</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.parallelity_counters"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.parallelity_counters</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.pdb_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.pdb_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.pdb_residue"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.pdb_residue</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.pdb_residue_id_str"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.pdb_residue_id_str</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.planarity_counters"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.planarity_counters</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.residue_altloc"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.residue_altloc()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.residue_name"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.residue_name</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.resolve_unexpected"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.resolve_unexpected()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.summary"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.summary()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping.unexpected_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping.unexpected_atoms</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.all_associated_i_seqs"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.all_associated_i_seqs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.classification"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.classification</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.conf_altloc"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.conf_altloc</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.duplicate_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.duplicate_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.expected_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.expected_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.ignored_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.ignored_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.incomplete_info"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.incomplete_info</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.is_terminus"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.is_terminus</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.is_unusual"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.is_unusual</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.residue_name"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.residue_name</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.summary"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.summary()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.monomer_mapping_summary.unexpected_atoms"><code class="docutils literal notranslate"><span class="pre">monomer_mapping_summary.unexpected_atoms</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.nonbonded_energy_type_registry"><code class="docutils literal notranslate"><span class="pre">nonbonded_energy_type_registry</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.print_dict"><code class="docutils literal notranslate"><span class="pre">print_dict()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.process"><code class="docutils literal notranslate"><span class="pre">process</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.process.clash_guard"><code class="docutils literal notranslate"><span class="pre">process.clash_guard()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.process.geometry_restraints_manager"><code class="docutils literal notranslate"><span class="pre">process.geometry_restraints_manager()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.process.search_for_ncs"><code class="docutils literal notranslate"><span class="pre">process.search_for_ncs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.process.xray_structure"><code class="docutils literal notranslate"><span class="pre">process.xray_structure()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.residue_id_str"><code class="docutils literal notranslate"><span class="pre">residue_id_str()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.scattering_type_registry"><code class="docutils literal notranslate"><span class="pre">scattering_type_registry</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager"><code class="docutils literal notranslate"><span class="pre">selection_manager</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.iselection"><code class="docutils literal notranslate"><span class="pre">selection_manager.iselection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.phil_atom_selection"><code class="docutils literal notranslate"><span class="pre">selection_manager.phil_atom_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.sel_backbone"><code class="docutils literal notranslate"><span class="pre">selection_manager.sel_backbone()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.sel_backbone_or_sidechain"><code class="docutils literal notranslate"><span class="pre">selection_manager.sel_backbone_or_sidechain()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.sel_classification"><code class="docutils literal notranslate"><span class="pre">selection_manager.sel_classification()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.sel_phosphate"><code class="docutils literal notranslate"><span class="pre">selection_manager.sel_phosphate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.sel_residues_within"><code class="docutils literal notranslate"><span class="pre">selection_manager.sel_residues_within()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.sel_ribose"><code class="docutils literal notranslate"><span class="pre">selection_manager.sel_ribose()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.sel_sidechain"><code class="docutils literal notranslate"><span class="pre">selection_manager.sel_sidechain()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.sel_within"><code class="docutils literal notranslate"><span class="pre">selection_manager.sel_within()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.selection_manager.selection"><code class="docutils literal notranslate"><span class="pre">selection_manager.selection()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.show_residue_groups"><code class="docutils literal notranslate"><span class="pre">show_residue_groups()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.source_info_server"><code class="docutils literal notranslate"><span class="pre">source_info_server</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.source_info_server.labels"><code class="docutils literal notranslate"><span class="pre">source_info_server.labels()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.source_info_server.n_expected_atoms"><code class="docutils literal notranslate"><span class="pre">source_info_server.n_expected_atoms()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.special_position_dict"><code class="docutils literal notranslate"><span class="pre">special_position_dict</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.special_position_dict.involves_special_positions"><code class="docutils literal notranslate"><span class="pre">special_position_dict.involves_special_positions()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.type_symbol_registry_base"><code class="docutils literal notranslate"><span class="pre">type_symbol_registry_base</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.type_symbol_registry_base.assign_charge"><code class="docutils literal notranslate"><span class="pre">type_symbol_registry_base.assign_charge()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.type_symbol_registry_base.assign_directly"><code class="docutils literal notranslate"><span class="pre">type_symbol_registry_base.assign_directly()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.type_symbol_registry_base.assign_from_monomer_mapping"><code class="docutils literal notranslate"><span class="pre">type_symbol_registry_base.assign_from_monomer_mapping()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.type_symbol_registry_base.discard_tables"><code class="docutils literal notranslate"><span class="pre">type_symbol_registry_base.discard_tables()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.type_symbol_registry_base.get_unknown_atoms"><code class="docutils literal notranslate"><span class="pre">type_symbol_registry_base.get_unknown_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.type_symbol_registry_base.n_unknown_type_symbols"><code class="docutils literal notranslate"><span class="pre">type_symbol_registry_base.n_unknown_type_symbols()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.type_symbol_registry_base.report"><code class="docutils literal notranslate"><span class="pre">type_symbol_registry_base.report()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.type_symbol_registry_base.report_unknown_message"><code class="docutils literal notranslate"><span class="pre">type_symbol_registry_base.report_unknown_message()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.pdb_interpretation.validate_geometry_edits_params"><code class="docutils literal notranslate"><span class="pre">validate_geometry_edits_params()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.rna_sugar_pucker_analysis">mmtbx.monomer_library.rna_sugar_pucker_analysis module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate"><code class="docutils literal notranslate"><span class="pre">evaluate</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.assign"><code class="docutils literal notranslate"><span class="pre">evaluate.assign()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.delta"><code class="docutils literal notranslate"><span class="pre">evaluate.delta</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.epsilon"><code class="docutils literal notranslate"><span class="pre">evaluate.epsilon</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.is_2p"><code class="docutils literal notranslate"><span class="pre">evaluate.is_2p</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.is_2p_delta"><code class="docutils literal notranslate"><span class="pre">evaluate.is_2p_delta</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.is_2p_o3p_distance_c1p_outbound_line"><code class="docutils literal notranslate"><span class="pre">evaluate.is_2p_o3p_distance_c1p_outbound_line</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.is_2p_p_distance_c1p_outbound_line"><code class="docutils literal notranslate"><span class="pre">evaluate.is_2p_p_distance_c1p_outbound_line</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.is_3p_delta"><code class="docutils literal notranslate"><span class="pre">evaluate.is_3p_delta</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.is_delta_outlier"><code class="docutils literal notranslate"><span class="pre">evaluate.is_delta_outlier</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.is_epsilon_outlier"><code class="docutils literal notranslate"><span class="pre">evaluate.is_epsilon_outlier</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.o3p_distance_c1p_outbound_line"><code class="docutils literal notranslate"><span class="pre">evaluate.o3p_distance_c1p_outbound_line</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.o3p_perp_xyz"><code class="docutils literal notranslate"><span class="pre">evaluate.o3p_perp_xyz</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.p_distance_c1p_outbound_line"><code class="docutils literal notranslate"><span class="pre">evaluate.p_distance_c1p_outbound_line</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rna_sugar_pucker_analysis.evaluate.p_perp_xyz"><code class="docutils literal notranslate"><span class="pre">evaluate.p_perp_xyz</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.rotamer_utils">mmtbx.monomer_library.rotamer_utils module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rotamer_utils.build_angle_start_by_tor_id"><code class="docutils literal notranslate"><span class="pre">build_angle_start_by_tor_id()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rotamer_utils.build_i_q_packed_by_tor_id"><code class="docutils literal notranslate"><span class="pre">build_i_q_packed_by_tor_id()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rotamer_utils.build_rotamer_tor_atom_ids_by_tor_id"><code class="docutils literal notranslate"><span class="pre">build_rotamer_tor_atom_ids_by_tor_id()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rotamer_utils.extract_bonds_to_omit"><code class="docutils literal notranslate"><span class="pre">extract_bonds_to_omit()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rotamer_utils.rotamer_info_master_phil"><code class="docutils literal notranslate"><span class="pre">rotamer_info_master_phil()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rotamer_utils.rotamer_iterator"><code class="docutils literal notranslate"><span class="pre">rotamer_iterator</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rotamer_utils.rotamer_iterator.next"><code class="docutils literal notranslate"><span class="pre">rotamer_iterator.next()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rotamer_utils.rotamer_iterator.reset"><code class="docutils literal notranslate"><span class="pre">rotamer_iterator.reset()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.rotamer_utils.tardy_model"><code class="docutils literal notranslate"><span class="pre">tardy_model()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.monomer_library.server">mmtbx.monomer_library.server module</a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.MonomerLibraryServerError"><code class="docutils literal notranslate"><span class="pre">MonomerLibraryServerError</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.convert_comp_list"><code class="docutils literal notranslate"><span class="pre">convert_comp_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.convert_link_list"><code class="docutils literal notranslate"><span class="pre">convert_link_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.convert_list_block"><code class="docutils literal notranslate"><span class="pre">convert_list_block()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.convert_mod_list"><code class="docutils literal notranslate"><span class="pre">convert_mod_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.ener_lib"><code class="docutils literal notranslate"><span class="pre">ener_lib</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.ener_lib.convert_all"><code class="docutils literal notranslate"><span class="pre">ener_lib.convert_all()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.ener_lib.convert_lib_atom"><code class="docutils literal notranslate"><span class="pre">ener_lib.convert_lib_atom()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.ener_lib.convert_lib_synonym"><code class="docutils literal notranslate"><span class="pre">ener_lib.convert_lib_synonym()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.ener_lib.convert_lib_vdw"><code class="docutils literal notranslate"><span class="pre">ener_lib.convert_lib_vdw()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.find_mon_lib_file"><code class="docutils literal notranslate"><span class="pre">find_mon_lib_file()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.geostd_list_cif"><code class="docutils literal notranslate"><span class="pre">geostd_list_cif()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.get_rows"><code class="docutils literal notranslate"><span class="pre">get_rows()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.id_dict"><code class="docutils literal notranslate"><span class="pre">id_dict</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.load_mon_lib_file"><code class="docutils literal notranslate"><span class="pre">load_mon_lib_file()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.merge_and_overwrite_cifs"><code class="docutils literal notranslate"><span class="pre">merge_and_overwrite_cifs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.mon_lib_cif_loader"><code class="docutils literal notranslate"><span class="pre">mon_lib_cif_loader</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.mon_lib_ener_lib_cif"><code class="docutils literal notranslate"><span class="pre">mon_lib_ener_lib_cif()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.mon_lib_list_cif"><code class="docutils literal notranslate"><span class="pre">mon_lib_list_cif()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.print_filtered_cif"><code class="docutils literal notranslate"><span class="pre">print_filtered_cif()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.process_cif_mixin"><code class="docutils literal notranslate"><span class="pre">process_cif_mixin</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.process_cif_mixin.process_cif"><code class="docutils literal notranslate"><span class="pre">process_cif_mixin.process_cif()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.process_cif_mixin.process_cif_object"><code class="docutils literal notranslate"><span class="pre">process_cif_mixin.process_cif_object()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.read_cif"><code class="docutils literal notranslate"><span class="pre">read_cif()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server"><code class="docutils literal notranslate"><span class="pre">server</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.convert_all"><code class="docutils literal notranslate"><span class="pre">server.convert_all()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.convert_comp_list"><code class="docutils literal notranslate"><span class="pre">server.convert_comp_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.convert_comp_synonym_atom_list"><code class="docutils literal notranslate"><span class="pre">server.convert_comp_synonym_atom_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.convert_comp_synonym_list"><code class="docutils literal notranslate"><span class="pre">server.convert_comp_synonym_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.convert_deriv_list_dict"><code class="docutils literal notranslate"><span class="pre">server.convert_deriv_list_dict()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.convert_link_list"><code class="docutils literal notranslate"><span class="pre">server.convert_link_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.convert_mod_list"><code class="docutils literal notranslate"><span class="pre">server.convert_mod_list()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.get_comp_comp_id_and_atom_name_interpretation"><code class="docutils literal notranslate"><span class="pre">server.get_comp_comp_id_and_atom_name_interpretation()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.get_comp_comp_id_direct"><code class="docutils literal notranslate"><span class="pre">server.get_comp_comp_id_direct()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.get_comp_comp_id_mod"><code class="docutils literal notranslate"><span class="pre">server.get_comp_comp_id_mod()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.process_geostd_rna_dna"><code class="docutils literal notranslate"><span class="pre">server.process_geostd_rna_dna()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.server.rotamer_iterator"><code class="docutils literal notranslate"><span class="pre">server.rotamer_iterator()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.trivial_html_tag_filter"><code class="docutils literal notranslate"><span class="pre">trivial_html_tag_filter</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.monomer_library.server.trivial_html_tag_filter.next"><code class="docutils literal notranslate"><span class="pre">trivial_html_tag_filter.next()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-mmtbx.monomer_library">Module contents</a></li>
 </ul>
 </li>
@@ -2681,7 +3229,7 @@ an array of weights instead of a scalar value.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

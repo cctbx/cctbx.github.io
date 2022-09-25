@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -134,8 +135,8 @@ file extension as an implicit replacement for <code class="docutils literal notr
 </pre></div>
 </div>
 <p>However, in most cases only a subset of these will be tried automatically.</p>
-<section id="module-iotbx.file_reader">
-<span id="api-documentation"></span><h2>API documentation<a class="headerlink" href="#module-iotbx.file_reader" title="Permalink to this heading">¶</a></h2>
+<section id="api-documentation">
+<h2>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this heading">¶</a></h2>
 <p>Generic file input module, used in Phenix GUI and elsewhere.  This trades some
 loss of efficiency for a simplified API for loading any file type more or less
 automatically.  It will first try to guess the format based on the extension;
@@ -158,7 +159,7 @@ only this format is attempted.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">miller_arrays</span> <span class="o">=</span> <span class="n">mtz_in</span><span class="o">.</span><span class="n">file_server</span><span class="o">.</span><span class="n">miller_arrays</span>
 </pre></div>
 </div>
-<dl class="py exception">
+<span class="target" id="module-iotbx.file_reader"></span><dl class="py exception">
 <dt class="sig sig-object py" id="iotbx.file_reader.FormatError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iotbx.file_reader.</span></span><span class="sig-name descname"><span class="pre">FormatError</span></span><a class="headerlink" href="#iotbx.file_reader.FormatError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sorry</span></code></p>
@@ -361,7 +362,40 @@ could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">iotbx.file_reader - generic file input</a><ul>
-<li><a class="reference internal" href="#module-iotbx.file_reader">API documentation</a></li>
+<li><a class="reference internal" href="#api-documentation">API documentation</a><ul>
+<li><a class="reference internal" href="#iotbx.file_reader.FormatError"><code class="docutils literal notranslate"><span class="pre">FormatError</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file"><code class="docutils literal notranslate"><span class="pre">any_file()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_fast"><code class="docutils literal notranslate"><span class="pre">any_file_fast()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_fast_input"><code class="docutils literal notranslate"><span class="pre">any_file_fast_input</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input"><code class="docutils literal notranslate"><span class="pre">any_file_input</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.assert_file_type"><code class="docutils literal notranslate"><span class="pre">any_file_input.assert_file_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.check_file_type"><code class="docutils literal notranslate"><span class="pre">any_file_input.check_file_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">any_file_input.crystal_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_content"><code class="docutils literal notranslate"><span class="pre">any_file_input.file_content</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_info"><code class="docutils literal notranslate"><span class="pre">any_file_input.file_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_name"><code class="docutils literal notranslate"><span class="pre">any_file_input.file_name</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_object"><code class="docutils literal notranslate"><span class="pre">any_file_input.file_object</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_server"><code class="docutils literal notranslate"><span class="pre">any_file_input.file_server</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.file_type"><code class="docutils literal notranslate"><span class="pre">any_file_input.file_type</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.set_file_type"><code class="docutils literal notranslate"><span class="pre">any_file_input.set_file_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.show_summary"><code class="docutils literal notranslate"><span class="pre">any_file_input.show_summary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.any_file_input.try_all_types"><code class="docutils literal notranslate"><span class="pre">any_file_input.try_all_types()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.file_reader.directory_input"><code class="docutils literal notranslate"><span class="pre">directory_input</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.file_reader.directory_input.file_info"><code class="docutils literal notranslate"><span class="pre">directory_input.file_info()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.file_reader.find_closest_base_name"><code class="docutils literal notranslate"><span class="pre">find_closest_base_name()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.get_wildcard_string"><code class="docutils literal notranslate"><span class="pre">get_wildcard_string()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.get_wildcard_strings"><code class="docutils literal notranslate"><span class="pre">get_wildcard_strings()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.group_files"><code class="docutils literal notranslate"><span class="pre">group_files</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.guess_file_type"><code class="docutils literal notranslate"><span class="pre">guess_file_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.sort_by_file_type"><code class="docutils literal notranslate"><span class="pre">sort_by_file_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.splitext"><code class="docutils literal notranslate"><span class="pre">splitext()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.file_reader.strip_shelx_format_extension"><code class="docutils literal notranslate"><span class="pre">strip_shelx_format_extension()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -420,7 +454,7 @@ could mean MTZ, CIF, XDS, Scalepack, or SHELX format.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

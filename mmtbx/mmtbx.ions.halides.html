@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -48,11 +49,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-mmtbx.ions.halides">
-<span id="mmtbx-ions-halides-module"></span><h1>mmtbx.ions.halides module<a class="headerlink" href="#module-mmtbx.ions.halides" title="Permalink to this heading">¶</a></h1>
+  <section id="mmtbx-ions-halides-module">
+<h1>mmtbx.ions.halides module<a class="headerlink" href="#mmtbx-ions-halides-module" title="Permalink to this heading">¶</a></h1>
 <p>Functions specific to identifying halide ions.  Very preliminary - needs
 much more sophisticated analysis.</p>
-<dl class="py function">
+<span class="target" id="module-mmtbx.ions.halides"></span><dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.ions.halides.is_favorable_halide_environment">
 <span class="sig-prename descclassname"><span class="pre">mmtbx.ions.halides.</span></span><span class="sig-name descname"><span class="pre">is_favorable_halide_environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contacts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sites_frac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_cell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assume_hydrogens_all_missing=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.halides.is_favorable_halide_environment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detects if an atom’s site exists in a favorable environment for a halide
@@ -62,9 +63,9 @@ as well as an absense of negatively charged coordinating groups.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>i_seq</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – </p></li>
-<li><p><strong>contacts</strong> (<em>list of mmtbx.ions.environment.atom_contact</em>) – </p></li>
+<li><p><strong>contacts</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> of </em><a class="reference internal" href="mmtbx.ions.environment.html#mmtbx.ions.environment.atom_contact" title="mmtbx.ions.environment.atom_contact"><em>mmtbx.ions.environment.atom_contact</em></a>) – </p></li>
 <li><p><strong>pdb_atoms</strong> (<a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.af_shared_atom" title="iotbx.pdb.hierarchy.af_shared_atom"><em>iotbx.pdb.hierarchy.af_shared_atom</em></a>) – </p></li>
-<li><p><strong>sites_frac</strong> (<em>tuple of float</em><em>, </em><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – </p></li>
+<li><p><strong>sites_frac</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em> of </em><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a><em>, </em><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – </p></li>
 <li><p><strong>connectivity</strong> (<em>scitbx.array_family.shared.stl_set_unsigned</em>) – </p></li>
 <li><p><strong>unit_cell</strong> (<a class="reference internal" href="../cctbx/cctbx.uctbx.html#cctbx.uctbx.unit_cell" title="cctbx.uctbx.unit_cell"><em>uctbx.unit_cell</em></a>) – </p></li>
 <li><p><strong>params</strong> (<em>libtbx.phil.scope_extract</em>) – </p></li>
@@ -105,6 +106,17 @@ no hydrogen atom) that would similarly repel anions.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">mmtbx.ions.halides module</a><ul>
+<li><a class="reference internal" href="#mmtbx.ions.halides.is_favorable_halide_environment"><code class="docutils literal notranslate"><span class="pre">is_favorable_halide_environment()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ions.halides.is_negatively_charged_oxygen"><code class="docutils literal notranslate"><span class="pre">is_negatively_charged_oxygen()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="mmtbx.ions.geometry.html"
@@ -159,7 +171,7 @@ no hydrogen atom) that would similarly repel anions.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

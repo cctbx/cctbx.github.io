@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -289,16 +290,67 @@ between 0 and 1.</p>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.conformation_dependent_library package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.altloc_weighting">mmtbx.conformation_dependent_library.altloc_weighting module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.bond_angle_registry">mmtbx.conformation_dependent_library.bond_angle_registry module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.cdl_database">mmtbx.conformation_dependent_library.cdl_database module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.rdl_database">mmtbx.conformation_dependent_library.rdl_database module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.altloc_weighting">mmtbx.conformation_dependent_library.altloc_weighting module</a><ul>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.altloc_weighting.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.altloc_weighting.update_restraints"><code class="docutils literal notranslate"><span class="pre">update_restraints()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.bond_angle_registry">mmtbx.conformation_dependent_library.bond_angle_registry module</a><ul>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.bond_angle_registry.bond_angle_registry"><code class="docutils literal notranslate"><span class="pre">bond_angle_registry</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.cdl_database">mmtbx.conformation_dependent_library.cdl_database module</a><ul>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.cdl_database.custom_cdl_dict"><code class="docutils literal notranslate"><span class="pre">custom_cdl_dict</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.cdl_database.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.rdl_database">mmtbx.conformation_dependent_library.rdl_database module</a><ul>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.rdl_database.get_rdl_database"><code class="docutils literal notranslate"><span class="pre">get_rdl_database()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.rdl_database.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#mmtbx-conformation-dependent-library-rotamers-module">mmtbx.conformation_dependent_library.rotamers module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.tst_cdl">mmtbx.conformation_dependent_library.tst_cdl module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.tst_cdl">mmtbx.conformation_dependent_library.tst_cdl module</a><ul>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.convert_dict_to_excel"><code class="docutils literal notranslate"><span class="pre">convert_dict_to_excel()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.convert_dict_to_gnuplot"><code class="docutils literal notranslate"><span class="pre">convert_dict_to_gnuplot()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.convert_dict_to_kin2Dcont"><code class="docutils literal notranslate"><span class="pre">convert_dict_to_kin2Dcont()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.convert_dict_to_scilab"><code class="docutils literal notranslate"><span class="pre">convert_dict_to_scilab()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.get_managers"><code class="docutils literal notranslate"><span class="pre">get_managers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.get_min_max_table"><code class="docutils literal notranslate"><span class="pre">get_min_max_table()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.run_apply"><code class="docutils literal notranslate"><span class="pre">run_apply()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.test_average"><code class="docutils literal notranslate"><span class="pre">test_average()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.test_cdl_lookup"><code class="docutils literal notranslate"><span class="pre">test_cdl_lookup()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.test_cis_trans_peptide"><code class="docutils literal notranslate"><span class="pre">test_cis_trans_peptide()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.test_phi_psi_key"><code class="docutils literal notranslate"><span class="pre">test_phi_psi_key()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.test_res_type"><code class="docutils literal notranslate"><span class="pre">test_res_type()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.tst_cdl.test_threes_methods"><code class="docutils literal notranslate"><span class="pre">test_threes_methods()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#mmtbx-conformation-dependent-library-test-interpolation-module">mmtbx.conformation_dependent_library.test_interpolation module</a></li>
 <li><a class="reference internal" href="#mmtbx-conformation-dependent-library-tst-rdl-module">mmtbx.conformation_dependent_library.tst_rdl module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.utils">mmtbx.conformation_dependent_library.utils module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library.utils">mmtbx.conformation_dependent_library.utils module</a><ul>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.utils.get_db_result"><code class="docutils literal notranslate"><span class="pre">get_db_result()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.utils.get_grid_values"><code class="docutils literal notranslate"><span class="pre">get_grid_values()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.utils.get_index"><code class="docutils literal notranslate"><span class="pre">get_index()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.utils.interpolate_2d"><code class="docutils literal notranslate"><span class="pre">interpolate_2d()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.utils.interpolate_at_point"><code class="docutils literal notranslate"><span class="pre">interpolate_at_point()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.utils.print_grid"><code class="docutils literal notranslate"><span class="pre">print_grid()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.utils.round_to_ten"><code class="docutils literal notranslate"><span class="pre">round_to_ten()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.conformation_dependent_library">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.generate_dna_rna_fragments"><code class="docutils literal notranslate"><span class="pre">generate_dna_rna_fragments()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.generate_protein_fragments"><code class="docutils literal notranslate"><span class="pre">generate_protein_fragments()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.generate_protein_threes"><code class="docutils literal notranslate"><span class="pre">generate_protein_threes()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.generate_protein_tuples"><code class="docutils literal notranslate"><span class="pre">generate_protein_tuples()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.generate_residue_tuples"><code class="docutils literal notranslate"><span class="pre">generate_residue_tuples()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.get_restraint_values"><code class="docutils literal notranslate"><span class="pre">get_restraint_values()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.restraints_show"><code class="docutils literal notranslate"><span class="pre">restraints_show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.conformation_dependent_library.update_restraints"><code class="docutils literal notranslate"><span class="pre">update_restraints()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -357,7 +409,7 @@ between 0 and 1.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -334,10 +335,76 @@
     <ul>
 <li><a class="reference internal" href="#">mmtbx.tls package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.tls.command_line">mmtbx.tls.command_line module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.tls.ladp">mmtbx.tls.ladp module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.tls.tls_as_xyz">mmtbx.tls.tls_as_xyz module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.tls.tools">mmtbx.tls.tools module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.tls.command_line">mmtbx.tls.command_line module</a><ul>
+<li><a class="reference internal" href="#mmtbx.tls.command_line.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.tls.ladp">mmtbx.tls.ladp module</a><ul>
+<li><a class="reference internal" href="#mmtbx.tls.ladp.check_u_cart"><code class="docutils literal notranslate"><span class="pre">check_u_cart()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.ladp.get_axes_and_atoms_i_seqs"><code class="docutils literal notranslate"><span class="pre">get_axes_and_atoms_i_seqs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.ladp.set_ladp"><code class="docutils literal notranslate"><span class="pre">set_ladp()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.tls.tls_as_xyz">mmtbx.tls.tls_as_xyz module</a><ul>
+<li><a class="reference internal" href="#mmtbx.tls.tls_as_xyz.ensemble_generator"><code class="docutils literal notranslate"><span class="pre">ensemble_generator</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.tls.tls_as_xyz.ensemble_generator.write_pdb_file"><code class="docutils literal notranslate"><span class="pre">ensemble_generator.write_pdb_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.tls.tls_as_xyz.formula_49"><code class="docutils literal notranslate"><span class="pre">formula_49()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tls_as_xyz.print_step"><code class="docutils literal notranslate"><span class="pre">print_step()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tls_as_xyz.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tls_as_xyz.step_i__compute_delta_L_r_dp"><code class="docutils literal notranslate"><span class="pre">step_i__compute_delta_L_r_dp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tls_as_xyz.step_i__get_dxdydz"><code class="docutils literal notranslate"><span class="pre">step_i__get_dxdydz()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.tls.tools">mmtbx.tls.tools module</a><ul>
+<li><a class="reference internal" href="#mmtbx.tls.tools.combine_tls_and_u_local"><code class="docutils literal notranslate"><span class="pre">combine_tls_and_u_local()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.extract_tls_from_pdb"><code class="docutils literal notranslate"><span class="pre">extract_tls_from_pdb()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.finite_differences_grads_of_xray_target_wrt_tls"><code class="docutils literal notranslate"><span class="pre">finite_differences_grads_of_xray_target_wrt_tls()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.generate_tlsos"><code class="docutils literal notranslate"><span class="pre">generate_tlsos()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.get_u_cart"><code class="docutils literal notranslate"><span class="pre">get_u_cart()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.make_tlso_compatible_with_u_positive_definite"><code class="docutils literal notranslate"><span class="pre">make_tlso_compatible_with_u_positive_definite()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.remark_3_tls"><code class="docutils literal notranslate"><span class="pre">remark_3_tls()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.show_times"><code class="docutils literal notranslate"><span class="pre">show_times()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.show_tls"><code class="docutils literal notranslate"><span class="pre">show_tls</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.show_tls_one_group"><code class="docutils literal notranslate"><span class="pre">show_tls_one_group</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.split_u"><code class="docutils literal notranslate"><span class="pre">split_u()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_pdb_inp"><code class="docutils literal notranslate"><span class="pre">tls_from_pdb_inp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_u_cart"><code class="docutils literal notranslate"><span class="pre">tls_from_u_cart()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_uaniso_minimizer"><code class="docutils literal notranslate"><span class="pre">tls_from_uaniso_minimizer</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_uaniso_minimizer.compute_functional_and_gradients"><code class="docutils literal notranslate"><span class="pre">tls_from_uaniso_minimizer.compute_functional_and_gradients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_uaniso_minimizer.pack"><code class="docutils literal notranslate"><span class="pre">tls_from_uaniso_minimizer.pack()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_uaniso_minimizer.unpack_x"><code class="docutils literal notranslate"><span class="pre">tls_from_uaniso_minimizer.unpack_x()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_uanisos"><code class="docutils literal notranslate"><span class="pre">tls_from_uanisos()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_uiso_minimizer"><code class="docutils literal notranslate"><span class="pre">tls_from_uiso_minimizer</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_uiso_minimizer.compute_functional_and_gradients"><code class="docutils literal notranslate"><span class="pre">tls_from_uiso_minimizer.compute_functional_and_gradients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_uiso_minimizer.pack"><code class="docutils literal notranslate"><span class="pre">tls_from_uiso_minimizer.pack()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_from_uiso_minimizer.unpack_x"><code class="docutils literal notranslate"><span class="pre">tls_from_uiso_minimizer.unpack_x()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_group"><code class="docutils literal notranslate"><span class="pre">tls_group</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_groups"><code class="docutils literal notranslate"><span class="pre">tls_groups</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_groups.as_cif_block"><code class="docutils literal notranslate"><span class="pre">tls_groups.as_cif_block()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_groups.select"><code class="docutils literal notranslate"><span class="pre">tls_groups.select()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_refinement"><code class="docutils literal notranslate"><span class="pre">tls_refinement</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_xray_grads"><code class="docutils literal notranslate"><span class="pre">tls_xray_grads</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_xray_target_minimizer"><code class="docutils literal notranslate"><span class="pre">tls_xray_target_minimizer</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_xray_target_minimizer.compute_functional_and_gradients"><code class="docutils literal notranslate"><span class="pre">tls_xray_target_minimizer.compute_functional_and_gradients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_xray_target_minimizer.pack"><code class="docutils literal notranslate"><span class="pre">tls_xray_target_minimizer.pack()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.tls_xray_target_minimizer.unpack_x"><code class="docutils literal notranslate"><span class="pre">tls_xray_target_minimizer.unpack_x()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.u_cart_from_ensemble"><code class="docutils literal notranslate"><span class="pre">u_cart_from_ensemble()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.u_cart_from_tls"><code class="docutils literal notranslate"><span class="pre">u_cart_from_tls()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.u_tls_vs_u_ens"><code class="docutils literal notranslate"><span class="pre">u_tls_vs_u_ens</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.update_xray_structure_with_tls"><code class="docutils literal notranslate"><span class="pre">update_xray_structure_with_tls()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.tls.tools.water_in_tls_selections"><code class="docutils literal notranslate"><span class="pre">water_in_tls_selections()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-mmtbx.tls">Module contents</a></li>
 </ul>
 </li>
@@ -397,7 +464,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

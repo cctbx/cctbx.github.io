@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -173,8 +174,38 @@ gradients at the current position</p>
     <ul>
 <li><a class="reference internal" href="#">xfel.mono_simulation package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-xfel.mono_simulation.max_like">xfel.mono_simulation.max_like module</a></li>
-<li><a class="reference internal" href="#module-xfel.mono_simulation.mono_treatment">xfel.mono_simulation.mono_treatment module</a></li>
+<li><a class="reference internal" href="#module-xfel.mono_simulation.max_like">xfel.mono_simulation.max_like module</a><ul>
+<li><a class="reference internal" href="#xfel.mono_simulation.max_like.block_size_simplex"><code class="docutils literal notranslate"><span class="pre">block_size_simplex</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.mono_simulation.max_like.block_size_simplex.target"><code class="docutils literal notranslate"><span class="pre">block_size_simplex.target()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xfel.mono_simulation.max_like.minimizer"><code class="docutils literal notranslate"><span class="pre">minimizer</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.mono_simulation.max_like.minimizer.compute_functional_and_gradients"><code class="docutils literal notranslate"><span class="pre">minimizer.compute_functional_and_gradients()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.mono_simulation.max_like.minimizer.fd_compute_functional_and_gradients"><code class="docutils literal notranslate"><span class="pre">minimizer.fd_compute_functional_and_gradients()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.mono_simulation.max_like.minimizer.functional_only"><code class="docutils literal notranslate"><span class="pre">minimizer.functional_only()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.mono_simulation.mono_treatment">xfel.mono_simulation.mono_treatment module</a><ul>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.post_outlier_rejection"><code class="docutils literal notranslate"><span class="pre">post_outlier_rejection()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.pre_get_predictions"><code class="docutils literal notranslate"><span class="pre">pre_get_predictions()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.refinement"><code class="docutils literal notranslate"><span class="pre">refinement</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.refinement.contour_plot_DEPRECATED_DOES_NOT_APPLY_SUBPIXEL_METROLOGY"><code class="docutils literal notranslate"><span class="pre">refinement.contour_plot_DEPRECATED_DOES_NOT_APPLY_SUBPIXEL_METROLOGY()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.refinement.grid"><code class="docutils literal notranslate"><span class="pre">refinement.grid</span></code></a></li>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.refinement.per_frame_helper_factory"><code class="docutils literal notranslate"><span class="pre">refinement.per_frame_helper_factory()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.refinement.refine_rotx_roty2"><code class="docutils literal notranslate"><span class="pre">refinement.refine_rotx_roty2()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.refinement.show_plot"><code class="docutils literal notranslate"><span class="pre">refinement.show_plot()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.refinement2"><code class="docutils literal notranslate"><span class="pre">refinement2</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.refinement2.grid"><code class="docutils literal notranslate"><span class="pre">refinement2.grid</span></code></a></li>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.refinement2.refine_all"><code class="docutils literal notranslate"><span class="pre">refinement2.refine_all()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xfel.mono_simulation.mono_treatment.refinement_base"><code class="docutils literal notranslate"><span class="pre">refinement_base</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-xfel.mono_simulation">Module contents</a></li>
 </ul>
 </li>
@@ -217,7 +248,7 @@ gradients at the current position</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

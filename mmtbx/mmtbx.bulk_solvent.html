@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -285,8 +286,57 @@
     <ul>
 <li><a class="reference internal" href="#">mmtbx.bulk_solvent package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.bulk_solvent.bulk_solvent_and_scaling">mmtbx.bulk_solvent.bulk_solvent_and_scaling module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.bulk_solvent.scaler">mmtbx.bulk_solvent.scaler module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.bulk_solvent.bulk_solvent_and_scaling">mmtbx.bulk_solvent.bulk_solvent_and_scaling module</a><ul>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.apply_back_trace_of_overall_exp_scale_matrix"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.apply_back_trace_of_overall_exp_scale_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.b_cart"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.b_cart()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.b_sols"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.b_sols()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.format_scale_matrix"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.format_scale_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.k_anisotropic"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.k_anisotropic()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.k_isotropic"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.k_isotropic()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.k_masks"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.k_masks()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.k_sols"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.k_sols()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.r_all"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.r_all()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.r_factor"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.r_factor()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.bulk_solvent_and_scales.u_star"><code class="docutils literal notranslate"><span class="pre">bulk_solvent_and_scales.u_star()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.k_sol_b_sol_b_cart_minimizer"><code class="docutils literal notranslate"><span class="pre">k_sol_b_sol_b_cart_minimizer()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.kb_range"><code class="docutils literal notranslate"><span class="pre">kb_range()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.bulk_solvent_and_scaling.ksol_bsol_result"><code class="docutils literal notranslate"><span class="pre">ksol_bsol_result</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.bulk_solvent.scaler">mmtbx.bulk_solvent.scaler module</a><ul>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.moving_average"><code class="docutils literal notranslate"><span class="pre">moving_average()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.anisotropic_scaling"><code class="docutils literal notranslate"><span class="pre">run.anisotropic_scaling()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.apply_back_trace_of_overall_exp_scale_matrix"><code class="docutils literal notranslate"><span class="pre">run.apply_back_trace_of_overall_exp_scale_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.apply_overall_scale"><code class="docutils literal notranslate"><span class="pre">run.apply_overall_scale()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.bulk_solvent_scaling"><code class="docutils literal notranslate"><span class="pre">run.bulk_solvent_scaling()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.estimate_scale_k1"><code class="docutils literal notranslate"><span class="pre">run.estimate_scale_k1()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.format_scale_matrix"><code class="docutils literal notranslate"><span class="pre">run.format_scale_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.get_k_total"><code class="docutils literal notranslate"><span class="pre">run.get_k_total()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.is_converged"><code class="docutils literal notranslate"><span class="pre">run.is_converged()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.is_flags_good"><code class="docutils literal notranslate"><span class="pre">run.is_flags_good()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.k_anisotropic"><code class="docutils literal notranslate"><span class="pre">run.k_anisotropic()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.k_isotropic"><code class="docutils literal notranslate"><span class="pre">run.k_isotropic()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.k_mask_grid_search"><code class="docutils literal notranslate"><span class="pre">run.k_mask_grid_search()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.k_masks"><code class="docutils literal notranslate"><span class="pre">run.k_masks()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.overall_isotropic_kb_estimate"><code class="docutils literal notranslate"><span class="pre">run.overall_isotropic_kb_estimate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.populate_bin_to_individual_k_mask_linear_interpolation"><code class="docutils literal notranslate"><span class="pre">run.populate_bin_to_individual_k_mask_linear_interpolation()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.r_all"><code class="docutils literal notranslate"><span class="pre">run.r_all()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.r_factor"><code class="docutils literal notranslate"><span class="pre">run.r_factor()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.r_work"><code class="docutils literal notranslate"><span class="pre">run.r_work()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.set_k_isotropic_exp"><code class="docutils literal notranslate"><span class="pre">run.set_k_isotropic_exp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.show"><code class="docutils literal notranslate"><span class="pre">run.show()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.smooth"><code class="docutils literal notranslate"><span class="pre">run.smooth()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run.try_scale"><code class="docutils literal notranslate"><span class="pre">run.try_scale()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.run_simple"><code class="docutils literal notranslate"><span class="pre">run_simple()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.bulk_solvent.scaler.tmp"><code class="docutils literal notranslate"><span class="pre">tmp</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-mmtbx.bulk_solvent">Module contents</a></li>
 </ul>
 </li>
@@ -346,7 +396,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

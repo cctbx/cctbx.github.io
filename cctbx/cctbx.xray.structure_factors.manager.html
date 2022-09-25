@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -183,6 +184,43 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">cctbx.xray.structure_factors.manager module</a><ul>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.managed_calculation_base"><code class="docutils literal notranslate"><span class="pre">managed_calculation_base</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.managed_calculation_base.algorithm"><code class="docutils literal notranslate"><span class="pre">managed_calculation_base.algorithm()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.managed_calculation_base.manager"><code class="docutils literal notranslate"><span class="pre">managed_calculation_base.manager()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.managed_calculation_base.miller_set"><code class="docutils literal notranslate"><span class="pre">managed_calculation_base.miller_set()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.managed_calculation_base.xray_structure"><code class="docutils literal notranslate"><span class="pre">managed_calculation_base.xray_structure()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager"><code class="docutils literal notranslate"><span class="pre">manager</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.cfft"><code class="docutils literal notranslate"><span class="pre">manager.cfft()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.cos_sin_table"><code class="docutils literal notranslate"><span class="pre">manager.cos_sin_table()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.crystal_gridding"><code class="docutils literal notranslate"><span class="pre">manager.crystal_gridding()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.d_min"><code class="docutils literal notranslate"><span class="pre">manager.d_min()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.exp_table_one_over_step_size"><code class="docutils literal notranslate"><span class="pre">manager.exp_table_one_over_step_size()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.force_complex"><code class="docutils literal notranslate"><span class="pre">manager.force_complex()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.grid_resolution_factor"><code class="docutils literal notranslate"><span class="pre">manager.grid_resolution_factor()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.have_good_timing_estimates"><code class="docutils literal notranslate"><span class="pre">manager.have_good_timing_estimates()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.mandatory_grid_factors"><code class="docutils literal notranslate"><span class="pre">manager.mandatory_grid_factors()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.max_prime"><code class="docutils literal notranslate"><span class="pre">manager.max_prime()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.quality_factor"><code class="docutils literal notranslate"><span class="pre">manager.quality_factor()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.rfft"><code class="docutils literal notranslate"><span class="pre">manager.rfft()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.sampled_density_must_be_positive"><code class="docutils literal notranslate"><span class="pre">manager.sampled_density_must_be_positive()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.setup_fft"><code class="docutils literal notranslate"><span class="pre">manager.setup_fft()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.symmetry_flags"><code class="docutils literal notranslate"><span class="pre">manager.symmetry_flags()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.tolerance_positive_definite"><code class="docutils literal notranslate"><span class="pre">manager.tolerance_positive_definite()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.u_base"><code class="docutils literal notranslate"><span class="pre">manager.u_base()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.xray.structure_factors.manager.manager.wing_cutoff"><code class="docutils literal notranslate"><span class="pre">manager.wing_cutoff()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="cctbx.xray.structure_factors.gradients_fft.html"
                           title="previous chapter">cctbx.xray.structure_factors.gradients_fft module</a></p>
@@ -237,7 +275,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -839,7 +840,7 @@ Rotation                     ! /| Xs
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mosflm_A_matrix</strong> (<em>tuple of floats</em>) – The A matrix in Mosflm convention.</p></li>
+<li><p><strong>mosflm_A_matrix</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em> of </em><em>floats</em>) – The A matrix in Mosflm convention.</p></li>
 <li><p><strong>unit_cell</strong> (<a class="reference internal" href="../cctbx/cctbx.uctbx.html#cctbx.uctbx.unit_cell" title="cctbx.uctbx.unit_cell"><em>cctbx.uctbx.unit_cell</em></a>) – The unit cell parameters which are used to determine the
 wavelength from the Mosflm A matrix.</p></li>
 <li><p><strong>wavelength</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.float" title="scitbx.array_family.flex.float"><em>float</em></a>) – The wavelength to scale the A matrix</p></li>
@@ -872,11 +873,124 @@ be assigned as P1</p></li>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">dxtbx.model</a><ul>
-<li><a class="reference internal" href="#module-dxtbx.model.detector">dxtbx.model.detector</a></li>
-<li><a class="reference internal" href="#module-dxtbx.model.beam">dxtbx.model.beam</a></li>
-<li><a class="reference internal" href="#module-dxtbx.model.scan">dxtbx.model.scan</a></li>
-<li><a class="reference internal" href="#module-dxtbx.model.goniometer">dxtbx.model.goniometer</a></li>
-<li><a class="reference internal" href="#module-dxtbx.model.crystal">dxtbx.model.crystal</a></li>
+<li><a class="reference internal" href="#module-dxtbx.model.detector">dxtbx.model.detector</a><ul>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory"><code class="docutils literal notranslate"><span class="pre">DetectorFactory</span></code></a><ul>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.complex"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.complex()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.from_dict"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.from_dict()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.from_phil"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.from_phil()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.generate_from_phil"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.generate_from_phil()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.imgCIF"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.imgCIF()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.imgCIF_H"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.imgCIF_H()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.make_detector"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.make_detector()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.overwrite_from_phil"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.overwrite_from_phil()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.sensor"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.sensor()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.simple"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.simple()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.detector.DetectorFactory.two_theta"><code class="docutils literal notranslate"><span class="pre">DetectorFactory.two_theta()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dxtbx.model.beam">dxtbx.model.beam</a><ul>
+<li><a class="reference internal" href="#dxtbx.model.beam.BeamFactory"><code class="docutils literal notranslate"><span class="pre">BeamFactory</span></code></a><ul>
+<li><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.complex"><code class="docutils literal notranslate"><span class="pre">BeamFactory.complex()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.from_dict"><code class="docutils literal notranslate"><span class="pre">BeamFactory.from_dict()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.from_phil"><code class="docutils literal notranslate"><span class="pre">BeamFactory.from_phil()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.imgCIF"><code class="docutils literal notranslate"><span class="pre">BeamFactory.imgCIF()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.imgCIF_H"><code class="docutils literal notranslate"><span class="pre">BeamFactory.imgCIF_H()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.make_beam"><code class="docutils literal notranslate"><span class="pre">BeamFactory.make_beam()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.make_polarized_beam"><code class="docutils literal notranslate"><span class="pre">BeamFactory.make_polarized_beam()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.simple"><code class="docutils literal notranslate"><span class="pre">BeamFactory.simple()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.beam.BeamFactory.simple_directional"><code class="docutils literal notranslate"><span class="pre">BeamFactory.simple_directional()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dxtbx.model.scan">dxtbx.model.scan</a><ul>
+<li><a class="reference internal" href="#dxtbx.model.scan.ScanFactory"><code class="docutils literal notranslate"><span class="pre">ScanFactory</span></code></a><ul>
+<li><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.add"><code class="docutils literal notranslate"><span class="pre">ScanFactory.add()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.from_dict"><code class="docutils literal notranslate"><span class="pre">ScanFactory.from_dict()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.from_phil"><code class="docutils literal notranslate"><span class="pre">ScanFactory.from_phil()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.imgCIF"><code class="docutils literal notranslate"><span class="pre">ScanFactory.imgCIF()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.imgCIF_H"><code class="docutils literal notranslate"><span class="pre">ScanFactory.imgCIF_H()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.make_scan"><code class="docutils literal notranslate"><span class="pre">ScanFactory.make_scan()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.search"><code class="docutils literal notranslate"><span class="pre">ScanFactory.search()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.scan.ScanFactory.single_file"><code class="docutils literal notranslate"><span class="pre">ScanFactory.single_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dxtbx.model.goniometer">dxtbx.model.goniometer</a><ul>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer"><code class="docutils literal notranslate"><span class="pre">Goniometer</span></code></a><ul>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.from_dict"><code class="docutils literal notranslate"><span class="pre">Goniometer.from_dict()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.get_fixed_rotation"><code class="docutils literal notranslate"><span class="pre">Goniometer.get_fixed_rotation()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.get_num_scan_points"><code class="docutils literal notranslate"><span class="pre">Goniometer.get_num_scan_points()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.get_rotation_axis"><code class="docutils literal notranslate"><span class="pre">Goniometer.get_rotation_axis()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.get_rotation_axis_datum"><code class="docutils literal notranslate"><span class="pre">Goniometer.get_rotation_axis_datum()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.get_setting_rotation"><code class="docutils literal notranslate"><span class="pre">Goniometer.get_setting_rotation()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.get_setting_rotation_at_scan_point"><code class="docutils literal notranslate"><span class="pre">Goniometer.get_setting_rotation_at_scan_point()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.get_setting_rotation_at_scan_points"><code class="docutils literal notranslate"><span class="pre">Goniometer.get_setting_rotation_at_scan_points()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.is_similar_to"><code class="docutils literal notranslate"><span class="pre">Goniometer.is_similar_to()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.num_scan_points"><code class="docutils literal notranslate"><span class="pre">Goniometer.num_scan_points</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.reset_scan_points"><code class="docutils literal notranslate"><span class="pre">Goniometer.reset_scan_points()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.rotate_around_origin"><code class="docutils literal notranslate"><span class="pre">Goniometer.rotate_around_origin()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.set_fixed_rotation"><code class="docutils literal notranslate"><span class="pre">Goniometer.set_fixed_rotation()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.set_rotation_axis"><code class="docutils literal notranslate"><span class="pre">Goniometer.set_rotation_axis()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.set_rotation_axis_datum"><code class="docutils literal notranslate"><span class="pre">Goniometer.set_rotation_axis_datum()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.set_setting_rotation"><code class="docutils literal notranslate"><span class="pre">Goniometer.set_setting_rotation()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.set_setting_rotation_at_scan_points"><code class="docutils literal notranslate"><span class="pre">Goniometer.set_setting_rotation_at_scan_points()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.Goniometer.to_dict"><code class="docutils literal notranslate"><span class="pre">Goniometer.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory</span></code></a><ul>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.from_dict"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.from_dict()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.from_phil"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.from_phil()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.imgCIF"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.imgCIF()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.imgCIF_H"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.imgCIF_H()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.kappa"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.kappa()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.known_axis"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.known_axis()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.make_goniometer"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.make_goniometer()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.make_kappa_goniometer"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.make_kappa_goniometer()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.make_multi_axis_goniometer"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.make_multi_axis_goniometer()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.multi_axis"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.multi_axis()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.multi_axis_goniometer_from_phil"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.multi_axis_goniometer_from_phil()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.single_axis()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis_goniometer_from_phil"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.single_axis_goniometer_from_phil()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.GoniometerFactory.single_axis_reverse"><code class="docutils literal notranslate"><span class="pre">GoniometerFactory.single_axis_reverse()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.KappaGoniometer"><code class="docutils literal notranslate"><span class="pre">KappaGoniometer</span></code></a><ul>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.KappaGoniometer.get_alpha_angle"><code class="docutils literal notranslate"><span class="pre">KappaGoniometer.get_alpha_angle()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.KappaGoniometer.get_direction"><code class="docutils literal notranslate"><span class="pre">KappaGoniometer.get_direction()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.KappaGoniometer.get_kappa_angle"><code class="docutils literal notranslate"><span class="pre">KappaGoniometer.get_kappa_angle()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.KappaGoniometer.get_kappa_axis"><code class="docutils literal notranslate"><span class="pre">KappaGoniometer.get_kappa_axis()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.KappaGoniometer.get_omega_angle"><code class="docutils literal notranslate"><span class="pre">KappaGoniometer.get_omega_angle()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.KappaGoniometer.get_omega_axis"><code class="docutils literal notranslate"><span class="pre">KappaGoniometer.get_omega_axis()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.KappaGoniometer.get_phi_angle"><code class="docutils literal notranslate"><span class="pre">KappaGoniometer.get_phi_angle()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.KappaGoniometer.get_phi_axis"><code class="docutils literal notranslate"><span class="pre">KappaGoniometer.get_phi_axis()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.KappaGoniometer.get_scan_axis"><code class="docutils literal notranslate"><span class="pre">KappaGoniometer.get_scan_axis()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.MultiAxisGoniometer"><code class="docutils literal notranslate"><span class="pre">MultiAxisGoniometer</span></code></a><ul>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.MultiAxisGoniometer.from_dict"><code class="docutils literal notranslate"><span class="pre">MultiAxisGoniometer.from_dict()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.MultiAxisGoniometer.get_angles"><code class="docutils literal notranslate"><span class="pre">MultiAxisGoniometer.get_angles()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.MultiAxisGoniometer.get_axes"><code class="docutils literal notranslate"><span class="pre">MultiAxisGoniometer.get_axes()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.MultiAxisGoniometer.get_names"><code class="docutils literal notranslate"><span class="pre">MultiAxisGoniometer.get_names()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.MultiAxisGoniometer.get_scan_axis"><code class="docutils literal notranslate"><span class="pre">MultiAxisGoniometer.get_scan_axis()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.MultiAxisGoniometer.set_angles"><code class="docutils literal notranslate"><span class="pre">MultiAxisGoniometer.set_angles()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.MultiAxisGoniometer.set_axes"><code class="docutils literal notranslate"><span class="pre">MultiAxisGoniometer.set_axes()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.goniometer.MultiAxisGoniometer.to_dict"><code class="docutils literal notranslate"><span class="pre">MultiAxisGoniometer.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-dxtbx.model.crystal">dxtbx.model.crystal</a><ul>
+<li><a class="reference internal" href="#dxtbx.model.crystal.CrystalFactory"><code class="docutils literal notranslate"><span class="pre">CrystalFactory</span></code></a><ul>
+<li><a class="reference internal" href="#dxtbx.model.crystal.CrystalFactory.from_dict"><code class="docutils literal notranslate"><span class="pre">CrystalFactory.from_dict()</span></code></a></li>
+<li><a class="reference internal" href="#dxtbx.model.crystal.CrystalFactory.from_mosflm_matrix"><code class="docutils literal notranslate"><span class="pre">CrystalFactory.from_mosflm_matrix()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -918,7 +1032,7 @@ be assigned as P1</p></li>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

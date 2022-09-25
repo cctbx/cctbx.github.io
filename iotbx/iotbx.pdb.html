@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -100,8 +101,8 @@ the actual format and return the appropriate data type.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>file_name</strong> (<em>path to PDB</em><em> or </em><em>mmCIF file</em>) – </p></li>
-<li><p><strong>source_info</strong> (<em>string describing source of input</em><em> (</em><em>e.g. file name</em><em>)</em>) – </p></li>
-<li><p><strong>lines</strong> (<em>flex.std_string array of input lines</em>) – </p></li>
+<li><p><strong>source_info</strong> (<em>string describing source</em><em> of </em><a class="reference internal" href="#iotbx.pdb.hierarchy.input" title="iotbx.pdb.hierarchy.input"><em>input</em></a><em> (</em><em>e.g. file name</em><em>)</em>) – </p></li>
+<li><p><strong>lines</strong> (<em>flex.std_string array</em><em> of </em><em>input lines</em>) – </p></li>
 <li><p><strong>pdb_id</strong> (<em>PDB ID to automatically retrieve from local mirror</em>) – </p></li>
 <li><p><strong>raise_sorry_if_format_error</strong> (<em>re-raise any low-level parser errors as a</em>) – libtbx.utils.Sorry exception instance for clean user feedback</p></li>
 </ul>
@@ -3834,9 +3835,541 @@ chain.residue_groups() instead.</p>
     <ul>
 <li><a class="reference internal" href="#">iotbx.pdb</a><ul>
 <li><a class="reference internal" href="#api-documentation">API documentation</a><ul>
-<li><a class="reference internal" href="#input-methods-and-objects">Input methods and objects</a></li>
-<li><a class="reference internal" href="#pdb-hierarchy-objects">PDB hierarchy objects</a></li>
-<li><a class="reference internal" href="#accessory-classes-and-functions">Accessory classes and functions</a></li>
+<li><a class="reference internal" href="#input-methods-and-objects">Input methods and objects</a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.input"><code class="docutils literal notranslate"><span class="pre">input</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.input.input"><code class="docutils literal notranslate"><span class="pre">input.input</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.input.hierarchy"><code class="docutils literal notranslate"><span class="pre">input.hierarchy</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.input"><code class="docutils literal notranslate"><span class="pre">input()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input"><code class="docutils literal notranslate"><span class="pre">input</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.as_pdb_string"><code class="docutils literal notranslate"><span class="pre">input.as_pdb_string()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.atoms"><code class="docutils literal notranslate"><span class="pre">input.atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.atoms_with_labels"><code class="docutils literal notranslate"><span class="pre">input.atoms_with_labels()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.bookkeeping_section"><code class="docutils literal notranslate"><span class="pre">input.bookkeeping_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.break_indices"><code class="docutils literal notranslate"><span class="pre">input.break_indices()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.chain_indices"><code class="docutils literal notranslate"><span class="pre">input.chain_indices()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.connectivity_annotation_section"><code class="docutils literal notranslate"><span class="pre">input.connectivity_annotation_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.connectivity_section"><code class="docutils literal notranslate"><span class="pre">input.connectivity_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.construct_hierarchy"><code class="docutils literal notranslate"><span class="pre">input.construct_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.construct_hierarchy_BIOMT_expanded"><code class="docutils literal notranslate"><span class="pre">input.construct_hierarchy_BIOMT_expanded()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.construct_hierarchy_MTRIX_expanded"><code class="docutils literal notranslate"><span class="pre">input.construct_hierarchy_MTRIX_expanded()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">input.crystal_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.crystal_symmetry_from_cryst1"><code class="docutils literal notranslate"><span class="pre">input.crystal_symmetry_from_cryst1()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.crystallographic_section"><code class="docutils literal notranslate"><span class="pre">input.crystallographic_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.deposition_date"><code class="docutils literal notranslate"><span class="pre">input.deposition_date()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.experiment_type_electron_microscopy"><code class="docutils literal notranslate"><span class="pre">input.experiment_type_electron_microscopy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.extract_LINK_records"><code class="docutils literal notranslate"><span class="pre">input.extract_LINK_records()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.extract_authors"><code class="docutils literal notranslate"><span class="pre">input.extract_authors()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.extract_connectivity"><code class="docutils literal notranslate"><span class="pre">input.extract_connectivity()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.extract_cryst1_z_columns"><code class="docutils literal notranslate"><span class="pre">input.extract_cryst1_z_columns()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.extract_f_model_core_constants"><code class="docutils literal notranslate"><span class="pre">input.extract_f_model_core_constants()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.extract_header_year"><code class="docutils literal notranslate"><span class="pre">input.extract_header_year()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.extract_remark_iii_records"><code class="docutils literal notranslate"><span class="pre">input.extract_remark_iii_records()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.extract_secondary_structure"><code class="docutils literal notranslate"><span class="pre">input.extract_secondary_structure()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.extract_tls_params"><code class="docutils literal notranslate"><span class="pre">input.extract_tls_params()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.extract_wavelength"><code class="docutils literal notranslate"><span class="pre">input.extract_wavelength()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.file_type"><code class="docutils literal notranslate"><span class="pre">input.file_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.get_experiment_type"><code class="docutils literal notranslate"><span class="pre">input.get_experiment_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.get_link_records"><code class="docutils literal notranslate"><span class="pre">input.get_link_records()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.get_matthews_coeff"><code class="docutils literal notranslate"><span class="pre">input.get_matthews_coeff()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.get_program_name"><code class="docutils literal notranslate"><span class="pre">input.get_program_name()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.get_r_rfree_sigma"><code class="docutils literal notranslate"><span class="pre">input.get_r_rfree_sigma()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.get_restraints_used"><code class="docutils literal notranslate"><span class="pre">input.get_restraints_used()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.get_solvent_content"><code class="docutils literal notranslate"><span class="pre">input.get_solvent_content()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.heterogen_section"><code class="docutils literal notranslate"><span class="pre">input.heterogen_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.miscellaneous_features_section"><code class="docutils literal notranslate"><span class="pre">input.miscellaneous_features_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.model_atom_counts"><code class="docutils literal notranslate"><span class="pre">input.model_atom_counts()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.model_ids"><code class="docutils literal notranslate"><span class="pre">input.model_ids()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.model_indices"><code class="docutils literal notranslate"><span class="pre">input.model_indices()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.primary_structure_section"><code class="docutils literal notranslate"><span class="pre">input.primary_structure_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.process_BIOMT_records"><code class="docutils literal notranslate"><span class="pre">input.process_BIOMT_records()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.process_MTRIX_records"><code class="docutils literal notranslate"><span class="pre">input.process_MTRIX_records()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.record_type_counts"><code class="docutils literal notranslate"><span class="pre">input.record_type_counts()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.remark_section"><code class="docutils literal notranslate"><span class="pre">input.remark_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.resolution"><code class="docutils literal notranslate"><span class="pre">input.resolution()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.scale_matrix"><code class="docutils literal notranslate"><span class="pre">input.scale_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.secondary_structure_section"><code class="docutils literal notranslate"><span class="pre">input.secondary_structure_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.sequence_from_SEQRES"><code class="docutils literal notranslate"><span class="pre">input.sequence_from_SEQRES()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.source_info"><code class="docutils literal notranslate"><span class="pre">input.source_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.special_position_settings"><code class="docutils literal notranslate"><span class="pre">input.special_position_settings()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.ter_indices"><code class="docutils literal notranslate"><span class="pre">input.ter_indices()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.title_section"><code class="docutils literal notranslate"><span class="pre">input.title_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.unknown_section"><code class="docutils literal notranslate"><span class="pre">input.unknown_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.used_amber_restraints"><code class="docutils literal notranslate"><span class="pre">input.used_amber_restraints()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.used_cdl_restraints"><code class="docutils literal notranslate"><span class="pre">input.used_cdl_restraints()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.used_omega_cdl_restraints"><code class="docutils literal notranslate"><span class="pre">input.used_omega_cdl_restraints()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.write_pdb_file"><code class="docutils literal notranslate"><span class="pre">input.write_pdb_file()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.xray_structure_simple"><code class="docutils literal notranslate"><span class="pre">input.xray_structure_simple()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.ext.input.xray_structures_simple"><code class="docutils literal notranslate"><span class="pre">input.xray_structures_simple()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input"><code class="docutils literal notranslate"><span class="pre">cif_input</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.atoms"><code class="docutils literal notranslate"><span class="pre">cif_input.atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.atoms_with_labels"><code class="docutils literal notranslate"><span class="pre">cif_input.atoms_with_labels()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.connectivity_annotation_section"><code class="docutils literal notranslate"><span class="pre">cif_input.connectivity_annotation_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.connectivity_section"><code class="docutils literal notranslate"><span class="pre">cif_input.connectivity_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.construct_hierarchy"><code class="docutils literal notranslate"><span class="pre">cif_input.construct_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">cif_input.crystal_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.crystal_symmetry_from_cryst1"><code class="docutils literal notranslate"><span class="pre">cif_input.crystal_symmetry_from_cryst1()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.crystallographic_section"><code class="docutils literal notranslate"><span class="pre">cif_input.crystallographic_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.deposition_date"><code class="docutils literal notranslate"><span class="pre">cif_input.deposition_date()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.experiment_type_electron_microscopy"><code class="docutils literal notranslate"><span class="pre">cif_input.experiment_type_electron_microscopy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.extract_cryst1_z_columns"><code class="docutils literal notranslate"><span class="pre">cif_input.extract_cryst1_z_columns()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.extract_f_model_core_constants"><code class="docutils literal notranslate"><span class="pre">cif_input.extract_f_model_core_constants()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.extract_header_year"><code class="docutils literal notranslate"><span class="pre">cif_input.extract_header_year()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.extract_secondary_structure"><code class="docutils literal notranslate"><span class="pre">cif_input.extract_secondary_structure()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.extract_tls_params"><code class="docutils literal notranslate"><span class="pre">cif_input.extract_tls_params()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.extract_wavelength"><code class="docutils literal notranslate"><span class="pre">cif_input.extract_wavelength()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.file_type"><code class="docutils literal notranslate"><span class="pre">cif_input.file_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.get_experiment_type"><code class="docutils literal notranslate"><span class="pre">cif_input.get_experiment_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.get_matthews_coeff"><code class="docutils literal notranslate"><span class="pre">cif_input.get_matthews_coeff()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.get_program_name"><code class="docutils literal notranslate"><span class="pre">cif_input.get_program_name()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.get_r_rfree_sigma"><code class="docutils literal notranslate"><span class="pre">cif_input.get_r_rfree_sigma()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.get_restraints_used"><code class="docutils literal notranslate"><span class="pre">cif_input.get_restraints_used()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.get_solvent_content"><code class="docutils literal notranslate"><span class="pre">cif_input.get_solvent_content()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.heterogen_section"><code class="docutils literal notranslate"><span class="pre">cif_input.heterogen_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.model_ids"><code class="docutils literal notranslate"><span class="pre">cif_input.model_ids()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.model_indices"><code class="docutils literal notranslate"><span class="pre">cif_input.model_indices()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.process_BIOMT_records"><code class="docutils literal notranslate"><span class="pre">cif_input.process_BIOMT_records()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.process_MTRIX_records"><code class="docutils literal notranslate"><span class="pre">cif_input.process_MTRIX_records()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.remark_section"><code class="docutils literal notranslate"><span class="pre">cif_input.remark_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.resolution"><code class="docutils literal notranslate"><span class="pre">cif_input.resolution()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.scale_matrix"><code class="docutils literal notranslate"><span class="pre">cif_input.scale_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.source_info"><code class="docutils literal notranslate"><span class="pre">cif_input.source_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.ter_indices"><code class="docutils literal notranslate"><span class="pre">cif_input.ter_indices()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.title_section"><code class="docutils literal notranslate"><span class="pre">cif_input.title_section()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.used_amber_restraints"><code class="docutils literal notranslate"><span class="pre">cif_input.used_amber_restraints()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.used_cdl_restraints"><code class="docutils literal notranslate"><span class="pre">cif_input.used_cdl_restraints()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.mmcif.cif_input.used_omega_cdl_restraints"><code class="docutils literal notranslate"><span class="pre">cif_input.used_omega_cdl_restraints()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pdb-hierarchy-objects">PDB hierarchy objects</a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root"><code class="docutils literal notranslate"><span class="pre">root</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.adopt_xray_structure"><code class="docutils literal notranslate"><span class="pre">root.adopt_xray_structure()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.altloc_indices"><code class="docutils literal notranslate"><span class="pre">root.altloc_indices()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.append_model"><code class="docutils literal notranslate"><span class="pre">root.append_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.apply_atom_selection"><code class="docutils literal notranslate"><span class="pre">root.apply_atom_selection()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.apply_rotation_translation"><code class="docutils literal notranslate"><span class="pre">root.apply_rotation_translation()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_cif_block"><code class="docutils literal notranslate"><span class="pre">root.as_cif_block()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_dict_of_resseq_as_int_residue_names"><code class="docutils literal notranslate"><span class="pre">root.as_dict_of_resseq_as_int_residue_names()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_list_of_residue_names"><code class="docutils literal notranslate"><span class="pre">root.as_list_of_residue_names()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_model_manager"><code class="docutils literal notranslate"><span class="pre">root.as_model_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_pdb_input"><code class="docutils literal notranslate"><span class="pre">root.as_pdb_input()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_pdb_string"><code class="docutils literal notranslate"><span class="pre">root.as_pdb_string()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_sequence"><code class="docutils literal notranslate"><span class="pre">root.as_sequence()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_str"><code class="docutils literal notranslate"><span class="pre">root.as_str()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.atom_groups"><code class="docutils literal notranslate"><span class="pre">root.atom_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.atom_selection_cache"><code class="docutils literal notranslate"><span class="pre">root.atom_selection_cache()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.atoms"><code class="docutils literal notranslate"><span class="pre">root.atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.atoms_reset_serial"><code class="docutils literal notranslate"><span class="pre">root.atoms_reset_serial()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.atoms_size"><code class="docutils literal notranslate"><span class="pre">root.atoms_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.atoms_with_i_seq_mismatch"><code class="docutils literal notranslate"><span class="pre">root.atoms_with_i_seq_mismatch()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.atoms_with_labels"><code class="docutils literal notranslate"><span class="pre">root.atoms_with_labels()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.chain_ids"><code class="docutils literal notranslate"><span class="pre">root.chain_ids()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.chain_type"><code class="docutils literal notranslate"><span class="pre">root.chain_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.chain_types"><code class="docutils literal notranslate"><span class="pre">root.chain_types()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.chains"><code class="docutils literal notranslate"><span class="pre">root.chains()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.chunk_selections"><code class="docutils literal notranslate"><span class="pre">root.chunk_selections()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.composition"><code class="docutils literal notranslate"><span class="pre">root.composition()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.contains_dna"><code class="docutils literal notranslate"><span class="pre">root.contains_dna()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.contains_nucleic_acid"><code class="docutils literal notranslate"><span class="pre">root.contains_nucleic_acid()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.contains_protein"><code class="docutils literal notranslate"><span class="pre">root.contains_protein()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.contains_rna"><code class="docutils literal notranslate"><span class="pre">root.contains_rna()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.convert_met_to_semet"><code class="docutils literal notranslate"><span class="pre">root.convert_met_to_semet()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.convert_semet_to_met"><code class="docutils literal notranslate"><span class="pre">root.convert_semet_to_met()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.de_deuterate"><code class="docutils literal notranslate"><span class="pre">root.de_deuterate()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.deep_copy"><code class="docutils literal notranslate"><span class="pre">root.deep_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.distance_based_simple_two_way_bond_sets"><code class="docutils literal notranslate"><span class="pre">root.distance_based_simple_two_way_bond_sets()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.exchangeable_hd_selections"><code class="docutils literal notranslate"><span class="pre">root.exchangeable_hd_selections()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.expand_to_p1"><code class="docutils literal notranslate"><span class="pre">root.expand_to_p1()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.extract_xray_structure"><code class="docutils literal notranslate"><span class="pre">root.extract_xray_structure()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.find_model_index"><code class="docutils literal notranslate"><span class="pre">root.find_model_index()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.first_chain_id"><code class="docutils literal notranslate"><span class="pre">root.first_chain_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.first_resseq_as_int"><code class="docutils literal notranslate"><span class="pre">root.first_resseq_as_int()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.flip_symmetric_amino_acids"><code class="docutils literal notranslate"><span class="pre">root.flip_symmetric_amino_acids()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.format_fasta"><code class="docutils literal notranslate"><span class="pre">root.format_fasta()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_atom_selection_cache"><code class="docutils literal notranslate"><span class="pre">root.get_atom_selection_cache()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_auth_asym_id"><code class="docutils literal notranslate"><span class="pre">root.get_auth_asym_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_auth_asym_id_iseq"><code class="docutils literal notranslate"><span class="pre">root.get_auth_asym_id_iseq()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_auth_seq_id"><code class="docutils literal notranslate"><span class="pre">root.get_auth_seq_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_auth_seq_id_iseq"><code class="docutils literal notranslate"><span class="pre">root.get_auth_seq_id_iseq()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_conformer_indices"><code class="docutils literal notranslate"><span class="pre">root.get_conformer_indices()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_label_alt_id_atom"><code class="docutils literal notranslate"><span class="pre">root.get_label_alt_id_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_label_alt_id_iseq"><code class="docutils literal notranslate"><span class="pre">root.get_label_alt_id_iseq()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_label_asym_id"><code class="docutils literal notranslate"><span class="pre">root.get_label_asym_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_label_asym_id_iseq"><code class="docutils literal notranslate"><span class="pre">root.get_label_asym_id_iseq()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_label_seq_id"><code class="docutils literal notranslate"><span class="pre">root.get_label_seq_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_label_seq_id_iseq"><code class="docutils literal notranslate"><span class="pre">root.get_label_seq_id_iseq()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_overall_counts"><code class="docutils literal notranslate"><span class="pre">root.get_overall_counts()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_peptide_c_alpha_selection"><code class="docutils literal notranslate"><span class="pre">root.get_peptide_c_alpha_selection()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.info"><code class="docutils literal notranslate"><span class="pre">root.info</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.insert_model"><code class="docutils literal notranslate"><span class="pre">root.insert_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.is_ca_only"><code class="docutils literal notranslate"><span class="pre">root.is_ca_only()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.is_similar_hierarchy"><code class="docutils literal notranslate"><span class="pre">root.is_similar_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.last_resseq_as_int"><code class="docutils literal notranslate"><span class="pre">root.last_resseq_as_int()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.memory_id"><code class="docutils literal notranslate"><span class="pre">root.memory_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.merge_atoms_at_end_to_residues"><code class="docutils literal notranslate"><span class="pre">root.merge_atoms_at_end_to_residues()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.models"><code class="docutils literal notranslate"><span class="pre">root.models()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.models_size"><code class="docutils literal notranslate"><span class="pre">root.models_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.occupancy_counts"><code class="docutils literal notranslate"><span class="pre">root.occupancy_counts()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.occupancy_groups_simple"><code class="docutils literal notranslate"><span class="pre">root.occupancy_groups_simple()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.only_atom"><code class="docutils literal notranslate"><span class="pre">root.only_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.only_atom_group"><code class="docutils literal notranslate"><span class="pre">root.only_atom_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.only_chain"><code class="docutils literal notranslate"><span class="pre">root.only_chain()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.only_conformer"><code class="docutils literal notranslate"><span class="pre">root.only_conformer()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.only_model"><code class="docutils literal notranslate"><span class="pre">root.only_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.only_residue"><code class="docutils literal notranslate"><span class="pre">root.only_residue()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.only_residue_group"><code class="docutils literal notranslate"><span class="pre">root.only_residue_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.overall_counts"><code class="docutils literal notranslate"><span class="pre">root.overall_counts()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.pre_allocate_models"><code class="docutils literal notranslate"><span class="pre">root.pre_allocate_models()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_alt_confs"><code class="docutils literal notranslate"><span class="pre">root.remove_alt_confs()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_atoms"><code class="docutils literal notranslate"><span class="pre">root.remove_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_hd"><code class="docutils literal notranslate"><span class="pre">root.remove_hd()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_incomplete_main_chain_protein"><code class="docutils literal notranslate"><span class="pre">root.remove_incomplete_main_chain_protein()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_model"><code class="docutils literal notranslate"><span class="pre">root.remove_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_residue_groups_with_atoms_on_special_positions_selective"><code class="docutils literal notranslate"><span class="pre">root.remove_residue_groups_with_atoms_on_special_positions_selective()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.rename_chain_id"><code class="docutils literal notranslate"><span class="pre">root.rename_chain_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.reset_atom_i_seqs"><code class="docutils literal notranslate"><span class="pre">root.reset_atom_i_seqs()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.reset_i_seq_if_necessary"><code class="docutils literal notranslate"><span class="pre">root.reset_i_seq_if_necessary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.residue_groups"><code class="docutils literal notranslate"><span class="pre">root.residue_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.select"><code class="docutils literal notranslate"><span class="pre">root.select()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.set_atomic_charge"><code class="docutils literal notranslate"><span class="pre">root.set_atomic_charge()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.shift_to_origin"><code class="docutils literal notranslate"><span class="pre">root.shift_to_origin()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.show"><code class="docutils literal notranslate"><span class="pre">root.show()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.sort_atoms_in_place"><code class="docutils literal notranslate"><span class="pre">root.sort_atoms_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.transfer_chains_from_other"><code class="docutils literal notranslate"><span class="pre">root.transfer_chains_from_other()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.truncate_to_poly"><code class="docutils literal notranslate"><span class="pre">root.truncate_to_poly()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.truncate_to_poly_ala"><code class="docutils literal notranslate"><span class="pre">root.truncate_to_poly_ala()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.truncate_to_poly_gly"><code class="docutils literal notranslate"><span class="pre">root.truncate_to_poly_gly()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.write_mmcif_file"><code class="docutils literal notranslate"><span class="pre">root.write_mmcif_file()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.write_pdb_file"><code class="docutils literal notranslate"><span class="pre">root.write_pdb_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model"><code class="docutils literal notranslate"><span class="pre">model</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.append_chain"><code class="docutils literal notranslate"><span class="pre">model.append_chain()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.atom_groups"><code class="docutils literal notranslate"><span class="pre">model.atom_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.atoms"><code class="docutils literal notranslate"><span class="pre">model.atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.atoms_size"><code class="docutils literal notranslate"><span class="pre">model.atoms_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.chains"><code class="docutils literal notranslate"><span class="pre">model.chains()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.chains_size"><code class="docutils literal notranslate"><span class="pre">model.chains_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.detached_copy"><code class="docutils literal notranslate"><span class="pre">model.detached_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.find_chain_index"><code class="docutils literal notranslate"><span class="pre">model.find_chain_index()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.id"><code class="docutils literal notranslate"><span class="pre">model.id</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.insert_chain"><code class="docutils literal notranslate"><span class="pre">model.insert_chain()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.is_ca_only"><code class="docutils literal notranslate"><span class="pre">model.is_ca_only()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.is_identical_hierarchy"><code class="docutils literal notranslate"><span class="pre">model.is_identical_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.is_similar_hierarchy"><code class="docutils literal notranslate"><span class="pre">model.is_similar_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.memory_id"><code class="docutils literal notranslate"><span class="pre">model.memory_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.only_atom"><code class="docutils literal notranslate"><span class="pre">model.only_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.only_atom_group"><code class="docutils literal notranslate"><span class="pre">model.only_atom_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.only_chain"><code class="docutils literal notranslate"><span class="pre">model.only_chain()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.only_conformer"><code class="docutils literal notranslate"><span class="pre">model.only_conformer()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.only_residue"><code class="docutils literal notranslate"><span class="pre">model.only_residue()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.only_residue_group"><code class="docutils literal notranslate"><span class="pre">model.only_residue_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.parent"><code class="docutils literal notranslate"><span class="pre">model.parent()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.pre_allocate_chains"><code class="docutils literal notranslate"><span class="pre">model.pre_allocate_chains()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.remove_chain"><code class="docutils literal notranslate"><span class="pre">model.remove_chain()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.residue_groups"><code class="docutils literal notranslate"><span class="pre">model.residue_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.model.transfer_chains_from_other"><code class="docutils literal notranslate"><span class="pre">model.transfer_chains_from_other()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain"><code class="docutils literal notranslate"><span class="pre">chain</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.append_residue_group"><code class="docutils literal notranslate"><span class="pre">chain.append_residue_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.as_dict_of_resseq_as_int_residue_names"><code class="docutils literal notranslate"><span class="pre">chain.as_dict_of_resseq_as_int_residue_names()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.as_list_of_residue_names"><code class="docutils literal notranslate"><span class="pre">chain.as_list_of_residue_names()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.as_new_hierarchy"><code class="docutils literal notranslate"><span class="pre">chain.as_new_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.as_padded_sequence"><code class="docutils literal notranslate"><span class="pre">chain.as_padded_sequence()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.as_sequence"><code class="docutils literal notranslate"><span class="pre">chain.as_sequence()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.atom_groups"><code class="docutils literal notranslate"><span class="pre">chain.atom_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.atoms"><code class="docutils literal notranslate"><span class="pre">chain.atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.atoms_size"><code class="docutils literal notranslate"><span class="pre">chain.atoms_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.conformers"><code class="docutils literal notranslate"><span class="pre">chain.conformers()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.detached_copy"><code class="docutils literal notranslate"><span class="pre">chain.detached_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.find_pure_altloc_ranges"><code class="docutils literal notranslate"><span class="pre">chain.find_pure_altloc_ranges()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.find_residue_group_index"><code class="docutils literal notranslate"><span class="pre">chain.find_residue_group_index()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.format_fasta"><code class="docutils literal notranslate"><span class="pre">chain.format_fasta()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.get_residue_ids"><code class="docutils literal notranslate"><span class="pre">chain.get_residue_ids()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.get_residue_names_and_classes"><code class="docutils literal notranslate"><span class="pre">chain.get_residue_names_and_classes()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.get_residue_names_padded"><code class="docutils literal notranslate"><span class="pre">chain.get_residue_names_padded()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.id"><code class="docutils literal notranslate"><span class="pre">chain.id</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.insert_residue_group"><code class="docutils literal notranslate"><span class="pre">chain.insert_residue_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.is_ca_only"><code class="docutils literal notranslate"><span class="pre">chain.is_ca_only()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.is_identical_hierarchy"><code class="docutils literal notranslate"><span class="pre">chain.is_identical_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.is_na"><code class="docutils literal notranslate"><span class="pre">chain.is_na()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.is_protein"><code class="docutils literal notranslate"><span class="pre">chain.is_protein()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.is_similar_hierarchy"><code class="docutils literal notranslate"><span class="pre">chain.is_similar_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.memory_id"><code class="docutils literal notranslate"><span class="pre">chain.memory_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.merge_disconnected_residue_groups_with_pure_altloc"><code class="docutils literal notranslate"><span class="pre">chain.merge_disconnected_residue_groups_with_pure_altloc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.merge_residue_groups"><code class="docutils literal notranslate"><span class="pre">chain.merge_residue_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.occupancy_groups_simple"><code class="docutils literal notranslate"><span class="pre">chain.occupancy_groups_simple()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.only_atom"><code class="docutils literal notranslate"><span class="pre">chain.only_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.only_atom_group"><code class="docutils literal notranslate"><span class="pre">chain.only_atom_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.only_conformer"><code class="docutils literal notranslate"><span class="pre">chain.only_conformer()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.only_residue"><code class="docutils literal notranslate"><span class="pre">chain.only_residue()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.only_residue_group"><code class="docutils literal notranslate"><span class="pre">chain.only_residue_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.parent"><code class="docutils literal notranslate"><span class="pre">chain.parent()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.pre_allocate_residue_groups"><code class="docutils literal notranslate"><span class="pre">chain.pre_allocate_residue_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.remove_residue_group"><code class="docutils literal notranslate"><span class="pre">chain.remove_residue_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.residue_groups"><code class="docutils literal notranslate"><span class="pre">chain.residue_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.residue_groups_size"><code class="docutils literal notranslate"><span class="pre">chain.residue_groups_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.chain.residues"><code class="docutils literal notranslate"><span class="pre">chain.residues()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group"><code class="docutils literal notranslate"><span class="pre">residue_group</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.append_atom_group"><code class="docutils literal notranslate"><span class="pre">residue_group.append_atom_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.atom_groups"><code class="docutils literal notranslate"><span class="pre">residue_group.atom_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.atom_groups_size"><code class="docutils literal notranslate"><span class="pre">residue_group.atom_groups_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.atoms"><code class="docutils literal notranslate"><span class="pre">residue_group.atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.atoms_size"><code class="docutils literal notranslate"><span class="pre">residue_group.atoms_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.conformers"><code class="docutils literal notranslate"><span class="pre">residue_group.conformers()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.detached_copy"><code class="docutils literal notranslate"><span class="pre">residue_group.detached_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.edit_blank_altloc"><code class="docutils literal notranslate"><span class="pre">residue_group.edit_blank_altloc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.find_atom_group_index"><code class="docutils literal notranslate"><span class="pre">residue_group.find_atom_group_index()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.have_conformers"><code class="docutils literal notranslate"><span class="pre">residue_group.have_conformers()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.icode"><code class="docutils literal notranslate"><span class="pre">residue_group.icode</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.id_str"><code class="docutils literal notranslate"><span class="pre">residue_group.id_str()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.insert_atom_group"><code class="docutils literal notranslate"><span class="pre">residue_group.insert_atom_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.is_identical_hierarchy"><code class="docutils literal notranslate"><span class="pre">residue_group.is_identical_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.is_similar_hierarchy"><code class="docutils literal notranslate"><span class="pre">residue_group.is_similar_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.link_to_previous"><code class="docutils literal notranslate"><span class="pre">residue_group.link_to_previous</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.memory_id"><code class="docutils literal notranslate"><span class="pre">residue_group.memory_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.merge_atom_groups"><code class="docutils literal notranslate"><span class="pre">residue_group.merge_atom_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.move_blank_altloc_atom_groups_to_front"><code class="docutils literal notranslate"><span class="pre">residue_group.move_blank_altloc_atom_groups_to_front()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.only_atom"><code class="docutils literal notranslate"><span class="pre">residue_group.only_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.only_atom_group"><code class="docutils literal notranslate"><span class="pre">residue_group.only_atom_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.parent"><code class="docutils literal notranslate"><span class="pre">residue_group.parent()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.pre_allocate_atom_groups"><code class="docutils literal notranslate"><span class="pre">residue_group.pre_allocate_atom_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.remove_atom_group"><code class="docutils literal notranslate"><span class="pre">residue_group.remove_atom_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.resid"><code class="docutils literal notranslate"><span class="pre">residue_group.resid()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.resseq"><code class="docutils literal notranslate"><span class="pre">residue_group.resseq</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.resseq_as_int"><code class="docutils literal notranslate"><span class="pre">residue_group.resseq_as_int()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue_group.unique_resnames"><code class="docutils literal notranslate"><span class="pre">residue_group.unique_resnames()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group"><code class="docutils literal notranslate"><span class="pre">atom_group</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.altloc"><code class="docutils literal notranslate"><span class="pre">atom_group.altloc</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.append_atom"><code class="docutils literal notranslate"><span class="pre">atom_group.append_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.append_atom_with_other_parent"><code class="docutils literal notranslate"><span class="pre">atom_group.append_atom_with_other_parent()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.atoms"><code class="docutils literal notranslate"><span class="pre">atom_group.atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.atoms_size"><code class="docutils literal notranslate"><span class="pre">atom_group.atoms_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.confid"><code class="docutils literal notranslate"><span class="pre">atom_group.confid()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.detached_copy"><code class="docutils literal notranslate"><span class="pre">atom_group.detached_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.find_atom_index"><code class="docutils literal notranslate"><span class="pre">atom_group.find_atom_index()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.get_atom"><code class="docutils literal notranslate"><span class="pre">atom_group.get_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.id_str"><code class="docutils literal notranslate"><span class="pre">atom_group.id_str()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.insert_atom"><code class="docutils literal notranslate"><span class="pre">atom_group.insert_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.memory_id"><code class="docutils literal notranslate"><span class="pre">atom_group.memory_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.occupancy"><code class="docutils literal notranslate"><span class="pre">atom_group.occupancy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.only_atom"><code class="docutils literal notranslate"><span class="pre">atom_group.only_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.parent"><code class="docutils literal notranslate"><span class="pre">atom_group.parent()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.pre_allocate_atoms"><code class="docutils literal notranslate"><span class="pre">atom_group.pre_allocate_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.remove_atom"><code class="docutils literal notranslate"><span class="pre">atom_group.remove_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.resname"><code class="docutils literal notranslate"><span class="pre">atom_group.resname</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_group.sort_atoms_in_place"><code class="docutils literal notranslate"><span class="pre">atom_group.sort_atoms_in_place()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom"><code class="docutils literal notranslate"><span class="pre">atom</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.angle"><code class="docutils literal notranslate"><span class="pre">atom.angle()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.b"><code class="docutils literal notranslate"><span class="pre">atom.b</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.chain"><code class="docutils literal notranslate"><span class="pre">atom.chain()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.charge"><code class="docutils literal notranslate"><span class="pre">atom.charge</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.charge_as_int"><code class="docutils literal notranslate"><span class="pre">atom.charge_as_int()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.charge_tidy"><code class="docutils literal notranslate"><span class="pre">atom.charge_tidy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.data_offsets"><code class="docutils literal notranslate"><span class="pre">atom.data_offsets()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.detached_copy"><code class="docutils literal notranslate"><span class="pre">atom.detached_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.determine_chemical_element_simple"><code class="docutils literal notranslate"><span class="pre">atom.determine_chemical_element_simple()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.distance"><code class="docutils literal notranslate"><span class="pre">atom.distance()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.element"><code class="docutils literal notranslate"><span class="pre">atom.element</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.element_is_hydrogen"><code class="docutils literal notranslate"><span class="pre">atom.element_is_hydrogen()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.element_is_ion"><code class="docutils literal notranslate"><span class="pre">atom.element_is_ion()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.element_is_negative_ion"><code class="docutils literal notranslate"><span class="pre">atom.element_is_negative_ion()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.element_is_positive_ion"><code class="docutils literal notranslate"><span class="pre">atom.element_is_positive_ion()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.fdp"><code class="docutils literal notranslate"><span class="pre">atom.fdp</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.fetch_labels"><code class="docutils literal notranslate"><span class="pre">atom.fetch_labels()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.format_anisou_record"><code class="docutils literal notranslate"><span class="pre">atom.format_anisou_record()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.format_atom_record"><code class="docutils literal notranslate"><span class="pre">atom.format_atom_record()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.format_atom_record_group"><code class="docutils literal notranslate"><span class="pre">atom.format_atom_record_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.format_sigatm_record"><code class="docutils literal notranslate"><span class="pre">atom.format_sigatm_record()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.format_siguij_record"><code class="docutils literal notranslate"><span class="pre">atom.format_siguij_record()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.fp"><code class="docutils literal notranslate"><span class="pre">atom.fp</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.has_siguij"><code class="docutils literal notranslate"><span class="pre">atom.has_siguij()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.hetero"><code class="docutils literal notranslate"><span class="pre">atom.hetero</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.i_seq"><code class="docutils literal notranslate"><span class="pre">atom.i_seq</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.id_str"><code class="docutils literal notranslate"><span class="pre">atom.id_str()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.is_in_same_conformer_as"><code class="docutils literal notranslate"><span class="pre">atom.is_in_same_conformer_as()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.memory_id"><code class="docutils literal notranslate"><span class="pre">atom.memory_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.name"><code class="docutils literal notranslate"><span class="pre">atom.name</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.occ"><code class="docutils literal notranslate"><span class="pre">atom.occ</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.parent"><code class="docutils literal notranslate"><span class="pre">atom.parent()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.pdb_element_charge_columns"><code class="docutils literal notranslate"><span class="pre">atom.pdb_element_charge_columns()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.pdb_label_columns"><code class="docutils literal notranslate"><span class="pre">atom.pdb_label_columns()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.quote"><code class="docutils literal notranslate"><span class="pre">atom.quote()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.segid"><code class="docutils literal notranslate"><span class="pre">atom.segid</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.serial"><code class="docutils literal notranslate"><span class="pre">atom.serial</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.serial_as_int"><code class="docutils literal notranslate"><span class="pre">atom.serial_as_int()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_b"><code class="docutils literal notranslate"><span class="pre">atom.set_b()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_charge"><code class="docutils literal notranslate"><span class="pre">atom.set_charge()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_chemical_element_simple_if_necessary"><code class="docutils literal notranslate"><span class="pre">atom.set_chemical_element_simple_if_necessary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_element"><code class="docutils literal notranslate"><span class="pre">atom.set_element()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_element_and_charge_from_scattering_type_if_necessary"><code class="docutils literal notranslate"><span class="pre">atom.set_element_and_charge_from_scattering_type_if_necessary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_fdp"><code class="docutils literal notranslate"><span class="pre">atom.set_fdp()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_fp"><code class="docutils literal notranslate"><span class="pre">atom.set_fp()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_hetero"><code class="docutils literal notranslate"><span class="pre">atom.set_hetero()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_name"><code class="docutils literal notranslate"><span class="pre">atom.set_name()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_occ"><code class="docutils literal notranslate"><span class="pre">atom.set_occ()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_segid"><code class="docutils literal notranslate"><span class="pre">atom.set_segid()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_serial"><code class="docutils literal notranslate"><span class="pre">atom.set_serial()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_sigb"><code class="docutils literal notranslate"><span class="pre">atom.set_sigb()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_sigocc"><code class="docutils literal notranslate"><span class="pre">atom.set_sigocc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_sigxyz"><code class="docutils literal notranslate"><span class="pre">atom.set_sigxyz()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_uij"><code class="docutils literal notranslate"><span class="pre">atom.set_uij()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.set_xyz"><code class="docutils literal notranslate"><span class="pre">atom.set_xyz()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.sigb"><code class="docutils literal notranslate"><span class="pre">atom.sigb</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.sigocc"><code class="docutils literal notranslate"><span class="pre">atom.sigocc</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.siguij_erase"><code class="docutils literal notranslate"><span class="pre">atom.siguij_erase()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.siguij_is_defined"><code class="docutils literal notranslate"><span class="pre">atom.siguij_is_defined()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.sigxyz"><code class="docutils literal notranslate"><span class="pre">atom.sigxyz</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.sizeof_data"><code class="docutils literal notranslate"><span class="pre">atom.sizeof_data()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.tmp"><code class="docutils literal notranslate"><span class="pre">atom.tmp</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.uij"><code class="docutils literal notranslate"><span class="pre">atom.uij</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.uij_erase"><code class="docutils literal notranslate"><span class="pre">atom.uij_erase()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.uij_is_defined"><code class="docutils literal notranslate"><span class="pre">atom.uij_is_defined()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom.xyz"><code class="docutils literal notranslate"><span class="pre">atom.xyz</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels"><code class="docutils literal notranslate"><span class="pre">atom_with_labels</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.altloc"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.altloc</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.chain_id"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.chain_id</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.detached_copy"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.detached_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.fetch_labels"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.fetch_labels()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.format_anisou_record"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.format_anisou_record()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.format_atom_record"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.format_atom_record()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.format_atom_record_group"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.format_atom_record_group()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.format_sigatm_record"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.format_sigatm_record()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.format_siguij_record"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.format_siguij_record()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.icode"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.icode</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.id_str"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.id_str()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.is_first_after_break"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.is_first_after_break</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.is_first_in_chain"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.is_first_in_chain</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.model_id"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.model_id</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.quote"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.quote()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.resid"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.resid()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.resname"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.resname</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.resseq"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.resseq</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.resseq_as_int"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.resseq_as_int()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.atom_with_labels.serial_as_int"><code class="docutils literal notranslate"><span class="pre">atom_with_labels.serial_as_int()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer"><code class="docutils literal notranslate"><span class="pre">conformer</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.altloc"><code class="docutils literal notranslate"><span class="pre">conformer.altloc</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.as_padded_sequence"><code class="docutils literal notranslate"><span class="pre">conformer.as_padded_sequence()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.as_sec_str_sequence"><code class="docutils literal notranslate"><span class="pre">conformer.as_sec_str_sequence()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.as_sequence"><code class="docutils literal notranslate"><span class="pre">conformer.as_sequence()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.atoms"><code class="docutils literal notranslate"><span class="pre">conformer.atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.atoms_size"><code class="docutils literal notranslate"><span class="pre">conformer.atoms_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.format_fasta"><code class="docutils literal notranslate"><span class="pre">conformer.format_fasta()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.get_residue_ids"><code class="docutils literal notranslate"><span class="pre">conformer.get_residue_ids()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.get_residue_names_and_classes"><code class="docutils literal notranslate"><span class="pre">conformer.get_residue_names_and_classes()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.get_residue_names_padded"><code class="docutils literal notranslate"><span class="pre">conformer.get_residue_names_padded()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.is_na"><code class="docutils literal notranslate"><span class="pre">conformer.is_na()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.is_protein"><code class="docutils literal notranslate"><span class="pre">conformer.is_protein()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.memory_id"><code class="docutils literal notranslate"><span class="pre">conformer.memory_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.only_atom"><code class="docutils literal notranslate"><span class="pre">conformer.only_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.only_residue"><code class="docutils literal notranslate"><span class="pre">conformer.only_residue()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.parent"><code class="docutils literal notranslate"><span class="pre">conformer.parent()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.residues"><code class="docutils literal notranslate"><span class="pre">conformer.residues()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.conformer.residues_size"><code class="docutils literal notranslate"><span class="pre">conformer.residues_size()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue"><code class="docutils literal notranslate"><span class="pre">residue</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.atoms"><code class="docutils literal notranslate"><span class="pre">residue.atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.atoms_size"><code class="docutils literal notranslate"><span class="pre">residue.atoms_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.find_atom_by"><code class="docutils literal notranslate"><span class="pre">residue.find_atom_by()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.icode"><code class="docutils literal notranslate"><span class="pre">residue.icode</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.id_str"><code class="docutils literal notranslate"><span class="pre">residue.id_str()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.is_pure_main_conf"><code class="docutils literal notranslate"><span class="pre">residue.is_pure_main_conf</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.link_to_previous"><code class="docutils literal notranslate"><span class="pre">residue.link_to_previous</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.memory_id"><code class="docutils literal notranslate"><span class="pre">residue.memory_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.only_atom"><code class="docutils literal notranslate"><span class="pre">residue.only_atom()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.parent"><code class="docutils literal notranslate"><span class="pre">residue.parent()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.resid"><code class="docutils literal notranslate"><span class="pre">residue.resid()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.residue_name_plus_atom_names_interpreter"><code class="docutils literal notranslate"><span class="pre">residue.residue_name_plus_atom_names_interpreter()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.resname"><code class="docutils literal notranslate"><span class="pre">residue.resname</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.resseq"><code class="docutils literal notranslate"><span class="pre">residue.resseq</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.resseq_as_int"><code class="docutils literal notranslate"><span class="pre">residue.resseq_as_int()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.root"><code class="docutils literal notranslate"><span class="pre">residue.root()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.residue.standalone_copy"><code class="docutils literal notranslate"><span class="pre">residue.standalone_copy()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom"><code class="docutils literal notranslate"><span class="pre">af_shared_atom</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.append"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.append()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.build_dict"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.build_dict()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.clear"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.clear()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.deep_copy"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.deep_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extend"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extend()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_b"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_b()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_element"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_element()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_fdp"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_fdp()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_fp"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_fp()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_hetero"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_hetero()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_i_seq"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_i_seq()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_name"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_name()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_occ"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_occ()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_segid"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_segid()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_serial"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_serial()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_sigb"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_sigb()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_sigocc"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_sigocc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_sigxyz"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_sigxyz()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_tmp_as_size_t"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_tmp_as_size_t()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_uij"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_uij()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.extract_xyz"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.extract_xyz()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.insert"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.insert()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.reserve"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.reserve()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.reset_i_seq"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.reset_i_seq()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.reset_serial"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.reset_serial()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.reset_tmp"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.reset_tmp()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.reset_tmp_for_occupancy_groups_simple"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.reset_tmp_for_occupancy_groups_simple()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.select"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.select()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_adps_from_scatterers"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_adps_from_scatterers()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_b"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_b()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_chemical_element_simple_if_necessary"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_chemical_element_simple_if_necessary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_fdp"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_fdp()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_fp"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_fp()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_occ"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_occ()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_sigb"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_sigb()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_sigocc"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_sigocc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_sigxyz"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_sigxyz()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_uij"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_uij()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.set_xyz"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.set_xyz()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.af_shared_atom.size"><code class="docutils literal notranslate"><span class="pre">af_shared_atom.size()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#accessory-classes-and-functions">Accessory classes and functions</a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts"><code class="docutils literal notranslate"><span class="pre">overall_counts</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.as_str"><code class="docutils literal notranslate"><span class="pre">overall_counts.as_str()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.errors"><code class="docutils literal notranslate"><span class="pre">overall_counts.errors()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.errors_and_warnings"><code class="docutils literal notranslate"><span class="pre">overall_counts.errors_and_warnings()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.get_n_residues_of_classes"><code class="docutils literal notranslate"><span class="pre">overall_counts.get_n_residues_of_classes()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.raise_chains_with_mix_of_proper_and_improper_alt_conf_if_necessary"><code class="docutils literal notranslate"><span class="pre">overall_counts.raise_chains_with_mix_of_proper_and_improper_alt_conf_if_necessary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.raise_duplicate_atom_labels_if_necessary"><code class="docutils literal notranslate"><span class="pre">overall_counts.raise_duplicate_atom_labels_if_necessary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.raise_improper_alt_conf_if_necessary"><code class="docutils literal notranslate"><span class="pre">overall_counts.raise_improper_alt_conf_if_necessary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.raise_residue_groups_with_multiple_resnames_using_same_altloc_if_necessary"><code class="docutils literal notranslate"><span class="pre">overall_counts.raise_residue_groups_with_multiple_resnames_using_same_altloc_if_necessary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.show"><code class="docutils literal notranslate"><span class="pre">overall_counts.show()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.show_chains_with_mix_of_proper_and_improper_alt_conf"><code class="docutils literal notranslate"><span class="pre">overall_counts.show_chains_with_mix_of_proper_and_improper_alt_conf()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.show_consecutive_residue_groups_with_same_resid"><code class="docutils literal notranslate"><span class="pre">overall_counts.show_consecutive_residue_groups_with_same_resid()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.show_duplicate_atom_labels"><code class="docutils literal notranslate"><span class="pre">overall_counts.show_duplicate_atom_labels()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.show_improper_alt_conf"><code class="docutils literal notranslate"><span class="pre">overall_counts.show_improper_alt_conf()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.show_residue_groups_with_multiple_resnames_using_same_altloc"><code class="docutils literal notranslate"><span class="pre">overall_counts.show_residue_groups_with_multiple_resnames_using_same_altloc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.overall_counts.warnings"><code class="docutils literal notranslate"><span class="pre">overall_counts.warnings()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#iotbx-pdb-multimer-reconstruction-module">iotbx.pdb.multimer_reconstruction module</a></li>
 </ul>
@@ -3899,7 +4432,7 @@ chain.residue_groups() instead.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

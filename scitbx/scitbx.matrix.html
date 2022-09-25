@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -47,8 +48,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-scitbx.matrix">
-<span id="scitbx-matrix"></span><h1>scitbx.matrix<a class="headerlink" href="#module-scitbx.matrix" title="Permalink to this heading">¶</a></h1>
+  <section id="scitbx-matrix">
+<h1>scitbx.matrix<a class="headerlink" href="#scitbx-matrix" title="Permalink to this heading">¶</a></h1>
 <p>Note: this module can be used in isolation (without the rest of scitbx).
 All external dependencies (other than plain Python) are optional.</p>
 <p>The primary purpose of this module is to provide compact
@@ -56,7 +57,7 @@ implementations of essential matrix/vector algorithms with minimal
 external dependencies. Optimizations for execution performance are
 used only if compactness is not affected. The scitbx/math module
 provides faster C++ alternatives to some algorithms included here.</p>
-<section id="api-documentation">
+<span class="target" id="module-scitbx.matrix"></span><section id="api-documentation">
 <h2>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="scitbx.matrix.rec">
@@ -549,7 +550,88 @@ return the distance from the fourth point to the plane.</p>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">scitbx.matrix</a><ul>
-<li><a class="reference internal" href="#api-documentation">API documentation</a></li>
+<li><a class="reference internal" href="#api-documentation">API documentation</a><ul>
+<li><a class="reference internal" href="#scitbx.matrix.rec"><code class="docutils literal notranslate"><span class="pre">rec</span></code></a><ul>
+<li><a class="reference internal" href="#scitbx.matrix.rec.accute_angle"><code class="docutils literal notranslate"><span class="pre">rec.accute_angle()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.angle"><code class="docutils literal notranslate"><span class="pre">rec.angle()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.as_boost_rational"><code class="docutils literal notranslate"><span class="pre">rec.as_boost_rational()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.as_flex_double_matrix"><code class="docutils literal notranslate"><span class="pre">rec.as_flex_double_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.as_flex_int_matrix"><code class="docutils literal notranslate"><span class="pre">rec.as_flex_int_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.as_float"><code class="docutils literal notranslate"><span class="pre">rec.as_float()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.as_int"><code class="docutils literal notranslate"><span class="pre">rec.as_int()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.as_list_of_lists"><code class="docutils literal notranslate"><span class="pre">rec.as_list_of_lists()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.as_mat3"><code class="docutils literal notranslate"><span class="pre">rec.as_mat3()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.as_numpy_array"><code class="docutils literal notranslate"><span class="pre">rec.as_numpy_array()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.as_sym_mat3"><code class="docutils literal notranslate"><span class="pre">rec.as_sym_mat3()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.axis_and_angle_as_r3_derivative_wrt_angle"><code class="docutils literal notranslate"><span class="pre">rec.axis_and_angle_as_r3_derivative_wrt_angle()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.axis_and_angle_as_r3_rotation_matrix"><code class="docutils literal notranslate"><span class="pre">rec.axis_and_angle_as_r3_rotation_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.axis_and_angle_as_unit_quaternion"><code class="docutils literal notranslate"><span class="pre">rec.axis_and_angle_as_unit_quaternion()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.co_factor_matrix_transposed"><code class="docutils literal notranslate"><span class="pre">rec.co_factor_matrix_transposed()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.container_type"><code class="docutils literal notranslate"><span class="pre">rec.container_type</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.cos_angle"><code class="docutils literal notranslate"><span class="pre">rec.cos_angle()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.cross"><code class="docutils literal notranslate"><span class="pre">rec.cross()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.determinant"><code class="docutils literal notranslate"><span class="pre">rec.determinant()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.dot"><code class="docutils literal notranslate"><span class="pre">rec.dot()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.each_abs"><code class="docutils literal notranslate"><span class="pre">rec.each_abs()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.each_mod_short"><code class="docutils literal notranslate"><span class="pre">rec.each_mod_short()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.extract_block"><code class="docutils literal notranslate"><span class="pre">rec.extract_block()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.inverse"><code class="docutils literal notranslate"><span class="pre">rec.inverse()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.is_approx_zero"><code class="docutils literal notranslate"><span class="pre">rec.is_approx_zero()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.is_col_zero"><code class="docutils literal notranslate"><span class="pre">rec.is_col_zero()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.is_r3_identity_matrix"><code class="docutils literal notranslate"><span class="pre">rec.is_r3_identity_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.is_r3_rotation_matrix"><code class="docutils literal notranslate"><span class="pre">rec.is_r3_rotation_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.is_r3_rotation_matrix_rms"><code class="docutils literal notranslate"><span class="pre">rec.is_r3_rotation_matrix_rms()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.is_square"><code class="docutils literal notranslate"><span class="pre">rec.is_square()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.is_zero"><code class="docutils literal notranslate"><span class="pre">rec.is_zero()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.length"><code class="docutils literal notranslate"><span class="pre">rec.length()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.length_sq"><code class="docutils literal notranslate"><span class="pre">rec.length_sq()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.mathematica_form"><code class="docutils literal notranslate"><span class="pre">rec.mathematica_form()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.matlab_form"><code class="docutils literal notranslate"><span class="pre">rec.matlab_form()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.max"><code class="docutils literal notranslate"><span class="pre">rec.max()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.max_index"><code class="docutils literal notranslate"><span class="pre">rec.max_index()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.min"><code class="docutils literal notranslate"><span class="pre">rec.min()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.min_index"><code class="docutils literal notranslate"><span class="pre">rec.min_index()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.n_columns"><code class="docutils literal notranslate"><span class="pre">rec.n_columns()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.n_rows"><code class="docutils literal notranslate"><span class="pre">rec.n_rows()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.norm_sq"><code class="docutils literal notranslate"><span class="pre">rec.norm_sq()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.normalize"><code class="docutils literal notranslate"><span class="pre">rec.normalize()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.ortho"><code class="docutils literal notranslate"><span class="pre">rec.ortho()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.outer_product"><code class="docutils literal notranslate"><span class="pre">rec.outer_product()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.product"><code class="docutils literal notranslate"><span class="pre">rec.product()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.quaternion_inverse"><code class="docutils literal notranslate"><span class="pre">rec.quaternion_inverse()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.r3_rotation_matrix_as_unit_quaternion"><code class="docutils literal notranslate"><span class="pre">rec.r3_rotation_matrix_as_unit_quaternion()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.r3_rotation_matrix_as_x_y_z_angles"><code class="docutils literal notranslate"><span class="pre">rec.r3_rotation_matrix_as_x_y_z_angles()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.resolve_partitions"><code class="docutils literal notranslate"><span class="pre">rec.resolve_partitions()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.rotate"><code class="docutils literal notranslate"><span class="pre">rec.rotate()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.rotate_2d"><code class="docutils literal notranslate"><span class="pre">rec.rotate_2d()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.rotate_around_origin"><code class="docutils literal notranslate"><span class="pre">rec.rotate_around_origin()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.rotation_angle"><code class="docutils literal notranslate"><span class="pre">rec.rotation_angle()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.round"><code class="docutils literal notranslate"><span class="pre">rec.round()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.rt_for_rotation_around_axis_through"><code class="docutils literal notranslate"><span class="pre">rec.rt_for_rotation_around_axis_through()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.sum"><code class="docutils literal notranslate"><span class="pre">rec.sum()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.trace"><code class="docutils literal notranslate"><span class="pre">rec.trace()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.transpose"><code class="docutils literal notranslate"><span class="pre">rec.transpose()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.transpose_multiply"><code class="docutils literal notranslate"><span class="pre">rec.transpose_multiply()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.unit_quaternion_as_axis_and_angle"><code class="docutils literal notranslate"><span class="pre">rec.unit_quaternion_as_axis_and_angle()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.unit_quaternion_as_r3_rotation_matrix"><code class="docutils literal notranslate"><span class="pre">rec.unit_quaternion_as_r3_rotation_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.unit_quaternion_product"><code class="docutils literal notranslate"><span class="pre">rec.unit_quaternion_product()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rec.vector_to_001_rotation"><code class="docutils literal notranslate"><span class="pre">rec.vector_to_001_rotation()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scitbx.matrix.col"><code class="docutils literal notranslate"><span class="pre">col</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.sqr"><code class="docutils literal notranslate"><span class="pre">sqr</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.diag"><code class="docutils literal notranslate"><span class="pre">diag</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.identity"><code class="docutils literal notranslate"><span class="pre">identity</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.inversion"><code class="docutils literal notranslate"><span class="pre">inversion</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.sym"><code class="docutils literal notranslate"><span class="pre">sym</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rt"><code class="docutils literal notranslate"><span class="pre">rt</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.sum"><code class="docutils literal notranslate"><span class="pre">sum()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.cross_product_matrix"><code class="docutils literal notranslate"><span class="pre">cross_product_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.rotate_point_around_axis"><code class="docutils literal notranslate"><span class="pre">rotate_point_around_axis()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.distance_from_plane"><code class="docutils literal notranslate"><span class="pre">distance_from_plane()</span></code></a></li>
+<li><a class="reference internal" href="#scitbx.matrix.dihedral_angle"><code class="docutils literal notranslate"><span class="pre">dihedral_angle()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -608,7 +690,7 @@ return the distance from the fourth point to the plane.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

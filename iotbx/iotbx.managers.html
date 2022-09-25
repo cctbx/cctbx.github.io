@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -3020,7 +3021,301 @@ instead of the shift_cart() for the working map.</p>
     <ul>
 <li><a class="reference internal" href="#">iotbx.managers</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#module-iotbx.map_manager">API documentation</a></li>
+<li><a class="reference internal" href="#module-iotbx.map_manager">API documentation</a><ul>
+<li><a class="reference internal" href="#iotbx.map_manager.add_tuples_int"><code class="docutils literal notranslate"><span class="pre">add_tuples_int()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.dummy_map_manager"><code class="docutils literal notranslate"><span class="pre">dummy_map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.get_indices_from_index"><code class="docutils literal notranslate"><span class="pre">get_indices_from_index()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.get_sites_cart_from_index"><code class="docutils literal notranslate"><span class="pre">get_sites_cart_from_index()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager"><code class="docutils literal notranslate"><span class="pre">map_manager</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.absolute_center_cart"><code class="docutils literal notranslate"><span class="pre">map_manager.absolute_center_cart()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.add_label"><code class="docutils literal notranslate"><span class="pre">map_manager.add_label()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.add_limitation"><code class="docutils literal notranslate"><span class="pre">map_manager.add_limitation()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.apply_mask"><code class="docutils literal notranslate"><span class="pre">map_manager.apply_mask()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.apply_spectral_scaling"><code class="docutils literal notranslate"><span class="pre">map_manager.apply_spectral_scaling()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.as_full_size_map"><code class="docutils literal notranslate"><span class="pre">map_manager.as_full_size_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.as_map_model_manager"><code class="docutils literal notranslate"><span class="pre">map_manager.as_map_model_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.binary_filter"><code class="docutils literal notranslate"><span class="pre">map_manager.binary_filter()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.cart_to_grid_units"><code class="docutils literal notranslate"><span class="pre">map_manager.cart_to_grid_units()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.cc_to_other_map_manager"><code class="docutils literal notranslate"><span class="pre">map_manager.cc_to_other_map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.create_mask_around_atoms"><code class="docutils literal notranslate"><span class="pre">map_manager.create_mask_around_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.create_mask_around_density"><code class="docutils literal notranslate"><span class="pre">map_manager.create_mask_around_density()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.create_mask_around_edges"><code class="docutils literal notranslate"><span class="pre">map_manager.create_mask_around_edges()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.create_mask_with_map_data"><code class="docutils literal notranslate"><span class="pre">map_manager.create_mask_with_map_data()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.customized_copy"><code class="docutils literal notranslate"><span class="pre">map_manager.customized_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.deep_copy"><code class="docutils literal notranslate"><span class="pre">map_manager.deep_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.delete_mask"><code class="docutils literal notranslate"><span class="pre">map_manager.delete_mask()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.density_at_sites_cart"><code class="docutils literal notranslate"><span class="pre">map_manager.density_at_sites_cart()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.experiment_type"><code class="docutils literal notranslate"><span class="pre">map_manager.experiment_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.find_map_symmetry"><code class="docutils literal notranslate"><span class="pre">map_manager.find_map_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.find_n_highest_grid_points_as_sites_cart"><code class="docutils literal notranslate"><span class="pre">map_manager.find_n_highest_grid_points_as_sites_cart()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.fourier_coefficients_as_map_manager"><code class="docutils literal notranslate"><span class="pre">map_manager.fourier_coefficients_as_map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.gaussian_filter"><code class="docutils literal notranslate"><span class="pre">map_manager.gaussian_filter()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.get_boxes_to_tile_map"><code class="docutils literal notranslate"><span class="pre">map_manager.get_boxes_to_tile_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.get_density_along_line"><code class="docutils literal notranslate"><span class="pre">map_manager.get_density_along_line()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.get_mask_as_map_manager"><code class="docutils literal notranslate"><span class="pre">map_manager.get_mask_as_map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.get_n_real_for_grid_spacing"><code class="docutils literal notranslate"><span class="pre">map_manager.get_n_real_for_grid_spacing()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.grid_units_to_cart"><code class="docutils literal notranslate"><span class="pre">map_manager.grid_units_to_cart()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.initialize_map_data"><code class="docutils literal notranslate"><span class="pre">map_manager.initialize_map_data()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.is_compatible_model"><code class="docutils literal notranslate"><span class="pre">map_manager.is_compatible_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.is_compatible_ncs_object"><code class="docutils literal notranslate"><span class="pre">map_manager.is_compatible_ncs_object()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.is_consistent_with_wrapping"><code class="docutils literal notranslate"><span class="pre">map_manager.is_consistent_with_wrapping()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.is_dummy_map_manager"><code class="docutils literal notranslate"><span class="pre">map_manager.is_dummy_map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.is_full_size"><code class="docutils literal notranslate"><span class="pre">map_manager.is_full_size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.is_mask"><code class="docutils literal notranslate"><span class="pre">map_manager.is_mask()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.is_similar"><code class="docutils literal notranslate"><span class="pre">map_manager.is_similar()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.map_as_fourier_coefficients"><code class="docutils literal notranslate"><span class="pre">map_manager.map_as_fourier_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.map_map_cc"><code class="docutils literal notranslate"><span class="pre">map_manager.map_map_cc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.minimum_resolution"><code class="docutils literal notranslate"><span class="pre">map_manager.minimum_resolution()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.ncs_cc"><code class="docutils literal notranslate"><span class="pre">map_manager.ncs_cc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.ncs_object"><code class="docutils literal notranslate"><span class="pre">map_manager.ncs_object()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.origin_is_zero"><code class="docutils literal notranslate"><span class="pre">map_manager.origin_is_zero()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.randomize"><code class="docutils literal notranslate"><span class="pre">map_manager.randomize()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.remove_labels"><code class="docutils literal notranslate"><span class="pre">map_manager.remove_labels()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.resample_on_different_grid"><code class="docutils literal notranslate"><span class="pre">map_manager.resample_on_different_grid()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.resolution"><code class="docutils literal notranslate"><span class="pre">map_manager.resolution()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.resolution_filter"><code class="docutils literal notranslate"><span class="pre">map_manager.resolution_filter()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.scattering_table"><code class="docutils literal notranslate"><span class="pre">map_manager.scattering_table()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_crystal_symmetry_to_p1"><code class="docutils literal notranslate"><span class="pre">map_manager.set_crystal_symmetry_to_p1()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_experiment_type"><code class="docutils literal notranslate"><span class="pre">map_manager.set_experiment_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_is_mask"><code class="docutils literal notranslate"><span class="pre">map_manager.set_is_mask()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_log"><code class="docutils literal notranslate"><span class="pre">map_manager.set_log()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_map_data"><code class="docutils literal notranslate"><span class="pre">map_manager.set_map_data()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_mean_zero_sd_one"><code class="docutils literal notranslate"><span class="pre">map_manager.set_mean_zero_sd_one()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_model_symmetries_and_shift_cart_to_match_map"><code class="docutils literal notranslate"><span class="pre">map_manager.set_model_symmetries_and_shift_cart_to_match_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_ncs_object"><code class="docutils literal notranslate"><span class="pre">map_manager.set_ncs_object()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_ncs_object_shift_cart_to_match_map"><code class="docutils literal notranslate"><span class="pre">map_manager.set_ncs_object_shift_cart_to_match_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_original_origin_and_gridding"><code class="docutils literal notranslate"><span class="pre">map_manager.set_original_origin_and_gridding()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_program_name"><code class="docutils literal notranslate"><span class="pre">map_manager.set_program_name()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_resolution"><code class="docutils literal notranslate"><span class="pre">map_manager.set_resolution()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_scattering_table"><code class="docutils literal notranslate"><span class="pre">map_manager.set_scattering_table()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_unit_cell_crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">map_manager.set_unit_cell_crystal_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.set_wrapping"><code class="docutils literal notranslate"><span class="pre">map_manager.set_wrapping()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_aware_rt"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_aware_rt()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_cart"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_cart()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_model_to_match_map"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_model_to_match_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_ncs_object_to_match_map"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_ncs_object_to_match_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_origin"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_origin()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_origin_to_match_original"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_origin_to_match_original()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.soft_mask"><code class="docutils literal notranslate"><span class="pre">map_manager.soft_mask()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.trace_atoms_in_map"><code class="docutils literal notranslate"><span class="pre">map_manager.trace_atoms_in_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.warning_message"><code class="docutils literal notranslate"><span class="pre">map_manager.warning_message()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.wrapping"><code class="docutils literal notranslate"><span class="pre">map_manager.wrapping()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.write_map"><code class="docutils literal notranslate"><span class="pre">map_manager.write_map()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.map_manager.remove_site_with_most_neighbors"><code class="docutils literal notranslate"><span class="pre">remove_site_with_most_neighbors()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.select_n_in_biggest_cluster"><code class="docutils literal notranslate"><span class="pre">select_n_in_biggest_cluster()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.shift_aware_rt"><code class="docutils literal notranslate"><span class="pre">shift_aware_rt</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.map_manager.shift_aware_rt.absolute_rt_info"><code class="docutils literal notranslate"><span class="pre">shift_aware_rt.absolute_rt_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.shift_aware_rt.apply_rt"><code class="docutils literal notranslate"><span class="pre">shift_aware_rt.apply_rt()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.shift_aware_rt.get_absolute_rt_info"><code class="docutils literal notranslate"><span class="pre">shift_aware_rt.get_absolute_rt_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.shift_aware_rt.inverse"><code class="docutils literal notranslate"><span class="pre">shift_aware_rt.inverse()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.shift_aware_rt.is_similar"><code class="docutils literal notranslate"><span class="pre">shift_aware_rt.is_similar()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.shift_aware_rt.working_rt_info"><code class="docutils literal notranslate"><span class="pre">shift_aware_rt.working_rt_info()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.map_manager.subtract_tuples_int"><code class="docutils literal notranslate"><span class="pre">subtract_tuples_int()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.apply_aniso_b_cart_to_f_array_info"><code class="docutils literal notranslate"><span class="pre">apply_aniso_b_cart_to_f_array_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.apply_ncs_to_dv_results"><code class="docutils literal notranslate"><span class="pre">apply_ncs_to_dv_results()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.convert_tlso_group_info_to_lists"><code class="docutils literal notranslate"><span class="pre">convert_tlso_group_info_to_lists()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.create_fine_spacing_array"><code class="docutils literal notranslate"><span class="pre">create_fine_spacing_array()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.create_map_manager_with_value_list"><code class="docutils literal notranslate"><span class="pre">create_map_manager_with_value_list()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.cutoff_values"><code class="docutils literal notranslate"><span class="pre">cutoff_values()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_average_scale_factors"><code class="docutils literal notranslate"><span class="pre">get_average_scale_factors()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_center_of_box_frac"><code class="docutils literal notranslate"><span class="pre">get_center_of_box_frac()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_map_coeffs_as_fp_phi"><code class="docutils literal notranslate"><span class="pre">get_map_coeffs_as_fp_phi()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_map_counts"><code class="docutils literal notranslate"><span class="pre">get_map_counts()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_map_histograms"><code class="docutils literal notranslate"><span class="pre">get_map_histograms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_normalization_data_for_unit_binning"><code class="docutils literal notranslate"><span class="pre">get_normalization_data_for_unit_binning()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_pointer_to_old_dv_id_dict"><code class="docutils literal notranslate"><span class="pre">get_pointer_to_old_dv_id_dict()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_selection_inside_box"><code class="docutils literal notranslate"><span class="pre">get_selection_inside_box()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_selections_and_boxes_to_split_model"><code class="docutils literal notranslate"><span class="pre">get_selections_and_boxes_to_split_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_selections_for_segments"><code class="docutils literal notranslate"><span class="pre">get_selections_for_segments()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_selections_from_boxes"><code class="docutils literal notranslate"><span class="pre">get_selections_from_boxes()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_skip_waters_and_hetero_lines"><code class="docutils literal notranslate"><span class="pre">get_skip_waters_and_hetero_lines()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_split_maps_and_models"><code class="docutils literal notranslate"><span class="pre">get_split_maps_and_models()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_tlso_group_info_from_model"><code class="docutils literal notranslate"><span class="pre">get_tlso_group_info_from_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_tlso_resid"><code class="docutils literal notranslate"><span class="pre">get_tlso_resid()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.get_weights_for_unit_binning"><code class="docutils literal notranslate"><span class="pre">get_weights_for_unit_binning()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.is_inside_mask"><code class="docutils literal notranslate"><span class="pre">is_inside_mask()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager"><code class="docutils literal notranslate"><span class="pre">map_model_manager</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.add_crystal_symmetry_to_model_if_necessary"><code class="docutils literal notranslate"><span class="pre">map_model_manager.add_crystal_symmetry_to_model_if_necessary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.add_map_from_fourier_coefficients"><code class="docutils literal notranslate"><span class="pre">map_model_manager.add_map_from_fourier_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.add_map_manager_by_id"><code class="docutils literal notranslate"><span class="pre">map_model_manager.add_map_manager_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.add_model_by_id"><code class="docutils literal notranslate"><span class="pre">map_model_manager.add_model_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.add_to_info"><code class="docutils literal notranslate"><span class="pre">map_model_manager.add_to_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.apply_mask_to_map"><code class="docutils literal notranslate"><span class="pre">map_model_manager.apply_mask_to_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.apply_mask_to_maps"><code class="docutils literal notranslate"><span class="pre">map_model_manager.apply_mask_to_maps()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.as_map_model_manager"><code class="docutils literal notranslate"><span class="pre">map_model_manager.as_map_model_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.as_map_model_manager_with_resampled_maps"><code class="docutils literal notranslate"><span class="pre">map_model_manager.as_map_model_manager_with_resampled_maps()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.as_match_map_model_ncs"><code class="docutils literal notranslate"><span class="pre">map_model_manager.as_match_map_model_ncs()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.box_all_maps_around_density_and_shift_origin"><code class="docutils literal notranslate"><span class="pre">map_model_manager.box_all_maps_around_density_and_shift_origin()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.box_all_maps_around_mask_and_shift_origin"><code class="docutils literal notranslate"><span class="pre">map_model_manager.box_all_maps_around_mask_and_shift_origin()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.box_all_maps_around_model_and_shift_origin"><code class="docutils literal notranslate"><span class="pre">map_model_manager.box_all_maps_around_model_and_shift_origin()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.box_all_maps_around_unique_and_shift_origin"><code class="docutils literal notranslate"><span class="pre">map_model_manager.box_all_maps_around_unique_and_shift_origin()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.box_all_maps_with_bounds_and_shift_origin"><code class="docutils literal notranslate"><span class="pre">map_model_manager.box_all_maps_with_bounds_and_shift_origin()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.choose_best_set"><code class="docutils literal notranslate"><span class="pre">map_model_manager.choose_best_set()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.counts"><code class="docutils literal notranslate"><span class="pre">map_model_manager.counts()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.create_mask_around_atoms"><code class="docutils literal notranslate"><span class="pre">map_model_manager.create_mask_around_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.create_mask_around_density"><code class="docutils literal notranslate"><span class="pre">map_model_manager.create_mask_around_density()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.create_mask_around_edges"><code class="docutils literal notranslate"><span class="pre">map_model_manager.create_mask_around_edges()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.create_masked_copies_of_maps"><code class="docutils literal notranslate"><span class="pre">map_model_manager.create_masked_copies_of_maps()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.create_spherical_mask"><code class="docutils literal notranslate"><span class="pre">map_model_manager.create_spherical_mask()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">map_model_manager.crystal_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.customized_copy"><code class="docutils literal notranslate"><span class="pre">map_model_manager.customized_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.deep_copy"><code class="docutils literal notranslate"><span class="pre">map_model_manager.deep_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.density_at_model_sites"><code class="docutils literal notranslate"><span class="pre">map_model_manager.density_at_model_sites()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.duplicate_id"><code class="docutils literal notranslate"><span class="pre">map_model_manager.duplicate_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.duplicate_map_manager"><code class="docutils literal notranslate"><span class="pre">map_model_manager.duplicate_map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.expand_mask"><code class="docutils literal notranslate"><span class="pre">map_model_manager.expand_mask()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.experiment_type"><code class="docutils literal notranslate"><span class="pre">map_model_manager.experiment_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.external_sharpen"><code class="docutils literal notranslate"><span class="pre">map_model_manager.external_sharpen()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.extract_all_maps_around_density"><code class="docutils literal notranslate"><span class="pre">map_model_manager.extract_all_maps_around_density()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.extract_all_maps_around_mask"><code class="docutils literal notranslate"><span class="pre">map_model_manager.extract_all_maps_around_mask()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.extract_all_maps_around_model"><code class="docutils literal notranslate"><span class="pre">map_model_manager.extract_all_maps_around_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.extract_all_maps_around_unique"><code class="docutils literal notranslate"><span class="pre">map_model_manager.extract_all_maps_around_unique()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.extract_all_maps_with_bounds"><code class="docutils literal notranslate"><span class="pre">map_model_manager.extract_all_maps_with_bounds()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.find_k_sol_b_sol"><code class="docutils literal notranslate"><span class="pre">map_model_manager.find_k_sol_b_sol()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.generate_map"><code class="docutils literal notranslate"><span class="pre">map_model_manager.generate_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_any_map_manager"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_any_map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_cb_resseq_to_skip"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_cb_resseq_to_skip()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_counts_and_histograms"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_counts_and_histograms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_diffs_for_matching_target_and_model"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_diffs_for_matching_target_and_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_info"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_map_data_by_id"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_map_data_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_map_manager_by_id"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_map_manager_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_map_model_manager_with_selected"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_map_model_manager_with_selected()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_map_rmse"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_map_rmse()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_model_by_id"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_model_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_model_from_other"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_model_from_other()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_ncs_from_map"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_ncs_from_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_ncs_from_model"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_ncs_from_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_rms_f_list"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_rms_f_list()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.get_selection_string_from_chain_dict"><code class="docutils literal notranslate"><span class="pre">map_model_manager.get_selection_string_from_chain_dict()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.half_map_sharpen"><code class="docutils literal notranslate"><span class="pre">map_model_manager.half_map_sharpen()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.hierarchy"><code class="docutils literal notranslate"><span class="pre">map_model_manager.hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.histograms"><code class="docutils literal notranslate"><span class="pre">map_model_manager.histograms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.info"><code class="docutils literal notranslate"><span class="pre">map_model_manager.info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.initialize_maps"><code class="docutils literal notranslate"><span class="pre">map_model_manager.initialize_maps()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.local_fsc"><code class="docutils literal notranslate"><span class="pre">map_model_manager.local_fsc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_as_fourier_coefficients"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_as_fourier_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_data"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_data()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_data_1"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_data_1()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_data_2"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_data_2()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_data_list"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_data_list()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_dict"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_dict()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_id_list"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_id_list()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_info"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_manager"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_manager_1"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_manager_1()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_manager_2"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_manager_2()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_manager_mask"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_manager_mask()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_managers"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_managers()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_map_cc"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_map_cc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_map_fsc"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_map_fsc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.map_model_cc"><code class="docutils literal notranslate"><span class="pre">map_model_manager.map_model_cc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.mask_all_maps_around_atoms"><code class="docutils literal notranslate"><span class="pre">map_model_manager.mask_all_maps_around_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.mask_all_maps_around_density"><code class="docutils literal notranslate"><span class="pre">map_model_manager.mask_all_maps_around_density()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.mask_all_maps_around_edges"><code class="docutils literal notranslate"><span class="pre">map_model_manager.mask_all_maps_around_edges()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.mask_info"><code class="docutils literal notranslate"><span class="pre">map_model_manager.mask_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.match_cb_to_ca"><code class="docutils literal notranslate"><span class="pre">map_model_manager.match_cb_to_ca()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.match_model_b_to_map"><code class="docutils literal notranslate"><span class="pre">map_model_manager.match_model_b_to_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.merge_split_maps_and_models"><code class="docutils literal notranslate"><span class="pre">map_model_manager.merge_split_maps_and_models()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.minimum_resolution"><code class="docutils literal notranslate"><span class="pre">map_model_manager.minimum_resolution()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.model"><code class="docutils literal notranslate"><span class="pre">map_model_manager.model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.model_building"><code class="docutils literal notranslate"><span class="pre">map_model_manager.model_building()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.model_dict"><code class="docutils literal notranslate"><span class="pre">map_model_manager.model_dict()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.model_from_hierarchy"><code class="docutils literal notranslate"><span class="pre">map_model_manager.model_from_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.model_from_sites_cart"><code class="docutils literal notranslate"><span class="pre">map_model_manager.model_from_sites_cart()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.model_from_text"><code class="docutils literal notranslate"><span class="pre">map_model_manager.model_from_text()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.model_id_list"><code class="docutils literal notranslate"><span class="pre">map_model_manager.model_id_list()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.model_sharpen"><code class="docutils literal notranslate"><span class="pre">map_model_manager.model_sharpen()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.models"><code class="docutils literal notranslate"><span class="pre">map_model_manager.models()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.ncs_cc"><code class="docutils literal notranslate"><span class="pre">map_model_manager.ncs_cc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.ncs_object"><code class="docutils literal notranslate"><span class="pre">map_model_manager.ncs_object()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.nproc"><code class="docutils literal notranslate"><span class="pre">map_model_manager.nproc()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.propagate_model_from_other"><code class="docutils literal notranslate"><span class="pre">map_model_manager.propagate_model_from_other()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.remove_anisotropy"><code class="docutils literal notranslate"><span class="pre">map_model_manager.remove_anisotropy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.remove_map_manager_by_id"><code class="docutils literal notranslate"><span class="pre">map_model_manager.remove_map_manager_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.remove_model_by_id"><code class="docutils literal notranslate"><span class="pre">map_model_manager.remove_model_by_id()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.remove_model_outside_map"><code class="docutils literal notranslate"><span class="pre">map_model_manager.remove_model_outside_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.resolution"><code class="docutils literal notranslate"><span class="pre">map_model_manager.resolution()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.resolution_filter"><code class="docutils literal notranslate"><span class="pre">map_model_manager.resolution_filter()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.rmsd_of_matching_residues"><code class="docutils literal notranslate"><span class="pre">map_model_manager.rmsd_of_matching_residues()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.scattering_table"><code class="docutils literal notranslate"><span class="pre">map_model_manager.scattering_table()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.select_matching_segments"><code class="docutils literal notranslate"><span class="pre">map_model_manager.select_matching_segments()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.sequence"><code class="docutils literal notranslate"><span class="pre">map_model_manager.sequence()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_experiment_type"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_experiment_type()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_info"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_info()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_log"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_log()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_map_id_lists"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_map_id_lists()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_map_manager"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_minimum_resolution"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_minimum_resolution()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_model"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_model_symmetries_and_shift_cart_to_match_map"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_model_symmetries_and_shift_cart_to_match_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_multiprocessing"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_multiprocessing()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_name"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_name()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_ncs_object"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_ncs_object()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_original_origin_grid_units"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_original_origin_grid_units()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_resolution"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_resolution()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_scattering_table"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_scattering_table()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_up_map_dict"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_up_map_dict()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_up_model_dict"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_up_model_dict()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.set_verbose"><code class="docutils literal notranslate"><span class="pre">map_model_manager.set_verbose()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.shift_any_model_to_match"><code class="docutils literal notranslate"><span class="pre">map_model_manager.shift_any_model_to_match()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.shift_aware_rt"><code class="docutils literal notranslate"><span class="pre">map_model_manager.shift_aware_rt()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.shift_aware_rt_to_superpose_other"><code class="docutils literal notranslate"><span class="pre">map_model_manager.shift_aware_rt_to_superpose_other()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.shift_cart"><code class="docutils literal notranslate"><span class="pre">map_model_manager.shift_cart()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.shift_origin_to_match_original"><code class="docutils literal notranslate"><span class="pre">map_model_manager.shift_origin_to_match_original()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.show_summary"><code class="docutils literal notranslate"><span class="pre">map_model_manager.show_summary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.split_up_map_and_model_by_boxes"><code class="docutils literal notranslate"><span class="pre">map_model_manager.split_up_map_and_model_by_boxes()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.split_up_map_and_model_by_chain"><code class="docutils literal notranslate"><span class="pre">map_model_manager.split_up_map_and_model_by_chain()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.split_up_map_and_model_by_ncs_groups"><code class="docutils literal notranslate"><span class="pre">map_model_manager.split_up_map_and_model_by_ncs_groups()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.split_up_map_and_model_by_segment"><code class="docutils literal notranslate"><span class="pre">map_model_manager.split_up_map_and_model_by_segment()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.split_up_map_and_model_by_supplied_selections"><code class="docutils literal notranslate"><span class="pre">map_model_manager.split_up_map_and_model_by_supplied_selections()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.superposed_map_manager_from_other"><code class="docutils literal notranslate"><span class="pre">map_model_manager.superposed_map_manager_from_other()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.tls_from_map"><code class="docutils literal notranslate"><span class="pre">map_model_manager.tls_from_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.unit_cell_crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">map_model_manager.unit_cell_crystal_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.warning_message"><code class="docutils literal notranslate"><span class="pre">map_model_manager.warning_message()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.write_map"><code class="docutils literal notranslate"><span class="pre">map_model_manager.write_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.write_model"><code class="docutils literal notranslate"><span class="pre">map_model_manager.write_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.map_model_manager.xray_structure"><code class="docutils literal notranslate"><span class="pre">map_model_manager.xray_structure()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.add_map_manager"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.add_map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.add_model"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.add_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.add_ncs_object"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.add_ncs_object()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.as_map_model_manager"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.as_map_model_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.check_model_and_set_to_match_map_if_necessary"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.check_model_and_set_to_match_map_if_necessary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.crystal_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.deep_copy"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.deep_copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.get_coordinate_shift"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.get_coordinate_shift()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.map_manager"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.map_manager()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.model"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.ncs_object"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.ncs_object()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.read_map"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.read_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.read_model"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.read_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.read_ncs_file"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.read_ncs_file()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.set_log"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.set_log()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.set_original_origin_and_gridding"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.set_original_origin_and_gridding()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.shift_model_to_match_original_map"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.shift_model_to_match_original_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.shift_model_to_match_working_map"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.shift_model_to_match_working_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.shift_ncs_to_match_original_map"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.shift_ncs_to_match_original_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.shift_ncs_to_match_working_map"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.shift_ncs_to_match_working_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.shift_origin"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.shift_origin()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.show_summary"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.show_summary()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.unit_cell_crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.unit_cell_crystal_symmetry()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.write_map"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.write_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.match_map_model_ncs.write_model"><code class="docutils literal notranslate"><span class="pre">match_map_model_ncs.write_model()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.residue_group_is_linked_to_previous"><code class="docutils literal notranslate"><span class="pre">residue_group_is_linked_to_previous()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.run_anisotropic_scaling_as_class"><code class="docutils literal notranslate"><span class="pre">run_anisotropic_scaling_as_class</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.run_fsc_as_class"><code class="docutils literal notranslate"><span class="pre">run_fsc_as_class</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_model_manager.set_nearby_empty_values"><code class="docutils literal notranslate"><span class="pre">set_nearby_empty_values()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3079,7 +3374,7 @@ instead of the shift_cart() for the working map.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

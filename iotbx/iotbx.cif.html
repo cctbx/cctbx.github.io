@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -575,7 +576,66 @@ to identify a row. This function checks if this holds up</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#api-documentation">API documentation</a><ul>
-<li><a class="reference internal" href="#iotbx-cif-objects">iotbx.cif objects</a></li>
+<li><a class="reference internal" href="#iotbx-cif-objects">iotbx.cif objects</a><ul>
+<li><a class="reference internal" href="#iotbx.cif.reader"><code class="docutils literal notranslate"><span class="pre">reader</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.cif.reader.as_miller_arrays"><code class="docutils literal notranslate"><span class="pre">reader.as_miller_arrays()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.reader.as_original_arrays"><code class="docutils literal notranslate"><span class="pre">reader.as_original_arrays()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.reader.build_crystal_structures"><code class="docutils literal notranslate"><span class="pre">reader.build_crystal_structures()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.reader.build_miller_arrays"><code class="docutils literal notranslate"><span class="pre">reader.build_miller_arrays()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.reader.error_count"><code class="docutils literal notranslate"><span class="pre">reader.error_count()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.reader.model"><code class="docutils literal notranslate"><span class="pre">reader.model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.reader.show_errors"><code class="docutils literal notranslate"><span class="pre">reader.show_errors()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.cif.model.cif"><code class="docutils literal notranslate"><span class="pre">cif</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.cif.model.cif.copy"><code class="docutils literal notranslate"><span class="pre">cif.copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.cif.deepcopy"><code class="docutils literal notranslate"><span class="pre">cif.deepcopy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.cif.get"><code class="docutils literal notranslate"><span class="pre">cif.get()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.cif.get_errors"><code class="docutils literal notranslate"><span class="pre">cif.get_errors()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.cif.keys"><code class="docutils literal notranslate"><span class="pre">cif.keys()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.cif.show"><code class="docutils literal notranslate"><span class="pre">cif.show()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.cif.sort"><code class="docutils literal notranslate"><span class="pre">cif.sort()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.cif.validate"><code class="docutils literal notranslate"><span class="pre">cif.validate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.cif.model.save"><code class="docutils literal notranslate"><span class="pre">save</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.cif.model.save.show"><code class="docutils literal notranslate"><span class="pre">save.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.cif.model.block"><code class="docutils literal notranslate"><span class="pre">block</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.cif.model.block.keys"><code class="docutils literal notranslate"><span class="pre">block.keys()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.block.show"><code class="docutils literal notranslate"><span class="pre">block.show()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.block.sort"><code class="docutils literal notranslate"><span class="pre">block.sort()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.block.update"><code class="docutils literal notranslate"><span class="pre">block.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop"><code class="docutils literal notranslate"><span class="pre">loop</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.add_column"><code class="docutils literal notranslate"><span class="pre">loop.add_column()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.add_columns"><code class="docutils literal notranslate"><span class="pre">loop.add_columns()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.add_row"><code class="docutils literal notranslate"><span class="pre">loop.add_row()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.check_key_is_unique"><code class="docutils literal notranslate"><span class="pre">loop.check_key_is_unique()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.copy"><code class="docutils literal notranslate"><span class="pre">loop.copy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.deepcopy"><code class="docutils literal notranslate"><span class="pre">loop.deepcopy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.delete_row"><code class="docutils literal notranslate"><span class="pre">loop.delete_row()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.find_row"><code class="docutils literal notranslate"><span class="pre">loop.find_row()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.iterrows"><code class="docutils literal notranslate"><span class="pre">loop.iterrows()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.keys"><code class="docutils literal notranslate"><span class="pre">loop.keys()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.n_columns"><code class="docutils literal notranslate"><span class="pre">loop.n_columns()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.n_rows"><code class="docutils literal notranslate"><span class="pre">loop.n_rows()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.name"><code class="docutils literal notranslate"><span class="pre">loop.name()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.order"><code class="docutils literal notranslate"><span class="pre">loop.order()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.show"><code class="docutils literal notranslate"><span class="pre">loop.show()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.size"><code class="docutils literal notranslate"><span class="pre">loop.size()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.sort"><code class="docutils literal notranslate"><span class="pre">loop.sort()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.cif.model.loop.update_column"><code class="docutils literal notranslate"><span class="pre">loop.update_column()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.cif.miller_arrays_as_cif_block"><code class="docutils literal notranslate"><span class="pre">miller_arrays_as_cif_block</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.cif.miller_arrays_as_cif_block.add_miller_array"><code class="docutils literal notranslate"><span class="pre">miller_arrays_as_cif_block.add_miller_array()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#accessory-classes-and-functions">Accessory classes and functions</a></li>
 </ul>
 </li>
@@ -637,7 +697,7 @@ to identify a row. This function checks if this holds up</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

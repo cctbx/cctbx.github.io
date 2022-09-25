@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -556,12 +557,130 @@ If the 3-letter amino acid name is not recognized, returns None.</p>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.rotamer package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.rotamer.graphics">mmtbx.rotamer.graphics module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.rotamer.n_dim_table">mmtbx.rotamer.n_dim_table module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.rotamer.ramachandran_eval">mmtbx.rotamer.ramachandran_eval module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.rotamer.rotamer_eval">mmtbx.rotamer.rotamer_eval module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.rotamer.sidechain_angles">mmtbx.rotamer.sidechain_angles module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.rotamer">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.rotamer.graphics">mmtbx.rotamer.graphics module</a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.draw_ramachandran_plot"><code class="docutils literal notranslate"><span class="pre">draw_ramachandran_plot()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.draw_rotamer_plot"><code class="docutils literal notranslate"><span class="pre">draw_rotamer_plot()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.format_ramachandran_plot_title"><code class="docutils literal notranslate"><span class="pre">format_ramachandran_plot_title()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.get_residue_ramachandran_data"><code class="docutils literal notranslate"><span class="pre">get_residue_ramachandran_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.get_residue_rotamer_data"><code class="docutils literal notranslate"><span class="pre">get_residue_rotamer_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.ramachandran_plot"><code class="docutils literal notranslate"><span class="pre">ramachandran_plot</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.ramachandran_plot_mixin"><code class="docutils literal notranslate"><span class="pre">ramachandran_plot_mixin</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.ramachandran_plot_mixin.extent"><code class="docutils literal notranslate"><span class="pre">ramachandran_plot_mixin.extent</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.ramachandran_plot_mixin.set_labels"><code class="docutils literal notranslate"><span class="pre">ramachandran_plot_mixin.set_labels()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.rotamer_plot"><code class="docutils literal notranslate"><span class="pre">rotamer_plot</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.rotamer_plot_mixin"><code class="docutils literal notranslate"><span class="pre">rotamer_plot_mixin</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.rotamer_plot_mixin.set_labels"><code class="docutils literal notranslate"><span class="pre">rotamer_plot_mixin.set_labels()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.rotarama_plot_mixin"><code class="docutils literal notranslate"><span class="pre">rotarama_plot_mixin</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.rotarama_plot_mixin.draw_plot"><code class="docutils literal notranslate"><span class="pre">rotarama_plot_mixin.draw_plot()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.graphics.rotarama_plot_mixin.extent"><code class="docutils literal notranslate"><span class="pre">rotarama_plot_mixin.extent</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.rotamer.n_dim_table">mmtbx.rotamer.n_dim_table module</a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.n_dim_table.NDimTable"><code class="docutils literal notranslate"><span class="pre">NDimTable</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.n_dim_table.NDimTable.bin2index"><code class="docutils literal notranslate"><span class="pre">NDimTable.bin2index()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.n_dim_table.NDimTable.bin2index_limit"><code class="docutils literal notranslate"><span class="pre">NDimTable.bin2index_limit()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.n_dim_table.NDimTable.centerOf"><code class="docutils literal notranslate"><span class="pre">NDimTable.centerOf()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.n_dim_table.NDimTable.clampInclusive"><code class="docutils literal notranslate"><span class="pre">NDimTable.clampInclusive()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.n_dim_table.NDimTable.createFromText"><code class="docutils literal notranslate"><span class="pre">NDimTable.createFromText()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.n_dim_table.NDimTable.setValueAt"><code class="docutils literal notranslate"><span class="pre">NDimTable.setValueAt()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.n_dim_table.NDimTable.valueAt"><code class="docutils literal notranslate"><span class="pre">NDimTable.valueAt()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.n_dim_table.NDimTable.whereIs"><code class="docutils literal notranslate"><span class="pre">NDimTable.whereIs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.n_dim_table.NDimTable.wrapbin"><code class="docutils literal notranslate"><span class="pre">NDimTable.wrapbin()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.rotamer.ramachandran_eval">mmtbx.rotamer.ramachandran_eval module</a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.ramachandran_eval.RamachandranEval"><code class="docutils literal notranslate"><span class="pre">RamachandranEval</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.ramachandran_eval.RamachandranEval.check_table_name"><code class="docutils literal notranslate"><span class="pre">RamachandranEval.check_table_name()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.ramachandran_eval.RamachandranEval.evaluate"><code class="docutils literal notranslate"><span class="pre">RamachandranEval.evaluate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.ramachandran_eval.RamachandranEval.evaluate_sites"><code class="docutils literal notranslate"><span class="pre">RamachandranEval.evaluate_sites()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.rotamer.rotamer_eval">mmtbx.rotamer.rotamer_eval module</a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.NamedRot"><code class="docutils literal notranslate"><span class="pre">NamedRot</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.NamedRot.contains"><code class="docutils literal notranslate"><span class="pre">NamedRot.contains()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerEval"><code class="docutils literal notranslate"><span class="pre">RotamerEval</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerEval.aaTables"><code class="docutils literal notranslate"><span class="pre">RotamerEval.aaTables</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerEval.chi_angles"><code class="docutils literal notranslate"><span class="pre">RotamerEval.chi_angles()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerEval.evaluate"><code class="docutils literal notranslate"><span class="pre">RotamerEval.evaluate()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerEval.evaluate_residue"><code class="docutils literal notranslate"><span class="pre">RotamerEval.evaluate_residue()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerEval.evaluate_residue_2"><code class="docutils literal notranslate"><span class="pre">RotamerEval.evaluate_residue_2()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerEval.get_atom_dict"><code class="docutils literal notranslate"><span class="pre">RotamerEval.get_atom_dict()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerEval.nearest_rotamer_sites_cart"><code class="docutils literal notranslate"><span class="pre">RotamerEval.nearest_rotamer_sites_cart()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerID"><code class="docutils literal notranslate"><span class="pre">RotamerID</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerID.find_source_dir"><code class="docutils literal notranslate"><span class="pre">RotamerID.find_source_dir()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerID.identify"><code class="docutils literal notranslate"><span class="pre">RotamerID.identify()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerID.names"><code class="docutils literal notranslate"><span class="pre">RotamerID.names</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerID.process"><code class="docutils literal notranslate"><span class="pre">RotamerID.process()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerID.wrap_chis"><code class="docutils literal notranslate"><span class="pre">RotamerID.wrap_chis()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.RotamerID.wrap_sym"><code class="docutils literal notranslate"><span class="pre">RotamerID.wrap_sym()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.eval_residue_completeness"><code class="docutils literal notranslate"><span class="pre">eval_residue_completeness()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.eval_sidechain_completeness"><code class="docutils literal notranslate"><span class="pre">eval_sidechain_completeness()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.exercise"><code class="docutils literal notranslate"><span class="pre">exercise()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.find_rotarama_data_dir"><code class="docutils literal notranslate"><span class="pre">find_rotarama_data_dir()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.mon_lib_query"><code class="docutils literal notranslate"><span class="pre">mon_lib_query()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.rotamer_eval.open_rotarama_dlite"><code class="docutils literal notranslate"><span class="pre">open_rotarama_dlite()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.rotamer.sidechain_angles">mmtbx.rotamer.sidechain_angles module</a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.PropertyFile"><code class="docutils literal notranslate"><span class="pre">PropertyFile</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.PropertyFile.process"><code class="docutils literal notranslate"><span class="pre">PropertyFile.process()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles"><code class="docutils literal notranslate"><span class="pre">SidechainAngles</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.anglesForAA"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.anglesForAA</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.anglesForRot"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.anglesForRot</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.atomsForAngle"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.atomsForAngle</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.atomsMoveWithAngle"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.atomsMoveWithAngle</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.chisPerAA"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.chisPerAA</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.extract_chi_atoms"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.extract_chi_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.frequencies_from_rotamer"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.frequencies_from_rotamer</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.get_rotamer_angles"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.get_rotamer_angles()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.get_rotamer_expectation_frequencies"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.get_rotamer_expectation_frequencies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.get_rotamers"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.get_rotamers()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.measureAngle"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.measureAngle()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.measureChiAngles"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.measureChiAngles()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.resAtomsToChi"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.resAtomsToChi</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.SidechainAngles.rotamersForAA"><code class="docutils literal notranslate"><span class="pre">SidechainAngles.rotamersForAA</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.collect_residue_torsion_angles"><code class="docutils literal notranslate"><span class="pre">collect_residue_torsion_angles()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.collect_sidechain_chi_angles"><code class="docutils literal notranslate"><span class="pre">collect_sidechain_chi_angles()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.find_source_dir"><code class="docutils literal notranslate"><span class="pre">find_source_dir()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.sidechain_angles.makeAtomDict"><code class="docutils literal notranslate"><span class="pre">makeAtomDict()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.rotamer">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.rotamer.get_omega_atoms"><code class="docutils literal notranslate"><span class="pre">get_omega_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.get_phi_psi_atoms"><code class="docutils literal notranslate"><span class="pre">get_phi_psi_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.get_phi_psi_indices"><code class="docutils literal notranslate"><span class="pre">get_phi_psi_indices()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.improper_cnab_from_atoms"><code class="docutils literal notranslate"><span class="pre">improper_cnab_from_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.improper_ncab_from_atoms"><code class="docutils literal notranslate"><span class="pre">improper_ncab_from_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.is_cis_peptide"><code class="docutils literal notranslate"><span class="pre">is_cis_peptide()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.iterator"><code class="docutils literal notranslate"><span class="pre">iterator()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.omega_from_atoms"><code class="docutils literal notranslate"><span class="pre">omega_from_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.phi_from_atoms"><code class="docutils literal notranslate"><span class="pre">phi_from_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.phi_from_sites"><code class="docutils literal notranslate"><span class="pre">phi_from_sites()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.phi_psi_from_sites"><code class="docutils literal notranslate"><span class="pre">phi_psi_from_sites()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.psi_from_atoms"><code class="docutils literal notranslate"><span class="pre">psi_from_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.rotamer.psi_from_sites"><code class="docutils literal notranslate"><span class="pre">psi_from_sites()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -620,7 +739,7 @@ If the 3-letter amino acid name is not recognized, returns None.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

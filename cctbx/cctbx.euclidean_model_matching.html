@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -313,6 +314,70 @@ there are no pairs above tolerance.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">cctbx.euclidean_model_matching module</a><ul>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.compute_refined_matches"><code class="docutils literal notranslate"><span class="pre">compute_refined_matches()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches"><code class="docutils literal notranslate"><span class="pre">delegating_model_matches</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches.consensus_model"><code class="docutils literal notranslate"><span class="pre">delegating_model_matches.consensus_model()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches.n_matches"><code class="docutils literal notranslate"><span class="pre">delegating_model_matches.n_matches()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches.n_pairs_best_match"><code class="docutils literal notranslate"><span class="pre">delegating_model_matches.n_pairs_best_match()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.delegating_model_matches.transform_model"><code class="docutils literal notranslate"><span class="pre">delegating_model_matches.transform_model()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry"><code class="docutils literal notranslate"><span class="pre">euclidean_match_symmetry</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry.filter_shift"><code class="docutils literal notranslate"><span class="pre">euclidean_match_symmetry.filter_shift()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.euclidean_match_symmetry.show"><code class="docutils literal notranslate"><span class="pre">euclidean_match_symmetry.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.filter_shift"><code class="docutils literal notranslate"><span class="pre">filter_shift()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.generate_singles"><code class="docutils literal notranslate"><span class="pre">generate_singles()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.inside_zero_one"><code class="docutils literal notranslate"><span class="pre">inside_zero_one()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine"><code class="docutils literal notranslate"><span class="pre">match_refine</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.add_pairs"><code class="docutils literal notranslate"><span class="pre">match_refine.add_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.apply_eucl_ops"><code class="docutils literal notranslate"><span class="pre">match_refine.apply_eucl_ops()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.calculate_rms"><code class="docutils literal notranslate"><span class="pre">match_refine.calculate_rms()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_diff"><code class="docutils literal notranslate"><span class="pre">match_refine.calculate_shortest_diff()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_diffs"><code class="docutils literal notranslate"><span class="pre">match_refine.calculate_shortest_diffs()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.calculate_shortest_dist"><code class="docutils literal notranslate"><span class="pre">match_refine.calculate_shortest_dist()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.eliminate_weak_pairs"><code class="docutils literal notranslate"><span class="pre">match_refine.eliminate_weak_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.exclude_pairs"><code class="docutils literal notranslate"><span class="pre">match_refine.exclude_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.get_transformed_model2"><code class="docutils literal notranslate"><span class="pre">match_refine.get_transformed_model2()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.refine_adjusted_shift"><code class="docutils literal notranslate"><span class="pre">match_refine.refine_adjusted_shift()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine.show"><code class="docutils literal notranslate"><span class="pre">match_refine.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_refine_times"><code class="docutils literal notranslate"><span class="pre">match_refine_times()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_rt_from_ref_eucl_rt"><code class="docutils literal notranslate"><span class="pre">match_rt_from_ref_eucl_rt()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.match_sort_function"><code class="docutils literal notranslate"><span class="pre">match_sort_function()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model"><code class="docutils literal notranslate"><span class="pre">model</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.add_position"><code class="docutils literal notranslate"><span class="pre">model.add_position()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.add_positions"><code class="docutils literal notranslate"><span class="pre">model.add_positions()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.as_xray_structure"><code class="docutils literal notranslate"><span class="pre">model.as_xray_structure()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.best_superpositions_on_other"><code class="docutils literal notranslate"><span class="pre">model.best_superpositions_on_other()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.cb_op"><code class="docutils literal notranslate"><span class="pre">model.cb_op()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.change_basis"><code class="docutils literal notranslate"><span class="pre">model.change_basis()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.change_hand"><code class="docutils literal notranslate"><span class="pre">model.change_hand()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.combine_with_other"><code class="docutils literal notranslate"><span class="pre">model.combine_with_other()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.expand_to_p1"><code class="docutils literal notranslate"><span class="pre">model.expand_to_p1()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.positions"><code class="docutils literal notranslate"><span class="pre">model.positions()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.reset_cb_op"><code class="docutils literal notranslate"><span class="pre">model.reset_cb_op()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.show"><code class="docutils literal notranslate"><span class="pre">model.show()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.size"><code class="docutils literal notranslate"><span class="pre">model.size()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model.transform_to_reference_setting"><code class="docutils literal notranslate"><span class="pre">model.transform_to_reference_setting()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.model_matches"><code class="docutils literal notranslate"><span class="pre">model_matches</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.pair_sort_function"><code class="docutils literal notranslate"><span class="pre">pair_sort_function()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.position"><code class="docutils literal notranslate"><span class="pre">position</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.sgtbx_rt_mx_as_matrix_rt"><code class="docutils literal notranslate"><span class="pre">sgtbx_rt_mx_as_matrix_rt()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.euclidean_model_matching.weed_refined_matches"><code class="docutils literal notranslate"><span class="pre">weed_refined_matches()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="cctbx.eltbx.wavelengths.html"
                           title="previous chapter">cctbx.eltbx.wavelengths module</a></p>
@@ -365,7 +430,7 @@ there are no pairs above tolerance.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

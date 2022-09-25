@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -191,8 +192,8 @@ an atom name</p>
 
 </dd></dl>
 
-<span class="target" id="module-iotbx.shelx.lexer"></span><p>Parsing of ins/res files</p>
-<dl class="py class">
+<p>Parsing of ins/res files</p>
+<span class="target" id="module-iotbx.shelx.lexer"></span><dl class="py class">
 <dt class="sig sig-object py" id="iotbx.shelx.lexer.command_stream">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iotbx.shelx.lexer.</span></span><span class="sig-name descname"><span class="pre">command_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">close_when_deleted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.shelx.lexer.command_stream" title="Permalink to this definition">¶</a></dt>
 <dd><p>An ins/res file parsed as a stream of commands</p>
@@ -213,8 +214,8 @@ an atom name</p>
 
 </dd></dl>
 
-<span class="target" id="module-iotbx.shelx.parsers"></span><p>Lexing of ins/res files</p>
-<dl class="py class">
+<p>Lexing of ins/res files</p>
+<span class="target" id="module-iotbx.shelx.parsers"></span><dl class="py class">
 <dt class="sig sig-object py" id="iotbx.shelx.parsers.afix_parser">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iotbx.shelx.parsers.</span></span><span class="sig-name descname"><span class="pre">afix_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command_stream</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.shelx.parsers.afix_parser" title="Permalink to this definition">¶</a></dt>
 <dd><p>It must be before an atom parser</p>
@@ -410,7 +411,91 @@ builder: it builds a dictionary containing the parsed information.</p>
     <ul>
 <li><a class="reference internal" href="#">iotbx.shelx</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#module-iotbx.shelx">API documentation</a></li>
+<li><a class="reference internal" href="#module-iotbx.shelx">API documentation</a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.parse_smtbx_refinement_model"><code class="docutils literal notranslate"><span class="pre">parse_smtbx_refinement_model()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.crystal_symmetry_from_ins.extract_from"><code class="docutils literal notranslate"><span class="pre">extract_from()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.hklf.miller_array_export_as_shelx_hklf"><code class="docutils literal notranslate"><span class="pre">miller_array_export_as_shelx_hklf()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.hklf.reader"><code class="docutils literal notranslate"><span class="pre">reader</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.hklf.reader.alphas"><code class="docutils literal notranslate"><span class="pre">reader.alphas()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.hklf.reader.as_miller_arrays"><code class="docutils literal notranslate"><span class="pre">reader.as_miller_arrays()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.hklf.reader.batch_numbers"><code class="docutils literal notranslate"><span class="pre">reader.batch_numbers()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.hklf.reader.wavelengths"><code class="docutils literal notranslate"><span class="pre">reader.wavelengths()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.atomname_token"><code class="docutils literal notranslate"><span class="pre">atomname_token</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.atomname_token.name"><code class="docutils literal notranslate"><span class="pre">atomname_token.name</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.atomname_token.plus_minus"><code class="docutils literal notranslate"><span class="pre">atomname_token.plus_minus</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.atomname_token.residue_number"><code class="docutils literal notranslate"><span class="pre">atomname_token.residue_number</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.atomname_token.symmetry"><code class="docutils literal notranslate"><span class="pre">atomname_token.symmetry</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.element_token"><code class="docutils literal notranslate"><span class="pre">element_token</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.element_token.element"><code class="docutils literal notranslate"><span class="pre">element_token.element</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.element_token.plus_minus"><code class="docutils literal notranslate"><span class="pre">element_token.plus_minus</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.element_token.residue_number"><code class="docutils literal notranslate"><span class="pre">element_token.residue_number</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.residue_token"><code class="docutils literal notranslate"><span class="pre">residue_token</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.residue_token.class_"><code class="docutils literal notranslate"><span class="pre">residue_token.class_</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.tokens.residue_token.number"><code class="docutils literal notranslate"><span class="pre">residue_token.number</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.lexer.command_stream"><code class="docutils literal notranslate"><span class="pre">command_stream</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.lexer.command_stream.commands_allowing_atom_names"><code class="docutils literal notranslate"><span class="pre">command_stream.commands_allowing_atom_names</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.lexer.command_stream.shelx_commands"><code class="docutils literal notranslate"><span class="pre">command_stream.shelx_commands</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.lexer.command_stream.symm_space"><code class="docutils literal notranslate"><span class="pre">command_stream.symm_space</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.afix_parser"><code class="docutils literal notranslate"><span class="pre">afix_parser</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.afix_parser.constraints"><code class="docutils literal notranslate"><span class="pre">afix_parser.constraints</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.afix_parser.filtered_commands"><code class="docutils literal notranslate"><span class="pre">afix_parser.filtered_commands()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser"><code class="docutils literal notranslate"><span class="pre">atom_parser</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser.filtered_commands"><code class="docutils literal notranslate"><span class="pre">atom_parser.filtered_commands()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser.lex_scatterer"><code class="docutils literal notranslate"><span class="pre">atom_parser.lex_scatterer()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser.process_occupancies_depending_on_free_variable"><code class="docutils literal notranslate"><span class="pre">atom_parser.process_occupancies_depending_on_free_variable()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser.process_possible_constrained_occupancy"><code class="docutils literal notranslate"><span class="pre">atom_parser.process_possible_constrained_occupancy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.atom_parser.process_possible_u_iso_constraints"><code class="docutils literal notranslate"><span class="pre">atom_parser.process_possible_u_iso_constraints()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.crystal_symmetry_parser"><code class="docutils literal notranslate"><span class="pre">crystal_symmetry_parser</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.crystal_symmetry_parser.filtered_commands"><code class="docutils literal notranslate"><span class="pre">crystal_symmetry_parser.filtered_commands()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.crystal_symmetry_parser.parse"><code class="docutils literal notranslate"><span class="pre">crystal_symmetry_parser.parse()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.decode_variables"><code class="docutils literal notranslate"><span class="pre">decode_variables()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.instruction_parser"><code class="docutils literal notranslate"><span class="pre">instruction_parser</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.instruction_parser.filtered_commands"><code class="docutils literal notranslate"><span class="pre">instruction_parser.filtered_commands()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.instruction_parser.issue_merohedral_twinning"><code class="docutils literal notranslate"><span class="pre">instruction_parser.issue_merohedral_twinning()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.parser"><code class="docutils literal notranslate"><span class="pre">parser</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.parser.parse"><code class="docutils literal notranslate"><span class="pre">parser.parse()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.restraint_parser"><code class="docutils literal notranslate"><span class="pre">restraint_parser</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.restraint_parser.cache_restraint"><code class="docutils literal notranslate"><span class="pre">restraint_parser.cache_restraint()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.restraint_parser.filtered_commands"><code class="docutils literal notranslate"><span class="pre">restraint_parser.filtered_commands()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.restraint_parser.i_seqs_from_atoms"><code class="docutils literal notranslate"><span class="pre">restraint_parser.i_seqs_from_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.restraint_parser.parse_restraints"><code class="docutils literal notranslate"><span class="pre">restraint_parser.parse_restraints()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.restraint_parser.restraint_types"><code class="docutils literal notranslate"><span class="pre">restraint_parser.restraint_types</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.variable_decoder"><code class="docutils literal notranslate"><span class="pre">variable_decoder</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.variable_decoder.decode_one_variable"><code class="docutils literal notranslate"><span class="pre">variable_decoder.decode_one_variable()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.variable_decoder.decode_variables"><code class="docutils literal notranslate"><span class="pre">variable_decoder.decode_variables()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.wavelength_parser"><code class="docutils literal notranslate"><span class="pre">wavelength_parser</span></code></a><ul>
+<li><a class="reference internal" href="#iotbx.shelx.parsers.wavelength_parser.filtered_commands"><code class="docutils literal notranslate"><span class="pre">wavelength_parser.filtered_commands()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iotbx.shelx.writer.generator"><code class="docutils literal notranslate"><span class="pre">generator()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.write_ins.LATT_SYMM"><code class="docutils literal notranslate"><span class="pre">LATT_SYMM()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.shelx.write_ins.shelxd"><code class="docutils literal notranslate"><span class="pre">shelxd()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -469,7 +554,7 @@ builder: it builds a dictionary containing the parsed information.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

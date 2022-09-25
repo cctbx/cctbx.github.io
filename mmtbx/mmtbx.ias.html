@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -192,7 +193,41 @@
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.ias package</a><ul>
-<li><a class="reference internal" href="#module-mmtbx.ias">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.ias">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.ias.add_lone_pairs_for_peptyde_o"><code class="docutils literal notranslate"><span class="pre">add_lone_pairs_for_peptyde_o()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.atom"><code class="docutils literal notranslate"><span class="pre">atom</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.bond_density"><code class="docutils literal notranslate"><span class="pre">bond_density</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.check_at_bond_vector"><code class="docutils literal notranslate"><span class="pre">check_at_bond_vector()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.extract_ias"><code class="docutils literal notranslate"><span class="pre">extract_ias</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.find_peak_at_bond"><code class="docutils literal notranslate"><span class="pre">find_peak_at_bond</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.ias.find_peak_at_bond.find_peak"><code class="docutils literal notranslate"><span class="pre">find_peak_at_bond.find_peak()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.find_peak_at_bond.set_status"><code class="docutils literal notranslate"><span class="pre">find_peak_at_bond.set_status()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.ias.ias"><code class="docutils literal notranslate"><span class="pre">ias</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.ias.ias.deep_copy"><code class="docutils literal notranslate"><span class="pre">ias.deep_copy()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.ias.ias_counters"><code class="docutils literal notranslate"><span class="pre">ias_counters</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.ias.ias_counters.show"><code class="docutils literal notranslate"><span class="pre">ias_counters.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.ias.ias_position_at_lone_pairs"><code class="docutils literal notranslate"><span class="pre">ias_position_at_lone_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.ias_site_position"><code class="docutils literal notranslate"><span class="pre">ias_site_position()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.manager"><code class="docutils literal notranslate"><span class="pre">manager</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.ias.manager.all_bonds"><code class="docutils literal notranslate"><span class="pre">manager.all_bonds()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.manager.get_ias_selection"><code class="docutils literal notranslate"><span class="pre">manager.get_ias_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.manager.iass_as_xray_structure"><code class="docutils literal notranslate"><span class="pre">manager.iass_as_xray_structure()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.manager.set_ias_selection"><code class="docutils literal notranslate"><span class="pre">manager.set_ias_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.manager.setup_ias_selection"><code class="docutils literal notranslate"><span class="pre">manager.setup_ias_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.manager.write_pdb_file"><code class="docutils literal notranslate"><span class="pre">manager.write_pdb_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.ias.set_ias_name_and_predicted_position"><code class="docutils literal notranslate"><span class="pre">set_ias_name_and_predicted_position()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.set_peaks"><code class="docutils literal notranslate"><span class="pre">set_peaks()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.ias.set_status"><code class="docutils literal notranslate"><span class="pre">set_status()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -251,7 +286,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

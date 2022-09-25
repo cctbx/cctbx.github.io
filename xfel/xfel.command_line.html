@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -450,14 +451,14 @@ included in the final dataset, and those rejected due to poor correlation.
 <section id="module-xfel.command_line.cxi_pickle2cbf">
 <span id="xfel-command-line-cxi-pickle2cbf-module"></span><h2>xfel.command_line.cxi_pickle2cbf module<a class="headerlink" href="#module-xfel.command_line.cxi_pickle2cbf" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="module-xfel.command_line.cxi_plotcv">
-<span id="xfel-command-line-cxi-plotcv-module"></span><h2>xfel.command_line.cxi_plotcv module<a class="headerlink" href="#module-xfel.command_line.cxi_plotcv" title="Permalink to this heading">¶</a></h2>
+<section id="xfel-command-line-cxi-plotcv-module">
+<h2>xfel.command_line.cxi_plotcv module<a class="headerlink" href="#xfel-command-line-cxi-plotcv-module" title="Permalink to this heading">¶</a></h2>
 <p>Main idea:  go through the integration log files and grep out the difference
 vectors between observed and predicted spot positions.  Plot these “correction
 vectors”, but do so separately for each ASIC tile, giving an independent
 check on whether a tile is positioned properly by the tile_translation
 parameters.</p>
-<dl class="py function">
+<span class="target" id="module-xfel.command_line.cxi_plotcv"></span><dl class="py function">
 <dt class="sig sig-object py" id="xfel.command_line.cxi_plotcv.run">
 <span class="sig-prename descclassname"><span class="pre">xfel.command_line.cxi_plotcv.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.command_line.cxi_plotcv.run" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -482,11 +483,11 @@ parameters.</p>
 <section id="module-xfel.command_line.cxi_spots">
 <span id="xfel-command-line-cxi-spots-module"></span><h2>xfel.command_line.cxi_spots module<a class="headerlink" href="#module-xfel.command_line.cxi_spots" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="module-xfel.command_line.cxi_stream_to_pickle">
-<span id="xfel-command-line-cxi-stream-to-pickle-module"></span><h2>xfel.command_line.cxi_stream_to_pickle module<a class="headerlink" href="#module-xfel.command_line.cxi_stream_to_pickle" title="Permalink to this heading">¶</a></h2>
+<section id="xfel-command-line-cxi-stream-to-pickle-module">
+<h2>xfel.command_line.cxi_stream_to_pickle module<a class="headerlink" href="#xfel-command-line-cxi-stream-to-pickle-module" title="Permalink to this heading">¶</a></h2>
 <p>Utility for converting stream files from CrystFEL version 0.5.3 to
 cctbx.xfel pickle files.</p>
-<dl class="py function">
+<span class="target" id="module-xfel.command_line.cxi_stream_to_pickle"></span><dl class="py function">
 <dt class="sig sig-object py" id="xfel.command_line.cxi_stream_to_pickle.check_image">
 <span class="sig-prename descclassname"><span class="pre">xfel.command_line.cxi_stream_to_pickle.</span></span><span class="sig-name descname"><span class="pre">check_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#xfel.command_line.cxi_stream_to_pickle.check_image" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -869,53 +870,244 @@ Rev. Sci. Instrum. 63, 856 (1992); <a class="reference external" href="https://d
     <ul>
 <li><a class="reference internal" href="#">xfel.command_line package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.auto_submit">xfel.command_line.auto_submit module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.brehm_diederichs">xfel.command_line.brehm_diederichs module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cbf_average">xfel.command_line.cbf_average module</a></li>
+<li><a class="reference internal" href="#module-xfel.command_line.auto_submit">xfel.command_line.auto_submit module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.auto_submit.match_runs"><code class="docutils literal notranslate"><span class="pre">match_runs()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.auto_submit.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.brehm_diederichs">xfel.command_line.brehm_diederichs module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.brehm_diederichs.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.cbf_average">xfel.command_line.cbf_average module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cbf_average.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#xfel-command-line-cluster-42-module">xfel.command_line.cluster_42 module</a></li>
 <li><a class="reference internal" href="#xfel-command-line-cluster-intensity-statistics-module">xfel.command_line.cluster_intensity_statistics module</a></li>
 <li><a class="reference internal" href="#xfel-command-line-cluster-per-frame-wilson-module">xfel.command_line.cluster_per_frame_wilson module</a></li>
 <li><a class="reference internal" href="#xfel-command-line-cluster-unit-cell-module">xfel.command_line.cluster_unit_cell module</a></li>
 <li><a class="reference internal" href="#xfel-command-line-cluster-visualise-orientations-module">xfel.command_line.cluster_visualise_orientations module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.convert_gain_map">xfel.command_line.convert_gain_map module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.convert_gain_map_cbf">xfel.command_line.convert_gain_map_cbf module</a></li>
+<li><a class="reference internal" href="#module-xfel.command_line.convert_gain_map">xfel.command_line.convert_gain_map module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.convert_2x2"><code class="docutils literal notranslate"><span class="pre">convert_2x2()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.convert_detector"><code class="docutils literal notranslate"><span class="pre">convert_detector()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_config"><code class="docutils literal notranslate"><span class="pre">fake_config</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_config.quadMask"><code class="docutils literal notranslate"><span class="pre">fake_config.quadMask()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_config.roiMask"><code class="docutils literal notranslate"><span class="pre">fake_config.roiMask()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_config.sections"><code class="docutils literal notranslate"><span class="pre">fake_config.sections()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_cspad_ElementV2"><code class="docutils literal notranslate"><span class="pre">fake_cspad_ElementV2</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_cspad_ElementV2.data"><code class="docutils literal notranslate"><span class="pre">fake_cspad_ElementV2.data()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_cspad_ElementV2.quad"><code class="docutils literal notranslate"><span class="pre">fake_cspad_ElementV2.quad()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_env"><code class="docutils literal notranslate"><span class="pre">fake_env</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_env.getConfig"><code class="docutils literal notranslate"><span class="pre">fake_env.getConfig()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_evt"><code class="docutils literal notranslate"><span class="pre">fake_evt</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_evt.getCsPadQuads"><code class="docutils literal notranslate"><span class="pre">fake_evt.getCsPadQuads()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_evt.getTime"><code class="docutils literal notranslate"><span class="pre">fake_evt.getTime()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.fake_get_config"><code class="docutils literal notranslate"><span class="pre">fake_get_config()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.convert_gain_map_cbf">xfel.command_line.convert_gain_map_cbf module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map_cbf.convert_detector"><code class="docutils literal notranslate"><span class="pre">convert_detector()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.convert_gain_map_cbf.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-xfel.command_line.cxi_apply_metrology">xfel.command_line.cxi_apply_metrology module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cxi_cspad_pinwheel">xfel.command_line.cxi_cspad_pinwheel module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cxi_diff">xfel.command_line.cxi_diff module</a></li>
+<li><a class="reference internal" href="#module-xfel.command_line.cxi_cspad_pinwheel">xfel.command_line.cxi_cspad_pinwheel module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_cspad_pinwheel.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.cxi_diff">xfel.command_line.cxi_diff module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_diff.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-xfel.command_line.cxi_display_metrology">xfel.command_line.cxi_display_metrology module</a></li>
 <li><a class="reference internal" href="#module-xfel.command_line.cxi_generate_circular_gain_mask">xfel.command_line.cxi_generate_circular_gain_mask module</a></li>
 <li><a class="reference internal" href="#xfel-command-line-cxi-image2pickle-module">xfel.command_line.cxi_image2pickle module</a></li>
 <li><a class="reference internal" href="#module-xfel.command_line.cxi_index">xfel.command_line.cxi_index module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cxi_lsf">xfel.command_line.cxi_lsf module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cxi_merge">xfel.command_line.cxi_merge module</a></li>
+<li><a class="reference internal" href="#module-xfel.command_line.cxi_lsf">xfel.command_line.cxi_lsf module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_lsf.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.cxi_merge">xfel.command_line.cxi_merge module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.OutlierCellError"><code class="docutils literal notranslate"><span class="pre">OutlierCellError</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.WrongBravaisError"><code class="docutils literal notranslate"><span class="pre">WrongBravaisError</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.consistent_set_and_model"><code class="docutils literal notranslate"><span class="pre">consistent_set_and_model()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.get_boundaries_from_sensor_ID"><code class="docutils literal notranslate"><span class="pre">get_boundaries_from_sensor_ID()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.get_observations"><code class="docutils literal notranslate"><span class="pre">get_observations()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.load_result"><code class="docutils literal notranslate"><span class="pre">load_result()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.plot_overall_completeness"><code class="docutils literal notranslate"><span class="pre">plot_overall_completeness()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.plot_statistics"><code class="docutils literal notranslate"><span class="pre">plot_statistics</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.plot_statistics.plot_statistics_histograms"><code class="docutils literal notranslate"><span class="pre">plot_statistics.plot_statistics_histograms()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.plot_statistics.plot_unit_cell_histograms"><code class="docutils literal notranslate"><span class="pre">plot_statistics.plot_unit_cell_histograms()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.plot_statistics.show_all_pyplot"><code class="docutils literal notranslate"><span class="pre">plot_statistics.show_all_pyplot()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.resolution_bin"><code class="docutils literal notranslate"><span class="pre">resolution_bin</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager"><code class="docutils literal notranslate"><span class="pre">scaling_manager</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.add_frame"><code class="docutils literal notranslate"><span class="pre">scaling_manager.add_frame()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.finalize_and_save_data"><code class="docutils literal notranslate"><span class="pre">scaling_manager.finalize_and_save_data()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.get_overall_correlation"><code class="docutils literal notranslate"><span class="pre">scaling_manager.get_overall_correlation()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.get_plot_statistics"><code class="docutils literal notranslate"><span class="pre">scaling_manager.get_plot_statistics()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.reset"><code class="docutils literal notranslate"><span class="pre">scaling_manager.reset()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.scale_all"><code class="docutils literal notranslate"><span class="pre">scaling_manager.scale_all()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.scale_frame"><code class="docutils literal notranslate"><span class="pre">scaling_manager.scale_frame()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.scale_frame_detail"><code class="docutils literal notranslate"><span class="pre">scaling_manager.scale_frame_detail()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.show_unit_cell_histograms"><code class="docutils literal notranslate"><span class="pre">scaling_manager.show_unit_cell_histograms()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.single_reflection_histograms"><code class="docutils literal notranslate"><span class="pre">scaling_manager.single_reflection_histograms()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_manager.sum_intensities"><code class="docutils literal notranslate"><span class="pre">scaling_manager.sum_intensities()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.scaling_result"><code class="docutils literal notranslate"><span class="pre">scaling_result</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.show_overall_observations"><code class="docutils literal notranslate"><span class="pre">show_overall_observations()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.unit_cell_distribution"><code class="docutils literal notranslate"><span class="pre">unit_cell_distribution</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.unit_cell_distribution.add_cell"><code class="docutils literal notranslate"><span class="pre">unit_cell_distribution.add_cell()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.unit_cell_distribution.add_cells"><code class="docutils literal notranslate"><span class="pre">unit_cell_distribution.add_cells()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.unit_cell_distribution.get_average_cell_dimensions"><code class="docutils literal notranslate"><span class="pre">unit_cell_distribution.get_average_cell_dimensions()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_merge.unit_cell_distribution.show_histograms"><code class="docutils literal notranslate"><span class="pre">unit_cell_distribution.show_histograms()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-xfel.command_line.cxi_optical2cbfheader">xfel.command_line.cxi_optical2cbfheader module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cxi_pbs">xfel.command_line.cxi_pbs module</a></li>
+<li><a class="reference internal" href="#module-xfel.command_line.cxi_pbs">xfel.command_line.cxi_pbs module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_pbs.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-xfel.command_line.cxi_pickle2cbf">xfel.command_line.cxi_pickle2cbf module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cxi_plotcv">xfel.command_line.cxi_plotcv module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cxi_psana">xfel.command_line.cxi_psana module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cxi_pyana">xfel.command_line.cxi_pyana module</a></li>
+<li><a class="reference internal" href="#xfel-command-line-cxi-plotcv-module">xfel.command_line.cxi_plotcv module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_plotcv.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.cxi_psana">xfel.command_line.cxi_psana module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_psana.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.cxi_pyana">xfel.command_line.cxi_pyana module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_pyana.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-xfel.command_line.cxi_spots">xfel.command_line.cxi_spots module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cxi_stream_to_pickle">xfel.command_line.cxi_stream_to_pickle module</a></li>
+<li><a class="reference internal" href="#xfel-command-line-cxi-stream-to-pickle-module">xfel.command_line.cxi_stream_to_pickle module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_stream_to_pickle.check_image"><code class="docutils literal notranslate"><span class="pre">check_image()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_stream_to_pickle.crystfel_to_cctbx_coord_system"><code class="docutils literal notranslate"><span class="pre">crystfel_to_cctbx_coord_system()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_stream_to_pickle.image_template"><code class="docutils literal notranslate"><span class="pre">image_template()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_stream_to_pickle.make_int_pickle"><code class="docutils literal notranslate"><span class="pre">make_int_pickle()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_stream_to_pickle.unit_cell_to_symetry_object"><code class="docutils literal notranslate"><span class="pre">unit_cell_to_symetry_object()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-xfel.command_line.cxi_view">xfel.command_line.cxi_view module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.cxi_xmerge">xfel.command_line.cxi_xmerge module</a></li>
+<li><a class="reference internal" href="#module-xfel.command_line.cxi_xmerge">xfel.command_line.cxi_xmerge module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_xmerge.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_xmerge.xscaling_manager"><code class="docutils literal notranslate"><span class="pre">xscaling_manager</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.command_line.cxi_xmerge.xscaling_manager.read_all_mysql"><code class="docutils literal notranslate"><span class="pre">xscaling_manager.read_all_mysql()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.cxi_xmerge.xscaling_manager.scale_all"><code class="docutils literal notranslate"><span class="pre">xscaling_manager.scale_all()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#xfel-command-line-get-next-trial-id-module">xfel.command_line.get_next_trial_id module</a></li>
 <li><a class="reference internal" href="#xfel-command-line-grid-index-module">xfel.command_line.grid_index module</a></li>
 <li><a class="reference internal" href="#module-xfel.command_line.histogram_finalise">xfel.command_line.histogram_finalise module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.list_db_metadata">xfel.command_line.list_db_metadata module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.make_mask">xfel.command_line.make_mask module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.metrology">xfel.command_line.metrology module</a></li>
+<li><a class="reference internal" href="#module-xfel.command_line.list_db_metadata">xfel.command_line.list_db_metadata module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.list_db_metadata.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.make_mask">xfel.command_line.make_mask module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.make_mask.point_in_polygon"><code class="docutils literal notranslate"><span class="pre">point_in_polygon()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.make_mask.point_inside_circle"><code class="docutils literal notranslate"><span class="pre">point_inside_circle()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.make_mask.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.metrology">xfel.command_line.metrology module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.metrology.get_phil"><code class="docutils literal notranslate"><span class="pre">get_phil()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.metrology.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.metrology.validate_phil"><code class="docutils literal notranslate"><span class="pre">validate_phil()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-xfel.command_line.monitor_detectors">xfel.command_line.monitor_detectors module</a></li>
 <li><a class="reference internal" href="#module-xfel.command_line.monitor_trials">xfel.command_line.monitor_trials module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.overlay_spectra">xfel.command_line.overlay_spectra module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.plot_to_subpixel">xfel.command_line.plot_to_subpixel module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.postrefine">xfel.command_line.postrefine module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.print_pickle">xfel.command_line.print_pickle module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.quadrants">xfel.command_line.quadrants module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.radial_average">xfel.command_line.radial_average module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.smooth_spectrum">xfel.command_line.smooth_spectrum module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.subtract_background">xfel.command_line.subtract_background module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.trial_stats">xfel.command_line.trial_stats module</a></li>
-<li><a class="reference internal" href="#module-xfel.command_line.view_pixel_histograms">xfel.command_line.view_pixel_histograms module</a></li>
+<li><a class="reference internal" href="#module-xfel.command_line.overlay_spectra">xfel.command_line.overlay_spectra module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.overlay_spectra.estimate_signal_to_noise"><code class="docutils literal notranslate"><span class="pre">estimate_signal_to_noise()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.overlay_spectra.full_width_half_max"><code class="docutils literal notranslate"><span class="pre">full_width_half_max()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.overlay_spectra.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.plot_to_subpixel">xfel.command_line.plot_to_subpixel module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.plot_to_subpixel.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.postrefine">xfel.command_line.postrefine module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.postrefine.determine_mean_I_mproc"><code class="docutils literal notranslate"><span class="pre">determine_mean_I_mproc()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.postrefine.postrefine_by_frame_mproc"><code class="docutils literal notranslate"><span class="pre">postrefine_by_frame_mproc()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.postrefine.read_input"><code class="docutils literal notranslate"><span class="pre">read_input()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.postrefine.scale_frame_by_mean_I_mproc"><code class="docutils literal notranslate"><span class="pre">scale_frame_by_mean_I_mproc()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.print_pickle">xfel.command_line.print_pickle module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.print_pickle.generate_data_from_streams"><code class="docutils literal notranslate"><span class="pre">generate_data_from_streams()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.print_pickle.generate_streams_from_path"><code class="docutils literal notranslate"><span class="pre">generate_streams_from_path()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.print_pickle.keywise_printout"><code class="docutils literal notranslate"><span class="pre">keywise_printout()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.quadrants">xfel.command_line.quadrants module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.quadrants.view_raw_image"><code class="docutils literal notranslate"><span class="pre">view_raw_image()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.radial_average">xfel.command_line.radial_average module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.radial_average.apply_sub_pixel_metrology"><code class="docutils literal notranslate"><span class="pre">apply_sub_pixel_metrology()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.radial_average.distance"><code class="docutils literal notranslate"><span class="pre">distance()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.radial_average.get_tile_center"><code class="docutils literal notranslate"><span class="pre">get_tile_center()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.radial_average.get_tile_coords"><code class="docutils literal notranslate"><span class="pre">get_tile_coords()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.radial_average.get_tile_id"><code class="docutils literal notranslate"><span class="pre">get_tile_id()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.radial_average.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.radial_average.show_tiles"><code class="docutils literal notranslate"><span class="pre">show_tiles()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.smooth_spectrum">xfel.command_line.smooth_spectrum module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.smooth_spectrum.estimate_signal_to_noise"><code class="docutils literal notranslate"><span class="pre">estimate_signal_to_noise()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.smooth_spectrum.fourier_filter"><code class="docutils literal notranslate"><span class="pre">fourier_filter()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.smooth_spectrum.interpolate"><code class="docutils literal notranslate"><span class="pre">interpolate()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.smooth_spectrum.pyplot_label_axes"><code class="docutils literal notranslate"><span class="pre">pyplot_label_axes()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.smooth_spectrum.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.subtract_background">xfel.command_line.subtract_background module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.subtract_background.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.subtract_background.signal_to_noise_statistical"><code class="docutils literal notranslate"><span class="pre">signal_to_noise_statistical()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.subtract_background.subtract_background"><code class="docutils literal notranslate"><span class="pre">subtract_background()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.trial_stats">xfel.command_line.trial_stats module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.trial_stats.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-xfel.command_line.view_pixel_histograms">xfel.command_line.view_pixel_histograms module</a><ul>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.PixelFitError"><code class="docutils literal notranslate"><span class="pre">PixelFitError</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.check_pixel_histogram_fit"><code class="docutils literal notranslate"><span class="pre">check_pixel_histogram_fit()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.hist_outline"><code class="docutils literal notranslate"><span class="pre">hist_outline()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.pixel_histograms"><code class="docutils literal notranslate"><span class="pre">pixel_histograms</span></code></a><ul>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.pixel_histograms.fit_one_histogram"><code class="docutils literal notranslate"><span class="pre">pixel_histograms.fit_one_histogram()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.pixel_histograms.pixels"><code class="docutils literal notranslate"><span class="pre">pixel_histograms.pixels()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.pixel_histograms.plot"><code class="docutils literal notranslate"><span class="pre">pixel_histograms.plot()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.pixel_histograms.plot_gaussians"><code class="docutils literal notranslate"><span class="pre">pixel_histograms.plot_gaussians()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.pixel_histograms.plot_one_histogram"><code class="docutils literal notranslate"><span class="pre">pixel_histograms.plot_one_histogram()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.pixel_histograms.single_peak_fit"><code class="docutils literal notranslate"><span class="pre">pixel_histograms.single_peak_fit()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#xfel.command_line.view_pixel_histograms.sliding_average"><code class="docutils literal notranslate"><span class="pre">sliding_average()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-xfel.command_line.xes_finalise">xfel.command_line.xes_finalise module</a></li>
 <li><a class="reference internal" href="#module-xfel.command_line.xes_histograms">xfel.command_line.xes_histograms module</a></li>
 <li><a class="reference internal" href="#module-xfel.command_line">Module contents</a></li>
@@ -960,7 +1152,7 @@ Rev. Sci. Instrum. 63, 856 (1992); <a class="reference external" href="https://d
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

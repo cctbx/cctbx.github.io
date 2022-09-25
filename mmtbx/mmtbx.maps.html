@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -52,12 +53,12 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
 </section>
-<section id="module-mmtbx.maps.composite_omit_map">
-<span id="mmtbx-maps-composite-omit-map-module"></span><h2>mmtbx.maps.composite_omit_map module<a class="headerlink" href="#module-mmtbx.maps.composite_omit_map" title="Permalink to this heading">¶</a></h2>
+<section id="mmtbx-maps-composite-omit-map-module">
+<h2>mmtbx.maps.composite_omit_map module<a class="headerlink" href="#mmtbx-maps-composite-omit-map-module" title="Permalink to this heading">¶</a></h2>
 <p>Methods and utilities for generating composite omit maps.  The actual
 end-user application, phenix.composite_omit_map, is part of the phenix
 sources.</p>
-<dl class="py function">
+<span class="target" id="module-mmtbx.maps.composite_omit_map"></span><dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.maps.composite_omit_map.combine_maps">
 <span class="sig-prename descclassname"><span class="pre">mmtbx.maps.composite_omit_map.</span></span><span class="sig-name descname"><span class="pre">combine_maps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_arrays</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omit_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background_map_coeffs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten_background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_scaling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.maps.composite_omit_map.combine_maps" title="Permalink to this definition">¶</a></dt>
 <dd><p>For each box, FFT the corresponding omit map coefficients, extract the
@@ -744,13 +745,180 @@ handling of missing reflections and R-free flags.  Used by the Phenix GUI.</p>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.maps package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.maps.composite_omit_map">mmtbx.maps.composite_omit_map module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.maps.fem">mmtbx.maps.fem module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.maps.fobs_minus_fobs_map">mmtbx.maps.fobs_minus_fobs_map module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.maps.kick">mmtbx.maps.kick module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.maps.superpose">mmtbx.maps.superpose module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.maps.utils">mmtbx.maps.utils module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.maps">Module contents</a></li>
+<li><a class="reference internal" href="#mmtbx-maps-composite-omit-map-module">mmtbx.maps.composite_omit_map module</a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.combine_maps"><code class="docutils literal notranslate"><span class="pre">combine_maps()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.create_omit_regions"><code class="docutils literal notranslate"><span class="pre">create_omit_regions()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.grid_max"><code class="docutils literal notranslate"><span class="pre">grid_max()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.join_selections"><code class="docutils literal notranslate"><span class="pre">join_selections()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_box"><code class="docutils literal notranslate"><span class="pre">omit_box</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_box.frac_max"><code class="docutils literal notranslate"><span class="pre">omit_box.frac_max</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_box.frac_min"><code class="docutils literal notranslate"><span class="pre">omit_box.frac_min</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_box.n_atoms"><code class="docutils literal notranslate"><span class="pre">omit_box.n_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_box.selection"><code class="docutils literal notranslate"><span class="pre">omit_box.selection</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_box.serial"><code class="docutils literal notranslate"><span class="pre">omit_box.serial</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_box.show"><code class="docutils literal notranslate"><span class="pre">omit_box.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_region_results"><code class="docutils literal notranslate"><span class="pre">omit_region_results</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_region_results.map_coeffs_list"><code class="docutils literal notranslate"><span class="pre">omit_region_results.map_coeffs_list</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_region_results.r_free"><code class="docutils literal notranslate"><span class="pre">omit_region_results.r_free</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_region_results.r_work"><code class="docutils literal notranslate"><span class="pre">omit_region_results.r_work</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_region_results.serial"><code class="docutils literal notranslate"><span class="pre">omit_region_results.serial</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions"><code class="docutils literal notranslate"><span class="pre">omit_regions</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.add_box"><code class="docutils literal notranslate"><span class="pre">omit_regions.add_box()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.boxes"><code class="docutils literal notranslate"><span class="pre">omit_regions.boxes</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.combine_with"><code class="docutils literal notranslate"><span class="pre">omit_regions.combine_with()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.n_atoms"><code class="docutils literal notranslate"><span class="pre">omit_regions.n_atoms</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.n_boxes"><code class="docutils literal notranslate"><span class="pre">omit_regions.n_boxes</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.selection"><code class="docutils literal notranslate"><span class="pre">omit_regions.selection</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.serial"><code class="docutils literal notranslate"><span class="pre">omit_regions.serial</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.omit_regions.show"><code class="docutils literal notranslate"><span class="pre">omit_regions.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.as_p1_map"><code class="docutils literal notranslate"><span class="pre">run.as_p1_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.asu_map_from_fmodel"><code class="docutils literal notranslate"><span class="pre">run.asu_map_from_fmodel()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.box_iterator"><code class="docutils literal notranslate"><span class="pre">run.box_iterator()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.get_p1_map_unscaled"><code class="docutils literal notranslate"><span class="pre">run.get_p1_map_unscaled()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.map_coefficients"><code class="docutils literal notranslate"><span class="pre">run.map_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.noise_filtered_map_coefficients"><code class="docutils literal notranslate"><span class="pre">run.noise_filtered_map_coefficients()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.omit_box"><code class="docutils literal notranslate"><span class="pre">run.omit_box()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.result_as_sf"><code class="docutils literal notranslate"><span class="pre">run.result_as_sf()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.composite_omit_map.run.to_asu_map"><code class="docutils literal notranslate"><span class="pre">run.to_asu_map()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps.fem">mmtbx.maps.fem module</a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.fem.ccp4_map"><code class="docutils literal notranslate"><span class="pre">ccp4_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.counter"><code class="docutils literal notranslate"><span class="pre">counter</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.fem.counter.show"><code class="docutils literal notranslate"><span class="pre">counter.show()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.get_map"><code class="docutils literal notranslate"><span class="pre">get_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.good_atoms_selection"><code class="docutils literal notranslate"><span class="pre">good_atoms_selection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.inner_loop"><code class="docutils literal notranslate"><span class="pre">inner_loop()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.low_volume_density_elimination"><code class="docutils literal notranslate"><span class="pre">low_volume_density_elimination()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.fem.run.compute_original_map"><code class="docutils literal notranslate"><span class="pre">run.compute_original_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.run.create_fmodel"><code class="docutils literal notranslate"><span class="pre">run.create_fmodel()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.run.outer_loop"><code class="docutils literal notranslate"><span class="pre">run.outer_loop()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.run.prepare_f_obs_and_flags"><code class="docutils literal notranslate"><span class="pre">run.prepare_f_obs_and_flags()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.run.remove_common_isotropic_adp"><code class="docutils literal notranslate"><span class="pre">run.remove_common_isotropic_adp()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.run.resolve_filter_map"><code class="docutils literal notranslate"><span class="pre">run.resolve_filter_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.run.write_output_files"><code class="docutils literal notranslate"><span class="pre">run.write_output_files()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.run.zero_below_threshold"><code class="docutils literal notranslate"><span class="pre">run.zero_below_threshold()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.fem.truncate_with_roots"><code class="docutils literal notranslate"><span class="pre">truncate_with_roots()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps.fobs_minus_fobs_map">mmtbx.maps.fobs_minus_fobs_map module</a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.fobs_minus_fobs_map.compute_fo_minus_fo_map"><code class="docutils literal notranslate"><span class="pre">compute_fo_minus_fo_map</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.fobs_minus_fobs_map.compute_fo_minus_fo_map.write_map_file"><code class="docutils literal notranslate"><span class="pre">compute_fo_minus_fo_map.write_map_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.fobs_minus_fobs_map.finish_job"><code class="docutils literal notranslate"><span class="pre">finish_job()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fobs_minus_fobs_map.fo_minus_fo_master_params"><code class="docutils literal notranslate"><span class="pre">fo_minus_fo_master_params()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fobs_minus_fobs_map.launcher"><code class="docutils literal notranslate"><span class="pre">launcher</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.fobs_minus_fobs_map.launcher.run"><code class="docutils literal notranslate"><span class="pre">launcher.run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.fobs_minus_fobs_map.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.fobs_minus_fobs_map.validate_params"><code class="docutils literal notranslate"><span class="pre">validate_params()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps.kick">mmtbx.maps.kick module</a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.kick.compute_map_and_combine"><code class="docutils literal notranslate"><span class="pre">compute_map_and_combine()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.kick.get_map"><code class="docutils literal notranslate"><span class="pre">get_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.kick.kick_fmodel"><code class="docutils literal notranslate"><span class="pre">kick_fmodel()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.kick.kick_map_coeffs"><code class="docutils literal notranslate"><span class="pre">kick_map_coeffs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.kick.randomize_completeness"><code class="docutils literal notranslate"><span class="pre">randomize_completeness()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.kick.randomize_completeness2"><code class="docutils literal notranslate"><span class="pre">randomize_completeness2()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.kick.randomize_struture_factors"><code class="docutils literal notranslate"><span class="pre">randomize_struture_factors()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.kick.run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.kick.run.convert_to_non_anomalous"><code class="docutils literal notranslate"><span class="pre">run.convert_to_non_anomalous()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.kick.run.map_coeffs_from_map"><code class="docutils literal notranslate"><span class="pre">run.map_coeffs_from_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.kick.run.write_mc"><code class="docutils literal notranslate"><span class="pre">run.write_mc()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.kick.weighted_average"><code class="docutils literal notranslate"><span class="pre">weighted_average</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.kick.weighted_average.random_weight_averaged_map_coefficients"><code class="docutils literal notranslate"><span class="pre">weighted_average.random_weight_averaged_map_coefficients()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps.superpose">mmtbx.maps.superpose module</a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.common_frame_of_reference"><code class="docutils literal notranslate"><span class="pre">common_frame_of_reference</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.common_frame_of_reference.apply_new_sites_to_hierarchies"><code class="docutils literal notranslate"><span class="pre">common_frame_of_reference.apply_new_sites_to_hierarchies()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.common_frame_of_reference.apply_new_sites_to_xray_structure"><code class="docutils literal notranslate"><span class="pre">common_frame_of_reference.apply_new_sites_to_xray_structure()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.common_frame_of_reference.get_inverse_matrix"><code class="docutils literal notranslate"><span class="pre">common_frame_of_reference.get_inverse_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.common_frame_of_reference.inverse_transform_hierarchy"><code class="docutils literal notranslate"><span class="pre">common_frame_of_reference.inverse_transform_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.exercise"><code class="docutils literal notranslate"><span class="pre">exercise()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.generate_p1_box"><code class="docutils literal notranslate"><span class="pre">generate_p1_box()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.mask_grid"><code class="docutils literal notranslate"><span class="pre">mask_grid()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.transform_map_by_lsq_fit"><code class="docutils literal notranslate"><span class="pre">transform_map_by_lsq_fit()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.transform_maps"><code class="docutils literal notranslate"><span class="pre">transform_maps</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.superpose.transform_maps.run"><code class="docutils literal notranslate"><span class="pre">transform_maps.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps.utils">mmtbx.maps.utils module</a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.utils.create_map_from_pdb_and_mtz"><code class="docutils literal notranslate"><span class="pre">create_map_from_pdb_and_mtz()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.decode_resolve_map_coeffs"><code class="docutils literal notranslate"><span class="pre">decode_resolve_map_coeffs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.extract_map_coeffs"><code class="docutils literal notranslate"><span class="pre">extract_map_coeffs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.extract_phenix_refine_map_coeffs"><code class="docutils literal notranslate"><span class="pre">extract_phenix_refine_map_coeffs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.fast_maps_from_hkl_file"><code class="docutils literal notranslate"><span class="pre">fast_maps_from_hkl_file</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.utils.fast_maps_from_hkl_file.get_maps_from_fmodel"><code class="docutils literal notranslate"><span class="pre">fast_maps_from_hkl_file.get_maps_from_fmodel()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.fast_maps_from_hkl_file.run"><code class="docutils literal notranslate"><span class="pre">fast_maps_from_hkl_file.run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.format_map_coeffs_for_resolve"><code class="docutils literal notranslate"><span class="pre">format_map_coeffs_for_resolve()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.generate_water_omit_map"><code class="docutils literal notranslate"><span class="pre">generate_water_omit_map</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.utils.generate_water_omit_map.write_map_coeffs"><code class="docutils literal notranslate"><span class="pre">generate_water_omit_map.write_map_coeffs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.generate_water_omit_map.write_pdb_file"><code class="docutils literal notranslate"><span class="pre">generate_water_omit_map.write_pdb_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.get_anomalous_map"><code class="docutils literal notranslate"><span class="pre">get_anomalous_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.get_default_map_coefficients_phil"><code class="docutils literal notranslate"><span class="pre">get_default_map_coefficients_phil()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.get_map_coeff_labels"><code class="docutils literal notranslate"><span class="pre">get_map_coeff_labels()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.get_map_coeffs_for_build"><code class="docutils literal notranslate"><span class="pre">get_map_coeffs_for_build()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.get_maps_from_fmodel"><code class="docutils literal notranslate"><span class="pre">get_maps_from_fmodel()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.map_coeffs_from_mtz_file"><code class="docutils literal notranslate"><span class="pre">map_coeffs_from_mtz_file()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.write_map_coeffs"><code class="docutils literal notranslate"><span class="pre">write_map_coeffs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.write_xplor_map"><code class="docutils literal notranslate"><span class="pre">write_xplor_map()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.utils.write_xplor_map_file"><code class="docutils literal notranslate"><span class="pre">write_xplor_map_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.maps">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.b_factor_sharpening_by_map_kurtosis_maximization"><code class="docutils literal notranslate"><span class="pre">b_factor_sharpening_by_map_kurtosis_maximization()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.cast_map_coeff_params"><code class="docutils literal notranslate"><span class="pre">cast_map_coeff_params()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.compute_f_calc"><code class="docutils literal notranslate"><span class="pre">compute_f_calc()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.compute_map_coefficients"><code class="docutils literal notranslate"><span class="pre">compute_map_coefficients</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.compute_map_coefficients.write_mtz_file"><code class="docutils literal notranslate"><span class="pre">compute_map_coefficients.write_mtz_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.compute_xplor_maps"><code class="docutils literal notranslate"><span class="pre">compute_xplor_maps()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.map_and_map_coeff_master_params"><code class="docutils literal notranslate"><span class="pre">map_and_map_coeff_master_params()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.map_coefficients_from_fmodel"><code class="docutils literal notranslate"><span class="pre">map_coefficients_from_fmodel()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.map_coeffs_mtz_label_manager"><code class="docutils literal notranslate"><span class="pre">map_coeffs_mtz_label_manager</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.map_coeffs_mtz_label_manager.amplitudes"><code class="docutils literal notranslate"><span class="pre">map_coeffs_mtz_label_manager.amplitudes()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.map_coeffs_mtz_label_manager.phases"><code class="docutils literal notranslate"><span class="pre">map_coeffs_mtz_label_manager.phases()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.maps.maps_including_IO_master_params"><code class="docutils literal notranslate"><span class="pre">maps_including_IO_master_params()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.write_xplor_map_file"><code class="docutils literal notranslate"><span class="pre">write_xplor_map_file</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.maps.write_xplor_map_file.atom_iselection"><code class="docutils literal notranslate"><span class="pre">write_xplor_map_file.atom_iselection()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.maps.write_xplor_map_file.box_around_selection"><code class="docutils literal notranslate"><span class="pre">write_xplor_map_file.box_around_selection()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -809,7 +977,7 @@ handling of missing reflections and R-free flags.  Used by the Phenix GUI.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

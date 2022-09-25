@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -56,8 +57,8 @@ tools have in common the same basic inputs and setup procedures.  These are
 encapsulated in the top-level mmtbx.command_line module, and simplify the
 process of loading models and data to just a few lines of code for each new
 application.</p>
-<section id="module-mmtbx.command_line">
-<span id="api-documentation"></span><h2>API documentation<a class="headerlink" href="#module-mmtbx.command_line" title="Permalink to this heading">¶</a></h2>
+<section id="api-documentation">
+<h2>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this heading">¶</a></h2>
 <p>Generic wrapper for bootstrapping high-level applications which rely on some
 combination of model and data, with special attention to geometry restraints
 interpretation and f_model setup.  All of the bookkeeping required to
@@ -65,7 +66,7 @@ disambiguate crystal symmetry and Miller array conventions is performed
 automatically.  This is superficially similar to the setup for phenix.refine
 (and re-uses many of the methods in mmtbx.utils), but is somewhat simpler
 (single-dataset only) and more general-purpose.</p>
-<dl class="py function">
+<span class="target" id="module-mmtbx.command_line"></span><dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.command_line.check_files">
 <span class="sig-prename descclassname"><span class="pre">mmtbx.command_line.</span></span><span class="sig-name descname"><span class="pre">check_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phil_scope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.command_line.check_files" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -147,7 +148,7 @@ and raise an interpretable error.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args</strong> (<em>list of command-line arguments</em>) – </p></li>
+<li><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em> of </em><em>command-line arguments</em>) – </p></li>
 <li><p><strong>master_phil</strong> (<em>PHIL master</em><em> (</em><em>can optionally be an unparsed string</em><em>)</em>) – </p></li>
 <li><p><strong>out</strong> (<em>filehandle-like object</em>) – </p></li>
 <li><p><strong>process_pdb_file</strong> (<em>run full restraints generation</em>) – </p></li>
@@ -169,7 +170,7 @@ and raise an interpretable error.</p>
 <span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.args" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of str</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -189,7 +190,7 @@ and raise an interpretable error.</p>
 <span class="sig-name descname"><span class="pre">cif_objects</span></span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.cif_objects" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of …</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a> of …</p>
 </dd>
 </dl>
 </dd></dl>
@@ -279,7 +280,7 @@ and raise an interpretable error.</p>
 <span class="sig-name descname"><span class="pre">miller_arrays</span></span><a class="headerlink" href="#mmtbx.command_line.load_model_and_data.miller_arrays" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of cctbx.miller.array</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a> of <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array">cctbx.miller.array</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -537,7 +538,48 @@ density:</p>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">mmtbx.command_line package</a><ul>
-<li><a class="reference internal" href="#module-mmtbx.command_line">API documentation</a></li>
+<li><a class="reference internal" href="#api-documentation">API documentation</a><ul>
+<li><a class="reference internal" href="#mmtbx.command_line.check_files"><code class="docutils literal notranslate"><span class="pre">check_files()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.generate_master_phil_with_inputs"><code class="docutils literal notranslate"><span class="pre">generate_master_phil_with_inputs()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.generic_simple_input_phil"><code class="docutils literal notranslate"><span class="pre">generic_simple_input_phil()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_and_validate_unmerged_data"><code class="docutils literal notranslate"><span class="pre">load_and_validate_unmerged_data()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data"><code class="docutils literal notranslate"><span class="pre">load_model_and_data</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.args"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.args</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.cif_file_names"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.cif_file_names</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.cif_objects"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.cif_objects</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.crystal_symmetry</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.f_obs"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.f_obs</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.fmodel"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.fmodel</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.geometry"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.geometry</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.hl_coeffs"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.hl_coeffs</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.intensity_flag"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.intensity_flag</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.log"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.log</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.master_phil"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.master_phil</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.miller_arrays"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.miller_arrays</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.params"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.params</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.pdb_file_names"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.pdb_file_names</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.pdb_hierarchy"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.pdb_hierarchy</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.pdb_inp"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.pdb_inp</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.processed_pdb_file"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.processed_pdb_file</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.r_free_flags"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.r_free_flags</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.raw_data"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.raw_data</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.raw_flags"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.raw_flags</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.sequence"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.sequence</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.test_flag_value"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.test_flag_value</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.unknown_residues_flag"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.unknown_residues_flag</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.unknown_residues_error_message"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.unknown_residues_error_message</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.unmerged_i_obs"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.unmerged_i_obs</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.working_phil"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.working_phil</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.xray_structure"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.xray_structure</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.create_model_manager"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.create_model_manager()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.save_data_mtz"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.save_data_mtz()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.load_model_and_data.start_log_file"><code class="docutils literal notranslate"><span class="pre">load_model_and_data.start_log_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.command_line.show_symmetry_error"><code class="docutils literal notranslate"><span class="pre">show_symmetry_error()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.command_line.validate_input_params"><code class="docutils literal notranslate"><span class="pre">validate_input_params()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -596,7 +638,7 @@ density:</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

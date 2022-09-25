@@ -15,6 +15,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -290,11 +291,75 @@
     <ul>
 <li><a class="reference internal" href="#">mmtbx.dynamics package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-mmtbx.dynamics.cartesian_dynamics">mmtbx.dynamics.cartesian_dynamics module</a></li>
+<li><a class="reference internal" href="#module-mmtbx.dynamics.cartesian_dynamics">mmtbx.dynamics.cartesian_dynamics module</a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.gradients_calculator_geometry_restraints"><code class="docutils literal notranslate"><span class="pre">gradients_calculator_geometry_restraints</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.gradients_calculator_geometry_restraints.gradients"><code class="docutils literal notranslate"><span class="pre">gradients_calculator_geometry_restraints.gradients()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.gradients_calculator_real_space_simple"><code class="docutils literal notranslate"><span class="pre">gradients_calculator_real_space_simple</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.gradients_calculator_real_space_simple.gradients"><code class="docutils literal notranslate"><span class="pre">gradients_calculator_real_space_simple.gradients()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.gradients_calculator_reciprocal_space"><code class="docutils literal notranslate"><span class="pre">gradients_calculator_reciprocal_space</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.gradients_calculator_reciprocal_space.gradients"><code class="docutils literal notranslate"><span class="pre">gradients_calculator_reciprocal_space.gradients()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.interleaved_lbfgs_minimization"><code class="docutils literal notranslate"><span class="pre">interleaved_lbfgs_minimization</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.interleaved_lbfgs_minimization.compute_functional_and_gradients"><code class="docutils literal notranslate"><span class="pre">interleaved_lbfgs_minimization.compute_functional_and_gradients()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.random_velocities"><code class="docutils literal notranslate"><span class="pre">random_velocities()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.run.accelerations"><code class="docutils literal notranslate"><span class="pre">run.accelerations()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.run.center_of_mass_info"><code class="docutils literal notranslate"><span class="pre">run.center_of_mass_info()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.run.print_dynamics_stat"><code class="docutils literal notranslate"><span class="pre">run.print_dynamics_stat()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.run.run_interleaved_minimization"><code class="docutils literal notranslate"><span class="pre">run.run_interleaved_minimization()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.run.set_velocities"><code class="docutils literal notranslate"><span class="pre">run.set_velocities()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.run.stop_global_motion"><code class="docutils literal notranslate"><span class="pre">run.stop_global_motion()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.run.velocity_rescaling"><code class="docutils literal notranslate"><span class="pre">run.velocity_rescaling()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.cartesian_dynamics.run.verlet_leapfrog_integration"><code class="docutils literal notranslate"><span class="pre">run.verlet_leapfrog_integration()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-mmtbx.dynamics.constants">mmtbx.dynamics.constants module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.dynamics.ensemble_cd">mmtbx.dynamics.ensemble_cd module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.dynamics.simulated_annealing">mmtbx.dynamics.simulated_annealing module</a></li>
-<li><a class="reference internal" href="#module-mmtbx.dynamics">Module contents</a></li>
+<li><a class="reference internal" href="#module-mmtbx.dynamics.ensemble_cd">mmtbx.dynamics.ensemble_cd module</a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics.accelerations"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics.accelerations()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics.center_of_mass_info"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics.center_of_mass_info()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics.interleaved_minimization"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics.interleaved_minimization()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics.print_detailed_dynamics_stats"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics.print_detailed_dynamics_stats()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics.set_velocities"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics.set_velocities()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics.stop_global_motion"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics.stop_global_motion()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics.store_temperatures"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics.store_temperatures()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics.velocity_rescaling"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics.velocity_rescaling()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics.verlet_leapfrog_integration"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics.verlet_leapfrog_integration()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.cartesian_dynamics.xray_grads"><code class="docutils literal notranslate"><span class="pre">cartesian_dynamics.xray_grads()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.interleaved_lbfgs_minimization"><code class="docutils literal notranslate"><span class="pre">interleaved_lbfgs_minimization</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.interleaved_lbfgs_minimization.compute_functional_and_gradients"><code class="docutils literal notranslate"><span class="pre">interleaved_lbfgs_minimization.compute_functional_and_gradients()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mmtbx.dynamics.ensemble_cd.random_velocities"><code class="docutils literal notranslate"><span class="pre">random_velocities()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.dynamics.simulated_annealing">mmtbx.dynamics.simulated_annealing module</a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.simulated_annealing.manager"><code class="docutils literal notranslate"><span class="pre">manager()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.simulated_annealing.master_params"><code class="docutils literal notranslate"><span class="pre">master_params()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.simulated_annealing.run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.simulated_annealing.run.gradients_calculator"><code class="docutils literal notranslate"><span class="pre">run.gradients_calculator()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.simulated_annealing.run.show"><code class="docutils literal notranslate"><span class="pre">run.show()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-mmtbx.dynamics">Module contents</a><ul>
+<li><a class="reference internal" href="#mmtbx.dynamics.kinetic_energy_and_temperature"><code class="docutils literal notranslate"><span class="pre">kinetic_energy_and_temperature</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.kinetic_energy_as_temperature"><code class="docutils literal notranslate"><span class="pre">kinetic_energy_as_temperature()</span></code></a></li>
+<li><a class="reference internal" href="#mmtbx.dynamics.temperature_as_kinetic_energy"><code class="docutils literal notranslate"><span class="pre">temperature_as_kinetic_energy()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -353,7 +418,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.0.
     </div>
   </body>
 </html>

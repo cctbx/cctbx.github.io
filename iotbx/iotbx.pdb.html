@@ -51,44 +51,6 @@
 <h2>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this heading">¶</a></h2>
 <section id="input-methods-and-objects">
 <h3>Input methods and objects<a class="headerlink" href="#input-methods-and-objects" title="Permalink to this heading">¶</a></h3>
-<dl class="py class">
-<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.input">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iotbx.pdb.hierarchy.</span></span><span class="sig-name descname"><span class="pre">input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_string=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_info=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_atoms=True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.input" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">input_hierarchy_pair</span></code></p>
-<p>Class used for reading a PDB hierarchy from a file or string.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.input.input">
-<span class="sig-name descname"><span class="pre">input</span></span><a class="headerlink" href="#iotbx.pdb.hierarchy.input.input" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>iotbx.pdb.pdb_input_from_any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.input.hierarchy">
-<span class="sig-name descname"><span class="pre">hierarchy</span></span><a class="headerlink" href="#iotbx.pdb.hierarchy.input.hierarchy" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root">iotbx.pdb.hierarchy.root</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iotbx.pdb.hierarchy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pdb_in</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">pdb_string</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="gp">... </span><span class="s1">ATOM      1  N   ASP A  37      10.710  14.456   9.568  1.00 15.78           N</span>
-<span class="gp">... </span><span class="s1">ATOM      2  CA  ASP A  37       9.318  14.587   9.999  1.00 18.38           C</span>
-<span class="gp">... </span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">pdb_in</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">atoms_size</span><span class="p">()</span>
-<span class="go">2</span>
-<span class="go">&quot;&quot;)</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="iotbx.pdb.input">
 <span class="sig-prename descclassname"><span class="pre">iotbx.pdb.</span></span><span class="sig-name descname"><span class="pre">input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_info=&lt;class</span> <span class="pre">'iotbx.pdb.Please_pass_string_or_None'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_id=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_sorry_if_format_error=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.input" title="Permalink to this definition">¶</a></dt>
@@ -98,7 +60,7 @@ the actual format and return the appropriate data type.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>file_name</strong> (<em>path to PDB</em><em> or </em><em>mmCIF file</em>) – </p></li>
-<li><p><strong>source_info</strong> (<em>string describing source</em><em> of </em><a class="reference internal" href="#iotbx.pdb.hierarchy.input" title="iotbx.pdb.hierarchy.input"><em>input</em></a><em> (</em><em>e.g. file name</em><em>)</em>) – </p></li>
+<li><p><strong>source_info</strong> (<em>string describing source</em><em> of </em><a class="reference internal" href="#iotbx.pdb.ext.input" title="iotbx.pdb.ext.input"><em>input</em></a><em> (</em><em>e.g. file name</em><em>)</em>) – </p></li>
 <li><p><strong>lines</strong> (<em>flex.std_string array</em><em> of </em><em>input lines</em>) – </p></li>
 <li><p><strong>pdb_id</strong> (<em>PDB ID to automatically retrieve from local mirror</em>) – </p></li>
 <li><p><strong>raise_sorry_if_format_error</strong> (<em>re-raise any low-level parser errors as a</em>) – libtbx.utils.Sorry exception instance for clean user feedback</p></li>
@@ -3857,11 +3819,6 @@ chain.residue_groups() instead.</p>
 <li><a class="reference internal" href="#">iotbx.pdb</a><ul>
 <li><a class="reference internal" href="#api-documentation">API documentation</a><ul>
 <li><a class="reference internal" href="#input-methods-and-objects">Input methods and objects</a><ul>
-<li><a class="reference internal" href="#iotbx.pdb.hierarchy.input"><code class="docutils literal notranslate"><span class="pre">input</span></code></a><ul>
-<li><a class="reference internal" href="#iotbx.pdb.hierarchy.input.input"><code class="docutils literal notranslate"><span class="pre">input.input</span></code></a></li>
-<li><a class="reference internal" href="#iotbx.pdb.hierarchy.input.hierarchy"><code class="docutils literal notranslate"><span class="pre">input.hierarchy</span></code></a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#iotbx.pdb.input"><code class="docutils literal notranslate"><span class="pre">input()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.ext.input"><code class="docutils literal notranslate"><span class="pre">input</span></code></a><ul>
 <li><a class="reference internal" href="#iotbx.pdb.ext.input.as_pdb_string"><code class="docutils literal notranslate"><span class="pre">input.as_pdb_string()</span></code></a></li>

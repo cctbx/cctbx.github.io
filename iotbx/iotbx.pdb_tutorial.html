@@ -120,8 +120,8 @@ these steps:</p>
   <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Please specify one or more pdb file names.&quot;</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-    <span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
-    <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">pdb_obj</span><span class="o">.</span><span class="n">construct_hierarchy</span><span class="p">()</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
   <span class="n">run</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
@@ -148,8 +148,8 @@ user running the script without arguments. For example:</p>
 <p>In addition to showing the error message, Python is so friendly show
 us exactly where the error originates. This is often extremely helpful.</p>
 <p>The meat of the script is in these two lines:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
-<span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+<span class="n">pdb_obj</span><span class="o">.</span><span class="n">construct_hierarchy</span><span class="p">()</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The first line executes the two steps outline above. This is really
@@ -253,9 +253,10 @@ as found in <a class="reference external" href="http://cctbx.sourceforge.net/sbg
   <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Please specify one or more pdb file names.&quot;</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-    <span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
-    <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">models</span><span class="p">():</span>
+    <span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">hierarchy</span> <span class="o">=</span> <span class="n">pdb_obj</span><span class="o">.</span><span class="n">construct_hierarchy</span><span class="p">()</span>
+    <span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">models</span><span class="p">():</span>
       <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">chains</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">rg</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">residue_groups</span><span class="p">():</span>
           <span class="nb">print</span> <span class="s1">&#39;resid: &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="n">rg</span><span class="o">.</span><span class="n">resid</span><span class="p">()</span>
@@ -343,9 +344,10 @@ to write the file to disk.</p>
   <span class="n">aa_resnames</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">amino_acid_codes</span><span class="o">.</span><span class="n">one_letter_given_three_letter</span>
   <span class="n">ala_atom_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot; N  &quot;</span><span class="p">,</span> <span class="s2">&quot; CA &quot;</span><span class="p">,</span> <span class="s2">&quot; C  &quot;</span><span class="p">,</span> <span class="s2">&quot; O  &quot;</span><span class="p">,</span> <span class="s2">&quot; CB &quot;</span><span class="p">])</span>
   <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-    <span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
-    <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">models</span><span class="p">():</span>
+    <span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">hierarchy</span> <span class="o">=</span> <span class="n">pdb_obj</span><span class="o">.</span><span class="n">construct_hierarchy</span><span class="p">()</span>
+    <span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">models</span><span class="p">():</span>
       <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">chains</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">rg</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">residue_groups</span><span class="p">():</span>
           <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">rg</span><span class="o">.</span><span class="n">atom_groups</span><span class="p">():</span>
@@ -354,7 +356,7 @@ to write the file to disk.</p>
                 <span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ala_atom_names</span><span class="p">):</span>
                   <span class="n">ag</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="n">atom</span><span class="p">)</span>
     <span class="n">output_pdb</span> <span class="o">=</span> <span class="s2">&quot;v2_truncated_to_ala_&quot;</span><span class="o">+</span><span class="n">file_name</span>
-    <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">write_pdb_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">output_pdb</span><span class="p">)</span>
+    <span class="n">hierarchy</span><span class="o">.</span><span class="n">write_pdb_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">output_pdb</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
   <span class="n">run</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
@@ -459,9 +461,10 @@ of the context, we don’t need to pass any arguments.</p>
   <span class="n">aa_resnames</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">amino_acid_codes</span><span class="o">.</span><span class="n">one_letter_given_three_letter</span>
   <span class="n">ala_atom_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot; N  &quot;</span><span class="p">,</span> <span class="s2">&quot; CA &quot;</span><span class="p">,</span> <span class="s2">&quot; C  &quot;</span><span class="p">,</span> <span class="s2">&quot; O  &quot;</span><span class="p">,</span> <span class="s2">&quot; CB &quot;</span><span class="p">])</span>
   <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-    <span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
-    <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">models</span><span class="p">():</span>
+    <span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">hierarchy</span> <span class="o">=</span> <span class="n">pdb_obj</span><span class="o">.</span><span class="n">construct_hierarchy</span><span class="p">()</span>
+    <span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">models</span><span class="p">():</span>
       <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">chains</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">rg</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">residue_groups</span><span class="p">():</span>
           <span class="k">def</span> <span class="nf">have_amino_acid</span><span class="p">():</span>
@@ -475,7 +478,7 @@ of the context, we don’t need to pass any arguments.</p>
                 <span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ala_atom_names</span><span class="p">):</span>
                   <span class="n">ag</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="n">atom</span><span class="p">)</span>
     <span class="n">output_pdb</span> <span class="o">=</span> <span class="s2">&quot;v3_truncated_to_ala_&quot;</span><span class="o">+</span><span class="n">file_name</span>
-    <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">write_pdb_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">output_pdb</span><span class="p">)</span>
+    <span class="n">hierarchy</span><span class="o">.</span><span class="n">write_pdb_file</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">output_pdb</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">):</span>
   <span class="n">run</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
@@ -544,7 +547,7 @@ component from the input file name, if present. With this,
 it is certain that the output file is written in the current
 working directory, not the directory of the input file (which
 may be in another user’s directory or a system directory)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">iotbx.pdb.hierarchy.input</span></code> is able to open <cite>.gz</cite> files
+<li><p><code class="docutils literal notranslate"><span class="pre">iotbx.pdb.input</span></code> is able to open <cite>.gz</cite> files
 directly (e.g. compressed files as downloaded from the PDB).
 However, the <code class="docutils literal notranslate"><span class="pre">.write_pdb_file()</span></code> method always writes plain
 (non-compressed) files. Therefore the <code class="docutils literal notranslate"><span class="pre">.gz</span></code> extension has to be
@@ -569,12 +572,13 @@ an END record is written at the end of the output file.</p></li>
   <span class="n">aa_resnames</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">amino_acid_codes</span><span class="o">.</span><span class="n">one_letter_given_three_letter</span>
   <span class="n">ala_atom_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot; N  &quot;</span><span class="p">,</span> <span class="s2">&quot; CA &quot;</span><span class="p">,</span> <span class="s2">&quot; C  &quot;</span><span class="p">,</span> <span class="s2">&quot; O  &quot;</span><span class="p">,</span> <span class="s2">&quot; CB &quot;</span><span class="p">])</span>
   <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-    <span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
-    <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">pdb_obj</span> <span class="o">=</span> <span class="n">iotbx</span><span class="o">.</span><span class="n">pdb</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">hierarchy</span> <span class="o">=</span> <span class="n">pdb_obj</span><span class="o">.</span><span class="n">construct_hierarchy</span><span class="p">()</span>
+    <span class="n">hierarchy</span><span class="o">.</span><span class="n">overall_counts</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="n">n_amino_acid_residues</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">n_other_residues</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">n_atoms_removed</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">models</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">hierarchy</span><span class="o">.</span><span class="n">models</span><span class="p">():</span>
       <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">chains</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">rg</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">residue_groups</span><span class="p">():</span>
           <span class="k">def</span> <span class="nf">have_amino_acid</span><span class="p">():</span>
@@ -598,9 +602,9 @@ an END record is written at the end of the output file.</p></li>
       <span class="n">output_pdb</span> <span class="o">=</span> <span class="s2">&quot;v4_truncated_to_ala_&quot;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">output_pdb</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.gz&quot;</span><span class="p">)):</span> <span class="n">output_pdb</span> <span class="o">=</span> <span class="n">output_pdb</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
       <span class="nb">print</span> <span class="s2">&quot;Writing file:&quot;</span><span class="p">,</span> <span class="n">output_pdb</span>
-      <span class="n">pdb_obj</span><span class="o">.</span><span class="n">hierarchy</span><span class="o">.</span><span class="n">write_pdb_file</span><span class="p">(</span>
+      <span class="n">hierarchy</span><span class="o">.</span><span class="n">write_pdb_file</span><span class="p">(</span>
         <span class="n">file_name</span><span class="o">=</span><span class="n">output_pdb</span><span class="p">,</span>
-        <span class="n">crystal_symmetry</span><span class="o">=</span><span class="n">pdb_obj</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">crystal_symmetry</span><span class="p">(),</span>
+        <span class="n">crystal_symmetry</span><span class="o">=</span><span class="n">pdb_obj</span><span class="o">.</span><span class="n">crystal_symmetry</span><span class="p">(),</span>
         <span class="n">append_end</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="nb">print</span>
 

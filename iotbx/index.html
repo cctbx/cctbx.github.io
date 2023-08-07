@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>iotbx - file readers and writers &#8212; CCTBX Developer documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=89b800e6" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e4b74d6d"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -83,6 +83,8 @@ X-ray scattering properties.</p>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_manager.map_manager.delete_mask"><code class="docutils literal notranslate"><span class="pre">map_manager.delete_mask()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_manager.map_manager.density_at_sites_cart"><code class="docutils literal notranslate"><span class="pre">map_manager.density_at_sites_cart()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_manager.map_manager.experiment_type"><code class="docutils literal notranslate"><span class="pre">map_manager.experiment_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_manager.map_manager.external_origin_as_grid_units"><code class="docutils literal notranslate"><span class="pre">map_manager.external_origin_as_grid_units()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_manager.map_manager.external_origin_is_compatible_with_gridding"><code class="docutils literal notranslate"><span class="pre">map_manager.external_origin_is_compatible_with_gridding()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_manager.map_manager.find_map_symmetry"><code class="docutils literal notranslate"><span class="pre">map_manager.find_map_symmetry()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_manager.map_manager.find_n_highest_grid_points_as_sites_cart"><code class="docutils literal notranslate"><span class="pre">map_manager.find_n_highest_grid_points_as_sites_cart()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_manager.map_manager.fourier_coefficients_as_map_manager"><code class="docutils literal notranslate"><span class="pre">map_manager.fourier_coefficients_as_map_manager()</span></code></a></li>
@@ -278,6 +280,7 @@ X-ray scattering properties.</p>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_model_manager.map_model_manager.remove_map_manager_by_id"><code class="docutils literal notranslate"><span class="pre">map_model_manager.remove_map_manager_by_id()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_model_manager.map_model_manager.remove_model_by_id"><code class="docutils literal notranslate"><span class="pre">map_model_manager.remove_model_by_id()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_model_manager.map_model_manager.remove_model_outside_map"><code class="docutils literal notranslate"><span class="pre">map_model_manager.remove_model_outside_map()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_model_manager.map_model_manager.remove_origin_shift_and_unit_cell_crystal_symmetry"><code class="docutils literal notranslate"><span class="pre">map_model_manager.remove_origin_shift_and_unit_cell_crystal_symmetry()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_model_manager.map_model_manager.resolution"><code class="docutils literal notranslate"><span class="pre">map_model_manager.resolution()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_model_manager.map_model_manager.resolution_filter"><code class="docutils literal notranslate"><span class="pre">map_model_manager.resolution_filter()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="iotbx.managers.html#iotbx.map_model_manager.map_model_manager.rmsd_of_matching_residues"><code class="docutils literal notranslate"><span class="pre">map_model_manager.rmsd_of_matching_residues()</span></code></a></li>
@@ -587,6 +590,7 @@ X-ray scattering properties.</p>
 <li class="toctree-l5"><a class="reference internal" href="iotbx.pdb.html#iotbx.pdb.hierarchy.root.as_cif_block"><code class="docutils literal notranslate"><span class="pre">root.as_cif_block()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="iotbx.pdb.html#iotbx.pdb.hierarchy.root.as_dict_of_resseq_as_int_residue_names"><code class="docutils literal notranslate"><span class="pre">root.as_dict_of_resseq_as_int_residue_names()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="iotbx.pdb.html#iotbx.pdb.hierarchy.root.as_list_of_residue_names"><code class="docutils literal notranslate"><span class="pre">root.as_list_of_residue_names()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="iotbx.pdb.html#iotbx.pdb.hierarchy.root.as_mmcif_string"><code class="docutils literal notranslate"><span class="pre">root.as_mmcif_string()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="iotbx.pdb.html#iotbx.pdb.hierarchy.root.as_model_manager"><code class="docutils literal notranslate"><span class="pre">root.as_model_manager()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="iotbx.pdb.html#iotbx.pdb.hierarchy.root.as_pdb_input"><code class="docutils literal notranslate"><span class="pre">root.as_pdb_input()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="iotbx.pdb.html#iotbx.pdb.hierarchy.root.as_pdb_string"><code class="docutils literal notranslate"><span class="pre">root.as_pdb_string()</span></code></a></li>
@@ -1236,8 +1240,8 @@ X-ray scattering properties.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    &#169; Copyright 2014, University of California.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     </div>
   </body>
 </html>

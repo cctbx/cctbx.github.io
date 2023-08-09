@@ -803,7 +803,7 @@ If scattering_table is not defined, it is guessed from experiment_type</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.map_manager.map_manager.set_log">
-<span class="sig-name descname"><span class="pre">set_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.set_log" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.set_log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set output log file</p>
 </dd></dl>
 
@@ -856,9 +856,17 @@ For shifting a model, use:</p>
 <span class="sig-name descname"><span class="pre">set_ncs_object_shift_cart_to_match_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ncs_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.set_ncs_object_shift_cart_to_match_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the ncs_object shift_cart to match map</p>
 <p>Overwrites any information in ncs_object on shift_cart
-Modifies ncs_object in place</p>
+Modifies ncs_object in place. Does not return anything</p>
 <p>Do not use this to try to shift the ncs object. That is done in
-the ncs object itself with ncs_object.coordinate_offset(shift_cart)</p>
+the ncs object itself with ncs_object.coordinate_offset(shift_cart),
+which returns a new ncs object</p>
+<dl class="simple">
+<dt>You can use ncs_object =</dt><dd><dl class="simple">
+<dt>self.shift_ncs_object_to_match_map_and_return_new_ncs_object(ncs_object)</dt><dd><p>to shift the ncs object and set its shift_cart and get a new copy.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -916,18 +924,24 @@ neutron:   neutron scattering</p>
 <dt class="sig sig-object py" id="iotbx.map_manager.map_manager.set_unit_cell_crystal_symmetry">
 <span class="sig-name descname"><span class="pre">set_unit_cell_crystal_symmetry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.set_unit_cell_crystal_symmetry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specify the dimensions and space group of unit cell.  This also changes
-the crystal_symmetry of the part that is present and the grid spacing.</p>
+the crystal_symmetry of the part that is present and the grid spacing.
+Also resets crystal_symmetry of ncs object</p>
 <p>Purpose is to redefine the dimensions of the map without changing values
 of the map.  Normally used to correct the dimensions of a map
 where something was defined incorrectly.</p>
-<p>Does not change self.unit_cell_grid</p>
-<blockquote>
-<div><dl class="simple">
+<p>Does not change self.unit_cell_grid or self.origin_shift_grid_units</p>
+<dl>
+<dt>Does change the result of self.shift_cart(), which is based on</dt><dd><blockquote>
+<div><p>self.origin_shift_grid_units and self.unit_cell_grid
+and self.crystal_symmetry</p>
+</div></blockquote>
+<dl class="simple">
 <dt>Fundamental parameters set:</dt><dd><p>self._unit_cell_crystal_symmetry: dimensions of full unit cell
 self._crystal_symmetry: dimensions of part of unit cell that is present</p>
 </dd>
 </dl>
-</div></blockquote>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -974,7 +988,7 @@ sites_cart_to = shift_aware_rt.apply_rt(sites_cart_from)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.map_manager.map_manager.shift_model_to_match_map">
 <span class="sig-name descname"><span class="pre">shift_model_to_match_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.shift_model_to_match_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Move the model to match this map
+<dd><p>Move the model to match this map.
 Note difference from set_model_symmetries_and_shift_cart_to_match_map</p>
 <blockquote>
 <div><p>which sets model symmetry and shift_cart but does not move the model</p>
@@ -982,9 +996,10 @@ Note difference from set_model_symmetries_and_shift_cart_to_match_map</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="iotbx.map_manager.map_manager.shift_ncs_object_to_match_map">
-<span class="sig-name descname"><span class="pre">shift_ncs_object_to_match_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ncs_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.shift_ncs_object_to_match_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Move the ncs_object to match this map</p>
+<dt class="sig sig-object py" id="iotbx.map_manager.map_manager.shift_ncs_object_to_match_map_and_return_new_ncs_object">
+<span class="sig-name descname"><span class="pre">shift_ncs_object_to_match_map_and_return_new_ncs_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ncs_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_manager.map_manager.shift_ncs_object_to_match_map_and_return_new_ncs_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the ncs_object to match this map. Also sets ncs_object shift_cart
+Returns new copy of ncs_obect and does not affect the original</p>
 <dl class="simple">
 <dt>Note difference from set_ncs_object_shift_cart_to_match_map which</dt><dd><p>sets the shift_cart but does not move the object</p>
 </dd>
@@ -1251,7 +1266,7 @@ allow_multiple_use is for matching any to dv_list, False is for
 
 <dl class="py function">
 <dt class="sig sig-object py" id="iotbx.map_model_manager.get_selections_and_boxes_to_split_model">
-<span class="sig-prename descclassname"><span class="pre">iotbx.map_model_manager.</span></span><span class="sig-name descname"><span class="pre">get_selections_and_boxes_to_split_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_model_manager=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_method='by_chain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_list=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_waters=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_hetero=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_for_boxes=24</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_cushion=3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select_final_boxes_based_on_model=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_empty_boxes=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_around_unselected_atoms=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_all_maps_around_edges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_radius=3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masked_value=-10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_unique_set_for_boxes=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_id=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_points_outside_density=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_boxes_inside_density=25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.get_selections_and_boxes_to_split_model" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">iotbx.map_model_manager.</span></span><span class="sig-name descname"><span class="pre">get_selections_and_boxes_to_split_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_model_manager=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_method='by_chain'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_list=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_waters=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_hetero=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_for_boxes=24</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_cushion=3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select_final_boxes_based_on_model=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_empty_boxes=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_around_unselected_atoms=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_all_maps_around_edges=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_radius=3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masked_value=-10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_unique_set_for_boxes=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_id=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_points_outside_density=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_boxes_inside_density=25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.get_selections_and_boxes_to_split_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Split up model into pieces using selection_method
 Choices are [‘by_chain’, ‘by_segment’,’all’, ‘boxes’]
 by_chain:  each chain is a selection
@@ -1331,7 +1346,7 @@ masked_value = masked_value,</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="iotbx.map_model_manager.get_tlso_group_info_from_model">
-<span class="sig-prename descclassname"><span class="pre">iotbx.map_model_manager.</span></span><span class="sig-name descname"><span class="pre">get_tlso_group_info_from_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.get_tlso_group_info_from_model" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">iotbx.map_model_manager.</span></span><span class="sig-name descname"><span class="pre">get_tlso_group_info_from_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.get_tlso_group_info_from_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract tlso_group_info from aniso records in model</p>
 </dd></dl>
 
@@ -2502,7 +2517,7 @@ filter it:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.map_model_manager.map_model_manager.set_log">
-<span class="sig-name descname"><span class="pre">set_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.set_log" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.set_log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set output log file</p>
 </dd></dl>
 
@@ -2701,7 +2716,7 @@ sites_cart_to = shift_aware_rt.apply_rt(sites_cart_from)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.map_model_manager.map_model_manager.show_summary">
-<span class="sig-name descname"><span class="pre">show_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.show_summary" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.map_model_manager.show_summary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -2984,7 +2999,7 @@ for crystal_symmetry.is_similar_symmetry()</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.map_model_manager.match_map_model_ncs.set_log">
-<span class="sig-name descname"><span class="pre">set_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.match_map_model_ncs.set_log" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.map_model_manager.match_map_model_ncs.set_log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set output log file</p>
 </dd></dl>
 
@@ -3177,7 +3192,7 @@ instead of the shift_cart() for the working map.</p>
 <li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_aware_rt"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_aware_rt()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_cart"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_cart()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_model_to_match_map"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_model_to_match_map()</span></code></a></li>
-<li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_ncs_object_to_match_map"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_ncs_object_to_match_map()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_ncs_object_to_match_map_and_return_new_ncs_object"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_ncs_object_to_match_map_and_return_new_ncs_object()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_origin"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_origin()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.map_manager.map_manager.shift_origin_to_match_original"><code class="docutils literal notranslate"><span class="pre">map_manager.shift_origin_to_match_original()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.map_manager.map_manager.soft_mask"><code class="docutils literal notranslate"><span class="pre">map_manager.soft_mask()</span></code></a></li>

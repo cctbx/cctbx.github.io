@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>iotbx.reflection_file_reader - generic reflection file input &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=89b800e6" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=514cf933" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e4b74d6d"></script>
+    <script src="../_static/documentation_options.js?v=9c77bcdb"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +44,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-iotbx.reflection_file_reader">
-<span id="iotbx-reflection-file-reader-generic-reflection-file-input"></span><h1>iotbx.reflection_file_reader - generic reflection file input<a class="headerlink" href="#module-iotbx.reflection_file_reader" title="Permalink to this heading">¶</a></h1>
-<p>This module provides a generic frontend to all of the reflection file formats
+  <section id="iotbx-reflection-file-reader-generic-reflection-file-input">
+<h1>iotbx.reflection_file_reader - generic reflection file input<a class="headerlink" href="#iotbx-reflection-file-reader-generic-reflection-file-input" title="Link to this heading">¶</a></h1>
+<p id="module-iotbx.reflection_file_reader">This module provides a generic frontend to all of the reflection file formats
 supported in <code class="docutils literal notranslate"><span class="pre">iotbx</span></code>.  Note that this module can also be used indirectly via
 the even more generic <a class="reference internal" href="iotbx.file_reader.html#module-iotbx.file_reader" title="iotbx.file_reader"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iotbx.file_reader</span></code></a> module, which provides
 a unified API for reading in any file (but calls
@@ -96,7 +96,7 @@ specified as part of the file name:</p>
 symmetry.  MTZ, XDS, and (usually) CIF files will be more complete.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="iotbx.reflection_file_reader.any_reflection_file">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iotbx.reflection_file_reader.</span></span><span class="sig-name descname"><span class="pre">any_reflection_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_read_access</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">iotbx.reflection_file_reader.</span></span><span class="sig-name descname"><span class="pre">any_reflection_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_read_access</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Proxy object for reading a reflection file of unspecified format, and
 extracting the Miller arrays contained therein.</p>
@@ -112,7 +112,7 @@ extracting the Miller arrays contained therein.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.reflection_file_reader.any_reflection_file.as_miller_arrays">
-<span class="sig-name descname"><span class="pre">as_miller_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_equivalents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_array_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assume_shelx_observation_type_is</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enforce_positive_sigmas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anomalous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reconstruct_amplitudes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.as_miller_arrays" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">as_miller_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_equivalents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_array_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assume_shelx_observation_type_is</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enforce_positive_sigmas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anomalous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reconstruct_amplitudes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.as_miller_arrays" title="Link to this definition">¶</a></dt>
 <dd><p>Convert the contents of the reflection file into a list of
 <a class="reference internal" href="../cctbx/cctbx.miller.html#cctbx.miller.array" title="cctbx.miller.array"><code class="xref py py-class docutils literal notranslate"><span class="pre">cctbx.miller.array</span></code></a> objects, each of which may contain multiple
 columns of data from the underlying file.  By default this will
@@ -142,19 +142,19 @@ difference columns into anomalous miller_array objects.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.reflection_file_reader.any_reflection_file.file_content">
-<span class="sig-name descname"><span class="pre">file_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_content" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">file_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_content" title="Link to this definition">¶</a></dt>
 <dd><p>Return the underlying format-specific object.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.reflection_file_reader.any_reflection_file.file_name">
-<span class="sig-name descname"><span class="pre">file_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">file_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_name" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the file name.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.reflection_file_reader.any_reflection_file.file_type">
-<span class="sig-name descname"><span class="pre">file_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_type" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">file_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.any_reflection_file.file_type" title="Link to this definition">¶</a></dt>
 <dd><p>Return a string specifying the format type (e.g. ‘ccp4_mtz’).</p>
 </dd></dl>
 
@@ -162,22 +162,22 @@ difference columns into anomalous miller_array objects.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="iotbx.reflection_file_reader.collect_arrays">
-<span class="sig-prename descclassname"><span class="pre">iotbx.reflection_file_reader.</span></span><span class="sig-name descname"><span class="pre">collect_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_symmetry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_equivalents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discard_arrays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.collect_arrays" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">iotbx.reflection_file_reader.</span></span><span class="sig-name descname"><span class="pre">collect_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_symmetry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_equivalents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discard_arrays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.collect_arrays" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="iotbx.reflection_file_reader.run">
-<span class="sig-prename descclassname"><span class="pre">iotbx.reflection_file_reader.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.run" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">iotbx.reflection_file_reader.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.run" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="iotbx.reflection_file_reader.try_all_readers">
-<span class="sig-prename descclassname"><span class="pre">iotbx.reflection_file_reader.</span></span><span class="sig-name descname"><span class="pre">try_all_readers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.try_all_readers" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">iotbx.reflection_file_reader.</span></span><span class="sig-name descname"><span class="pre">try_all_readers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.try_all_readers" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="iotbx.reflection_file_reader.unpickle_miller_arrays">
-<span class="sig-prename descclassname"><span class="pre">iotbx.reflection_file_reader.</span></span><span class="sig-name descname"><span class="pre">unpickle_miller_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.unpickle_miller_arrays" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">iotbx.reflection_file_reader.</span></span><span class="sig-name descname"><span class="pre">unpickle_miller_arrays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.reflection_file_reader.unpickle_miller_arrays" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -262,7 +262,7 @@ difference columns into anomalous miller_array objects.</p></li>
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.2.
     </div>
   </body>
 </html>

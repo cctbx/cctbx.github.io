@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>mmtbx.ions.identify module &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=89b800e6" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=514cf933" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e4b74d6d"></script>
+    <script src="../_static/documentation_options.js?v=9c77bcdb"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -45,9 +45,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-mmtbx.ions.identify">
-<span id="mmtbx-ions-identify-module"></span><h1>mmtbx.ions.identify module<a class="headerlink" href="#module-mmtbx.ions.identify" title="Permalink to this heading">¶</a></h1>
-<p>Examines a structure for metal ions. Can iterate over all atoms, examining
+  <section id="mmtbx-ions-identify-module">
+<h1>mmtbx.ions.identify module<a class="headerlink" href="#mmtbx-ions-identify-module" title="Link to this heading">¶</a></h1>
+<p id="module-mmtbx.ions.identify">Examines a structure for metal ions. Can iterate over all atoms, examining
 their density and chemical environment to determine if they are correctly
 identified, or if there are better candidate ions that they can be replaced
 with.</p>
@@ -55,138 +55,138 @@ with.</p>
 handles ion identification, but only prints out messages to a log.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">AtomProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">AtomProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Collect physical attributes of an atom, including B, occupancy, and map
 statistics, and track those which are at odds with its chemical identity.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.ANOM_PEAK">
-<span class="sig-name descname"><span class="pre">ANOM_PEAK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.ANOM_PEAK" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ANOM_PEAK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.ANOM_PEAK" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.BAD_COORD_ATOM">
-<span class="sig-name descname"><span class="pre">BAD_COORD_ATOM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_COORD_ATOM" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BAD_COORD_ATOM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">17</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_COORD_ATOM" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.BAD_COORD_RESIDUE">
-<span class="sig-name descname"><span class="pre">BAD_COORD_RESIDUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_COORD_RESIDUE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BAD_COORD_RESIDUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_COORD_RESIDUE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.BAD_FPP">
-<span class="sig-name descname"><span class="pre">BAD_FPP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_FPP" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BAD_FPP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_FPP" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.BAD_GEOMETRY">
-<span class="sig-name descname"><span class="pre">BAD_GEOMETRY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_GEOMETRY" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BAD_GEOMETRY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_GEOMETRY" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.BAD_HALIDE">
-<span class="sig-name descname"><span class="pre">BAD_HALIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">21</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_HALIDE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BAD_HALIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">21</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_HALIDE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.BAD_VALENCES">
-<span class="sig-name descname"><span class="pre">BAD_VALENCES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_VALENCES" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BAD_VALENCES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_VALENCES" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.BAD_VECTORS">
-<span class="sig-name descname"><span class="pre">BAD_VECTORS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_VECTORS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BAD_VECTORS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.BAD_VECTORS" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.CLOSE_CONTACT">
-<span class="sig-name descname"><span class="pre">CLOSE_CONTACT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">24</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.CLOSE_CONTACT" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CLOSE_CONTACT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">24</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.CLOSE_CONTACT" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.COORDING_GEOMETRY">
-<span class="sig-name descname"><span class="pre">COORDING_GEOMETRY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">23</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.COORDING_GEOMETRY" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">COORDING_GEOMETRY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">23</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.COORDING_GEOMETRY" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.FOFC_HOLE">
-<span class="sig-name descname"><span class="pre">FOFC_HOLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.FOFC_HOLE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">FOFC_HOLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.FOFC_HOLE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.FOFC_PEAK">
-<span class="sig-name descname"><span class="pre">FOFC_PEAK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.FOFC_PEAK" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">FOFC_PEAK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.FOFC_PEAK" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.HIGH_2FOFC">
-<span class="sig-name descname"><span class="pre">HIGH_2FOFC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.HIGH_2FOFC" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">HIGH_2FOFC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.HIGH_2FOFC" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.HIGH_B">
-<span class="sig-name descname"><span class="pre">HIGH_B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.HIGH_B" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">HIGH_B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.HIGH_B" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.HIGH_OCC">
-<span class="sig-name descname"><span class="pre">HIGH_OCC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.HIGH_OCC" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">HIGH_OCC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.HIGH_OCC" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.LIKE_COORD">
-<span class="sig-name descname"><span class="pre">LIKE_COORD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.LIKE_COORD" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">LIKE_COORD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.LIKE_COORD" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.LOW_B">
-<span class="sig-name descname"><span class="pre">LOW_B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.LOW_B" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">LOW_B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.LOW_B" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.LOW_OCC">
-<span class="sig-name descname"><span class="pre">LOW_OCC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.LOW_OCC" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">LOW_OCC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.LOW_OCC" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.NO_2FOFC_PEAK">
-<span class="sig-name descname"><span class="pre">NO_2FOFC_PEAK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.NO_2FOFC_PEAK" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">NO_2FOFC_PEAK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.NO_2FOFC_PEAK" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.NO_ANOM_PEAK">
-<span class="sig-name descname"><span class="pre">NO_ANOM_PEAK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.NO_ANOM_PEAK" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">NO_ANOM_PEAK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.NO_ANOM_PEAK" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.NO_GEOMETRY">
-<span class="sig-name descname"><span class="pre">NO_GEOMETRY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.NO_GEOMETRY" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">NO_GEOMETRY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.NO_GEOMETRY" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.TOO_FEW_COORD">
-<span class="sig-name descname"><span class="pre">TOO_FEW_COORD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.TOO_FEW_COORD" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">TOO_FEW_COORD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.TOO_FEW_COORD" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.TOO_FEW_NON_WATERS">
-<span class="sig-name descname"><span class="pre">TOO_FEW_NON_WATERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.TOO_FEW_NON_WATERS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">TOO_FEW_NON_WATERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.TOO_FEW_NON_WATERS" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.TOO_MANY_COORD">
-<span class="sig-name descname"><span class="pre">TOO_MANY_COORD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.TOO_MANY_COORD" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">TOO_MANY_COORD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.TOO_MANY_COORD" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.VERY_BAD_VALENCES">
-<span class="sig-name descname"><span class="pre">VERY_BAD_VALENCES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.VERY_BAD_VALENCES" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">VERY_BAD_VALENCES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.VERY_BAD_VALENCES" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.atom_weight">
-<span class="sig-name descname"><span class="pre">atom_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manager</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.atom_weight" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">atom_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manager</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.atom_weight" title="Link to this definition">¶</a></dt>
 <dd><p>Evaluates whether factors indicate that the atom is lighter, heavier, or
 isoelectric to what it is currently identified as.</p>
 <dl class="field-list simple">
@@ -204,7 +204,7 @@ isoelectric to what it is currently identified as.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.check_fpp_ratio">
-<span class="sig-name descname"><span class="pre">check_fpp_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fpp_ratio_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fpp_ratio_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.check_fpp_ratio" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">check_fpp_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fpp_ratio_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fpp_ratio_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.check_fpp_ratio" title="Link to this definition">¶</a></dt>
 <dd><p>Compare the refined and theoretical f’’ values if available.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -226,7 +226,7 @@ isoelectric to what it is currently identified as.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.check_ion_environment">
-<span class="sig-name descname"><span class="pre">check_ion_environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_valence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.check_ion_environment" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">check_ion_environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_valence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.check_ion_environment" title="Link to this definition">¶</a></dt>
 <dd><p>Checks whether or not the specified ion satisfies the metal-coordination
 parameters, specified by ion_params, such as valence sum, geometry, etc.
 The criteria used here are quite strict, but many of the analyses are
@@ -244,12 +244,12 @@ saved for later if we want to use looser critera.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.error_strs">
-<span class="sig-name descname"><span class="pre">error_strs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{0:</span> <span class="pre">'Abnormally</span> <span class="pre">low</span> <span class="pre">b-factor',</span> <span class="pre">1:</span> <span class="pre">'Abnormally</span> <span class="pre">high</span> <span class="pre">b-factor',</span> <span class="pre">2:</span> <span class="pre">'Abnormally</span> <span class="pre">low</span> <span class="pre">occupancy',</span> <span class="pre">3:</span> <span class="pre">'Abnormally</span> <span class="pre">high</span> <span class="pre">occupancy',</span> <span class="pre">4:</span> <span class="pre">'No</span> <span class="pre">2mFo-DFc</span> <span class="pre">map</span> <span class="pre">peak',</span> <span class="pre">5:</span> <span class="pre">'Peak</span> <span class="pre">in</span> <span class="pre">mFo-DFc</span> <span class="pre">map',</span> <span class="pre">6:</span> <span class="pre">'Negative</span> <span class="pre">peak</span> <span class="pre">in</span> <span class="pre">dFo-mFc</span> <span class="pre">map',</span> <span class="pre">7:</span> <span class="pre">'Peak</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">anomalous</span> <span class="pre">map',</span> <span class="pre">8:</span> <span class="pre">'No</span> <span class="pre">peak</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">anomalous</span> <span class="pre">map',</span> <span class="pre">9:</span> <span class="pre">'Unexpected</span> <span class="pre">geometry</span> <span class="pre">for</span> <span class="pre">coordinating</span> <span class="pre">atoms',</span> <span class="pre">10:</span> <span class="pre">'No</span> <span class="pre">distinct</span> <span class="pre">geometry</span> <span class="pre">for</span> <span class="pre">coordinating</span> <span class="pre">atoms',</span> <span class="pre">11:</span> <span class="pre">'VECSUM</span> <span class="pre">above</span> <span class="pre">cutoff',</span> <span class="pre">12:</span> <span class="pre">'BVS</span> <span class="pre">above</span> <span class="pre">or</span> <span class="pre">below</span> <span class="pre">cutoff',</span> <span class="pre">13:</span> <span class="pre">'Too</span> <span class="pre">few</span> <span class="pre">non-water</span> <span class="pre">coordinating</span> <span class="pre">atoms',</span> <span class="pre">14:</span> <span class="pre">'Too</span> <span class="pre">few</span> <span class="pre">coordinating</span> <span class="pre">atoms',</span> <span class="pre">15:</span> <span class="pre">'Too</span> <span class="pre">many</span> <span class="pre">coordinating</span> <span class="pre">atoms',</span> <span class="pre">16:</span> <span class="pre">'Like</span> <span class="pre">charge</span> <span class="pre">coordinating</span> <span class="pre">like',</span> <span class="pre">17:</span> <span class="pre">'Disallowed</span> <span class="pre">coordinating</span> <span class="pre">atom',</span> <span class="pre">18:</span> <span class="pre">&quot;Bad</span> <span class="pre">refined</span> <span class="pre">f''</span> <span class="pre">value&quot;,</span> <span class="pre">19:</span> <span class="pre">'Disallowed</span> <span class="pre">coordinating</span> <span class="pre">residue',</span> <span class="pre">20:</span> <span class="pre">'BVS</span> <span class="pre">far</span> <span class="pre">above</span> <span class="pre">or</span> <span class="pre">below</span> <span class="pre">cutoff',</span> <span class="pre">21:</span> <span class="pre">'Bad</span> <span class="pre">halide</span> <span class="pre">site',</span> <span class="pre">22:</span> <span class="pre">'Unexpectedly</span> <span class="pre">high</span> <span class="pre">2mFo-DFc</span> <span class="pre">value',</span> <span class="pre">23:</span> <span class="pre">'No</span> <span class="pre">distinct</span> <span class="pre">geometry</span> <span class="pre">and</span> <span class="pre">coordinating</span> <span class="pre">another</span> <span class="pre">atom</span> <span class="pre">with</span> <span class="pre">distinct</span> <span class="pre">geometry',</span> <span class="pre">24:</span> <span class="pre">'Close</span> <span class="pre">contact</span> <span class="pre">to</span> <span class="pre">oxygen</span> <span class="pre">atom'}</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.error_strs" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">error_strs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{0:</span> <span class="pre">'Abnormally</span> <span class="pre">low</span> <span class="pre">b-factor',</span> <span class="pre">1:</span> <span class="pre">'Abnormally</span> <span class="pre">high</span> <span class="pre">b-factor',</span> <span class="pre">2:</span> <span class="pre">'Abnormally</span> <span class="pre">low</span> <span class="pre">occupancy',</span> <span class="pre">3:</span> <span class="pre">'Abnormally</span> <span class="pre">high</span> <span class="pre">occupancy',</span> <span class="pre">4:</span> <span class="pre">'No</span> <span class="pre">2mFo-DFc</span> <span class="pre">map</span> <span class="pre">peak',</span> <span class="pre">5:</span> <span class="pre">'Peak</span> <span class="pre">in</span> <span class="pre">mFo-DFc</span> <span class="pre">map',</span> <span class="pre">6:</span> <span class="pre">'Negative</span> <span class="pre">peak</span> <span class="pre">in</span> <span class="pre">dFo-mFc</span> <span class="pre">map',</span> <span class="pre">7:</span> <span class="pre">'Peak</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">anomalous</span> <span class="pre">map',</span> <span class="pre">8:</span> <span class="pre">'No</span> <span class="pre">peak</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">anomalous</span> <span class="pre">map',</span> <span class="pre">9:</span> <span class="pre">'Unexpected</span> <span class="pre">geometry</span> <span class="pre">for</span> <span class="pre">coordinating</span> <span class="pre">atoms',</span> <span class="pre">10:</span> <span class="pre">'No</span> <span class="pre">distinct</span> <span class="pre">geometry</span> <span class="pre">for</span> <span class="pre">coordinating</span> <span class="pre">atoms',</span> <span class="pre">11:</span> <span class="pre">'VECSUM</span> <span class="pre">above</span> <span class="pre">cutoff',</span> <span class="pre">12:</span> <span class="pre">'BVS</span> <span class="pre">above</span> <span class="pre">or</span> <span class="pre">below</span> <span class="pre">cutoff',</span> <span class="pre">13:</span> <span class="pre">'Too</span> <span class="pre">few</span> <span class="pre">non-water</span> <span class="pre">coordinating</span> <span class="pre">atoms',</span> <span class="pre">14:</span> <span class="pre">'Too</span> <span class="pre">few</span> <span class="pre">coordinating</span> <span class="pre">atoms',</span> <span class="pre">15:</span> <span class="pre">'Too</span> <span class="pre">many</span> <span class="pre">coordinating</span> <span class="pre">atoms',</span> <span class="pre">16:</span> <span class="pre">'Like</span> <span class="pre">charge</span> <span class="pre">coordinating</span> <span class="pre">like',</span> <span class="pre">17:</span> <span class="pre">'Disallowed</span> <span class="pre">coordinating</span> <span class="pre">atom',</span> <span class="pre">18:</span> <span class="pre">&quot;Bad</span> <span class="pre">refined</span> <span class="pre">f''</span> <span class="pre">value&quot;,</span> <span class="pre">19:</span> <span class="pre">'Disallowed</span> <span class="pre">coordinating</span> <span class="pre">residue',</span> <span class="pre">20:</span> <span class="pre">'BVS</span> <span class="pre">far</span> <span class="pre">above</span> <span class="pre">or</span> <span class="pre">below</span> <span class="pre">cutoff',</span> <span class="pre">21:</span> <span class="pre">'Bad</span> <span class="pre">halide</span> <span class="pre">site',</span> <span class="pre">22:</span> <span class="pre">'Unexpectedly</span> <span class="pre">high</span> <span class="pre">2mFo-DFc</span> <span class="pre">value',</span> <span class="pre">23:</span> <span class="pre">'No</span> <span class="pre">distinct</span> <span class="pre">geometry</span> <span class="pre">and</span> <span class="pre">coordinating</span> <span class="pre">another</span> <span class="pre">atom</span> <span class="pre">with</span> <span class="pre">distinct</span> <span class="pre">geometry',</span> <span class="pre">24:</span> <span class="pre">'Close</span> <span class="pre">contact</span> <span class="pre">to</span> <span class="pre">oxygen</span> <span class="pre">atom'}</span></em><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.error_strs" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.get_atom_type">
-<span class="sig-name descname"><span class="pre">get_atom_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggressive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.get_atom_type" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_atom_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggressive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.get_atom_type" title="Link to this definition">¶</a></dt>
 <dd><p>Checks the atom characteristics against what we would expect for a water.
 Updates self with any inaccuracies noticed (Surpringly low b-factor,
 high occupancy, etc).  Note that HEAVY_ION does not necessarily rule out
@@ -272,7 +272,7 @@ NA/MG, as these often have mFo-DFc peaks at high resolution.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.has_compatible_ligands">
-<span class="sig-name descname"><span class="pre">has_compatible_ligands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.has_compatible_ligands" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">has_compatible_ligands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.has_compatible_ligands" title="Link to this definition">¶</a></dt>
 <dd><p>Indicates whether the coordinating atoms are of the allowed type (e.g.
 no N or S atoms coordinating CA, etc.) and residue (e.g. Ser is not an
 appropriate ligand for ZN).</p>
@@ -288,7 +288,7 @@ appropriate ligand for ZN).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.identity">
-<span class="sig-name descname"><span class="pre">identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.identity" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.identity" title="Link to this definition">¶</a></dt>
 <dd><p>Covers an atom into a string representing its element and charge.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -302,12 +302,12 @@ appropriate ligand for ZN).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.is_compatible_anomalous_scattering">
-<span class="sig-name descname"><span class="pre">is_compatible_anomalous_scattering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.is_compatible_anomalous_scattering" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_compatible_anomalous_scattering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.is_compatible_anomalous_scattering" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.is_compatible_site">
-<span class="sig-name descname"><span class="pre">is_compatible_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_anom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_valence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.is_compatible_site" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_compatible_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_anom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_valence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.is_compatible_site" title="Link to this definition">¶</a></dt>
 <dd><p>More minimal criteria for determining whether a site is chemically
 compatible, allowing for incomplete coordination shells.</p>
 <dl class="field-list simple">
@@ -326,7 +326,7 @@ compatible, allowing for incomplete coordination shells.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.is_correctly_identified">
-<span class="sig-name descname"><span class="pre">is_correctly_identified</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.is_correctly_identified" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_correctly_identified</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.is_correctly_identified" title="Link to this definition">¶</a></dt>
 <dd><p>Calculates whether factors indicate that the atom was correctly identified.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -340,7 +340,7 @@ compatible, allowing for incomplete coordination shells.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.looks_like_nucleotide_phosphate_site">
-<span class="sig-name descname"><span class="pre">looks_like_nucleotide_phosphate_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_phosphate_oxygen_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.looks_like_nucleotide_phosphate_site" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">looks_like_nucleotide_phosphate_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_phosphate_oxygen_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.looks_like_nucleotide_phosphate_site" title="Link to this definition">¶</a></dt>
 <dd><p>Decide whether the atom is coordinating phosphate oxygens from a
 nucleotide, based on common atom names.</p>
 <dl class="field-list simple">
@@ -358,7 +358,7 @@ nucleotide, based on common atom names.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.number_of_atoms_within_radius">
-<span class="sig-name descname"><span class="pre">number_of_atoms_within_radius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance_cutoff</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.number_of_atoms_within_radius" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">number_of_atoms_within_radius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance_cutoff</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.number_of_atoms_within_radius" title="Link to this definition">¶</a></dt>
 <dd><p>Counts the number of coordinating atoms within a given radius.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -372,7 +372,7 @@ nucleotide, based on common atom names.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.number_of_backbone_oxygens">
-<span class="sig-name descname"><span class="pre">number_of_backbone_oxygens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.number_of_backbone_oxygens" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">number_of_backbone_oxygens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.number_of_backbone_oxygens" title="Link to this definition">¶</a></dt>
 <dd><p>Counts the number of backbone oxygens coordinating a site.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -386,7 +386,7 @@ nucleotide, based on common atom names.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.number_of_favored_ligand_residues">
-<span class="sig-name descname"><span class="pre">number_of_favored_ligand_residues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.number_of_favored_ligand_residues" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">number_of_favored_ligand_residues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ion_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.number_of_favored_ligand_residues" title="Link to this definition">¶</a></dt>
 <dd><p>Counts the number of preferred residues coordinating the atom.  Used for
 approximate detection of transition-metal binding sites.</p>
 <dl class="field-list simple">
@@ -405,7 +405,7 @@ approximate detection of transition-metal binding sites.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.show_ion_results">
-<span class="sig-name descname"><span class="pre">show_ion_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identity=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confirmed=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valence_used=True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.show_ion_results" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show_ion_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identity=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confirmed=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valence_used=True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.show_ion_results" title="Link to this definition">¶</a></dt>
 <dd><p>Show statistics for a proposed element identity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -421,7 +421,7 @@ approximate detection of transition-metal binding sites.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.AtomProperties.show_properties">
-<span class="sig-name descname"><span class="pre">show_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.show_properties" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.AtomProperties.show_properties" title="Link to this definition">¶</a></dt>
 <dd><p>Show atomic properties that are independent of the suspected identity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -437,7 +437,7 @@ approximate detection of transition-metal binding sites.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.create_manager">
-<span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">create_manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry_restraints_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_factor=0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager_class=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.create_manager" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">create_manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry_restraints_manager</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution_factor=0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager_class=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.create_manager" title="Link to this definition">¶</a></dt>
 <dd><p>Wrapper around mmtbx.ions.identify.manager init method. Retrieves the
 connectivity and xray_structure from fmodel automatically.</p>
 <dl class="field-list simple">
@@ -463,134 +463,134 @@ connectivity and xray_structure from fmodel automatically.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.find_anomalous_scatterers">
-<span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">find_anomalous_scatterers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.find_anomalous_scatterers" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">find_anomalous_scatterers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.find_anomalous_scatterers" title="Link to this definition">¶</a></dt>
 <dd><p>Wrapper for corresponding method in phaser.substructure, if phaser is
 available and configured.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_master_phil">
-<span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">ion_master_phil</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.ion_master_phil" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">ion_master_phil</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.ion_master_phil" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">ion_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.ion_result" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">ion_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.ion_result" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="mmtbx.validation.html#mmtbx.validation.atom" title="mmtbx.validation.atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">atom</span></code></a></p>
 <p>Class for validation results for an ion site. This includes information about
 both the atom modeled at that site as well as its chemical and scattering
 environment.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.altloc">
-<span class="sig-name descname"><span class="pre">altloc</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.altloc" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">altloc</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.altloc" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.atom_selection">
-<span class="sig-name descname"><span class="pre">atom_selection</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.atom_selection" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">atom_selection</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.atom_selection" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.b_iso">
-<span class="sig-name descname"><span class="pre">b_iso</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.b_iso" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">b_iso</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.b_iso" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.chain_id">
-<span class="sig-name descname"><span class="pre">chain_id</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.chain_id" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">chain_id</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.chain_id" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.chem_env">
-<span class="sig-name descname"><span class="pre">chem_env</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.chem_env" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">chem_env</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.chem_env" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.element">
-<span class="sig-name descname"><span class="pre">element</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.element" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">element</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.element" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.icode">
-<span class="sig-name descname"><span class="pre">icode</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.icode" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">icode</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.icode" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.model_id">
-<span class="sig-name descname"><span class="pre">model_id</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.model_id" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">model_id</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.model_id" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.name" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.occupancy">
-<span class="sig-name descname"><span class="pre">occupancy</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.occupancy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">occupancy</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.occupancy" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.outlier">
-<span class="sig-name descname"><span class="pre">outlier</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.outlier" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">outlier</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.outlier" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.resname">
-<span class="sig-name descname"><span class="pre">resname</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.resname" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resname</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.resname" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.resseq">
-<span class="sig-name descname"><span class="pre">resseq</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.resseq" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resseq</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.resseq" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.scatter_env">
-<span class="sig-name descname"><span class="pre">scatter_env</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.scatter_env" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">scatter_env</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.scatter_env" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.score">
-<span class="sig-name descname"><span class="pre">score</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.score" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">score</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.score" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.segid">
-<span class="sig-name descname"><span class="pre">segid</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.segid" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">segid</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.segid" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.show" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.show" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.show_brief">
-<span class="sig-name descname"><span class="pre">show_brief</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.show_brief" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show_brief</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.show_brief" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.symop">
-<span class="sig-name descname"><span class="pre">symop</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.symop" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">symop</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.symop" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.ion_result.xyz">
-<span class="sig-name descname"><span class="pre">xyz</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.xyz" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">xyz</span></span><a class="headerlink" href="#mmtbx.ions.identify.ion_result.xyz" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xray_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xray_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Wrapper object for extracting local environment and adding or modifying
 scatterers.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.analyze_substructure">
-<span class="sig-name descname"><span class="pre">analyze_substructure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.analyze_substructure" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">analyze_substructure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.analyze_substructure" title="Link to this definition">¶</a></dt>
 <dd><p>Given a list of AX pseudo-atoms placed by Phaser, finds the nearest real
 atoms, and if possible determines their equivalence.</p>
 <dl class="field-list simple">
@@ -605,7 +605,7 @@ atoms, and if possible determines their equivalence.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.analyze_water">
-<span class="sig-name descname"><span class="pre">analyze_water</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidates=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_final=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.analyze_water" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">analyze_water</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidates=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_final=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.analyze_water" title="Link to this definition">¶</a></dt>
 <dd><p>Examines the environment around a single atom to determine if it is actually
 a misidentified metal ion.</p>
 <p>no_final is used internally, when candidates is not Auto, to try all of the
@@ -629,7 +629,7 @@ candidates appear to probable ion identities.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.analyze_waters">
-<span class="sig-name descname"><span class="pre">analyze_waters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidates=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.analyze_waters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">analyze_waters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidates=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.analyze_waters" title="Link to this definition">¶</a></dt>
 <dd><p>Iterates through all of the waters in a model, examining the maps and local
 environment to check their identity and suggest likely ions where
 appropriate.</p>
@@ -653,7 +653,7 @@ better changed to that new metal identity.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.find_nearby_atoms">
-<span class="sig-name descname"><span class="pre">find_nearby_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">far_distance_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">near_distance_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_by_bonding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_by_two_fofc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.find_nearby_atoms" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">find_nearby_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">far_distance_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">near_distance_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_by_bonding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_by_two_fofc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.find_nearby_atoms" title="Link to this definition">¶</a></dt>
 <dd><p>Given site in the structure, return a list of contacts, optionally
 filtering by connectivity and 2mFo-DFc map level.</p>
 <dl class="field-list simple">
@@ -674,7 +674,7 @@ filtering by connectivity and 2mFo-DFc map level.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.get_b_iso">
-<span class="sig-name descname"><span class="pre">get_b_iso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_b_iso" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_b_iso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_b_iso" title="Link to this definition">¶</a></dt>
 <dd><p>Calculates the isotropic b-factor of a site.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -688,7 +688,7 @@ filtering by connectivity and 2mFo-DFc map level.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.get_fp">
-<span class="sig-name descname"><span class="pre">get_fp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_fp" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_fp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_fp" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieve the refined f’ for a site.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -702,7 +702,7 @@ filtering by connectivity and 2mFo-DFc map level.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.get_fpp">
-<span class="sig-name descname"><span class="pre">get_fpp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_fpp" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_fpp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_fpp" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieve the refined f’’ for a site.  Because this can come from either the
 built-in anomalous refinement or Phaser, it is handled differently than
 the f’ retrieval.</p>
@@ -718,7 +718,7 @@ the f’ retrieval.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.get_initial_b_iso">
-<span class="sig-name descname"><span class="pre">get_initial_b_iso</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_initial_b_iso" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_initial_b_iso</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_initial_b_iso" title="Link to this definition">¶</a></dt>
 <dd><p>Calculates the isotropic b-factor to assign to newly labeled ions during the
 building process. Uses either the mean b-factor of waters or of all atoms if
 the former is unavailable.</p>
@@ -731,7 +731,7 @@ the former is unavailable.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.get_map">
-<span class="sig-name descname"><span class="pre">get_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_map" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_map" title="Link to this definition">¶</a></dt>
 <dd><p>Creates the real-space version of a given map type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -745,7 +745,7 @@ the former is unavailable.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.get_map_gaussian_fit">
-<span class="sig-name descname"><span class="pre">get_map_gaussian_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_map_gaussian_fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_map_gaussian_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_map_gaussian_fit" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the two parameters of a gaussian function, fit to a given map at
 a site.</p>
 <dl class="field-list simple">
@@ -763,7 +763,7 @@ a site.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.get_map_sphere_variance">
-<span class="sig-name descname"><span class="pre">get_map_sphere_variance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_map_sphere_variance" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_map_sphere_variance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_map_sphere_variance" title="Link to this definition">¶</a></dt>
 <dd><p>Calculate the density levels for points on a sphere around a given point.
 This will give us some indication whether the density falls off in the
 expected manner around a single atom.</p>
@@ -779,7 +779,7 @@ expected manner around a single atom.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.get_strict_valence_flag">
-<span class="sig-name descname"><span class="pre">get_strict_valence_flag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_strict_valence_flag" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_strict_valence_flag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.get_strict_valence_flag" title="Link to this definition">¶</a></dt>
 <dd><p>Checks whether the resolution of a model is high enough to use more strict
 thresholds for ion valences.</p>
 <dl class="field-list simple">
@@ -791,7 +791,7 @@ thresholds for ion valences.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.guess_b_iso_real">
-<span class="sig-name descname"><span class="pre">guess_b_iso_real</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.guess_b_iso_real" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">guess_b_iso_real</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.guess_b_iso_real" title="Link to this definition">¶</a></dt>
 <dd><p>Guess an approximate B_iso for an atom by averaging the values for
 coordinating atoms.  This should partially compensate for the deflation of
 the B-factor due to incorrect scattering type, and consequently make the
@@ -808,7 +808,7 @@ occupancy refinement more accurate.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.guess_molecular_weight">
-<span class="sig-name descname"><span class="pre">guess_molecular_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.guess_molecular_weight" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">guess_molecular_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.guess_molecular_weight" title="Link to this definition">¶</a></dt>
 <dd><p>Guesses the molecular weight of a site by scaling the signal from
 the mFo map by the average signal from carbon atoms.</p>
 <dl class="field-list simple">
@@ -823,7 +823,7 @@ the mFo map by the average signal from carbon atoms.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.looks_like_halide_ion">
-<span class="sig-name descname"><span class="pre">looks_like_halide_ion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element='CL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assume_hydrogens_all_missing=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.looks_like_halide_ion" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">looks_like_halide_ion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element='CL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">assume_hydrogens_all_missing=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.looks_like_halide_ion" title="Link to this definition">¶</a></dt>
 <dd><p>Given a site, analyze the nearby atoms (taking geometry into account) to
 guess whether it might be a halide ion.  Among other things, halides will
 often be coordinated by amide hydrogens, and not in close contact with
@@ -846,7 +846,7 @@ the electron count (map, occ, b) is absolutely essential.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.map_stats">
-<span class="sig-name descname"><span class="pre">map_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.map_stats" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">map_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.map_stats" title="Link to this definition">¶</a></dt>
 <dd><p>Given a site in the structure, find the signal of the 2FoFc, FoFc, and
 anomalous map (When available).</p>
 <dl class="field-list simple">
@@ -865,7 +865,7 @@ signals in each map.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.principal_axes_of_inertia">
-<span class="sig-name descname"><span class="pre">principal_axes_of_inertia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.principal_axes_of_inertia" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">principal_axes_of_inertia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.principal_axes_of_inertia" title="Link to this definition">¶</a></dt>
 <dd><p>Extracts the map grid points around a site, and calculates the axes of
 inertia (using the density values as weights). This is used to calculate
 the sphericity of the blob of density around a site.</p>
@@ -882,7 +882,7 @@ the sphericity of the blob of density around a site.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.refine_anomalous_substructure">
-<span class="sig-name descname"><span class="pre">refine_anomalous_substructure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.refine_anomalous_substructure" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">refine_anomalous_substructure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.refine_anomalous_substructure" title="Link to this definition">¶</a></dt>
 <dd><p>Run simple “substructure completion” implemented using CCTBX tools (the
 command-line equivalent is mmtbx.refine_anomalous_substructure).  A faster
 alternative to Phaser, but not clear how effective this is at the moment.</p>
@@ -895,7 +895,7 @@ alternative to Phaser, but not clear how effective this is at the moment.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.show_current_scattering_statistics">
-<span class="sig-name descname"><span class="pre">show_current_scattering_statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.show_current_scattering_statistics" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show_current_scattering_statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.show_current_scattering_statistics" title="Link to this definition">¶</a></dt>
 <dd><p>Prints out information about an entire model’s scattering statistics, such
 as mean map heights and b-factors for carbons and waters.</p>
 <dl class="field-list simple">
@@ -907,7 +907,7 @@ as mean map heights and b-factors for carbons and waters.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.update_maps">
-<span class="sig-name descname"><span class="pre">update_maps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.update_maps" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_maps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.update_maps" title="Link to this definition">¶</a></dt>
 <dd><p>Generate new maps for the current structure, including anomalous map if
 data are anomalous.</p>
 <p>If Phaser is installed and anomalous data are available, the anomalous
@@ -918,7 +918,7 @@ scattering of existing atoms is modeled (and ideally, refined).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.update_structure">
-<span class="sig-name descname"><span class="pre">update_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xray_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refine_if_necessary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.update_structure" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xray_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refine_if_necessary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.update_structure" title="Link to this definition">¶</a></dt>
 <dd><p>Set the current atomic data: PDB hierarchy, Xray structure, and simple
 connectivity list.</p>
 <dl class="field-list simple">
@@ -936,7 +936,7 @@ connectivity list.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.validate_ion">
-<span class="sig-name descname"><span class="pre">validate_ion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug=True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.validate_ion" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">validate_ion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug=True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.validate_ion" title="Link to this definition">¶</a></dt>
 <dd><p>Examines one site in the model and determines if it was correctly modelled,
 returning a boolean indicating correctness.</p>
 <dl class="field-list simple">
@@ -952,7 +952,7 @@ returning a boolean indicating correctness.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.validate_ions">
-<span class="sig-name descname"><span class="pre">validate_ions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.validate_ions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">validate_ions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.validate_ions" title="Link to this definition">¶</a></dt>
 <dd><p>Iterate over all the ions built into the model by this module and double
 check their correctness. Looks for tell-tale signs such as negative peaks
 in the mFo-DFc and anomalous difference maps, abnormal b-factor, and
@@ -972,7 +972,7 @@ their sites’ i_seqs.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.manager.water_selection">
-<span class="sig-name descname"><span class="pre">water_selection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.water_selection" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">water_selection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.manager.water_selection" title="Link to this definition">¶</a></dt>
 <dd><p>Fetchs the selection for all waters in the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -985,13 +985,13 @@ their sites’ i_seqs.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.water_result">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">water_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_props</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filtered_candidates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matching_candidates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rejected_candidates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nuc_phosphate_site</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">looks_like_halide</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambiguous_valence_cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valence_used</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_choice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_final</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.water_result" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.ions.identify.</span></span><span class="sig-name descname"><span class="pre">water_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_props</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filtered_candidates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matching_candidates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rejected_candidates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nuc_phosphate_site</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">looks_like_halide</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambiguous_valence_cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valence_used</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_choice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_final</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.water_result" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Container for storing the results of manager.analyze_water for later display
 and retrieval.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.ions.identify.water_result.show_summary">
-<span class="sig-name descname"><span class="pre">show_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.water_result.show_summary" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ions.identify.water_result.show_summary" title="Link to this definition">¶</a></dt>
 <dd><p>Prints out a summary of a site’s chemical and scattering environment.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1178,7 +1178,7 @@ and retrieval.</p>
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.2.
     </div>
   </body>
 </html>

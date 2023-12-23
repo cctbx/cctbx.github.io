@@ -227,7 +227,16 @@ PHENIX_SCHRODINGER env variable is set.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.geometry_restraints.reference.generate_torsion_restraints">
 <span class="sig-prename descclassname"><span class="pre">mmtbx.geometry_restraints.reference.</span></span><span class="sig-name descname"><span class="pre">generate_torsion_restraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_hierarchy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sites_cart</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chi_angles_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_out_potential</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.geometry_restraints.reference.generate_torsion_restraints" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="simple">
+<dt>selection ties up hierarchy with sites cart. Basically, if applied</dt><dd><p>to hierarchy, remaining atoms should correspond to sites_cart.
+Therefore it is necessary that
+len(sites_cart) == len(actual_selection) below.
+This seems to be done this way to make it possible to use sites_cart
+from another source (reference model) which is not necessary
+of the same size as hierarchy.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.geometry_restraints.reference.get_selection_to_sites_map">

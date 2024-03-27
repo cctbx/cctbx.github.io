@@ -735,7 +735,7 @@ object to the atoms in the PDB hierarchy.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_cif_block">
-<span class="sig-name descname"><span class="pre">as_cif_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinate_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">occupancy_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_iso_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_aniso_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_cif_block" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">as_cif_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinate_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">occupancy_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_iso_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u_aniso_precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_break_records</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_cif_block" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -744,13 +744,67 @@ object to the atoms in the PDB hierarchy.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_forward_compatible_hierarchy">
+<span class="sig-name descname"><span class="pre">as_forward_compatible_hierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conversion_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_forward_compatible_hierarchy" title="Link to this definition">¶</a></dt>
+<dd><p>Convert a standard hierarchy to a forward_compatible_hierarchy</p>
+<p>:params conversion_info</p>
+<dl class="simple">
+<dt>:returns pdb_hierarchy with chain ID and residue names converted to</dt><dd><p>strings compatible with PDB formatting.  Returned hierarchy is
+a deep_copy and contains the attribute _conversion_info with the
+conversion_info used</p>
+</dd>
+<dt>Typical use: running a method with cmd_text (text commands) and supplying</dt><dd><p>a hierarchy (or string from it).  Convert the hierarchy and the
+cmd_text, run the method, convert the results back:</p>
+</dd>
+</dl>
+<p># Convert the hierarchy to forward compatible
+ph_fc = ph.as_forward_compatible_hierarchy()</p>
+<p># Convert any commands. Can be done one word at a time also
+cmd_text_fc = ph_fc.convert_multi_word_text_to_forward_compatible(cmd_text)</p>
+<p># Run the method with converted hierarchy and commands
+result = do_something(ph = ph_fc, command_text = cmd_text_fc)</p>
+<p># Convert back any resulting hierarchy
+new_ph = result.ph.forward_compatible_hierarchy_as_standard(</p>
+<blockquote>
+<div><p>conversion_info = ph_fc.conversion_info())</p>
+</div></blockquote>
+<p># Convert back any words in the results that referred to converted
+#  items. Keys are chain_id and resname
+new_result_items = []
+for result_item,key in zip(results.text_words, results.text_keys):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>new_result_item = ph_fc.conversion_info().          get_full_text_from_forward_compatible_pdb_text(key = key,</dt><dd><p>forward_compatible_pdb_text = result_item)</p>
+</dd>
+</dl>
+<p>new_result_items.append(new_result_item)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_forward_compatible_string">
+<span class="sig-name descname"><span class="pre">as_forward_compatible_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_forward_compatible_string" title="Link to this definition">¶</a></dt>
+<dd><dl>
+<dt>Create a forward_compatible PDB string from a hierarchy and</dt><dd><p>throw away the conversion information.</p>
+<p>One-way conversion useful for creating a file that is in PDB format.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Params **kw<a href="#id1"><span class="problematic" id="id2">**</span></a>kw<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any params suitable for as_pdb_string()</p>
+</dd>
+</dl>
+<p>:returns text string</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_list_of_residue_names">
 <span class="sig-name descname"><span class="pre">as_list_of_residue_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_list_of_residue_names" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_mmcif_string">
-<span class="sig-name descname"><span class="pre">as_mmcif_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_block_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_mmcif_string" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">as_mmcif_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_block_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_break_records</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_mmcif_string" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -763,13 +817,43 @@ shift_cart</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_pdb_input">
-<span class="sig-name descname"><span class="pre">as_pdb_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_pdb_input" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">as_pdb_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_pdb_input" title="Link to this definition">¶</a></dt>
 <dd><p>Generate corresponding pdb.input object.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_pdb_or_mmcif_string">
+<span class="sig-name descname"><span class="pre">as_pdb_or_mmcif_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remark_section</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_pdb_or_mmcif_string" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Shortcut for pdb_or_mmcif_string_info with write_file=False, returning</dt><dd><p>only the string representing this hierarchy. The string may be in
+PDB or mmCIF format, with target_format used if it is feasible.</p>
+</dd>
+</dl>
+<p>Method to allow shifting from general writing as pdb to
+writing as mmcif, with the change in two places (here and model.py)
+Use default of segid_as_auth_segid=True here (different than</p>
+<blockquote>
+<div><p>as_mmcif_string())</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_format</strong> – desired output format, pdb or mmcif</p></li>
+<li><p><strong>segid_as_auth_segid</strong> – use the segid in hierarchy as the auth_segid
+in mmcif output</p></li>
+<li><p><strong>remark_section</strong> – if supplied and format is pdb, add this text</p></li>
+<li><p><strong>**kw</strong> – <p>any keywords suitable for as_pdb_string()
+and as_mmcif_string()</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+<p>:returns text string representing this hierarchy</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_pdb_string">
-<span class="sig-name descname"><span class="pre">as_pdb_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cryst1_z=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_scale_records=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append_end=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interleaved_conf=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms_reset_serial_first_value=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_hetatm=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigatm=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anisou=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">siguij=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_break_records=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cstringio=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_cstringio=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_pdb_string" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">as_pdb_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cryst1_z=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_scale_records=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append_end=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interleaved_conf=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms_reset_serial_first_value=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_hetatm=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigatm=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anisou=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">siguij=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_break_records=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_write=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cstringio=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_cstringio=&lt;libtbx.AutoType</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_pdb_string" title="Link to this definition">¶</a></dt>
 <dd><p>Generate complete PDB-format string representation.  External crystal
 symmetry is strongly recommended if this is being output to a file.</p>
 <dl class="field-list simple">
@@ -782,6 +866,7 @@ crystal symmetry is provided</p></li>
 <li><p><strong>anisou</strong> – write ANISOU records for anisotropic atoms</p></li>
 <li><p><strong>sigatm</strong> – write SIGATM records if applicable</p></li>
 <li><p><strong>siguij</strong> – write SIGUIJ records if applicable</p></li>
+<li><p><strong>force_write</strong> – write even if it does not fit in pdb format</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -892,8 +977,20 @@ If only one chain type, return it. Otherwise return None</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.clear_label_asym_id_lookups">
+<span class="sig-name descname"><span class="pre">clear_label_asym_id_lookups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.clear_label_asym_id_lookups" title="Link to this definition">¶</a></dt>
+<dd><p>Make sure we have fresh lookups in case the hierarchy was modified since
+they were calculated.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.composition">
 <span class="sig-name descname"><span class="pre">composition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.composition" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.contains_break_records">
+<span class="sig-name descname"><span class="pre">contains_break_records</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.contains_break_records" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -902,6 +999,11 @@ If only one chain type, return it. Otherwise return None</p>
 <dd><p>Inspect residue names and counts to determine if any of
 them are DNA.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.contains_hetero">
+<span class="sig-name descname"><span class="pre">contains_hetero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.contains_hetero" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.contains_nucleic_acid">
@@ -924,9 +1026,24 @@ them are RNA.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.conversion_info">
+<span class="sig-name descname"><span class="pre">conversion_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.conversion_info" title="Link to this definition">¶</a></dt>
+<dd><p>Get the conversion info for this forward_compatible hierarchy</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.convert_met_to_semet">
 <span class="sig-name descname"><span class="pre">convert_met_to_semet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.convert_met_to_semet" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.convert_multi_word_text_to_forward_compatible">
+<span class="sig-name descname"><span class="pre">convert_multi_word_text_to_forward_compatible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.convert_multi_word_text_to_forward_compatible" title="Link to this definition">¶</a></dt>
+<dd><p>Use conversion info to convert words in a text string to
+forward-compatible equivalents
+:params text:  text to convert
+:returns modified text</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.convert_semet_to_met">
@@ -1025,6 +1142,23 @@ If chain not specified, first residue in hierarchy.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.forward_compatible_hierarchy_as_standard">
+<span class="sig-name descname"><span class="pre">forward_compatible_hierarchy_as_standard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conversion_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.forward_compatible_hierarchy_as_standard" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Convert a forward_compatible_hierarchy to a standard one.</dt><dd><p>Inverse of as_forward_compatible_hierarchy.  Restores chain IDs and
+residue names using conversion_info object</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Params<span class="colon">:</span></dt>
+<dd class="field-odd"><p>conversion_info:  optional conversion_info object specifying
+conversion to be applied</p>
+</dd>
+</dl>
+<p>:returns pdb_hierarchy with original (standard) chain ID and residue names</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.get_atom_selection_cache">
 <span class="sig-name descname"><span class="pre">get_atom_selection_cache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(root)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(object)arg2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">:</span></span></span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.get_atom_selection_cache" title="Link to this definition">¶</a></dt>
 <dd><dl class="simple">
@@ -1103,6 +1237,14 @@ If chain not specified, first residue in hierarchy.</p>
 <dd><p>Extract atom selection (flex.size_t) for protein C-alpha atoms.</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.guess_chemical_elements">
+<span class="sig-name descname"><span class="pre">guess_chemical_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">check_pseudo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_atom_names_to_uppercase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_incorrect_spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.guess_chemical_elements" title="Link to this definition">¶</a></dt>
+<dd><p>Attempt to guess chemical elements for all atoms in hierarchy
+where this is not set.  Normally used only just after reading in
+PDB-formatted files that do not have elements specified</p>
+</dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.info">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">info</span></span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.info" title="Link to this definition">¶</a></dt>
@@ -1130,6 +1272,12 @@ full;</p></li>
 <li><p>Ignore possible incorrect alignment of atom names.</p></li>
 </ul>
 </div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.is_forward_compatible_hierarchy">
+<span class="sig-name descname"><span class="pre">is_forward_compatible_hierarchy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.is_forward_compatible_hierarchy" title="Link to this definition">¶</a></dt>
+<dd><p>Determine if this is a forward_compatible hierarchy</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1248,6 +1396,41 @@ number of residues of each type.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.pdb_or_mmcif_string_info">
+<span class="sig-name descname"><span class="pre">pdb_or_mmcif_string_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_manager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remark_section</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.pdb_or_mmcif_string_info" title="Link to this definition">¶</a></dt>
+<dd><p>NOTE: Normally use instead either as_pdb_or_mmcif_string
+write_pdb_or_mmcif_file.</p>
+<p>Method to allow shifting from general writing as pdb to
+writing as mmcif, with the change in two places (here and model.py)
+Use default of segid_as_auth_segid=True here (different than</p>
+<blockquote>
+<div><p>as_mmcif_string())</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_format</strong> – desired output format, pdb or mmcif</p></li>
+<li><p><strong>target_filename</strong> – desired output file name, to be modified to
+match the output format</p></li>
+<li><p><strong>data_manager</strong> – data_manager to write files</p></li>
+<li><p><strong>overwrite</strong> – parameter to set overwrite=True in data_manager if True</p></li>
+<li><p><strong>segid_as_auth_segid</strong> – use the segid in hierarchy as the auth_segid
+in mmcif output</p></li>
+<li><p><strong>write_file</strong> – Write the string to the target file</p></li>
+<li><p><strong>remark_section</strong> – if supplied and format is pdb, add this text</p></li>
+<li><p><strong>**kw</strong> – <p>any keywords suitable for as_pdb_string()
+and as_mmcif_string()</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>:returns group_args object with attributes</dt><dd><p>pdb_string, file_name (the actual file name used) and is_mmcif</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.pre_allocate_models">
 <span class="sig-name descname"><span class="pre">pre_allocate_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(root)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(object)number_of_additional_models</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">:</span></span></span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.pre_allocate_models" title="Link to this definition">¶</a></dt>
 <dd><dl class="simple">
@@ -1272,6 +1455,11 @@ number of residues of each type.</p>
 <dd><p>Remove all hydrogen/deuterium atoms in-place.  Returns the number of atoms
 deleted.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.remove_hetero">
+<span class="sig-name descname"><span class="pre">remove_hetero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.remove_hetero" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.remove_incomplete_main_chain_protein">
@@ -1299,6 +1487,11 @@ deleted.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.remove_residue_groups_with_atoms_on_special_positions_selective">
 <span class="sig-name descname"><span class="pre">remove_residue_groups_with_atoms_on_special_positions_selective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.remove_residue_groups_with_atoms_on_special_positions_selective" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.remove_ter_or_break">
+<span class="sig-name descname"><span class="pre">remove_ter_or_break</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.remove_ter_or_break" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1383,6 +1576,11 @@ The rest occupancies left intact.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.sort_chains_by_id">
+<span class="sig-name descname"><span class="pre">sort_chains_by_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.sort_chains_by_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.transfer_chains_from_other">
 <span class="sig-name descname"><span class="pre">transfer_chains_from_other</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.transfer_chains_from_other" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1404,13 +1602,47 @@ The rest occupancies left intact.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.write_mmcif_file">
-<span class="sig-name descname"><span class="pre">write_mmcif_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_block_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.write_mmcif_file" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">write_mmcif_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_block_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_break_records</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.write_mmcif_file" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.write_pdb_file">
 <span class="sig-name descname"><span class="pre">write_pdb_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">open_append</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cryst1_z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_scale_records</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interleaved_conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms_reset_serial_first_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_hetatm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigatm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anisou</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">siguij</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_records</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.write_pdb_file" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.write_pdb_or_mmcif_file">
+<span class="sig-name descname"><span class="pre">write_pdb_or_mmcif_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_manager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remark_section</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.write_pdb_or_mmcif_file" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Shortcut for pdb_or_mmcif_string_info with write_file=True, returning</dt><dd><p>only the name of the file that is written. The file may be written
+in PDB or mmCIF format, with target_format used if feasible.</p>
+</dd>
+</dl>
+<p>Method to allow shifting from general writing as pdb to
+writing as mmcif, with the change in two places (here and model.py)
+Use default of segid_as_auth_segid=True here (different than</p>
+<blockquote>
+<div><p>as_mmcif_string())</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_format</strong> – desired output format, pdb or mmcif</p></li>
+<li><p><strong>target_filename</strong> – desired output file name, to be modified to
+match the output format</p></li>
+<li><p><strong>data_manager</strong> – data_manager to write files</p></li>
+<li><p><strong>overwrite</strong> – parameter to set overwrite=True in data_manager if True</p></li>
+<li><p><strong>segid_as_auth_segid</strong> – use the segid in hierarchy as the auth_segid
+in mmcif output</p></li>
+<li><p><strong>remark_section</strong> – if supplied and format is pdb, add this text</p></li>
+<li><p><strong>**kw</strong> – <p>any keywords suitable for as_pdb_string()
+and as_mmcif_string()</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+<p>:returns name of file that is written</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -3938,10 +4170,13 @@ chain.residue_groups() instead.</p>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.apply_rotation_translation"><code class="docutils literal notranslate"><span class="pre">root.apply_rotation_translation()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_cif_block"><code class="docutils literal notranslate"><span class="pre">root.as_cif_block()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_dict_of_resseq_as_int_residue_names"><code class="docutils literal notranslate"><span class="pre">root.as_dict_of_resseq_as_int_residue_names()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_forward_compatible_hierarchy"><code class="docutils literal notranslate"><span class="pre">root.as_forward_compatible_hierarchy()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_forward_compatible_string"><code class="docutils literal notranslate"><span class="pre">root.as_forward_compatible_string()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_list_of_residue_names"><code class="docutils literal notranslate"><span class="pre">root.as_list_of_residue_names()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_mmcif_string"><code class="docutils literal notranslate"><span class="pre">root.as_mmcif_string()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_model_manager"><code class="docutils literal notranslate"><span class="pre">root.as_model_manager()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_pdb_input"><code class="docutils literal notranslate"><span class="pre">root.as_pdb_input()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_pdb_or_mmcif_string"><code class="docutils literal notranslate"><span class="pre">root.as_pdb_or_mmcif_string()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_pdb_string"><code class="docutils literal notranslate"><span class="pre">root.as_pdb_string()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_sequence"><code class="docutils literal notranslate"><span class="pre">root.as_sequence()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_str"><code class="docutils literal notranslate"><span class="pre">root.as_str()</span></code></a></li>
@@ -3957,12 +4192,17 @@ chain.residue_groups() instead.</p>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.chain_types"><code class="docutils literal notranslate"><span class="pre">root.chain_types()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.chains"><code class="docutils literal notranslate"><span class="pre">root.chains()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.chunk_selections"><code class="docutils literal notranslate"><span class="pre">root.chunk_selections()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.clear_label_asym_id_lookups"><code class="docutils literal notranslate"><span class="pre">root.clear_label_asym_id_lookups()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.composition"><code class="docutils literal notranslate"><span class="pre">root.composition()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.contains_break_records"><code class="docutils literal notranslate"><span class="pre">root.contains_break_records()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.contains_dna"><code class="docutils literal notranslate"><span class="pre">root.contains_dna()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.contains_hetero"><code class="docutils literal notranslate"><span class="pre">root.contains_hetero()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.contains_nucleic_acid"><code class="docutils literal notranslate"><span class="pre">root.contains_nucleic_acid()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.contains_protein"><code class="docutils literal notranslate"><span class="pre">root.contains_protein()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.contains_rna"><code class="docutils literal notranslate"><span class="pre">root.contains_rna()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.conversion_info"><code class="docutils literal notranslate"><span class="pre">root.conversion_info()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.convert_met_to_semet"><code class="docutils literal notranslate"><span class="pre">root.convert_met_to_semet()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.convert_multi_word_text_to_forward_compatible"><code class="docutils literal notranslate"><span class="pre">root.convert_multi_word_text_to_forward_compatible()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.convert_semet_to_met"><code class="docutils literal notranslate"><span class="pre">root.convert_semet_to_met()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.de_deuterate"><code class="docutils literal notranslate"><span class="pre">root.de_deuterate()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.deep_copy"><code class="docutils literal notranslate"><span class="pre">root.deep_copy()</span></code></a></li>
@@ -3977,6 +4217,7 @@ chain.residue_groups() instead.</p>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.flip_symmetric_amino_acids"><code class="docutils literal notranslate"><span class="pre">root.flip_symmetric_amino_acids()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.format_correction_for_H"><code class="docutils literal notranslate"><span class="pre">root.format_correction_for_H()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.format_fasta"><code class="docutils literal notranslate"><span class="pre">root.format_fasta()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.forward_compatible_hierarchy_as_standard"><code class="docutils literal notranslate"><span class="pre">root.forward_compatible_hierarchy_as_standard()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_atom_selection_cache"><code class="docutils literal notranslate"><span class="pre">root.get_atom_selection_cache()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_auth_asym_id"><code class="docutils literal notranslate"><span class="pre">root.get_auth_asym_id()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_auth_asym_id_iseq"><code class="docutils literal notranslate"><span class="pre">root.get_auth_asym_id_iseq()</span></code></a></li>
@@ -3991,9 +4232,11 @@ chain.residue_groups() instead.</p>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_label_seq_id_iseq"><code class="docutils literal notranslate"><span class="pre">root.get_label_seq_id_iseq()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_overall_counts"><code class="docutils literal notranslate"><span class="pre">root.get_overall_counts()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_peptide_c_alpha_selection"><code class="docutils literal notranslate"><span class="pre">root.get_peptide_c_alpha_selection()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.guess_chemical_elements"><code class="docutils literal notranslate"><span class="pre">root.guess_chemical_elements()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.info"><code class="docutils literal notranslate"><span class="pre">root.info</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.insert_model"><code class="docutils literal notranslate"><span class="pre">root.insert_model()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.is_ca_only"><code class="docutils literal notranslate"><span class="pre">root.is_ca_only()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.is_forward_compatible_hierarchy"><code class="docutils literal notranslate"><span class="pre">root.is_forward_compatible_hierarchy()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.is_hierarchy_altloc_consistent"><code class="docutils literal notranslate"><span class="pre">root.is_hierarchy_altloc_consistent()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.is_similar_hierarchy"><code class="docutils literal notranslate"><span class="pre">root.is_similar_hierarchy()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.last_resseq_as_int"><code class="docutils literal notranslate"><span class="pre">root.last_resseq_as_int()</span></code></a></li>
@@ -4011,13 +4254,16 @@ chain.residue_groups() instead.</p>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.only_residue"><code class="docutils literal notranslate"><span class="pre">root.only_residue()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.only_residue_group"><code class="docutils literal notranslate"><span class="pre">root.only_residue_group()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.overall_counts"><code class="docutils literal notranslate"><span class="pre">root.overall_counts()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.pdb_or_mmcif_string_info"><code class="docutils literal notranslate"><span class="pre">root.pdb_or_mmcif_string_info()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.pre_allocate_models"><code class="docutils literal notranslate"><span class="pre">root.pre_allocate_models()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_alt_confs"><code class="docutils literal notranslate"><span class="pre">root.remove_alt_confs()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_atoms"><code class="docutils literal notranslate"><span class="pre">root.remove_atoms()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_hd"><code class="docutils literal notranslate"><span class="pre">root.remove_hd()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_hetero"><code class="docutils literal notranslate"><span class="pre">root.remove_hetero()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_incomplete_main_chain_protein"><code class="docutils literal notranslate"><span class="pre">root.remove_incomplete_main_chain_protein()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_model"><code class="docutils literal notranslate"><span class="pre">root.remove_model()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_residue_groups_with_atoms_on_special_positions_selective"><code class="docutils literal notranslate"><span class="pre">root.remove_residue_groups_with_atoms_on_special_positions_selective()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.remove_ter_or_break"><code class="docutils literal notranslate"><span class="pre">root.remove_ter_or_break()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.rename_chain_id"><code class="docutils literal notranslate"><span class="pre">root.rename_chain_id()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.reset_atom_i_seqs"><code class="docutils literal notranslate"><span class="pre">root.reset_atom_i_seqs()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.reset_i_seq_if_necessary"><code class="docutils literal notranslate"><span class="pre">root.reset_i_seq_if_necessary()</span></code></a></li>
@@ -4028,12 +4274,14 @@ chain.residue_groups() instead.</p>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.shift_to_origin"><code class="docutils literal notranslate"><span class="pre">root.shift_to_origin()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.show"><code class="docutils literal notranslate"><span class="pre">root.show()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.sort_atoms_in_place"><code class="docutils literal notranslate"><span class="pre">root.sort_atoms_in_place()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.sort_chains_by_id"><code class="docutils literal notranslate"><span class="pre">root.sort_chains_by_id()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.transfer_chains_from_other"><code class="docutils literal notranslate"><span class="pre">root.transfer_chains_from_other()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.truncate_to_poly"><code class="docutils literal notranslate"><span class="pre">root.truncate_to_poly()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.truncate_to_poly_ala"><code class="docutils literal notranslate"><span class="pre">root.truncate_to_poly_ala()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.truncate_to_poly_gly"><code class="docutils literal notranslate"><span class="pre">root.truncate_to_poly_gly()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.write_mmcif_file"><code class="docutils literal notranslate"><span class="pre">root.write_mmcif_file()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.write_pdb_file"><code class="docutils literal notranslate"><span class="pre">root.write_pdb_file()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.write_pdb_or_mmcif_file"><code class="docutils literal notranslate"><span class="pre">root.write_pdb_or_mmcif_file()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.model"><code class="docutils literal notranslate"><span class="pre">model</span></code></a><ul>

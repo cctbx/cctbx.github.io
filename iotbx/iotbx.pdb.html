@@ -7,10 +7,10 @@
 
     <title>iotbx.pdb &#8212; CCTBX Developer documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=514cf933" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=def86cc0" />
     
     <script src="../_static/documentation_options.js?v=9c77bcdb"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
@@ -58,10 +58,10 @@ the actual format and return the appropriate data type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>file_name</strong> (<em>path to PDB</em><em> or </em><em>mmCIF file</em>) – </p></li>
-<li><p><strong>source_info</strong> (<em>string describing source</em><em> of </em><a class="reference internal" href="#iotbx.pdb.ext.input" title="iotbx.pdb.ext.input"><em>input</em></a><em> (</em><em>e.g. file name</em><em>)</em>) – </p></li>
-<li><p><strong>lines</strong> (<em>flex.std_string array</em><em> of </em><em>input lines</em>) – </p></li>
-<li><p><strong>pdb_id</strong> (<em>PDB ID to automatically retrieve from local mirror</em>) – </p></li>
+<li><p><strong>file_name</strong> (<em>path to PDB</em><em> or </em><em>mmCIF file</em>)</p></li>
+<li><p><strong>source_info</strong> (<em>string describing source</em><em> of </em><a class="reference internal" href="#iotbx.pdb.ext.input" title="iotbx.pdb.ext.input"><em>input</em></a><em> (</em><em>e.g. file name</em><em>)</em>)</p></li>
+<li><p><strong>lines</strong> (<em>flex.std_string array</em><em> of </em><em>input lines</em>)</p></li>
+<li><p><strong>pdb_id</strong> (<em>PDB ID to automatically retrieve from local mirror</em>)</p></li>
 <li><p><strong>raise_sorry_if_format_error</strong> (<em>re-raise any low-level parser errors as a</em>) – libtbx.utils.Sorry exception instance for clean user feedback</p></li>
 </ul>
 </dd>
@@ -749,11 +749,6 @@ object to the atoms in the PDB hierarchy.</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_dict_of_chain_id_resseq_residue_names">
-<span class="sig-name descname"><span class="pre">as_dict_of_chain_id_resseq_residue_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_dict_of_chain_id_resseq_residue_names" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_forward_compatible_hierarchy">
 <span class="sig-name descname"><span class="pre">as_forward_compatible_hierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conversion_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_forward_compatible_hierarchy" title="Link to this definition">¶</a></dt>
 <dd><p>Convert a standard hierarchy to a forward_compatible_hierarchy</p>
@@ -1254,6 +1249,11 @@ conversion to be applied</p>
 where this is not set.  Normally used only just after reading in
 PDB-formatted files that do not have elements specified</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.has_icodes">
+<span class="sig-name descname"><span class="pre">has_icodes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.has_icodes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.info">
@@ -1902,7 +1902,7 @@ grouped into exactly one chain object apiece.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.chain.as_dict_of_resseq_residue_names">
-<span class="sig-name descname"><span class="pre">as_dict_of_resseq_residue_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.chain.as_dict_of_resseq_residue_names" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">as_dict_of_resseq_residue_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strip_resseq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.chain.as_dict_of_resseq_residue_names" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -4186,7 +4186,6 @@ chain.residue_groups() instead.</p>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.apply_rotation_translation"><code class="docutils literal notranslate"><span class="pre">root.apply_rotation_translation()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_cif_block"><code class="docutils literal notranslate"><span class="pre">root.as_cif_block()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_dict_of_chain_id_resseq_as_int_residue_names"><code class="docutils literal notranslate"><span class="pre">root.as_dict_of_chain_id_resseq_as_int_residue_names()</span></code></a></li>
-<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_dict_of_chain_id_resseq_residue_names"><code class="docutils literal notranslate"><span class="pre">root.as_dict_of_chain_id_resseq_residue_names()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_forward_compatible_hierarchy"><code class="docutils literal notranslate"><span class="pre">root.as_forward_compatible_hierarchy()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_forward_compatible_string"><code class="docutils literal notranslate"><span class="pre">root.as_forward_compatible_string()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.as_list_of_residue_names"><code class="docutils literal notranslate"><span class="pre">root.as_list_of_residue_names()</span></code></a></li>
@@ -4250,6 +4249,7 @@ chain.residue_groups() instead.</p>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_overall_counts"><code class="docutils literal notranslate"><span class="pre">root.get_overall_counts()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.get_peptide_c_alpha_selection"><code class="docutils literal notranslate"><span class="pre">root.get_peptide_c_alpha_selection()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.guess_chemical_elements"><code class="docutils literal notranslate"><span class="pre">root.guess_chemical_elements()</span></code></a></li>
+<li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.has_icodes"><code class="docutils literal notranslate"><span class="pre">root.has_icodes()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.info"><code class="docutils literal notranslate"><span class="pre">root.info</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.insert_model"><code class="docutils literal notranslate"><span class="pre">root.insert_model()</span></code></a></li>
 <li><a class="reference internal" href="#iotbx.pdb.hierarchy.root.is_ca_only"><code class="docutils literal notranslate"><span class="pre">root.is_ca_only()</span></code></a></li>
@@ -4650,7 +4650,7 @@ chain.residue_groups() instead.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -4658,7 +4658,7 @@ chain.residue_groups() instead.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -4686,7 +4686,7 @@ chain.residue_groups() instead.</p>
     </div>
     <div class="footer" role="contentinfo">
     &#169; Copyright 2014, University of California.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

@@ -816,14 +816,19 @@ for result_item,key in zip(results.text_words, results.text_keys):</p>
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_model_manager">
 <span class="sig-name descname"><span class="pre">as_model_manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_cell_crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_cart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_model_manager" title="Link to this definition">¶</a></dt>
 <dd><p>Returns simple version of model object based on this hierarchy
-Requires crystal_symmetry.  Optional unit_cell_crystal_symmetry and
-shift_cart</p>
+Expects but does not require crystal_symmetry.
+Optional unit_cell_crystal_symmetry and shift_cart.</p>
+<p>Note that if crystal_symmetry is not supplied,
+this uses a text representation of the hierarchy so that
+values for xyz, occ, b, and crystal_symmetry are all rounded.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="iotbx.pdb.hierarchy.root.as_pdb_input">
 <span class="sig-name descname"><span class="pre">as_pdb_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crystal_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segid_as_auth_segid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#iotbx.pdb.hierarchy.root.as_pdb_input" title="Link to this definition">¶</a></dt>
-<dd><p>Generate corresponding pdb.input object.</p>
+<dd><p>Generate corresponding pdb.input object.
+Note that this uses a text representation of the hierarchy so that
+values for xyz, occ, b, and crystal_symmetry are all rounded.</p>
 </dd></dl>
 
 <dl class="py method">

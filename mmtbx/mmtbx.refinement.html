@@ -83,6 +83,12 @@
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.real_space.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.fit_residue">mmtbx.refinement.real_space.fit_residue module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residue.backrub_move"><code class="docutils literal notranslate"><span class="pre">backrub_move()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residue.find_all_conformers"><code class="docutils literal notranslate"><span class="pre">find_all_conformers</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residue.find_all_conformers.func"><code class="docutils literal notranslate"><span class="pre">find_all_conformers.func()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residue.find_all_conformers.sorted_by_map_value"><code class="docutils literal notranslate"><span class="pre">find_all_conformers.sorted_by_map_value()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residue.find_peak"><code class="docutils literal notranslate"><span class="pre">find_peak()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residue.flatten"><code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residue.get_rotamer_iterator"><code class="docutils literal notranslate"><span class="pre">get_rotamer_iterator()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residue.monitor"><code class="docutils literal notranslate"><span class="pre">monitor</span></code></a><ul>
@@ -109,18 +115,7 @@
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residue.tune_up"><code class="docutils literal notranslate"><span class="pre">tune_up</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.fit_residues">mmtbx.refinement.real_space.fit_residues module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residues.fix_outliers"><code class="docutils literal notranslate"><span class="pre">fix_outliers</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residues.run"><code class="docutils literal notranslate"><span class="pre">run</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residues.run.count_outliers"><code class="docutils literal notranslate"><span class="pre">run.count_outliers()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residues.run.get_nonbonded_bumpers"><code class="docutils literal notranslate"><span class="pre">run.get_nonbonded_bumpers()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residues.run.loop"><code class="docutils literal notranslate"><span class="pre">run.loop()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residues.run.one_residue_iteration"><code class="docutils literal notranslate"><span class="pre">run.one_residue_iteration()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_residues.run.show"><code class="docutils literal notranslate"><span class="pre">run.show()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx-refinement-real-space-fit-residues-module">mmtbx.refinement.real_space.fit_residues module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmtbx.refinement.real_space.html#module-mmtbx.refinement.real_space.fit_water">mmtbx.refinement.real_space.fit_water module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mmtbx.refinement.real_space.html#mmtbx.refinement.real_space.fit_water.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
 </ul>
@@ -1268,7 +1263,7 @@ R-factors, with or without optional rigid-body refinement.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.refinement.select_best_starting_model.evaluate_model.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.evaluate_model.show" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.evaluate_model.show" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1280,7 +1275,7 @@ R-factors, with or without optional rigid-body refinement.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="mmtbx.refinement.select_best_starting_model.select_model">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.refinement.select_best_starting_model.</span></span><span class="sig-name descname"><span class="pre">select_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_free_flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_twin_detection=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.select_model" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mmtbx.refinement.select_best_starting_model.</span></span><span class="sig-name descname"><span class="pre">select_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_free_flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_twin_detection=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nproc=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.select_model" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.refinement.select_best_starting_model.select_model.evaluate_model">
@@ -1314,7 +1309,7 @@ R-factors, with or without optional rigid-body refinement.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mmtbx.refinement.select_best_starting_model.select_model.show">
-<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;colorama.ansitowin32.StreamWrapper</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.select_model.show" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.refinement.select_best_starting_model.select_model.show" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

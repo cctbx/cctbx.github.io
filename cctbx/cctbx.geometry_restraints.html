@@ -203,9 +203,26 @@
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.angle_proxy_registry">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cctbx.geometry_restraints.</span></span><span class="sig-name descname"><span class="pre">angle_proxy_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strict_conflict_handling</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.angle_proxy_registry" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cctbx.geometry_restraints.proxy_registry_base" title="cctbx.geometry_restraints.proxy_registry_base"><code class="xref py py-class docutils literal notranslate"><span class="pre">proxy_registry_base</span></code></a></p>
+<dl>
+<dt>self.table: nested dicts</dt><dd><dl>
+<dt>{ iseq1:</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>(iseq0, iseq2) : Nproxy</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.angle_proxy_registry.add_if_not_duplicated">
 <span class="sig-name descname"><span class="pre">add_if_not_duplicated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proxy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.angle_proxy_registry.add_if_not_duplicated" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cctbx.geometry_restraints.angle_proxy_registry.expand_with_ncs">
+<span class="sig-name descname"><span class="pre">expand_with_ncs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrgl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masters_and_rest_iselection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.angle_proxy_registry.expand_with_ncs" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -225,6 +242,13 @@
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.bond_simple_proxy_registry">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cctbx.geometry_restraints.</span></span><span class="sig-name descname"><span class="pre">bond_simple_proxy_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_conflict_handling</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.bond_simple_proxy_registry" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cctbx.geometry_restraints.proxy_registry_base" title="cctbx.geometry_restraints.proxy_registry_base"><code class="xref py py-class docutils literal notranslate"><span class="pre">proxy_registry_base</span></code></a></p>
+<p>self.table:
+[ {iseq1: Nproxy} ] , index in this array is iseq0</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cctbx.geometry_restraints.bond_simple_proxy_registry.expand_with_ncs">
+<span class="sig-name descname"><span class="pre">expand_with_ncs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrgl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masters_and_rest_iselection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.bond_simple_proxy_registry.expand_with_ncs" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.bond_simple_proxy_registry.initialize_table">
 <span class="sig-name descname"><span class="pre">initialize_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.bond_simple_proxy_registry.initialize_table" title="Link to this definition">¶</a></dt>
@@ -251,9 +275,26 @@
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.chirality_proxy_registry">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cctbx.geometry_restraints.</span></span><span class="sig-name descname"><span class="pre">chirality_proxy_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strict_conflict_handling</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.chirality_proxy_registry" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cctbx.geometry_restraints.proxy_registry_base" title="cctbx.geometry_restraints.proxy_registry_base"><code class="xref py py-class docutils literal notranslate"><span class="pre">proxy_registry_base</span></code></a></p>
+<dl>
+<dt>self.table - same as dihedral:</dt><dd><dl>
+<dt>{ iseq0:</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>(iseq1, iseq2, iseq3) : Nproxy</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.chirality_proxy_registry.add_if_not_duplicated">
 <span class="sig-name descname"><span class="pre">add_if_not_duplicated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proxy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.chirality_proxy_registry.add_if_not_duplicated" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cctbx.geometry_restraints.chirality_proxy_registry.expand_with_ncs">
+<span class="sig-name descname"><span class="pre">expand_with_ncs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrgl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masters_and_rest_iselection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.chirality_proxy_registry.expand_with_ncs" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -267,9 +308,26 @@
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.dihedral_proxy_registry">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cctbx.geometry_restraints.</span></span><span class="sig-name descname"><span class="pre">dihedral_proxy_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strict_conflict_handling</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.dihedral_proxy_registry" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cctbx.geometry_restraints.proxy_registry_base" title="cctbx.geometry_restraints.proxy_registry_base"><code class="xref py py-class docutils literal notranslate"><span class="pre">proxy_registry_base</span></code></a></p>
+<dl>
+<dt>self.table - similar to angle:</dt><dd><dl>
+<dt>{ iseq0:</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>(iseq1, iseq2, iseq3) : Nproxy</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.dihedral_proxy_registry.add_if_not_duplicated">
 <span class="sig-name descname"><span class="pre">add_if_not_duplicated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proxy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.dihedral_proxy_registry.add_if_not_duplicated" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cctbx.geometry_restraints.dihedral_proxy_registry.expand_with_ncs">
+<span class="sig-name descname"><span class="pre">expand_with_ncs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrgl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masters_and_rest_iselection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.dihedral_proxy_registry.expand_with_ncs" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -295,9 +353,16 @@
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.parallelity_proxy_registry">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cctbx.geometry_restraints.</span></span><span class="sig-name descname"><span class="pre">parallelity_proxy_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strict_conflict_handling</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.parallelity_proxy_registry" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cctbx.geometry_restraints.proxy_registry_base" title="cctbx.geometry_restraints.proxy_registry_base"><code class="xref py py-class docutils literal notranslate"><span class="pre">proxy_registry_base</span></code></a></p>
+<p>self.table:
+{ ( (iseqs), (jseqs) ) : Nproxy }</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.parallelity_proxy_registry.add_if_not_duplicated">
 <span class="sig-name descname"><span class="pre">add_if_not_duplicated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proxy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.parallelity_proxy_registry.add_if_not_duplicated" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cctbx.geometry_restraints.parallelity_proxy_registry.expand_with_ncs">
+<span class="sig-name descname"><span class="pre">expand_with_ncs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrgl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masters_and_rest_iselection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.parallelity_proxy_registry.expand_with_ncs" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -311,9 +376,28 @@
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.planarity_proxy_registry">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cctbx.geometry_restraints.</span></span><span class="sig-name descname"><span class="pre">planarity_proxy_registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strict_conflict_handling</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.planarity_proxy_registry" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cctbx.geometry_restraints.proxy_registry_base" title="cctbx.geometry_restraints.proxy_registry_base"><code class="xref py py-class docutils literal notranslate"><span class="pre">proxy_registry_base</span></code></a></p>
+<p>self.table:</p>
+<blockquote>
+<div><dl>
+<dt>self.table - similar to dihedral, chiralities, but undefined</dt><dd><p>number of iseqs in the nested dictionary keys:</p>
+</dd>
+<dt>{ iseq0:</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>(iseq1, iseq2, iseq3, … ) : Nproxy</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="cctbx.geometry_restraints.planarity_proxy_registry.add_if_not_duplicated">
 <span class="sig-name descname"><span class="pre">add_if_not_duplicated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proxy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.planarity_proxy_registry.add_if_not_duplicated" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cctbx.geometry_restraints.planarity_proxy_registry.expand_with_ncs">
+<span class="sig-name descname"><span class="pre">expand_with_ncs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nrgl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masters_and_rest_iselection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cctbx.geometry_restraints.planarity_proxy_registry.expand_with_ncs" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -384,11 +468,13 @@
 <li><a class="reference internal" href="#cctbx.geometry_restraints.angle_delta_deg"><code class="docutils literal notranslate"><span class="pre">angle_delta_deg()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.angle_proxy_registry"><code class="docutils literal notranslate"><span class="pre">angle_proxy_registry</span></code></a><ul>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.angle_proxy_registry.add_if_not_duplicated"><code class="docutils literal notranslate"><span class="pre">angle_proxy_registry.add_if_not_duplicated()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.geometry_restraints.angle_proxy_registry.expand_with_ncs"><code class="docutils literal notranslate"><span class="pre">angle_proxy_registry.expand_with_ncs()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.angle_proxy_registry.lookup_i_proxy"><code class="docutils literal notranslate"><span class="pre">angle_proxy_registry.lookup_i_proxy()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.angle_proxy_registry.process"><code class="docutils literal notranslate"><span class="pre">angle_proxy_registry.process()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.bond_simple_proxy_registry"><code class="docutils literal notranslate"><span class="pre">bond_simple_proxy_registry</span></code></a><ul>
+<li><a class="reference internal" href="#cctbx.geometry_restraints.bond_simple_proxy_registry.expand_with_ncs"><code class="docutils literal notranslate"><span class="pre">bond_simple_proxy_registry.expand_with_ncs()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.bond_simple_proxy_registry.initialize_table"><code class="docutils literal notranslate"><span class="pre">bond_simple_proxy_registry.initialize_table()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.bond_simple_proxy_registry.is_any_proxy_set"><code class="docutils literal notranslate"><span class="pre">bond_simple_proxy_registry.is_any_proxy_set()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.bond_simple_proxy_registry.is_proxy_set"><code class="docutils literal notranslate"><span class="pre">bond_simple_proxy_registry.is_proxy_set()</span></code></a></li>
@@ -397,11 +483,13 @@
 </li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.chirality_proxy_registry"><code class="docutils literal notranslate"><span class="pre">chirality_proxy_registry</span></code></a><ul>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.chirality_proxy_registry.add_if_not_duplicated"><code class="docutils literal notranslate"><span class="pre">chirality_proxy_registry.add_if_not_duplicated()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.geometry_restraints.chirality_proxy_registry.expand_with_ncs"><code class="docutils literal notranslate"><span class="pre">chirality_proxy_registry.expand_with_ncs()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.chirality_proxy_registry.process"><code class="docutils literal notranslate"><span class="pre">chirality_proxy_registry.process()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.dihedral_proxy_registry"><code class="docutils literal notranslate"><span class="pre">dihedral_proxy_registry</span></code></a><ul>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.dihedral_proxy_registry.add_if_not_duplicated"><code class="docutils literal notranslate"><span class="pre">dihedral_proxy_registry.add_if_not_duplicated()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.geometry_restraints.dihedral_proxy_registry.expand_with_ncs"><code class="docutils literal notranslate"><span class="pre">dihedral_proxy_registry.expand_with_ncs()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.dihedral_proxy_registry.lookup_i_proxy"><code class="docutils literal notranslate"><span class="pre">dihedral_proxy_registry.lookup_i_proxy()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.dihedral_proxy_registry.process"><code class="docutils literal notranslate"><span class="pre">dihedral_proxy_registry.process()</span></code></a></li>
 </ul>
@@ -409,11 +497,13 @@
 <li><a class="reference internal" href="#cctbx.geometry_restraints.pair_proxies"><code class="docutils literal notranslate"><span class="pre">pair_proxies</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.parallelity_proxy_registry"><code class="docutils literal notranslate"><span class="pre">parallelity_proxy_registry</span></code></a><ul>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.parallelity_proxy_registry.add_if_not_duplicated"><code class="docutils literal notranslate"><span class="pre">parallelity_proxy_registry.add_if_not_duplicated()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.geometry_restraints.parallelity_proxy_registry.expand_with_ncs"><code class="docutils literal notranslate"><span class="pre">parallelity_proxy_registry.expand_with_ncs()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.parallelity_proxy_registry.process"><code class="docutils literal notranslate"><span class="pre">parallelity_proxy_registry.process()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.planarity_proxy_registry"><code class="docutils literal notranslate"><span class="pre">planarity_proxy_registry</span></code></a><ul>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.planarity_proxy_registry.add_if_not_duplicated"><code class="docutils literal notranslate"><span class="pre">planarity_proxy_registry.add_if_not_duplicated()</span></code></a></li>
+<li><a class="reference internal" href="#cctbx.geometry_restraints.planarity_proxy_registry.expand_with_ncs"><code class="docutils literal notranslate"><span class="pre">planarity_proxy_registry.expand_with_ncs()</span></code></a></li>
 <li><a class="reference internal" href="#cctbx.geometry_restraints.planarity_proxy_registry.process"><code class="docutils literal notranslate"><span class="pre">planarity_proxy_registry.process()</span></code></a></li>
 </ul>
 </li>

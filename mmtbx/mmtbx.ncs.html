@@ -990,12 +990,11 @@ When there are alternate conformations, we use the first one</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><dl class="simple">
-<dt>values are object containing</dt><dd><p>chains (str): chain IDs OR selections string
-res_name (list of str): list of residues names
+<dt>values are object containing</dt><dd><p>res_name (list of str): list of residues names
 resid (list of str): list of residues sequence number, resid
-atom_names (list of list of str): list of atoms in residues
-atom_selection (list of list of list of int): the location of atoms in ph
-chains_atom_number (list of int): list of number of atoms in each chain</p>
+atom_names (list of flex.str): per residue atom names
+atom_selection (list of flex.size_t()): per residue atom selections
+chains_atom_number (int): list of number of atoms in each chain</p>
 </dd>
 </dl>
 <p>exclude_water (bool): exclude water</p>
@@ -1019,8 +1018,23 @@ chains_atom_number (list of int): list of number of atoms in each chain</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.ncs.ncs_search.get_match_rmsd">
-<span class="sig-prename descclassname"><span class="pre">mmtbx.ncs.ncs_search.</span></span><span class="sig-name descname"><span class="pre">get_match_rmsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_match_rmsd" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">mmtbx.ncs.ncs_search.</span></span><span class="sig-name descname"><span class="pre">get_match_rmsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch_a_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch_b_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.get_match_rmsd" title="Link to this definition">¶</a></dt>
+<dd><p>get RMSD of the match</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ph</strong> (<em>_type_</em>) – hierarchy</p></li>
+<li><p><strong>ch_a_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – one chain id</p></li>
+<li><p><strong>ch_b_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – another chain id</p></li>
+<li><p><strong>list_a</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t"><em>flex.size_t</em></a>) – one selection</p></li>
+<li><p><strong>list_b</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t"><em>flex.size_t</em></a>) – another selection</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>rmsd, ref_sites, other_sites_best, r,t</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.ncs.ncs_search.get_matching_atoms">
@@ -1031,22 +1045,22 @@ We keep only residues with continuous matching atoms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>chains_info</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><em>object</em></a>) – object containing
-chains (str): chain IDs or selections string
-res_name (list of str): list of residues names
-resid (list of str): list of residues sequence number, resid
-atom_names (list of list of str): list of atoms in residues
-atom_selection (list of list of list of int): the location of atoms in ph
-chains_atom_number (list of int): list of number of atoms in each chain</p></li>
+<li><p><strong>chains_info</strong></p></li>
 <li><p><strong>a_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Chain IDs</p></li>
 <li><p><strong>b_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – Chain IDs</p></li>
 <li><p><strong>res_num_a/b</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em> of </em><a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.int" title="scitbx.array_family.flex.int"><em>int</em></a>) – indices of matching residues position</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>matching atoms selection
-res_num_a/b (list of int): updated res_num_a/b
+<dd class="field-even"><p><p>matching atoms selection
+sel_a/b_flat (list): matching atoms (sel_a/b) flattened selection -</p>
+<blockquote>
+<div><p>faster to create on the go then convert sel_a/b later. Literally:
+sel_a_flat = [x for y in sel_a for x in y].sort()</p>
+</div></blockquote>
+<p>res_num_a/b (list of int): updated res_num_a/b
 msg (str): message regarding matching residues with different atom number</p>
+</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>sel_a/b (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a> of lists)</p>
@@ -1096,8 +1110,27 @@ Correct means:</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.ncs.ncs_search.my_selection">
-<span class="sig-prename descclassname"><span class="pre">mmtbx.ncs.ncs_search.</span></span><span class="sig-name descname"><span class="pre">my_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sel_list_extended</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.my_selection" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">mmtbx.ncs.ncs_search.</span></span><span class="sig-name descname"><span class="pre">my_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ch_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sel_list_extended_original</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mmtbx.ncs.ncs_search.my_selection" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>custom-made selection function for selecting one</dt><dd><p>chain - whole or parts. Speed reasons.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ph</strong> (<em>_type_</em>) – hierarchy</p></li>
+<li><p><strong>ch_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – chain id which will be selected</p></li>
+<li><p><strong>sel_list_extended_original</strong> (<a class="reference internal" href="../scitbx/scitbx.array_family.html#scitbx.array_family.flex.size_t" title="scitbx.array_family.flex.size_t"><em>flex.size_t</em></a>) – selection</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>new hierarchy</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../iotbx/iotbx.pdb.html#iotbx.pdb.hierarchy.root" title="iotbx.pdb.hierarchy.root">root</a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="mmtbx.ncs.ncs_search.ncs_grouping_and_group_dict">
@@ -1149,12 +1182,11 @@ hierarchy</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ph</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><em>object</em></a>) – hierarchy</p></li>
 <li><p><strong>chains_info</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a>) – values are object containing
-chains (str): chain IDs OR selections string
 res_name (list of str): list of residues names
 resid (list of str): list of residues sequence number, resid
-atom_names (list of list of str): list of atoms in residues
-atom_selection (list of list of list of int): the location of atoms in ph
-chains_atom_number (list of int): list of number of atoms in each chain</p></li>
+atom_names (list of flex.str): per residue atom names
+atom_selection (list of flex.size_t()): per residue atom selections
+chains_atom_number (int): list of number of atoms in each chain</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
